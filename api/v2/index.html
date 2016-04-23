@@ -129,7 +129,7 @@
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
-          <li><a href="/api/v2/" title="API">API</a></li>
+          <li><a href="//api/v2/" title="API">API</a></li>
           <li><a href="/themes/" title="Themes">Themes</a></li>
           <li><a href="/changelog/" title="Changelog">Changelog</a></li>
           <li><a href="/support/" title="Help and Support">Support</a></li>
@@ -1761,6 +1761,806 @@
 <pre class="highlight json"><code><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w">
 </span></code></pre>
 
+          <h1 id="product-options">Product Options</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/options">Product Options Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-option-object-properties">Product Option Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>option_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>is_required</td>
+<td>boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="options-associated-directly-with-a-product">Options associated directly with a product.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-product-options">List Product Options</a></li>
+<li>  <a href="#get-a-product-option">Get a Product Option</a></li>
+</ul>
+
+<h2 id="list-product-options">List Product Options</h2>
+
+<p>Gets the options associated with a product.</p>
+
+<ul>
+<li>  <a href="#list-product-options-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/options</code></li>
+<li>  <a href="#list-product-options-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/options</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_options are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/options?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/options?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPod Capacities"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accessories"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-product-option">Get a Product Option</h2>
+
+<p>Gets an option associated with a product.</p>
+
+<ul>
+<li>  <a href="#get-a-product-option-oauth">OAuth</a>
+&ldquo;&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/options/{id}</code></li>
+<li>  <a href="#get-a-product-option-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/options/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Accessories"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="product-option-values">Product Option Values</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/options/values">Option Values Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-object-value-object-properties">Product Object Value Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>A unique, read-only value that identifies this option value.</td>
+</tr>
+<tr>
+<td>option_id</td>
+<td>int</td>
+<td>A read-only value identifying the option that this option value is assigned to.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>string</td>
+<td>The name of the label. Cannot be the same as the label of another value already assigned to the option.</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>value</td>
+<td>text</td>
+<td>Acceptable values generally depend on the option type, as defined in the option: &ldquo;RB&rdquo;: string to be displayed to the customer; &ldquo;RT&rdquo;: string to be displayed to the customer; &ldquo;S&rdquo;: string to be displayed to the customer; &ldquo;P&rdquo;: product ID; &ldquo;PI&rdquo;: product ID; &ldquo;CS&rdquo;: hexadecimal color code to create a color option, e.g., &ldquo;#0f0000&rdquo;, a CSS 2.1 color name, e.g., &ldquo;blue&rdquo;, or up to three hexadecimal color codes and/or color names separated by a pipe, e.g., &ldquo;#FF0000</td>
+</tr>
+<tr>
+<td>is_default</td>
+<td>boolean</td>
+<td>Whether or not this value is selected by default. Only one option value can be selected by default for each option.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="values-that-can-be-selected-for-an-option">Values that can be selected for an option.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-option-values">List Option Values</a></li>
+<li>  <a href="#get-an-option-value">Get an Option Value</a></li>
+<li>  <a href="#create-an-option-value">Create an Option Value</a></li>
+<li>  <a href="#update-an-option-value">Update an Option Value</a></li>
+<li>  <a href="#delete-an-option-value">Delete an Option Value</a></li>
+<li>  <a href="#delete-multiple-option-values">Delete Multiple Option Values</a></li>
+</ul>
+
+<h2 id="list-option-values">List Option Values</h2>
+
+<p>Gets the values belonging to an option. (Default sorting is by option-value id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-option-values-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/options/{option_id}/values</code></li>
+<li>  <a href="#list-option-values-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/options/{option_id}/values</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/options/{option_id}/values?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/options/{option_id}/values?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silver"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#cccccc"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-option-value">Get an Option Value</h2>
+
+<p>Gets an option value.</p>
+
+<ul>
+<li>  <a href="#get-an-option-value-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
+<li>  <a href="#get-an-option-value-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/options/{option_id}/values/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#700170"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-an-option-value">Create an Option Value</h2>
+
+<p>Creates a new option value.</p>
+
+<ul>
+<li>  <a href="#create-an-option-value-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/options/{option_id}/values</code></li>
+<li>  <a href="#create-an-option-value-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/options/{option_id}/values</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">option_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">label</code></li>
+<li>  <code class="prettyprint">value</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>To maximize system performance, Bigcommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.</p>
+
+<p>When you POST an <strong><em>is_default</em></strong> property of <em>true</em>, all other option values on the parent option will have their <strong><em>is_default</em></strong> property set to <em>false</em>.</p>
+<pre class="highlight plaintext"><code>{
+  "label": "white",
+  "sort_order": 0,
+  "value": "#FFFFFF",
+  "is_default": true
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"white"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#FFFFFF"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-an-option-value">Update an Option Value</h2>
+
+<p>Updates an existing option value.</p>
+
+<ul>
+<li>  <a href="#update-an-option-value-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
+<li>  <a href="#update-an-option-value-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/options/{option_id}/values/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">option_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<h3 id="notes">Notes</h3>
+
+<p>When you PUT an <strong><em>is_default</em></strong> property of <em>true</em>, all other option values on the parent option will have their <strong><em>is_default</em></strong> property set to <em>false</em>.</p>
+<pre class="highlight plaintext"><code>{
+  "label": "whitish",
+  "sort_order": 1,
+  "value": "#FFFFEF",
+  "is_default": true
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"whitish"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#FFFFEF"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-an-option-value">Delete an Option Value</h2>
+
+<p>Deletes an option value.</p>
+
+<ul>
+<li>  <a href="#delete-an-option-value-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
+<li>  <a href="#delete-an-option-value-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/options/{option_id}/values/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-option-values">Delete Multiple Option Values</h2>
+
+<p>Deletes multiple values belonging to an option.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-option-values-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/options/{option_id}/values</code></li>
+<li>  <a href="#delete-multiple-option-values-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/options/{option_id}/values</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/options/{option_id}/values?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/options/{option_id}/values?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="product-option-sets">Product Option Sets</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/option_sets">Option Sets Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-option-set-object-properties">Product Option Set Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name of the optionset. Must be unique.</td>
+</tr>
+<tr>
+<td>options</td>
+<td>resource</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="a-reusable-set-of-option-facets-that-can-be-applied-to-products">A reusable set of option facets that can be applied to products.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-option-sets">List Option Sets</a></li>
+<li>  <a href="#get-an-option-set">Get an Option Set</a></li>
+<li>  <a href="#get-a-count-of-option-sets">Get a Count of Option Sets</a></li>
+<li>  <a href="#create-an-option-set">Create an Option Set</a></li>
+<li>  <a href="#update-an-option-set">Update an Option Set</a></li>
+<li>  <a href="#delete-an-option-set">Delete an Option Set</a></li>
+<li>  <a href="#delete-all-option-sets">Delete All Option Sets</a></li>
+</ul>
+
+<h2 id="list-option-sets">List Option Sets</h2>
+
+<p>Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-option-sets-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets</code></li>
+<li>  <a href="#list-option-sets-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/option_sets</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific option_sets in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">name</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/option_sets?name={value}</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_sets are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MacBook"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/optionsets/1/options.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/optionsets/1/options"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PixelSkin Case"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/optionsets/2/options.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/optionsets/2/options"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-option-set">Get an Option Set</h2>
+
+<p>Gets an option set.</p>
+
+<ul>
+<li>  <a href="#get-an-option-set-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{id}</code></li>
+<li>  <a href="#get-an-option-set-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/option_sets/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-Shirt Facets"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/optionsets/10/options.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/optionsets/13/options"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-option-sets">Get a Count of Option Sets</h2>
+
+<p>Gets a count of the number of option sets in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-option-sets-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/count</code></li>
+<li>  <a href="#get-a-count-of-option-sets-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/option_sets/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-an-option-set">Create an Option Set</h2>
+
+<p>Creates a new Option set.</p>
+
+<ul>
+<li>  <a href="#create-an-option-set-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/option_sets</code></li>
+<li>  <a href="#create-an-option-set-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/option_sets</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">options</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">name</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "name": "T-Shirts"
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-Shirts"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/optionsets/10/options.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/optionsets/10/options"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-an-option-set">Update an Option Set</h2>
+
+<p>Updates an existing option set.</p>
+
+<ul>
+<li>  <a href="#update-an-option-set-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/option_sets/{id}</code></li>
+<li>  <a href="#update-an-option-set-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/option_sets/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">options</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">name</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "name": "T-shirt Facets"
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T-shirt Facets"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/optionsets/10/options.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/optionsets/13/options"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-an-option-set">Delete an Option Set</h2>
+
+<p>Deletes an option set.</p>
+
+<ul>
+<li>  <a href="#delete-an-option-set-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{id}</code></li>
+<li>  <a href="#delete-an-option-set-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/option_sets/{id}</code></li>
+</ul>
+
+<h2 id="delete-all-option-sets">Delete All Option Sets</h2>
+
+<p>Deletes all option sets in the store.</p>
+
+<ul>
+<li>  <a href="#delete-all-option-sets-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets</code></li>
+<li>  <a href="#delete-all-option-sets-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/option_sets</code></li>
+</ul>
+
+          <h1 id="product-option-set-options">Product Option Set Options</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/option_sets/options">Option Set Options Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="option-set-option-object-properties">Option Set Option Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>option_id</td>
+<td>int</td>
+<td>The id of the option this optionset connects to</td>
+</tr>
+<tr>
+<td>option_set_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>display_name</td>
+<td>string</td>
+<td>The friendly name used for this optionset</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td>The order in which the option is displayed on the product page</td>
+</tr>
+<tr>
+<td>is_required</td>
+<td>boolean</td>
+<td>Specifies whether customer is required to enter value for this option before they can add the product to their cart</td>
+</tr>
+<tr>
+<td>option</td>
+<td>resource</td>
+<td></td>
+</tr>
+<tr>
+<td>values</td>
+<td>object_array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          
           <h1 id="product-images">Product Images</h1>
 
 <p>Properties for a product image</p>
@@ -2080,6 +2880,670 @@
 <td><code class="prettyprint">/api/v2/products/{product_id}/images?limit={count}</code></td>
 </tr>
 </tbody></table>
+
+          <h1 id="product-rules">Product Rules</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/rules">Product Rules Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-rule-object-properties">Product Rule Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>The ID of the rule.</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td>The ID of the product the rule belongs to</td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td>The order in which the rule will be displayed on the product page. When updating if the rule is given a lower priority, all rules with a sort_order the same or greater than the rules new sort_order value will have their sort_order reordered</td>
+</tr>
+<tr>
+<td>is_enabled</td>
+<td>boolean</td>
+<td>If set to true, the rule will be evaluated when a customer configures a products options.</td>
+</tr>
+<tr>
+<td>is_stop</td>
+<td>boolean</td>
+<td>If set to true and the rule evaluates to true, no more rules with a higher sort_order will be processed.</td>
+</tr>
+<tr>
+<td>price_adjuster</td>
+<td>object</td>
+<td>If a product option rule specifies a change to the price based on an option, the &ldquo;price_adjuster&rdquo; object will consist of two name/value pairs. The first pair is named &ldquo;adjuster&rdquo; and contains one of the following values: &ldquo;relative&rdquo;, &ldquo;percentage&rdquo;, or &ldquo;absolute&rdquo;. The &ldquo;percentage&rdquo; value causes the price to vary based on either a positive or negative percentage. The &ldquo;relative&rdquo; value causes the price to vary by either a positive or negative monetary amount. The &ldquo;absolute&rdquo; value resets the price, so it should always be a positive number. The second pair is named &ldquo;adjuster_value&rdquo; and contains a decimal value representing one of the following: the amount to add or subtract from the price, the percentage by which the price should change, or the new price (as per the &ldquo;adjuster&rdquo; setting). If the product option rule does not specify a change to the price based on size or color, &ldquo;price_adjuster&rdquo; will be null.</td>
+</tr>
+<tr>
+<td>weight_adjuster</td>
+<td>object</td>
+<td>If a product option rule specifies a change to the weight based on an option, the &ldquo;weight_adjuster&rdquo; object will consist of two name/value pairs. The first pair is named &ldquo;adjuster&rdquo; and contains one of the following values: &ldquo;relative&rdquo; or &ldquo;absolute&rdquo;. The &ldquo;relative&rdquo; value causes the weight to vary by either a positive or negative amount. The &ldquo;absolute&rdquo; value resets the weight, so it should always be a positive number. The second pair is named &ldquo;adjuster_value&rdquo; and contains a decimal value representing one of the following: the amount to add or subtract from the weight or the new weight (as per the &ldquo;adjuster&rdquo; setting). If the product option rule does not specify a change to the price based on size or color, &ldquo;weight_adjuster&rdquo; will be null.</td>
+</tr>
+<tr>
+<td>is_purchasing_disabled</td>
+<td>boolean</td>
+<td>If true this rule prohibits purchasing the product with the configured option values.</td>
+</tr>
+<tr>
+<td>purchasing_disabled_message</td>
+<td>string</td>
+<td>The message to display if the rule disabled purchasing the product.</td>
+</tr>
+<tr>
+<td>is_purchasing_hidden</td>
+<td>boolean</td>
+<td>If true the rule hides the options on the product. Setting this to true has no effect if the rule is based on an SKU or has conditions from multiple product options.</td>
+</tr>
+<tr>
+<td>image_file</td>
+<td>string</td>
+<td>When specifying a product rule, the image_file should be specified as either: A path to an rule already uploaded via FTP in the import directory and the path should be relative from the import directory. It can be a URL to an rule accessible on the internet.</td>
+</tr>
+<tr>
+<td>conditions</td>
+<td>array</td>
+<td>The conditions array can contain one or more objects. Each object inside the array contains three name/value pairs, but at least one value will be missing at any given time. If a &ldquo;product_option_id&rdquo; value is present, then a &ldquo;option_value_id&rdquo; must also be present. If &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; values are present, then a &ldquo;sku_id&rdquo; value must not be present. This also holds true in the reverse, where if a &ldquo;sku_id&rdquo; value exists, values for the &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; cannot exist. NOTE: if you can use a SKU value, this is preferred for simplicity. Empty values are represented as &ldquo;null&rdquo;. If multiple objects are included in the array, the software runs through them using an AND/OR logic. Objects with identical &ldquo;product_option_id&rdquo; values will be linked with an OR. Objects with different &ldquo;product_option_id&rdquo; values will be linked with an AND. When one object contains a &ldquo;sku_id&rdquo; value and the other contains &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; values, they will be linked with an AND. Two objects which both contain &ldquo;sku_id&rdquo; values will be linked with an OR.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="rules-that-modify-the-default-behavior-of-products">Rules that modify the default behavior of products.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-product-rules">List Product Rules</a></li>
+<li>  <a href="#get-a-product-rule">Get a Product Rule</a></li>
+<li>  <a href="#get-a-count-of-product-rules">Get a Count of Product Rules</a></li>
+<li>  <a href="#create-a-product-rule">Create a Product Rule</a></li>
+<li>  <a href="#update-a-product-rule">Update a Product Rule</a></li>
+<li>  <a href="#delete-a-product-rule">Delete a Product Rule</a></li>
+<li>  <a href="#delete-multiple-product-rules">Delete Multiple Product Rules</a></li>
+</ul>
+
+<h2 id="list-product-rules">List Product Rules</h2>
+
+<p>Gets the collection of rules associated with a product. (Default sorting is by rule id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-product-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
+<li>  <a href="#list-product-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/rules</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/rules?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/rules?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_stop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weight_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_purchasing_disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"purchasing_disabled_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_purchasing_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_rule_images/1_source.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product_option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_stop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weight_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_purchasing_disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"purchasing_disabled_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_purchasing_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_rule_images/2_source.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"product_option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sku_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-product-rule">Get a Product Rule</h2>
+
+<p>Gets a single product rule.</p>
+
+<ul>
+<li>  <a href="#get-a-product-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
+<li>  <a href="#get-a-product-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/rules/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_stop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"price_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"weight_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"purchasing_disabled_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_rule_images/2_source.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"product_option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-product-rules">Get a Count of Product Rules</h2>
+
+<p>Gets a count of the number of product rules in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-product-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/rules/count</code></li>
+<li>  <a href="#get-a-count-of-product-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/rules/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-product-rule">Create a Product Rule</h2>
+
+<p>Creates a new product rule.</p>
+
+<ul>
+<li>  <a href="#create-a-product-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
+<li>  <a href="#create-a-product-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/products/{product_id}/rules</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">conditions</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_stop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"price_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"weight_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"purchasing_disabled_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_rule_images/2_source.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"product_option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-product-rule">Update a Product Rule</h2>
+
+<p>Updates an existing product rule. NOTE: if you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.</p>
+
+<ul>
+<li>  <a href="#update-a-product-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
+<li>  <a href="#update-a-product-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/rules/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_stop"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"price_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"weight_adjuster"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_disabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"purchasing_disabled_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_purchasing_hidden"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"attribute_rule_images/2_source.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"conditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"product_option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"sku_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-product-rule">Delete a Product Rule</h2>
+
+<p>Deletes a product rule.</p>
+
+<ul>
+<li>  <a href="#delete-a-product-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
+<li>  <a href="#delete-a-product-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/rules/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-product-rules">Delete Multiple Product Rules</h2>
+
+<p>Deletes multiple product rules.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-product-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
+<li>  <a href="#delete-multiple-product-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/rules</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/rules?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/rules?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="product-reviews">Product Reviews</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/reviews">Product Reviews Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="product-review-object-properties">Product Review Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>Unique database ID for this product review. Read-only.</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td>The ID of the product to which this review belongs. Read-only.</td>
+</tr>
+<tr>
+<td>author</td>
+<td>string</td>
+<td>The review&rsquo;s author, displayed on the storefront.</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td>date</td>
+<td>RFC 2822 date that specifies the creation time of the review. (If not specified, will use the current time.)</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>int</td>
+<td>A whole number from 1–5, specifying the product&rsquo;s rating in this review.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>The review&rsquo;s title, displayed on the storefront.</td>
+</tr>
+<tr>
+<td>review</td>
+<td>text</td>
+<td>The full text of the review, displayed on the storefront.</td>
+</tr>
+<tr>
+<td>status</td>
+<td>int</td>
+<td>A status indicator. 0=&ldquo;Pending&rdquo;, 1= &ldquo;Approved&rdquo;, 2=&ldquo;Disapproved&rdquo;.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="reviews-associated-with-a-product">Reviews associated with a product.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td><a href="/api/objects/v2/product_review">Product Review Object</a></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-product-reviews">List Product Reviews</a></li>
+<li>  <a href="#get-a-product-review">Get a Product Review</a></li>
+<li>  <a href="#create-a-product-review">Create a Product Review</a></li>
+<li>  <a href="#update-a-product-review">Update a Product Review</a></li>
+<li>  <a href="#delete-a-product-review">Delete a Product Review</a></li>
+<li>  <a href="#delete-all-product-reviews">Delete All Product Reviews</a></li>
+</ul>
+
+<h2 id="list-product-reviews">List Product Reviews</h2>
+
+<p>Gets the reviews associated with a product. (Default sorting is by review id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-product-reviews-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/products/{id}/reviews</code></li>
+<li>  <a href="#list-product-reviews-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/products/{id}/reviews</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/reviews?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/reviews?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5310</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 12 Dec 2012 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My experience with the widget"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This widget worked for me, but might not work for everyone."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">191</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5310</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jane Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 12 Nov 2013 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Great product, slow shipping"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Took two weeks to arrive"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">192</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5310</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy Doe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fri, 14 Dec 2012 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worked for me!"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I thought this product was pretty good"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-product-review">Get a Product Review</h2>
+
+<p>Gets a product review.</p>
+
+<ul>
+<li>  <a href="#get-a-product-review-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
+<li>  <a href="#get-a-product-review-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/reviews/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">190</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5310</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John Doe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 12 Dec 2012 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My experience with the widget"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This widget worked for me, but might not work for everyone."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-product-review">Create a Product Review</h2>
+
+<p>Creates a new product review. (Details: The &ldquo;review&rdquo; property is the review&rsquo;s text. The &ldquo;rating&rdquo; property must be a whole number between 1–5. If the optional &ldquo;date_created&rdquo; property is not specified, it defaults to the current date/time. If the optional &ldquo;status&rdquo; property is not specified, it defaults to 0 [“Pending”]. Other allowable values are 1 [“Approved”] or 2 [“Disapproved”].)</p>
+
+<ul>
+<li>  <a href="#create-a-product-review-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/reviews</code></li>
+<li>  <a href="#create-a-product-review-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/products/{product_id}/reviews</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the product review are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">author</code></li>
+<li>  <code class="prettyprint">title</code></li>
+<li>  <code class="prettyprint">review</code></li>
+<li>  <code class="prettyprint">rating</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy Doe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 05 Mar 2013 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worked for me!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I thought this product was pretty good"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-product-review">Update a Product Review</h2>
+
+<p>Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.</p>
+
+<ul>
+<li>  <a href="#update-a-product-review-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
+<li>  <a href="#update-a-product-review-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/reviews/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jimmy Doe"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Tue, 05 Mar 2013 06:00:00 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worked for me!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"review"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I thought this product was pretty good"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"rating"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-product-review">Delete a Product Review</h2>
+
+<p>Deletes a specified product review. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+
+<ul>
+<li>  <a href="#delete-a-product-review-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
+<li>  <a href="#delete-a-product-review-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/reviews/{id}</code></li>
+</ul>
+
+<h2 id="delete-all-product-reviews">Delete All Product Reviews</h2>
+
+<p>Deletes all reviews for the specified product. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+
+<ul>
+<li>  <a href="#delete-all-product-reviews-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/reviews</code></li>
+<li>  <a href="#delete-all-product-reviews-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/reviews</code></li>
+</ul>
 
           <h1 id="product-skus">Product SKUs</h1>
 
@@ -2576,6 +4040,947 @@
 <td><code class="prettyprint">/api/v2/products/{product_id}/skus?limit={count}</code></td>
 </tr>
 </tbody></table>
+
+          
+          <h2 id="custom-fields-associated-with-a-product">Custom fields associated with a product.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-custom-fields">List Custom Fields</a></li>
+<li>  <a href="#get-a-custom-field">Get a Custom Field</a></li>
+<li>  <a href="#get-a-count-of-custom-fields">Get a Count of Custom Fields</a></li>
+<li>  <a href="#create-a-custom-field">Create a Custom Field</a></li>
+<li>  <a href="#update-a-custom-field">Update a Custom Field</a></li>
+<li>  <a href="#delete-a-custom-field">Delete a Custom Field</a></li>
+<li>  <a href="#delete-multiple-custom-fields">Delete Multiple Custom Fields</a></li>
+</ul>
+
+<h2 id="list-custom-fields">List Custom Fields</h2>
+
+<p>Gets custom fields associated with a product.</p>
+
+<ul>
+<li>  <a href="#list-custom-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
+<li>  <a href="#list-custom-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/custom_fields</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/custom_fields?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/custom_fields?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toy manufactured in"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Release Date"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-25"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-custom-field">Get a Custom Field</h2>
+
+<p>Gets a custom field associated with a product.</p>
+
+<ul>
+<li>  <a href="#get-a-custom-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
+<li>  <a href="#get-a-custom-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/custom_fields/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Toy manufactured in"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-custom-fields">Get a Count of Custom Fields</h2>
+
+<p>Gets a count of the number of custom fields in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-custom-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/custom_fields/count</code></li>
+<li>  <a href="#get-a-count-of-custom-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/custom_fields/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-custom-field">Create a Custom Field</h2>
+
+<p>Creates a new custom field associated with a product</p>
+
+<ul>
+<li>  <a href="#create-a-custom-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
+<li>  <a href="#create-a-custom-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/products/{product_id}/custom_fields</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">name</code></li>
+<li>  <code class="prettyprint">text</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "name": "Release Date",
+  "text": "2013-12-25"
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Release Date"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-25"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-custom-field">Update a Custom Field</h2>
+
+<p>Updates an existing custom field associated with a product.</p>
+
+<ul>
+<li>  <a href="#update-a-custom-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
+<li>  <a href="#update-a-custom-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/custom_fields/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">name</code></li>
+<li>  <code class="prettyprint">text</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "name": "Release Date",
+  "text": "2013-12-31"
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">45</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Release Date"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2013-12-31"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-custom-field">Delete a Custom Field</h2>
+
+<p>Deletes a custom field associated with a product.</p>
+
+<ul>
+<li>  <a href="#delete-a-custom-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
+<li>  <a href="#delete-a-custom-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/custom_fields/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-custom-fields">Delete Multiple Custom Fields</h2>
+
+<p>Deletes multiple custom fields associated with a product.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-custom-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
+<li>  <a href="#delete-multiple-custom-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/custom_fields</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/custom_fields?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/custom_fields?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          
+          <h2 id="configurable-fields-associated-with-a-product">Configurable fields associated with a product.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-configurable-fields">List Configurable Fields</a></li>
+<li>  <a href="#get-a-configurable-field">Get a Configurable Field</a></li>
+<li>  <a href="#get-a-count-of-configurable-fields">Get a Count of Configurable Fields</a></li>
+<li>  <a href="#delete-a-configurable-field">Delete a Configurable Field</a></li>
+<li>  <a href="#delete-multiple-configurable-fields">Delete Multiple Configurable Fields</a></li>
+</ul>
+
+<h2 id="list-configurable-fields">List Configurable Fields</h2>
+
+<p>Gets the collection of configurable fields associated with a product.</p>
+
+<ul>
+<li>  <a href="#list-configurable-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields</code></li>
+<li>  <a href="#list-configurable-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/configurable_fields</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/configurable_fields?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/configurable_fields?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturing Country"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"allowed_file_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"select_options"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-configurable-field">Get a Configurable Field</h2>
+
+<p>Gets a configurable field associated with a product.</p>
+
+<ul>
+<li>  <a href="#get-a-configurable-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}</code></li>
+<li>  <a href="#get-a-configurable-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/configurable_fields/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manufacturing Country"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"allowed_file_types"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"select_options"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-configurable-fields">Get a Count of Configurable Fields</h2>
+
+<p>Gets a count of the number of configurable fields in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-configurable-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/configurable_fields/count</code></li>
+<li>  <a href="#get-a-count-of-configurable-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/configurable_fields/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-configurable-field">Delete a Configurable Field</h2>
+
+<p>Deletes a configurable field associated with a product.</p>
+
+<ul>
+<li>  <a href="#delete-a-configurable-field-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}</code></li>
+<li>  <a href="#delete-a-configurable-field-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/configurable_fields/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-configurable-fields">Delete Multiple Configurable Fields</h2>
+
+<p>Deletes multiple configurable fields associated with a product.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-configurable-fields-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields</code></li>
+<li>  <a href="#delete-multiple-configurable-fields-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/configurable_fields</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/configurable_fields?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/configurable_fields?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          
+          <h2 id="bulk-pricing-rules-applied-to-a-product">Bulk pricing rules applied to a product.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-bulk-pricing-rules">List Bulk Pricing Rules</a></li>
+<li>  <a href="#get-a-product-bulk-pricing-rule">Get a Product Bulk Pricing Rule</a></li>
+<li>  <a href="#get-a-count-of-bulk-pricing-rules">Get a Count of Bulk Pricing Rules</a></li>
+<li>  <a href="#create-a-product-bulk-pricing-rule">Create a Product Bulk Pricing Rule</a></li>
+<li>  <a href="#update-a-product-bulk-pricing-rule">Update a Product Bulk Pricing Rule</a></li>
+<li>  <a href="#delete-a-product-bulk-pricing-rule">Delete a Product Bulk Pricing Rule</a></li>
+<li>  <a href="#delete-multiple-product-bulk-pricing-rules">Delete Multiple Product Bulk Pricing Rules</a></li>
+</ul>
+
+<h2 id="list-bulk-pricing-rules">List Bulk Pricing Rules</h2>
+
+<p>Gets the collection of product bulk pricing rules.</p>
+
+<ul>
+<li>  <a href="#list-bulk-pricing-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
+<li>  <a href="#list-bulk-pricing-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/discount_rules</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/discount_rules?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/discount_rules?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-product-bulk-pricing-rule">Get a Product Bulk Pricing Rule</h2>
+
+<p>Gets a product bulk pricing rule.</p>
+
+<ul>
+<li>  <a href="#get-a-product-bulk-pricing-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
+<li>  <a href="#get-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/discount_rules/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-bulk-pricing-rules">Get a Count of Bulk Pricing Rules</h2>
+
+<p>Gets a count of the number of bulk pricing rules in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-bulk-pricing-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/discount_rules/count</code></li>
+<li>  <a href="#get-a-count-of-bulk-pricing-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/discount_rules/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-product-bulk-pricing-rule">Create a Product Bulk Pricing Rule</h2>
+
+<p>Creates a new product bulk pricing rule.</p>
+
+<ul>
+<li>  <a href="#create-a-product-bulk-pricing-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
+<li>  <a href="#create-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/products/{product_id}/discount_rules</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">type</code></li>
+<li>  <code class="prettyprint">type_value</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>To specify that a <code class="prettyprint">min</code> or <code class="prettyprint">max</code> value is unbounded, these properties must be explicitly set with a value of <code class="prettyprint">0</code>. If neither <code class="prettyprint">min</code> nor <code class="prettyprint">max</code> properties are included in the request, the existing value will remain unchanged.</p>
+
+<p>The range of the <code class="prettyprint">min</code> and <code class="prettyprint">max</code> values must not overlap an existing rule associated with the same product.</p>
+<pre class="highlight plaintext"><code>{
+  "min": 100,
+  "max": 500,
+  "type": "price",
+  "type_value": 2
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"price"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-product-bulk-pricing-rule">Update a Product Bulk Pricing Rule</h2>
+
+<p>Updates an existing product bulk pricing rule.</p>
+
+<ul>
+<li>  <a href="#update-a-product-bulk-pricing-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
+<li>  <a href="#update-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/discount_rules/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">type</code></li>
+<li>  <code class="prettyprint">type_value</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>To specify that a <code class="prettyprint">min</code> or <code class="prettyprint">max</code> value is unbounded, these properties must be explicitly set with a value of <code class="prettyprint">0</code>. If neither <code class="prettyprint">min</code> nor <code class="prettyprint">max</code> properties are included in the request, the existing value will remain unchanged.</p>
+
+<p>The range of the <code class="prettyprint">min</code> and <code class="prettyprint">max</code> values must not overlap an existing rule associated with the same product.</p>
+<pre class="highlight plaintext"><code>{
+  "min": 200,
+  "max": 300,
+  "type": "fixed",
+  "type_value": 10
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"min"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"max"</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fixed"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-product-bulk-pricing-rule">Delete a Product Bulk Pricing Rule</h2>
+
+<p>Deletes a product bulk pricing rule.</p>
+
+<ul>
+<li>  <a href="#delete-a-product-bulk-pricing-rule-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
+<li>  <a href="#delete-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/discount_rules/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-product-bulk-pricing-rules">Delete Multiple Product Bulk Pricing Rules</h2>
+
+<p>Deletes bulk pricing rules associated with a product.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-product-bulk-pricing-rules-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
+<li>  <a href="#delete-multiple-product-bulk-pricing-rules-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/discount_rules</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/discount_rules?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/discount_rules?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          
+          <table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-google-product-search-mappings">List Google Product Search Mappings</a></li>
+</ul>
+
+<h2 id="list-google-product-search-mappings">List Google Product Search Mappings</h2>
+
+<p>Gets the Google Product Search mappings for a product.</p>
+
+<ul>
+<li>  <a href="#list-google-product-search-mappings-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/googleproductsearch</code></li>
+<li>  <a href="#list-google-product-search-mappings-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/googleproductsearch</code></li>
+</ul>
+
+          <h1 id="videos">Videos</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/videos">Product Videos Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="videos-object-properties">Videos Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="embedded-videos-displayed-on-product-listings">Embedded videos displayed on product listings.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-product-videos">List Product Videos</a></li>
+<li>  <a href="#get-a-product-video">Get a Product Video</a></li>
+<li>  <a href="#get-a-count-of-product-videos">Get a Count of Product Videos</a></li>
+<li>  <a href="#create-a-product-video">Create a Product Video</a></li>
+<li>  <a href="#update-product-video-metadata">Update Product Video Metadata</a></li>
+<li>  <a href="#delete-a-product-video">Delete a Product Video</a></li>
+<li>  <a href="#delete-all-product-videos">Delete All Product Videos</a></li>
+</ul>
+
+<h2 id="list-product-videos">List Product Videos</h2>
+
+<p>Gets the videos associated with a product.</p>
+
+<ul>
+<li>  <a href="#list-product-videos-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
+<li>  <a href="#list-product-videos-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/videos</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_videos are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/videos?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/products/{product_id}/videos?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UmhvxsOwhqk"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X-Men Evolution: Season 1, Episode 1"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-product-video">Get a Product Video</h2>
+
+<p>Gets a product video.</p>
+
+<ul>
+<li>  <a href="#get-a-product-video-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
+<li>  <a href="#get-a-product-video-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/{product_id}/videos/{id}</code></li>
+</ul>
+
+<h2 id="get-a-count-of-product-videos">Get a Count of Product Videos</h2>
+
+<p>Gets a count of the number of product videos in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-product-videos-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/videos/count</code></li>
+<li>  <a href="#get-a-count-of-product-videos-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/products/videos/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-product-video">Create a Product Video</h2>
+
+<p>Adds a link to a YouTube video to a product.</p>
+
+<ul>
+<li>  <a href="#create-a-product-video-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
+<li>  <a href="#create-a-product-video-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/products/{product_id}/videos</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the product video are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">url</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>Only YouTube videos are supported. To create a new video, pass the full <code class="prettyprint">url</code> in the request body.</p>
+<pre class="highlight plaintext"><code>{
+  "url": "https://www.youtube.com/watch?v=4wZ3ZG_Wams"
+}
+</code></pre>
+
+<h2 id="update-product-video-metadata">Update Product Video Metadata</h2>
+
+<p>Edit the metadata of a product video.</p>
+
+<ul>
+<li>  <a href="#update-product-video-metadata-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
+<li>  <a href="#update-product-video-metadata-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/videos/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">product_id</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>The <code class="prettyprint">name</code>, <code class="prettyprint">sort_order</code> and <code class="prettyprint">url</code> properties of the product video are editable.</p>
+
+<p>Posting a new <code class="prettyprint">url</code> will update the <code class="prettyprint">id</code> of the video to reference the new video.</p>
+<pre class="highlight plaintext"><code>{
+  "name": "New video title",
+  "sort_order": 2
+}
+</code></pre>
+
+<h2 id="delete-a-product-video">Delete a Product Video</h2>
+
+<p>Delete a product video.</p>
+
+<ul>
+<li>  <a href="#delete-a-product-video-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
+<li>  <a href="#delete-a-product-video-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/videos/{id}</code></li>
+</ul>
+
+<h2 id="delete-all-product-videos">Delete All Product Videos</h2>
+
+<p>Deletes all videos belonging to a product.</p>
+
+<ul>
+<li>  <a href="#delete-all-product-videos-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
+<li>  <a href="#delete-all-product-videos-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/videos</code></li>
+</ul>
 
           <h1 id="categories">Categories</h1>
 
@@ -4367,6 +6772,130 @@
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders</code></li>
 <li>  <a href="#delete-all-orders-basic">Basic Auth</a>
 &gt;<code class="prettyprint">DELETE /api/v2/orders</code></li>
+</ul>
+
+          <h1 id="tax-class">Tax Class</h1>
+
+<p>The tax_class object contains the ID and name of the tax class used to calculate tax for stores using manually created tax classes. NOTE: Data inside the tax_class object of a store configured to use automatic taxes is ignored during tax calculations.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/tax_classes">Tax Classes Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="properties">Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td>The unique numerical ID of the tax class. A read-only value which is automatically assigned and increments sequentially.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The name of the tax class.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="tax-classes-are-used-to-apply-different-tax-rates-for-specific-types-of-products-and-orders">Tax classes are used to apply different tax rates for specific types of products and orders.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_information</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_information_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-tax-classes">List Tax Classes</a></li>
+<li>  <a href="#get-a-tax-class">Get a Tax Class</a></li>
+</ul>
+
+<h2 id="list-tax-classes">List Tax Classes</h2>
+
+<p>Gets the tax classes set up for a store. (Default sorting is by tax-class id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-tax-classes-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/tax_classes</code></li>
+<li>  <a href="#list-tax-classes-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/tax_classes</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific tax_classes in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 tax_classes are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/tax_classes?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/tax_classes?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-tax-class">Get a Tax Class</h2>
+
+<p>Gets a tax class.</p>
+
+<ul>
+<li>  <a href="#get-a-tax-class-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/tax_classes/{id}</code></li>
+<li>  <a href="#get-a-tax-class-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/tax_classes/{id}</code></li>
 </ul>
 
           <h1 id="gift-certificates">Gift Certificates</h1>
