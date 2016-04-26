@@ -6692,6 +6692,2103 @@
 &gt;<code class="prettyprint">DELETE /api/v2/orders</code></li>
 </ul>
 
+          <h1 id="order-statuses">Order Statuses</h1>
+
+<p>Represents a state in the order fulfilment workflow</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/order_statuses">Order Statuses Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="order-status-object-properties">Order Status Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>order</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="statuses-that-can-be-assigned-to-orders-each-status-represents-a-state-in-the-fulfilment-workflow">Statuses that can be assigned to orders. Each status represents a state in the fulfilment workflow.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-order-statuses">List Order Statuses</a></li>
+<li>  <a href="#get-an-order-status">Get an Order Status</a></li>
+</ul>
+
+<h2 id="list-order-statuses">List Order Statuses</h2>
+
+<p>Gets the list of order statuses.</p>
+
+<ul>
+<li>  <a href="#list-order-statuses-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/order_statuses</code></li>
+<li>  <a href="#list-order-statuses-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/order_statuses</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific order_statuses in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_statuses are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/order_statuses?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/order_statuses?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Incomplete"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pending"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shipped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Partially Shipped"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Refunded"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cancelled"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Declined"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting Payment"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting Pickup"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting Shipment"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Completed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awaiting Fulfillment"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual Verification Required"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"13"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Disputed"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-order-status">Get an Order Status</h2>
+
+<p>Gets a single order status.</p>
+
+<ul>
+<li>  <a href="#get-an-order-status-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/order_statuses/{id}</code></li>
+<li>  <a href="#get-an-order-status-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/order_statuses/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Manual Verification Required"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="order-products">Order Products</h1>
+
+<p>Product line item belonging to an order</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/orders/products">Order Products Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="order-product-object-properties">Order Product Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_address_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>sku</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>base_price</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>price_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>price_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>price_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>base_total</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>total_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>total_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>total_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>weight</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>base_cost_price</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_price_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_price_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_price_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>is_refunded</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>refund_amount</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>return_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapping_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>base_wrapping_cost</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapping_cost_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapping_cost_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapping_cost_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>wrapping_message</td>
+<td>text</td>
+<td></td>
+</tr>
+<tr>
+<td>quantity_shipped</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>event_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>event_date</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>fixed_shipping_cost</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>ebay_item_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>ebay_transaction_id</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>option_set_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>parent_order_product_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>is_bundled_product</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>bin_picking_number</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>applied_discounts</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>product_options</td>
+<td>object_array</td>
+<td></td>
+</tr>
+<tr>
+<td>configurable_fields</td>
+<td>object_array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="product-line-items-associated-with-an-order">Product line items associated with an order.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-order-products">List Order Products</a></li>
+<li>  <a href="#get-an-order-product">Get an Order Product</a></li>
+<li>  <a href="#get-a-count-of-order-products">Get a Count of Order Products</a></li>
+</ul>
+
+<h2 id="list-order-products">List Order Products</h2>
+
+<p>Gets the product line items associated with an order. (By default, items sort from lowest to highest according to a newly created id, separate from the order_id and the product_id.)</p>
+
+<ul>
+<li>  <a href="#list-order-products-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/products</code></li>
+<li>  <a href="#list-order-products-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/products</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/products?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/products?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cynthia Gilbert Signature Collection"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"physical"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_total"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"93.1800"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"total_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_cost_price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_price_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_price_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_price_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_refunded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"refund_amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"return_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wrapping_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_wrapping_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wrapping_cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wrapping_cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wrapping_cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"wrapping_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"quantity_shipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"event_name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"event_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"fixed_shipping_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ebay_item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ebay_transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"parent_order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_bundled_product "</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bin_picking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"applied_discounts"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"coupon"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">4.66</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"product_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"configurable_fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-order-product">Get an Order Product</h2>
+
+<p>Gets a product line item associated with the order.</p>
+
+<ul>
+<li>  <a href="#get-an-order-product-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/products/{id}</code></li>
+<li>  <a href="#get-an-order-product-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/products/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items_shipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"base_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"base_handling_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_zone_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_zone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default Zone"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-order-products">Get a Count of Order Products</h2>
+
+<p>Gets a count of order product line items.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-order-products-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/products/count</code></li>
+<li>  <a href="#get-a-count-of-order-products-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/products/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          
+          <h2 id="shipping-package-consignments-tracked-from-an-order">Shipping package consignments tracked from an order.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-shipments">List Shipments</a></li>
+<li>  <a href="#get-a-shipment">Get a Shipment</a></li>
+<li>  <a href="#get-a-count-of-shipments">Get a Count of Shipments</a></li>
+<li>  <a href="#get-a-count-of-shipments-per-order">Get a Count of Shipments per Order</a></li>
+<li>  <a href="#create-a-shipment">Create a Shipment</a></li>
+<li>  <a href="#update-a-shipment">Update a Shipment</a></li>
+<li>  <a href="#delete-a-shipment">Delete a Shipment</a></li>
+<li>  <a href="#delete-multiple-shipments">Delete Multiple Shipments</a></li>
+</ul>
+
+<h2 id="list-shipments">List Shipments</h2>
+
+<p>Gets the shipments associated with an order.</p>
+
+<ul>
+<li>  <a href="#list-shipments-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
+<li>  <a href="#list-shipments-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 17:17:10 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111222333444"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A sample shipment for order 115"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Louise"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dean"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skiptube"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"147 Meadow Vale Way"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fullerton"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rhode Island"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74674"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7-(086)085-9448"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Louise"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dean"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Skiptube"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"147 Meadow Vale Way"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fullerton"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rhode Island"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74674"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7-(086)085-9448"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-shipment">Get a Shipment</h2>
+
+<p>Gets a shipment associated with an order.</p>
+
+<ul>
+<li>  <a href="#get-a-shipment-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
+<li>  <a href="#get-a-shipment-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-123-123"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-shipments">Get a Count of Shipments</h2>
+
+<p>Gets a count of the number of orders that have shipped.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-shipments-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/shipments/count</code></li>
+<li>  <a href="#get-a-count-of-shipments-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/shipments/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-shipments-per-order">Get a Count of Shipments per Order</h2>
+
+<p>Gets a count of the number of shipments that have been made for a single order.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-shipments-per-order-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments/count</code></li>
+<li>  <a href="#get-a-count-of-shipments-per-order-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-shipment">Create a Shipment</h2>
+
+<p>Creates a new shipment for an order.</p>
+
+<ul>
+<li>  <a href="#create-a-shipment-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
+<li>  <a href="#create-a-shipment-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/orders/{order_id}/shipments</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">order_id</code></li>
+<li>  <code class="prettyprint">date_created</code></li>
+<li>  <code class="prettyprint">customer_id</code></li>
+<li>  <code class="prettyprint">billing_address</code></li>
+<li>  <code class="prettyprint">shipping_address</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">order_address_id</code></li>
+<li>  <code class="prettyprint">items</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "tracking_number": "EJ958083578US",
+  "comments": "Ready to go...",
+  "order_address_id": 1,
+  "items": [
+    {
+      "order_product_id": 15,
+      "quantity": 2
+    }
+  ]
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">113</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 19:49:15 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EJ958083578US"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ready to go..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Henry"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boyd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kare"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009 Corben Pass"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laguna Niguel"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Hampshire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57762"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0-(245)121-8702"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Henry"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Boyd"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Kare"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"009 Corben Pass"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Laguna Niguel"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Hampshire"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57762"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0-(245)121-8702"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-shipment">Update a Shipment</h2>
+
+<p>Updates an existing shipment associated with an order.</p>
+
+<ul>
+<li>  <a href="#update-a-shipment-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
+<li>  <a href="#update-a-shipment-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/orders/{order_id}/shipments/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">order_id</code></li>
+<li>  <code class="prettyprint">date_created</code></li>
+<li>  <code class="prettyprint">customer_id</code></li>
+<li>  <code class="prettyprint">items</code></li>
+<li>  <code class="prettyprint">billing_address</code></li>
+<li>  <code class="prettyprint">shipping_address</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight plaintext"><code>{
+  "tracking_number": "fedex1245",
+  "comments": "Notes about the shipment",
+  "order_address_id": 1
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_address_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex1245"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notes about the shipment"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"shipping_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"order_product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-shipment">Delete a Shipment</h2>
+
+<p>Deletes a shipment associated with an order.</p>
+
+<ul>
+<li>  <a href="#delete-a-shipment-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
+<li>  <a href="#delete-a-shipment-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/orders/{order_id}/shipments/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-shipments">Delete Multiple Shipments</h2>
+
+<p>Deletes multiple shipments associated with an order.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-shipments-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
+<li>  <a href="#delete-multiple-shipments-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/orders/{order_id}/shipments</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="order-shipping-addresses">Order Shipping Addresses</h1>
+
+<p>Customer shipping address belonging to an order</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/orders/shipping_addresses">Order Shipping Addresses Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="order-shipping-address-object-properties">Order Shipping Address Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>company</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>street_1</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>street_2</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>city</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>zip</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>country_iso2</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>The name of the state. Should be spelled out in full, e.g., California.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>items_total</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>items_shipped</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>shipping_method</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>base_cost</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>cost_tax_class_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>base_handling_cost</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>handling_cost_ex_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>handling_cost_inc_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>handling_cost_tax</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>handling_cost_tax_class_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>shipping_zone_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>shipping_zone_name</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="shipping-addresses-associated-with-an-order">Shipping addresses associated with an order.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-order-shipping-addresses">List Order Shipping Addresses</a></li>
+<li>  <a href="#get-an-order-shipping-address">Get an Order Shipping Address</a></li>
+<li>  <a href="#get-a-count-of-shipments">Get a Count of Shipments</a></li>
+</ul>
+
+<h2 id="list-order-shipping-addresses">List Order Shipping Addresses</h2>
+
+<p>Gets the shipping addresses associated with an order.</p>
+
+<ul>
+<li>  <a href="#list-order-shipping-addresses-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses</code></li>
+<li>  <a href="#list-order-shipping-addresses-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipping_addresses</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific order_shipping_addresses in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_shipping_addresses are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipping_addresses?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/shipping_addresses?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"items_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"items_shipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"base_handling_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"handling_cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"handling_cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"handling_cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"handling_cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_zone_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_zone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default Zone"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-order-shipping-address">Get an Order Shipping Address</h2>
+
+<p>Gets a shipping address associated with an order.</p>
+
+<ul>
+<li>  <a href="#get-an-order-shipping-address-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{id}</code></li>
+<li>  <a href="#get-an-order-shipping-address-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipping_addresses/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bishop"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Yamia"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"988 Comanche Circle"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cypress"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77426-2265"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wyoming"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5-(248)906-2014"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items_total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"items_shipped"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"base_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"base_handling_cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_ex_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_inc_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_tax"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"handling_cost_tax_class_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_zone_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_zone_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Default Zone"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-shipments">Get a Count of Shipments</h2>
+
+<p>Gets a count of the number of orders that have shipped.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-shipments-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/shipments/count</code></li>
+<li>  <a href="#get-a-count-of-shipments-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/shipments/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="order-coupons">Order Coupons</h1>
+
+<p>Coupon code applied to an order</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/orders/coupons">Order Coupons Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="order-coupon-object-properties">Order Coupon Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>coupon_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>code</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>amount</td>
+<td>decimal</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>discount</td>
+<td>decimal</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="coupons-applied-to-an-order">Coupons applied to an order.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-order-coupons">List Order Coupons</a></li>
+<li>  <a href="#get-an-order-coupon">Get an Order Coupon</a></li>
+</ul>
+
+<h2 id="list-order-coupons">List Order Coupons</h2>
+
+<p>Gets the coupon codes applied to an order. (Default sorting is by coupon id, from lowest to highest; however, only one coupon can be applied to each order.)</p>
+
+<ul>
+<li>  <a href="#list-order-coupons-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/coupons</code></li>
+<li>  <a href="#list-order-coupons-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/coupons</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific order_coupons in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_coupons are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/coupons?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/coupons?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"coupon_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"557D2DEA0CCAFA1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.6600"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-order-coupon">Get an Order Coupon</h2>
+
+<p>Gets a coupon code associated with an order.</p>
+
+<ul>
+<li>  <a href="#get-an-order-coupon-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/coupons/{id}</code></li>
+<li>  <a href="#get-an-order-coupon-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/coupons/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"coupon_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"order_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"557D2DEA0CCAFA1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"discount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4.6600"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="order-messages">Order Messages</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/orders/messages">Order Messages Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="order-message-object-properties">Order Message Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>staff_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>subject</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>text</td>
+<td></td>
+</tr>
+<tr>
+<td>status</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>is_flagged</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>date_created</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>customer</td>
+<td>resource</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="messages-associated-with-an-order">Messages associated with an order.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_orders</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-order-messages">List Order Messages</a></li>
+<li>  <a href="#get-order-message">Get Order Message</a></li>
+</ul>
+
+<h2 id="list-order-messages">List Order Messages</h2>
+
+<p>Gets the messages associated with an order.</p>
+
+<ul>
+<li>  <a href="#list-order-messages-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/messages</code></li>
+<li>  <a href="#list-order-messages-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/messages</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific order_messages in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">min_id</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?min_id={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">max_id</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?max_id={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">status</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?status={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">customer_id</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?customer_id={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">is_flagged</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?is_flagged={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">min_date_created</code></td>
+<td>dateTime or date</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?min_date_created={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">max_date_created</code></td>
+<td>dateTime or date</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?max_date_created={value}</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_messages are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-order-message">Get Order Message</h2>
+
+<p>Gets a message associated with an order.</p>
+
+<ul>
+<li>  <a href="#get-order-message-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/messages/{id}</code></li>
+<li>  <a href="#get-order-message-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/messages/{id}</code></li>
+</ul>
+
+          <h1 id="countries">Countries</h1>
+
+<p>A country or territory, identifiable by an ISO 3166 country code</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/countries">Countries Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="country-object-properties">Country Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>country</td>
+<td>string</td>
+<td>Country name</td>
+</tr>
+<tr>
+<td>country_iso2</td>
+<td>string</td>
+<td>2 letter countryt code</td>
+</tr>
+<tr>
+<td>country_iso3</td>
+<td>string</td>
+<td>3 letter country code</td>
+</tr>
+<tr>
+<td>states</td>
+<td>resource</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="countries-and-territories-identified-by-their-iso-3166-country-codes">Countries and territories, identified by their ISO 3166 country codes.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">default</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-countries">List Countries</a></li>
+<li>  <a href="#get-a-country">Get a Country</a></li>
+<li>  <a href="#get-a-count-of-countries">Get a Count of Countries</a></li>
+</ul>
+
+<h2 id="list-countries">List Countries</h2>
+
+<p>Gets the list of countries.</p>
+
+<ul>
+<li>  <a href="#list-countries-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries</code></li>
+<li>  <a href="#list-countries-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific countries in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">country</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/countries?country={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">country_iso2</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/countries?country_iso2={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">country_iso3</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/countries?country_iso3={value}</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 countries are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/countries?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/countries?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afghanistan"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AF"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AFG"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/countries/1/states.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/countries/1/states"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Albania"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALB"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/countries/2/states.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/countries/2/states"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-country">Get a Country</h2>
+
+<p>Gets a country.</p>
+
+<ul>
+<li>  <a href="#get-a-country-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries/{id}</code></li>
+<li>  <a href="#get-a-country-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country_iso2"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country_iso3"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"states"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/countries/226/states.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/countries/226/states"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-countries">Get a Count of Countries</h2>
+
+<p>Gets a count of countries.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-countries-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries/count</code></li>
+<li>  <a href="#get-a-count-of-countries-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">243</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+          
+          <h2 id="states-and-subdivisions-belonging-to-countries">States and subdivisions belonging to countries.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">default</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-states">List States</a></li>
+<li>  <a href="#get-a-state">Get a State</a></li>
+<li>  <a href="#get-a-count-of-states">Get a Count of States</a></li>
+</ul>
+
+<h2 id="list-states">List States</h2>
+
+<p>Gets the list of states belonging to a country.</p>
+
+<ul>
+<li>  <a href="#list-states-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries/{country_id}/states</code></li>
+<li>  <a href="#list-states-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries/{country_id}/states</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific states in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">state</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/countries/{country_id}/states?state={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">state_abbreviation</code></td>
+<td>string</td>
+<td><code class="prettyprint">/api/v2/countries/{country_id}/states?state_abbreviation={value}</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 states are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/countries/{country_id}/states?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/countries/{country_id}/states?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alabama"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state_abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alaska"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"state_abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AK"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-state">Get a State</h2>
+
+<p>Gets a state belonging to a country.</p>
+
+<ul>
+<li>  <a href="#get-a-state-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries/{country_id}/states/{id}</code></li>
+<li>  <a href="#get-a-state-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries/{country_id}/states/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alabama"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state_abbreviation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AL"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">226</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-states">Get a Count of States</h2>
+
+<p>Gets a count of the number of states within a specified country.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-states-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/countries/{country_id}/states/count</code></li>
+<li>  <a href="#get-a-count-of-states-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/countries/{country_id}/states/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">65</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
           <h1 id="tax-class">Tax Class</h1>
 
 <p>The tax_class object contains the ID and name of the tax class used to calculate tax for stores using manually created tax classes. NOTE: Data inside the tax_class object of a store configured to use automatic taxes is ignored during tax calculations.</p>
@@ -7363,6 +9460,831 @@
 <p><code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates</code></p>
 
 <p><code class="prettyprint">DELETE /api/v2/gift_certificates</code> </p>
+
+          <h1 id="blog-posts">Blog Posts</h1>
+
+<p>A content entry in the store’s blog</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/blog/posts">Blog Posts Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="blog-post-object-properties">Blog Post Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>content</td>
+<td>text</td>
+<td></td>
+</tr>
+<tr>
+<td>is_published</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>published_at</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>meta_description</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>meta_keywords</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="content-entries-in-the-store-s-blog">Content entries in the store’s blog.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_content</td>
+</tr>
+<tr>
+<td></td>
+<td>store_v2_content_read_only</td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-blog-posts">List Blog Posts</a></li>
+<li>  <a href="#get-a-blog-post">Get a Blog Post</a></li>
+<li>  <a href="#get-a-count-of-blog-posts">Get a Count of Blog Posts</a></li>
+<li>  <a href="#create-a-blog-post">Create a Blog Post</a></li>
+<li>  <a href="#update-a-blog-post">Update a Blog Post</a></li>
+<li>  <a href="#delete-a-blog-post">Delete a Blog Post</a></li>
+<li>  <a href="#delete-multiple-blog-posts">Delete Multiple Blog Posts</a></li>
+</ul>
+
+<h2 id="list-blog-posts">List Blog Posts</h2>
+
+<p>Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)</p>
+
+<ul>
+<li><p><a href="#list-blog-posts-oauth">OAuth</a></p>
+
+<blockquote>
+<p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts</code></p>
+</blockquote></li>
+<li><p><a href="#list-blog-posts-basic">Basic Auth</a></p></li>
+</ul>
+
+<blockquote>
+<p><code class="prettyprint">GET /api/v2/blog/posts</code></p>
+</blockquote>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific blog_posts in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">is_published</code></td>
+<td>string</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?is_published={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url</code></td>
+<td>string</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?url={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">tag</code></td>
+<td>string</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?tag={value}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">published_date</code></td>
+<td>string</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?published_date={value}</code></td>
+</tr>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ten Great New Products"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/blog/ten-great-new-products/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/blog/ten-great-new-products/?preview=53829a3bb47f4"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;Here's ten new products that make great gifts...&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"New"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"Products"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Here's ten new products that make great gifts..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-05-26T01:34:41+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New,Products"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your first blog post!"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt; &lt;strong&gt;Welcome to your blog!&lt;/strong&gt;&lt;br&gt; A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the Bigcommerce &lt;a href='http://blog.bigcommerce.com/' target='_blank'&gt;ecommerce blog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;How can I delete this post?&lt;/strong&gt;&lt;br&gt;To delete this post and add your own, login to your &lt;a href='/admin' target='_blank'&gt;admin area&lt;/a&gt;, click the Content tab at the top of the screen and choose Blog.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Powered by Bigcommerce&lt;/strong&gt;&lt;br&gt;Your website, online store and blog are powered by Bigcommerce &lt;a href='http://www.bigcommerce.com/' target='_blank'&gt;ecommerce software&lt;/a&gt;. It includes everything you need to run a beautiful online store including &lt;a href='http://www.bigcommerce.com/templates/' target='_blank'&gt;ecommerce website templates&lt;/a&gt;, &lt;a href='http://www.bigcommerce.com/features/hosting/' target='_blank'&gt;ecommerce hosting&lt;/a&gt;, an &lt;a href='http://www.bigcommerce.com/features/setup/' target='_blank'&gt;online shopping cart&lt;/a&gt; and more.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"Blog"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"SEO"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-15T19:46:34+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blog,SEO"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="err">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-blog-post">Get a Blog Post</h2>
+
+<p>Gets a blog post.</p>
+
+<ul>
+<li>  <a href="#get-a-blog-post-oauth">OAuth</a>
+&gt;`GET /stores/{store_hash}/v2/blog/posts/{id}</li>
+<li>  <a href="#get-a-blog-post-basic">Basic Auth</a>
+&gt;`GET /api/v2/blog/posts/{id}</li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your first blog post!"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"preview_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt; &lt;strong&gt;Welcome to your blog!&lt;/strong&gt;&lt;br&gt; A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look at the Bigcommerce &lt;a href='http://blog.bigcommerce.com/' target='_blank'&gt;ecommerce blog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;How can I delete this post?&lt;/strong&gt;&lt;br&gt;To delete this post and add your own, login to your &lt;a href='/admin' target='_blank'&gt;admin area&lt;/a&gt;, click the Content tab at the top of the screen and choose Blog.&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Powered by Bigcommerce&lt;/strong&gt;&lt;br&gt;Your website, online store and blog are powered by Bigcommerce &lt;a href='http://www.bigcommerce.com/' target='_blank'&gt;ecommerce software&lt;/a&gt;. It includes everything you need to run a beautiful online store including &lt;a href='http://www.bigcommerce.com/templates/' target='_blank'&gt;ecommerce website templates&lt;/a&gt;, &lt;a href='http://www.bigcommerce.com/features/hosting/' target='_blank'&gt;ecommerce hosting&lt;/a&gt;, an &lt;a href='http://www.bigcommerce.com/features/setup/' target='_blank'&gt;online shopping cart&lt;/a&gt; and more.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Blog"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"SEO"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"summary"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"published_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2014-02-15T19:46:34+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Blog,SEO"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-blog-posts">Get a Count of Blog Posts</h2>
+
+<p>Gets a count of blog posts.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-blog-posts-oauth">OAuth</a>
+&gt;`GET /stores/{store_hash}/v2/blog/posts/count</li>
+<li>  <a href="#get-a-count-of-blog-posts-basic">Basic Auth</a>
+&gt;`GET /api/v2/blog/posts/count</li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-blog-post">Create a Blog Post</h2>
+
+<p>Creates a new blog post.</p>
+
+<ul>
+<li>  <a href="#create-a-blog-post-oauth">OAuth</a>
+&gt;`POST /stores/{store_hash}/v2/blog/posts</li>
+<li>  <a href="#create-a-blog-post-basic">Basic Auth</a>
+&gt;`POST /api/v2/blog/posts</li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">preview_url</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">title</code></li>
+<li>  <code class="prettyprint">body</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>Blog posts default to draft status. Set <code class="prettyprint">is_published</code> to true to publish posts to the storefront.</p>
+
+<p>If a custom <code class="prettyprint">url</code> is not provided, the post’s URL will be generated based on the value of <code class="prettyprint">title</code>.</p>
+<pre class="highlight plaintext"><code>{
+  "title": "A Sample Blog Post",
+  "body": "&lt;p&gt;This is a blog post.&lt;/p&gt;",
+  "author": "Author Name",
+  "author_url": "http://example.com/author-name",
+  "thumbnail_path": "http://cdn.example.com/sample-post.jpg",
+  "is_published": true,
+  "tags": [
+    "Blog",
+    "Example"
+  ]
+}
+</code></pre>
+
+<h2 id="update-a-blog-post">Update a Blog Post</h2>
+
+<p>Updates an existing blog post.</p>
+
+<ul>
+<li>  <a href="#update-a-blog-post-oauth">OAuth</a>
+&gt;`PUT /stores/{store_hash}/v2/blog/posts/{id}</li>
+<li>  <a href="#update-a-blog-post-basic">Basic Auth</a>
+&gt;`PUT /api/v2/blog/posts/{id}</li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">preview_url</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight plaintext"><code>{
+  "title": "New: A Sample Blog Post",
+  "url": "/blog/sample-post"
+}
+</code></pre>
+
+<h2 id="delete-a-blog-post">Delete a Blog Post</h2>
+
+<p>Deletes a blog post.</p>
+
+<ul>
+<li>  <a href="#delete-a-blog-post-oauth">OAuth</a>
+&gt;`DELETE /stores/{store_hash}/v2/blog/posts/{id}</li>
+<li>  <a href="#delete-a-blog-post-basic">Basic Auth</a>
+&gt;`DELETE /api/v2/blog/posts/{id}</li>
+</ul>
+
+<h2 id="delete-multiple-blog-posts">Delete Multiple Blog Posts</h2>
+
+<p>Deletes multiple blog posts in the collection.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-blog-posts-oauth">OAuth</a>
+&gt;`DELETE /stores/{store_hash}/v2/blog/posts</li>
+<li>  <a href="#delete-multiple-blog-posts-basic">Basic Auth</a>
+&gt;`DELETE /api/v2/blog/posts</li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/blog/posts?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/blog/posts?limit={count}</code></td>
+</tr>
+</tbody></table>
+
+          <h1 id="payment-methods">Payment Methods</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/payments/methods">Payment Methods Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="payment-method-object-properties">Payment Method Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>string</td>
+<td>Unique platform-wide code identifying the payment method.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Descriptive name of the payment method.</td>
+</tr>
+<tr>
+<td>test_mode</td>
+<td>boolean</td>
+<td>Determines whether the payment gateway is in test mode. Always false for offline payment methods.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="enabled-payment-methods">Enabled payment methods.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td></td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td><code class="prettyprint">store_v2_information</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_information_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-payment-methods">List Payment Methods</a></li>
+</ul>
+
+<h2 id="list-payment-methods">List Payment Methods</h2>
+
+<p>Gets the list of enabled payment methods. (Default sorting is by payment method, alphabetically from A to Z.)</p>
+
+<ul>
+<li>  <a href="#list-payment-methods-oauth">OAuth</a></li>
+<li>  <a href="#list-payment-methods-basic">Basic Auth</a>
+<code class="prettyprint">GET /stores/{store_hash}/v2/payments/methods</code>
+<code class="prettyprint">GET /api/v2/payments/methods</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific payment_methods in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 payment_methods are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/payments/methods?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/payments/methods?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bankdeposit"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bank Deposit"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cash on Delivery"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"paypalexpress"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PayPal Express Checkout"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stripe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Stripe"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"test_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+          <h1 id="redirects">Redirects</h1>
+
+<p>A 301 redirect, mapping from a given URL path to another URL</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/redirects">Redirects Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="redirect-object-properties">Redirect Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>path</td>
+<td>string</td>
+<td>The path that will be redirected from</td>
+</tr>
+<tr>
+<td>forward</td>
+<td>forward</td>
+<td>The destination of the redirect</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h2 id="redirects-are-used-to-create-custom-url-paths-that-map-to-resources-on-the-storefront-such-as-products-categories-brands-etc-or-manually-defined-static-urls">Redirects are used to create custom URL paths that map to resources on the storefront (such as products, categories, brands, etc.) or manually defined static URLs.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_content</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_content_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-redirects">List Redirects</a></li>
+<li>  <a href="#get-a-redirect">Get a Redirect</a></li>
+<li>  <a href="#get-a-count-of-redirects">Get a Count of Redirects</a></li>
+<li>  <a href="#create-a-redirect">Create a Redirect</a></li>
+<li>  <a href="#update-a-redirect">Update a Redirect</a></li>
+<li>  <a href="#delete-a-redirect">Delete a Redirect</a></li>
+<li>  <a href="#delete-multiple-redirects">Delete Multiple Redirects</a></li>
+</ul>
+
+<h2 id="list-redirects">List Redirects</h2>
+
+<p>Gets the collection of URL redirects.</p>
+
+<ul>
+<li>  <a href="#list-redirects-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/redirects</code></li>
+<li>  <a href="#list-redirects-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/redirects</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/redirects?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/redirects?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/redirect_path1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"forward"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manual"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bigcommerce.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bigcommerce.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/redirect_path2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"forward"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"product"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://store.example.com/product-no-35"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-redirect">Get a Redirect</h2>
+
+<p>Gets a single URL redirect.</p>
+
+<ul>
+<li>  <a href="#get-a-redirect-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/redirects/{id}</code></li>
+<li>  <a href="#get-a-redirect-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/redirects/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/redirect_path1"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"forward"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"manual"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bigcommerce.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.bigcommerce.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-redirects">Get a Count of Redirects</h2>
+
+<p>Gets a count of redirects.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-redirects-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/redirects/count</code></li>
+<li>  <a href="#get-a-count-of-redirects-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/redirects/count</code></li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:
+<code class="prettyprint">
+{
+  &quot;count&quot;: 0
+}
+</code></p>
+
+<h2 id="create-a-redirect">Create a Redirect</h2>
+
+<p>Creates a new URL redirect.</p>
+
+<ul>
+<li>  <a href="#create-a-redirect-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/redirects</code></li>
+<li>  <a href="#create-a-redirect-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/redirects</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">url</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">path</code></li>
+<li>  <code class="prettyprint">forward</code></li>
+</ul>
+
+<h3 id="request">Request</h3>
+
+<p>Example request object:
+<code class="prettyprint">
+{
+  &quot;path&quot;: &quot;/mens_clothing&quot;,
+  &quot;forward&quot;: {
+    &quot;type&quot;: &quot;category&quot;,
+    &quot;ref&quot;: 3
+  }
+}
+</code></p>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:
+<code class="prettyprint">
+{
+  &quot;id&quot;: 3,
+  &quot;path&quot;: &quot;/mens_clothing&quot;,
+  &quot;forward&quot;: {
+    &quot;type&quot;: &quot;category&quot;,
+    &quot;ref&quot;: 3
+  },
+  &quot;url&quot;: &quot;http://store.example.com/mens&quot;
+}
+</code></p>
+
+<h2 id="update-a-redirect">Update a Redirect</h2>
+
+<p>Updates an existing URL redirect.</p>
+
+<ul>
+<li>  <a href="#update-a-redirect-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/redirects/{id}</code></li>
+<li>  <a href="#update-a-redirect-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/redirects/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">url</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">path</code></li>
+<li>  <code class="prettyprint">forward</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>The <code class="prettyprint">path</code>, <code class="prettyprint">forward.type</code> and <code class="prettyprint">forward.ref</code> fields of an existing redirect can be updated.</p>
+
+<h2 id="delete-a-redirect">Delete a Redirect</h2>
+
+<p>Deletes a URL redirect.</p>
+
+<ul>
+<li>  <a href="#delete-a-redirect-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/redirects/{id}</code></li>
+<li>  <a href="#delete-a-redirect-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/redirects/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-redirects">Delete Multiple Redirects</h2>
+
+<p>Deletes multiple URL redirects.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-redirects-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/redirects</code></li>
+<li>  <a href="#delete-multiple-redirects-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/redirects</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/redirects?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/redirects?limit={count}</code></td>
+</tr>
+</tbody></table>
 
           <h1 id="store-information-object">Store Information Object</h1>
 
