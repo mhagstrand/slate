@@ -1,0 +1,4545 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>BigCommerce Blueprint Panels</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+    <link href="../../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../../stylesheets/print.css" rel="stylesheet" media="print" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="../../../javascripts/all.js"></script>
+    <script>
+    //This is Google's default GA code
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-47823747-2', 'auto');
+    ga('send', 'pageview');
+    // Used for navlink tracking (https://github.com/tripit/slate/issues/209)
+    $(document).ready(function() {
+      $('.tocify-item a').on('click', function(){
+        ga('send', 'pageview', {'page': location.pathname + location.search  + location.hash});
+      });
+    });
+    </script>
+  </head>
+
+  <body class="themes themes_blueprint themes_blueprint_panels themes_blueprint_panels_index twocolumn">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../../images/navbar.png" />
+      </span>
+    </a>
+
+<header role="banner">
+  <div class="topBar-container topBar-container--fixed">
+    <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
+      <ul class="title-area ng-scope">
+        <li class="name"><a href="/"><img src="../../../images/BigCommerce_logo_white.svg" /></a></li>
+      </ul>
+      <section class="top-bar-section ng-scope">
+        <ul class="menuItems">
+          <li><a href="/api/v2" title="API">API</a></li>
+          <li><a href="/themes" title="Themes">Themes</a></li>
+          <li><a href="/changelog" title="Changelog">Changelog</a></li>
+          <li><a href="/support" title="Help and Support">Support</a></li>
+          <li class="hideOnTablet"><a href="/feedback" title="Send Feedback and Edits">Send Feedback/Edits</a></li>
+        </ul>
+      </section>
+      <div class="top-bar-actions ng-scope">
+        <div class="optional"><a href="https://login.bigcommerce.com/login">Log In</a></div>
+        <div class="optional">
+          <button class="button button--action button--small">Get Started</button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+    <div class="tocify-wrapper">
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href="/">Home</a></li>
+            <li><a href='/api/v2/'>API</a></li>
+            <li><a href='/themes/'>Themes</a></li>
+            <li><a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a></li>
+            <li><a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a></li>
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='http://github.com/tripit/slate'>Documentation by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <h1 id="blueprint-theme-panels">Blueprint Theme Panels</h1>
+
+          <h1 id="accountdownloaditemsbreadcrumb-panel">AccountDownloadItemsBreadcrumb Panel</h1>
+
+<p>The breadcrumb navigation shown when downloading digital items from an order.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountdownloaditems-panel">AccountDownloadItems Panel</h1>
+
+<p>The list of downloadable items in a digital order.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DownloadIntro%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountinbox-panel">AccountInbox Panel</h1>
+
+<p>A list of order messages in the customer’s account. Also includes the form to send a message relating to a past order placed on the store.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">AccountInbox</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNoOrderMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideInbox%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideInboxMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountInboxIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMessageSuccess%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMessageError%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountnewreturnbreadcrumb-panel">AccountNewReturnBreadcrumb Panel</h1>
+
+<p>The breadcrumb navigation menu.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountnewreturninfo-panel">AccountNewReturnInfo Panel</h1>
+
+<p>Form for entering details about the new return request such as the reason, action and comments.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReturnReasonsList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnAction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnAction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReturnActionsList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnForm%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountnewreturnproducts-panel">AccountNewReturnProducts Panel</h1>
+
+<p>A table of products in the particular order including choices to select the quantity of each item to return.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnForm%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountorderlinks-panel">AccountOrderLinks Panel</h1>
+
+<p>Links shown on the right to submit a return request for this order or print a copy of the invoice for this order.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowOrderActions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisableReturnButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountordershipments-panel">AccountOrderShipments Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LNG_OrderShipments%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountorderstatus-panel">AccountOrderStatus Panel</h1>
+
+<p>The list of pending orders placed on the store by the customer.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNoOrderStatusMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderStatusList%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountorder-panel">AccountOrder Panel</h1>
+
+<p>The details of the order (billing and shipping address as well as the products purchased)</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">AccountOrder</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">AccountOrder</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderStatus%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderDate%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderTotal%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BillingAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSingleShippingAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FlassMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideItemDetailsHeader%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderTotalRows%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderComments%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderComments%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderStatus%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountorders-panel">AccountOrders Panel</h1>
+
+<p>The list of previously placed orders on the store by the customer.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNoOrdersMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderList%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountrecentitems-panel">AccountRecentItems Panel</h1>
+
+<p>The list of items that the customer has recently viewed on the store.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCompareItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNoRecentItemsMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRecentItemList%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="accountreturns-panel">AccountReturns Panel</h1>
+
+<p>The list of submitted returns requests.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnsList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNoReturnsMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="activekbars-panel">ActiveKbArs Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AKBPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AKBPath%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="addshippingaddressjavascript-panel">AddShippingAddressJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AddressFormFieldID%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FormFieldRequiredJS%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckEmail%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AddressFormFieldID%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="brandcontent-panel">BrandContent Panel</h1>
+
+<p>The contents of the brands page. Either the products in a particular brand or a list of brands in the store.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">BrandContent</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCompareItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TrailBrandName%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="brandproductlisting-panel">BrandProductListing Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandsMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBrandProductListing%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandProductListing%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="cartcontent-panel">CartContent Panel</h1>
+
+<p>The contents of the customers shopping cart and the bottom “Proceed to Checkout” button.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCheckoutButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerLinkFunction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartCheckoutButtonOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartCheckoutButtonOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMultipleAddressShipping%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMultipleAddressShippingOr%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AdditionalCheckoutButtons%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_KeepShoppingLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_KeepShoppingText%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShoppingCartEmptyMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShoppingCartGrid%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartItemTotal%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftWrappingTotal%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftWrappingTotal%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideDiscountAmount%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DiscountAmount%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShoppingCartShippingEstimator%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingCountryList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingHideStateList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingStateList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AddressState%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingHideStateBox%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingZip%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShoppingCartShippingCost%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingProvider%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingCost%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShoppingCartHandlingCost%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HandlingCost%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Taxes%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartTotal%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_InclusiveTaxes%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCartQuantityTextBox%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="cartheader-panel">CartHeader Panel</h1>
+
+<p>The header of the cart contents page with the title and the top “Proceed to Checkout” button.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartCheckoutButtonOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AdditionalCheckoutButtons%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerLinkScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartCheckoutButtonControlScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCheckoutButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerLinkFunction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartCheckoutButtonOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="cartstatusmessage-panel">CartStatusMessage Panel</h1>
+
+<p>If an alternate status message is to be shown, the status message.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartStatusMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="categorycontent-panel">CategoryContent Panel</h1>
+
+<p>The list of products in the category being viewed on the store.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareButtonTop%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayMode%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CategoryProductListing%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CategoryContentFlashMessages%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ListJS%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareOnSubmit%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="categoryproductlisting-panel">CategoryProductListing Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CategoryProductListing%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="checkgiftcertificatebalance-panel">CheckGiftCertificateBalance Panel</h1>
+
+<p>Displays the form asking for the gift certificate code to check the balance of.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideExampleImage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BalanceTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftCertificateError%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideIntro%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="checkoutnewaddressform-panel">CheckoutNewAddressForm Panel</h1>
+
+<p>If the customer is not logged in and checking out as a guest this panel is shown containing the fields to enter their billing/shipping address.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CheckoutNewAddressForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipCustomFields%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShippingOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShippingOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipToAddressChecked%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipToBillingName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipAddressButtonText%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutShippingTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipAddressButtonText_JS%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideErrors%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingFormAction%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="choosecheckoutproviderjavascript-panel">ChooseCheckoutProviderJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="chooseshippingaddress-panel">ChooseShippingAddress Panel</h1>
+
+<p>If the customer is logged in, this panel is shown containing the list of shipping addresses in their address book.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ChooseShippingAddress</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTabSingle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutShippingIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTabMultiple%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutMultiShippingIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutShippingTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShippingTabs%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ActiveTabSingle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ActiveTabMultiple%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="comparecontent-panel">CompareContent Panel</h1>
+
+<p>The table showing the products being compared.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NumCompareItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ComparisonHeading%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTooManyProductsMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TooManyProductsMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="confirmorder-panel">ConfirmOrder Panel</h1>
+
+<p>The order confirmation and payment method selection form.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ConfirmOrder</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreditAlt%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePaymentProviderList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PaymentProviders%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderComments%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderComments%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderTermsAndConditions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTermsAndConditionsTextarea%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderTermsAndConditions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AgreeTermsAndConditions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TermsAndConditionsLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCheckoutError%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMailingListInvite%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMailingListInvite%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterBoxIsTicked%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideOrderCheckBox%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OrderBoxIsTicked%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutErrorMsg%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideButtomPaymentButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PaymentButtonSwitch%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCheckoutSuccess%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutSuccessMsg%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideConfirmOrderPage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BillingAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShippingDetails%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_totals%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideUseCoupon%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RedeemTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RedeemIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePaymentOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideUseStoreCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideTopPaymentButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideUseStoreCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutStoreCreditWarning%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLimitedCreditWarning%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_StoreCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLimitedCreditWarning%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Remaining%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRemainingStoreCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RemainingCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLimitedCreditPaymentOption%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLimitedCreditWarning%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_StoreCreditPaymentProviders%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CheckoutWith%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCreditAltOptionList%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="contactformjavascript-panel">ContactFormJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCaptcha%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="createaccountform-panel">CreateAccountForm Panel</h1>
+
+<p>A form containing the fields necessary to create a customer account on the store.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">CreateAccountForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCreateAccountErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountEmailPassword%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountDetails%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReviewCaptcha%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReviewCaptcha%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReCaptchaAPIKeyPublic%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReCaptchaAPIKeyPublic%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountButtonText%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountHeading%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCreateAccountIntroMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="createaccountjavascript-panel">CreateAccountJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountAccountFormFieldID%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FormFieldRequiredJS%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountAccountFormFieldID%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CreateAccountShippingFormFieldID%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="editaccountform-panel">EditAccountForm Panel</h1>
+
+<p>Form shown allowing the customer to change the details (email address, password, name etc) of their registered account.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">EditAccountForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideEditAccountSuccessMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_StatusMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountCurrentEmail%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountFirstName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountLastName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountCompanyName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountPhone%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AccountFields%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideEditAccountIntroMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideEditAccountErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_StatusMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="editaccountjavascript-panel">EditAccountJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_EditAccountAccountFormFieldID%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FormFieldRequiredJS%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="footer-panel">Footer Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DesignModeHTML%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QueryList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DesignModeScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LiveChatFooterCode%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerTrackingScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerConversionScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerSetCookieScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FooterScripts%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DebugDetails%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AllPricesAreInCurrency%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Year%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MobileSiteLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PoweredBy%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="forgotpasswordform-panel">ForgotPasswordForm Panel</h1>
+
+<p>The form shown for the customer to enter their email address to have their password reset.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ForgotPasswordForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideForgotPasswordError%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="getnewpasswordform-panel">GetNewPasswordForm Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CustomerId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ForgottenPasswordToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CustomerEmailAddress%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideForgotPasswordError%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="giftcertificatebalanceremaining-panel">GiftCertificateBalanceRemaining Panel</h1>
+
+<p>Shown after a customer enters their gift certificate code and displays the remaining balance and expiry date.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateCode%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RemainingBalance%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="headersearch-panel">HeaderSearch Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OriginalSearchQuery%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="header-panel">Header Panel</h1>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Header</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Header</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Header</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MaintenanceNotice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HeaderLogo%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="homefeaturedproducts-panel">HomeFeaturedProducts Panel</h1>
+
+<p>A list of store-wide featured products (products marked as featured in the control panel)</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideHomeFeaturedProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="homenewproducts-panel">HomeNewProducts Panel</h1>
+
+<p>A list of store-wide new products (based on the date they were added to the store)</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideHomeNewProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="homerecentblogs-panel">HomeRecentBlogs Panel</h1>
+
+<p>A list of products that are on sale (those that have a sale price configured that’s less than the normal price of the product)</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideHomeRecentBlogsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="homeslideshowjavascript-panel">HomeSlideShowJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="htmlhead-panel">HtmlHead Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HeadFonts%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Favicon%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerControlScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Stylesheets%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HeadRSSLinks%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TrackingCode%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DesignModeStyleSheet%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HeaderImageStyle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_jQueryPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FastCart%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductThumbImageWidth%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductThumbImageHeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AdditionalScriptTags%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickSearchJS%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RTLStyles%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CharacterSet%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AdditionalMetaTags%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="idealpaymentform-panel">IdealPaymentForm Panel</h1>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">IdealPaymentForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IdealIssuerOptions%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="loginform-panel">LoginForm Panel</h1>
+
+<p>The “Create an Account” and “Sign in to Your Account” options shown on the login page.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">LoginForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLoginNewAccountIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ExistingUserHeading%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideLoginMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MessageClass%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LoginMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewAccountHeading%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNewCustomerButton%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="newsbreadcrumb-panel">NewsBreadcrumb Panel</h1>
+
+<p>The breadcrumb navigation menu.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsTitle%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="newscomments-panel">NewsComments Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CommentsHTML%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="newscontent-panel">NewsContent Panel</h1>
+
+<p>Used to display an individual news item on the news page.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsDate%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsContent%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="pagecomments-panel">PageComments Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CommentsHTML%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="pagecontent-panel">PageContent Panel</h1>
+
+<p>Displays the title and the content of the web page currently being viewed.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageNameOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageNameOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageDescriptionOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageContent%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageDescriptionOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="pagesmenu-panel">PagesMenu Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ActivePageHomeClass%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productbreadcrumb-panel">ProductBreadcrumb Panel</h1>
+
+<p>The breadcrumb navigation menu.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBreadCrumbs%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BreadCrumbs%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productbycategory-panel">ProductByCategory Panel</h1>
+
+<p>Shows a list of categories related to the product currently being viewed.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FindByCategory%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSectionSeparator%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productdescription-panel">ProductDescription Panel</h1>
+
+<p>Contains the description of the product currently being viewed.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductDescriptionOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductDesc%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductDescriptionOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSectionSeparator%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productdetails-panel">ProductDetails Panel</h1>
+
+<p>Contains the details (price, brand, shipping information, product image and product name) to be shown on the product view page.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductCondition%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductWeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRating%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Rating%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReviewLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReviewLinkOnClick%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ReviewLinkText%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAvailability%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Availability%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CurrentProdThumbImage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShipping%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMinQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MinQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMaxQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MaxQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductThumbWidth%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCurrentStock%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CurrentStockLabel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_InventoryList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductThumbHeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftWrapMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftWrappingAvailable%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductMaxZoomWidth%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FacebookLikeButtonBelow%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductMaxZoomHeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductMaxTinyWidth%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductMaxTinyHeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProdImageJavascript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowImageZoomer%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductDetailFlashMessages%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_productAttributesCssPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductNameOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductNameOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AddThisLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductThumb%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LightBoxImageJavascript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_jQueryUIPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideImageCarousel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMorePicturesLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SeeMorePictures%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TinyImageClickJavascript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PinterestButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FacebookLikeButtonAbove%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRRP%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RetailPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PriceLabel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_JSCacheToken%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IncludingExcludingTax%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_YouSave%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSKU%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SKU%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideVendorDetails%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_VendorName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBrandLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCondition%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productimagepopup-panel">ProductImagePopup Panel</h1>
+
+<p>Shows an individual product image in the product image popup and the buttons to navigate between the product images.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NavLinkDisplay%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisablePrevLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisableNextLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TotalImages%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productotherdetails-panel">ProductOtherDetails Panel</h1>
+
+<p>Displays the custom fields configured for the product being shown.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCustomFields%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productreviews-panel">ProductReviews Panel</h1>
+
+<p>A list of product reviews for this particular product as well as the form for posting a new review for this product.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CommentsHTML%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="producttabs-panel">ProductTabs Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductTabsOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductTabsControlScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductTabsOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productvideos-panel">ProductVideos Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FeaturedVideo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FeaturedVideo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSingleVideo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_VideoLength%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_VideoTitleLong%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_VideoDescriptionLong%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideVideoList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FeaturedVideo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSectionSeparator%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductImageMode%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="productwarranty-panel">ProductWarranty Panel</h1>
+
+<p>If the product has any warranty text/information set, it will be shown in this panel.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductWarranty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSectionSeparator%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="purchasegiftcertificate-panel">PurchaseGiftCertificate Panel</h1>
+
+<p>Displays the form used to make the purchase of a gift certificate from the store.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftCertificateForm%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateMinimum%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartItemId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateMaximum%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateTo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificatePreviewModalTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateToEmail%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateFrom%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateFromEmail%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CertificateMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftCertificateAmountSelect%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateAmountSelect%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftCertificateCustomAmount%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CustomCertificateAmount%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateRange%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideExpiryInfo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AgreeChecked%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateTerms%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AgreeChecked%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideThemeSelect%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideThemeSelect%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftCertificateThemes%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SaveGiftCertificateButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ErrorMessage%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="quickviewcontent-panel">QuickViewContent Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductWeight%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAvailability%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Availability%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewShareLinks%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShipping%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMinQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MinQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMaxQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_MaxQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCurrentStock%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CurrentStockLabel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_InventoryList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideGiftWrapMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_GiftWrappingAvailable%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRating%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductAttributeList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductAttributeList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayAdd%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayAddQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayAddQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AddToCartQty%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewRating%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBulkDiscountLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BulkDiscountThickBoxRates%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayAdd%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_DisplayAdd%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewProductURL%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ItemSoldOut%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewProductName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptionMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewProductURL%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewReviews%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowAddToCartQtyBox%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductMinMaxQtyJavascript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_EventDateJavascript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewProductURL%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ThumbImageURL%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewProductDescription%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CartLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FastCartButtonJs%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductOptionRequired%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRRP%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_RetailPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PriceLabel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductPrice%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IncludingExcludingTax%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_YouSave%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSKU%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewFacebookLikeButton%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SKU%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideVendorDetails%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_VendorName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_QuickViewShareLinksLabel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBrandLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCondition%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductCondition%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWeight%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchjavascript-panel">SearchJavaScript Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SelectedCategoryOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AutoHideSearchForm%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CategoryOptions%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchpageheader-panel">SearchPageHeader Panel</h1>
+
+<p>The header containing the search form and breadcrumb navigation menu.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">SearchPageHeader</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAdvancedOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FormattedSearchQuery%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_BrandNameOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAdvancedLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductSearchOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductSearchOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PriceFrom%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PriceTo%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductSearchOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideProductSearchOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CdnAppPath%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRelatedSearches%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowSearchSuggestion%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SuggestQuery%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SuggestQueryEscaped%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchpageproducts-panel">SearchPageProducts Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResults%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchResults%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchpage-panel">SearchPage Panel</h1>
+
+<p>If a search is being performed, this panel will be shown containing any results matching the search terms.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">SearchPage</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">SearchPage</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ContentContainerDisplay%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchPage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SelectedSearchTab%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductTabActive%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductTabUrl%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ContentTabActive%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ContentTabUrl%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductContainerDisplay%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchtabcontents-panel">SearchTabContents Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsContent%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchResultsContent%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsNoResult%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OriginalSearchQuery%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="searchtabproducts-panel">SearchTabProducts Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsProduct%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchResultsProduct%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SnippetSearchResultsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsNoResult%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OriginalSearchQuery%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsCategoryAndBrand%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsCategory%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchResultsCategory%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSearchResultsBrand%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SearchResultsBrand%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="shareproductbyid-panel">ShareProductById Panel</h1>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ShareProductById</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">ShareProductById</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideChooseAnotherToShare%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_FirstProductId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SharingData%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="shareproductchoices-panel">ShareProductChoices Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="shippingaddressform-panel">ShippingAddressForm Panel</h1>
+
+<p>The form containing the fields for either editing or adding a shipping/billing address to the customer address book.</p>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">ShippingAddressForm</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingAddressFormAction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShipCustomFields%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingAddressFormTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAddShippingAddressIntroMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShippingAddressFormIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAddShippingAddressMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_Message%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideaccountmenu-panel">SideAccountMenu Panel</h1>
+
+<p>The list of links/options available in the “My Account” section of the store.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishlist%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NumWishListItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideMessagesMenu%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NumNewMessages%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideReturnRequestsMenu%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideaccountstorecredit-panel">SideAccountStoreCredit Panel</h1>
+
+<p>If the customer has store credit, shows the amount of store credit their account contains</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideStoreCredit%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_StoreCreditAmount%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidebrandtagcloud-panel">SideBrandTagCloud Panel</h1>
+
+<p>A tag cloud showing the popularity/density of brand names on the store.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideBrandTagCloudPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecartcontents-panel">SideCartContents Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AdditionalCheckoutButtons%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCartOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePurchasingOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideCart%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SideCartItemCount%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecategorylist-panel">SideCategoryList Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SideCategoryListTypeClass%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecategorynewproducts-panel">SideCategoryNewProducts Panel</h1>
+
+<p>A list of new products in the category currently being viewed.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideCategoryNewProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecategorypopularproducts-panel">SideCategoryPopularProducts Panel</h1>
+
+<p>List of the popular products (based on the ratings/reviews) for a particular category.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideCategoryPopularProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecategoryshopbyprice-panel">SideCategoryShopByPrice Panel</h1>
+
+<p>The price point options for browsing items between different price ranges in the current category.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideCategoryShopByPricePanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecategorytopsellers-panel">SideCategoryTopSellers Panel</h1>
+
+<p>The list of top selling products (based on the number sold) for a particular category.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideCategoryTopSellersPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidecouponcodebox-panel">SideCouponCodeBox Panel</h1>
+
+<p>The coupon code entry box shown on the side of the cart page.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidegiftcertificatecodebox-panel">SideGiftCertificateCodeBox Panel</h1>
+
+<p>The gift certificate code entry box shown on the side of the cart page.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidelivechatservices-panel">SideLiveChatServices Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SideLiveChatCode%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidenewproducts-panel">SideNewProducts Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideNewProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidenewsletterbox-panel">SideNewsletterBox Panel</h1>
+
+<h3 id="available-panels">Available Panels</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">SideNewsletterBox</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterButtonOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterBoxOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterBoxControlScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterHeaderOptimizerScriptTag%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_NewsletterBoxOptimizerNoScriptTag%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidepopularproducts-panel">SidePopularProducts Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSidePopularProductsPanel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%SNIPPET_SidePopularProductsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%LNG_PopularProducts%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%SNIPPET_SidePopularProducts%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideproductaddtowishlist-panel">SideProductAddToWishList Panel</h1>
+
+<p>The button to add this product to the customer’s wishlist.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePurchasingOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishlist%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductId%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ProductName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishLists%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideproductalsobought-panel">SideProductAlsoBought Panel</h1>
+
+<p>Shows a list of products that customers have purchased who have also purchased the product being shown.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_AlsoBoughtProductListing%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideproductrecentlyviewed-panel">SideProductRecentlyViewed Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideProductRecentlyViewedCompare%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRecentlyViewedProductsPanel%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideproductrelated-panel">SideProductRelated Panel</h1>
+
+<p>A list of products related to this product (either automatically fetched or manually configured)</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideRelatedProductsPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideshopbybrandfull-panel">SideShopByBrandFull Panel</h1>
+
+<p>A complete list of brand names on the store ordered alphabetically.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideShopByBrandFullPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sideshopbybrand-panel">SideShopByBrand Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShopByBrandPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sidetopsellers-panel">SideTopSellers Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSideTopSellersPanel%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="similarproductsbytag-panel">SimilarProductsByTag Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSectionSeparator%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="sitemapbreadcrumb-panel">SitemapBreadcrumb Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideIfSubsection%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideIfNoSubsection%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SitemapLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideIfNoSubsection%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SitemapSubsectionTrail%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="suggestivecartcontent-panel">SuggestiveCartContent Panel</h1>
+
+<p>Displays recommended products after a product was added to the cart. This includes products that customers who purchased this product have also purchased, related products and popular products.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSuggestiveCartContent%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SuggestedProductListing%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="syndicate-panel">Syndicate Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowNewProductsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowPopularProductsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowFeaturedProductsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowSearchFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShowNewsFeed%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="tagproducts-panel">TagProducts Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_CompareLink%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TagProductListing%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCompareItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_IMG_PATH%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SiteColor%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_TaggedProducts%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="topmenu-panel">TopMenu Panel</h1>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishlist%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideCartOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAccountOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LoginOrLogoutText%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_OptimizerLinkScript%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HidePurchasingOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LiveChatCodeEnabled%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_LiveChatCode%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAccountOptions%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideAccountOptions%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="wishlistaddform-panel">WishListAddForm Panel</h1>
+
+<p>The form that allows creation of a wishlist.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageTitle%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNormalMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishListAddFrom%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSuccessMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListAction%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_SelectPublic%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PageTitle%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="wishlistitems-panel">WishListItems Panel</h1>
+
+<p>Used when displaying the contents of a particular wishlist.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListName%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNormalMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishListItems%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSuccessMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideShareWishList%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShareWishListClass%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_PublicWishListUrl%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_ShareWishListIntro%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListName%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+          <h1 id="wishlists-panel">WishLists Panel</h1>
+
+<p>Shown whenever a list of wishlists the customer has is to be displayed.</p>
+
+<h3 id="available-variables">Available Variables</h3>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideNormalMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideErrorMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideSuccessMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_WishListMessage%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishLists%%</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">%%GLOBAL_HideWishListsTable%%</code></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      </div>
+    </div>
+  </body>
+</html>
