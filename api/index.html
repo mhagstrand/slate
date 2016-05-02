@@ -180,49 +180,222 @@
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+          <h2 id="introduction">Introduction</h2>
+
+<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
+
+<h2 id="2xx-success">2xx Success</h2>
+
+<p>These codes are returned for requests that were understood and processed successfully.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Request failed due to not meeting parameters</td>
+<td><strong>200</strong></td>
+<td><strong>OK</strong></td>
+<td>For successful <strong>GET</strong> and <strong>PUT</strong> requests.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API credentials are incorrect</td>
+<td><strong>201</strong></td>
+<td><strong>Created</strong></td>
+<td>For a successful <strong>POST</strong> request.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; You do not possess appropriate permissions</td>
+<td><strong>202</strong></td>
+<td><strong>Accepted</strong></td>
+<td>For a request that resulted in a scheduled task being created to perform the actual request.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; Resource not found (may be due to poor request)</td>
+<td><strong>204</strong></td>
+<td><strong>No Content</strong></td>
+<td>For a successful request that produced no response (such as <strong>DELETE</strong> requests).</td>
+</tr>
+</tbody></table>
+
+<h2 id="3xx-redirection">3xx Redirection</h2>
+
+<p>These codes are returned for requests that have resulted in the client needing to take further action to complete the request.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>301</strong></td>
+<td><strong>Moved Permanently</strong></td>
+<td>When the API routes have changed (unlikely) or if the incoming request is not secure (http) then it will be redirect to the secure (https) version.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; Invalid method used</td>
+<td><strong>302</strong></td>
+<td><strong>Found</strong></td>
+<td>When the resource was found at a different location. When a request to a deprecated version of the API is received, a <strong>302 Found</strong> response will be issued to the current API version.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; Invalid request format</td>
+<td><strong>304</strong></td>
+<td><strong>Not Modified</strong></td>
+<td>If an <strong>If-Modified-Since</strong> header is sent in the request and the resource has not been modified since the specified date, then this response will be sent. See resource specific pages for support for the <strong>If-Modified-Since</strong> header.</td>
+</tr>
+</tbody></table>
+
+<h2 id="4xx-client-error">4xx Client Error</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>400</strong></td>
+<td><strong>Bad Request</strong></td>
+<td>Issued when a malformed request was sent. Examples follow.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; Excessive API requests</td>
+<td></td>
+<td></td>
+<td>*   Invalid syntax</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td></td>
+<td></td>
+<td>*   Missing required data</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re experiencing a temporary issue. Check status.bigcommerce.com</td>
+<td></td>
+<td></td>
+<td>*   Webhook requests missing <strong>Content-Type</strong> in the HTTP header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td><strong>Unauthorized</strong></td>
+<td>This response is sent when your client failed to provide credentials or its credentials were invalid.</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td><strong>Forbidden</strong></td>
+<td>Returned when permissions do not allow the operation or when the operation exceeds a limit.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested and if they support the request that you made.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Revert those changes to correct this issue.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. Refer to the documentation of the resource in question for more information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td><strong>Not Found</strong></td>
+<td>When a particular resource doesn’t exist or couldn’t be found.</td>
+</tr>
+<tr>
+<td><strong>405</strong></td>
+<td><strong>Method Not Allowed</strong></td>
+<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <strong>PUT</strong> on <strong>/orders</strong> is invalid, but <strong>PUT</strong> on <strong>/orders/{<em>id</em>}</strong> is valid.</td>
+</tr>
+<tr>
+<td><strong>406</strong></td>
+<td><strong>Not Acceptable</strong></td>
+<td>When the client specifies a response content type in the <strong>Accept</strong> header that is not supported.</td>
+</tr>
+<tr>
+<td><strong>409</strong></td>
+<td><strong>Conflict</strong></td>
+<td>A change requested by the client is being rejected due to a condition imposed by the server. The exact reasons response for this will vary from one resource to the next. Examples may include attempting to delete a category which would result in products being orphaned. Additional information about the conflict and how to resolve it may be available in the <strong>details</strong> section of the response.</td>
+</tr>
+<tr>
+<td><strong>413</strong></td>
+<td><strong>Request Entity Too Large</strong></td>
+<td>When the client requests too many objects. For example, the <strong>limit</strong> parameter exceeded the maximum.</td>
+</tr>
+<tr>
+<td><strong>415</strong></td>
+<td><strong>Unsupported Media Type</strong></td>
+<td>Returned due to issues with the <strong>Content-Type</strong> header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It specifies an unsupported content type.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It is missing (except the webhooks resource, which returns a 400 in this case).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>429</strong></td>
+<td><strong>Too Many Requests</strong></td>
+<td>When an OAuth client exceeds the rate limit for API requests to a store.</td>
+</tr>
+</tbody></table>
+
+<h2 id="5xx-server-error">5xx Server Error</h2>
+
+<p>These codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>500</strong></td>
+<td><strong>Internal Server Error</strong></td>
+<td>When an error has occurred within the API.</td>
+</tr>
+<tr>
+<td><strong>501</strong></td>
+<td><strong>Not Implemented</strong></td>
+<td>When a request method is sent that is not supported by the API (e.g., <strong>TRACE</strong>, <strong>PATCH</strong>).</td>
+</tr>
+<tr>
+<td><strong>503</strong></td>
+<td><strong>Service Unavailable</strong></td>
+<td>When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version.</td>
+</tr>
+<tr>
+<td><strong>507</strong></td>
+<td><strong>Insufficient Storage</strong></td>
+<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit).</td>
+</tr>
+<tr>
+<td><strong>509</strong> (Deprecated)</td>
+<td><strong>Bandwidth Limit Exceeded</strong></td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
 </tr>
 </tbody></table>
 

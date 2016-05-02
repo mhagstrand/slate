@@ -180,49 +180,442 @@
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+          <h2 id="introduction">Introduction</h2>
+
+<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
+
+<h2 id="2xx-success">2xx Success</h2>
+
+<p>These codes are returned for requests that were understood and processed successfully.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Request failed due to not meeting parameters</td>
+<td><strong>200</strong></td>
+<td><strong>OK</strong></td>
+<td>For successful <strong>GET</strong> and <strong>PUT</strong> requests.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API credentials are incorrect</td>
+<td><strong>201</strong></td>
+<td><strong>Created</strong></td>
+<td>For a successful <strong>POST</strong> request.</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; You do not possess appropriate permissions</td>
+<td><strong>202</strong></td>
+<td><strong>Accepted</strong></td>
+<td>For a request that resulted in a scheduled task being created to perform the actual request.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; Resource not found (may be due to poor request)</td>
+<td><strong>204</strong></td>
+<td><strong>No Content</strong></td>
+<td>For a successful request that produced no response (such as <strong>DELETE</strong> requests).</td>
+</tr>
+</tbody></table>
+
+<h2 id="3xx-redirection">3xx Redirection</h2>
+
+<p>These codes are returned for requests that have resulted in the client needing to take further action to complete the request.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>301</strong></td>
+<td><strong>Moved Permanently</strong></td>
+<td>When the API routes have changed (unlikely) or if the incoming request is not secure (http) then it will be redirect to the secure (https) version.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; Invalid method used</td>
+<td><strong>302</strong></td>
+<td><strong>Found</strong></td>
+<td>When the resource was found at a different location. When a request to a deprecated version of the API is received, a <strong>302 Found</strong> response will be issued to the current API version.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; Invalid request format</td>
+<td><strong>304</strong></td>
+<td><strong>Not Modified</strong></td>
+<td>If an <strong>If-Modified-Since</strong> header is sent in the request and the resource has not been modified since the specified date, then this response will be sent. See resource specific pages for support for the <strong>If-Modified-Since</strong> header.</td>
+</tr>
+</tbody></table>
+
+<h2 id="4xx-client-error">4xx Client Error</h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>400</strong></td>
+<td><strong>Bad Request</strong></td>
+<td>Issued when a malformed request was sent. Examples follow.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; Excessive API requests</td>
+<td></td>
+<td></td>
+<td>*   Invalid syntax</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td></td>
+<td></td>
+<td>*   Missing required data</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re experiencing a temporary issue. Check status.bigcommerce.com</td>
+<td></td>
+<td></td>
+<td>*   Webhook requests missing <strong>Content-Type</strong> in the HTTP header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td><strong>Unauthorized</strong></td>
+<td>This response is sent when your client failed to provide credentials or its credentials were invalid.</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td><strong>Forbidden</strong></td>
+<td>Returned when permissions do not allow the operation or when the operation exceeds a limit.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested and if they support the request that you made.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Revert those changes to correct this issue.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. Refer to the documentation of the resource in question for more information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td><strong>Not Found</strong></td>
+<td>When a particular resource doesn’t exist or couldn’t be found.</td>
+</tr>
+<tr>
+<td><strong>405</strong></td>
+<td><strong>Method Not Allowed</strong></td>
+<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <strong>PUT</strong> on <strong>/orders</strong> is invalid, but <strong>PUT</strong> on <strong>/orders/{<em>id</em>}</strong> is valid.</td>
+</tr>
+<tr>
+<td><strong>406</strong></td>
+<td><strong>Not Acceptable</strong></td>
+<td>When the client specifies a response content type in the <strong>Accept</strong> header that is not supported.</td>
+</tr>
+<tr>
+<td><strong>409</strong></td>
+<td><strong>Conflict</strong></td>
+<td>A change requested by the client is being rejected due to a condition imposed by the server. The exact reasons response for this will vary from one resource to the next. Examples may include attempting to delete a category which would result in products being orphaned. Additional information about the conflict and how to resolve it may be available in the <strong>details</strong> section of the response.</td>
+</tr>
+<tr>
+<td><strong>413</strong></td>
+<td><strong>Request Entity Too Large</strong></td>
+<td>When the client requests too many objects. For example, the <strong>limit</strong> parameter exceeded the maximum.</td>
+</tr>
+<tr>
+<td><strong>415</strong></td>
+<td><strong>Unsupported Media Type</strong></td>
+<td>Returned due to issues with the <strong>Content-Type</strong> header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It specifies an unsupported content type.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It is missing (except the webhooks resource, which returns a 400 in this case).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>429</strong></td>
+<td><strong>Too Many Requests</strong></td>
+<td>When an OAuth client exceeds the rate limit for API requests to a store.</td>
+</tr>
+</tbody></table>
+
+<h2 id="5xx-server-error">5xx Server Error</h2>
+
+<p>These codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>500</strong></td>
+<td><strong>Internal Server Error</strong></td>
+<td>When an error has occurred within the API.</td>
+</tr>
+<tr>
+<td><strong>501</strong></td>
+<td><strong>Not Implemented</strong></td>
+<td>When a request method is sent that is not supported by the API (e.g., <strong>TRACE</strong>, <strong>PATCH</strong>).</td>
+</tr>
+<tr>
+<td><strong>503</strong></td>
+<td><strong>Service Unavailable</strong></td>
+<td>When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version.</td>
+</tr>
+<tr>
+<td><strong>507</strong></td>
+<td><strong>Insufficient Storage</strong></td>
+<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit).</td>
+</tr>
+<tr>
+<td><strong>509</strong> (Deprecated)</td>
+<td><strong>Bandwidth Limit Exceeded</strong></td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
+</tr>
+</tbody></table>
+
+          <h2 id="oauth-scopes">OAuth Scopes</h2>
+
+<p>The following table identifies the name used for each OAuth scope in the My Apps and Control Panel GUI and what it corresponds to in terms of resources and the strings that get passed to your app during <a href="/api#callback">app installation</a>.</p>
+
+<p>All OAuth scopes except <strong>default</strong> have <strong>read_only</strong> scopes which allow only <strong>GET</strong> and <strong>HEAD</strong> requests.</p>
+
+<table><thead>
+<tr>
+<th>Scope GUI Name</th>
+<th>Scope Strings</th>
+<th>Resources</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content</td>
+<td><strong>store_v2_content</strong></td>
+<td><a href="/api/stores/v2/blog/posts">blog/posts</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_content_read_only</strong></td>
+<td><a href="/api/stores/v2/blog/tags">blog/tags</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/redirects">redirects</a></td>
+</tr>
+<tr>
+<td>Customers</td>
+<td><strong>store_v2_customers</strong></td>
+<td><a href="/api/stores/v2/customers">customers</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_customers_read_only</strong></td>
+<td><a href="/api/stores/v2/customers/addresses">customers/{id}/addresses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
+</tr>
+<tr>
+<td>Default</td>
+<td><strong>default</strong></td>
+<td><a href="/api/stores/v2/countries">countries</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/countries/states">countries/{id}/states</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/webhooks">hooks</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/time">time</a></td>
+</tr>
+<tr>
+<td>Information</td>
+<td><strong>store_v2_information</strong></td>
+<td><a href="/api/stores/v2/payments/methods">payments/methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_information_read_only</strong></td>
+<td><a href="/api/stores/v2/shipping/methods">shipping/methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/store_information">store</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/tax_classes">tax_classes</a></td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td><strong>store_v2_marketing</strong></td>
+<td><a href="/api/stores/v2/coupons">coupons</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_marketing_read_only</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Orders</td>
+<td><strong>store_v2_orders</strong></td>
+<td><a href="/api/stores/v2/orders">orders</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_orders_read_only</strong></td>
+<td><a href="/api/stores/v2/orders/coupons">orders/{id}/coupons</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/messages">orders/{id}/messages</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/products">orders/{id}/products</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/shipping_addresses">orders/{id}/shipping_addresses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/order_statuses">orders/{id}/order_statuses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/taxes">orders/{id}/taxes</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/shipments">orders/{id}/shipments</a></td>
+</tr>
+<tr>
+<td>Products</td>
+<td><strong>store_v2_products</strong></td>
+<td><a href="/api/stores/v2/brands">brands</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_products_read_only</strong></td>
+<td><a href="/api/stores/v2/products/discount_rules">products/{id}/discount_rules</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/categories">categories</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/configurable_fields">products/{id}/configurable_fields</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/custom_fields">products/{id}/custom_fields</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/googleproductsearch">products/{id}/googleproductsearch</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/options">options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/option_sets">option_sets</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/option_sets/options">option_sets/{id}/options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/options/values">options/{id}/values</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products">products</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/images">products/{id}/images</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/options">products/{id}/options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/reviews">products/{id}/reviews</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/rules">products/{id}/rules</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/#products-videos">products/{id}/videos</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/#products-skus">products/{id}/skus</a></td>
 </tr>
 </tbody></table>
 
@@ -2473,7 +2866,317 @@
 </tr>
 </tbody></table>
 
-          
+          <h2 id="options-belonging-to-an-option-set">Options belonging to an option set.</h2>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="operations">Operations</h2>
+
+<ul>
+<li>  <a href="#list-option-set-options">List Option Set Options</a></li>
+<li>  <a href="#get-an-option-set-option">Get an Option Set Option</a></li>
+<li>  <a href="#create-an-option-set-option">Create an Option Set Option</a></li>
+<li>  <a href="#update-an-option-set-option">Update an Option Set Option</a></li>
+<li>  <a href="#delete-an-option-set-option">Delete an Option Set Option</a></li>
+<li>  <a href="#delete-multiple-option-set-options">Delete Multiple Option Set Options</a></li>
+</ul>
+
+<h2 id="list-option-set-options">List Option Set Options</h2>
+
+<p>Gets the options associated with an option set. (Default sorting is by option id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#list-option-set-options-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
+<li>  <a href="#list-option-set-options-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/option_sets/{option_set_id}/options</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?limit={count}</code></td>
+</tr>
+</tbody></table>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Size"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/v2/options/18.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/options/18"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XS"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">68</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"S"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">69</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"M"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">70</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"L"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">71</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XL"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Color"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/v2/options/3.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/options/3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"values"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Silver"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#cccccc"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Black"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Purple"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#700170"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"option_value_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-an-option-set-option">Get an Option Set Option</h2>
+
+<p>Gets an option set option.</p>
+
+<ul>
+<li>  <a href="#get-an-option-set-option-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
+<li>  <a href="#get-an-option-set-option-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Clock Speeds (CPU)"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/v2/options/5.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/options/5"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-an-option-set-option">Create an Option Set Option</h2>
+
+<p>Creates a new option associated with an option set.</p>
+
+<ul>
+<li>  <a href="#create-an-option-set-option-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
+<li>  <a href="#create-an-option-set-option-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/option_sets/{option_set_id}/options</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">option_set_id</code></li>
+<li>  <code class="prettyprint">values</code></li>
+<li>  <code class="prettyprint">option</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option set option are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  <code class="prettyprint">option_id</code></li>
+</ul>
+<pre class="highlight plaintext"><code>{
+  "option_id": 10,
+  "display_name": "Choose a color",
+  "sort_order": 1,
+  "is_required": true
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Choose a color"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/v2/options/10.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/options/10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-an-option-set-option">Update an Option Set Option</h2>
+
+<p>Updates an existing option set option.</p>
+
+<ul>
+<li>  <a href="#update-an-option-set-option-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
+<li>  <a href="#update-an-option-set-option-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  <code class="prettyprint">id</code></li>
+<li>  <code class="prettyprint">option_id</code></li>
+<li>  <code class="prettyprint">option_set_id</code></li>
+<li>  <code class="prettyprint">values</code></li>
+<li>  <code class="prettyprint">option</code></li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the option set option are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight plaintext"><code>{
+  "display_name": "Pick a color...",
+  "sort_order": 2,
+  "is_required": false
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pick a color..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"option"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.com/api/v2/options/10.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/options/10"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-an-option-set-option">Delete an Option Set Option</h2>
+
+<p>Deletes an option belonging to an option set.</p>
+
+<ul>
+<li>  <a href="#delete-an-option-set-option-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
+<li>  <a href="#delete-an-option-set-option-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-option-set-options">Delete Multiple Option Set Options</h2>
+
+<p>Deletes multiple options associated with an option set.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-option-set-options-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
+<li>  <a href="#delete-multiple-option-set-options-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/option_sets/{option_set_id}/options</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">Page</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?page={number}</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">Limit</code></td>
+<td>int</td>
+<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?limit={count}</code></td>
+</tr>
+</tbody></table>
+
           <h1 id="product-images">Product Images</h1>
 
 <p>Properties for a product image</p>
@@ -3954,7 +4657,51 @@
 </tr>
 </tbody></table>
 
-          
+          <h1 id="custom-fields">Custom Fields</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/custom_fields">Custom Fields Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="custom-field-object-properties">Custom Field Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td>ID of the associated product</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>key</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>value</td>
+</tr>
+</tbody></table>
+
           <h2 id="custom-fields-associated-with-a-product">Custom fields associated with a product.</h2>
 
 <table><thead>
@@ -4196,7 +4943,76 @@
 </tr>
 </tbody></table>
 
-          
+          <h1 id="configurable-fields">Configurable Fields</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/configurable_fields">Configurable Fields Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="configureable-field-properties">Configureable Field - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>allowed_file_types</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>max_size</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>select_options</td>
+<td>text</td>
+<td></td>
+</tr>
+<tr>
+<td>is_required</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>sort_order</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
           <h2 id="configurable-fields-associated-with-a-product">Configurable fields associated with a product.</h2>
 
 <table><thead>
@@ -4360,7 +5176,61 @@
 </tr>
 </tbody></table>
 
-          
+          <h1 id="bulk-pricing">Bulk Pricing</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/discount_rules">Bulk Pricing Rules Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="bulk-pricing-object-properties">Bulk Pricing Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>The ID of the bulk discount rule.</td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td>The ID of the product associated with this bulk discount rule.</td>
+</tr>
+<tr>
+<td>min</td>
+<td>int</td>
+<td>The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.</td>
+</tr>
+<tr>
+<td>max</td>
+<td>int</td>
+<td>The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the min value, unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.</td>
+</tr>
+<tr>
+<td>type</td>
+<td>enum</td>
+<td></td>
+</tr>
+<tr>
+<td>type_value</td>
+<td>decimal</td>
+<td>The value of the discount</td>
+</tr>
+</tbody></table>
+
           <h2 id="bulk-pricing-rules-applied-to-a-product">Bulk pricing rules applied to a product.</h2>
 
 <table><thead>
@@ -4620,7 +5490,96 @@
 </tr>
 </tbody></table>
 
-          
+          <h1 id="google-product-search-mappings">Google Product Search Mappings</h1>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Managed by</td>
+<td><a href="/api/stores/v2/products/googleproductsearch">Google Product Search Mappings Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="google-product-search-mapping-object-properties">Google Product Search Mapping Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>product_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>category_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>custom_item</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>global_trade_item_number</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>manufacturer_part_number</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>gender</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>age_group</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>size</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>material</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>pattern</td>
+<td></td>
+</tr>
+<tr>
+<td>google_shopping_product_category_path</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
           <table><thead>
 <tr>
 <th></th>
@@ -7316,7 +8275,88 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          
+          <h1 id="shipments">Shipments</h1>
+
+<p>Tracks a package consignment from an order, shipped from the seller to the buyer.</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/orders/shipments">Shipments Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="shipment-object-properties">Shipment Object - Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>customer_id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>order_address_id</td>
+<td>int</td>
+<td>ID of the order address the shipment is associated with</td>
+</tr>
+<tr>
+<td>date_created</td>
+<td>date</td>
+<td></td>
+</tr>
+<tr>
+<td>tracking_number</td>
+<td>string</td>
+<td>Tracking number of the shipment</td>
+</tr>
+<tr>
+<td>shipping_method</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>comments</td>
+<td>text</td>
+<td>Comments the shipper wishes to add</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>shipping_address</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>items</td>
+<td>object_array</td>
+<td>The items in the shipment. Is an object. Look at the items table. A sample value can be [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</td>
+</tr>
+</tbody></table>
+
           <h2 id="shipping-package-consignments-tracked-from-an-order">Shipping package consignments tracked from an order.</h2>
 
 <table><thead>
@@ -8652,7 +9692,53 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          
+          <h1 id="state">State</h1>
+
+<p>A state or province, identifiable by an ISO 3166 subdivision code</p>
+
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Managed by</strong></td>
+<td><a href="/api/stores/v2/countries/states">States Resource</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="properties">Properties</h2>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>int</td>
+<td></td>
+</tr>
+<tr>
+<td>state</td>
+<td>string</td>
+<td>state name</td>
+</tr>
+<tr>
+<td>state_abbreviation</td>
+<td>string</td>
+<td>state abbreviation</td>
+</tr>
+<tr>
+<td>country_id</td>
+<td>int</td>
+<td></td>
+</tr>
+</tbody></table>
+
           <h2 id="states-and-subdivisions-belonging-to-countries">States and subdivisions belonging to countries.</h2>
 
 <table><thead>
