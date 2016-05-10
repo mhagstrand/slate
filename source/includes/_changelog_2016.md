@@ -1,5 +1,25 @@
 # 2016
 
+## May
+
+### Store Information endpoint adds "features" array
+
+The Store Information endpoint now provides a `features` array, whose elements flag features that affect app compatibility or functionality. This array's initial `stencil_enabled` (Boolean) element indicates whether a store is using a Stencil theme, as in this example:
+
+    "features": {
+        "stencil_enabled": true
+    }
+
+BigCommerce will add other features to this array as warranted. For details, please see our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
+
+
+### Stencil custom/private theme uploads now available
+
+Developers can now upload custom/private Stencil themes to storefronts, via the BigCommerce control panel. 
+
+For details, please see [this Knowledge Base article](https://support.bigcommerce.com/articles/Public/Custom-Theme-Upload) and [this troubleshooting page](https://stencil.bigcommerce.com/docs/uploading-a-custom-theme).
+
+
 ## April 
 
 ### New API SKU Properties Available
