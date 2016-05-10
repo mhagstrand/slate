@@ -48,6 +48,9 @@ Gets metadata about a store.
   "is_price_entered_with_tax": false,
   "active_comparison_modules": [
 
-  ]
+  ],
+  "features": {
+    "stencil_enabled": false
+  }
 }
 ```

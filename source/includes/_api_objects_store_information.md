@@ -33,8 +33,10 @@ Profile of an individual store.
 | plan_name | string | Name of the Bigcommerce plan this store belongs to |
 | plan_level | string | BigCommerce plan level to which this store is subscribed |
 | logo | object |
-| is_price_entered_with_tax | boolean | A BOOLEAN value that indicates whether or not prices are entered with tax |
+| is_price_entered_with_tax | boolean | A Boolean value that indicates whether or not prices are entered with tax |
 | active_comparison_modules | array |
+| features | object | Array of flags for features that affect app compatibility or functionality. Child \"stencil_enabled\" element is a Boolean that indicates whether a store is using a Stencil theme. |
+
 
 ## Webhook Events
 

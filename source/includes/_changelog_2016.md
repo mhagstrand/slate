@@ -10,7 +10,7 @@ The Store Information endpoint now provides a `features` array, whose elements f
         "stencil_enabled": true
     }
 
-BigCommerce will add other features to this array as warranted. For details, please see our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
+BigCommerce will add other features to this array, as warranted. For details, please see our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
 
 
 ### Stencil custom/private theme uploads now available
