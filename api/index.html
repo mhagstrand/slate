@@ -25,11 +25,6 @@
       });
     });
     </script>
-      <script>
-        $(function() {
-          setupLanguages(["curl","json"]);
-        });
-      </script>
   </head>
 
   <body class="api api_index twocolumn">
@@ -66,10 +61,6 @@
 </header>
 
     <div class="tocify-wrapper">
-        <div class="lang-selector">
-              <a href="#" data-language-name="curl">Request</a>
-              <a href="#" data-language-name="json">Response</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -621,6 +612,681 @@
 <td></td>
 <td></td>
 <td><a href="/api/v2/products/#product-skus">products/{id}/skus</a></td>
+</tr>
+</tbody></table>
+
+          <h1 id="app-approval-requirements">App Approval Requirements</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Our submission guidelines aim to protect the merchant experience, as well as provide enough structure for you to develop apps efficiently and effectively.</p>
+
+<h2 id="app-requirements">App Requirements</h2>
+
+<ul>
+<li><p>Must perform as described.</p></li>
+<li><p>All information supplied as part of the app submission process must be genuine and accurate.</p></li>
+<li><p>Must provide pricing information including pricing for starting a new service and the cost of services after the free trial.</p></li>
+<li><p>All API requests must be made using OAuth authentication.</p></li>
+<li><p>Must be production ready and free of defects.</p></li>
+</ul>
+
+<blockquote>
+<p>OTE: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft to conduct your tests.</p>
+</blockquote>
+
+<ul>
+<li><p>Must function properly on all <a href="/api#browsers">supported browsers</a> and conform to the <a href="/api/ui-constraints">user interface constraints</a>, such as P3P policies as necessary and no mixed content.</p></li>
+<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth—as long as they open a new tab to do so.</p></li>
+<li><p>Must be easy to use.</p></li>
+<li><p>Whenever possible, use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p></li>
+</ul>
+
+<blockquote>
+<p>NOTE: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store Information</a> resource.</p>
+</blockquote>
+
+<ul>
+<li><p>The user ID and email address from the <a href="/api#load-process">OAuth flow</a> should allow you to log the merchant into any additional systems automatically. Apps that provide the merchant with a single sign-on experience are preferred.</p></li>
+<li><p>Must return some HTML in response to GET requests to the <a href="/api#load-process">Auth Callback URI</a>.</p></li>
+<li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
+<li><p>No competitor integrations or references should appear in app or in marketing materials.</p></li>
+<li><p>Any instances of the Bigcommerce brand name must be correctly spelled, i.e., one word with a uppercase &lsquo;C&rsquo;.</p></li>
+<li><p>Must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
+</ul>
+
+<h2 id="types-of-apps-we-39-re-accepting">Types of apps we&rsquo;re accepting</h2>
+
+<table><thead>
+<tr>
+<th>Accepting</th>
+<th>Not accepting</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accounting</td>
+<td>Real-Time Tax</td>
+</tr>
+<tr>
+<td>Advertising</td>
+<td>Customized Checkout</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Real-time Shipping Rate updates</td>
+</tr>
+<tr>
+<td>Cloud integration</td>
+<td>Payment Methods</td>
+</tr>
+<tr>
+<td>Customer feedback</td>
+<td></td>
+</tr>
+<tr>
+<td>Drop shipping</td>
+<td></td>
+</tr>
+<tr>
+<td>Email marketing</td>
+<td></td>
+</tr>
+<tr>
+<td>Live chat</td>
+<td></td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td></td>
+</tr>
+<tr>
+<td>Merchandising</td>
+<td></td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td></td>
+</tr>
+<tr>
+<td>Multichannel listing</td>
+<td></td>
+</tr>
+<tr>
+<td>Order fulfillment</td>
+<td></td>
+</tr>
+<tr>
+<td>Order management</td>
+<td></td>
+</tr>
+<tr>
+<td>Point of sale</td>
+<td></td>
+</tr>
+<tr>
+<td>Product review</td>
+<td></td>
+</tr>
+<tr>
+<td>Shipping</td>
+<td></td>
+</tr>
+<tr>
+<td>Shopping comparison</td>
+<td></td>
+</tr>
+<tr>
+<td>Social media</td>
+<td></td>
+</tr>
+<tr>
+<td>Split testing</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
+
+          <h1 id="supported-browsers">Supported Browsers</h1>
+
+<p>The following table identifies the browsers supported for the Bigcommerce Control Panel. We drop support when usage falls below 2%. The browsers are sorted by popularity, with the most popular browsers at the top.</p>
+
+<table><thead>
+<tr>
+<th>Desktop</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Chrome latest</td>
+</tr>
+<tr>
+<td>Firefox latest</td>
+</tr>
+<tr>
+<td>Internet Explorer 11 or later</td>
+</tr>
+<tr>
+<td>Safari latest</td>
+</tr>
+</tbody></table>
+
+<p>For a current list of target browsers (desktop and mobile) supported for <em>storefronts</em> using Bigcommerce themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers">this support page</a>.</p>
+
+          <h2 id="introduction">Introduction</h2>
+
+<p>When you first get up and running with your app development, you will leave many fields in <strong>My Apps</strong> blank, as discussed in the <a href="/api/registration">App Registration</a> section. Before submitting your app for consideration, you must come back through the <strong>My Apps</strong> wizard and fill in the missing information. This section discusses each page of the wizard and identifies the information and files required for App Store approval.</p>
+
+<blockquote>
+<p>NOTE: The wizard validates for the Partner user name and ID, as well as correctly formatted URLs. However, additional information is required to get accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.</p>
+</blockquote>
+
+<h2 id="app-summary">App Summary</h2>
+
+<p>The required fields in the <strong>App Summary</strong> panel are identified and discussed below:</p>
+
+<ul>
+<li><p><em>Username</em>: your Partner Portal user name.</p></li>
+<li><p><em>Partner ID</em>: your Partner Portal ID.</p></li>
+<li><p><em>Logo</em>: upload the image that you want to be displayed in the <a href="https://www.bigcommerce.com/apps/">App Store</a>. To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.</p></li>
+<li><p><em>Price</em>: defaults to <strong>Free</strong>. If you do not want to receive any monies for your app, you can leave this in place. Otherwise, select the price that you want to charge merchants. NOTE: if you select <strong>Free Trial</strong>, make sure that you select a price to charge at the end of the trial period.</p></li>
+<li><p><em>Summary</em>: a brief description of your app (your value proposition) to show alongside the logo in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p></li>
+<li><p><em>Category</em>: select at least one.</p></li>
+</ul>
+
+<h2 id="details">Details</h2>
+
+<p>All of the fields in the <strong>Details</strong> panel are required. Each is discussed below:</p>
+
+<ul>
+<li><p><em>App Details</em>: provide a bulleted list of features or benefits, as well as which payment gateways/options the app supports.</p></li>
+<li><p><em>App Screenshots</em>: at least one is required. You can include up to four. Screenshots should be 860 by 560 pixels.</p></li>
+</ul>
+
+<h2 id="launch-bar">Launch Bar</h2>
+
+<p>You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant&rsquo;s Control Panel once your app has been installed.</p>
+
+<p>Bigcommerce also provides the option to provide &ldquo;deep links,&rdquo; which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.</p>
+
+<h2 id="technical">Technical</h2>
+
+<p>You will have already provided much of the information during the initial <a href="/api/registration">app registration</a>. However, before submitting, review the information that you provided initially to make sure that all of the URIs are publicly available, fully qualified, and served over TLS/SSL. In addition, ensure that your app is requesting all of the scopes that it needs now, as well as the scopes that you anticipate needing in the future. Currently, we do not offer the ability to refresh tokens.</p>
+
+<p>You must also provide detailed testing instructions as well as test accounts prior to submission.</p>
+
+<h2 id="submitting-your-app">Submitting your App</h2>
+
+<p>You can submit your app from the last panel. A fee of $99 is required for each submission. If your app is rejected and you need to resubmit it, you will be charged again, so be sure that it&rsquo;s ready for review before submitting. Updates to the app will not require an additional submission fee.</p>
+
+<p>After receiving the submission, Bigcommerce will use the information that you have provided to interact with, evaluate, and test your app.</p>
+
+<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
+
+          <h1 id="api-registration">API Registration</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Once you have a <a href="/api/using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
+
+<ul>
+<li><p>The <strong>Client ID</strong> value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.</p></li>
+<li><p>The <strong>Client Secret</strong> value is a secret that your app and Bigcommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="/api/callbacks">app installation</a> sequence. Thereafter, Bigcommerce uses it to sign payloads in <a href="/api/load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from Bigcommerce.</p></li>
+</ul>
+
+<p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
+
+<h2 id="technical-requirements">Technical Requirements</h2>
+
+<h3 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h3>
+
+<p>You must have a <a href="/api/callback">Auth Callback URI</a> and a <a href="/api/load#load">Load Callback URI</a> to register your app.</p>
+
+<blockquote>
+<p>PRO TIP: Because the <strong>Auth Callback URI</strong> and <strong>Load Callback URI</strong> requests originate from the browser and not Bigcommerce, you can use non-publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to and test your app with a publicly available <strong>Auth Callback URI</strong> and <strong>Load Callback URI</strong> before submitting your app for consideration in the App Store.</p>
+</blockquote>
+
+<h3 id="uninstall-callback-optional">Uninstall callback (optional)</h3>
+
+<p>If you want to receive a callback when the store owner uninstalls your app, you can provide a <a href="/api/load#uninstall">Uninstall Callback URI</a>.</p>
+
+<h3 id="multi-user-support-optional">Multi-user support (optional)</h3>
+
+<p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
+
+<ul>
+<li>  Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.</li>
+<li>  Your app should be aware that when it receives the <a href="/api/load#load">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
+<li>  You can optionally specify a <a href="/api/load#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
+</ul>
+
+<h3 id="oauth-scopes">OAuth scopes</h3>
+
+<p>If you know the <a href="/api/scopes">OAuth scopes</a> that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:</p>
+
+<ul>
+<li>  Modify the scopes of your app in My Apps and save the changes.</li>
+<li>  Uninstall your draft app from the Control Panel of your sandbox store.</li>
+<li>  Reinstall your draft app in the Control Panel of your sandbox store.</li>
+<li>  Obtain the new OAuth token during the <a href="/api/callback">App Installation</a> flow.</li>
+<li>  Retest your app to make sure it still functions properly with the new token.</li>
+</ul>
+
+<h2 id="registering-your-app">Registering your app</h2>
+
+<p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
+
+<ol>
+<li> Click <strong>Log In</strong> in the top right of the developer portal.</li>
+<li> Within the login page, provide your sandbox store credentials.</li>
+</ol>
+
+<blockquote>
+<p>PRO TIP: These credentials must be the credentials of the owner of the store where you plan to install your draft app.</p>
+</blockquote>
+
+<ol>
+<li> Click <strong>My Apps</strong>.</li>
+<li> Click <strong>Create an app</strong>.</li>
+<li> Type a name for your app in the <strong>Create an App</strong> dialog.</li>
+<li> Click <strong>Next</strong>.</li>
+<li> Click <strong>Next</strong> again.</li>
+<li> Click <strong>Next</strong> one more time.</li>
+<li> Type your <strong>Auth Callback URI</strong> in the <strong>Auth Callback URL</strong> box.</li>
+<li> Type your <strong>Load Callback URI</strong> in the <strong>Load Callback URL</strong> box.</li>
+<li> If you have an <strong>Uninstall Callback URI</strong>, provide this in the <strong>Uninstall Callback URI</strong> box.</li>
+<li> If you want to support multiple users, select <strong>Multiple Users</strong> in the <strong>Supported Features</strong> area and provide a <strong>Remove User Callback URI</strong> in the <strong>Remove User Callback URI</strong> box.</li>
+<li> Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.</li>
+<li> Click <strong>Update &amp; Close</strong>.</li>
+<li> Back in <strong>My Apps</strong> hover over your app.</li>
+<li> Click <strong>View Client ID</strong>.</li>
+<li> Copy the <strong>Client ID</strong> and <strong>Client Secret</strong> values from the dialog and paste them into a safe and secure place.</li>
+</ol>
+
+          <h2 id="what-kind-of-apps-can-i-submit">What kind of apps can I submit?</h2>
+
+<p>You can build any kind of app to test the capabilities of the platform. For inclusion in the App Store, we’re looking for apps that that make online retail better and help our merchants to sell more.</p>
+
+<p>Apps should target one or more of the following categories:</p>
+
+<ul>
+<li>  Accounting</li>
+<li>  Advertising</li>
+<li>  Analytics</li>
+<li>  Cloud integration</li>
+<li>  Customer feedback</li>
+<li>  Drop shipping</li>
+<li>  Email marketing</li>
+<li>  Live chat</li>
+<li>  Marketing</li>
+<li>  Merchandising</li>
+<li>  Mobile</li>
+<li>  Multichannel listing</li>
+<li>  Order fulfillment</li>
+<li>  Order management</li>
+<li>  Point of sale</li>
+<li>  Product review</li>
+<li>  Shipping</li>
+<li>  Shopping comparison</li>
+<li>  Social media</li>
+<li>  Split testing</li>
+</ul>
+
+<h2 id="how-does-the-approval-process-work">How does the approval process work?</h2>
+
+<p>Upon receiving an <a href="/api/completing-reg">app submission</a>, we review it to make sure that it meets our <a href="/api/approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p>
+
+<h2 id="is-the-api-rate-limit-per-store-or-per-app">Is the API rate limit per-store or per-app?</h2>
+
+<p>Basic Authentication requests are rate-limited <a href="/api/rate-limits/basic">per app</a>.</p>
+
+<p>OAuth requests are rate-limited <a href="/api/rate-limits/oauth">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
+
+<h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers">Do apps need to make special considerations for certain browsers?</h2>
+
+<p>Yes. Please review our list of <a href="/api/browsers">supported browsers</a> and the documentation on <a href="/api/ui-constraints">user interface constraints</a> for details.</p>
+
+<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance">What if I need to update my app after App Store submission/acceptance?</h2>
+
+<p>You can modify your app at any time within My Apps, free of charge. As soon as you click <strong>Update &amp; Close</strong>, your changes will be live. Therefore, we recommend creating a copy of your app and using this to test the changes first. Once you have made sure that they work properly, you can go ahead and modify your production app.</p>
+
+<h2 id="will-bigcommerce-host-my-server-side-code">Will Bigcommerce host my server-side code?</h2>
+
+<p>No. Bigcommerce does not support the upload of server-side code to a store. The server-side code must hosted elsewhere. The storefront can use JQuery or Javascript to access it.</p>
+
+          <h1 id="curl-quickstart-guide">Curl Quickstart Guide</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This page provides some sample cURL commands for quick start purposes. These use Basic Authentication. Before you can issue them, you must generate Basic Authentication credentials following the steps discussed in the <a href="/api/legacy/basic-auth">Overview</a>. Once you have your Basic Authentication credentials, you can issue cURL commands as shown below.</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -H "Authorization: Basic _username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/time
+</code></pre>
+
+<p>If the request is made using <strong>Authorization</strong> header, you need to encode the credentials using base64. Or a simple way to do the same thing as above is:</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/orders.json
+</code></pre>
+
+<h2 id="orders">Orders</h2>
+
+<h3 id="get-a-list-of-orders-from-the-store">Get a list of orders from the store</h3>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/orders.json
+</code></pre>
+
+<p>By default, the api request returns only 50 orders. If you want to return all the orders from the store, you have to use filters. Look at the example below.</p>
+
+<h3 id="get-all-orders-from-the-store">Get all orders from the store</h3>
+
+<p>Use the <strong>limit</strong> and <strong>page</strong> filter parameters to get a data beyond what the default query returns. Note that, per page, 200 orders is the max returned.</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/orders.json?limit=200&amp;page=1
+</code></pre>
+
+<h3 id="update-an-order">Update an order</h3>
+
+<p>Order takes many fields on the update requests. Refer to the documentation <a href="http://developer.bigcommerce.com/api/orders#put-ordersidjson">here</a>. Here, we update an order using just the mandatory fields.</p>
+<pre class="highlight plaintext"><code>    curl --request PUT \
+    -u "_username_:_API_key_" \
+    -H "Content-Type: application/json" \
+    --data-binary '{"status_id":1}' \
+    https://store.mybigcommerce.com/api/v2/orders/101
+</code></pre>
+
+<h3 id="get-orders-created-since-a-date">Get orders created since a date</h3>
+
+<p>You can use the <strong>&lsquo;If-Modified-Since&rsquo;</strong> header to request orders that have been created after a date.</p>
+<pre class="highlight plaintext"><code>    curl -I --request GET \
+    -u "_username_:_API_key_" \
+    -H "Content-Type: application/json" \
+    -H "If-Modified-Since: Tue, 4 Dec 2012 00:00:00 GMT" \
+    https://store.mybigcommerce.com/api/v2/orders.json
+</code></pre>
+
+<h3 id="get-coupons-associated-with-an-order">Get coupons associated with an order</h3>
+
+<p>An order can contain coupons applied to it. This might provide discounts to the customer. You can look at all the available coupons in an order as follows:</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_"\
+    https://store.mybigcommerce.com/api/v2/orders/115/coupons.json
+</code></pre>
+
+<h3 id="create-a-shipment-for-an-order">Create a shipment for an order</h3>
+
+<p>One can create a shipment for an order via the orders/shipment endpoint. As an example, third-party shipping services can query orders from a store when they are created and create shipments for those.</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -u "_username_:_API_key_" \
+    -H "Content-Type: application/json" \
+    -d '{"order_address_id":15,"tracking_number":"123-123-123","items":[{"order_product_id":15,"quantity":1}]}' \
+    https://store.mybigcommerce.com/api/v2/orders/114/shipments.json
+</code></pre>
+
+<h2 id="products">Products</h2>
+
+<h3 id="get-a-list-of-products-from-the-store">Get a list of products from the store</h3>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/products.json
+</code></pre>
+
+<p>By default, the API request returns only 50 products. If you want to return all the products from the store, you have to use filters. Look at the example below.</p>
+
+<h3 id="get-all-products-from-the-store">Get all products from the store</h3>
+
+<p>Use the <code class="prettyprint">limit</code> and <code class="prettyprint">page</code> filter parameters to get a data beyond what the default query returns. Note that 200 products is the max returned per page.</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/products.json?limit=200&amp;page=1
+</code></pre>
+
+<h3 id="create-a-product">Create a product</h3>
+
+<p>Products have many fields. You can check out <a href="http://developer.bigcommerce.com/api/products#post-productsjson">this docs page</a> for information on the product fields allowed as part of a <code class="prettyprint">POST</code> request.</p>
+
+<p>Let us say, we want to create a product using just the mandatory fields needed for a POST request. Note that price needs to specified as a string, while the weight is a decimal. Note that if the <strong>is_visible</strong> flag, though not mandatory is not set to <strong>true</strong>, the product by default would not be visible -</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -H "Content-Type: application/json" \
+    -u "_username_:_API_key_" \
+    -d '{"name":"startrek","price":19.99,"categories":[2],"type":"physical","availability":"available", "weight":0}' \
+    https://store.mybigcommerce.com/api/v2/products.json
+</code></pre>
+
+<h3 id="update-a-product">Update a product</h3>
+
+<p>To update the product created above, you can use the following:</p>
+<pre class="highlight plaintext"><code>    curl --request PUT \
+    -H "Content-Type: application/json" \
+    -u "_username_:_API_key_" \
+    -d '{"name":"startrek","sku":"STREK-DVD","categories":[2,3],"inventory_tracking":"simple","inventory_level":"500", "inventory_warning":100}' \
+    https://store.mybigcommerce.com/api/v2/products/id.json
+</code></pre>
+
+<h3 id="search-a-product-by-sku">Search a product by SKU</h3>
+
+<p>If we want to search by a product SKU, we can use the following code. Remember that when a product has optionset/variations defined, and if the individual options have SKUs defined, then the product SKU is overriden by the option SKUs. Currently, there are two ways to search for SKUs - <code class="prettyprint">GET /products?sku=&quot;something&quot;</code> or <code class="prettyprint">GET /products/skus?sku=&quot;something&quot;</code>. The first call only returns product level SKU and not option level SKUs.</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/products/skus.json?sku="abcd"
+</code></pre>
+
+<h2 id="coupons">Coupons</h2>
+
+<h3 id="get-a-list-of-coupons-from-the-store">Get a list of coupons from the store</h3>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/coupons.json
+</code></pre>
+
+<p>Coupons can be filtered through <strong>code</strong>, <strong>type</strong>, <strong>name</strong>, <strong>min_id</strong> and <strong>max_id</strong>. Without these filters, the call returns all the coupons in the store. For instance, if we want to return a list of coupons that are of type <strong>percentage_discount</strong>, we can request the results using the following.</p>
+<pre class="highlight plaintext"><code>    curl --request GET \
+    -u "_username_:_API_key_" \
+    https://store.mybigcommerce.com/api/v2/coupons.json?type=percentage_discount
+</code></pre>
+
+<p>Refer to the <a href="/api/v2/#coupons">Coupons resource</a> for the filtering field.</p>
+
+<h3 id="create-a-coupon">Create a coupon</h3>
+
+<p>Coupons can be created by a <strong>POST</strong> request on the coupons endpoint. For example, if we want to create a coupon to take 50% off an order, then our coupon will have <strong>percentage_discount</strong> as the type. The <strong>applies_to</strong> field is optional and can be used to restrict the coupon to a set of products or categories. In the example shown below, the coupon is being restricted to a set of products.</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -H "Content-Type: application/json" \
+    -u "_username_:_API_key_" \
+    -d '{"code":"50OFF", "type":"percentage_discount", "name":"testcoupon1", "amount":50.00, "enabled":"true", "applies_to":"{\"entity\":\"products\",\"ids\":[32]}"}' \
+    https://store.mybigcommerce.com/api/v2/coupons.json
+</code></pre>
+
+<h3 id="update-a-coupon">Update a coupon</h3>
+
+<p>Updating a coupon is almost similar to above, except that we work off an ID via a <strong>PUT</strong> request. For example, if we want to change the above coupon to a 30% discount instead of 50%, and say, the coupon ID is 15, we can update the coupon using the following.</p>
+<pre class="highlight plaintext"><code>    curl --request PUT \
+    -H "Content-Type: application/json" \
+    -u "_username_:_API_key_" \
+    -d '{"code":"30OFF", "type":"percentage_discount"' \
+    https://store.mybigcommerce.com/api/v2/coupons/15.json
+</code></pre>
+
+<h2 id="option-sets">Option Sets</h2>
+
+<h3 id="connect-options-to-option-sets">Connect options to option sets</h3>
+
+<p>This is currently a four step process.</p>
+
+<ol>
+<li> Create the option.</li>
+<li> Add some values to the option.</li>
+<li> Create the option set.</li>
+<li> Create option set options using the options you just created.</li>
+</ol>
+
+<p>Use the following command to create an option.</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -H "Content-Type: application/json" \
+    -u "_username_:_API_key_" \
+    -d '{"name":"homer simpson", "type":"T"}' \
+    https://store.mybigcommerce.com/api/v2/options.json
+</code></pre>
+
+<p>Bigcommerce returns the following, which includes an option ID.</p>
+
+<p><code class="prettyprint">{&quot;id&quot;:33,&quot;name&quot;:&quot;homer simpson&quot;,&quot;display_name&quot;:&quot;homer simpson&quot;,&quot;type&quot;:&quot;T&quot;,&quot;values&quot;:{&quot;url&quot;:&quot;https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33/values.json&quot;,&quot;resource&quot;:&quot;/options/33/values&quot;}}</code></p>
+
+<p>Next, create a new option set.</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -u "admin:key" \
+    -d '{"name": "Simpson family"}' \
+    -H "Content-Type: application/json" \
+    https://store.mybigcommerce.com/api/v2/optionsets.json
+</code></pre>
+
+<p>The API returns the following, which includes an option set ID.</p>
+
+<p><code class="prettyprint">{&quot;id&quot;:27,&quot;name&quot;:&quot;Simpson family&quot;,&quot;options&quot;:{&quot;url&quot;:&quot;https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/optionsets/27/options.json&quot;,&quot;resource&quot;:&quot;/optionsets/27/options&quot;}}</code></p>
+
+<p>The final step is to connect the option with the option set.</p>
+<pre class="highlight plaintext"><code>    curl --request POST \
+    -u "_username_:_API_key_" \
+    -d '{"option_id": "33", "display_name":"Simpson family"}' \
+    -H "Content-Type: application/json" \
+    https://store.mybigcommerce.com/api/v2/optionsets/27/options.json
+</code></pre>
+
+<p>Which results in the following.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">44</span><span class="p">,</span><span class="nt">"option_id"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Simpson family"</span><span class="p">,</span><span class="nt">"sort_order"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"is_required"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">"option"</span><span class="p">:{</span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33.json"</span><span class="p">,</span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"/options/33"</span><span class="p">}}</span><span class="w">
+</span></code></pre>
+
+          <h1 id="request-headers">Request Headers</h1>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Allowed Values</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Accept</strong></td>
+<td><strong>application/json</strong> (for .json requests) <strong>application/xml</strong> (for .xml requests)</td>
+<td>The MIME type for the format you want to receive a response in.</td>
+<td><strong>application/xml</strong></td>
+</tr>
+<tr>
+<td><strong>Authorization</strong></td>
+<td><strong>Basic</strong></td>
+<td>The user credentials for accessing the API</td>
+<td><strong>Basic YWRtaW46cGFzc3dvcmQ=</strong></td>
+</tr>
+<tr>
+<td><strong>Content-Type</strong></td>
+<td><strong>application/json</strong> (for JSON requests) <strong>application/xml</strong> (for XML requests)</td>
+<td>The MIME type of the request body. Use to validate and parse the request to the API.</td>
+<td><strong>application/json</strong></td>
+</tr>
+<tr>
+<td><strong>User-Agent</strong></td>
+<td>String</td>
+<td>While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests.</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>X-Auth-Client</strong></td>
+<td>String</td>
+<td>Client ID of the requesting app</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>X-Auth-Token</strong></td>
+<td>String</td>
+<td>Access token authorizing the app to access resources on behalf of a user</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2 id="deprecated-headers">Deprecated Headers</h2>
+
+<p>The following headers are deprecated and will eventually be removed from the API.</p>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Description</th>
+<th>Use Instead</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>If-Modified-Since</strong></td>
+<td>Uses an <a href="http://tools.ietf.org/html/rfc2822#section-3.3">RFC 2822</a> date. If supplied, then only resources modified since the specified date will be returned. If there are no modified objects, then a <strong>304 Not Modified</strong> response will be sent. Please refer to the individual resource pages for support for this header.</td>
+<td>Use <strong>min_date_modified</strong> and <strong>max_date_modified</strong> query parameters on resources that support them.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="response-headers">Response Headers</h1>
+
+<table><thead>
+<tr>
+<th>Header</th>
+<th>Possible Values</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Date</strong></td>
+<td>An [RFC 2822][47] date.</td>
+<td>The date the response was sent.</td>
+<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
+</tr>
+<tr>
+<td><strong>Last-Modified</strong></td>
+<td>An [RFC 2822][47] date.</td>
+<td>The date the resource was last modified. Please refer to the individual resource pages for support for this header.</td>
+<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
+</tr>
+<tr>
+<td><strong>Content-Type</strong></td>
+<td><strong>application/json</strong> (for JSON requests) <strong>application/xml</strong> (for XML requests, or if no extension is supplied)</td>
+<td>The MIME type of the response, dependent on the extension of the endpoint that was requested.</td>
+<td><strong>application/json</strong></td>
+</tr>
+<tr>
+<td><strong>Content-Location</strong></td>
+<td>A URI.</td>
+<td>Sent if the request was redirected.</td>
+<td><strong>/api/v2/orders/5.json</strong></td>
+</tr>
+<tr>
+<td><strong>WWW-Authenticate</strong></td>
+<td><strong>Basic</strong></td>
+<td>Indicates the authentication scheme that should be used to access the API. Sent with a <strong>401 Unauthorized</strong> response if HTTP Basic Authentication credentials weren&rsquo;t supplied.</td>
+<td><strong>Basic</strong></td>
+</tr>
+<tr>
+<td><strong>Location</strong></td>
+<td>A URI</td>
+<td>The URI of a newly created resource. Sent with a <strong>201 Created</strong> response.</td>
+<td><strong>/api/v2/products/7</strong></td>
+</tr>
+<tr>
+<td><strong>X-Retry-After</strong></td>
+<td>An integer</td>
+<td>Rate limited response, indicating the number of seconds before the quota refreshes. See the [OAuth rate limits documentation][22] for more information.</td>
+<td><strong>15</strong></td>
+</tr>
+<tr>
+<td><strong>X-BC-ApiLimit-Remaining</strong></td>
+<td>An integer</td>
+<td>The number of API requests remaining for the current period (rolling one hour). See the [Basic Auth rate limits documentation][28] for more information.</td>
+<td><strong>987</strong></td>
+</tr>
+<tr>
+<td><strong>X-BC-Store-Version</strong></td>
+<td>A version number</td>
+<td>The version of Bigcommerce the store is running on. This header is available from versions 7.3.6+.</td>
+<td>** 7.3.6**</td>
 </tr>
 </tbody></table>
 

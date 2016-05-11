@@ -1130,7 +1130,7 @@
 
           <h1 id="tax-class">Tax Class</h1>
 
-<p>The tax_class object contains the ID and name of the tax class used to calculate tax for stores using manually created tax classes. NOTE: Data inside the tax_class object of a store configured to use automatic taxes is ignored during tax calculations.</p>
+<p>Tax classes are used to apply different tax rates for specific types of products and orders. NOTE: Data inside the <code class="prettyprint">tax_class</code> object of a store configured to use automatic taxes is ignored during tax calculations.</p>
 
 <h2 id="tax-class-object-properties">Tax Class Object - Properties</h2>
 
@@ -1153,9 +1153,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="tax-classes-are-used-to-apply-different-tax-rates-for-specific-types-of-products-and-orders">Tax classes are used to apply different tax rates for specific types of products and orders.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1175,7 +1173,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="tax-class-operations">Tax Class Operations</h2>
 
 <ul>
 <li>  <a href="#list-tax-classes">List Tax Classes</a></li>
@@ -1195,16 +1193,7 @@
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific tax_classes in the collection.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+<p>There are no filter parameters specific to <code class="prettyprint">tax_classes</code>.</p>
 
 <h3 id="pagination">Pagination</h3>
 
@@ -1218,14 +1207,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/tax_classes?page={number}</code></td>
+<td>/api/v2/tax_classes?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/tax_classes?limit={count}</code></td>
+<td>/api/v2/tax_classes?limit={count}</td>
 </tr>
 </tbody></table>
 
@@ -1241,6 +1230,8 @@
 </ul>
 
           <h1 id="shipping-methods">Shipping Methods</h1>
+
+<p>Enabled Shipping Methods within the store.</p>
 
 <h2 id="shipping-method-object-properties">Shipping Method Object - Properties</h2>
 
@@ -1268,9 +1259,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="list-of-enabled-shipping-methods">List of enabled shipping methods.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1290,7 +1279,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="shipping-method-operations">Shipping Method Operations</h2>
 
 <ul>
 <li>  <a href="#list-shipping-methods">List Shipping Methods</a></li>
@@ -1320,19 +1309,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">id</code></td>
+<td>id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/shipping/methods?id={value}</code></td>
+<td>/api/v2/shipping/methods?id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/shipping/methods?min_id={value}</code></td>
+<td>/api/v2/shipping/methods?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/shipping/methods?max_id={value}</code></td>
+<td>/api/v2/shipping/methods?max_id={value}</td>
 </tr>
 </tbody></table>
 
@@ -1348,14 +1337,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/shipping/methods?page={number}</code></td>
+<td>/api/v2/shipping/methods?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/shipping/methods?limit={count}</code></td>
+<td>/api/v2/shipping/methods?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -1776,7 +1765,31 @@
 <p><code class="prettyprint">DELETE /api/v2/gift_certificates</code> </p>
 </blockquote>
 
-          
+          <h1 id="banners">Banners</h1>
+
+<p>Banners available to display on a store.</p>
+
+<p>| &mdash;&ndash; |</p>
+
+<p>| Manages | Banner Object |
+| OAuth Scopes |  store_v2_marketing |
+| |store_v2_marketing_read_only |</p>
+
+<h2 id="banners-properties">Banners - Properties</h2>
+
+<p>| &mdash;&ndash; |
+| name |  string |  Required field. |
+| page |  enum |  &lsquo;home_page&rsquo;, &#39;category_page&rsquo;, &#39;brand_page&rsquo;, &#39;search_page&rsquo;. Required field. |
+| dateto |  date |  If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should stop being visible on the storefront. |
+| content |  text |  Required field. |
+| bannerid |  int |  Read-only. |
+| datefrom |  date |  If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should become visible on the storefront. |
+| datetype |  enum |  Accepted values are &#39;always&rsquo; or &#39;custom&rsquo;. This specifies whether the banner should be visible during a specific date range. Required field. |
+| location |  enum |  &#39;top&rsquo;, &#39;bottom&rsquo;. Required field. |
+| datecreated |  date |  Date the banner was first created. This will default to today&rsquo;s date. |
+| catorbrandid |  int |  ID for the brand or category. |
+| status/visible |  int |  Integer value denoting whether or not the banner is visible on the storefront: 1 = visible; 0 = not visible. |  </p>
+
           <h2 id="banner-operations">Banner - Operations</h2>
 
 <ul>
@@ -2375,6 +2388,8 @@
 
           <h1 id="payment-methods">Payment Methods</h1>
 
+<p>Enabled payment types or methods in a store.</p>
+
 <h2 id="payment-method-object-properties">Payment Method Object - Properties</h2>
 
 <table><thead>
@@ -2401,9 +2416,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="enabled-payment-methods">Enabled payment methods.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2423,7 +2436,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="payment-method-operations">Payment Method Operations</h2>
 
 <ul>
 <li>  <a href="#list-payment-methods">List Payment Methods</a></li>
@@ -2434,24 +2447,15 @@
 <p>Gets the list of enabled payment methods. (Default sorting is by payment method, alphabetically from A to Z.)</p>
 
 <ul>
-<li>  <a href="#list-payment-methods-oauth">OAuth</a></li>
+<li>  <a href="#list-payment-methods-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/payments/methods</code></li>
 <li>  <a href="#list-payment-methods-basic">Basic Auth</a>
-<code class="prettyprint">GET /stores/{store_hash}/v2/payments/methods</code>
-<code class="prettyprint">GET /api/v2/payments/methods</code></li>
+&gt;<code class="prettyprint">GET /api/v2/payments/methods</code></li>
 </ul>
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific payment_methods in the collection.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+<p>There are no filter parameters specific to payment methods.</p>
 
 <h3 id="pagination">Pagination</h3>
 
@@ -2465,14 +2469,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/payments/methods?page={number}</code></td>
+<td>/api/v2/payments/methods?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/payments/methods?limit={count}</code></td>
+<td>/api/v2/payments/methods?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2534,9 +2538,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="redirects-are-used-to-create-custom-url-paths-that-map-to-resources-on-the-storefront-such-as-products-categories-brands-etc-or-manually-defined-static-urls">Redirects are used to create custom URL paths that map to resources on the storefront (such as products, categories, brands, etc.) or manually defined static URLs.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2556,7 +2558,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="redirect-operations">Redirect Operations</h2>
 
 <ul>
 <li>  <a href="#list-redirects">List Redirects</a></li>
@@ -2581,7 +2583,7 @@
 
 <h3 id="pagination">Pagination</h3>
 
-<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.</p>
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">redirects</code> are returned by default.</p>
 
 <table><thead>
 <tr>
@@ -2591,14 +2593,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/redirects?page={number}</code></td>
+<td>/api/v2/redirects?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/redirects?limit={count}</code></td>
+<td>/api/v2/redirects?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2680,7 +2682,7 @@
 <p>The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">url</code></li>
+<li>  url</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2688,8 +2690,8 @@
 <p>The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">path</code></li>
-<li>  <code class="prettyprint">forward</code></li>
+<li>  path</li>
+<li>  forward</li>
 </ul>
 
 <h3 id="request">Request</h3>
@@ -2736,7 +2738,7 @@
 <p>The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">url</code></li>
+<li>  url</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2744,8 +2746,8 @@
 <p>The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">path</code></li>
-<li>  <code class="prettyprint">forward</code></li>
+<li>  path</li>
+<li>  forward</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
@@ -2776,7 +2778,7 @@
 
 <h3 id="pagination">Pagination</h3>
 
-<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.</p>
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">redirects</code> are returned by default.</p>
 
 <table><thead>
 <tr>
@@ -2786,20 +2788,20 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/redirects?page={number}</code></td>
+<td>/api/v2/redirects?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/redirects?limit={count}</code></td>
+<td>/api/v2/redirects?limit={count}</td>
 </tr>
 </tbody></table>
 
           <h1 id="store-information-object">Store Information Object</h1>
 
-<p>Profile of an individual store.</p>
+<p>Profile and metadata of an individual store.</p>
 
 <h2 id="store-information-object-properties">Store Information Object - Properties</h2>
 

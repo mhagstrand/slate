@@ -82,7 +82,7 @@
         
           <h1 id="orders">Orders</h1>
 
-<p>The order object contains a record of the purchase agreement between a shopper and a merchant. Returned by GET operations on the orders resource. Can also be passed in PUT and POST operations.</p>
+<p>A record of the purchase agreement between a shopper and a merchant.</p>
 
 <h2 id="order-object-properties">Order Object - Properties</h2>
 
@@ -405,9 +405,7 @@
 
 <p>Occurs when an order is archived from the control panel.</p>
 
-          <h2 id="purchases-from-a-store">Purchases from a store.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -427,7 +425,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="order-operations">Order Operations</h2>
 
 <ul>
 <li>  <a href="#list-orders">List Orders</a></li>
@@ -462,64 +460,64 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders?min_id={value}</code></td>
+<td>/api/v2/orders?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders?max_id={value}</code></td>
+<td>/api/v2/orders?max_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_total</code></td>
+<td>min_total</td>
 <td>decimal</td>
-<td><code class="prettyprint">/api/v2/orders?min_total={value}</code></td>
+<td>/api/v2/orders?min_total={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_total</code></td>
+<td>max_total</td>
 <td>decimal</td>
-<td><code class="prettyprint">/api/v2/orders?max_total={value}</code></td>
+<td>/api/v2/orders?max_total={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">customer_id</code></td>
+<td>customer_id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders?customer_id={value}</code></td>
+<td>/api/v2/orders?customer_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">status_id</code></td>
+<td>status_id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders?status_id={value}</code></td>
+<td>/api/v2/orders?status_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">is_deleted</code></td>
+<td>is_deleted</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders?is_deleted={value}</code></td>
+<td>/api/v2/orders?is_deleted={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">payment_method</code></td>
+<td>payment_method</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders?payment_method={value}</code></td>
+<td>/api/v2/orders?payment_method={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_created</code></td>
+<td>min_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders?min_date_created={value}</code></td>
+<td>/api/v2/orders?min_date_created={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_created</code></td>
+<td>max_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders?max_date_created={value}</code></td>
+<td>/api/v2/orders?max_date_created={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_modified</code></td>
+<td>min_date_modified</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders?min_date_modified={value}</code></td>
+<td>/api/v2/orders?min_date_modified={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_modified</code></td>
+<td>max_date_modified</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders?max_date_modified={value}</code></td>
+<td>/api/v2/orders?max_date_modified={value}</td>
 </tr>
 </tbody></table>
 
@@ -535,19 +533,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders?page={number}</code></td>
+<td>/api/v2/orders?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders?limit={count}</code></td>
+<td>/api/v2/orders?limit={count}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">sort</code></td>
+<td>sort</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders?sort=date_created:desc</code></td>
+<td>/api/v2/orders?sort=date_created:desc</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -755,31 +753,31 @@
 <p>The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">date_modified</code></li>
-<li>  <code class="prettyprint">date_shipped</code></li>
-<li>  <code class="prettyprint">status</code></li>
-<li>  <code class="prettyprint">order_source</code></li>
-<li>  <code class="prettyprint">subtotal_tax</code></li>
-<li>  <code class="prettyprint">shipping_cost_tax</code></li>
-<li>  <code class="prettyprint">shipping_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">handling_cost_tax</code></li>
-<li>  <code class="prettyprint">handling_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">wrapping_cost_tax</code></li>
-<li>  <code class="prettyprint">wrapping_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">total_tax</code></li>
-<li>  <code class="prettyprint">payment_status</code></li>
-<li>  <code class="prettyprint">currency_id</code></li>
-<li>  <code class="prettyprint">currency_code</code></li>
-<li>  <code class="prettyprint">currency_exchange_rate</code></li>
-<li>  <code class="prettyprint">default_currency_id</code></li>
-<li>  <code class="prettyprint">default_currency_code</code></li>
-<li>  <code class="prettyprint">coupon_discount</code></li>
-<li>  <code class="prettyprint">store_credit_amount</code></li>
-<li>  <code class="prettyprint">gift_certificate_amount</code></li>
-<li>  <code class="prettyprint">shipping_address_count</code></li>
-<li>  <code class="prettyprint">is_deleted</code></li>
-<li>  <code class="prettyprint">coupons</code></li>
+<li>  id</li>
+<li>  date_modified</li>
+<li>  date_shipped</li>
+<li>  status</li>
+<li>  order_source</li>
+<li>  subtotal_tax</li>
+<li>  shipping_cost_tax</li>
+<li>  shipping_cost_tax_class_id</li>
+<li>  handling_cost_tax</li>
+<li>  handling_cost_tax_class_id</li>
+<li>  wrapping_cost_tax</li>
+<li>  wrapping_cost_tax_class_id</li>
+<li>  total_tax</li>
+<li>  payment_status</li>
+<li>  currency_id</li>
+<li>  currency_code</li>
+<li>  currency_exchange_rate</li>
+<li>  default_currency_id</li>
+<li>  default_currency_code</li>
+<li>  coupon_discount</li>
+<li>  store_credit_amount</li>
+<li>  gift_certificate_amount</li>
+<li>  shipping_address_count</li>
+<li>  is_deleted</li>
+<li>  coupons</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -787,16 +785,16 @@
 <p>The following properties of the order are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">products</code></li>
-<li>  <code class="prettyprint">billing_address</code></li>
+<li>  products</li>
+<li>  billing_address</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
 
 <blockquote>
-<p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.</span></p>
+<p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.</p>
 
-<p>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying <code class="prettyprint">**CA**</code> as a state name results in no tax document submission. Supplying <code class="prettyprint">**California**</code> as a state name results in a successful submission.</span></p>
+<p>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying <code class="prettyprint">**CA**</code> as a state name results in no tax document submission. Supplying <code class="prettyprint">**California**</code> as a state name results in a successful submission.</p>
 </blockquote>
 
 <h4 id="overriding-pre-set-values">Overriding Pre-set Values</h4>
@@ -852,16 +850,16 @@
 <h4 id="changing-the-order-status">Changing the Order Status</h4>
 
 <ul>
-<li><p>status_id can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.</p></li>
-<li><p>POST or PUT Orders on stores with Avalara Premium causes tax documents to be submitted. If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:</p>
+<li><p><code class="prettyprint">status_id</code> can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.</p></li>
+<li><p><code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code> Orders on stores with Avalara Premium causes tax documents to be submitted. If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:</p>
 
 <ul>
-<li>  <code class="prettyprint">Shipped</code></li>
-<li>  <code class="prettyprint">Partially Shipped</code></li>
-<li>  <code class="prettyprint">Awaiting Pickup</code></li>
-<li>  <code class="prettyprint">Awaiting Shipment</code></li>
-<li>  <code class="prettyprint">Completed</code></li>
-<li>  <code class="prettyprint">Awaiting Fulfillment</code></li>
+<li>  Shipped</li>
+<li>  Partially Shipped</li>
+<li>  Awaiting Pickup</li>
+<li>  Awaiting Shipment</li>
+<li>  Completed</li>
+<li>  Awaiting Fulfillment</li>
 </ul></li>
 <li><p>Bigcommerce considers all statuses other than the above to be of the unpaid type, except <code class="prettyprint">**Refunded**</code>, which is considered neither paid or unpaid. Orders created using the <code class="prettyprint">**POST**</code> method that include a status of the paid type result in the submission of tax documents to Avalara.</p></li>
 </ul>
@@ -1041,36 +1039,36 @@
 <p>The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">date_modified</code></li>
-<li>  <code class="prettyprint">date_shipped</code></li>
-<li>  <code class="prettyprint">status</code></li>
-<li>  <code class="prettyprint">order_source</code></li>
-<li>  <code class="prettyprint">subtotal_tax</code></li>
-<li>  <code class="prettyprint">shipping_cost_tax</code></li>
-<li>  <code class="prettyprint">shipping_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">handling_cost_tax</code></li>
-<li>  <code class="prettyprint">handling_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">wrapping_cost_tax</code></li>
-<li>  <code class="prettyprint">wrapping_cost_tax_class_id</code></li>
-<li>  <code class="prettyprint">total_tax</code></li>
-<li>  <code class="prettyprint">payment_status</code></li>
-<li>  <code class="prettyprint">currency_id</code></li>
-<li>  <code class="prettyprint">currency_code</code></li>
-<li>  <code class="prettyprint">currency_exchange_rate</code></li>
-<li>  <code class="prettyprint">default_currency_id</code></li>
-<li>  <code class="prettyprint">default_currency_code</code></li>
-<li>  <code class="prettyprint">coupon_discount</code></li>
-<li>  <code class="prettyprint">store_credit_amount</code></li>
-<li>  <code class="prettyprint">gift_certificate_amount</code></li>
-<li>  <code class="prettyprint">shipping_address_count</code></li>
-<li>  <code class="prettyprint">coupons</code></li>
+<li>  id</li>
+<li>  date_modified</li>
+<li>  date_shipped</li>
+<li>  status</li>
+<li>  order_source</li>
+<li>  subtotal_tax</li>
+<li>  shipping_cost_tax</li>
+<li>  shipping_cost_tax_class_id</li>
+<li>  handling_cost_tax</li>
+<li>  handling_cost_tax_class_id</li>
+<li>  wrapping_cost_tax</li>
+<li>  wrapping_cost_tax_class_id</li>
+<li>  total_tax</li>
+<li>  payment_status</li>
+<li>  currency_id</li>
+<li>  currency_code</li>
+<li>  currency_exchange_rate</li>
+<li>  default_currency_id</li>
+<li>  default_currency_code</li>
+<li>  coupon_discount</li>
+<li>  store_credit_amount</li>
+<li>  gift_certificate_amount</li>
+<li>  shipping_address_count</li>
+<li>  coupons</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
 
 <blockquote>
-<p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.</span></p>
+<p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.</p>
 </blockquote>
 
 <h3 id="changing-the-order-status">Changing the Order Status</h3>
@@ -1124,20 +1122,20 @@
 <p>Edits to the following properties will trigger a recalculation of the subtotal and total:</p>
 
 <ul>
-<li>  <code class="prettyprint">products</code></li>
-<li>  <code class="prettyprint">discount_amount</code></li>
-<li>  <code class="prettyprint">shipping_cost_ex_tax</code></li>
-<li>  <code class="prettyprint">shipping_cost_inc_tax</code></li>
-<li>  <code class="prettyprint">handling_cost_ex_tax</code></li>
-<li>  <code class="prettyprint">handling_cost_inc_tax</code></li>
-<li>  <code class="prettyprint">wrapping_cost_ex_tax</code></li>
-<li>  <code class="prettyprint">wrapping_cost_inc_tax</code></li>
-<li>  <code class="prettyprint">billing_address</code></li>
-<li>  <code class="prettyprint">shipping_addresses</code></li>
+<li>  products</li>
+<li>  discount_amount</li>
+<li>  shipping_cost_ex_tax</li>
+<li>  shipping_cost_inc_tax</li>
+<li>  handling_cost_ex_tax</li>
+<li>  handling_cost_inc_tax</li>
+<li>  wrapping_cost_ex_tax</li>
+<li>  wrapping_cost_inc_tax</li>
+<li>  billing_address</li>
+<li>  shipping_addresses</li>
 </ul>
 
 <blockquote>
-<p>NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.</span></p>
+<p>NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.</p>
 </blockquote>
 
 <h2 id="delete-an-order">Delete an Order</h2>
@@ -1154,7 +1152,7 @@
 <h3 id="notes">Notes</h3>
 
 <blockquote>
-<p>NOTE: Attempts to <code class="prettyprint">DELETE</code> an order on a store with automatic tax enabled will fail and return <code class="prettyprint">405 Method not allowed</code>.</span></p>
+<p>NOTE: Attempts to <code class="prettyprint">DELETE</code> an order on a store with automatic tax enabled will fail and return <code class="prettyprint">405 Method not allowed</code>.</p>
 </blockquote>
 
 <h2 id="delete-all-orders">Delete All Orders</h2>
@@ -1170,7 +1168,7 @@
 
           <h1 id="order-statuses">Order Statuses</h1>
 
-<p>Represents a state in the order fulfilment workflow</p>
+<p>Represents a state in the order fulfillment workflow</p>
 
 <h2 id="order-status-object-properties">Order Status Object - Properties</h2>
 
@@ -1198,9 +1196,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="statuses-that-can-be-assigned-to-orders-each-status-represents-a-state-in-the-fulfilment-workflow">Statuses that can be assigned to orders. Each status represents a state in the fulfilment workflow.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1220,7 +1216,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="order-status-operations">Order Status Operations</h2>
 
 <ul>
 <li>  <a href="#list-order-statuses">List Order Statuses</a></li>
@@ -1240,16 +1236,7 @@
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific order_statuses in the collection.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+<p>There are no filter parameters specific to <code class="prettyprint">order_statuses</code>.</p>
 
 <h3 id="pagination">Pagination</h3>
 
@@ -1263,14 +1250,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/order_statuses?page={number}</code></td>
+<td>/api/v2/order_statuses?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/order_statuses?limit={count}</code></td>
+<td>/api/v2/order_statuses?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -1366,7 +1353,7 @@
 
           <h1 id="order-products">Order Products</h1>
 
-<p>Product line item belonging to an order</p>
+<p>Product line item belonging to an order.</p>
 
 <h2 id="order-product-object-properties">Order Product Object - Properties</h2>
 
@@ -1594,9 +1581,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="product-line-items-associated-with-an-order">Product line items associated with an order.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1616,7 +1601,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="order-product-operations">Order Product Operations</h2>
 
 <ul>
 <li>  <a href="#list-order-products">List Order Products</a></li>
@@ -1635,6 +1620,10 @@
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/products</code></li>
 </ul>
 
+<h3 id="filters">Filters</h3>
+
+<p>There are no filter parameters specific to <code class="prettyprint">order products</code>.</p>
+
 <h3 id="pagination">Pagination</h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.</p>
@@ -1647,14 +1636,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/products?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/products?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/products?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/products?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -1843,9 +1832,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="shipping-package-consignments-tracked-from-an-order">Shipping package consignments tracked from an order.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1865,7 +1852,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="shipments-operations">Shipments Operations</h2>
 
 <ul>
 <li>  <a href="#list-shipments">List Shipments</a></li>
@@ -1889,6 +1876,10 @@
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments</code></li>
 </ul>
 
+<h3 id="filters">Filters</h3>
+
+<p>There are no filter parameters specific to <code class="prettyprint">shipments</code>.</p>
+
 <h3 id="pagination">Pagination</h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.</p>
@@ -1901,14 +1892,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/shipments?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/shipments?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2063,12 +2054,12 @@
 <p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">order_id</code></li>
-<li>  <code class="prettyprint">date_created</code></li>
-<li>  <code class="prettyprint">customer_id</code></li>
-<li>  <code class="prettyprint">billing_address</code></li>
-<li>  <code class="prettyprint">shipping_address</code></li>
+<li>  id</li>
+<li>  order_id</li>
+<li>  date_created</li>
+<li>  customer_id</li>
+<li>  billing_address</li>
+<li>  shipping_address</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2076,8 +2067,8 @@
 <p>The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">order_address_id</code></li>
-<li>  <code class="prettyprint">items</code></li>
+<li>  order_address_id</li>
+<li>  items</li>
 </ul>
 <pre class="highlight plaintext"><code>{
   "tracking_number": "EJ958083578US",
@@ -2154,13 +2145,13 @@
 <p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">order_id</code></li>
-<li>  <code class="prettyprint">date_created</code></li>
-<li>  <code class="prettyprint">customer_id</code></li>
-<li>  <code class="prettyprint">items</code></li>
-<li>  <code class="prettyprint">billing_address</code></li>
-<li>  <code class="prettyprint">shipping_address</code></li>
+<li>  id</li>
+<li>  order_id</li>
+<li>  date_created</li>
+<li>  customer_id</li>
+<li>  items</li>
+<li>  billing_address</li>
+<li>  shipping_address</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2253,20 +2244,20 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/shipments?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipments?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/shipments?limit={count}</td>
 </tr>
 </tbody></table>
 
           <h1 id="order-shipping-addresses">Order Shipping Addresses</h1>
 
-<p>Customer shipping address belonging to an order</p>
+<p>Customer shipping address belonging to an order.</p>
 
 <h2 id="order-shipping-address-object-properties">Order Shipping Address Object - Properties</h2>
 
@@ -2424,9 +2415,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="shipping-addresses-associated-with-an-order">Shipping addresses associated with an order.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2446,7 +2435,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="order-shipping-address-operations">Order Shipping Address Operations</h2>
 
 <ul>
 <li>  <a href="#list-order-shipping-addresses">List Order Shipping Addresses</a></li>
@@ -2467,16 +2456,7 @@
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific order_shipping_addresses in the collection.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+<p>There are no filter parameters specific to order shipping addresses.</p>
 
 <h3 id="pagination">Pagination</h3>
 
@@ -2490,14 +2470,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipping_addresses?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/shipping_addresses?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/shipping_addresses?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/shipping_addresses?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2643,9 +2623,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="coupons-applied-to-an-order">Coupons applied to an order.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2685,16 +2663,7 @@
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific order_coupons in the collection.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-</tbody></table>
+<p>There are no filter parameters specific to <code class="prettyprint">order_coupons</code>.</p>
 
 <h3 id="pagination">Pagination</h3>
 
@@ -2708,14 +2677,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/coupons?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/coupons?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/coupons?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/coupons?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2753,6 +2722,8 @@
 </span></code></pre>
 
           <h1 id="order-messages">Order Messages</h1>
+
+<p>Messages associated with an order.</p>
 
 <h2 id="order-message-object-properties">Order Message Object - Properties</h2>
 
@@ -2820,9 +2791,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="messages-associated-with-an-order">Messages associated with an order.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2842,7 +2811,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="order-message-operations">Order Message Operations</h2>
 
 <ul>
 <li>  <a href="#list-order-messages">List Order Messages</a></li>
@@ -2862,7 +2831,7 @@
 
 <h3 id="filters">Filters</h3>
 
-<p>Filter parameters can be added to the URL query string to select specific order_messages in the collection.</p>
+<p>Filter parameters can be added to the URL query string to select specific <code class="prettyprint">order_message</code> in the collection.</p>
 
 <table><thead>
 <tr>
@@ -2872,39 +2841,39 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?min_id={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?max_id={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?max_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">status</code></td>
+<td>status</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?status={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?status={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">customer_id</code></td>
+<td>customer_id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?customer_id={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?customer_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">is_flagged</code></td>
+<td>is_flagged</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?is_flagged={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?is_flagged={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_created</code></td>
+<td>min_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?min_date_created={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?min_date_created={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_created</code></td>
+<td>max_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?max_date_created={value}</code></td>
+<td>/api/v2/orders/{order_id}/messages?max_date_created={value}</td>
 </tr>
 </tbody></table>
 
@@ -2920,14 +2889,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?page={number}</code></td>
+<td>/api/v2/orders/{order_id}/messages?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/orders/{order_id}/messages?limit={count}</code></td>
+<td>/api/v2/orders/{order_id}/messages?limit={count}</td>
 </tr>
 </tbody></table>
 
