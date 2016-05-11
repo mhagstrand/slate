@@ -1,5 +1,3 @@
-## Shared attributes that control value facets on a product.
-
 |||
 |---|---|
 | **Manages** |
@@ -31,9 +29,9 @@ Filter parameters can be added to the URL query string to select specific option
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `name` | string | `/api/v2/options?name={value}` |
-| `display_name` | string | `/api/v2/options?display_name={value}` |
-| `type` | string | `/api/v2/options?type={value}` |
+| name | string | /api/v2/options?name={value} |
+| display_name | string | /api/v2/options?display_name={value} |
+| type | string | /api/v2/options?type={value} |
 
 ### Pagination
 
@@ -41,8 +39,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/options?page={number}` |
-| `Limit` | int | `/api/v2/options?limit={count}` |
+| Page | int | /api/v2/options?page={number} |
+| Limit | int | /api/v2/options?limit={count} |
 
 ```json
 [
@@ -119,15 +117,15 @@ Creates a new option.
 
 The following properties of the option are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `values`
+*   id
+*   values
 
 ### Requirements
 
 The following properties of the option are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `name`
-*   `type`
+*   name
+*   type
 
 ```curl
 {

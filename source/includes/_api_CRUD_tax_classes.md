@@ -1,12 +1,10 @@
-## Tax classes are used to apply different tax rates for specific types of products and orders.
-
 |||
 |---|---|
 | Manages |
 | OAuth Scopes | `store_v2_information`
 ||`store_v2_information_read_only`
 
-## Operations
+## Tax Class Operations
 
 *   [List Tax Classes](#list-tax-classes)
 *   [Get a Tax Class](#get-a-tax-class)
@@ -22,10 +20,7 @@ Gets the tax classes set up for a store. (Default sorting is by tax-class id, fr
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific tax_classes in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to `tax_classes`.
 
 ### Pagination
 
@@ -33,8 +28,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/tax_classes?page={number}` |
-| `Limit` | int | `/api/v2/tax_classes?limit={count}` |
+| page | int | /api/v2/tax_classes?page={number} |
+| limit | int | /api/v2/tax_classes?limit={count} |
 
 ## Get a Tax Class
 

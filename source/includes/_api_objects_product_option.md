@@ -1,5 +1,7 @@
 # Product Options
 
+Shared attributes that control value facets on a product.
+
 ## Product Option Object - Properties
 
 | Name | Type | Description |

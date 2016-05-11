@@ -1,12 +1,10 @@
-## Shipping package consignments tracked from an order.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Shipments Operations
 
 *   [List Shipments](#list-shipments)
 *   [Get a Shipment](#get-a-shipment)
@@ -26,14 +24,18 @@ Gets the shipments associated with an order.
 *   [Basic Auth](#list-shipments-basic)
 >`GET /api/v2/orders/{order_id}/shipments`
 
+### Filters
+
+There are no filter parameters specific to `shipments`.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/orders/{order_id}/shipments?page={number}` |
-| `limit` | int | `/api/v2/orders/{order_id}/shipments?limit={count}` |
+| page | int | /api/v2/orders/{order_id}/shipments?page={number} |
+| limit | int | /api/v2/orders/{order_id}/shipments?limit={count} |
 
 ```json
 [
@@ -185,19 +187,19 @@ Creates a new shipment for an order.
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `order_id`
-*   `date_created`
-*   `customer_id`
-*   `billing_address`
-*   `shipping_address`
+*   id
+*   order_id
+*   date_created
+*   customer_id
+*   billing_address
+*   shipping_address
 
 ### Requirements
 
 The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `order_address_id`
-*   `items`
+*   order_address_id
+*   items
 
 ```curl
 {
@@ -275,13 +277,13 @@ Updates an existing shipment associated with an order.
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `order_id`
-*   `date_created`
-*   `customer_id`
-*   `items`
-*   `billing_address`
-*   `shipping_address`
+*   id
+*   order_id
+*   date_created
+*   customer_id
+*   items
+*   billing_address
+*   shipping_address
 
 ### Requirements
 
@@ -367,5 +369,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/orders/{order_id}/shipments?page={number}` |
-| `Limit` | int | `/api/v2/orders/{order_id}/shipments?limit={count}` |
+| page | int | /api/v2/orders/{order_id}/shipments?page={number} |
+| limit | int | /api/v2/orders/{order_id}/shipments?limit={count} |

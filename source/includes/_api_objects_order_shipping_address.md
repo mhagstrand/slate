@@ -1,6 +1,6 @@
 # Order Shipping Addresses
 
-Customer shipping address belonging to an order
+Customer shipping address belonging to an order.
 
 ## Order Shipping Address Object - Properties
 

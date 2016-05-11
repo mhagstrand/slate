@@ -1,6 +1,6 @@
 # Order Products
 
-Product line item belonging to an order
+Product line item belonging to an order.
 
 ## Order Product Object - Properties
 

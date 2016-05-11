@@ -1,5 +1,7 @@
 # Configurable Fields
 
+Configurable fields associated with a product.
+
 ## Configureable Field - Properties
 
 | Name | Type | Description |

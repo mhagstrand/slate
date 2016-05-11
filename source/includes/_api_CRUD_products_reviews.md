@@ -1,12 +1,10 @@
-## Reviews associated with a product.
-
 |||
 |---|---|
 | **Manages** | [Product Review Object](/api/objects/v2/product_review)|
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Product Review Operations
 
 *   [List Product Reviews](#list-product-reviews)
 *   [Get a Product Review](#get-a-product-review)
@@ -24,14 +22,18 @@ Gets the reviews associated with a product. (Default sorting is by review id, fr
 *   [Basic Auth](#list-product-reviews-basic)
 >`GET /api/v2/products/{id}/reviews`
 
+### Filters
+
+There are no filter parameters specific to product reviews. 
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/products/{product_id}/reviews?page={number}` |
-| `limit` | int | `/api/v2/products/{product_id}/reviews?limit={count}` |
+| page | int | /api/v2/products/{product_id}/reviews?page={number} |
+| limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
 
 ```json
 [
@@ -92,7 +94,11 @@ Gets a product review.
 
 ## Create a Product Review
 
-Creates a new product review. (Details: The "review" property is the review's text. The "rating" property must be a whole number between 1–5. If the optional "date_created" property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [“Pending”]. Other allowable values are 1 [“Approved”] or 2 [“Disapproved”].)
+Creates a new product review. 
+
+### Notes
+
+The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
 
 *   [OAuth](#create-a-product-review-oauth)
 >`POST /stores/{store_hash}/v2/products/{product_id}/reviews`
@@ -103,17 +109,17 @@ Creates a new product review. (Details: The "review" property is the review's te
 
 The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
 The following properties of the product review are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `author`
-*   `title`
-*   `review`
-*   `rating`
+*   author
+*   title
+*   review
+*   rating
 
 ```json
 {
@@ -141,8 +147,8 @@ Updates an existing product review. Your request may update any of the propertie
 
 The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ```json
 {
@@ -159,7 +165,7 @@ The following properties of the product review are read-only. If one or more of 
 
 ## Delete a Product Review
 
-Deletes a specified product review. (If successful, this will typically return a "204 No Content".)
+Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
 *   [OAuth](#delete-a-product-review-oauth)
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
@@ -168,7 +174,7 @@ Deletes a specified product review. (If successful, this will typically return a
 
 ## Delete All Product Reviews
 
-Deletes all reviews for the specified product. (If successful, this will typically return a "204 No Content".)
+Deletes all reviews for the specified product. (If successful, this will typically return a `204 No Content`.)
 
 *   [OAuth](#delete-all-product-reviews-oauth)
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/reviews`

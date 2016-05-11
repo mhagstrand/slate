@@ -1,5 +1,7 @@
 # Payment Methods
 
+Enabled payment types or methods in a store.
+
 ## Payment Method Object - Properties
 
 | Name | Type | Description |

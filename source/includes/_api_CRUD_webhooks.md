@@ -1,11 +1,9 @@
-## Register and manage webhooks that connect events from a store to external URLs.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## Operations
+## Webhook Operations
 
 *   [List Hooks](#list-hooks)
 *   [Get a Hook](#get-a-hook)
@@ -85,8 +83,8 @@ Register a new webhook.
 
 The following properties of the webhooks are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `scope`
-*   `destination`
+*   scope
+*   destination
 
 ### Notes
 

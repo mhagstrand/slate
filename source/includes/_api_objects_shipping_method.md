@@ -1,5 +1,7 @@
 # Shipping Methods
 
+Enabled Shipping Methods within the store.
+
 ## Shipping Method Object - Properties
 
 | Name | Type | Description |

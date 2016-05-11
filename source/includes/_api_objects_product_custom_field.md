@@ -1,5 +1,7 @@
 # Custom Fields
 
+Custom fields associated with a product.
+
 ## Custom Field Object - Properties
 
 | Name | Type | Description |

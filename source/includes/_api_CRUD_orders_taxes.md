@@ -1,12 +1,10 @@
-## Taxes applied to an order.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Order Tax Operations
 
 *   [List Order Taxes](#list-order-taxes)
 *   [Get an Order Tax](#get-an-order-tax)
@@ -22,10 +20,7 @@ Gets the list of taxes applied to an order.
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific order_taxes in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to order tax.
 
 ### Pagination
 

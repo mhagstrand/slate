@@ -1,5 +1,7 @@
 # Bulk Pricing
 
+Bulk pricing rules applied to a product.
+
 ## Bulk Pricing Object - Properties
 
 | Name | Type | Description |

@@ -1,5 +1,7 @@
 # Product Reviews 
 
+Reviews associated with a product.
+
 ## Product Review Object - Properties
 
 | Name | Type | Description |

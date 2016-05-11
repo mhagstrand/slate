@@ -1,12 +1,10 @@
-## Product line items associated with an order.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Order Product Operations
 
 *   [List Order Products](#list-order-products)
 *   [Get an Order Product](#get-an-order-product)
@@ -21,14 +19,18 @@ Gets the product line items associated with an order. (By default, items sort fr
 *   [Basic Auth](#list-order-products-basic)
 >`GET /api/v2/orders/{order_id}/products`
 
+### Filters
+
+There are no filter parameters specific to `order products`.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/orders/{order_id}/products?page={number}` |
-| `Limit` | int | `/api/v2/orders/{order_id}/products?limit={count}` |
+| Page | int | /api/v2/orders/{order_id}/products?page={number} |
+| Limit | int | /api/v2/orders/{order_id}/products?limit={count} |
 
 ```json
 [

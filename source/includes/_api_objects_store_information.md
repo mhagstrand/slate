@@ -1,6 +1,6 @@
 # Store Information Object
 
-Profile of an individual store.
+Profile and metadata of an individual store.
 
 ## Store Information Object - Properties
 

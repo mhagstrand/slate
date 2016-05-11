@@ -1,12 +1,10 @@
-## Redirects are used to create custom URL paths that map to resources on the storefront (such as products, categories, brands, etc.) or manually defined static URLs.
-
 |||
 |----|-----|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_content`
 ||`store_v2_content_read_only`|
 
-## Operations
+## Redirect Operations
 
 *   [List Redirects](#list-redirects)
 *   [Get a Redirect](#get-a-redirect)
@@ -27,12 +25,12 @@ Gets the collection of URL redirects.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `redirects` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/redirects?page={number}` |
-| `Limit` | int | `/api/v2/redirects?limit={count}` |
+| page | int | /api/v2/redirects?page={number} |
+| limit | int | /api/v2/redirects?limit={count} |
 
 ```json
 [
@@ -82,12 +80,10 @@ Gets a single URL redirect.
 
 Gets a count of redirects.
 
-
 *   [OAuth](#get-a-count-of-redirects-oauth)
 >`GET /stores/{store_hash}/v2/redirects/count`
 *   [Basic Auth](#get-a-count-of-redirects-basic)
 >`GET /api/v2/redirects/count`
-
 
 
 ### Response
@@ -107,20 +103,18 @@ Creates a new URL redirect.
 *   [Basic Auth](#create-a-redirect-basic)
 >`POST /api/v2/redirects`
 
-
-
 ### Read-only Properties
 
 The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `url`
+*   url
 
 ### Requirements
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `path`
-*   `forward`
+*   path
+*   forward
 
 ### Request
 
@@ -157,20 +151,18 @@ Updates an existing URL redirect.
 *   [Basic Auth](#update-a-redirect-basic)
 >`PUT /api/v2/redirects/{id}`
 
-
-
 ### Read-only Properties
 
 The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `url`
+*   url
 
 ### Requirements
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `path`
-*   `forward`
+*   path
+*   forward
 
 ### Notes
 
@@ -186,7 +178,6 @@ Deletes a URL redirect.
 >`DELETE /api/v2/redirects/{id}`
 
 
-
 ## Delete Multiple Redirects
 
 Deletes multiple URL redirects.
@@ -197,12 +188,11 @@ Deletes multiple URL redirects.
 >`DELETE /api/v2/redirects`
 
 
-
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `redirects` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/redirects?page={number}` |
-| `Limit` | int | `/api/v2/redirects?limit={count}` |
+| page | int | /api/v2/redirects?page={number} |
+| limit | int | /api/v2/redirects?limit={count} |

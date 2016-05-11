@@ -1,6 +1,6 @@
 # Products
 
-Properties for a saleable item in the catalog
+A saleable item in the catalog.
 
 ## Product Object – Properties
 

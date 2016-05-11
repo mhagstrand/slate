@@ -1,12 +1,10 @@
-## Rules that modify the default behavior of products.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Product Rule Operations
 
 *   [List Product Rules](#list-product-rules)
 *   [Get a Product Rule](#get-a-product-rule)
@@ -25,14 +23,18 @@ Gets the collection of rules associated with a product. (Default sorting is by r
 *   [Basic Auth](#list-product-rules-basic)
 >`GET /api/v2/products/{product_id}/rules`
 
+### Filters
+
+There are no filter parameters specific to product rules.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/rules?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/rules?limit={count}` |
+| page | int | /api/v2/products/{product_id}/rules?page={number} |
+| limit | int | /api/v2/products/{product_id}/rules?limit={count} |
 
 ```json
 [
@@ -140,14 +142,14 @@ Creates a new product rule.
 
 The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
 The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `conditions`
+*   conditions
 
 ```json
 {
@@ -174,7 +176,11 @@ The following properties of the product rule are required. The request won’t b
 
 ## Update a Product Rule
 
-Updates an existing product rule. NOTE: if you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
+Updates an existing product rule. 
+
+### Notes
+
+If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 
 *   [OAuth](#update-a-product-rule-oauth)
 >`PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
@@ -185,12 +191,12 @@ Updates an existing product rule. NOTE: if you include a conditions object array
 
 The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
-The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.
+There are no property requirements for updating a product rule.
 
 ```json
 {
@@ -235,9 +241,9 @@ Deletes multiple product rules.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_rules` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/rules?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/rules?limit={count}` |
+| page | int | /api/v2/products/{product_id}/rules?page={number} |
+| limit | int | /api/v2/products/{product_id}/rules?limit={count} |

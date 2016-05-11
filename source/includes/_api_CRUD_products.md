@@ -1,14 +1,10 @@
-## Products Resource – Operations
-
-Catalog of saleable items in the store.
-
 |||
 |---|---|
 | **Manages** | [Product Object](/api/?BasicAuth#product-properties) |
 | **OAuth Scopes** | store_v2_products |
 | |store_v2_products_read_only
 
-**Operations**
+## Product Operations
 
 *   [List Products](#list-products)
 *   [Get a Product](#get-a-product)
@@ -312,7 +308,7 @@ Filter parameters can be added to the URL query string to select specific produc
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 products are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `products` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
@@ -553,17 +549,17 @@ The following properties of the product are required. The request won’t be ful
 
 ### Notes
 
-When the is_visible property is not provided, the product visibility is false by default.
+When the `is_visible` property is not provided, the product visibility is `false` by default.
 
-To make newly created products immediately visible on the storefront, you must set is_visible to true when you create the product.
+To make newly created products immediately visible on the storefront, you must set `is_visible` to true when you create the product.
 
-To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your POST includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
+To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your `POST` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
 
-json
-403 Access Denied/Forbidden
+```json
+403 Access Denied/Forbidden```
 
 
-If automatic tax is enabled on the store, the value of tax_class_id will have no effect on the calculation of taxes.
+If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
 ## Update a Product
 
@@ -600,11 +596,11 @@ The following properties of the product are read-only. If one or more of these p
 
 ### Requirements
 
-The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.
+There are no required properties when updating a product.
 
 ### Notes
 
-To update a product, set one or more [product properties](/api/?javascript#product-properties) in the PUT request:
+To update a product, set one or more [product properties](/api/?javascript#product-properties) in the `PUT` request:
 
 ```json
 {
@@ -613,7 +609,7 @@ To update a product, set one or more [product properties](/api/?javascript#produ
 }```
 
 
-For example, you can use a PUT to link a product to an option set:
+For example, you can use a `PUT` to link a product to an option set:
 
 ```curl
 {
@@ -621,7 +617,7 @@ For example, you can use a PUT to link a product to an option set:
 }```
 
 
-Invalid property values will produce a 400 Bad Request error response:
+Invalid property values will produce a `400 Bad Request` error response:
 
 ```curl 
 {
@@ -629,11 +625,11 @@ Invalid property values will produce a 400 Bad Request error response:
 }```
 
 
-json 
-400 Bad Request
+```json 
+400 Bad Request```
 
 
-Trying to set read-only properties will also produce a 400 Bad Request error response:
+Trying to set read-only properties will also produce a `400 Bad Request` error response:
 
 ```curl
 {
@@ -644,13 +640,13 @@ Trying to set read-only properties will also produce a 400 Bad Request error res
 ```json 
 400 Bad Request```
 
-To maximize system performance, Bigcommerce caps the maximum number of categories to which a product can belong, at 1,000. If your PUT includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
+To maximize system performance, Bigcommerce caps the maximum number of categories to which a product can belong, at 1,000. If your `PUT` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
 
 ```json
 403 Access Denied/Forbidden```
 
 
-If automatic tax is enabled on the store, the value of tax_class_id will have no effect on the calculation of taxes.
+If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
 ## Delete a Product
 
@@ -680,7 +676,7 @@ Deletes all products from the store.
 
 ### Notes
 
-Successful deletion of all products returns a 204 No Content response.
+Successful deletion of all products returns a `204 No Content` response.
 
 ```json 
 204 No Content```

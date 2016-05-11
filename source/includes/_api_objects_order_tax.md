@@ -1,6 +1,6 @@
 # Order Taxes
 
-The taxes object provides information about each tax applied to an order, which may be useful for reporting purposes. All values are read-only.
+Each tax applied to an order, which may be useful for reporting purposes. All values are read-only.
 
 ## Order Tax Object - Properties
 

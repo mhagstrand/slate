@@ -1,5 +1,7 @@
 # Product Rules
 
+Rules that modify the properties of a product, such as weight, price, and product image.
+
 ## Product Rule Object - Properties
 
 | Name | Type | Description |

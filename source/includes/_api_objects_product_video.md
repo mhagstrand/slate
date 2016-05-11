@@ -1,5 +1,7 @@
 # Videos
 
+Embedded videos displayed on product listings.
+
 ## Videos Object - Properties
 
 | Name | Type | Description |

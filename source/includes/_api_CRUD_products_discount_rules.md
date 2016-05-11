@@ -1,12 +1,10 @@
-## Bulk pricing rules applied to a product.
-
 |||
 |---|---|
 | Manages |
 | OAuth Scopes | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Bulk Pricing Rule Operations
 
 *   [List Bulk Pricing Rules](#list-bulk-pricing-rules)
 *   [Get a Product Bulk Pricing Rule](#get-a-product-bulk-pricing-rule)
@@ -25,14 +23,18 @@ Gets the collection of product bulk pricing rules.
 *   [Basic Auth](#list-bulk-pricing-rules-basic)
 >`GET /api/v2/products/{product_id}/discount_rules`
 
+### Filters
+
+There are no filter parameters specific to `discount_rules`.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/products/{product_id}/discount_rules?page={number}` |
-| `limit` | int | `/api/v2/products/{product_id}/discount_rules?limit={count}` |
+| page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
+| limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |
 
 ```json
 [
@@ -95,14 +97,14 @@ Creates a new product bulk pricing rule.
 
 The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `product_id`
+*   product_id
 
 ### Requirements
 
 The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `type`
-*   `type_value`
+*   type
+*   type_value
 
 ### Notes
 
@@ -143,14 +145,14 @@ Updates an existing product bulk pricing rule.
 
 The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `product_id`
+*   product_id
 
 ### Requirements
 
 The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `type`
-*   `type_value`
+*   type
+*   type_value
 
 ### Notes
 
@@ -198,9 +200,9 @@ Deletes bulk pricing rules associated with a product.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `bulk_pricing_rules` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/discount_rules?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/discount_rules?limit={count}` |
+| page | int | /api/v2/products/{product_id}/discount_rules?page={number} |
+| limit | int | /api/v2/products/{product_id}/discount_rules?limit={count} |

@@ -1,12 +1,10 @@
-## Stock Keeping Unit identifiers associated with products.
-
 |||
 |---|---
 | **Manages** |
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Product SKU Operations
 
 *   [List Product SKUs](#list-product-skus)
 *   [Get a Product SKU](#get-a-product-sku)
@@ -49,8 +47,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| Page | int | /api/v2/products/{product_id}/skus?page={number} |
-| Limit | int | /api/v2/products/{product_id}/skus?limit={count} |
+| page | int | /api/v2/products/{product_id}/skus?page={number} |
+| limit | int | /api/v2/products/{product_id}/skus?limit={count} |
 
 ```json
 [
@@ -153,15 +151,15 @@ Creates a new product SKU.
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
 The following properties of the sku are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `sku`
-*   `options`
+*   sku
+*   options
 
 ### Notes
 
@@ -200,12 +198,12 @@ Updates an existing product SKU.
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
-The following properties of the sku are required. The request won’t be fulfilled unless these properties are valid.
+There are no required properties for updating a product SKU. 
 
 ```json
 {
@@ -250,17 +248,17 @@ Filter parameters can be added to the URL query string to select specific skus i
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `min_id` | int | `/api/v2/products/{product_id}/skus?min_id={value}` |
-| `max_id` | int | `/api/v2/products/{product_id}/skus?max_id={value}` |
-| `sku` | string | `/api/v2/products/{product_id}/skus?sku={value}` |
-| `upc` | string | `/api/v2/products/{product_id}/skus?upc={value}` |
-| `inventory_level` | string | `/api/v2/products/{product_id}/skus?inventory_level={value}` |
-| `inventory_warning_level` | string | `/api/v2/products/{product_id}/skus?inventory_warning_level={value}` |
-| `bin_picking_number` | string | `/api/v2/products/{product_id}/skus?bin_picking_number={value}` |
-| `min_inventory_level` | int | `/api/v2/products/{product_id}/skus?min_inventory_level={value}` |
-| `max_inventory_level` | int | `/api/v2/products/{product_id}/skus?max_inventory_level={value}` |
-| `is_low_inventory` | boolean | `/api/v2/products/{product_id}/skus?is_low_inventory={value}` |
-| `product_hash` | int | `/api/v2/products/{product_id}/skus?product_hash={value}` |
+| min_id | int | /api/v2/products/{product_id}/skus?min_id={value} |
+| max_id | int | /api/v2/products/{product_id}/skus?max_id={value} |
+| sku | string | /api/v2/products/{product_id}/skus?sku={value} |
+| upc | string | /api/v2/products/{product_id}/skus?upc={value} |
+| inventory_level | string | /api/v2/products/{product_id}/skus?inventory_level={value} |
+| inventory_warning_level | string | /api/v2/products/{product_id}/skus?inventory_warning_level={value} |
+| bin_picking_number | string | /api/v2/products/{product_id}/skus?bin_picking_number={value} |
+| min_inventory_level | int | /api/v2/products/{product_id}/skus?min_inventory_level={value} |
+| max_inventory_level | int | /api/v2/products/{product_id}/skus?max_inventory_level={value} |
+| is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
+| product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
 
 ### Pagination
 
@@ -268,5 +266,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/products/{product_id}/skus?page={number}` |
-| `limit` | int | `/api/v2/products/{product_id}/skus?limit={count}` |
+| page | int | /api/v2/products/{product_id}/skus?page={number} |
+| limit | int | /api/v2/products/{product_id}/skus?limit={count} |

@@ -5,7 +5,7 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## Operations
+## Time Operations
 
 *   [Get a Timestamp](#get-a-timestamp)
 

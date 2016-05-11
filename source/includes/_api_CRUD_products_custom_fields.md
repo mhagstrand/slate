@@ -1,12 +1,10 @@
-## Custom fields associated with a product.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Custom Field Operations
 
 *   [List Custom Fields](#list-custom-fields)
 *   [Get a Custom Field](#get-a-custom-field)
@@ -25,14 +23,18 @@ Gets custom fields associated with a product.
 *   [Basic Auth](#list-custom-fields-basic)
 >`GET /api/v2/products/{product_id}/custom_fields`
 
+### Filters
+
+There are no filter parameters specific to `custom_fields`.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| Page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
-| Limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
+| page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
+| limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
 
 ```json
 [
@@ -97,14 +99,14 @@ Creates a new custom field associated with a product
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `product_id`
+*   product_id
 
 ### Requirements
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `name`
-*   `text`
+*   name
+*   text
 
 ```curl
 {
@@ -135,14 +137,14 @@ Updates an existing custom field associated with a product.
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `product_id`
+*   product_id
 
 ### Requirements
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `name`
-*   `text`
+*   name
+*   text
 
 ```curl
 {
@@ -184,5 +186,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/custom_fields?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/custom_fields?limit={count}` |
+| page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
+| limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |

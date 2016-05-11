@@ -1,5 +1,7 @@
 # Order Messages
 
+Messages associated with an order.
+
 ## Order Message Object - Properties
 
 | Name | Type | Description |

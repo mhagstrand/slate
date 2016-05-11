@@ -1,12 +1,10 @@
-## Enabled payment methods.
-
 |||
 |---|---|
 | Manages |
 | OAuth Scopes | `store_v2_information`
 ||`store_v2_information_read_only`
 
-## Operations
+## Payment Method Operations
 
 *   [List Payment Methods](#list-payment-methods)
 
@@ -15,17 +13,13 @@
 Gets the list of enabled payment methods. (Default sorting is by payment method, alphabetically from A to Z.)
 
 *   [OAuth](#list-payment-methods-oauth)
+>`GET /stores/{store_hash}/v2/payments/methods`
 *   [Basic Auth](#list-payment-methods-basic)
-`GET /stores/{store_hash}/v2/payments/methods`
-`GET /api/v2/payments/methods`
-
+>`GET /api/v2/payments/methods`
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific payment_methods in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to payment methods.
 
 ### Pagination
 
@@ -33,8 +27,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/payments/methods?page={number}` |
-| `Limit` | int | `/api/v2/payments/methods?limit={count}` |
+| page | int | /api/v2/payments/methods?page={number} |
+| limit | int | /api/v2/payments/methods?limit={count} |
 
 ```json
 [

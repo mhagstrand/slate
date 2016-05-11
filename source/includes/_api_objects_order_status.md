@@ -1,6 +1,6 @@
 # Order Statuses
 
-Represents a state in the order fulfilment workflow
+Represents a state in the order fulfillment workflow
 
 ## Order Status Object - Properties
 

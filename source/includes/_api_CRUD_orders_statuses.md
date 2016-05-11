@@ -1,12 +1,10 @@
-## Statuses that can be assigned to orders. Each status represents a state in the fulfilment workflow.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Order Status Operations
 
 *   [List Order Statuses](#list-order-statuses)
 *   [Get an Order Status](#get-an-order-status)
@@ -22,10 +20,7 @@ Gets the list of order statuses.
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific order_statuses in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to `order_statuses`.
 
 ### Pagination
 
@@ -33,8 +28,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/order_statuses?page={number}` |
-| `Limit` | int | `/api/v2/order_statuses?limit={count}` |
+| page | int | /api/v2/order_statuses?page={number} |
+| limit | int | /api/v2/order_statuses?limit={count} |
 
 ```json
 [

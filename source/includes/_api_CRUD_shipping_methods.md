@@ -1,12 +1,10 @@
-## List of enabled shipping methods.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_information`
 ||`store_v2_information_read_only`
 
-## Operations
+## Shipping Method Operations
 
 *   [List Shipping Methods](#list-shipping-methods)
 *   [Get a Shipping Method](#get-a-shipping-method)
@@ -26,9 +24,9 @@ Filter parameters can be added to the URL query string to select specific shippi
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `id` | string | `/api/v2/shipping/methods?id={value}` |
-| `min_id` | int | `/api/v2/shipping/methods?min_id={value}` |
-| `max_id` | int | `/api/v2/shipping/methods?max_id={value}` |
+| id | string | /api/v2/shipping/methods?id={value} |
+| min_id | int | /api/v2/shipping/methods?min_id={value} |
+| max_id | int | /api/v2/shipping/methods?max_id={value} |
 
 ### Pagination
 
@@ -36,8 +34,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/shipping/methods?page={number}` |
-| `Limit` | int | `/api/v2/shipping/methods?limit={count}` |
+| Page | int | /api/v2/shipping/methods?page={number} |
+| Limit | int | /api/v2/shipping/methods?limit={count} |
 
 ```json
 [

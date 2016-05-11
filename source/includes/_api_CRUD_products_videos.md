@@ -1,12 +1,10 @@
-## Embedded videos displayed on product listings.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Product Video Operations
 
 *   [List Product Videos](#list-product-videos)
 *   [Get a Product Video](#get-a-product-video)
@@ -27,12 +25,12 @@ Gets the videos associated with a product.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_videos are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_videos` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/products/{product_id}/videos?page={number}` |
-| `limit` | int | `/api/v2/products/{product_id}/videos?limit={count}` |
+| page | int | /api/v2/products/{product_id}/videos?page={number} |
+| limit | int | /api/v2/products/{product_id}/videos?limit={count} |
 
 ```json
 [
@@ -82,14 +80,14 @@ Adds a link to a YouTube video to a product.
 
 The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
 
 ### Requirements
 
 The following properties of the product video are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `url`
+*   url
 
 ### Notes
 
@@ -114,8 +112,12 @@ Edit the metadata of a product video.
 
 The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
+*   id
+*   product_id
+
+### Requirements
+
+There are no required properties when updating a product video. 
 
 ### Notes
 

@@ -1,12 +1,10 @@
-## Purchases from a store.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Order Operations
 
 *   [List Orders](#list-orders)
 *   [Get an Order](#get-an-order)
@@ -31,18 +29,18 @@ Filter parameters can be added to the URL query string to select specific orders
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `min_id` | int | `/api/v2/orders?min_id={value}` |
-| `max_id` | int | `/api/v2/orders?max_id={value}` |
-| `min_total` | decimal | `/api/v2/orders?min_total={value}` |
-| `max_total` | decimal | `/api/v2/orders?max_total={value}` |
-| `customer_id` | string | `/api/v2/orders?customer_id={value}` |
-| `status_id` | string | `/api/v2/orders?status_id={value}` |
-| `is_deleted` | string | `/api/v2/orders?is_deleted={value}` |
-| `payment_method` | string | `/api/v2/orders?payment_method={value}` |
-| `min_date_created` | dateTime or date | `/api/v2/orders?min_date_created={value}` |
-| `max_date_created` | dateTime or date | `/api/v2/orders?max_date_created={value}` |
-| `min_date_modified` | dateTime or date | `/api/v2/orders?min_date_modified={value}` |
-| `max_date_modified` | dateTime or date | `/api/v2/orders?max_date_modified={value}` |
+| min_id | int | /api/v2/orders?min_id={value} |
+| max_id | int | /api/v2/orders?max_id={value} |
+| min_total | decimal | /api/v2/orders?min_total={value} |
+| max_total | decimal | /api/v2/orders?max_total={value} |
+| customer_id | string | /api/v2/orders?customer_id={value} |
+| status_id | string | /api/v2/orders?status_id={value} |
+| is_deleted | string | /api/v2/orders?is_deleted={value} |
+| payment_method | string | /api/v2/orders?payment_method={value} |
+| min_date_created | dateTime or date | /api/v2/orders?min_date_created={value} |
+| max_date_created | dateTime or date | /api/v2/orders?max_date_created={value} |
+| min_date_modified | dateTime or date | /api/v2/orders?min_date_modified={value} |
+| max_date_modified | dateTime or date | /api/v2/orders?max_date_modified={value} |
 
 ### Pagination
 
@@ -50,9 +48,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/orders?page={number}` |
-| `limit` | int | `/api/v2/orders?limit={count}` |
-| `sort` | string | `/api/v2/orders?sort=date_created:desc` |
+| page | int | /api/v2/orders?page={number} |
+| limit | int | /api/v2/orders?limit={count} |
+| sort | string | /api/v2/orders?sort=date_created:desc |
 
 ```json
 [
@@ -256,43 +254,43 @@ Manually create and submit an order.
 
 The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `date_modified`
-*   `date_shipped`
-*   `status`
-*   `order_source`
-*   `subtotal_tax`
-*   `shipping_cost_tax`
-*   `shipping_cost_tax_class_id`
-*   `handling_cost_tax`
-*   `handling_cost_tax_class_id`
-*   `wrapping_cost_tax`
-*   `wrapping_cost_tax_class_id`
-*   `total_tax`
-*   `payment_status`
-*   `currency_id`
-*   `currency_code`
-*   `currency_exchange_rate`
-*   `default_currency_id`
-*   `default_currency_code`
-*   `coupon_discount`
-*   `store_credit_amount`
-*   `gift_certificate_amount`
-*   `shipping_address_count`
-*   `is_deleted`
-*   `coupons`
+*   id
+*   date_modified
+*   date_shipped
+*   status
+*   order_source
+*   subtotal_tax
+*   shipping_cost_tax
+*   shipping_cost_tax_class_id
+*   handling_cost_tax
+*   handling_cost_tax_class_id
+*   wrapping_cost_tax
+*   wrapping_cost_tax_class_id
+*   total_tax
+*   payment_status
+*   currency_id
+*   currency_code
+*   currency_exchange_rate
+*   default_currency_id
+*   default_currency_code
+*   coupon_discount
+*   store_credit_amount
+*   gift_certificate_amount
+*   shipping_address_count
+*   is_deleted
+*   coupons
 
 ### Requirements
 
 The following properties of the order are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `products`
-*   `billing_address`
+*   products
+*   billing_address
 
 ### Notes
->KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.</span>
+>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.
 
->PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `**CA**` as a state name results in no tax document submission. Supplying `**California**` as a state name results in a successful submission.</span>
+>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `**CA**` as a state name results in no tax document submission. Supplying `**California**` as a state name results in a successful submission.
 
 #### Overriding Pre-set Values
 
@@ -331,15 +329,15 @@ You can create overrides for calculated values such as product prices, subtotal 
 
 #### Changing the Order Status
 
-*   status_id can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.
+*   `status_id` can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.
 
-*   POST or PUT Orders on stores with Avalara Premium causes tax documents to be submitted. If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:
-    *   `Shipped`
-    *   `Partially Shipped`
-    *   `Awaiting Pickup`
-    *   `Awaiting Shipment`
-    *   `Completed`
-    *   `Awaiting Fulfillment`
+*   `POST` or `PUT` Orders on stores with Avalara Premium causes tax documents to be submitted. If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:
+    *   Shipped
+    *   Partially Shipped
+    *   Awaiting Pickup
+    *   Awaiting Shipment
+    *   Completed
+    *   Awaiting Fulfillment
 *   Bigcommerce considers all statuses other than the above to be of the unpaid type, except `**Refunded**`, which is considered neither paid or unpaid. Orders created using the `**POST**` method that include a status of the paid type result in the submission of tax documents to Avalara.
 
 ```curl
@@ -518,34 +516,34 @@ Updates an existing order.
 
 The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `date_modified`
-*   `date_shipped`
-*   `status`
-*   `order_source`
-*   `subtotal_tax`
-*   `shipping_cost_tax`
-*   `shipping_cost_tax_class_id`
-*   `handling_cost_tax`
-*   `handling_cost_tax_class_id`
-*   `wrapping_cost_tax`
-*   `wrapping_cost_tax_class_id`
-*   `total_tax`
-*   `payment_status`
-*   `currency_id`
-*   `currency_code`
-*   `currency_exchange_rate`
-*   `default_currency_id`
-*   `default_currency_code`
-*   `coupon_discount`
-*   `store_credit_amount`
-*   `gift_certificate_amount`
-*   `shipping_address_count`
-*   `coupons`
+*   id
+*   date_modified
+*   date_shipped
+*   status
+*   order_source
+*   subtotal_tax
+*   shipping_cost_tax
+*   shipping_cost_tax_class_id
+*   handling_cost_tax
+*   handling_cost_tax_class_id
+*   wrapping_cost_tax
+*   wrapping_cost_tax_class_id
+*   total_tax
+*   payment_status
+*   currency_id
+*   currency_code
+*   currency_exchange_rate
+*   default_currency_id
+*   default_currency_code
+*   coupon_discount
+*   store_credit_amount
+*   gift_certificate_amount
+*   shipping_address_count
+*   coupons
 
 ### Notes
 
->KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.</span>
+>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.
 
 ### Changing the Order Status
 
@@ -565,18 +563,18 @@ Use the `status_id` property to set the order to a specific state. The list of a
 
 Edits to the following properties will trigger a recalculation of the subtotal and total:
 
-*   `products`
-*   `discount_amount`
-*   `shipping_cost_ex_tax`
-*   `shipping_cost_inc_tax`
-*   `handling_cost_ex_tax`
-*   `handling_cost_inc_tax`
-*   `wrapping_cost_ex_tax`
-*   `wrapping_cost_inc_tax`
-*   `billing_address`
-*   `shipping_addresses`
+*   products
+*   discount_amount
+*   shipping_cost_ex_tax
+*   shipping_cost_inc_tax
+*   handling_cost_ex_tax
+*   handling_cost_inc_tax
+*   wrapping_cost_ex_tax
+*   wrapping_cost_inc_tax
+*   billing_address
+*   shipping_addresses
 
->NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.</span>
+>NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.
 
 ## Delete an Order
 
@@ -589,7 +587,7 @@ Deletes an order.
 
 ### Notes
 
->NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail and return `405 Method not allowed`.</span>
+>NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail and return `405 Method not allowed`.
 
 ## Delete All Orders
 

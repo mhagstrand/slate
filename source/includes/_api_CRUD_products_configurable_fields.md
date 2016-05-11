@@ -1,12 +1,10 @@
-## Configurable fields associated with a product.
-
 |||
 |---|---|
 | Manages |
 | OAuth Scopes | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
+## Configurable Field Operations
 
 *   [List Configurable Fields](#list-configurable-fields)
 *   [Get a Configurable Field](#get-a-configurable-field)
@@ -23,14 +21,18 @@ Gets the collection of configurable fields associated with a product.
 *   [Basic Auth](#list-configurable-fields-basic)
 >`GET /api/v2/products/{product_id}/configurable_fields`
 
+### Filters
+
+There are no filter parameters specific to `configurable_fields`.
+
 ### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/configurable_fields?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/configurable_fields?limit={count}` |
+| page | int | /api/v2/products/{product_id}/configurable_fields?page={number} |
+| limit | int | /api/v2/products/{product_id}/configurable_fields?limit={count} |
 
 ```json
 [
@@ -110,5 +112,5 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/configurable_fields?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/configurable_fields?limit={count}` |
+| page | int | /api/v2/products/{product_id}/configurable_fields?page={number} |
+| limit | int | /api/v2/products/{product_id}/configurable_fields?limit={count} |

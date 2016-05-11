@@ -1,5 +1,3 @@
-## Messages associated with an order.
-
 |||
 |---|---|
 | **Manages** |
@@ -7,7 +5,7 @@
 ||`store_v2_orders_read_only`
 
 
-## Operations
+## Order Message Operations
 
 *   [List Order Messages](#list-order-messages)
 *   [Get Order Message](#get-order-message)
@@ -23,17 +21,17 @@ Gets the messages associated with an order.
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific order_messages in the collection.
+Filter parameters can be added to the URL query string to select specific `order_message` in the collection.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `min_id` | int | `/api/v2/orders/{order_id}/messages?min_id={value}` |
-| `max_id` | int | `/api/v2/orders/{order_id}/messages?max_id={value}` |
-| `status` | string | `/api/v2/orders/{order_id}/messages?status={value}` |
-| `customer_id` | string | `/api/v2/orders/{order_id}/messages?customer_id={value}` |
-| `is_flagged` | string | `/api/v2/orders/{order_id}/messages?is_flagged={value}` |
-| `min_date_created` | dateTime or date | `/api/v2/orders/{order_id}/messages?min_date_created={value}` |
-| `max_date_created` | dateTime or date | `/api/v2/orders/{order_id}/messages?max_date_created={value}` |
+| min_id | int | /api/v2/orders/{order_id}/messages?min_id={value} |
+| max_id | int | /api/v2/orders/{order_id}/messages?max_id={value} |
+| status | string | /api/v2/orders/{order_id}/messages?status={value} |
+| customer_id | string | /api/v2/orders/{order_id}/messages?customer_id={value} |
+| is_flagged | string | /api/v2/orders/{order_id}/messages?is_flagged={value} |
+| min_date_created | dateTime or date | /api/v2/orders/{order_id}/messages?min_date_created={value} |
+| max_date_created | dateTime or date | /api/v2/orders/{order_id}/messages?max_date_created={value} |
 
 ### Pagination
 
@@ -41,8 +39,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/orders/{order_id}/messages?page={number}` |
-| `limit` | int | `/api/v2/orders/{order_id}/messages?limit={count}` |
+| page | int | /api/v2/orders/{order_id}/messages?page={number} |
+| limit | int | /api/v2/orders/{order_id}/messages?limit={count} |
 
 ## Get Order Message
 

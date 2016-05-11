@@ -1,14 +1,10 @@
-## Product Images Resource – Operations
-
-Images associated with a product.
-
 |||
 |---|---|
 | Manages | [Product Image Object](/api/?BasicAuth#product-image-properties) |
-| OAuth Scopes | `store_v2_products`
-||`store_v2_products_read_only`
+| OAuth Scopes | `store_v2_products`|
+||`store_v2_products_read_only`|
 
-**Operations**
+## Product Image Operations
 
 *   [List Product Images](#list-product-images)
 *   [Get a Product Image](#get-a-product-image)
@@ -23,9 +19,13 @@ Images associated with a product.
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
 *   [OAuth](#list-product-images-oauth)
->`GET /stores/{store_hash}/v2/products/{product_id}/images`
+>GET /stores/{store_hash}/v2/products/{product_id}/images
 *   [Basic Auth](#list-product-images-basic)
->`GET /api/v2/products/{product_id}/images`
+>GET /api/v2/products/{product_id}/images
+
+### Filters
+
+There are no filter parameters specific to product images.
 
 ### Pagination
 
@@ -33,10 +33,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `page` | int | `/api/v2/products/{product_id}/images?page={number}` |
-| `limit` | int | `/api/v2/products/{product_id}/images?limit={count}` |
+| page | int | /api/v2/products/{product_id}/images?page={number} |
+| limit | int | /api/v2/products/{product_id}/images?limit={count} |
 
-```json
+json
 [
   {
     "id": 247,
@@ -64,8 +64,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "description": null,
     "date_created": "Mon, 24 Sep 2012 01:17:14 +0000"
   }
-]
-```
+]```
+
 
 ## Get a Product Image
 
@@ -89,8 +89,8 @@ Gets a product image.
   "sort_order": 1,
   "description": null,
   "date_created": "Mon, 24 Sep 2012 01:17:14 +0000"
-}
-```
+}```
+
 
 ## Get a Count of Product Images
 
@@ -104,8 +104,8 @@ Gets a count of the number of product images in the store.
 ```json
 {
   "count": 105
-}
-```
+}```
+
 
 ## Create a Product Image
 
@@ -120,15 +120,15 @@ Creates a new product image.
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `date_created`
-*   `product_id`
+*   id
+*   date_created
+*   product_id
 
 ### Requirements
 
 The following properties of the product image are required. The request won’t be fulfilled unless these properties are valid.
 
-*   `image_file`
+*   image_file
 
 ```json
 {
@@ -139,8 +139,8 @@ The following properties of the product image are required. The request won’t 
   "sort_order": 0,
   "description": "",
   "date_created": "Fri, 21 Dec 2012 18:54:04 +0000"
-}
-```
+}```
+
 
 ## Update a Product Image
 
@@ -155,9 +155,9 @@ Updates an existing product image.
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-*   `id`
-*   `product_id`
-*   `date_created`
+*   id
+*   product_id
+*   date_created
 
 ### Requirements
 
@@ -172,8 +172,8 @@ The following properties of the product image are required. The request won’t 
   "sort_order": 1,
   "description": "",
   "date_created": "Fri, 21 Dec 2012 19:01:03 +0000"
-}
-```
+}```
+
 
 ## Delete a Product Image
 
@@ -195,9 +195,9 @@ Deletes multiple product images.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_images are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_images` are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/products/{product_id}/images?page={number}` |
-| `Limit` | int | `/api/v2/products/{product_id}/images?limit={count}` |
+| Page | int | /api/v2/products/{product_id}/images?page={number} |
+| Limit | int | /api/v2/products/{product_id}/images?limit={count} |

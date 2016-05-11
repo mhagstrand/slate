@@ -1,12 +1,10 @@
-## Metadata that describes the store.
-
 |||
 |---|---|
 | Manages |
 | OAuth Scopes | `store_v2_information`
 ||`store_v2_information_read_only`
 
-## Operations
+## Store Information Operations
 
 *   [Get a Store's Information](#get-a-store-s-information)
 

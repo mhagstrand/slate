@@ -1,5 +1,3 @@
-## Coupons applied to an order.
-
 |||
 |---|---|
 | **Manages** |
@@ -22,10 +20,7 @@ Gets the coupon codes applied to an order. (Default sorting is by coupon id, fro
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific order_coupons in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to `order_coupons`.
 
 ### Pagination
 
@@ -33,8 +28,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/orders/{order_id}/coupons?page={number}` |
-| `Limit` | int | `/api/v2/orders/{order_id}/coupons?limit={count}` |
+| Page | int | /api/v2/orders/{order_id}/coupons?page={number} |
+| Limit | int | /api/v2/orders/{order_id}/coupons?limit={count} |
 
 ```json
 [

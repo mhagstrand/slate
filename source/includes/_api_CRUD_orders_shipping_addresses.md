@@ -1,12 +1,10 @@
-## Shipping addresses associated with an order.
-
 |||
 |---|---|
 | **Manages** |
 | **OAuth Scopes** | `store_v2_orders`
 ||`store_v2_orders_read_only`
 
-## Operations
+## Order Shipping Address Operations
 
 *   [List Order Shipping Addresses](#list-order-shipping-addresses)
 *   [Get an Order Shipping Address](#get-an-order-shipping-address)
@@ -23,10 +21,7 @@ Gets the shipping addresses associated with an order.
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific order_shipping_addresses in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
+There are no filter parameters specific to order shipping addresses.
 
 ### Pagination
 
@@ -34,8 +29,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 | Parameter | Type | Example |
 | --- | --- | --- |
-| `Page` | int | `/api/v2/orders/{order_id}/shipping_addresses?page={number}` |
-| `Limit` | int | `/api/v2/orders/{order_id}/shipping_addresses?limit={count}` |
+| page | int | /api/v2/orders/{order_id}/shipping_addresses?page={number} |
+| limit | int | /api/v2/orders/{order_id}/shipping_addresses?limit={count} |
 
 ```json
 [
