@@ -25,11 +25,6 @@
       });
     });
     </script>
-      <script>
-        $(function() {
-          setupLanguages(["curl","json"]);
-        });
-      </script>
   </head>
 
   <body class="api api_v2 api_v2_orders api_v2_orders_index twocolumn">
@@ -66,10 +61,6 @@
 </header>
 
     <div class="tocify-wrapper">
-        <div class="lang-selector">
-              <a href="#" data-language-name="curl">Request</a>
-              <a href="#" data-language-name="json">Response</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -88,23 +79,10 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <h1 id="orders">Orders</h1>
-
+        
           <h1 id="orders">Orders</h1>
 
 <p>The order object contains a record of the purchase agreement between a shopper and a merchant. Returned by GET operations on the orders resource. Can also be passed in PUT and POST operations.</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders">Orders Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="order-object-properties">Order Object - Properties</h2>
 
@@ -1194,18 +1172,6 @@
 
 <p>Represents a state in the order fulfilment workflow</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/order_statuses">Order Statuses Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="order-status-object-properties">Order Status Object - Properties</h2>
 
 <table><thead>
@@ -1401,18 +1367,6 @@
           <h1 id="order-products">Order Products</h1>
 
 <p>Product line item belonging to an order</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders/products">Order Products Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="order-product-object-properties">Order Product Object - Properties</h2>
 
@@ -1822,18 +1776,6 @@
           <h1 id="shipments">Shipments</h1>
 
 <p>Tracks a package consignment from an order, shipped from the seller to the buyer.</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders/shipments">Shipments Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="shipment-object-properties">Shipment Object - Properties</h2>
 
@@ -2326,18 +2268,6 @@
 
 <p>Customer shipping address belonging to an order</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders/shipping_addresses">Order Shipping Addresses Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="order-shipping-address-object-properties">Order Shipping Address Object - Properties</h2>
 
 <table><thead>
@@ -2667,18 +2597,6 @@
 
 <p>Coupon code applied to an order</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders/coupons">Order Coupons Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="order-coupon-object-properties">Order Coupon Object - Properties</h2>
 
 <table><thead>
@@ -2835,18 +2753,6 @@
 </span></code></pre>
 
           <h1 id="order-messages">Order Messages</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/orders/messages">Order Messages Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="order-message-object-properties">Order Message Object - Properties</h2>
 

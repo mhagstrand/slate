@@ -105,27 +105,7 @@
 
 <p>Index of hierarchical categories used to organize and group products.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Manages</strong></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
-</tr>
-<tr>
-<td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
-</tr>
-</tbody></table>
-
-<h2 id="cateogry-object-properties">Cateogry Object - Properties</h2>
+<h2 id="category-object-properties">Category Object – Properties</h2>
 
 <table><thead>
 <tr>
@@ -206,7 +186,27 @@
 </tr>
 </tbody></table>
 
-          <h2 id="operations">Operations</h2>
+          <table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td><code class="prettyprint">store_v2_products</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code class="prettyprint">store_v2_products_read_only</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="category-operations">Category Operations</h2>
 
 <ul>
 <li>  <a href="#list-categories">List Categories</a></li>
@@ -241,29 +241,29 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">parent_id</code></td>
+<td>parent_id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/categories?parent_id={value}</code></td>
+<td>/api/v2/categories?parent_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">name</code></td>
+<td>name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/categories?name={value}</code></td>
+<td>/api/v2/categories?name={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">is_visible</code></td>
+<td>is_visible</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/categories?is_visible={value}</code></td>
+<td>/api/v2/categories?is_visible={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/categories?min_id={value}</code></td>
+<td>/api/v2/categories?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/categories?max_id={value}</code></td>
+<td>/api/v2/categories?max_id={value}</td>
 </tr>
 </tbody></table>
 
@@ -279,14 +279,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/categories?page={number}</code></td>
+<td>/api/v2/categories?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/categories?limit={count}</code></td>
+<td>/api/v2/categories?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -308,20 +308,20 @@
     </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/shop-mac/"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span><span class="p">]</span><span class="err">```</span><span class="w">
 
-<h2 id="get-a-category">Get a Category</h2>
 
-<p>Gets a single category.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-category-oauth">OAuth</a>
-&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/categories/{id}</code></li>
-<li>  <a href="#get-a-category-basic">Basic Auth</a>
-&gt;<code class="prettyprint">GET /api/v2/categories/{id}</code></li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">category.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-category-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-category-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
@@ -339,62 +339,60 @@
   </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="get-a-count-of-categories">Get a Count of Categories</h2>
 
-<p>Gets a count of the total number of categories in the store.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Categories</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-count-of-categories-oauth">OAuth</a>
-&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/categories/count</code></li>
-<li>  <a href="#get-a-count-of-categories-basic">Basic Auth</a>
-&gt;<code class="prettyprint">GET /api/v2/categories/count</code></li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-categories-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/count`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-categories-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/count`</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="create-a-category">Create a Category</h2>
 
-<p>Creates a new category.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
 
-<ul>
-<li>  <a href="#create-a-category-oauth">OAuth</a>
-&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/categories</code></li>
-<li>  <a href="#create-a-category-basic">Basic Auth</a>
-&gt;<code class="prettyprint">POST /api/v2/categories</code></li>
-</ul>
+</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">category.</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-category-oauth)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-category-basic)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
 
-<p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">parent_category_list</code></li>
-</ul>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">parent_category_list</span><span class="w">
 
-<p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">name</code></li>
-</ul>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
 
-<p>To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your POST causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.</p>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
 
-<p>In addition, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">POST</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your <code class="prettyprint">POST</code> would cause the total number of parent categories to exceed seven, Bigcommerce will return a 403 error.</p>
-<pre class="highlight plaintext"><code>{
-  "name": "Xmen toys"
-}
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">16</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">causes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="mi">16</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">categories,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
+
+</span><span class="err">In</span><span class="w"> </span><span class="err">addition,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">seven.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`parent_id`</span><span class="w"> </span><span class="err">field,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">check</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">its</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">determine</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">would</span><span class="w"> </span><span class="err">cause</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">seven,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
+
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
@@ -412,37 +410,34 @@
   </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="update-a-category">Update a Category</h2>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
 
-<p>Updates an existing category.</p>
+</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">category.</span><span class="w">
 
-<ul>
-<li>  <a href="#update-a-category-oauth">OAuth</a>
-&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/categories/{id}</code></li>
-<li>  <a href="#update-a-category-basic">Basic Auth</a>
-&gt;<code class="prettyprint">PUT /api/v2/categories/{id}</code></li>
-</ul>
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-category-oauth)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-category-basic)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">parent_category_list</code></li>
-</ul>
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">parent_category_list</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
 
-<p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
 
-<p>To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">PUT</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your <code class="prettyprint">PUT</code> would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">seven.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`PUT`</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`parent_id`</span><span class="w"> </span><span class="err">field,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">check</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">children</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">current</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">determine</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`PUT`</span><span class="w"> </span><span class="err">would</span><span class="w"> </span><span class="err">cause</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">seven,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
@@ -460,36 +455,32 @@
   </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">category.</span><span class="w">
+
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-category-oauth)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-category-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Categories</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-all-categories-oauth)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-all-categories-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">&gt;The</span><span class="w"> </span><span class="err">`DELETE`</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">operation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">succeed</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">zero</span><span class="w"> </span><span class="err">products.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">belong</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">categories,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">entire</span><span class="w"> </span><span class="err">operation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">fail.</span><span class="w"> </span><span class="err">Therefore,</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">really</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">delete</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">first</span><span class="w"> </span><span class="err">delete</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
 </span></code></pre>
-
-<h2 id="delete-a-category">Delete a Category</h2>
-
-<p>Deletes a category.</p>
-
-<ul>
-<li>  <a href="#delete-a-category-oauth">OAuth</a>
-&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/categories/{id}</code></li>
-<li>  <a href="#delete-a-category-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/categories/{id}</code></li>
-</ul>
-
-<h2 id="delete-all-categories">Delete All Categories</h2>
-
-<p>Deletes all the categories in the store.</p>
-
-<ul>
-<li>  <a href="#delete-all-categories-oauth">OAuth</a>
-&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/categories</code></li>
-<li>  <a href="#delete-all-categories-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/categories</code></li>
-</ul>
-
-<h3 id="notes">Notes</h3>
-
-<blockquote>
-<p>The DELETE all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.</p>
-</blockquote>
 
           <h1 id="brands">Brands</h1>
 
@@ -596,19 +587,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">name</code></td>
+<td>name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/brands?name={value}</code></td>
+<td>/api/v2/brands?name={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/brands?min_id={value}</code></td>
+<td>/api/v2/brands?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/brands?max_id={value}</code></td>
+<td>/api/v2/brands?max_id={value}</td>
 </tr>
 </tbody></table>
 
@@ -624,14 +615,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/brands?page={number}</code></td>
+<td>/api/v2/brands?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/brands?limit={count}</code></td>
+<td>/api/v2/brands?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -653,20 +644,20 @@
     </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+</span><span class="p">]</span><span class="err">```</span><span class="w">
 
-<h2 id="get-a-brand">Get a Brand</h2>
 
-<p>Gets a brand.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-brand-oauth">OAuth</a>
-&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/brands/{id}</code></li>
-<li>  <a href="#get-a-brand-basic">Basic Auth</a>
-&gt;<code class="prettyprint">GET /api/v2/brands/{id}</code></li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">brand.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-brand-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-brand-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -674,60 +665,59 @@
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="get-a-count-of-brands">Get a Count of Brands</h2>
 
-<p>Returns the total number of brands in the store.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Brands</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-count-of-brands-oauth">OAuth</a>
-&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/brands/count</code></li>
-<li>  <a href="#get-a-count-of-brands-basic">Basic Auth</a>
-&gt;<code class="prettyprint">GET /api/v2/brands/count</code></li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">Returns</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-brands-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/count`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-brands-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/count`</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="create-a-brand">Create a Brand</h2>
 
-<p>Creates a new brand.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
 
-<ul>
-<li>  <a href="#create-a-brand-oauth">OAuth</a>
-&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/brands</code></li>
-<li>  <a href="#create-a-brand-basic">Basic Auth</a>
-&gt;<code class="prettyprint">POST /api/v2/brands</code></li>
-</ul>
+</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">brand.</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
 
-<p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-brand-oauth)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-brand-basic)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-</ul>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">name</code></li>
-</ul>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
 
-<p>To maximize system performance, Bigcommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, Bigcommerce will return a 403 error.</p>
-<pre class="highlight plaintext"><code>{
-  "name": "Xmen",
-  "page_title": "X men brand"
-}
-</code></pre>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">30</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">causes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="mi">30</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">brands,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
+
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="p">,</span><span class="w">
@@ -735,32 +725,30 @@
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="update-a-brand">Update a Brand</h2>
 
-<p>Updates an existing brand.</p>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
 
-<ul>
-<li>  <a href="#update-a-brand-oauth">OAuth</a>
-&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/brands/{id}</code></li>
-<li>  <a href="#update-a-brand-basic">Basic Auth</a>
-&gt;<code class="prettyprint">PUT /api/v2/brands/{id}</code></li>
-</ul>
+</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">brand.</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-brand-oauth)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-brand-basic)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
 
-<p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-</ul>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
 
-<p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="p">,</span><span class="w">
@@ -768,46 +756,31 @@
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t/apirmzk0a__43675.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xmen, awesomeness"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">brand.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-brand-oauth)</span><span class="w">
+</span><span class="err">"&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-brand-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Brands</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">belonging</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-all-brands-oauth)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-all-brands-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
 </span></code></pre>
-
-<h2 id="delete-a-brand">Delete a Brand</h2>
-
-<p>Deletes a brand.</p>
-
-<ul>
-<li>  <a href="#delete-a-brand-oauth">OAuth</a>
-&ldquo;&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/brands/{id}</code></li>
-<li>  <a href="#delete-a-brand-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/brands/{id}</code></li>
-</ul>
-
-<h2 id="delete-all-brands">Delete All Brands</h2>
-
-<p>Deletes all brands belonging to a product.</p>
-
-<ul>
-<li>  <a href="#delete-all-brands-oauth">OAuth</a>
-&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/brands</code></li>
-<li>  <a href="#delete-all-brands-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/brands</code></li>
-</ul>
 
           <h1 id="countries">Countries</h1>
 
 <p>A country or territory, identifiable by an ISO 3166 country code</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/countries">Countries Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="country-object-properties">Country Object - Properties</h2>
 
@@ -845,9 +818,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="countries-and-territories-identified-by-their-iso-3166-country-codes">Countries and territories, identified by their ISO 3166 country codes.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -863,7 +834,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="country-operations">Country Operations</h2>
 
 <ul>
 <li>  <a href="#list-countries">List Countries</a></li>
@@ -894,19 +865,19 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">country</code></td>
+<td>country</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/countries?country={value}</code></td>
+<td>/api/v2/countries?country={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">country_iso2</code></td>
+<td>country_iso2</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/countries?country_iso2={value}</code></td>
+<td>/api/v2/countries?country_iso2={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">country_iso3</code></td>
+<td>country_iso3</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/countries?country_iso3={value}</code></td>
+<td>/api/v2/countries?country_iso3={value}</td>
 </tr>
 </tbody></table>
 
@@ -922,14 +893,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/countries?page={number}</code></td>
+<td>/api/v2/countries?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/countries?limit={count}</code></td>
+<td>/api/v2/countries?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -997,18 +968,6 @@
 
 <p>A state or province, identifiable by an ISO 3166 subdivision code</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/countries/states">States Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="properties">Properties</h2>
 
 <table><thead>
@@ -1040,9 +999,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="states-and-subdivisions-belonging-to-countries">States and subdivisions belonging to countries.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1058,7 +1015,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="state-operations">State Operations</h2>
 
 <ul>
 <li>  <a href="#list-states">List States</a></li>
@@ -1089,14 +1046,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">state</code></td>
+<td>state</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/countries/{country_id}/states?state={value}</code></td>
+<td>/api/v2/countries/{country_id}/states?state={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">state_abbreviation</code></td>
+<td>state_abbreviation</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/countries/{country_id}/states?state_abbreviation={value}</code></td>
+<td>/api/v2/countries/{country_id}/states?state_abbreviation={value}</td>
 </tr>
 </tbody></table>
 
@@ -1112,14 +1069,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/countries/{country_id}/states?page={number}</code></td>
+<td>/api/v2/countries/{country_id}/states?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/countries/{country_id}/states?limit={count}</code></td>
+<td>/api/v2/countries/{country_id}/states?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -1175,19 +1132,7 @@
 
 <p>The tax_class object contains the ID and name of the tax class used to calculate tax for stores using manually created tax classes. NOTE: Data inside the tax_class object of a store configured to use automatic taxes is ignored during tax calculations.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/tax_classes">Tax Classes Resource</a></td>
-</tr>
-</tbody></table>
-
-<h2 id="properties">Properties</h2>
+<h2 id="tax-class-object-properties">Tax Class Object - Properties</h2>
 
 <table><thead>
 <tr>
@@ -1296,18 +1241,6 @@
 </ul>
 
           <h1 id="shipping-methods">Shipping Methods</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/shipping/methods">Shipping Methods Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="shipping-method-object-properties">Shipping Method Object - Properties</h2>
 
@@ -1455,18 +1388,6 @@
 
 <p>Gift certificates available to offer to a store&rsquo;s customers.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/gift_certificate">Gift Certificate Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="gift-certificate-object-properties">Gift Certificate Object - Properties</h2>
 
 <table><thead>
@@ -1559,9 +1480,11 @@
 
 <p>Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)</p>
 
+<blockquote>
 <p><code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates</code></p>
 
 <p><code class="prettyprint">GET /api/v2/gift_certificates</code></p>
+</blockquote>
 
 <h3 id="filters">Filters</h3>
 
@@ -1575,39 +1498,39 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?min_id={value}</code></td>
+<td>/api/v2/gift_certificates?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?max_id={value}</code></td>
+<td>/api/v2/gift_certificates?max_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">code</code></td>
+<td>code</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?code={value}</code></td>
+<td>/api/v2/gift_certificates?code={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">to_name</code></td>
+<td>to_name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?to_name={value}</code></td>
+<td>/api/v2/gift_certificates?to_name={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">to_email</code></td>
+<td>to_email</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?to_email={value}</code></td>
+<td>/api/v2/gift_certificates?to_email={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">from_name</code></td>
+<td>from_name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?from_name={value}</code></td>
+<td>/api/v2/gift_certificates?from_name={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">from_email</code></td>
+<td>from_email</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?from_email={value}</code></td>
+<td>/api/v2/gift_certificates?from_email={value}</td>
 </tr>
 </tbody></table>
 
@@ -1621,14 +1544,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">page</code></td>
+<td>page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?page={number}</code></td>
+<td>/api/v2/gift_certificates?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">limit</code></td>
+<td>limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/gift_certificates?limit={count}</code></td>
+<td>/api/v2/gift_certificates?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
@@ -1691,9 +1614,11 @@
 
 <p>Retrieves a specified gift certificate.</p>
 
+<blockquote>
 <p><code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates/{id}</code></p>
 
 <p><code class="prettyprint">GET /api/v2/gift_certificates/{id}</code></p>
+</blockquote>
 <pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"giftcertificate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
@@ -1718,9 +1643,11 @@
 
 <p>Creates a new gift certificate.</p>
 
+<blockquote>
 <p><code class="prettyprint">POST /stores/{store_hash}/v2/gift_certificates</code></p>
 
 <p><code class="prettyprint">POST /api/v2/gift_certificates</code></p>
+</blockquote>
 
 <h3 id="read-only-properties">Read-only Properties</h3>
 
@@ -1731,11 +1658,11 @@
 <p>The following properties of the gift certificate are required. The request won&rsquo;t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li><code class="prettyprint">to_name</code></li>
-<li><code class="prettyprint">to_email</code></li>
-<li><code class="prettyprint">from_name</code></li>
-<li><code class="prettyprint">from_email</code></li>
-<li><code class="prettyprint">amount</code></li>
+<li>to_name</li>
+<li>to_email</li>
+<li>from_name</li>
+<li>from_email</li>
+<li>amount</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
@@ -1745,22 +1672,22 @@
 <p>The gift certificate&rsquo;s status can be one of the following:</p>
 
 <ul>
-<li><code class="prettyprint">pending</code></li>
-<li><code class="prettyprint">active</code></li>
-<li><code class="prettyprint">disabled</code></li>
-<li><code class="prettyprint">expired</code></li>
+<li>pending</li>
+<li>active</li>
+<li>disabled</li>
+<li>expired</li>
 </ul>
 
 <p>The gift certificate&rsquo;s template can be one of the following:</p>
 
 <ul>
-<li><code class="prettyprint">Birthday</code></li>
-<li><code class="prettyprint">Boy</code></li>
-<li><code class="prettyprint">Celebration</code></li>
-<li><code class="prettyprint">Christmas</code></li>
-<li><code class="prettyprint">General</code></li>
-<li><code class="prettyprint">Girl</code></li>
-<li><code class="prettyprint">{blank}</code></li>
+<li>Birthday</li>
+<li>Boy</li>
+<li>Celebration</li>
+<li>Christmas</li>
+<li>General</li>
+<li>Girl</li>
+<li>{blank}</li>
 </ul>
 <pre class="highlight plaintext"><code>    {
       "code": "10R-6E3-AO4-RST",
@@ -1796,9 +1723,11 @@
 
 <p>Updates an existing gift certificate.</p>
 
+<blockquote>
 <p><code class="prettyprint">PUT /stores/{store_hash}/v2/gift_certificates</code></p>
 
 <p><code class="prettyprint">PUT /api/v2/gift_certificates</code></p>
+</blockquote>
 
 <h3 id="read-only-properties">Read-only Properties</h3>
 
@@ -1831,33 +1760,280 @@
 
 <p>Deletes a specified gift certificate. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
 
+<blockquote>
 <p><code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates/{id}</code></p>
 
 <p><code class="prettyprint">DELETE /api/v2/gift_certificates/{id}</code></p>
+</blockquote>
 
 <h2 id="delete-all-gift-certificates">Delete All Gift Certificates</h2>
 
 <p>Deletes all gift certificates associated with the store. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
 
+<blockquote>
 <p><code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates</code></p>
 
 <p><code class="prettyprint">DELETE /api/v2/gift_certificates</code> </p>
+</blockquote>
+
+          
+          <h2 id="banner-operations">Banner - Operations</h2>
+
+<ul>
+<li>  <a href="#list-blog-posts">List Banners</a></li>
+<li>  <a href="#get-a-blog-post">Get a Banner</a></li>
+<li>  <a href="#create-a-blog-post">Create a Banner</a></li>
+<li>  <a href="#update-a-blog-post">Update a Banner</a></li>
+</ul>
+
+<h2 id="list-banners">List Banners</h2>
+
+<p>Gets the banners available. (Default sorting is by banner id, from lowest to highest.)</p>
+
+<ul>
+<li>  <a href="#create-a-banner">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/banners</code></li>
+<li>  <a href="#create-a-banner">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/banners</code></li>
+</ul>
+
+<h3 id="filters">Filters</h3>
+
+<p>Filter parameters can be added to the URL query string to select specific banners in the collection.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>min_id</td>
+<td>int</td>
+<td>/api/v2/banners?min_id={value}</td>
+</tr>
+<tr>
+<td>max_id</td>
+<td>int</td>
+<td>/api/v2/banners?max_id={value}</td>
+</tr>
+</tbody></table>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn&rsquo;t provided, up to 50 banners are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>int</td>
+<td>/api/v2/banners?page={number}</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>int</td>
+<td>/api/v2/banners?limit={count}</td>
+</tr>
+</tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:
+<code class="prettyprint">
+    {
+      &quot;banners&quot;: {
+        &quot;banner&quot;: [
+          {
+            &quot;id&quot;: &quot;1&quot;,
+            &quot;name&quot;: &quot;Grand Closing Sale&quot;,
+            &quot;page&quot;: &quot;home_page&quot;,
+            &quot;content&quot;: &quot;Thanks for shopping with us.&quot;,
+            &quot;date_to&quot;: &quot;1393218000&quot;,
+            &quot;item_id&quot;: &quot;0&quot;,
+            &quot;visible&quot;: &quot;0&quot;,
+            &quot;location&quot;: &quot;top&quot;,
+            &quot;date_from&quot;: &quot;1391576400&quot;,
+            &quot;date_type&quot;: &quot;custom&quot;,
+            &quot;date_created&quot;: &quot;1392073898&quot;
+          },
+          {
+            &quot;id&quot;: &quot;2&quot;,
+            &quot;name&quot;: &quot;New Year Nerd Bling&quot;,
+            &quot;page&quot;: &quot;category_page&quot;,
+            &quot;content&quot;: &quot;Discount on Apparel for Orders of $20 or more to Celebrate 2014. Use code NRDBLING14 at Checkout.&quot;,
+            &quot;date_to&quot;: &quot;1394427600&quot;,
+            &quot;item_id&quot;: &quot;30&quot;,
+            &quot;visible&quot;: &quot;0&quot;,
+            &quot;location&quot;: &quot;top&quot;,
+            &quot;date_from&quot;: &quot;1392008400&quot;,
+            &quot;date_type&quot;: &quot;custom&quot;,
+            &quot;date_created&quot;: &quot;1392073935&quot;
+          },
+          {
+            &quot;id&quot;: &quot;3&quot;,
+            &quot;name&quot;: &quot;Test&quot;,
+            &quot;page&quot;: &quot;home_page&quot;,
+            &quot;content&quot;: &quot;The latest in popular board games. Game night fun for the whole family.&quot;,
+            &quot;date_to&quot;: &quot;0&quot;,
+            &quot;item_id&quot;: &quot;0&quot;,
+            &quot;visible&quot;: &quot;0&quot;,
+            &quot;location&quot;: &quot;top&quot;,
+            &quot;date_from&quot;: &quot;0&quot;,
+            &quot;date_type&quot;: &quot;always&quot;,
+            &quot;date_created&quot;: &quot;1429485000&quot;
+          },
+          {
+            &quot;id&quot;: &quot;4&quot;,
+            &quot;name&quot;: &quot;Hi, Jason&quot;,
+            &quot;page&quot;: &quot;home_page&quot;,
+            &quot;content&quot;: &quot;Swanky&quot;,
+            &quot;date_to&quot;: &quot;0&quot;,
+            &quot;item_id&quot;: &quot;0&quot;,
+            &quot;visible&quot;: &quot;0&quot;,
+            &quot;location&quot;: &quot;top&quot;,
+            &quot;date_from&quot;: &quot;0&quot;,
+            &quot;date_type&quot;: &quot;always&quot;,
+            &quot;date_created&quot;: &quot;1441858037&quot;
+          }
+        ]
+      }
+    }
+</code></p>
+
+<h2 id="get-a-banner">Get a Banner</h2>
+
+<p>Retrieves a specified banner.</p>
+
+<ul>
+<li>  <a href="#create-a-banner">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/banners/{id}</code></li>
+<li>  <a href="#create-a-banner">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/banners</code></li>
+</ul>
+
+<p>GET /api/v2/banners/{id}</p>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:
+<code class="prettyprint">
+    {
+      &quot;banner&quot;: {
+        &quot;id&quot;: &quot;4&quot;,
+        &quot;name&quot;: &quot;Hi, Jason&quot;,
+        &quot;page&quot;: &quot;home_page&quot;,
+        &quot;content&quot;: &quot;Swanky&quot;,
+        &quot;date_to&quot;: &quot;0&quot;,
+        &quot;item_id&quot;: &quot;0&quot;,
+        &quot;visible&quot;: &quot;0&quot;,
+        &quot;location&quot;: &quot;top&quot;,
+        &quot;date_from&quot;: &quot;0&quot;,
+        &quot;date_type&quot;: &quot;always&quot;,
+        &quot;date_created&quot;: &quot;1441858037&quot;
+      }
+    }
+</code></p>
+
+<h2 id="create-a-banner">Create a Banner</h2>
+
+<p>Creates a new banner.</p>
+
+<p>POST /stores/{store_hash}/v2/banners</p>
+
+<p>POST /api/v2/banners</p>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the banner are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the banner are required. The request won&rsquo;t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>name</li>
+<li>content</li>
+<li>page</li>
+<li>location</li>
+<li>date_type</li>
+</ul>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"banner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is a test"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1449168936"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-banner">Update a Banner</h2>
+
+<p>Updates an existing banner. Your request may update any of the properties that are writeable for the Create (POST) operation.</p>
+
+<p>PUT /stores/{store_hash}/v2/banners</p>
+
+<p>PUT /api/v2/banners</p>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the banner are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"banner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, Jason"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swanky"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1441858037"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-banner">Delete a Banner</h2>
+
+<p>Deletes a specified banner. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+
+<p>DELETE /stores/{store_hash}/v2/banners/{id}</p>
+
+<p>DELETE /api/v2/banners/{id}</p>
+
+<h2 id="delete-all-banners">Delete All Banners</h2>
+
+<p>Deletes all banners associated with the store. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+
+<p>DELETE /stores/{store_hash}/v2/banners</p>
+
+<p>DELETE /api/v2/banners</p>
 
           <h1 id="blog-posts">Blog Posts</h1>
 
 <p>A content entry in the store’s blog</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/blog/posts">Blog Posts Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="blog-post-object-properties">Blog Post Object - Properties</h2>
 
@@ -1905,9 +2081,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="content-entries-in-the-store-s-blog">Content entries in the store’s blog.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1968,24 +2142,24 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">is_published</code></td>
+<td>is_published</td>
 <td>string</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?is_published={value}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?is_published={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">url</code></td>
+<td>url</td>
 <td>string</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?url={value}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?url={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">tag</code></td>
+<td>tag</td>
 <td>string</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?tag={value}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?tag={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">published_date</code></td>
+<td>published_date</td>
 <td>string</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?published_date={value}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?published_date={value}</td>
 </tr>
 </tbody></table>
 
@@ -2001,14 +2175,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?page={number}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/stores/{store_hash}/v2/blog/posts?limit={count}</code></td>
+<td>/stores/{store_hash}/v2/blog/posts?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
@@ -2049,20 +2223,19 @@
     </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">]</span><span class="w">
-</span></code></pre>
+</span><span class="err">]```</span><span class="w">
 
-<h2 id="get-a-blog-post">Get a Blog Post</h2>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
 
-<p>Gets a blog post.</p>
+</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-blog-post-oauth">OAuth</a>
-&gt;`GET /stores/{store_hash}/v2/blog/posts/{id}</li>
-<li>  <a href="#get-a-blog-post-basic">Basic Auth</a>
-&gt;`GET /api/v2/blog/posts/{id}</li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-blog-post-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-blog-post-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your first blog post!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
@@ -2080,159 +2253,127 @@
   </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<h2 id="get-a-count-of-blog-posts">Get a Count of Blog Posts</h2>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Posts</span><span class="w">
 
-<p>Gets a count of blog posts.</p>
+</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">posts.</span><span class="w">
 
-<ul>
-<li>  <a href="#get-a-count-of-blog-posts-oauth">OAuth</a>
-&gt;`GET /stores/{store_hash}/v2/blog/posts/count</li>
-<li>  <a href="#get-a-count-of-blog-posts-basic">Basic Auth</a>
-&gt;`GET /api/v2/blog/posts/count</li>
-</ul>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-blog-posts-oauth)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/count`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-blog-posts-basic)</span><span class="w">
+</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/count`</span><span class="w">
+
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+
+</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-blog-post-oauth)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-blog-post-basic)</span><span class="w">
+</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
+
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">preview_url</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="err">title</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">body</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">Blog</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">default</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">draft</span><span class="w"> </span><span class="err">status.</span><span class="w"> </span><span class="err">Set</span><span class="w"> </span><span class="err">is_published</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">publish</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">storefront.</span><span class="w">
+
+</span><span class="err">If</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">custom</span><span class="w"> </span><span class="err">url</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">post’s</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">generated</span><span class="w"> </span><span class="err">based</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">title.</span><span class="w">
+
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Sample Blog Post"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;This is a blog post.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Author Name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.com/author-name"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://cdn.example.com/sample-post.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_published"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"Blog"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Example"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+
+</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-blog-post-oauth)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-blog-post-basic)</span><span class="w">
+</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">preview_url</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New: A Sample Blog Post"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/blog/sample-post"</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-blog-post-oauth)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-blog-post-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">Multiple</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Posts</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">collection.</span><span class="w">
+
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-multiple-blog-posts-oauth)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-multiple-blog-posts-basic)</span><span class="w">
+</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
+
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Pagination</span><span class="w">
+
+</span><span class="err">Parameters</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">query</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">paginate</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">collection.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">250</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">isn’t</span><span class="w"> </span><span class="err">provided,</span><span class="w"> </span><span class="err">up</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="err">blog_posts</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default.</span><span class="w">
+
+</span><span class="err">|</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Page</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts?page=</span><span class="p">{</span><span class="err">number</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Limit</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts?limit=</span><span class="p">{</span><span class="err">count</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
 </span></code></pre>
-
-<h2 id="create-a-blog-post">Create a Blog Post</h2>
-
-<p>Creates a new blog post.</p>
-
-<ul>
-<li>  <a href="#create-a-blog-post-oauth">OAuth</a>
-&gt;`POST /stores/{store_hash}/v2/blog/posts</li>
-<li>  <a href="#create-a-blog-post-basic">Basic Auth</a>
-&gt;`POST /api/v2/blog/posts</li>
-</ul>
-
-<h3 id="read-only-properties">Read-only Properties</h3>
-
-<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
-
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">preview_url</code></li>
-</ul>
-
-<h3 id="requirements">Requirements</h3>
-
-<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
-
-<ul>
-<li>  <code class="prettyprint">title</code></li>
-<li>  <code class="prettyprint">body</code></li>
-</ul>
-
-<h3 id="notes">Notes</h3>
-
-<p>Blog posts default to draft status. Set <code class="prettyprint">is_published</code> to true to publish posts to the storefront.</p>
-
-<p>If a custom <code class="prettyprint">url</code> is not provided, the post’s URL will be generated based on the value of <code class="prettyprint">title</code>.</p>
-<pre class="highlight plaintext"><code>{
-  "title": "A Sample Blog Post",
-  "body": "&lt;p&gt;This is a blog post.&lt;/p&gt;",
-  "author": "Author Name",
-  "author_url": "http://example.com/author-name",
-  "thumbnail_path": "http://cdn.example.com/sample-post.jpg",
-  "is_published": true,
-  "tags": [
-    "Blog",
-    "Example"
-  ]
-}
-</code></pre>
-
-<h2 id="update-a-blog-post">Update a Blog Post</h2>
-
-<p>Updates an existing blog post.</p>
-
-<ul>
-<li>  <a href="#update-a-blog-post-oauth">OAuth</a>
-&gt;`PUT /stores/{store_hash}/v2/blog/posts/{id}</li>
-<li>  <a href="#update-a-blog-post-basic">Basic Auth</a>
-&gt;`PUT /api/v2/blog/posts/{id}</li>
-</ul>
-
-<h3 id="read-only-properties">Read-only Properties</h3>
-
-<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
-
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">preview_url</code></li>
-</ul>
-
-<h3 id="requirements">Requirements</h3>
-
-<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
-<pre class="highlight plaintext"><code>{
-  "title": "New: A Sample Blog Post",
-  "url": "/blog/sample-post"
-}
-</code></pre>
-
-<h2 id="delete-a-blog-post">Delete a Blog Post</h2>
-
-<p>Deletes a blog post.</p>
-
-<ul>
-<li>  <a href="#delete-a-blog-post-oauth">OAuth</a>
-&gt;`DELETE /stores/{store_hash}/v2/blog/posts/{id}</li>
-<li>  <a href="#delete-a-blog-post-basic">Basic Auth</a>
-&gt;`DELETE /api/v2/blog/posts/{id}</li>
-</ul>
-
-<h2 id="delete-multiple-blog-posts">Delete Multiple Blog Posts</h2>
-
-<p>Deletes multiple blog posts in the collection.</p>
-
-<ul>
-<li>  <a href="#delete-multiple-blog-posts-oauth">OAuth</a>
-&gt;`DELETE /stores/{store_hash}/v2/blog/posts</li>
-<li>  <a href="#delete-multiple-blog-posts-basic">Basic Auth</a>
-&gt;`DELETE /api/v2/blog/posts</li>
-</ul>
-
-<h3 id="pagination">Pagination</h3>
-
-<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">Page</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/blog/posts?page={number}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">Limit</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/blog/posts?limit={count}</code></td>
-</tr>
-</tbody></table>
 
           <h1 id="payment-methods">Payment Methods</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/payments/methods">Payment Methods Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="payment-method-object-properties">Payment Method Object - Properties</h2>
 
@@ -2361,18 +2502,6 @@
           <h1 id="redirects">Redirects</h1>
 
 <p>A 301 redirect, mapping from a given URL path to another URL</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>Managed by</strong></td>
-<td><a href="/api/stores/v2/redirects">Redirects Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="redirect-object-properties">Redirect Object - Properties</h2>
 
@@ -2672,18 +2801,6 @@
 
 <p>Profile of an individual store.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/store_information">Store Information Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="store-information-object-properties">Store Information Object - Properties</h2>
 
 <table><thead>
@@ -2811,12 +2928,17 @@
 <tr>
 <td>is_price_entered_with_tax</td>
 <td>boolean</td>
-<td>A BOOLEAN value that indicates whether or not prices are entered with tax</td>
+<td>A Boolean value that indicates whether or not prices are entered with tax</td>
 </tr>
 <tr>
 <td>active_comparison_modules</td>
 <td>array</td>
 <td></td>
+</tr>
+<tr>
+<td>features</td>
+<td>object</td>
+<td>Array of flags for features that affect app compatibility or functionality. Child \&ldquo;stencil_enabled\&rdquo; element is a Boolean that indicates whether a store is using a Stencil theme.</td>
 </tr>
 </tbody></table>
 

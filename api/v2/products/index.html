@@ -79,23 +79,10 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <h1 id="products">Products</h1>
-
+        
           <h1 id="products">Products</h1>
 
 <p>Properties for a saleable item in the catalog</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/?BasicAuth#products-resource">Products Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="product-object-properties">Product Object – Properties</h2>
 
@@ -549,11 +536,11 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
@@ -829,11 +816,11 @@
 </thead><tbody>
 <tr>
 <td>Basic Auth:</td>
-<td><code class="prettyprint">GET /api/v2/products</code></td>
+<td>GET /api/v2/products</td>
 </tr>
 <tr>
 <td>OAuth:</td>
-<td><code class="prettyprint">GET /stores/{store_hash}/v2/products</code></td>
+<td>GET /stores/{store_hash}/v2/products</td>
 </tr>
 </tbody></table>
 
@@ -849,134 +836,134 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">min_id</code></td>
+<td>min_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_id={value}</code></td>
+<td>/api/v2/products?min_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_id</code></td>
+<td>max_id</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_id={value}</code></td>
+<td>/api/v2/products?max_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">name</code></td>
+<td>name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?name={value}</code></td>
+<td>/api/v2/products?name={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">keyword_filter</code></td>
+<td>keyword_filter</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?keyword_filter={value}</code></td>
+<td>/api/v2/products?keyword_filter={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">description</code></td>
+<td>description</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?description={value}</code></td>
+<td>/api/v2/products?description={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">sku</code></td>
+<td>sku</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?sku={value}</code></td>
+<td>/api/v2/products?sku={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">condition</code></td>
+<td>condition</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?condition={value}</code></td>
+<td>/api/v2/products?condition={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">availability</code></td>
+<td>availability</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?availability={value}</code></td>
+<td>/api/v2/products?availability={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">brand_id</code></td>
+<td>brand_id</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?brand_id={value}</code></td>
+<td>/api/v2/products?brand_id={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_created</code></td>
+<td>min_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_created={value}</code></td>
+<td>/api/v2/products?min_date_created={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_created</code></td>
+<td>max_date_created</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_created={value}</code></td>
+<td>/api/v2/products?max_date_created={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_modified</code></td>
+<td>min_date_modified</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_modified={value}</code></td>
+<td>/api/v2/products?min_date_modified={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_modified</code></td>
+<td>max_date_modified</td>
 <td>dateTime or date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_modified={value}</code></td>
+<td>/api/v2/products?max_date_modified={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_date_last_imported</code></td>
+<td>min_date_last_imported</td>
 <td>date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_last_imported={value}</code></td>
+<td>/api/v2/products?min_date_last_imported={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_date_last_imported</code></td>
+<td>max_date_last_imported</td>
 <td>date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_last_imported={value}</code></td>
+<td>/api/v2/products?max_date_last_imported={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_price</code></td>
+<td>min_price</td>
 <td>decimal</td>
-<td><code class="prettyprint">/api/v2/products?min_price={value}</code></td>
+<td>/api/v2/products?min_price={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_price</code></td>
+<td>max_price</td>
 <td>decimal</td>
-<td><code class="prettyprint">/api/v2/products?max_price={value}</code></td>
+<td>/api/v2/products?max_price={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_number_sold</code></td>
+<td>min_number_sold</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_number_sold={value}</code></td>
+<td>/api/v2/products?min_number_sold={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_number_sold</code></td>
+<td>max_number_sold</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_number_sold={value}</code></td>
+<td>/api/v2/products?max_number_sold={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">is_visible</code></td>
+<td>is_visible</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?is_visible={value}</code></td>
+<td>/api/v2/products?is_visible={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">is_featured</code></td>
+<td>is_featured</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?is_featured={value}</code></td>
+<td>/api/v2/products?is_featured={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">min_inventory_level</code></td>
+<td>min_inventory_level</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_inventory_level={value}</code></td>
+<td>/api/v2/products?min_inventory_level={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">max_inventory_level</code></td>
+<td>max_inventory_level</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_inventory_level={value}</code></td>
+<td>/api/v2/products?max_inventory_level={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">include_sku</code></td>
+<td>include_sku</td>
 <td>boolean</td>
-<td><code class="prettyprint">/api/v2/products?include_sku={value}</code></td>
+<td>/api/v2/products?include_sku={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">category</code></td>
+<td>category</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?category={value}</code></td>
+<td>/api/v2/products?category={value}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">product_tax_code</code></td>
+<td>product_tax_code</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/products?product_tax_code={value}</code></td>
+<td>/api/v2/products?product_tax_code={value}</td>
 </tr>
 </tbody></table>
 
@@ -992,14 +979,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?page={number}</code></td>
+<td>/api/v2/products?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/products?limit={count}</code></td>
+<td>/api/v2/products?limit={count}</td>
 </tr>
 </tbody></table>
 
@@ -1137,11 +1124,11 @@
 </thead><tbody>
 <tr>
 <td>Basic Auth:</td>
-<td><code class="prettyprint">GET /api/v2/products/{id}</code></td>
+<td>GET /api/v2/products/{id}</td>
 </tr>
 <tr>
 <td>OAuth:</td>
-<td><code class="prettyprint">GET /stores/{store_hash}/v2/products/{id}</code></td>
+<td>GET /stores/{store_hash}/v2/products/{id}</td>
 </tr>
 </tbody></table>
 
@@ -1150,176 +1137,56 @@
 <p>Gets a count of products.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td><code class="prettyprint">GET /api/v2/products/count</code></td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td><code class="prettyprint">GET /stores/{store_hash}/v2/products/count</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">|||</span><span class="w">
+</span><span class="err">|---|---|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products/count</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">OAuth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/products/count</span><span class="w"> </span><span class="err">|</span><span class="w">
 
-<h3 id="filters">Filters</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Filters</span><span class="w">
 
-<p>Filter parameters can be added to the URL query string to select specific products in the collection.</p>
+</span><span class="err">Filter</span><span class="w"> </span><span class="err">parameters</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">query</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">select</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">collection.</span><span class="w">
 
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Example</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code class="prettyprint">min_id</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_id={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_id</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_id={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">name</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?name={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">keyword_filter</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?keyword_filter={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">description</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?description={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">sku</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?sku={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">condition</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?condition={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">availability</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?availability={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">brand_id</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?brand_id={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_date_created</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_created={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_date_created</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_created={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_date_modified</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_modified={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_date_modified</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_modified={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_date_last_imported</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?min_date_last_imported={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_date_last_imported</code></td>
-<td>date</td>
-<td><code class="prettyprint">/api/v2/products?max_date_last_imported={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_price</code></td>
-<td>decimal</td>
-<td><code class="prettyprint">/api/v2/products?min_price={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_price</code></td>
-<td>decimal</td>
-<td><code class="prettyprint">/api/v2/products?max_price={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_number_sold</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_number_sold={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_number_sold</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_number_sold={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">is_visible</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?is_visible={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">is_featured</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?is_featured={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">min_inventory_level</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?min_inventory_level={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">max_inventory_level</code></td>
-<td>int</td>
-<td><code class="prettyprint">/api/v2/products?max_inventory_level={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">include_sku</code></td>
-<td>boolean</td>
-<td><code class="prettyprint">/api/v2/products?include_sku={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">category</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?category={value}</code></td>
-</tr>
-<tr>
-<td><code class="prettyprint">product_tax_code</code></td>
-<td>string</td>
-<td><code class="prettyprint">/api/v2/products?product_tax_code={value}</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">|</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_id=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_id=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?name=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">keyword_filter</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?keyword_filter=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">description</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?description=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">sku</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?sku=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">condition</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?condition=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">availability</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?availability=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">brand_id</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?brand_id=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_date_created</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_date_created=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_date_created</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_date_created=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_date_modified</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_date_modified=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_date_modified</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_date_modified=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_date_last_imported</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_date_last_imported=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_date_last_imported</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">date</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_date_last_imported=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_price</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">decimal</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_price=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_price</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">decimal</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_price=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_number_sold</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_number_sold=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_number_sold</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_number_sold=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">is_visible</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?is_visible=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">is_featured</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?is_featured=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">min_inventory_level</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?min_inventory_level=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">max_inventory_level</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?max_inventory_level=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">include_sku</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">boolean</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?include_sku=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?category=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">product_tax_code</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products?product_tax_code=</span><span class="p">{</span><span class="err">value</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
 
-<p>If no filters are applied, the total number of products is returned.</p>
+</span><span class="err">If</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">filters</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">applied,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">returned.</span><span class="w">
 
-<h2 id="create-a-product">Create a Product</h2>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Product</span><span class="w">
 
-<p>Creates a new product. The example request shows how to create a basic product by sending a <a href="/api/?javascript#product-properties">product object</a> with the minimum required properties.</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">product.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">shows</span><span class="w"> </span><span class="err">how</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">basic</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">sending</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="p">[</span><span class="err">product</span><span class="w"> </span><span class="err">object</span><span class="p">]</span><span class="err">(/api/?javascript#product-properties)</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">minimum</span><span class="w"> </span><span class="err">required</span><span class="w"> </span><span class="err">properties.</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plain T-Shirt"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"physical"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This timeless fashion staple will never go out of style!"</span><span class="p">,</span><span class="w">
@@ -1327,221 +1194,177 @@
     </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">18</span><span class="p">],</span><span class="w">
     </span><span class="nt">"availability"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td><code class="prettyprint">POST /api/v2/products</code></td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td><code class="prettyprint">POST /stores/{store_hash}/v2/products</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">|||</span><span class="w">
+</span><span class="err">|---|---|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">OAuth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/products</span><span class="w"> </span><span class="err">|</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<p>The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">calculated_price</code></li>
-<li>  <code class="prettyprint">brand</code></li>
-<li>  <code class="prettyprint">images</code></li>
-<li>  <code class="prettyprint">discount_rules</code></li>
-<li>  <code class="prettyprint">configurable_fields</code></li>
-<li>  <code class="prettyprint">custom_fields</code></li>
-<li>  <code class="prettyprint">videos</code></li>
-<li>  <code class="prettyprint">skus</code></li>
-<li>  <code class="prettyprint">rules</code></li>
-<li>  <code class="prettyprint">option_set</code></li>
-<li>  <code class="prettyprint">options</code></li>
-<li>  <code class="prettyprint">tax_class</code></li>
-</ul>
+</span><span class="err">*</span><span class="w">   </span><span class="err">calculated_price</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">brand</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">images</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">discount_rules</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">configurable_fields</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">custom_fields</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">videos</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">skus</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">rules</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">option_set</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">options</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">tax_class</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
 
-<p>The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.</p>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">name</code></li>
-<li>  <code class="prettyprint">price</code></li>
-<li>  <code class="prettyprint">categories</code></li>
-<li>  <code class="prettyprint">type</code></li>
-<li>  <code class="prettyprint">availability</code></li>
-<li>  <code class="prettyprint">weight</code></li>
-</ul>
+</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">price</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">categories</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">type</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">availability</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">weight</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
 
-<p>When the <code class="prettyprint">is_visible</code> property is not provided, the product visibility is <code class="prettyprint">false</code> by default.</p>
+</span><span class="err">When</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">is_visible</span><span class="w"> </span><span class="err">property</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">visibility</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default.</span><span class="w">
 
-<p>To make newly created products immediately visible on the storefront, you must set <code class="prettyprint">is_visible</code> to <code class="prettyprint">true</code> when you create the product.</p>
+</span><span class="err">To</span><span class="w"> </span><span class="err">make</span><span class="w"> </span><span class="err">newly</span><span class="w"> </span><span class="err">created</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">immediately</span><span class="w"> </span><span class="err">visible</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">storefront,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">is_visible</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">create</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product.</span><span class="w">
 
-<p>To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your <code class="prettyprint">POST</code> includes an array of more than 1,000 <code class="prettyprint">categories</code> ID values, Bigcommerce will return a 403 error.</p>
-<pre class="highlight json"><code><span class="mi">403</span><span class="w"> </span><span class="err">Access</span><span class="w"> </span><span class="err">Denied/Forbidden</span><span class="w">
-</span></code></pre>
+</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">belong</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">values,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
 
-<p>If automatic tax is enabled on the store, the value of <code class="prettyprint">tax_class_id</code> will have no effect on the calculation of taxes.</p>
+</span><span class="err">json</span><span class="w">
+</span><span class="mi">403</span><span class="w"> </span><span class="err">Access</span><span class="w"> </span><span class="err">Denied/Forbidden</span><span class="w">
 
-<h2 id="update-a-product">Update a Product</h2>
 
-<p>Updates an existing product.</p>
+</span><span class="err">If</span><span class="w"> </span><span class="err">automatic</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">enabled</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tax_class_id</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">effect</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">calculation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">taxes.</span><span class="w">
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td><code class="prettyprint">PUT /api/v2/products/{id}</code></td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td><code class="prettyprint">PUT /stores/{store_hash}/v2/products/{id}</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Product</span><span class="w">
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">product.</span><span class="w">
 
-<p>The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+</span><span class="err">|||</span><span class="w">
+</span><span class="err">|---|---|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">OAuth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/products/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
 
-<ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">rating_total</code></li>
-<li>  <code class="prettyprint">rating_count</code></li>
-<li>  <code class="prettyprint">number_sold</code></li>
-<li>  <code class="prettyprint">date_created</code></li>
-<li>  <code class="prettyprint">date_modified</code></li>
-<li>  <code class="prettyprint">date_last_imported</code></li>
-<li>  <code class="prettyprint">calculated_price</code></li>
-<li>  <code class="prettyprint">brand</code></li>
-<li>  <code class="prettyprint">images</code></li>
-<li>  <code class="prettyprint">discount_rules</code></li>
-<li>  <code class="prettyprint">configurable_fields</code></li>
-<li>  <code class="prettyprint">custom_fields</code></li>
-<li>  <code class="prettyprint">videos</code></li>
-<li>  <code class="prettyprint">skus</code></li>
-<li>  <code class="prettyprint">rules</code></li>
-<li>  <code class="prettyprint">option_set</code></li>
-<li>  <code class="prettyprint">options</code></li>
-<li>  <code class="prettyprint">tax_class</code></li>
-</ul>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
 
-<h3 id="requirements">Requirements</h3>
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
 
-<p>The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.</p>
+</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">rating_total</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">rating_count</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">number_sold</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">date_created</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">date_modified</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">date_last_imported</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">calculated_price</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">brand</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">images</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">discount_rules</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">configurable_fields</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">custom_fields</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">videos</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">skus</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">rules</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">option_set</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">options</span><span class="w">
+</span><span class="err">*</span><span class="w">   </span><span class="err">tax_class</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
 
-<p>To update a product, set one or more <a href="/api/?javascript#product-properties">product properties</a> in the <code class="prettyprint">PUT</code> request:</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">To</span><span class="w"> </span><span class="err">update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product,</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="p">[</span><span class="err">product</span><span class="w"> </span><span class="err">properties</span><span class="p">]</span><span class="err">(/api/?javascript#product-properties)</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">request:</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="p">{</span><span class="w">
     </span><span class="nt">"custom_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/plain-tshirt/"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<p>For example, you can use a <code class="prettyprint">PUT</code> to link a product to an option set:</p>
-<pre class="highlight plaintext"><code>{
-    "option_set_id": 14
-}
-</code></pre>
 
-<p>Invalid property values will produce a <code class="prettyprint">400 Bad Request</code> error response:</p>
-<pre class="highlight plaintext"><code>{
-    "condition": "Worn"
-}
-</code></pre>
-<pre class="highlight json"><code><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request</span><span class="w">
-</span></code></pre>
+</span><span class="err">For</span><span class="w"> </span><span class="err">example,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">use</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">link</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">option</span><span class="w"> </span><span class="err">set:</span><span class="w">
 
-<p>Trying to set read-only properties will also produce a <code class="prettyprint">400 Bad Request</code> error response:</p>
-<pre class="highlight plaintext"><code>{
-    "number_sold": 99
-}
-</code></pre>
-<pre class="highlight json"><code><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request</span><span class="w">
-</span></code></pre>
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<p>To maximize system performance, Bigcommerce caps the maximum number of categories to which a product can belong, at 1,000. If your <code class="prettyprint">PUT</code> includes an array of more than 1,000 <code class="prettyprint">categories</code> ID values, Bigcommerce will return a 403 error.</p>
-<pre class="highlight json"><code><span class="mi">403</span><span class="w"> </span><span class="err">Access</span><span class="w"> </span><span class="err">Denied/Forbidden</span><span class="w">
-</span></code></pre>
 
-<p>If automatic tax is enabled on the store, the value of <code class="prettyprint">tax_class_id</code> will have no effect on the calculation of taxes.</p>
+</span><span class="err">Invalid</span><span class="w"> </span><span class="err">property</span><span class="w"> </span><span class="err">values</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">produce</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">response:</span><span class="w">
 
-<h2 id="delete-a-product">Delete a Product</h2>
+</span><span class="err">```curl</span><span class="w"> 
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"condition"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Worn"</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<p>Deletes a product.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td><code class="prettyprint">DELETE /api/v2/products/{id}</code></td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td><code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{id}</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">json</span><span class="w"> 
+</span><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request</span><span class="w">
 
-<h3 id="notes">Notes</h3>
 
-<p>Successful deletion of a product results in a <code class="prettyprint">204 No Content</code> response.</p>
-<pre class="highlight json"><code><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w">
-</span></code></pre>
+</span><span class="err">Trying</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">read-only</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">also</span><span class="w"> </span><span class="err">produce</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request</span><span class="w"> </span><span class="err">error</span><span class="w"> </span><span class="err">response:</span><span class="w">
 
-<h2 id="delete-all-products">Delete All Products</h2>
+</span><span class="err">```curl</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="nt">"number_sold"</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="w">
+</span><span class="p">}</span><span class="err">```</span><span class="w">
 
-<p>Deletes all products from the store.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td><code class="prettyprint">DELETE /api/v2/products</code></td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td><code class="prettyprint">DELETE /stores/{store_hash}/v2/products</code></td>
-</tr>
-</tbody></table>
+</span><span class="err">```json</span><span class="w"> 
+</span><span class="mi">400</span><span class="w"> </span><span class="err">Bad</span><span class="w"> </span><span class="err">Request```</span><span class="w">
 
-<h3 id="notes">Notes</h3>
+</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">which</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">belong,</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">PUT</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">than</span><span class="w"> </span><span class="mi">1</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">values,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
 
-<p>Successful deletion of all products returns a <code class="prettyprint">204 No Content</code> response.</p>
-<pre class="highlight json"><code><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w">
+</span><span class="err">```json</span><span class="w">
+</span><span class="mi">403</span><span class="w"> </span><span class="err">Access</span><span class="w"> </span><span class="err">Denied/Forbidden```</span><span class="w">
+
+
+</span><span class="err">If</span><span class="w"> </span><span class="err">automatic</span><span class="w"> </span><span class="err">tax</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">enabled</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">tax_class_id</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">no</span><span class="w"> </span><span class="err">effect</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">calculation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">taxes.</span><span class="w">
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Product</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product.</span><span class="w">
+
+</span><span class="err">|||</span><span class="w">
+</span><span class="err">|---|---|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">OAuth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/products/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">Successful</span><span class="w"> </span><span class="err">deletion</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product</span><span class="w"> </span><span class="err">results</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w"> </span><span class="err">response.</span><span class="w">
+
+</span><span class="err">```json</span><span class="w">
+</span><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content```</span><span class="w">
+
+
+</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Products</span><span class="w">
+
+</span><span class="err">Deletes</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
+
+</span><span class="err">|||</span><span class="w">
+</span><span class="err">|---|---|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/products</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="err">|</span><span class="w"> </span><span class="err">OAuth:</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/products</span><span class="w"> </span><span class="err">|</span><span class="w">
+
+</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+
+</span><span class="err">Successful</span><span class="w"> </span><span class="err">deletion</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">returns</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w"> </span><span class="err">response.</span><span class="w">
+
+</span><span class="err">```json</span><span class="w"> 
+</span><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content```</span><span class="w">
 </span></code></pre>
 
           <h1 id="product-options">Product Options</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/options">Product Options Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="product-option-object-properties">Product Option Object - Properties</h2>
 
@@ -1680,17 +1503,7 @@
 
           <h1 id="product-option-values">Product Option Values</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/options/values">Option Values Resource</a></td>
-</tr>
-</tbody></table>
+<p>Values that can be selected for an option.</p>
 
 <h2 id="product-object-value-object-properties">Product Object Value Object - Properties</h2>
 
@@ -1733,9 +1546,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="values-that-can-be-selected-for-an-option">Values that can be selected for an option.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -1755,7 +1566,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="option-value-operations">Option Value Operations</h2>
 
 <ul>
 <li>  <a href="#list-option-values">List Option Values</a></li>
@@ -1789,14 +1600,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/options/{option_id}/values?page={number}</code></td>
+<td>/api/v2/options/{option_id}/values?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/options/{option_id}/values?limit={count}</code></td>
+<td>/api/v2/options/{option_id}/values?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -1855,8 +1666,8 @@
 <p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">option_id</code></li>
+<li>  id</li>
+<li>  option_id</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -1864,15 +1675,15 @@
 <p>The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">label</code></li>
-<li>  <code class="prettyprint">value</code></li>
+<li>  label</li>
+<li>  value</li>
 </ul>
 
 <h3 id="notes">Notes</h3>
 
 <p>To maximize system performance, Bigcommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.</p>
 
-<p>When you POST an <strong><em>is_default</em></strong> property of <em>true</em>, all other option values on the parent option will have their <strong><em>is_default</em></strong> property set to <em>false</em>.</p>
+<p>When you POST an <code class="prettyprint">is_default</code>property of <code class="prettyprint">true</code>, all other option values on the parent option will have their <code class="prettyprint">is_default</code> property set to <code class="prettyprint">false</code>.</p>
 <pre class="highlight plaintext"><code>{
   "label": "white",
   "sort_order": 0,
@@ -1906,8 +1717,8 @@
 <p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">option_id</code></li>
+<li>  id</li>
+<li>  option_id</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -1916,7 +1727,7 @@
 
 <h3 id="notes">Notes</h3>
 
-<p>When you PUT an <strong><em>is_default</em></strong> property of <em>true</em>, all other option values on the parent option will have their <strong><em>is_default</em></strong> property set to <em>false</em>.</p>
+<p>When you PUT an <code class="prettyprint">is_default</code> property of <code class="prettyprint">true</code>, all other option values on the parent option will have their <code class="prettyprint">is_default</code> property set to <code class="prettyprint">false</code>.</p>
 <pre class="highlight plaintext"><code>{
   "label": "whitish",
   "sort_order": 1,
@@ -1968,30 +1779,20 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/options/{option_id}/values?page={number}</code></td>
+<td>/api/v2/options/{option_id}/values?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/options/{option_id}/values?limit={count}</code></td>
+<td>/api/v2/options/{option_id}/values?limit={count}</td>
 </tr>
 </tbody></table>
 
           <h1 id="product-option-sets">Product Option Sets</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/option_sets">Option Sets Resource</a></td>
-</tr>
-</tbody></table>
+<p>A reusable set of option facets that can be applied to products.</p>
 
 <h2 id="product-option-set-object-properties">Product Option Set Object - Properties</h2>
 
@@ -2019,9 +1820,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="a-reusable-set-of-option-facets-that-can-be-applied-to-products">A reusable set of option facets that can be applied to products.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2041,7 +1840,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="option-set-operations">Option Set Operations</h2>
 
 <ul>
 <li>  <a href="#list-option-sets">List Option Sets</a></li>
@@ -2076,9 +1875,9 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">name</code></td>
+<td>name</td>
 <td>string</td>
-<td><code class="prettyprint">/api/v2/option_sets?name={value}</code></td>
+<td>/api/v2/option_sets?name={value}</td>
 </tr>
 </tbody></table>
 
@@ -2094,14 +1893,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets?page={number}</code></td>
+<td>/api/v2/option_sets?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets?limit={count}</code></td>
+<td>/api/v2/option_sets?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2175,8 +1974,8 @@
 <p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">options</code></li>
+<li>  id</li>
+<li>  options</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2184,7 +1983,7 @@
 <p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">name</code></li>
+<li>  name</li>
 </ul>
 <pre class="highlight plaintext"><code>{
   "name": "T-Shirts"
@@ -2216,8 +2015,8 @@
 <p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">options</code></li>
+<li>  id</li>
+<li>  options</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2225,7 +2024,7 @@
 <p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">name</code></li>
+<li>  name</li>
 </ul>
 <pre class="highlight plaintext"><code>{
   "name": "T-shirt Facets"
@@ -2265,17 +2064,7 @@
 
           <h1 id="product-option-set-options">Product Option Set Options</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/option_sets/options">Option Set Options Resource</a></td>
-</tr>
-</tbody></table>
+<p>Options belonging to an option set.</p>
 
 <h2 id="option-set-option-object-properties">Option Set Option Object - Properties</h2>
 
@@ -2328,9 +2117,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="options-belonging-to-an-option-set">Options belonging to an option set.</h2>
-
-<table><thead>
+          <table><thead>
 <tr>
 <th></th>
 <th></th>
@@ -2350,7 +2137,7 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="option-set-option-operations">Option Set Option Operations</h2>
 
 <ul>
 <li>  <a href="#list-option-set-options">List Option Set Options</a></li>
@@ -2384,14 +2171,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?page={number}</code></td>
+<td>/api/v2/option_sets/{option_set_id}/options?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?limit={count}</code></td>
+<td>/api/v2/option_sets/{option_set_id}/options?limit={count}</td>
 </tr>
 </tbody></table>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
@@ -2514,10 +2301,10 @@
 <p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">option_set_id</code></li>
-<li>  <code class="prettyprint">values</code></li>
-<li>  <code class="prettyprint">option</code></li>
+<li>  id</li>
+<li>  option_set_id</li>
+<li>  values</li>
+<li>  option</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2525,7 +2312,7 @@
 <p>The following properties of the option set option are required. The request won’t be fulfilled unless these properties are valid.</p>
 
 <ul>
-<li>  <code class="prettyprint">option_id</code></li>
+<li>  option_id</li>
 </ul>
 <pre class="highlight plaintext"><code>{
   "option_id": 10,
@@ -2564,11 +2351,11 @@
 <p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
-<li>  <code class="prettyprint">id</code></li>
-<li>  <code class="prettyprint">option_id</code></li>
-<li>  <code class="prettyprint">option_set_id</code></li>
-<li>  <code class="prettyprint">values</code></li>
-<li>  <code class="prettyprint">option</code></li>
+<li>  id</li>
+<li>  option_id</li>
+<li>  option_set_id</li>
+<li>  values</li>
+<li>  option</li>
 </ul>
 
 <h3 id="requirements">Requirements</h3>
@@ -2628,32 +2415,20 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">Page</code></td>
+<td>Page</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?page={number}</code></td>
+<td>/api/v2/option_sets/{option_set_id}/options?page={number}</td>
 </tr>
 <tr>
-<td><code class="prettyprint">Limit</code></td>
+<td>Limit</td>
 <td>int</td>
-<td><code class="prettyprint">/api/v2/option_sets/{option_set_id}/options?limit={count}</code></td>
+<td>/api/v2/option_sets/{option_set_id}/options?limit={count}</td>
 </tr>
 </tbody></table>
 
           <h1 id="product-images">Product Images</h1>
 
-<p>Properties for a product image</p>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/?BasicAuth#product-images-resource">Product Images Resource</a></td>
-</tr>
-</tbody></table>
+<p>Images associated with a product.</p>
 
 <h2 id="product-image-object-properties">Product Image Object – Properties</h2>
 
@@ -2960,18 +2735,6 @@
 </tbody></table>
 
           <h1 id="product-rules">Product Rules</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/rules">Product Rules Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="product-rule-object-properties">Product Rule Object - Properties</h2>
 
@@ -3343,18 +3106,6 @@
 
           <h1 id="product-reviews">Product Reviews</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/reviews">Product Reviews Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="product-review-object-properties">Product Review Object - Properties</h2>
 
 <table><thead>
@@ -3445,9 +3196,9 @@
 
 <ul>
 <li>  <a href="#list-product-reviews-oauth">OAuth</a>
-&gt;<code class="prettyprint">GET /stores/{store_hash}/products/{id}/reviews</code></li>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{id}/reviews</code></li>
 <li>  <a href="#list-product-reviews-basic">Basic Auth</a>
-&gt;<code class="prettyprint">GET /api/products/{id}/reviews</code></li>
+&gt;<code class="prettyprint">GET /api/v2/products/{id}/reviews</code></li>
 </ul>
 
 <h3 id="pagination">Pagination</h3>
@@ -3625,19 +3376,7 @@
 
           <h1 id="product-skus">Product SKUs</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/v2/products/skus">SKUs Resource</a></td>
-</tr>
-</tbody></table>
-
-<h2 id="properties">Properties</h2>
+<h2 id="product-sku-object-properties">Product SKU Object - Properties</h2>
 
 <table><thead>
 <tr>
@@ -4121,18 +3860,6 @@
 
           <h1 id="custom-fields">Custom Fields</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/custom_fields">Custom Fields Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="custom-field-object-properties">Custom Field Object - Properties</h2>
 
 <table><thead>
@@ -4407,18 +4134,6 @@
 
           <h1 id="configurable-fields">Configurable Fields</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/configurable_fields">Configurable Fields Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="configureable-field-properties">Configureable Field - Properties</h2>
 
 <table><thead>
@@ -4639,18 +4354,6 @@
 </tbody></table>
 
           <h1 id="bulk-pricing">Bulk Pricing</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/discount_rules">Bulk Pricing Rules Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="bulk-pricing-object-properties">Bulk Pricing Object - Properties</h2>
 
@@ -4954,18 +4657,6 @@
 
           <h1 id="google-product-search-mappings">Google Product Search Mappings</h1>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/googleproductsearch">Google Product Search Mappings Resource</a></td>
-</tr>
-</tbody></table>
-
 <h2 id="google-product-search-mapping-object-properties">Google Product Search Mapping Object - Properties</h2>
 
 <table><thead>
@@ -5054,11 +4745,11 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
@@ -5080,18 +4771,6 @@
 </ul>
 
           <h1 id="videos">Videos</h1>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Managed by</td>
-<td><a href="/api/stores/v2/products/videos">Product Videos Resource</a></td>
-</tr>
-</tbody></table>
 
 <h2 id="videos-object-properties">Videos Object - Properties</h2>
 
