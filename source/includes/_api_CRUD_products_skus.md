@@ -23,6 +23,10 @@ Gets the collection of SKUs associated with a product.
 *   [Basic Auth](#list-product-skus-basic)
 >`GET /api/v2/products/{product_id}/skus`
 
+### Notes
+
+BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
+
 ### Filters
 
 Filter parameters can be added to the URL query string to select specific skus in the collection.
@@ -56,11 +60,18 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "id": 1,
     "product_id": 5,
     "sku": "MB-1",
+    "price": null,
+    "adjusted_price": "1.5000",
     "cost_price": "0.0000",
     "upc": "",
     "inventory_level": 0,
     "inventory_warning_level": 0,
     "bin_picking_number": "",
+    "weight": null,
+    "adjusted_weight": "0.00",
+    "is_purchasing_disabled": false,
+    "purchasing_disabled_message": "",
+    "image_file": "",
     "options": [
       {
         "product_option_id": 15,
@@ -76,11 +87,18 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "id": 2,
     "product_id": 5,
     "sku": "MB-2",
+    "price": null,
+    "adjusted_price": "2.0000",
     "cost_price": "0.0000",
     "upc": "",
     "inventory_level": 0,
     "inventory_warning_level": 0,
     "bin_picking_number": "",
+    "weight": null,
+    "adjusted_weight": "0.00",
+    "is_purchasing_disabled": true,
+    "purchasing_disabled_message": "We're sorry, this is unavailable.",
+    "image_file": "",
     "options": [
       {
         "product_option_id": 15,
@@ -109,11 +127,18 @@ Gets a single product SKU.
   "id": 5,
   "product_id": 7,
   "sku": "MBA-1atest",
+    "price": null,
+    "adjusted_price": "1.5000",
   "cost_price": "0.0000",
   "upc": "",
   "inventory_level": 0,
   "inventory_warning_level": 0,
   "bin_picking_number": "",
+    "weight": null,
+    "adjusted_weight": "0.00",
+    "is_purchasing_disabled": false,
+    "purchasing_disabled_message": "",
+    "image_file": "https://thinglust.com/eyecandy.png",
   "options": [
     {
       "product_option_id": 20,
@@ -153,6 +178,8 @@ The following properties of the sku are read-only. If one or more of these prope
 
 *   id
 *   product_id
+*   adjusted_price
+*   adjusted_weight
 
 ### Requirements
 
@@ -165,16 +192,25 @@ The following properties of the sku are required. The request won’t be fulfill
 
 To maximize system performance, Bigcommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, Bigcommerce will return a 403 error.
 
+BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
+
 ```json
 {
   "id": 5,
   "product_id": 7,
   "sku": "MBA-1atest",
+    "price": null,
+    "adjusted_price": "1.5000",
   "cost_price": "0.0000",
   "upc": "",
   "inventory_level": 0,
   "inventory_warning_level": 0,
   "bin_picking_number": "",
+    "weight": null,
+    "adjusted_weight": "0.00",
+    "is_purchasing_disabled": false,
+    "purchasing_disabled_message": "",
+    "image_file": "",
   "options": [
     {
       "product_option_id": 20,
@@ -200,21 +236,30 @@ The following properties of the sku are read-only. If one or more of these prope
 
 *   id
 *   product_id
+*   adjusted_price
+*   adjusted_weight
 
 ### Requirements
 
-There are no required properties for updating a product SKU. 
+There are no required properties for updating a product SKU.
 
 ```json
 {
   "id": 5,
   "product_id": 7,
   "sku": "MBA-1atest",
+    "price": "4.9900",
+    "adjusted_price": "3.9900",
   "cost_price": "2.9900",
   "upc": "",
   "inventory_level": 0,
   "inventory_warning_level": 0,
   "bin_picking_number": "",
+    "weight": null,
+    "adjusted_weight": "0.00",
+    "is_purchasing_disabled": true,
+    "purchasing_disabled_message": "We're sorry, this is unavailable.",
+    "image_file": "",
   "options": [
     {
       "product_option_id": 20,
@@ -244,7 +289,7 @@ Deletes multiple product SKUs.
 
 ### Filters
 
-Filter parameters can be added to the URL query string to select specific skus in the collection.
+Filter parameters can be added to the URL query string to select specific SKUs in the collection.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
