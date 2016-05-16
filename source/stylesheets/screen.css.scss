@@ -539,6 +539,12 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    /* Next tags copied from body, 5/15/16, to conform callout boxes to global column width: */
+    margin-left: 2em;
+    /* Next 2 do nothing – right side refuses to pull in flush with body-text margin: 
+    width: 90%;
+    min-width: 850px; */
+    /* :End width-conforming tags */
 
     &.warning {
       background-color: $aside-warning-bg;

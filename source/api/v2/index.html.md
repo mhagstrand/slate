@@ -12,6 +12,7 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
 includes:
+  - api_root
   - api_objects_category
   - api_CRUD_categories
   - api_objects_brand
