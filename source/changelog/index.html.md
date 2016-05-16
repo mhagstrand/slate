@@ -1,6 +1,6 @@
 ---
 title: BigCommerce API &amp; Theme Framwork Changelog
-layout: "changelog"
+layout: "twocolumn"
 
 toc_footers:
   - <a href="/">Home</a>

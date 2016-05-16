@@ -2,10 +2,6 @@
 title: BigCommerce API Documentation
 layout: "apitwocolumn"
 
-language_tabs:
-  - curl: Request
-  - json: Response
-
 toc_footers:
   - <a href="/">Home</a>
   - <a href='/api/v2/'>API - Getting Started</a>
@@ -30,7 +26,7 @@ includes:
   - api_CRUD_shipping_methods
   - api_objects_gift_certificate
   - api_CRUD_gift_certificates
-  - api_object_banner
+  - api_objects_banner
   - api_CRUD_banners
   - api_objects_blog_post
   - api_CRUD_blog_posts

@@ -3,7 +3,7 @@
 | Header | Allowed Values | Description | Example |
 | --- | --- | --- | --- |
 | `**Accept**` | `**application/json**` (for .json requests) `**application/xml**` (for .xml requests) | The MIME type for the format you want to receive a response in.|`**application/xml**` |
-| `**Authorization**`| `**Basic**`| The user credentials for accessing the API | `**Basic YWRtaW46cGFzc3dvcmQ=**` |
+| `**Authorization**`| `**Basic**`| The user credentials for accessing the API | `**Basic YWRtaW46cGFzc3dvcmQ=**` |
 | `**Content-Type**` | `**application/json**` (for JSON requests) `**application/xml**` (for XML requests) | The MIME type of the request body. Use to validate and parse the request to the API. | `**application/json**` |
 | `**User-Agent**` | String | While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests. |
 | `**X-Auth-Client**` | String | Client ID of the requesting app |

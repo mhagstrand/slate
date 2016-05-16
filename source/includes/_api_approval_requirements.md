@@ -14,7 +14,7 @@ Our submission guidelines aim to protect the merchant experience, and to provide
 
 *   Apps must be production-ready and free of defects.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft area to conduct your tests.</span></div>
+PRO TIP: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft area to conduct your tests.
 
 *   Apps must function properly on all [supported browsers](/api/browsers), and must conform to the [user interface constraints](/api/ui-constraints) – including P3P policies as necessary, and no mixed content.
 
@@ -24,7 +24,7 @@ Our submission guidelines aim to protect the merchant experience, and to provide
 
 *   Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
 
-<div class="bui-message bui-message-info"><span class="bui-message-text">PRO TIP: The store name, phone number, and other information can be obtained from the [Store&#160;Information](/api/store) resource.</span></div>
+PRO TIP: The store name, phone number, and other information can be obtained from the [Store&#160;Information](/api/store) resource.
 
 *   The user ID and email address from the [OAuth flow](/api/load#process) should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.
 

@@ -2,10 +2,6 @@
 title: BigCommerce API Documentation
 layout: "twocolumn"
 
-language_tabs:
-  - curl: Request 
-  - json: Response 
-
 
 toc_footers:
   - <a href="/">Home</a>
@@ -20,6 +16,14 @@ includes:
   - api_clients
   - api_status_codes
   - api_scopes
+  - api_approval_requirements
+  - api_browsers
+  - api_completing_reg
+  - api_registration
+  - api_faqs
+  - api_guides_curl_quickstart
+  - api_req_headers
+  - api_response_headers
 
 search: true
 ---

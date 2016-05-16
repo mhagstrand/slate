@@ -69,7 +69,7 @@ Make the `POST` request to the following address: `https://login.bigcommerce.com
 
 #### Initial Installation
 
-During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
+During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your `GET` response.
 
 #### Updates
 
@@ -144,9 +144,6 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
 client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
-</b></code></pre>
-  </div>
-  <div class="bui-tab-panel" id="token-php">
 ```
 
 *   [PHP](#token-php)
@@ -204,7 +201,7 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 Update requests will refresh the payload's `access_token` and `scope` values. Here again, the following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
 ```
-<code class="language-js">{
+{
   "access_token": "hyjielngd8iu0edpy9n8gzl0p25xc7q",
   "scope": "store_v2_orders store_v2_products",
   "user": {

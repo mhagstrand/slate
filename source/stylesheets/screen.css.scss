@@ -32,9 +32,8 @@ html, body {
   @extend %default-font;
   background-color: $main-bg;
   height: 100%;
-  -webkit-text-size-adjust: none; /* Never autoresize text */
-  /* Next 2 lines added 4/27/16 to constrain code blocks' width: */
-  width: 90%;
+  -webkit-text-size-adjust: none; /* Never autoresize text */  
+  width: 100%;
   min-width: 850px;
 
 }
@@ -613,6 +612,7 @@ html, body {
 
   pre {
     @extend %code-font;
+    width: 90%;
   }
 
   blockquote {
@@ -644,6 +644,7 @@ body.twocolumn {
       font-size: 13px;
       line-height: 1.6;
       margin-bottom: 1.4em;
+      width: 90%;
     }
 
     &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {

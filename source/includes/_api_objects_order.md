@@ -1,6 +1,6 @@
 # Orders
 
-The order object contains a record of the purchase agreement between a shopper and a merchant. Returned by GET operations on the orders resource. Can also be passed in PUT and POST operations.
+A record of the purchase agreement between a shopper and a merchant.
 
 ## Order Object – Properties
 

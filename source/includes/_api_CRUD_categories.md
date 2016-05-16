@@ -65,7 +65,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "search_keywords": "",
     "url": "/shop-mac/"
   }
-]```
+]
+```
 
 
 ## Get a Category
@@ -96,7 +97,8 @@ Gets a single category.
   "is_visible": true,
   "search_keywords": "",
   "url": "/xmen-toys/"
-}```
+}
+```
 
 
 ## Get a Count of Categories
@@ -111,8 +113,8 @@ Gets a count of the total number of categories in the store.
 ```json
 {
   "count": 10
-}```
-
+}
+```
 
 ## Create a Category
 
@@ -145,7 +147,8 @@ In addition, Bigcommerce caps the total number of parent categories at seven. If
 ```curl
 {
   "name": "Xmen toys"
-}```
+}
+```
 
 
 ```json
@@ -167,7 +170,8 @@ In addition, Bigcommerce caps the total number of parent categories at seven. If
   "is_visible": true,
   "search_keywords": "",
   "url": "/xmen-toys/"
-}```
+}
+```
 
 ## Update a Category
 
@@ -212,7 +216,8 @@ To maximize system performance, Bigcommerce caps the total number of parent cate
   "is_visible": true,
   "search_keywords": "",
   "url": "/xmen-toys/"
-}```
+}
+```
 
 
 ## Delete a Category

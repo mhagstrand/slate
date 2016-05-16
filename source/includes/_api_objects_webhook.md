@@ -1,5 +1,6 @@
 # Webhook object
 
+Register and manage webhooks that connect events from a store to external URLs.
 
 ## Properties
 
