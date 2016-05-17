@@ -84,7 +84,7 @@
 
 <p>A record of the purchase agreement between a shopper and a merchant.</p>
 
-<h2 id="order-object-properties">Order Object - Properties</h2>
+<h2 id="order-object-properties">Order Object – Properties</h2>
 
 <table><thead>
 <tr>
@@ -101,12 +101,12 @@
 <tr>
 <td>customer_id</td>
 <td>int</td>
-<td>The ID of the customer placing the order or 0 if it was a guest order.</td>
+<td>The ID of the customer placing the order; or 0 if it was a guest order.</td>
 </tr>
 <tr>
 <td>date_created</td>
 <td>date</td>
-<td>The date this order was created, if not specified will default to current time. The date should be in RFC format - &lsquo;Tue, 20 Nov 2012 00:00:00 +0000&rsquo;</td>
+<td>The date this order was created, if not specified, will default to the current time. The date should be in RFC format, e.g.: &lsquo;Tue, 20 Nov 2012 00:00:00 +0000&rsquo;</td>
 </tr>
 <tr>
 <td>date_modified</td>
@@ -131,12 +131,12 @@
 <tr>
 <td>subtotal_ex_tax</td>
 <td>decimal</td>
-<td>Override value for subtotal excluding tax. If specified, the field subtotal_inc_tax is also required.</td>
+<td>Override value for subtotal excluding tax. If specified, the field <code class="prettyprint">subtotal_inc_tax</code> is also required.</td>
 </tr>
 <tr>
 <td>subtotal_inc_tax</td>
 <td>decimal</td>
-<td>Override value for subtotal including tax. If specified, the field subtotal_ex_tax is also required.</td>
+<td>Override value for subtotal including tax. If specified, the field <code class="prettyprint">subtotal_ex_tax</code> is also required.</td>
 </tr>
 <tr>
 <td>subtotal_tax</td>
@@ -166,7 +166,7 @@
 <tr>
 <td>shipping_cost_tax_class_id</td>
 <td>int</td>
-<td>A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax enabled on the store.</td>
+<td>Shipping-cost tax class. A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax is enabled on the store.</td>
 </tr>
 <tr>
 <td>base_handling_cost</td>
@@ -191,22 +191,22 @@
 <tr>
 <td>handling_cost_tax_class_id</td>
 <td>int</td>
-<td>A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax enabled on the store.</td>
+<td>A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax is enabled on the store.</td>
 </tr>
 <tr>
 <td>base_wrapping_cost</td>
 <td>decimal</td>
-<td>The value of the base wrapping cost</td>
+<td>The value of the base wrapping cost.</td>
 </tr>
 <tr>
 <td>wrapping_cost_ex_tax</td>
 <td>decimal</td>
-<td>The value of the wrapping cost excluding tax</td>
+<td>The value of the wrapping cost excluding tax.</td>
 </tr>
 <tr>
 <td>wrapping_cost_inc_tax</td>
 <td>decimal</td>
-<td>The value of the wrapping cost including tax</td>
+<td>The value of the wrapping cost including tax.</td>
 </tr>
 <tr>
 <td>wrapping_cost_tax</td>
@@ -216,17 +216,17 @@
 <tr>
 <td>wrapping_cost_tax_class_id</td>
 <td>int</td>
-<td>A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax enabled on the store.</td>
+<td>A read-only value. Do not attempt to modify or set this value in a POST or PUT operation. NOTE: Value ignored if automatic tax is enabled on the store.</td>
 </tr>
 <tr>
 <td>total_ex_tax</td>
 <td>decimal</td>
-<td>Override value for the total, excluding tax. If specified, the field total_inc_tax is also required.</td>
+<td>Override value for the total, excluding tax. If specified, the field <code class="prettyprint">total_inc_tax</code> is also required.</td>
 </tr>
 <tr>
 <td>total_inc_tax</td>
 <td>decimal</td>
-<td>Override value for the total, including tax. If specified, the field total_ex_tax is also required.</td>
+<td>Override value for the total, including tax. If specified, the field <code class="prettyprint">total_ex_tax</code> is also required.</td>
 </tr>
 <tr>
 <td>total_tax</td>
@@ -241,17 +241,17 @@
 <tr>
 <td>items_shipped</td>
 <td>int</td>
-<td>The number of items that has been shipped.</td>
+<td>The number of items that have been shipped.</td>
 </tr>
 <tr>
 <td>payment_method</td>
 <td>string</td>
-<td>The payment method for this order. Can be one of the following: Manual, Credit Card, cash, Test Payment Gateway, &hellip;</td>
+<td>The payment method for this order. Can be one of the following: Manual, Credit Card, cash, Test Payment Gateway, &hellip; .</td>
 </tr>
 <tr>
 <td>payment_provider_id</td>
 <td>string</td>
-<td>The ID of the payment provider if a payment provider was used.</td>
+<td>The ID of the payment provider, if a payment provider was used.</td>
 </tr>
 <tr>
 <td>payment_status</td>
@@ -266,7 +266,7 @@
 <tr>
 <td>order_is_digital</td>
 <td>boolean</td>
-<td>Whether this order is an order for digital products.</td>
+<td>Whether this is an order for digital products.</td>
 </tr>
 <tr>
 <td>store_credit_amount</td>
@@ -281,17 +281,17 @@
 <tr>
 <td>ip_address</td>
 <td>string</td>
-<td>IP Address of the customer if known.</td>
+<td>IP Address of the customer, if known.</td>
 </tr>
 <tr>
 <td>geoip_country</td>
 <td>string</td>
-<td>The full country name where the customer made the purchase based on the IP.</td>
+<td>The full name of the country where the customer made the purchase, based on the IP.</td>
 </tr>
 <tr>
 <td>geoip_country_iso2</td>
 <td>string</td>
-<td>The country where the customer made the purchase based on the IP is ISO2 format.</td>
+<td>The country where the customer made the purchase, in ISO2 format, based on the IP.</td>
 </tr>
 <tr>
 <td>currency_id</td>
@@ -346,7 +346,12 @@
 <tr>
 <td>is_deleted</td>
 <td>boolean</td>
-<td>Indicates if the order was deleted (archived). A read-only value. Do not pass in a POST or PUT.</td>
+<td>Indicates whether the order was deleted (archived). A read-only value. Do not pass in a POST or PUT.</td>
+</tr>
+<tr>
+<td>is_email_opt_in</td>
+<td>boolean</td>
+<td>Indicates whether the shopper has selected an opt-in check box, on the checkout page, to receive emails. A read-only value. Do not pass in a POST or PUT.</td>
 </tr>
 <tr>
 <td>ebay_order_id</td>
@@ -356,7 +361,7 @@
 <tr>
 <td>billing_address</td>
 <td>object</td>
-<td>The billing address object contains the billing address details for this transaction, specifically: first_name, last_name, company, street_1, street_2, city, state, zip, country, country_iso2, phone, and email. Ensure that state names are spelled out in full, e.g., California. Required for POST operations.</td>
+<td>The billing address object contains the billing address details for this transaction, specifically: first_name, last_name, company, street_1, street_2, city, state, zip, country, country_iso2, phone, and email. Ensure that state names are spelled out in full, e.g.: California. Required for POST operations.</td>
 </tr>
 <tr>
 <td>order_source</td>
@@ -366,7 +371,7 @@
 <tr>
 <td>external_source</td>
 <td>string</td>
-<td>For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example, &ldquo;POS&rdquo;. Otherwise, the value will be null.</td>
+<td>For orders submitted or modified via the API, using a PUT or POST operation, you can optionally pass in a value identifying the system used to generate the order. For example: &ldquo;POS&rdquo;. Otherwise, the value will be null.</td>
 </tr>
 <tr>
 <td>products</td>
@@ -381,7 +386,7 @@
 <tr>
 <td>coupons</td>
 <td>object</td>
-<td>A read-only value. Do not attempt to pass in a PUT or POST. The coupons object contains two name/value pairs. The value paired with &ldquo;url&rdquo; is the fully qualified address of the JSON object array containing the details of the coupon(s) associated with this transaction, if any. The value of &ldquo;resource&rdquo; is the context path to the &ldquo;coupons&rdquo; resource, which represents an alternate means of retrieving the data, such as if you prefer XML.</td>
+<td>A read-only value. Do not attempt to pass in a PUT or POST. The coupons object contains two name/value pairs. The value paired with &ldquo;url&rdquo; is the fully qualified address of the JSON object array that contains details of the coupon(s) associated with this transaction, if any. The value of &ldquo;resource&rdquo; is the context path to the &ldquo;coupons&rdquo; resource, which represents an alternate means of retrieving the data (if, for example, you prefer XML).</td>
 </tr>
 </tbody></table>
 
@@ -391,13 +396,13 @@
 <pre class="highlight plaintext"><code>store/order/created
 </code></pre>
 
-<p>Occurs when an order is received from the checkout or when a manual order is created in the control panel.</p>
+<p>Occurs when an order is received from the checkout, or when a manual order is created in the control panel.</p>
 
 <h3 id="order-updated">Order Updated</h3>
 <pre class="highlight plaintext"><code>store/order/updated
 </code></pre>
 
-<p>Occurs when order details are updated through the control panel, or when an order status is changed from the control panel or API</p>
+<p>Occurs when order details are updated through the control panel, or when an order status is changed from the control panel or the API.</p>
 
 <h3 id="order-archived">Order archived</h3>
 <pre class="highlight plaintext"><code>store/order/archived

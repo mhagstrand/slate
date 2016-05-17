@@ -92,6 +92,535 @@
 
 <p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
+          <h1 id="building-public-apps">Building Public Apps</h1>
+
+<h2 id="app-installation">App Installation</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="/api/registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
+
+<aside class="warning">
+NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+
+For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
+</aside>
+
+<p>The following diagram illustrates the entire sequence.</p>
+
+<p><img alt="UML diagram: App installation/update sequence (bc-oauth-install+update-seq.svg)" src="https://www.filepicker.io/api/file/jrCCco74ShqIiILykrG5" /></p>
+
+<p>The remainder of this section discusses each action your app needs to take during the sequence.</p>
+
+<ol>
+<li> <a href="#get-req">Receiving the <code class="prettyprint">GET</code> request</a></li>
+<li> <a href="#get-response">Responding to the <code class="prettyprint">GET</code> request</a></li>
+<li> <a href="#post-req">Making the <code class="prettyprint">POST</code> request</a></li>
+<li> <a href="#post-receipt">Receiving the <code class="prettyprint">POST</code> response</a></li>
+</ol>
+
+<h3 id="receiving-the-get-request">Receiving the GET request</h3>
+
+<h4 id="overview">Overview</h4>
+
+<p>The <code class="prettyprint">GET</code> request to your <strong>Auth Callback URI</strong> contains a temporary code that you can exchange for a permanent OAuth token. It also includes a unique value that identifies the store installing or updating your app, as well as other values.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<p>The following table details the full list of parameters and values included in the <code class="prettyprint">GET</code> request from Bigcommerce to your <strong>Auth Callback URI</strong>. Bigcommerce passes these within the URI itself as query parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>code</td>
+<td>Temporary code to exchange for a permanent OAuth token. See <a href="#post-req">Making the POST request</a> below for more information about this exchange.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&rsquo;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none.</td>
+</tr>
+<tr>
+<td>context</td>
+<td>The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: <code class="prettyprint">stores/{store_hash}</code>. Save the store hash value, because you will need to pass it in all your requests to the Stores API.</td>
+</tr>
+</tbody></table>
+
+<h4 id="example-initial-installation">Example – Initial Installation</h4>
+
+<p>This example initiates the token exchange, with a requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+<pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders&amp;context=stores/g5cd38 HTTP/1.1  
+Host: app.example.com
+</code></pre>
+
+<h4 id="example-updating-scopes">Example – Updating Scopes</h4>
+
+<p>Scope updates must always be additive. The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+<pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders+store_v2_products&amp;context=stores/g5cd38 HTTP/1.1  
+Host: app.example.com
+</code></pre>
+
+<p>(Note that when your app receives a new token, any previously issued token is invalidated.)</p>
+
+<h3 id="responding-to-the-get-request">Responding to the GET request</h3>
+
+<p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
+
+<h3 id="making-the-post-request">Making the POST request</h3>
+
+<h4 id="overview">Overview</h4>
+
+<p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: <code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
+
+<p>Make the <code class="prettyprint">POST</code> request to the following address: <code class="prettyprint">https://login.bigcommerce.com/oauth2/token</code>.</p>
+
+<h4 id="initial-installation">Initial Installation</h4>
+
+<p>During initial installation, upon receiving the <code class="prettyprint">POST</code>, BigCommerce marks the status of your app as &ldquo;Installed,&rdquo; removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response"><code class="prettyprint">GET</code> response</a>.</p>
+
+<h4 id="updates">Updates</h4>
+
+<p>During app updates, upon receiving the <code class="prettyprint">POST</code>, BigCommerce removes the update prompt from the Control Panel.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<p>Include values for each of the following parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_id</td>
+<td>The Client ID for your app, obtained during <a href="/api/registration">registration</a>.</td>
+</tr>
+<tr>
+<td>client_secret</td>
+<td>The Client Secret for your app, obtained during <a href="/api/registration">registration</a>.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Temporary access code received in the <a href="#get-req">GET request</a> discussed above.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>List of OAuth scopes received in the <a href="#get-req">GET request</a> discussed above.</td>
+</tr>
+<tr>
+<td>grant_type</td>
+<td>Always use the following: authorization_code.</td>
+</tr>
+<tr>
+<td>redirect_uri</td>
+<td>Must be identical to your registered Auth Callback URI.</td>
+</tr>
+<tr>
+<td>context</td>
+<td>The store hash received in the <a href="#get-req">GET request</a>, in the format: <code class="prettyprint">stores/{_store_hash_}</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="examples-initial-installation">Examples – Initial Installation</h4>
+
+<ul>
+<li>  <a href="#token-http">HTTP</a></li>
+</ul>
+<pre class="highlight plaintext"><code>POST /oauth2/token HTTP/1.1
+Host: login.bigcommerce.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 186
+
+client_id=236754&amp;client_secret=m1ng83993rsq3yxg&amp;code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders&amp;grant_type=authorization_code&amp;redirect_uri=https://app.example.com/oauth&amp;context=stores/g5cd38
+</code></pre>
+
+<ul>
+<li>  <a href="#token-php">PHP</a></li>
+</ul>
+<pre class="highlight plaintext"><code>use Bigcommerce\Api\Connection;
+$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
+$connection = new Connection();
+$connection-&gt;useUrlencoded();
+$response = $connection-&gt;post($tokenUrl, array(
+    "client_id" =&gt; "236754",
+    "client_secret" =&gt; "m1ng83993rsq3yxg",
+    "redirect_uri" =&gt; "https://app.example.com/oauth",
+    "grant_type" =&gt; "authorization_code",
+    "code" =&gt; $request-&gt;get("code"),
+    "scope" =&gt; $request-&gt;get("scope"),
+    "context" =&gt; $request-&gt;get("context"),
+));
+$token = $response-&gt;access_token;
+</code></pre>
+
+<h4 id="examples-updating-scopes">Examples – Updating Scopes</h4>
+
+<p>Here again, scope updates must be additive. The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+
+<ul>
+<li>  <a href="#token-http">HTTP</a></li>
+</ul>
+<pre class="highlight plaintext"><code>POST /oauth2/token HTTP/1.1
+Host: login.bigcommerce.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 186
+
+client_id=236754&amp;client_secret=m1ng83993rsq3yxg&amp;code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders+store_v2_products&amp;grant_type=authorization_code&amp;redirect_uri=https://app.example.com/oauth&amp;context=stores/g5cd38
+&lt;/b&gt;&lt;/code&gt;&lt;/pre&gt;
+  &lt;/div&gt;
+  &lt;div class="bui-tab-panel" id="token-php"&gt;
+</code></pre>
+
+<ul>
+<li>  <a href="#token-php">PHP</a></li>
+</ul>
+<pre class="highlight plaintext"><code>use Bigcommerce\Api\Connection;
+
+$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
+$connection = new Connection();
+$connection-&gt;useUrlencoded();
+$response = $connection-&gt;post($tokenUrl, array(
+    "client_id" =&gt; "236754",
+    "client_secret" =&gt; "m1ng83993rsq3yxg",
+    "redirect_uri" =&gt; "https://app.example.com/oauth",
+    "grant_type" =&gt; "authorization_code",
+    "code" =&gt; $request-&gt;get("code"),
+    "scope" =&gt; $request-&gt;get("scope"),
+    "context" =&gt; $request-&gt;get("context"),
+));
+
+$token = $response-&gt;access_token;
+</code></pre>
+
+<h3 id="receiving-the-post-response">Receiving the POST response</h3>
+
+<h4 id="overview">Overview</h4>
+
+<p>The <code class="prettyprint">POST</code> response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.</p>
+
+<h4 id="json-values">JSON Values</h4>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Value Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>access_token</td>
+<td>string</td>
+<td>The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely.</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>string</td>
+<td>List of authorization scopes.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Unique identifier for the user. Store this value to identify the user at load and uninstall.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user’s email address. Store this value to identify the user at load and uninstall.</td>
+</tr>
+<tr>
+<td>context</td>
+<td>string</td>
+<td>The store hash, as well as a base path: <code class="prettyprint">stores/{_store_hash_}</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="json-example-initial-installation">JSON Example – Initial Installation</h4>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g3y3ab5cctiu0edpy9n8gzl0p25og9u"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store_v2_orders"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24654</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merchant@mybigcommerce.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores/g5cd38"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="json-example-updating-scopes">JSON Example – Updating Scopes</h4>
+
+<p>Update requests will refresh the payload&rsquo;s <code class="prettyprint">access_token</code> and <code class="prettyprint">scope</code> values. Here again, the following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+<pre class="highlight plaintext"><code>&lt;code class="language-js"&gt;{
+  "access_token": "hyjielngd8iu0edpy9n8gzl0p25xc7q",
+  "scope": "store_v2_orders store_v2_products",
+  "user": {
+    "id": 24654,
+    "email": "merchant@mybigcommerce.com"
+  },
+  "context": "stores/g5cd38"
+}
+</code></pre>
+
+<h2 id="load-uninstall-and-user-removal-requests">Load, Uninstall, and User Removal Requests</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="/api/registration">App Registration</a> wizard requests the following URIs.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Required?</th>
+<th>Event Discussion</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Load Callback URI</td>
+<td>Yes</td>
+<td>Called when the store owner or user clicks to load your app.</td>
+</tr>
+<tr>
+<td>Uninstall Callback URI</td>
+<td>No</td>
+<td>Called when the store owner clicks to uninstall your app.</td>
+</tr>
+<tr>
+<td>Remove User Callback URI</td>
+<td>No</td>
+<td>Called when the store admin revokes a user&rsquo;s access to your app.</td>
+</tr>
+</tbody></table>
+
+<p>Each BigCommerce request is a <strong>GET</strong> request and includes a signed payload that allows your app to:</p>
+
+<ul>
+<li>  Verify that the request came from BigCommerce.</li>
+<li>  Identify the store.</li>
+<li>  Identify the store owner or user.</li>
+</ul>
+
+<p>The remainder of this page discusses:</p>
+
+<ul>
+<li>  <a href="#load">The load request and response</a>.</li>
+<li>  <a href="#uninstall">The uninstall request</a>.</li>
+<li>  <a href="#remove">The remove user request</a>.</li>
+<li>  <a href="#process">The signed payload</a>.</li>
+</ul>
+
+<h3 id="about-the-load-request-and-response"><a name="load"></a> About the load request and response</h3>
+
+<p>Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a <strong>GET</strong> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
+
+<aside class="warning">
+NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+
+For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
+</aside>
+
+<p>The <strong>GET</strong> request contains a signed payload, as shown below.</p>
+<pre class="highlight plaintext"><code>GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+Host: app.example.com
+</code></pre>
+
+<p>Upon receiving a <strong>GET</strong> request to the <strong>Load Callback URI</strong>, your app needs to <a href="#process">process the signed payload</a>.</p>
+
+<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="/api/ui-constraints">User Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
+
+<h3 id="about-the-uninstall-request-optional"><a name="uninstall"></a> About the uninstall request (optional)</h3>
+
+<p>Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app&rsquo;s OAuth token is revoked and the app cannot make requests to the Stores API on the store&rsquo;s behalf anymore.</p>
+
+<p>You do not need to provide an <strong>Uninstall Callback URI</strong>. The lack of an <strong>Uninstall Callback URI</strong> does not prevent uninstallation. Instead, the <strong>Uninstall Callback URI</strong> allows you to track store owners who uninstall your app and to run cleanup operations, such as removing the store&rsquo;s user accounts from your system.</p>
+
+<p>Should you choose to avail of this option and provide an <strong>Uninstall Callback URI</strong>, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a <strong>GET</strong> request to your <strong>Uninstall Callback URI</strong> when a store owner clicks to uninstall your app. An example follows.</p>
+<pre class="highlight plaintext"><code>GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+Host: app.example.com
+</code></pre>
+
+<p>Upon receiving the <strong>GET</strong> request, your app will need to <a href="#process">process the signed payload</a>.</p>
+
+<aside class="notice">
+NOTE: Any HTML that you return in your response will not be rendered.
+</aside>
+
+<h3 id="about-the-remove-user-request-optional"><a name="remove"></a> About the remove user request (optional)</h3>
+
+<p>If you have not enabled <a href="/api/multi-user">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <strong>GET</strong> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
+<pre class="highlight plaintext"><code>GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
+Host: app.example.com
+</code></pre>
+
+<p>Upon receiving the <strong>GET</strong> request, your app will need to <a href="#process">process the signed payload</a>.</p>
+
+<aside class="notice">
+NOTE: Any HTML that you return in your response will not be rendered.
+</aside>
+
+<h3 id="processing-the-signed-payload">Processing the signed payload</h3>
+
+<h4 id="splitting-and-decoding-the-signed-payload"><a name="process"></a> Splitting and decoding the signed payload</h4>
+
+<p>The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC signature</a>. The parts are delimited by the <strong>.</strong> character:</p>
+<pre class="highlight plaintext"><code>encoded_json_string.encoded_hmac_signature
+</code></pre>
+
+<p>To decode the signed payload, complete the following steps:</p>
+
+<ol>
+<li> Split <code class="prettyprint">signed_payload</code> into its two parts at the <code class="prettyprint">.</code> delimiter.</li>
+<li> Decode <code class="prettyprint">encoded_json_string</code> using base64url.</li>
+<li> Convert the decoded JSON string into an object. See <a href="#Identifying">Processing the JSON object</a> in for more about this object.</li>
+<li> Decode <code class="prettyprint">encoded_hmac_signature</code> using base64url.</li>
+<li> Use your client secret to verify the signature. See the next section for more details.</li>
+</ol>
+
+<h4 id="verifying-the-hmac-signature">Verifying the HMAC signature</h4>
+
+<p>To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.</p>
+
+<aside class="warning">
+NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+</aside>
+
+<h5 id="examples">Examples</h5>
+
+<ul>
+<li><p><a href="#strcmp-php">PHP</a>
+&ldquo;`
+function verifySignedRequest($signedRequest)
+{
+list($encodedData, $encodedSignature) = explode(&rsquo;.&rsquo;, $signedRequest, 2); </p>
+
+<p>// decode the data
+$signature = base64_decode($encodedSignature);
+    $jsonStr = base64_decode($encodedData);
+$data = json_decode($jsonStr, true);</p>
+
+<p>// confirm the signature
+$expectedSignature = hash_hmac(&lsquo;sha256&rsquo;, $jsonStr, $clientSecret(), $raw = false);
+if (!hash_equals($expectedSignature, $signature)) {
+    error_log(&#39;Bad signed request from BigCommerce!&rsquo;);
+    return null;
+}
+return $data;
+}
+&rdquo;`</p></li>
+</ul>
+
+<aside class="notice">
+NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="hello-world-app-php-silex app">https://github.com/bigcommerce/hello-world-app-php-silex</a></nobr> does this automatically.
+</aside>
+
+<ul>
+<li>  <a href="#strcmp-ruby">Ruby</a></li>
+</ul>
+<pre class="highlight plaintext"><code>require "base64"
+require "openssl"
+
+def verify(signed_payload, client_secret)
+  message_parts = signed_payload.split(".")
+
+  encoded_json_payload = message_parts[0]
+  encoded_hmac_signature = message_parts[1]
+
+  payload_object = Base64.strict_decode(encoded_json_payload)
+  provided_signature = Base64.strict_decode(encoded_hmac_signature)
+
+  expected_signature = OpenSSL::HMAC::hexdigest("sha256", client_secret, payload_object)
+
+  return false unless secure_compare(expected_signature, provided_signature)
+
+  JSON.parse(payload_object)
+end
+
+def secure_compare(a, b)
+  return false if a.blank? || b.blank? || a.bytesize != b.bytesize
+  l = a.unpack "C#{a.bytesize}"
+
+  res = 0
+  b.each_byte { |byte| res |= byte ^ l.shift }
+  res == 0
+end
+</code></pre>
+
+<h4 id="processing-the-json-object">Processing the JSON object</h4>
+
+<h5 id="introduction">Introduction</h5>
+
+<p>The JSON object embedded in the <code class="prettyprint">signed_payload</code> contains information about the BigCommerce store and the store owner or user.</p>
+
+<h5 id="identifying-the-store">Identifying the store</h5>
+
+<p>You should use the store information to identify the store that the request pertains to.</p>
+
+<h5 id="interpreting-the-user-information">Interpreting the user information</h5>
+
+<p>Interpreting the user information varies as follows.</p>
+
+<table><thead>
+<tr>
+<th>Request type</th>
+<th>Multiple users enabled</th>
+<th>Multiple users not enabled</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Load</td>
+<td>Compare the user information to see if it matches that of the store owner, received at the time of <a href="/api/callback">App Installation</a> or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage.</td>
+<td>The information should match that of the store owner, received at the time of <a href="/api/callback">App Installation</a>.</td>
+</tr>
+<tr>
+<td>Uninstall</td>
+<td>The user information should match that of the store owner. Only the store owner can uninstall your app.</td>
+<td>Should match the store owner.</td>
+</tr>
+<tr>
+<td>Remove user</td>
+<td>The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage.</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<h5 id="json-values">JSON Values</h5>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Data Type</th>
+<th>Value Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>Unique identifier for the user.</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>The user’s email address.</td>
+</tr>
+<tr>
+<td>store_hash</td>
+<td>string</td>
+<td>Unique identifier of the store.</td>
+</tr>
+</tbody></table>
+
+<h5 id="json-example">JSON Example</h5>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24654</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user@mybigcommerce.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"store_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g5cd38"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
           <h1 id="categories">Categories</h1>
 
 <p>Index of hierarchical categories used to organize and group products.</p>
@@ -299,179 +828,188 @@
     </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/shop-mac/"</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">category.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-category-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-category-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="mi">10</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Categories</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-categories-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/count`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-categories-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/count`</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
-
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">category.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-category-oauth)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-category-basic)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">parent_category_list</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
-
-</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">16</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">causes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="mi">16</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">categories,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
-
-</span><span class="err">In</span><span class="w"> </span><span class="err">addition,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">seven.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`parent_id`</span><span class="w"> </span><span class="err">field,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">check</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">its</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">so</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">determine</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`POST`</span><span class="w"> </span><span class="err">would</span><span class="w"> </span><span class="err">cause</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">seven,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="mi">10</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
-
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">category.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-category-oauth)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-category-basic)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">parent_category_list</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
-
-</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">seven.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`PUT`</span><span class="w"> </span><span class="err">includes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">`parent_id`</span><span class="w"> </span><span class="err">field,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">check</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">children</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">current</span><span class="w"> </span><span class="err">category</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">determine</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">`PUT`</span><span class="w"> </span><span class="err">would</span><span class="w"> </span><span class="err">cause</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">parent</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">seven,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="mi">10</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Category</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">category.</span><span class="w">
-
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-category-oauth)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-category-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Categories</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-all-categories-oauth)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-all-categories-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/categories`</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
-
-</span><span class="err">&gt;The</span><span class="w"> </span><span class="err">`DELETE`</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">operation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">succeed</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">zero</span><span class="w"> </span><span class="err">products.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">belong</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">categories,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">entire</span><span class="w"> </span><span class="err">operation</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">fail.</span><span class="w"> </span><span class="err">Therefore,</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">really</span><span class="w"> </span><span class="err">want</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">delete</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">categories</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store,</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">must</span><span class="w"> </span><span class="err">first</span><span class="w"> </span><span class="err">delete</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
+
+<h2 id="get-a-category">Get a Category</h2>
+
+<p>Gets a single category.</p>
+
+<ul>
+<li>  <a href="#get-a-category-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/categories/{id}</code></li>
+<li>  <a href="#get-a-category-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/categories/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">10</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="get-a-count-of-categories">Get a Count of Categories</h2>
+
+<p>Gets a count of the total number of categories in the store.</p>
+
+<ul>
+<li>  <a href="#get-a-count-of-categories-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/categories/count</code></li>
+<li>  <a href="#get-a-count-of-categories-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/categories/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="create-a-category">Create a Category</h2>
+
+<p>Creates a new category.</p>
+
+<ul>
+<li>  <a href="#create-a-category-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/categories</code></li>
+<li>  <a href="#create-a-category-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/categories</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  id</li>
+<li>  parent_category_list</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<ul>
+<li>  name</li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<p>To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your <code class="prettyprint">POST</code> causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.</p>
+
+<p>In addition, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">POST</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your <code class="prettyprint">POST</code> would cause the total number of parent categories to exceed seven, Bigcommerce will return a 403 error.</p>
+<pre class="highlight plaintext"><code>{
+  "name": "Xmen toys"
+}
+</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">10</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="update-a-category">Update a Category</h2>
+
+<p>Updates an existing category.</p>
+
+<ul>
+<li>  <a href="#update-a-category-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/categories/{id}</code></li>
+<li>  <a href="#update-a-category-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/categories/{id}</code></li>
+</ul>
+
+<h3 id="read-only-properties">Read-only Properties</h3>
+
+<p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
+
+<ul>
+<li>  id</li>
+<li>  parent_category_list</li>
+</ul>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
+
+<h3 id="notes">Notes</h3>
+
+<p>To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">PUT</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your <code class="prettyprint">PUT</code> would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"layout_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category.html"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"parent_category_list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="mi">10</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d/apiy2uz6q__69888.jpg"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/xmen-toys/"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id="delete-a-category">Delete a Category</h2>
+
+<p>Deletes a category.</p>
+
+<ul>
+<li>  <a href="#delete-a-category-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/categories/{id}</code></li>
+<li>  <a href="#delete-a-category-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/categories/{id}</code></li>
+</ul>
+
+<h2 id="delete-all-categories">Delete All Categories</h2>
+
+<p>Deletes all the categories in the store.</p>
+
+<ul>
+<li>  <a href="#delete-all-categories-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/categories</code></li>
+<li>  <a href="#delete-all-categories-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/categories</code></li>
+</ul>
+
+<h3 id="notes">Notes</h3>
+
+<blockquote>
+<p>The <code class="prettyprint">DELETE</code> all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.</p>
+</blockquote>
 
           <h1 id="brands">Brands</h1>
 

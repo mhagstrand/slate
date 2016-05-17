@@ -615,44 +615,38 @@
 </tr>
 </tbody></table>
 
-          <h1 id="app-approval-requirements">App Approval Requirements</h1>
+          <h2 id="introduction">Introduction</h2>
 
-<h2 id="introduction">Introduction</h2>
-
-<p>Our submission guidelines aim to protect the merchant experience, as well as provide enough structure for you to develop apps efficiently and effectively.</p>
+<p>Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively.</p>
 
 <h2 id="app-requirements">App Requirements</h2>
 
 <ul>
-<li><p>Must perform as described.</p></li>
+<li><p>Apps must perform as described.</p></li>
 <li><p>All information supplied as part of the app submission process must be genuine and accurate.</p></li>
-<li><p>Must provide pricing information including pricing for starting a new service and the cost of services after the free trial.</p></li>
+<li><p>Apps must provide pricing information – including pricing for starting a new service, and the cost of services after the free trial.</p></li>
 <li><p>All API requests must be made using OAuth authentication.</p></li>
-<li><p>Must be production ready and free of defects.</p></li>
+<li><p>Apps must be production-ready and free of defects.</p></li>
 </ul>
 
-<blockquote>
-<p>OTE: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft to conduct your tests.</p>
-</blockquote>
+<p>PRO TIP: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft area to conduct your tests.</p>
 
 <ul>
-<li><p>Must function properly on all <a href="/api#browsers">supported browsers</a> and conform to the <a href="/api/ui-constraints">user interface constraints</a>, such as P3P policies as necessary and no mixed content.</p></li>
-<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth—as long as they open a new tab to do so.</p></li>
-<li><p>Must be easy to use.</p></li>
-<li><p>Whenever possible, use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p></li>
+<li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
+<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
+<li><p>Apps must be easy to use.</p></li>
+<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p></li>
 </ul>
 
-<blockquote>
-<p>NOTE: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store Information</a> resource.</p>
-</blockquote>
+<p>PRO TIP: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store&#160;Information</a> resource.</p>
 
 <ul>
-<li><p>The user ID and email address from the <a href="/api#load-process">OAuth flow</a> should allow you to log the merchant into any additional systems automatically. Apps that provide the merchant with a single sign-on experience are preferred.</p></li>
-<li><p>Must return some HTML in response to GET requests to the <a href="/api#load-process">Auth Callback URI</a>.</p></li>
+<li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
+<li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
 <li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
-<li><p>No competitor integrations or references should appear in app or in marketing materials.</p></li>
-<li><p>Any instances of the Bigcommerce brand name must be correctly spelled, i.e., one word with a uppercase &lsquo;C&rsquo;.</p></li>
-<li><p>Must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
+<li><p>No competitor integrations or references should appear in the app or in marketing materials.</p></li>
+<li><p>Any instances of the BigCommerce brand name must match current branding, i.e., one word with an uppercase &ldquo;C&rdquo;.</p></li>
+<li><p>Apps must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
 </ul>
 
 <h2 id="types-of-apps-we-39-re-accepting">Types of apps we&rsquo;re accepting</h2>
@@ -1169,37 +1163,37 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Accept</strong></td>
-<td><strong>application/json</strong> (for .json requests) <strong>application/xml</strong> (for .xml requests)</td>
+<td><code class="prettyprint">**Accept**</code></td>
+<td><code class="prettyprint">**application/json**</code> (for .json requests) <code class="prettyprint">**application/xml**</code> (for .xml requests)</td>
 <td>The MIME type for the format you want to receive a response in.</td>
-<td><strong>application/xml</strong></td>
+<td><code class="prettyprint">**application/xml**</code></td>
 </tr>
 <tr>
-<td><strong>Authorization</strong></td>
-<td><strong>Basic</strong></td>
+<td><code class="prettyprint">**Authorization**</code></td>
+<td><code class="prettyprint">**Basic**</code></td>
 <td>The user credentials for accessing the API</td>
-<td><strong>Basic YWRtaW46cGFzc3dvcmQ=</strong></td>
+<td><code class="prettyprint">**Basic YWRtaW46cGFzc3dvcmQ=**</code></td>
 </tr>
 <tr>
-<td><strong>Content-Type</strong></td>
-<td><strong>application/json</strong> (for JSON requests) <strong>application/xml</strong> (for XML requests)</td>
+<td><code class="prettyprint">**Content-Type**</code></td>
+<td><code class="prettyprint">**application/json**</code> (for JSON requests) <code class="prettyprint">**application/xml**</code> (for XML requests)</td>
 <td>The MIME type of the request body. Use to validate and parse the request to the API.</td>
-<td><strong>application/json</strong></td>
+<td><code class="prettyprint">**application/json**</code></td>
 </tr>
 <tr>
-<td><strong>User-Agent</strong></td>
+<td><code class="prettyprint">**User-Agent**</code></td>
 <td>String</td>
 <td>While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests.</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>X-Auth-Client</strong></td>
+<td><code class="prettyprint">**X-Auth-Client**</code></td>
 <td>String</td>
 <td>Client ID of the requesting app</td>
 <td></td>
 </tr>
 <tr>
-<td><strong>X-Auth-Token</strong></td>
+<td><code class="prettyprint">**X-Auth-Token**</code></td>
 <td>String</td>
 <td>Access token authorizing the app to access resources on behalf of a user</td>
 <td></td>
@@ -1218,8 +1212,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>If-Modified-Since</strong></td>
-<td>Uses an <a href="http://tools.ietf.org/html/rfc2822#section-3.3">RFC 2822</a> date. If supplied, then only resources modified since the specified date will be returned. If there are no modified objects, then a <strong>304 Not Modified</strong> response will be sent. Please refer to the individual resource pages for support for this header.</td>
+<td><code class="prettyprint">**If-Modified-Since**</code></td>
+<td>Uses an <a href="http://tools.ietf.org/html/rfc2822#section-3.3">RFC 2822</a> date. If supplied, then only resources modified since the specified date will be returned. If there are no modified objects, then a <code class="prettyprint">**304 Not Modified**</code> response will be sent. Please refer to the individual resource pages for support for this header.</td>
 <td>Use <strong>min_date_modified</strong> and <strong>max_date_modified</strong> query parameters on resources that support them.</td>
 </tr>
 </tbody></table>
@@ -1235,58 +1229,58 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><strong>Date</strong></td>
+<td><code class="prettyprint">**Date**</code></td>
 <td>An [RFC 2822][47] date.</td>
 <td>The date the response was sent.</td>
-<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
+<td><code class="prettyprint">**Tue, 15 Nov 2011 12:45:26 GMT**</code></td>
 </tr>
 <tr>
-<td><strong>Last-Modified</strong></td>
+<td><code class="prettyprint">**Last-Modified**</code></td>
 <td>An [RFC 2822][47] date.</td>
 <td>The date the resource was last modified. Please refer to the individual resource pages for support for this header.</td>
-<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
+<td><code class="prettyprint">**Tue, 15 Nov 2011 12:45:26 GMT**</code></td>
 </tr>
 <tr>
-<td><strong>Content-Type</strong></td>
-<td><strong>application/json</strong> (for JSON requests) <strong>application/xml</strong> (for XML requests, or if no extension is supplied)</td>
+<td><code class="prettyprint">**Content-Type**</code></td>
+<td><code class="prettyprint">**application/json**</code> (for JSON requests) <code class="prettyprint">**application/xml**</code> (for XML requests, or if no extension is supplied)</td>
 <td>The MIME type of the response, dependent on the extension of the endpoint that was requested.</td>
-<td><strong>application/json</strong></td>
+<td><code class="prettyprint">**application/json**</code></td>
 </tr>
 <tr>
-<td><strong>Content-Location</strong></td>
+<td><code class="prettyprint">**Content-Location**</code></td>
 <td>A URI.</td>
 <td>Sent if the request was redirected.</td>
-<td><strong>/api/v2/orders/5.json</strong></td>
+<td><code class="prettyprint">**/api/v2/orders/5.json**</code></td>
 </tr>
 <tr>
-<td><strong>WWW-Authenticate</strong></td>
-<td><strong>Basic</strong></td>
-<td>Indicates the authentication scheme that should be used to access the API. Sent with a <strong>401 Unauthorized</strong> response if HTTP Basic Authentication credentials weren&rsquo;t supplied.</td>
-<td><strong>Basic</strong></td>
+<td><code class="prettyprint">**WWW-Authenticate**</code></td>
+<td><code class="prettyprint">**Basic**</code></td>
+<td>Indicates the authentication scheme that should be used to access the API. Sent with a <code class="prettyprint">**401 Unauthorized**</code> response if HTTP Basic Authentication credentials weren&rsquo;t supplied.</td>
+<td><code class="prettyprint">**Basic**</code></td>
 </tr>
 <tr>
-<td><strong>Location</strong></td>
+<td><code class="prettyprint">**Location**</code></td>
 <td>A URI</td>
-<td>The URI of a newly created resource. Sent with a <strong>201 Created</strong> response.</td>
-<td><strong>/api/v2/products/7</strong></td>
+<td>The URI of a newly created resource. Sent with a <code class="prettyprint">**201 Created**</code> response.</td>
+<td><code class="prettyprint">**/api/v2/products/7**</code></td>
 </tr>
 <tr>
-<td><strong>X-Retry-After</strong></td>
+<td><code class="prettyprint">**X-Retry-After**</code></td>
 <td>An integer</td>
 <td>Rate limited response, indicating the number of seconds before the quota refreshes. See the [OAuth rate limits documentation][22] for more information.</td>
-<td><strong>15</strong></td>
+<td><code class="prettyprint">**15**</code></td>
 </tr>
 <tr>
-<td><strong>X-BC-ApiLimit-Remaining</strong></td>
+<td><code class="prettyprint">**X-BC-ApiLimit-Remaining**</code></td>
 <td>An integer</td>
 <td>The number of API requests remaining for the current period (rolling one hour). See the [Basic Auth rate limits documentation][28] for more information.</td>
-<td><strong>987</strong></td>
+<td><code class="prettyprint">**987**</code></td>
 </tr>
 <tr>
-<td><strong>X-BC-Store-Version</strong></td>
+<td><code class="prettyprint">**X-BC-Store-Version**</code></td>
 <td>A version number</td>
 <td>The version of Bigcommerce the store is running on. This header is available from versions 7.3.6+.</td>
-<td>** 7.3.6**</td>
+<td><code class="prettyprint">** 7.3.6**</code></td>
 </tr>
 </tbody></table>
 
