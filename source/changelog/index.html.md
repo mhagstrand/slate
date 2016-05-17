@@ -1,5 +1,5 @@
 ---
-title: BigCommerce API &amp; Theme Framwork Changelog
+title: BigCommerce API &amp; Theme Framework Changelog
 layout: "twocolumn"
 
 toc_footers:

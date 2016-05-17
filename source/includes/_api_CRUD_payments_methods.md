@@ -1,5 +1,5 @@
-|||
-|---|---|
+|   |   |
+| ----- | ----- |
 | Manages |
 | OAuth Scopes | `store_v2_information`
 ||`store_v2_information_read_only`

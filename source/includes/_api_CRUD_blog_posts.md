@@ -19,11 +19,12 @@
 Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)
 
 *   [OAuth](#list-blog-posts-oauth)
->`GET /stores/{store_hash}/v2/blog/posts`
+
+> `GET /stores/{store_hash}/v2/blog/posts`
 
 *   [Basic Auth](#list-blog-posts-basic)
 
->`GET /api/v2/blog/posts`
+> `GET /api/v2/blog/posts`
 
 ### Filters
 
@@ -45,7 +46,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /stores/{store_hash}/v2/blog/posts?page={number} |
 | Limit | int | /stores/{store_hash}/v2/blog/posts?limit={count} |
 
-```json
+```
   {
     "id": 2,
     "title": "Ten Great New Products",
@@ -84,18 +85,21 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "author_url": "",
     "thumbnail_path": ""
   }
-]```
+]
+```
 
 ## Get a Blog Post
 
 Gets a blog post.
 
 *   [OAuth](#get-a-blog-post-oauth)
+
 >`GET /stores/{store_hash}/v2/blog/posts/{id}`
 *   [Basic Auth](#get-a-blog-post-basic)
+
 >`GET /api/v2/blog/posts/{id}`
 
-```json
+```
 {
   "id": 1,
   "title": "Your first blog post!",
@@ -114,7 +118,8 @@ Gets a blog post.
   "author": "",
   "author_url": "",
   "thumbnail_path": ""
-}```
+}
+```
 
 ## Get a Count of Blog Posts
 
@@ -122,15 +127,18 @@ Gets a count of blog posts.
 
 
 *   [OAuth](#get-a-count-of-blog-posts-oauth)
+
 >`GET /stores/{store_hash}/v2/blog/posts/count`
 *   [Basic Auth](#get-a-count-of-blog-posts-basic)
+
 >`GET /api/v2/blog/posts/count`
 
 
-```json
+```
 {
   "count": 6
-}```
+}
+```
 
 ## Create a Blog Post
 
@@ -162,7 +170,7 @@ Blog posts default to draft status. Set is_published to true to publish posts to
 
 If a custom url is not provided, the post’s URL will be generated based on the value of title.
 
-```curl
+```
 {
   "title": "A Sample Blog Post",
   "body": "<p>This is a blog post.</p>",
@@ -174,7 +182,8 @@ If a custom url is not provided, the post’s URL will be generated based on the
     "Blog",
     "Example"
   ]
-}```
+}
+```
 
 ## Update a Blog Post
 
@@ -198,11 +207,12 @@ The following properties of the blog post are read-only. If one or more of these
 
 The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
 
-```curl
+```
 {
   "title": "New: A Sample Blog Post",
   "url": "/blog/sample-post"
-}```
+}
+```
 
 ## Delete a Blog Post
 

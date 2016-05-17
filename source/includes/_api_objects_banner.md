@@ -2,15 +2,16 @@
 
 Banners available to display on a store.
 
-| ----- |
-
+|   |   |
+| ----- | ----- |
 | Manages | Banner Object |
 | OAuth Scopes |  store_v2_marketing |
 | |store_v2_marketing_read_only |
 
-## Banners - Properties
+## Banners – Properties
 
-| ----- |
+| Name | Type | Description |
+| ----- | ----- | ----- |
 | name |  string |  Required field. |
 | page |  enum |  'home_page', 'category_page', 'brand_page', 'search_page'. Required field. |
 | dateto |  date |  If the datetype is set as 'custom', this field specifies the date when the banner should stop being visible on the storefront. |

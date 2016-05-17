@@ -25,7 +25,7 @@ Gets the collection of URL redirects.
 
 ### Pagination
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `redirects` are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
@@ -119,6 +119,7 @@ The following properties of the redirect are required. The request won’t be fu
 ### Request
 
 Example request object:
+
 ```
 {
   "path": "/mens_clothing",
@@ -131,6 +132,7 @@ Example request object:
 ### Response
 
 Example JSON returned in the response:
+
 ```
 {
   "id": 3,
@@ -164,9 +166,10 @@ The following properties of the redirect are required. The request won’t be fu
 *   path
 *   forward
 
-### Notes
+<aside class="notice">
+NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> fields of an existing redirect can be updated.
+</aside>
 
-The `path`, `forward.type` and `forward.ref` fields of an existing redirect can be updated.
 
 ## Delete a Redirect
 

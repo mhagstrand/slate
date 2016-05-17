@@ -1,6 +1,6 @@
 # Building Public Apps
 
-## App Installation
+## App Installation and Update Sequence
 
 ### Introduction
 
@@ -48,7 +48,7 @@ Host: app.example.com
 
 #### Example – Updating Scopes
 
-Scope updates must always be additive. The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
+The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
 ```
 GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&context=stores/g5cd38 HTTP/1.1  
@@ -128,7 +128,7 @@ $token = $response->access_token;
 
 #### Examples – Updating Scopes
 
-Here again, scope updates must be additive. The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
+The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
 *   [HTTP](#token-http)
 

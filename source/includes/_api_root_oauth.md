@@ -423,12 +423,3 @@ Interpreting the user information varies as follows.
   "store_hash": "g5cd38"
 }
 ```
-
-
-# Building Basic-Auth Apps
-
-
-<aside class="notice">
-tK: We still need to migrate content here. 
-</aside>
-

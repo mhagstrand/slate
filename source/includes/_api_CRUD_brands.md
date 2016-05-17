@@ -36,7 +36,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/brands?page={number} |
 | Limit | int | /api/v2/brands?limit={count} |
 
-```json
+```
 [
   {
     "id": 1,
@@ -56,7 +56,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "image_file": "",
     "search_keywords": ""
   }
-]```
+]
+```
 
 
 ## Get a Brand
@@ -68,7 +69,7 @@ Gets a brand.
 *   [Basic Auth](#get-a-brand-basic)
 >`GET /api/v2/brands/{id}`
 
-```json
+```
 {
   "id": 1,
   "name": "Apple",
@@ -77,7 +78,8 @@ Gets a brand.
   "meta_description": "",
   "image_file": "",
   "search_keywords": ""
-}```
+}
+```
 
 
 ## Get a Count of Brands
@@ -89,10 +91,11 @@ Returns the total number of brands in the store.
 *   [Basic Auth](#get-a-count-of-brands-basic)
 >`GET /api/v2/brands/count`
 
-```json
+```
 {
   "count": 25
-}```
+}
+```
 
 
 ## Create a Brand
@@ -121,14 +124,15 @@ The following properties of the brand are required. The request won’t be fulfi
 
 To maximize system performance, Bigcommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, Bigcommerce will return a 403 error.
 
-```curl
+```
 {
   "name": "Xmen",
   "page_title": "X men brand"
-}```
+}
+```
 
 
-```json
+```
 {
   "id": 10,
   "name": "Xmen",
@@ -137,7 +141,8 @@ To maximize system performance, Bigcommerce caps the number of brands that can b
   "meta_description": null,
   "image_file": "",
   "search_keywords": ""
-}```
+}
+```
 
 
 ## Update a Brand
@@ -159,7 +164,7 @@ The following properties of the brand are read-only. If one or more of these pro
 
 The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.
 
-```json
+```
 {
   "id": 10,
   "name": "Xmen",
@@ -168,7 +173,8 @@ The following properties of the brand are required. The request won’t be fulfi
   "meta_description": null,
   "image_file": "t/apirmzk0a__43675.jpg",
   "search_keywords": "xmen, awesomeness"
-}```
+}
+```
 
 
 ## Delete a Brand

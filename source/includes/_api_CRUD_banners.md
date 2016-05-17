@@ -23,6 +23,7 @@ Filter parameters can be added to the URL query string to select specific banner
 | min_id  | int  | /api/v2/banners?min_id={value} |
 | max_id  | int  | /api/v2/banners?max_id={value} |
 
+### Pagination
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn't provided, up to 50 banners are returned by default.
 
 | Parameter | Type | Example                         |
@@ -33,6 +34,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ### Response
 
 Example JSON returned in the response:
+
 ```
     {
       "banners": {
@@ -103,11 +105,14 @@ Retrieves a specified banner.
 *   [Basic Auth](#create-a-banner)
 >`GET /api/v2/banners`
 
+```
 GET /api/v2/banners/{id}
+```
 
 ### Response
 
 Example JSON returned in the response:
+
 ```
     {
       "banner": {
@@ -130,9 +135,11 @@ Example JSON returned in the response:
 
 Creates a new banner.
 
+```
 POST /stores/{store_hash}/v2/banners
 
 POST /api/v2/banners
+```
 
 ### Read-only Properties
 
@@ -174,9 +181,11 @@ Example JSON returned in the response:
 
 Updates an existing banner. Your request may update any of the properties that are writeable for the Create (POST) operation.
 
+```
 PUT /stores/{store_hash}/v2/banners
 
 PUT /api/v2/banners
+```
 
 ### Read-only Properties
 
@@ -208,16 +217,20 @@ Example JSON returned in the response:
 
 Deletes a specified banner. (If successful, this will typically return a "204 No Content".)
 
+```
 DELETE /stores/{store_hash}/v2/banners/{id}
 
 DELETE /api/v2/banners/{id}
+```
 
 ## Delete All Banners
 
 Deletes all banners associated with the store. (If successful, this will typically return a "204 No Content".)
 
+```
 DELETE /stores/{store_hash}/v2/banners
 
 DELETE /api/v2/banners
+```
 
 [1]: /api/objects/v2/banner

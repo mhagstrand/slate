@@ -596,9 +596,10 @@ html, body {
     color: #F7F7F7;
 
     padding: 2em $main-padding;
-    margin: 0;
+    /* margin: 0; */
+    /* Next tag adapted from body, 5/16/16, to set blockquotes flush-left: */
+    margin-left: 1.33em;
     width: $examples-width;
-
     float:right;
     clear:right;
 
