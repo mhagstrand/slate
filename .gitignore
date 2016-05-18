@@ -1,3 +1,6 @@
+.dockerignore
+DockerFile
+docker-compose.yml
 *.gem
 *.rbc
 .bundle
