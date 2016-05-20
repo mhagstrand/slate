@@ -228,7 +228,8 @@ html, body {
     }
 
     .tocify-item>a {
-      /* padding-left: $nav-padding + $nav-indent; */  /* Restored (but commented-out) 5/19/16; enabled nav indents previously */
+      /* Next line restored (but commented-out) 5/19/16; facilitated nav indents in past iterations: */
+      /* padding-left: $nav-padding + $nav-indent; */  
       color: $nav-text;
       font-size: 13px;
       font-weight: $tocify-font-weight;
