@@ -4,11 +4,122 @@
 tK: We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
 </aside>
 
-## App Installation and Update Sequence
+## <a name="using-oauth-intro"></a>Overview 
+
+Public apps (also known as OAuth Apps or [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/)) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](#approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](#registration), and an [OAuth token](#installation). 
+
+### API Endpoint 
+
+Public API requests are protected by TLS, and use the following base URI: `https://api.bigcommerce.com`. The exact paths are noted in the Reference section for each resource. 
+
+### Request Headers 
+
+Public API requests are authenticated by the following HTTP headers: 
+
+* `X-Auth-Client`: the **Client ID**. To get your **Client ID**, you must complete [App Registration](#registration). 
+* `X-Auth-Token`: the OAuth token. To get your OAuth token, you must complete [App Installation](#installation). 
+
+In addition, while not all resources require the `Accept` and `Content-Type` headers, many do. To ensure that your calls succeed, always include these headers. 
+
+### Managing Users' Session Timeouts 
+
+We recommend that you add BigCommerce's JavaScript SDK to your Single-Click Apps, to protect your apps' users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App: 
+
+```
+<script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js">
+```
+
+Optionally, you can pass a logout callback function within the initialization call:
+
+```
+BigCommerce.init({
+      onLogout: callback
+});
+```
+
+This callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.
+
+
+### Monetizing Your App
+
+If you want to charge merchants for your app, please note that BigCommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send BigCommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to <a href = "mailto:partnerpayments@bigcommerce.com">partnerpayments@bigcommerce.com</a>.
+
+
+## <a name="registration"></a> App Registration
+
+Once you have a [sandbox store](#using-oauth-intro), you must register your app to get your **Client ID** and **Client Secret**.
+
+*   The **Client ID** value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.
+
+*   The **Client Secret** value is a secret that your app and BigCommerce share. You do need to pass the **Client Secret** value once during the [app installation](/api/callbacks) sequence. Thereafter, BigCommerce uses it to sign payloads in [load, uninstall, and remove user requests](/api/load) and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
+
+The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in [App Submission](/api/completing-reg)).
+
+### Technical Requirements
+
+#### Auth Callback and Load Callback URIs
+
+You must have a [Auth Callback URI](/api/callback) and a [Load Callback URI](/api/load#load) to register your app.
+
+<aside class="notice">
+NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+</aside>
+
+#### Uninstall callback (optional)
+
+If you want to receive a callback when the store owner uninstalls your app, you can provide a [Uninstall Callback URI](/api/load#uninstall).
+
+#### Multi-user support (optional)
+
+By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling [multi-user support](/api/multi-user).
+
+*   Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.
+*   Your app should be aware that when it receives the [Load Callback](/api/load#load), the user information passed in, [may not be the store owner](/api/multi-user#loadrequest). You'll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.
+*   You can optionally specify a [Remove User Callback URI](/api/load#remove-user) to receive a callback when a store admin revokes a user's access.
+
+#### OAuth scopes
+
+If you know the [OAuth scopes](/api/scopes) that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:
+
+*   Modify the scopes of your app in My Apps and save the changes.
+*   Obtain the new OAuth token during the [App Installation or Update](#installation) flow.
+*   Retest your app to make sure it still functions properly with the new token.
+
+### Registering your app
+
+The following procedure takes you through the minimum number of steps to successfully register your app and get your **Client Secret** and **Client ID**.
+
+1.  Click `Log In` at Developer Portal's top right.
+2.  In the resulting login page, provide your sandbox store credentials.
+<aside class="notice">
+NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+</aside>
+<aside class="notice">
+TEMPORARY MIGRATION NOTE: MK needs to rewrite the following instructions. Each step is written backwards. 
+</aside>
+3.  Click `My Apps`.
+4.  Click `Create an app`.
+5.  Type a name for your app in the `Create an App` dialog.
+6.  Click `Next`.
+7.  Click `Next` again.
+8.  Click `Next` one more time.
+9.  Type your `Auth Callback URI` in the `Auth Callback URL` box.
+10.  Type your `Load Callback URI` in the `Load Callback URL` box.
+11.  If you have an `Uninstall Callback URI`, provide this in the `Uninstall Callback URI` box.
+12.  If you want to support multiple users, select `Multiple Users` in the `Supported Features` area and provide a `Remove User Callback URI` in the `Remove User Callback URI` box.
+13.  Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.
+14.  Click `Update & Close`.
+15.  Back in `My Apps` hover over your app.
+16.  Click `View Client ID`.
+17.  Copy the `Client ID` and `Client Secret` values from the dialog and paste them into a safe and secure place.
+
+
+
+## <a name="installation"></a> App Installation and Update Sequence
 
 ### Introduction
 
-A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](/api/registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
+A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
 <aside class="warning">
 NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
@@ -35,13 +146,13 @@ The `GET` request to your **Auth Callback URI** contains a temporary code that y
 
 #### Parameters
 
-The following table details the full list of parameters and values included in the `GET` request from Bigcommerce to your **Auth Callback URI**. Bigcommerce passes these within the URI itself as query parameters.
+The following table details the full list of parameters and values included in the `GET` request from BigCommerce to your **Auth Callback URI**. BigCommerce passes these within the URI itself as query parameters.
 
 | Parameter | Description |
 | --- | --- |
 | code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#post-req) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
-| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
+| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
 
 #### Example – Initial Installation
 

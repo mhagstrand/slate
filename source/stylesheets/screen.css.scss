@@ -228,6 +228,7 @@ html, body {
     }
 
     .tocify-item>a {
+      /* padding-left: $nav-padding + $nav-indent; */  /* Restored (but commented-out) 5/19/16; enabled nav indents previously */
       color: $nav-text;
       font-size: 13px;
       font-weight: $tocify-font-weight;
@@ -240,6 +241,13 @@ html, body {
         }
       }
       // Nested for nested 4th level, from: https://github.com/tripit/slate/wiki/Deeper-Nesting:
+      .tocify-subheader {
+        .tocify-item>a {
+          font-size: 13px;
+          font-weight: $tocify-font-weight;
+        }
+      }
+      // Added 5/19/16 – Nested for nested 5rd level, from: https://github.com/tripit/slate/wiki/Deeper-Nesting:
       .tocify-subheader {
         .tocify-item>a {
           font-size: 13px;
@@ -450,6 +458,8 @@ html, body {
   }
 
   h3, h4, h5, h6 {
+/* Next line added 5/19/16 to negate excessive space above h3's, etc. This is a hack (subtracting a variable from itself, for net margin-top = 0), but it works for now, whilst leaving an audit trail vs. the default it's overriding: */
+    margin-top: $h1-margin-bottom - $h1-margin-bottom;
     @extend %header-font;
     font-size: 18px;
   }
@@ -852,3 +862,10 @@ table td:nth-child(3) {
     width: 80%;
     min-width: 850px;
 }
+
+/* Noted 5/18/16: The following selector would constrain the width of /api/ body text & blockquote (other than blockquote's added border – blockquote is getting $examples-width + some added border and/or padding). But this would also rein in code blocks' widths, to slightly narrower than the body-text width. That looks good to the eye, but will truncate wide code blocks: */
+/* .api .content {
+.themes, .api > html, body { 
+    width: 80%;
+    min-width: 850px;
+} */
