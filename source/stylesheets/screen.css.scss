@@ -872,3 +872,10 @@ table td:nth-child(3) {
     width: 80%;
     min-width: 850px;
 } */
+
+/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
+    left h1 unchanged from default "$h1-margin-bottom": */
+.changelog h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
