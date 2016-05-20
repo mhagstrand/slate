@@ -838,11 +838,13 @@ img {
   display: none;
 }
 
-.changelog {
+
+/* Next block commented out 5/20/16, to prevent changelog from opening to arbitrary past years: */
+/* .changelog {
   .content h1, h2 {
   display: none;
   }
-}
+} */
 
 table td:nth-child(3) {
   word-break: break-word;
