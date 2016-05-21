@@ -49,6 +49,10 @@ NOTES: Any one of the following will cause a connection failure:
 
 ### Creating webhooks
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 #### Sending the POST request
 
 To create a webhook, send a `POST` request to the `hooks` resource, including:
@@ -155,6 +159,10 @@ Using your OAuth access token, send a [DELETE request](/api/stores/v2/webhooks#d
 
 ### Troubleshooting
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 #### Not receiving the POST requests to my callback URI
 
 As noted above, if your app does not return an `HTTP 2_xx_` to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the `is_active` flag to `false`.
@@ -177,6 +185,10 @@ Once you have resolved the issue preventing the connection, send a PUT request t
 After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the [Introduction](#intro) above.
 
 ### Tools for Debugging and Testing Webhooks
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 ##### RequestBin
 

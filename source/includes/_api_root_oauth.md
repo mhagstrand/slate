@@ -181,8 +181,6 @@ Upon receiving the `GET` request at your **Auth Callback URI**, your app should 
 
 ### Making the POST request
 
-#### Overview
-
 The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: `Content-Type: application/x-www-form-urlencoded`
 
 Make the `POST` request to the following address: `https://login.bigcommerce.com/oauth2/token`.
@@ -331,6 +329,10 @@ Update requests will refresh the payload's `access_token` and `scope` values. He
 
 ## Load, Uninstall, and User Removal Requests
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 ### Introduction
 
 In addition to the **Auth Callback URI**, the [App Registration](/api/registration) wizard requests the following URIs.
@@ -411,6 +413,10 @@ NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
 ### Processing the signed payload
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 #### <a name="process"></a> Splitting and decoding the signed payload
 
@@ -496,6 +502,10 @@ end
 ```
 
 #### Processing the JSON object
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 ##### Introduction
 

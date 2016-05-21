@@ -2,7 +2,7 @@
 
 Embedded videos displayed on product listings.
 
-## Videos Object - Properties
+## Videos Object – Properties
 
 | Name | Type | Description |
 | --- | --- | --- |

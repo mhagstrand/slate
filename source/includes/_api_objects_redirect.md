@@ -2,7 +2,7 @@
 
 A 301 redirect, mapping from a given URL path to another URL
 
-## Redirect Object - Properties
+## Redirect Object – Properties
 
 | Name | Type | Description |
 | --- | --- | --- |

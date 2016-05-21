@@ -1,6 +1,8 @@
-# Load, Uninstall, and User Removal Requests
-
 ## Load, Uninstall, and User Removal Requests
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 ### Introduction
 
@@ -76,6 +78,10 @@ Upon receiving the **GET** request, your app will need to [process the signed pa
 > NOTE: Any HTML that you return in your response will not be rendered.
 
 ### Processing the signed payload
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 #### <a name="process"></a> Splitting and decoding the signed payload
 
@@ -158,6 +164,10 @@ end
 ```
 
 #### Processing the JSON object
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 ##### Introduction
 

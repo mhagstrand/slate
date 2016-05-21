@@ -64,8 +64,6 @@ Upon receiving the `GET` request at your **Auth Callback URI**, your app should 
 
 ### Making the POST request
 
-#### Overview
-
 The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: `Content-Type: application/x-www-form-urlencoded`
 
 Make the `POST` request to the following address: `https://login.bigcommerce.com/oauth2/token`.
