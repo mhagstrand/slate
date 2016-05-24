@@ -46,7 +46,7 @@ Host: app.example.com
 
 Upon receiving a **GET** request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
 
-After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/ui-constraints) for important information about your app's user interface.
+After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/v2/ui-constraints) for important information about your app's user interface.
 
 ### <a name="uninstall"></a> About the uninstall request (optional)
 
@@ -70,7 +70,7 @@ NOTE: Any HTML that you return in your response will not be rendered.
 
 ### <a name="remove-user"></a> About the remove user request (optional)
 
-If you have not enabled [multi-user support](/api/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
+If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
 ```
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
@@ -192,7 +192,7 @@ Interpreting the user information varies as follows.
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
-| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api/callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api/callback). |
+| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api/callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api//v2/callback). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 

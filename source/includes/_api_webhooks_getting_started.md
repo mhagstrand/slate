@@ -1,4 +1,4 @@
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks_intro"></a>Webhooks
 
 [Webhooks](http://en.wikipedia.org/wiki/Webhook) allow developers to build apps that receive information, in near real-time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
 
@@ -182,7 +182,7 @@ Once you have resolved the issue preventing the connection, send a PUT request t
 
 #### Not receiving an HTTP 201 response after sending POST to create webhook
 
-After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the [Introduction](#intro) above.
+After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the [introduction](#webhooks_intro) above.
 
 ### Tools for Debugging and Testing Webhooks
 

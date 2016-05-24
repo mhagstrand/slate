@@ -17,6 +17,8 @@ includes:
   - api_callback
   - api_load
   - api_webhooks_getting_started
+  - api_multi-user
+  - api_ui_constraints
   - api_root_basic_auth
   - api_objects_category
   - api_CRUD_categories
