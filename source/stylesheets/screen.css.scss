@@ -840,12 +840,19 @@ img {
 }
 
 
-/* Next block commented out 5/20/16, to prevent changelog from opening to arbitrary past years: */
+/* Next block commented out 5/20/16, to prevent changelog's left nav from scrolling to arbitrary past years: */
 /* .changelog {
   .content h1, h2 {
   display: none;
   }
 } */
+
+/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
+    left h1 unchanged from default "$h1-margin-bottom": */
+.changelog h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 11px;
+}
 
 table td:nth-child(3) {
   word-break: break-word;
@@ -872,10 +879,3 @@ table td:nth-child(3) {
     width: 80%;
     min-width: 850px;
 } */
-
-/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
-    left h1 unchanged from default "$h1-margin-bottom": */
-.changelog h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 11px;
-}
