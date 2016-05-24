@@ -2,6 +2,38 @@
 
 ## May
 
+### Themes: Stencil Cornerstone theme 1.2.1 released
+
+Version 1.2.1 of the Stencil Cornerstone theme is now available. This maintenance release corrects a bug that allowed shoppers to add items to their cart without selecting those items' required options. It also corrects an Internet Explorer 10–specific bug that blocked shoppers from editing cart contents and certain other functions.
+
+For details, please see the Cornerstone 1.2.1 [release notes](https://stencil.bigcommerce.com/v1.0/docs/release-notes-cornerstone-121-theme).
+
+Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.2.1`
+
+
+### API: List Orders endpoint adds email filter
+
+The List Orders endpoint now allows filtering by customer email address. We have added the `email` field to the list of filters on the [List Orders reference page](api/v2/orders/#list-orders).
+
+
+### API: Apps can now request new auth scopes after publication
+
+Apps for BigCommerce stores can now request new OAuth scopes after publication. To grant these new scopes, merchants no longer need to uninstall and reinstall the app.
+
+For details (including how to make sure your apps are compatible with this new option), please see [this earlier advisory](#auth-scopes-advisory). 
+
+We have updated our [app registration](/api/v2#registration) instructions, and our [app installation/update](/api/v2#installation) reference and diagram, to cover token exchanges that provide new scopes for installed apps.
+
+
+### Stencil Cornerstone 1.2 theme released; adds logo positioning
+
+Version 1.2 of the Stencil Cornerstone theme is now available. This release allows merchants to use Theme Editor to globally align their store's logo left, center, or right. There are also several minor bug fixes.
+
+For details, please see the Cornerstone 1.2 [release notes](https://stencil.bigcommerce.com/v1.0/docs/release-notes-cornerstone-12-theme).
+
+Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.2.0`
+
+
 ### Store Information endpoint adds "features" array
 
 The Store Information endpoint now provides a `features` array, whose elements flag features that affect app compatibility or functionality. This array's initial `stencil_enabled` (Boolean) element indicates whether a store is using a Stencil theme, as in this example:
@@ -44,6 +76,104 @@ However, as we make SKU-only properties available directly on SKUs, BigCommerce 
 
 [1]: /api/v2/
 [2]: /api/v2/
+
+
+### <a name="auth-scopes-advisory"></a> API: Please prepare your apps for new auth-scopes options
+
+Starting May 2, 2016, BigCommerce will enable you to change your application's required scopes, after you have published the app. Merchants will be prompted to update the app, and to grant new scopes, the next time they load the app. You will then receive a new token with the updated scopes.  
+
+This change opens up new options for your apps. However, at a minimum, you might need to update your code, because the Auth Callback URI can now be called at times other than installation. Your app must be ready to properly interpret such calls to `auth_callback_url` for purposes other than initial installation.  
+
+Please read this entire advisory to ensure that your application will continue to function as expected, after we make this change.  
+
+#### Scopes background
+
+When you registered your application in Developer Portal, you were required to specify an `auth_callback_url`, to specify a `load_url`, and to request some scopes. Scopes define permissions associated with a set of store resources. By granting your app access to scopes, a merchant allows you to use their store's API.  
+
+For example, if you want to access the BigCommerce `products` API for your user's store, you must request the `products` scope. Each merchant that installs your app must grant you access to that scope, so that you can consume their products.   
+
+The `auth_callback_url` is used to safely receive a token associated with the granted scopes. The `load_url` is used to redirect merchants to your application when they click on it from their store's control panel.  
+
+#### The problem we solved
+
+Prior to this change, you had no way to change the scopes requested by your published app. If&nbsp;you changed these scopes, existing installations would cease to function. This forced each merchant to uninstall, then reinstall, your app to grant you the new scopes.  
+
+#### What hasn't changed?
+
+* When your app is installed, you'll still receive an HTTP call on the `auth_callback_url` that you have registered in Developer Portal.
+* You'll still need to do a token exchange, to receive a new token for granted scopes that you have requested.
+
+#### What has changed?
+
+* If you change the scopes you are requesting in Developer Portal, BigCommerce will mark your application as needing reauthorization. The next time the merchant loads your app, you will receive a call on the `auth_callback_url` that you registered. You should then reinitiate the token exchange process, to receive a new token for that store with the updated scopes.  
+(Note: This applies to existing installations, where the scopes you are requesting do not match the token generated when the app was first installed.)
+
+* We added an additional field in the signed payload you receive in your `auth_callback_url`, containing the scopes associated with the token.
+
+Merchants will see changes only under certain conditions:   
+
+#### What hasn't changed?
+
+* When merchants install your application, they will still see a confirmation screen prompting them to grant you the scopes you requested.
+* After completing installation, or when they launch your application, merchants will still be redirected to the `load_url` you registered.
+
+#### What has changed?
+
+* If your app requires reauthorization, merchants will now see a reauthorization screen – similar to the initial installation screen – indicating the newly requested scopes.
+
+1. Modify your handler for `auth_callback_url`, to account for the fact that it can now be called after your app has already been installed. If you have special, one-time initialization code that you execute during this callback, you must modify it to run that code only once per store. Note that you will get this call, with a new code, any time a merchant grants new scopes to your application.
+
+2. After you complete the token exchange, save the new access token. (You must save this token because the new token will be associated with the scopes that were granted.)
+
+3. Use the new access token to consume the store's API.
+
+You might have designed your application with the assumption that the `auth_callback_url` would be triggered only at install time. However, under the new flow, `auth_callback_url` will also be triggered when a merchant grants new scopes to an already-installed app.  
+
+If you rely on `auth_callback_url` to trigger one-time initialization workflows – like charging the customer, or sending a welcome email – be aware that requesting new scopes might unintentionally re-trigger these workflows.  
+
+Note that until the merchant reauthorizes your app, the old token will continue to work with the limited set of scopes that were granted when the merchant initially installed your app.  
+
+Below are some foreseeable problems and their solutions.   
+
+#### Problem 1: Your auth_callback_url endpoint accounts only for new installs, not reauthorizations
+
+##### Steps leading to this problem:
+
+* You initially requested a certain scope (e.g., `view products`)
+* A merchant installs your app
+* You add an extra scope (e.g., `view orders`) to your list of requested scopes
+* The next time the merchant loads your app, you receive a call on the `auth_callback_url` you registered in Developer Portal.
+
+If your app incorporates an assumption that calls to the `auth_callback_url` happen only at install time, it might treat this call as a new install, re-triggering initialization workflows that you did not intend.
+
+##### Solution
+
+You should save the `store_hash` associated with the token that your app received during the OAuth token exchange. Any time you receive a call on the `auth_callback_url`, you should first look in your database for the `store_hash`.
+
+If the `store_hash` already exists, you will know that your app was already installed for that store, and that you have just been granted the new scopes.
+
+If the `store_hash` does not exist, you will know that this is a first-time installation for the given store.
+
+From our sample app, [here is an example](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/blob/master/hello.rb#L102) of appropriate handling of this logic.
+
+#### Problem 2: Missing uninstall_callback_url endpoint
+
+##### Steps leading to this problem:
+
+* You do not keep track of which merchants have uninstalled your app
+* A merchant uninstalls your app
+* This merchant reinstalls your app
+* You receive a call on the `auth_callback_url` you registered in Developer Portal
+* At this point, you have no way to know whether this is an install or a reauthorization
+
+##### Solution:
+
+We highly recommend that you register an endpoint in Developer Portal as the `uninstall_callback_url`. This way, any time a merchant uninstalls your application, your `uninstall_callback_url` will be hit.
+
+It is important that you keep track of uninstalls, so that the next time you receive a call on your `auth_callback_url`, you'll be able to differentiate between a new installation versus a merchant granting new scopes for an already installed application.
+
+One way to keep track of uninstalls is by managing your database entries: Remove the `store_hash` of the corresponding install. Another way is to use a boolean that is flagged/unflagged as a merchant installs/uninstalls your application.
+
 
 ## March
 
