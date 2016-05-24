@@ -34,6 +34,7 @@ Filter parameters can be added to the URL query string to select specific orders
 | min_total | decimal | /api/v2/orders?min_total={value} |
 | max_total | decimal | /api/v2/orders?max_total={value} |
 | customer_id | string | /api/v2/orders?customer_id={value} |
+| email | string | /api/v2/orders?email={value} |
 | status_id | string | /api/v2/orders?status_id={value} |
 | is_deleted | string | /api/v2/orders?is_deleted={value} |
 | payment_method | string | /api/v2/orders?payment_method={value} |
