@@ -36,7 +36,7 @@ Filter parameters can be added to the URL query string to select specific orders
 | customer_id | string | /api/v2/orders?customer_id={value} |
 | email | string | /api/v2/orders?email={value} |
 | status_id | string | /api/v2/orders?status_id={value} |
-| is_deleted | string | /api/v2/orders?is_deleted={value} |
+| is_deleted | string ('true' or 'false') | /api/v2/orders?is_deleted={value} |
 | payment_method | string | /api/v2/orders?payment_method={value} |
 | min_date_created | dateTime or date | /api/v2/orders?min_date_created={value} |
 | max_date_created | dateTime or date | /api/v2/orders?max_date_created={value} |
