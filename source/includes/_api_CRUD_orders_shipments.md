@@ -47,6 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "date_created": "Wed, 19 Dec 2012 17:17:10 +0000",
     "tracking_number": "111222333444",
     "shipping_method": "None",
+    "shipping_provider": "shipping_ups",
     "comments": "A sample shipment for order 115",
     "billing_address": {
       "first_name": "Louise",
@@ -105,6 +106,7 @@ Gets a shipment associated with an order.
   "date_created": "Wed, 19 Dec 2012 18:18:23 +0000",
   "tracking_number": "123-123-123",
   "shipping_method": "None",
+  "shipping_provider": "shipping_usps",
   "comments": null,
   "billing_address": {
     "first_name": "Julie",
@@ -224,6 +226,7 @@ The following properties of the shipment are required. The request won’t be fu
   "date_created": "Wed, 19 Dec 2012 19:49:15 +0000",
   "tracking_number": "EJ958083578US",
   "shipping_method": "None",
+  "shipping_provider": "shipping_canadapost",
   "comments": "Ready to go...",
   "billing_address": {
     "first_name": "Henry",
@@ -306,6 +309,7 @@ The following properties of the shipment are required. The request won’t be fu
   "date_created": "Wed, 19 Dec 2012 18:18:23 +0000",
   "tracking_number": "fedex1245",
   "shipping_method": "None",
+  "shipping_provider": "shipping_fedex",
   "comments": "Notes about the shipment",
   "billing_address": {
     "first_name": "Julie",
