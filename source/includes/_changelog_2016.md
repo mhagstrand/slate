@@ -2,6 +2,14 @@
 
 ## May
 
+### API: Order Shipment resource adds "shipping_provider" field
+
+The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
+
+We have added this field to the [Order Shipment object](/api/v2/orders/#shipment-object-properties)'s documentation, and also to sample responses for 
+[Order Shipment endpoints](/api/v2/orders/#shipments-operations) that can return this field.
+
+
 ### Themes: Stencil Cornerstone theme 1.2.1 released
 
 Version 1.2.1 of the Stencil Cornerstone theme is now available. This maintenance release corrects a bug that allowed shoppers to add items to their cart without selecting those items' required options. It also corrects an Internet Explorer 10–specific bug that blocked shoppers from editing cart contents and certain other functions.
