@@ -1,10 +1,12 @@
-# Load, Uninstall, and User Removal Requests
+## <a name="load"></a> Load, Uninstall, and User Removal Requests
 
-## Load, Uninstall, and User Removal Requests
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 ### Introduction
 
-In addition to the **Auth Callback URI**, the [App Registration](/api/registration) wizard requests the following URIs.
+In addition to the **Auth Callback URI**, the [App Registration](#registration) wizard requests the following URIs.
 
 | Name | Required? | Event Discussion |
 | --- | --- | --- |
@@ -18,21 +20,22 @@ Each BigCommerce request is a **GET** request and includes a signed payload that
 *   Identify the store.
 *   Identify the store owner or user.
 
-The remainder of this page discusses:
+The remainder of this entry discusses:
 
-*   [The load request and response](#load).
+*   [The load request and response](#load_request).
 *   [The uninstall request](#uninstall).
-*   [The remove user request](#remove).
+*   [The remove user request](#remove-user).
 *   [The signed payload](#process).
 
-### <a name="load"></a> About the load request and response
+### <a name="load_request"></a> About the load request and response
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
-> NOTE: The load request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available **Load Callback URI** while testing your app.
+<aside class="warning">
+NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
-> For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
-
+For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
+</aside>
 
 The **GET** request contains a signed payload, as shown below.
 
@@ -43,7 +46,7 @@ Host: app.example.com
 
 Upon receiving a **GET** request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
 
-After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/ui-constraints) for important information about your app's user interface.
+After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/v2/ui-constraints) for important information about your app's user interface.
 
 ### <a name="uninstall"></a> About the uninstall request (optional)
 
@@ -60,11 +63,14 @@ Host: app.example.com
 
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
-> NOTE: Any HTML that you return in your response will not be rendered.
+<aside class="notice">
+NOTE: Any HTML that you return in your response will not be rendered.
+</aside>
 
-### <a name="remove"></a> About the remove user request (optional)
 
-If you have not enabled [multi-user support](/api/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
+### <a name="remove-user"></a> About the remove user request (optional)
+
+If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
 ```
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
@@ -73,9 +79,15 @@ Host: app.example.com
 
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
-> NOTE: Any HTML that you return in your response will not be rendered.
+<aside class="notice">
+NOTE: Any HTML that you return in your response will not be rendered.
+</aside>
 
-### Processing the signed payload
+### <a name="process"></a> Processing the signed payload
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 #### <a name="process"></a> Splitting and decoding the signed payload
 
@@ -97,7 +109,9 @@ To decode the signed payload, complete the following steps:
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
-> NOTE: To limit the vulnerability of your app to [timing attacks](http://codahale.com/a-lesson-in-timing-attacks/), we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+<aside class="warning">
+NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+</aside>
 
 ##### Examples
 
@@ -122,8 +136,9 @@ function verifySignedRequest($signedRequest)
 }
 ```
 
-> NOTE: `!hash_equals` is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: [https://packagist.org/packages/realityking/hash_equals](https://packagist.org/packages/realityking/hash_equals). The [hello-world-app-php-silex app](https://github.com/bigcommerce/hello-world-app-php-silex) sample app from BigCommerce does this automatically.
-
+<aside class="notice">
+NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce's sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
+</aside>
 
 *   [Ruby](#strcmp-ruby)
 
@@ -159,6 +174,10 @@ end
 
 #### Processing the JSON object
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 ##### Introduction
 
 The JSON object embedded in the `signed_payload` contains information about the BigCommerce store and the store owner or user.
@@ -173,7 +192,7 @@ Interpreting the user information varies as follows.
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
-| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api/callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api/callback). |
+| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api/callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api//v2/callback). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 

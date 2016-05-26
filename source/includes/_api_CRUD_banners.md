@@ -1,4 +1,4 @@
-## Banner - Operations 
+## Banner – Operations 
 
 *   [List Banners](#list-blog-posts)
 *   [Get a Banner](#get-a-blog-post)

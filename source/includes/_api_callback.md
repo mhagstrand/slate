@@ -1,18 +1,18 @@
-# Building Public Apps
-
-## App Installation and Update Sequence
+## <a name="installation"></a> App Installation and Update Sequence
 
 ### Introduction
 
-A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](/api/registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
+A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
-> NOTE: The request comes from the client browser, rather than directly from Bigcommerce. This allows you to use a non-publicly-available **Auth Callback URI** while testing your app.
+<aside class="warning">
+NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
-> For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
+For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
+</aside>
 
 The following diagram illustrates the entire sequence.
 
-![bc-oauth-install+update-seq.svg](https://www.filepicker.io/api/file/jrCCco74ShqIiILykrG5)
+![UML diagram: App installation/update sequence (bc-oauth-install+update-seq.svg)](https://www.filepicker.io/api/file/jrCCco74ShqIiILykrG5)
 
 The remainder of this section discusses each action your app needs to take during the sequence.
 
@@ -21,7 +21,7 @@ The remainder of this section discusses each action your app needs to take durin
 3.  [Making the `POST` request](#post-req)
 4.  [Receiving the `POST` response](#post-receipt)
 
-### Receiving the GET request
+### <a name="get-req"></a> Receiving the GET request
 
 #### Overview
 
@@ -29,13 +29,13 @@ The `GET` request to your **Auth Callback URI** contains a temporary code that y
 
 #### Parameters
 
-The following table details the full list of parameters and values included in the `GET` request from Bigcommerce to your **Auth Callback URI**. Bigcommerce passes these within the URI itself as query parameters.
+The following table details the full list of parameters and values included in the `GET` request from BigCommerce to your **Auth Callback URI**. BigCommerce passes these within the URI itself as query parameters.
 
 | Parameter | Description |
 | --- | --- |
 | code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#post-req) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
-| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
+| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
 
 #### Example – Initial Installation
 
@@ -58,13 +58,11 @@ Host: app.example.com
 (Note that when your app receives a new token, any previously issued token is invalidated.)
 
 
-### Responding to the GET request
+### <a name="get-response"></a> Responding to the GET request
 
 Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
 
-### Making the POST request
-
-#### Overview
+### <a name="post-req"></a> Making the POST request
 
 The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: `Content-Type: application/x-www-form-urlencoded`
 
@@ -73,7 +71,7 @@ Make the `POST` request to the following address: `https://login.bigcommerce.com
 
 #### Initial Installation
 
-During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your `GET` response.
+During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
 
 #### Updates
 
@@ -86,8 +84,8 @@ Include values for each of the following parameters.
 
 | Parameter | Description |
 | --- | --- |
-| client_id | The Client ID for your app, obtained during [registration](/api/registration). |
-| client_secret | The Client Secret for your app, obtained during [registration](/api/registration). |
+| client_id | The Client ID for your app, obtained during [registration](#registration). |
+| client_secret | The Client Secret for your app, obtained during [registration](#registration). |
 | code | Temporary access code received in the [GET request](#get-req) discussed above. |
 | scope | List of OAuth scopes received in the [GET request](#get-req) discussed above. |
 | grant_type | Always use the following: authorization_code. |
@@ -139,6 +137,9 @@ Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
 client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
+</b></code></pre>
+  </div>
+  <div class="bui-tab-panel" id="token-php">
 ```
 
 *   [PHP](#token-php)
@@ -162,7 +163,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-### Receiving the POST response
+### <a name="post-receipt"></a> Receiving the POST response
 
 #### Overview
 
@@ -197,7 +198,7 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 Update requests will refresh the payload's `access_token` and `scope` values. Here again, the following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
 ```
-{
+<code class="language-js">{
   "access_token": "hyjielngd8iu0edpy9n8gzl0p25xc7q",
   "scope": "store_v2_orders store_v2_products",
   "user": {

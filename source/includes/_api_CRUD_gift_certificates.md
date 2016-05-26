@@ -1,5 +1,9 @@
 ## Gift Certificate Operations
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 ## List Gift Certificates
 
 Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)
