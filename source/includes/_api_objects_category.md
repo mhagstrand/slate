@@ -1,4 +1,4 @@
-# Categories
+<h1 class="jumptarget"> Categories </h1>
 
 Index of hierarchical categories used to organize and group products.
 

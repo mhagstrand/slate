@@ -873,6 +873,14 @@ table td:nth-child(3) {
     min-width: 850px;
 }
 
+/* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
+.jumptarget::before {
+  content:"";
+  display:block;
+  height:85px; /* fixed header height*/
+  margin:-85px 0 0; /* negative fixed header height */
+}
+
 /* Noted 5/18/16: The following selector would constrain the width of /api/ body text & blockquote (other than blockquote's added border – blockquote is getting $examples-width + some added border and/or padding). But this would also rein in code blocks' widths, to slightly narrower than the body-text width. That looks good to the eye, but will truncate wide code blocks: */
 /* .api .content {
 .themes, .api > html, body { 
