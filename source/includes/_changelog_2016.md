@@ -2,7 +2,7 @@
 
 ## May
 
-### API: Order Shipment resource adds "shipping_provider" field
+### Order Shipment resource adds "shipping_provider" field
 
 The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
 
@@ -10,7 +10,7 @@ We have added this field to the [Order Shipment object](/api/v2/orders/#shipment
 [Order Shipment endpoints](/api/v2/orders/#shipments-operations) that can return this field.
 
 
-### Themes: Stencil Cornerstone theme 1.2.1 released
+### Stencil Cornerstone theme 1.2.1 released
 
 Version 1.2.1 of the Stencil Cornerstone theme is now available. This maintenance release corrects a bug that allowed shoppers to add items to their cart without selecting those items' required options. It also corrects an Internet Explorer 10–specific bug that blocked shoppers from editing cart contents and certain other functions.
 
@@ -19,12 +19,12 @@ For details, please see the Cornerstone 1.2.1 [release notes](https://stencil.bi
 Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.2.1`
 
 
-### API: List Orders endpoint adds email filter
+### List Orders endpoint adds email filter
 
 The List Orders endpoint now allows filtering by customer email address. We have added the `email` field to the list of filters on the [List Orders reference page](api/v2/orders/#list-orders).
 
 
-### API: Apps can now request new auth scopes after publication
+### Apps can now request new auth scopes after publication
 
 Apps for BigCommerce stores can now request new OAuth scopes after publication. To grant these new scopes, merchants no longer need to uninstall and reinstall the app.
 
@@ -86,7 +86,7 @@ However, as we make SKU-only properties available directly on SKUs, BigCommerce 
 [2]: /api/v2/
 
 
-### <a name="auth-scopes-advisory"></a> API: Please prepare your apps for new auth-scopes options
+### Please prepare your apps for new auth-scopes options
 
 Starting May 2, 2016, BigCommerce will enable you to change your application's required scopes, after you have published the app. Merchants will be prompted to update the app, and to grant new scopes, the next time they load the app. You will then receive a new token with the updated scopes.  
 
