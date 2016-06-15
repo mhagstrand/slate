@@ -1,18 +1,19 @@
-## Gift Certificate Operations
+## <span class="jumptarget"> Gift Certificate Operations </span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-## List Gift Certificates
+## <span class="jumptarget"> List Gift Certificates </span>
 
 Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)
 
->`GET /stores/{store_hash}/v2/gift_certificates`
+*   [OAuth](#list-shipping-methods-oauth)
+`GET /stores/{store_hash}/v2/gift_certificates`  
+*   [Basic Auth](#list-shipping-methods-basic)
+`GET /api/v2/gift_certificates`
 
->`GET /api/v2/gift_certificates`
-
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific gift_certificates in the collection.
 
@@ -90,13 +91,14 @@ Parameters can be added to the URL query string to paginate the collection. The 
     }
 ```
   
-## Get a Gift Certificate
+## <span class="jumptarget"> Get a Gift Certificate </span>
 
 Retrieves a specified gift certificate.
 
->`GET /stores/{store_hash}/v2/gift_certificates/{id}`
-
->`GET /api/v2/gift_certificates/{id}`
+*   [OAuth](#list-shipping-methods-oauth)
+`GET /stores/{store_hash}/v2/gift_certificates/{id}`
+*   [Basic Auth](#list-shipping-methods-basic)
+`GET /api/v2/gift_certificates/{id}`
 
 ```json
     {
@@ -119,19 +121,20 @@ Retrieves a specified gift certificate.
     }
 ```
 
-## Create a Gift Certificate
+## <span class="jumptarget"> Create a Gift Certificate </span>
 
 Creates a new gift certificate.
 
->`POST /stores/{store_hash}/v2/gift_certificates`
+*   [OAuth](#list-shipping-methods-oauth)
+`POST /stores/{store_hash}/v2/gift_certificates`
+*   [Basic Auth](#list-shipping-methods-basic)
+`POST /api/v2/gift_certificates`
 
->`POST /api/v2/gift_certificates`
-
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the gift certificate are required. The request won't be fulfilled unless these properties are valid.
 
@@ -141,7 +144,7 @@ The following properties of the gift certificate are required. The request won't
 * from_email
 * amount
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
 
@@ -195,15 +198,16 @@ The gift certificate's template can be one of the following:
     }
 ```
 
-## Update a Gift Certificate
+## <span class="jumptarget"> Update a Gift Certificate </span>
 
 Updates an existing gift certificate.
 
->`PUT /stores/{store_hash}/v2/gift_certificates`
+*   [OAuth](#list-shipping-methods-oauth)
+`PUT /stores/{store_hash}/v2/gift_certificates`
+*   [Basic Auth](#list-shipping-methods-basic)
+`PUT /api/v2/gift_certificates`
 
->`PUT /api/v2/gift_certificates`
-
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -234,18 +238,20 @@ The following properties of the gift certificate are read-only. If one or more o
     }
 ```
 
-## Delete a Gift Certificate
+## <span class="jumptarget"> Delete a Gift Certificate </span>
 
 Deletes a specified gift certificate. (If successful, this will typically return a "204 No Content".)
 
->`DELETE /stores/{store_hash}/v2/gift_certificates/{id}`
+*   [OAuth](#list-shipping-methods-oauth)
+`DELETE /stores/{store_hash}/v2/gift_certificates/{id}`
+*   [Basic Auth](#list-shipping-methods-basic)
+`DELETE /api/v2/gift_certificates/{id}`
 
->`DELETE /api/v2/gift_certificates/{id}`
-
-## Delete All Gift Certificates
+## <span class="jumptarget"> Delete All Gift Certificates </span>
 
 Deletes all gift certificates associated with the store. (If successful, this will typically return a "204 No Content".)
 
->`DELETE /stores/{store_hash}/v2/gift_certificates`
-
->`DELETE /api/v2/gift_certificates` 
+*   [OAuth](#list-shipping-methods-oauth)
+`DELETE /stores/{store_hash}/v2/gift_certificates`
+*   [Basic Auth](#list-shipping-methods-basic)
+`DELETE /api/v2/gift_certificates` 

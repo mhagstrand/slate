@@ -19,6 +19,9 @@ includes:
   - api_webhooks_getting_started
   - api_multi-user
   - api_ui_constraints
+  - api_scopes
+  - api_rate-limits_oauth
+  - api_approval-requirements
   - api_root_basic_auth
   - api_objects_category
   - api_CRUD_categories

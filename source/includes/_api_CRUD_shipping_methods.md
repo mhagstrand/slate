@@ -4,12 +4,12 @@
 | **OAuth Scopes** | `store_v2_information`
 ||`store_v2_information_read_only`
 
-## Shipping Method Operations
+## <span class="jumptarget"> Shipping Method Operations </span>
 
 *   [List Shipping Methods](#list-shipping-methods)
 *   [Get a Shipping Method](#get-a-shipping-method)
 
-## List Shipping Methods
+## <span class="jumptarget"> List Shipping Methods </span>
 
 Gets the list of shipping methods. (Default sorting is by shipping-method id, from lowest to highest.)
 
@@ -18,7 +18,7 @@ Gets the list of shipping methods. (Default sorting is by shipping-method id, fr
 *   [Basic Auth](#list-shipping-methods-basic)
 >`GET /api/v2/shipping/methods`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific shipping_methods in the collection.
 
@@ -28,7 +28,7 @@ Filter parameters can be added to the URL query string to select specific shippi
 | min_id | int | /api/v2/shipping/methods?min_id={value} |
 | max_id | int | /api/v2/shipping/methods?max_id={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipping_methods are returned by default.
 
@@ -47,7 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Shipping Method
+## <span class="jumptarget"> Get a Shipping Method </span>
 
 Gets a shipping method.
 

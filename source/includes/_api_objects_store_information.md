@@ -8,6 +8,7 @@ Profile and metadata of an individual store.
 | --- | --- | --- |
 | id | string | Unique store identifier. |
 | domain | string | Primary domain name. |
+| secure_URL | string | The store's current HTTPS URL. |
 | name | string | The store's name |
 | address | string | Display address |
 | phone | string | Display phone number |

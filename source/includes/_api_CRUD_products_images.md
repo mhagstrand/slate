@@ -4,7 +4,7 @@
 | OAuth Scopes | `store_v2_products`|
 ||`store_v2_products_read_only`|
 
-## Product Image Operations
+## <span class="jumptarget"> Product Image Operations </span>
 
 *   [List Product Images](#list-product-images)
 *   [Get a Product Image](#get-a-product-image)
@@ -14,7 +14,7 @@
 *   [Delete a Product Image](#delete-a-product-image)
 *   [Delete Multiple Product Images](#delete-multiple-product-images)
 
-## List Product Images
+## <span class="jumptarget"> List Product Images </span>
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
@@ -23,11 +23,11 @@ Gets the images associated with a product. (Default sorting is by image id, from
 *   [Basic Auth](#list-product-images-basic)
 >GET /api/v2/products/{product_id}/images
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product images.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_images are returned by default.
 
@@ -37,7 +37,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | limit | int | /api/v2/products/{product_id}/images?limit={count} |
 
 json
-[
+```[
   {
     "id": 247,
     "product_id": 32,
@@ -64,10 +64,11 @@ json
     "description": null,
     "date_created": "Mon, 24 Sep 2012 01:17:14 +0000"
   }
-]```
+]
+```
 
 
-## Get a Product Image
+## <span class="jumptarget"> Get a Product Image </span>
 
 Gets a product image.
 
@@ -89,10 +90,11 @@ Gets a product image.
   "sort_order": 1,
   "description": null,
   "date_created": "Mon, 24 Sep 2012 01:17:14 +0000"
-}```
+}
+```
 
 
-## Get a Count of Product Images
+## <span class="jumptarget"> Get a Count of Product Images </span>
 
 Gets a count of the number of product images in the store.
 
@@ -104,10 +106,11 @@ Gets a count of the number of product images in the store.
 ```json
 {
   "count": 105
-}```
+}
+```
 
 
-## Create a Product Image
+## <span class="jumptarget"> Create a Product Image </span>
 
 Creates a new product image.
 
@@ -116,7 +119,7 @@ Creates a new product image.
 *   [Basic Auth](#create-a-product-image-basic)
 >`POST /api/v2/products/{product_id}/images`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -124,7 +127,7 @@ The following properties of the product image are read-only. If one or more of t
 *   date_created
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product image are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -139,10 +142,11 @@ The following properties of the product image are required. The request won’t 
   "sort_order": 0,
   "description": "",
   "date_created": "Fri, 21 Dec 2012 18:54:04 +0000"
-}```
+}
+```
 
 
-## Update a Product Image
+## <span class="jumptarget"> Update a Product Image </span>
 
 Updates an existing product image.
 
@@ -151,7 +155,7 @@ Updates an existing product image.
 *   [Basic Auth](#update-a-product-image-basic)
 >`PUT /api/v2/products/{product_id}/images/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -159,7 +163,7 @@ The following properties of the product image are read-only. If one or more of t
 *   product_id
 *   date_created
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product image are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -172,10 +176,11 @@ The following properties of the product image are required. The request won’t 
   "sort_order": 1,
   "description": "",
   "date_created": "Fri, 21 Dec 2012 19:01:03 +0000"
-}```
+}
+```
 
 
-## Delete a Product Image
+## <span class="jumptarget"> Delete a Product Image </span>
 
 Deletes a product image.
 
@@ -184,7 +189,7 @@ Deletes a product image.
 *   [Basic Auth](#delete-a-product-image-basic)
 >`DELETE /api/v2/products/{product_id}/images/{id}`
 
-## Delete Multiple Product Images
+## <span class="jumptarget"> Delete Multiple Product Images </span>
 
 Deletes multiple product images.
 
@@ -193,7 +198,7 @@ Deletes multiple product images.
 *   [Basic Auth](#delete-multiple-product-images-basic)
 >`DELETE /api/v2/products/{product_id}/images`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_images` are returned by default.
 

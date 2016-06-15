@@ -1,8 +1,8 @@
-# Product Images
+# <span class="jumptarget"> Product Images </span>
 
 Images associated with a product.
 
-## Product Image Object – Properties
+## <span class="jumptarget"> Product Image Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

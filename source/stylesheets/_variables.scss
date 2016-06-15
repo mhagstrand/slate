@@ -23,12 +23,20 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-$nav-bg: #f6f7f9;
+/* $nav-bg: #f6f7f9; */
+/* ^ Swapped out 6/6/16 for BigCommerce black, below: */
+$nav-bg: #34313f;  /* BC '16 Black */
 $examples-bg: #34313f;
 $code-bg: #34313f;
 $code-annotation-bg: #2e2c38;
-$nav-subitem-bg: #f6f7f9;
-$nav-active-bg: #f6f7f9;
+/* $nav-subitem-bg: #f6f7f9; */
+/* ^ Swapped out 6/6/16 for BigCommerce black, below: */
+$nav-subitem-bg: #34313f;  /* BC '16 Black */
+/* $nav-active-bg: #f6f7f9; */
+/* ^ Swapped out 6/6/16 for BigCommerce gray, below: */
+/* $nav-active-bg: #5D5B66; */  /* BC '16 Dark Gray */
+/* ^ Swapped  6/13/16, to achieve BlockCypher-style shading: */
+$nav-active-bg: #86848C;  /* BC '16 Medium Gray */
 $lang-select-border: #292732;
 $lang-select-bg: #292732;
 $lang-select-active-bg: $lang-select-bg; // feel free to change this to blue or something
@@ -46,8 +54,12 @@ $search-notice-bg: #c97a7e;
 // TEXT COLORS
 ////////////////////
 $main-text: #53525e; // main content text color
-$nav-text: #8e919c;
-$nav-active-text: #595864;
+/* $nav-text: #8e919c; */
+/* ^ Swapped out 6/6/16 for BigCommerce light gray, below: */
+$nav-text: #E4E7ED;   /* BC '16 Light Gray */
+/* $nav-active-text: #595864; */
+/* ^ Swapped out 6/6/16 for BigCommerce white, below: */
+$nav-active-text: #F6F7F9;    /* BC '16 White */
 $lang-select-text: #e3e3e4; // color of unselected language tab text
 $lang-select-active-text: #4b71fc; // color of selected language tab text
 $lang-select-pressed-text: #4b71fc; // color of language tab text when mouse is pressed

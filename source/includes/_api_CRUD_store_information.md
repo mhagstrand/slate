@@ -21,6 +21,7 @@ Gets metadata about a store.
 {
   "id": "cl1xgr",
   "domain": "sandbox.mybigcommerce.com",
+  "secure_url": "https://store-abc123.mybigcommerce.com",
   "name": "My Sandbox Store",
   "address": "555 Test Way, Quality City, CA 94109, USA",
   "phone": "567-098-9274",

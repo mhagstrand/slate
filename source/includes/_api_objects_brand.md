@@ -1,4 +1,4 @@
-# Brands
+# <span class="jumptarget"> Brands </span>
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
 
@@ -8,7 +8,7 @@ Brand facets for identifying and categorizing products according to their manufa
 | OAuth Scopes | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Brand Object - Properties
+## <span class="jumptarget"> Brand Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

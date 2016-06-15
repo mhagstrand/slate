@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_content |
 ||store_v2_content_read_only|
 
-## Operations
+## <span class="jumptarget"> Operations </span>
 
 *   [List Blog Posts](#list-blog-posts)
 *   [Get a Blog Post](#get-a-blog-post)
@@ -14,19 +14,19 @@
 *   [Delete a Blog Post](#delete-a-blog-post)
 *   [Delete Multiple Blog Posts](#delete-multiple-blog-posts)
 
-## List Blog Posts
+## <span class="jumptarget"> List Blog Posts </span>
 
 Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)
 
 *   [OAuth](#list-blog-posts-oauth)
 
-> `GET /stores/{store_hash}/v2/blog/posts`
+ `GET /stores/{store_hash}/v2/blog/posts`
 
 *   [Basic Auth](#list-blog-posts-basic)
 
-> `GET /api/v2/blog/posts`
+ `GET /api/v2/blog/posts`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific blog_posts in the collection.
 
@@ -37,7 +37,7 @@ Filter parameters can be added to the URL query string to select specific blog_p
 | tag | string | /stores/{store_hash}/v2/blog/posts?tag={value} |
 | published_date | string | /stores/{store_hash}/v2/blog/posts?published_date={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.
 
@@ -88,16 +88,16 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Blog Post
+## <span class="jumptarget"> Get a Blog Post </span>
 
 Gets a blog post.
 
 *   [OAuth](#get-a-blog-post-oauth)
 
->`GET /stores/{store_hash}/v2/blog/posts/{id}`
+`GET /stores/{store_hash}/v2/blog/posts/{id}`
 *   [Basic Auth](#get-a-blog-post-basic)
 
->`GET /api/v2/blog/posts/{id}`
+`GET /api/v2/blog/posts/{id}`
 
 ```
 {
@@ -121,17 +121,15 @@ Gets a blog post.
 }
 ```
 
-## Get a Count of Blog Posts
+## <span class="jumptarget"> Get a Count of Blog Posts </span>
 
 Gets a count of blog posts.
 
 
 *   [OAuth](#get-a-count-of-blog-posts-oauth)
-
->`GET /stores/{store_hash}/v2/blog/posts/count`
+`GET /stores/{store_hash}/v2/blog/posts/count`
 *   [Basic Auth](#get-a-count-of-blog-posts-basic)
-
->`GET /api/v2/blog/posts/count`
+`GET /api/v2/blog/posts/count`
 
 
 ```
@@ -140,35 +138,35 @@ Gets a count of blog posts.
 }
 ```
 
-## Create a Blog Post
+## <span class="jumptarget"> Create a Blog Post </span>
 
 Creates a new blog post.
 
 *   [OAuth](#create-a-blog-post-oauth)
->`POST /stores/{store_hash}/v2/blog/posts`
+`POST /stores/{store_hash}/v2/blog/posts`
 *   [Basic Auth](#create-a-blog-post-basic)
->`POST /api/v2/blog/posts`
+`POST /api/v2/blog/posts`
 
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   preview_url
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
 
 *   title
 *   body
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
-Blog posts default to draft status. Set is_published to true to publish posts to the storefront.
+Blog posts default to draft status. Set `is_published` to true to publish posts to the storefront.
 
-If a custom url is not provided, the post’s URL will be generated based on the value of title.
+If a custom url is not provided, the post’s URL will be generated based on the value of `title`.
 
 ```
 {
@@ -185,25 +183,25 @@ If a custom url is not provided, the post’s URL will be generated based on the
 }
 ```
 
-## Update a Blog Post
+## <span class="jumptarget"> Update a Blog Post </span>
 
 Updates an existing blog post.
 
 
 *   [OAuth](#update-a-blog-post-oauth)
->`PUT /stores/{store_hash}/v2/blog/posts/{id}`
+`PUT /stores/{store_hash}/v2/blog/posts/{id}`
 *   [Basic Auth](#update-a-blog-post-basic)
->`PUT /api/v2/blog/posts/{id}`
+`PUT /api/v2/blog/posts/{id}`
 
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   preview_url
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -214,27 +212,27 @@ The following properties of the blog post are required. The request won’t be f
 }
 ```
 
-## Delete a Blog Post
+## <span class="jumptarget"> Delete a Blog Post </span>
 
 Deletes a blog post.
 
 *   [OAuth](#delete-a-blog-post-oauth)
->`DELETE /stores/{store_hash}/v2/blog/posts/{id}`
+`DELETE /stores/{store_hash}/v2/blog/posts/{id}`
 *   [Basic Auth](#delete-a-blog-post-basic)
->`DELETE /api/v2/blog/posts/{id}`
+`DELETE /api/v2/blog/posts/{id}`
 
 
-## Delete Multiple Blog Posts
+## <span class="jumptarget"> Delete Multiple Blog Posts </span>
 
 Deletes multiple blog posts in the collection.
 
 *   [OAuth](#delete-multiple-blog-posts-oauth)
->`DELETE /stores/{store_hash}/v2/blog/posts`
+`DELETE /stores/{store_hash}/v2/blog/posts`
 *   [Basic Auth](#delete-multiple-blog-posts-basic)
->`DELETE /api/v2/blog/posts`
+`DELETE /api/v2/blog/posts`
 
 
-### Pagination
+### Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.
 

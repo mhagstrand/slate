@@ -1,8 +1,8 @@
-# Blog Posts
+# <span class="jumptarget"> Blog Posts </span>
 
 A content entry in the store’s blog
 
-## Blog Post Object - Properties
+## <span class="jumptarget"> Blog Post Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

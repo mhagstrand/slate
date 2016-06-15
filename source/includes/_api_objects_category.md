@@ -2,7 +2,7 @@
 
 Index of hierarchical categories used to organize and group products.
 
-## Category Object – Properties
+## <span class="jumptarget"> Category Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

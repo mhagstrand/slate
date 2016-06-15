@@ -1,8 +1,6 @@
-## Introduction
+## <span class="jumptarget" id="approval"> App Store Approval Requirements </span>
 
-Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively.
-
-## App Requirements
+Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively:
 
 *   Apps must perform as described.
 
@@ -13,18 +11,20 @@ Our submission guidelines aim to protect the merchant experience, and to provide
 *   All API requests must be made using OAuth authentication.
 
 *   Apps must be production-ready and free of defects.
+<aside class="warning">
+NOTE: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
+</aside>
 
-PRO TIP: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft area to conduct your tests.
-
-*   Apps must function properly on all [supported browsers](/api/browsers), and must conform to the [user interface constraints](/api/ui-constraints) – including P3P policies as necessary, and no mixed content.
+*   Apps must function properly on all [supported browsers](/api/browsers), and must conform to the [user interface constraints](/api/v2/#ui-constraints) – including P3P policies as necessary, and no mixed content.
 
 *   The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.
 
 *   Apps must be easy to use.
 
 *   Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
-
-PRO TIP: The store name, phone number, and other information can be obtained from the [Store&#160;Information](/api/store) resource.
+<aside class="info">
+NOTE: The store name, phone number, and other information can be obtained from the [Store&#160;Information](/api/store) resource.
+</aside>
 
 *   The user ID and email address from the [OAuth flow](/api/load#process) should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.
 
@@ -38,7 +38,7 @@ PRO TIP: The store name, phone number, and other information can be obtained fro
 
 *   Apps must have all required information and files discussed in [App Submission](/api/completing-reg).
 
-## Types of apps we're accepting
+### <span class="jumptarget" id="apps-accepted"> Types of apps we're accepting </span>
 
 | Accepting | Not accepting |
 | --- | --- |

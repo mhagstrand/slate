@@ -1,4 +1,4 @@
-## Operations
+## <span class="jumptarget"> Operations </span>
 
 *   [List Brands](#list-brands)
 *   [Get a Brand](#get-a-brand)
@@ -8,7 +8,7 @@
 *   [Delete a Brand](#delete-a-brand)
 *   [Delete All Brands](#delete-all-brands)
 
-## List Brands
+## <span class="jumptarget"> List Brands </span>
 
 Gets the collection of brands. (Default sorting is by brand id, from lowest to highest.)
 
@@ -17,7 +17,7 @@ Gets the collection of brands. (Default sorting is by brand id, from lowest to h
 *   [Basic Auth](#list-brands-basic)
 >`GET /api/v2/brands`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific brands in the collection.
 
@@ -27,7 +27,7 @@ Filter parameters can be added to the URL query string to select specific brands
 | min_id | int | /api/v2/brands?min_id={value} |
 | max_id | int | /api/v2/brands?max_id={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, Bigcommerce returns up to 50 brands by default.
 
@@ -60,7 +60,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ```
 
 
-## Get a Brand
+## <span class="jumptarget"> Get a Brand </span>
 
 Gets a brand.
 
@@ -82,7 +82,7 @@ Gets a brand.
 ```
 
 
-## Get a Count of Brands
+## <span class="jumptarget"> Get a Count of Brands </span>
 
 Returns the total number of brands in the store.
 
@@ -98,7 +98,7 @@ Returns the total number of brands in the store.
 ```
 
 
-## Create a Brand
+## <span class="jumptarget"> Create a Brand </span>
 
 Creates a new brand.
 
@@ -108,19 +108,19 @@ Creates a new brand.
 *   [Basic Auth](#create-a-brand-basic)
 >`POST /api/v2/brands`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To maximize system performance, Bigcommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, Bigcommerce will return a 403 error.
 
@@ -145,7 +145,7 @@ To maximize system performance, Bigcommerce caps the number of brands that can b
 ```
 
 
-## Update a Brand
+## <span class="jumptarget"> Update a Brand </span>
 
 Updates an existing brand.
 
@@ -154,13 +154,13 @@ Updates an existing brand.
 *   [Basic Auth](#update-a-brand-basic)
 >`PUT /api/v2/brands/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -177,7 +177,7 @@ The following properties of the brand are required. The request won’t be fulfi
 ```
 
 
-## Delete a Brand
+## <span class="jumptarget"> Delete a Brand </span>
 
 Deletes a brand.
 
@@ -186,7 +186,7 @@ Deletes a brand.
 *   [Basic Auth](#delete-a-brand-basic)
 >`DELETE /api/v2/brands/{id}`
 
-## Delete All Brands
+## <span class="jumptarget"> Delete All Brands </span>
 
 Deletes all brands belonging to a product.
 

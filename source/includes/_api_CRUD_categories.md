@@ -4,7 +4,7 @@
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Category Operations
+## <span class="jumptarget"> Category Operations </span>
 
 *   [List Categories](#list-categories)
 *   [Get a Category](#get-a-category)
@@ -14,7 +14,7 @@
 *   [Delete a Category](#delete-a-category)
 *   [Delete All Categories](#delete-all-categories)
 
-## List Categories
+## <span class="jumptarget"> List Categories </span>
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
@@ -24,7 +24,7 @@ Gets the list of categories. (Default sorting is by category id, from lowest to 
 >`GET /api/v2/categories`
 
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific categories in the collection.
 
@@ -36,7 +36,7 @@ Filter parameters can be added to the URL query string to select specific catego
 | min_id | int | /api/v2/categories?min_id={value} |
 | max_id | int | /api/v2/categories?max_id={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 categories are returned by default.
 
@@ -69,7 +69,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ```
 
 
-## Get a Category
+## <span class="jumptarget"> Get a Category </span>
 
 Gets a single category.
 
@@ -101,7 +101,7 @@ Gets a single category.
 ```
 
 
-## Get a Count of Categories
+## <span class="jumptarget"> Get a Count of Categories </span>
 
 Gets a count of the total number of categories in the store.
 
@@ -116,7 +116,7 @@ Gets a count of the total number of categories in the store.
 }
 ```
 
-## Create a Category
+## <span class="jumptarget"> Create a Category </span>
 
 Creates a new category.
 
@@ -125,20 +125,20 @@ Creates a new category.
 *   [Basic Auth](#create-a-category-basic)
 >`POST /api/v2/categories`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   parent_category_list
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your `POST` causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.
 
@@ -173,7 +173,7 @@ In addition, Bigcommerce caps the total number of parent categories at seven. If
 }
 ```
 
-## Update a Category
+## <span class="jumptarget"> Update a Category </span>
 
 Updates an existing category.
 
@@ -182,18 +182,18 @@ Updates an existing category.
 *   [Basic Auth](#update-a-category-basic)
 >`PUT /api/v2/categories/{id}`
 
-### Read-only Properties
+### Read-only Properties </span>
 
 The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   parent_category_list
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.
 
@@ -220,7 +220,7 @@ To maximize system performance, Bigcommerce caps the total number of parent cate
 ```
 
 
-## Delete a Category
+## <span class="jumptarget"> Delete a Category </span>
 
 Deletes a category.
 
@@ -230,7 +230,7 @@ Deletes a category.
 *   [Basic Auth](#delete-a-category-basic)
 >`DELETE /api/v2/categories/{id}`
 
-## Delete All Categories
+## <span class="jumptarget"> Delete All Categories </span>
 
 Deletes all the categories in the store.
 
@@ -239,6 +239,6 @@ Deletes all the categories in the store.
 *   [Basic Auth](#delete-all-categories-basic)
 >`DELETE /api/v2/categories`
 
-### Notes
-
->The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+<aside class="warning">
+NOTE: The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+</aside>

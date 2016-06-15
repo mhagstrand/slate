@@ -1,8 +1,8 @@
-# Tax Class
+# <span class="jumptarget"> Tax Class </span>
 
 Tax classes are used to apply different tax rates for specific types of products and orders. NOTE: Data inside the `tax_class` object of a store configured to use automatic taxes is ignored during tax calculations.
 
-## Tax Class Object - Properties
+## <span class="jumptarget"> Tax Class Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

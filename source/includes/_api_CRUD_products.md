@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products |
 | |store_v2_products_read_only
 
-## Product Operations
+## <span class="jumptarget"> Product Operations </span>
 
 *   [List Products](#list-products)
 *   [Get a Product](#get-a-product)
@@ -14,7 +14,7 @@
 *   [Delete a Product](#delete-a-product)
 *   [Delete All Products](#delete-all-products)
 
-## List Products
+## <span class="jumptarget"> List Products
 
 Gets the collection of products. (Default sorting is by product id, from lowest to highest.)
 
@@ -273,7 +273,7 @@ Gets the collection of products. (Default sorting is by product id, from lowest 
 | Basic Auth: | GET /api/v2/products |
 | OAuth: | GET /stores/{store_hash}/v2/products |
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
@@ -306,7 +306,7 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `products` are returned by default.
 
@@ -315,7 +315,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/products?page={number} |
 | Limit | int | /api/v2/products?limit={count} |
 
-## Get a Product
+## <span class="jumptarget"> Get a Product </span>
 
 Gets a product.
 
@@ -448,21 +448,22 @@ Gets a product.
 | Basic Auth: | GET /api/v2/products/{id} |
 | OAuth: | GET /stores/{store_hash}/v2/products/{id} |
 
-## Get a Product Count
+## <span class="jumptarget"> Get a Product Count </span>
 
 Gets a count of products.
 
 ```json
 {
   "count": 44
-}```
+}
+```
 
 |||
 |---|---|
 | Basic Auth: | GET /api/v2/products/count |
 | OAuth: | GET /stores/{store_hash}/v2/products/count |
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
@@ -495,11 +496,12 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 If no filters are applied, the total number of products is returned.
 
-## Create a Product
+
+## <span class="jumptarget"> Create a Product </span>
 
 Creates a new product. The example request shows how to create a basic product by sending a [product object](/api/?javascript#product-properties) with the minimum required properties.
 
@@ -512,14 +514,15 @@ Creates a new product. The example request shows how to create a basic product b
     "categories": [18],
     "availability": "available",
     "weight": "0.5"
-}```
+}
+```
 
 |||
 |---|---|
 | Basic Auth: | POST /api/v2/products |
 | OAuth: | POST /stores/{store_hash}/v2/products |
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -536,7 +539,7 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -547,7 +550,7 @@ The following properties of the product are required. The request won’t be ful
 *   availability
 *   weight
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 When the `is_visible` property is not provided, the product visibility is `false` by default.
 
@@ -556,7 +559,8 @@ To make newly created products immediately visible on the storefront, you must s
 To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your `POST` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
 
 ```json
-403 Access Denied/Forbidden```
+403 Access Denied/Forbidden
+```
 
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
@@ -570,7 +574,7 @@ Updates an existing product.
 | Basic Auth: | PUT /api/v2/products/{id} |
 | OAuth: | PUT /stores/{store_hash}/v2/products/{id} |
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -594,11 +598,11 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 There are no required properties when updating a product.
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To update a product, set one or more [product properties](/api/?javascript#product-properties) in the `PUT` request:
 
@@ -606,7 +610,8 @@ To update a product, set one or more [product properties](/api/?javascript#produ
 {
     "custom_url": "/plain-tshirt/",
     "is_visible": true
-}```
+}
+```
 
 
 For example, you can use a `PUT` to link a product to an option set:
@@ -614,7 +619,8 @@ For example, you can use a `PUT` to link a product to an option set:
 ```curl
 {
     "option_set_id": 14
-}```
+}
+```
 
 
 Invalid property values will produce a `400 Bad Request` error response:
@@ -622,11 +628,13 @@ Invalid property values will produce a `400 Bad Request` error response:
 ```curl 
 {
     "condition": "Worn"
-}```
+}
+```
 
 
 ```json 
-400 Bad Request```
+400 Bad Request
+```
 
 
 Trying to set read-only properties will also produce a `400 Bad Request` error response:
@@ -638,17 +646,19 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 
 
 ```json 
-400 Bad Request```
+400 Bad Request
+```
 
 To maximize system performance, Bigcommerce caps the maximum number of categories to which a product can belong, at 1,000. If your `PUT` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
 
 ```json
-403 Access Denied/Forbidden```
+403 Access Denied/Forbidden
+```
 
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-## Delete a Product
+## <span class="jumptarget"> Delete a Product </span>
 
 Deletes a product.
 
@@ -657,15 +667,16 @@ Deletes a product.
 | Basic Auth: | DELETE /api/v2/products/{id} |
 | OAuth: | DELETE /stores/{store_hash}/v2/products/{id} |
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 Successful deletion of a product results in a 204 No Content response.
 
 ```json
-204 No Content```
+204 No Content
+```
 
 
-## Delete All Products
+## <span class="jumptarget"> Delete All Products </span>
 
 Deletes all products from the store.
 
@@ -674,9 +685,10 @@ Deletes all products from the store.
 | Basic Auth: | DELETE /api/v2/products |
 | OAuth: | DELETE /stores/{store_hash}/v2/products |
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 Successful deletion of all products returns a `204 No Content` response.
 
 ```json 
-204 No Content```
+204 No Content
+```

@@ -1,8 +1,12 @@
-# OAuth Scopes
+## <span class="jumptarget"> <a name="scopes"></a> OAuth Scopes </span>
 
-The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps' [installation or scope updates](/api#callback).
+The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps' [installation or scope updates](/api/v2/#installation).
 
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
+
+<aside class="warning">
+MIGRATION NOTE: All links in the right column need to be re-set!
+</aside>
 
 | Scope GUI Name | Scope Strings | Resources |
 | --- | --- | --- |

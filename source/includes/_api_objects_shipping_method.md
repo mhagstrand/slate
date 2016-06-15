@@ -1,8 +1,8 @@
-# Shipping Methods
+# <span class="jumptarget"> Shipping Methods </span>
 
 Enabled Shipping Methods within the store.
 
-## Shipping Method Object - Properties
+## <span class="jumptarget"> Shipping Method Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
