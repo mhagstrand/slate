@@ -839,20 +839,17 @@ img {
   display: none;
 }
 
-
-/* Next block commented out 5/20/16, to prevent changelog's left nav from scrolling to arbitrary past years: */
-/* .changelog {
+.changelog {
   .content h1, h2 {
-  display: none;
+    color: white;
+    font-size: 0em;
   }
-} */
-
-/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
-    left h1 unchanged from default "$h1-margin-bottom": */
-.changelog h2, h3, h4, h5, h6 {
+  h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 11px;
-}
+  }
+} 
+
 
 table td:nth-child(3) {
   word-break: break-word;
@@ -880,10 +877,3 @@ table td:nth-child(3) {
   height:85px; /* fixed header height*/
   margin:-85px 0 0; /* negative fixed header height */
 }
-
-/* Noted 5/18/16: The following selector would constrain the width of /api/ body text & blockquote (other than blockquote's added border – blockquote is getting $examples-width + some added border and/or padding). But this would also rein in code blocks' widths, to slightly narrower than the body-text width. That looks good to the eye, but will truncate wide code blocks: */
-/* .api .content {
-.themes, .api > html, body { 
-    width: 80%;
-    min-width: 850px;
-} */
