@@ -6,6 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BigCommerce API Documentation</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+
     <link href="../../../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../../../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -490,13 +572,18 @@
 <td>/api/v2/orders?customer_id={value}</td>
 </tr>
 <tr>
+<td>email</td>
+<td>string</td>
+<td>/api/v2/orders?email={value}</td>
+</tr>
+<tr>
 <td>status_id</td>
 <td>string</td>
 <td>/api/v2/orders?status_id={value}</td>
 </tr>
 <tr>
 <td>is_deleted</td>
-<td>string</td>
+<td>string (&lsquo;true&rsquo; or &#39;false&rsquo;)</td>
 <td>/api/v2/orders?is_deleted={value}</td>
 </tr>
 <tr>
@@ -1798,7 +1885,7 @@
 <tr>
 <td>order_address_id</td>
 <td>int</td>
-<td>ID of the order address the shipment is associated with</td>
+<td>ID of the order address with which this shipment is associated</td>
 </tr>
 <tr>
 <td>date_created</td>
@@ -1814,6 +1901,11 @@
 <td>shipping_method</td>
 <td>string</td>
 <td></td>
+</tr>
+<tr>
+<td>shipping_provider</td>
+<td>string</td>
+<td>Enum of the delivery service fulfilling the shipment</td>
 </tr>
 <tr>
 <td>comments</td>
@@ -1916,6 +2008,7 @@
     </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 17:17:10 +0000"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111222333444"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_ups"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A sample shipment for order 115"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Louise"</span><span class="p">,</span><span class="w">
@@ -1974,6 +2067,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-123-123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_usps"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
@@ -2095,6 +2189,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 19:49:15 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EJ958083578US"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_canadapost"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ready to go..."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Henry"</span><span class="p">,</span><span class="w">
@@ -2176,6 +2271,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex1245"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_fedex"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notes about the shipment"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">

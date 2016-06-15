@@ -4,8 +4,90 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>BigCommerce API &amp; Theme Framwork Changelog</title>
+    <title>BigCommerce API &amp; Theme Framework Changelog</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+
     <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -85,6 +167,41 @@
 
 <h2 id="may">May</h2>
 
+<h3 id="api-order-shipment-resource-adds-quot-shipping_provider-quot-field">API: Order Shipment resource adds &ldquo;shipping_provider&rdquo; field</h3>
+
+<p>The Order Shipment resource has a new <code class="prettyprint">shipping_provider</code> field, which contains the enum of the delivery service used to fulfill the shipment.</p>
+
+<p>We have added this field to the <a href="/api/v2/orders/#shipment-object-properties">Order Shipment object</a>&rsquo;s documentation, and also to sample responses for 
+<a href="/api/v2/orders/#shipments-operations">Order Shipment endpoints</a> that can return this field.</p>
+
+<h3 id="themes-stencil-cornerstone-theme-1-2-1-released">Themes: Stencil Cornerstone theme 1.2.1 released</h3>
+
+<p>Version 1.2.1 of the Stencil Cornerstone theme is now available. This maintenance release corrects a bug that allowed shoppers to add items to their cart without selecting those items&rsquo; required options. It also corrects an Internet Explorer 10–specific bug that blocked shoppers from editing cart contents and certain other functions.</p>
+
+<p>For details, please see the Cornerstone 1.2.1 <a href="https://stencil.bigcommerce.com/v1.0/docs/release-notes-cornerstone-121-theme">release notes</a>.</p>
+
+<p>Once once you have pulled the latest code from the <a href="https://github.com/bigcommerce/stencil">Stencil repo</a>, you can access this version by checking out its tag, using: <code class="prettyprint">git checkout v1.2.1</code></p>
+
+<h3 id="api-list-orders-endpoint-adds-email-filter">API: List Orders endpoint adds email filter</h3>
+
+<p>The List Orders endpoint now allows filtering by customer email address. We have added the <code class="prettyprint">email</code> field to the list of filters on the <a href="api/v2/orders/#list-orders">List Orders reference page</a>.</p>
+
+<h3 id="api-apps-can-now-request-new-auth-scopes-after-publication">API: Apps can now request new auth scopes after publication</h3>
+
+<p>Apps for BigCommerce stores can now request new OAuth scopes after publication. To grant these new scopes, merchants no longer need to uninstall and reinstall the app.</p>
+
+<p>For details (including how to make sure your apps are compatible with this new option), please see <a href="#auth-scopes-advisory">this earlier advisory</a>. </p>
+
+<p>We have updated our <a href="/api/v2#registration">app registration</a> instructions, and our <a href="/api/v2#installation">app installation/update</a> reference and diagram, to cover token exchanges that provide new scopes for installed apps.</p>
+
+<h3 id="stencil-cornerstone-1-2-theme-released-adds-logo-positioning">Stencil Cornerstone 1.2 theme released; adds logo positioning</h3>
+
+<p>Version 1.2 of the Stencil Cornerstone theme is now available. This release allows merchants to use Theme Editor to globally align their store&rsquo;s logo left, center, or right. There are also several minor bug fixes.</p>
+
+<p>For details, please see the Cornerstone 1.2 <a href="https://stencil.bigcommerce.com/v1.0/docs/release-notes-cornerstone-12-theme">release notes</a>.</p>
+
+<p>Once once you have pulled the latest code from the <a href="https://github.com/bigcommerce/stencil">Stencil repo</a>, you can access this version by checking out its tag, using: <code class="prettyprint">git checkout v1.2.0</code></p>
+
 <h3 id="store-information-endpoint-adds-quot-features-quot-array">Store Information endpoint adds &ldquo;features&rdquo; array</h3>
 
 <p>The Store Information endpoint now provides a <code class="prettyprint">features</code> array, whose elements flag features that affect app compatibility or functionality. This array&rsquo;s initial <code class="prettyprint">stencil_enabled</code> (Boolean) element indicates whether a store is using a Stencil theme, as in this example:</p>
@@ -156,6 +273,113 @@
 <p>This update requires no immediate changes to your applications. Any existing SKU-only rules will still function as before, and will still be accessible via the API.</p>
 
 <p>However, as we make SKU-only properties available directly on SKUs, BigCommerce plans to eventually deprecate the management of SKU-only properties via product rules.</p>
+
+<h3 id="api-please-prepare-your-apps-for-new-auth-scopes-options"><a name="auth-scopes-advisory"></a> API: Please prepare your apps for new auth-scopes options</h3>
+
+<p>Starting May 2, 2016, BigCommerce will enable you to change your application&rsquo;s required scopes, after you have published the app. Merchants will be prompted to update the app, and to grant new scopes, the next time they load the app. You will then receive a new token with the updated scopes.  </p>
+
+<p>This change opens up new options for your apps. However, at a minimum, you might need to update your code, because the Auth Callback URI can now be called at times other than installation. Your app must be ready to properly interpret such calls to <code class="prettyprint">auth_callback_url</code> for purposes other than initial installation.  </p>
+
+<p>Please read this entire advisory to ensure that your application will continue to function as expected, after we make this change.  </p>
+
+<h4 id="scopes-background">Scopes background</h4>
+
+<p>When you registered your application in Developer Portal, you were required to specify an <code class="prettyprint">auth_callback_url</code>, to specify a <code class="prettyprint">load_url</code>, and to request some scopes. Scopes define permissions associated with a set of store resources. By granting your app access to scopes, a merchant allows you to use their store&rsquo;s API.  </p>
+
+<p>For example, if you want to access the BigCommerce <code class="prettyprint">products</code> API for your user&rsquo;s store, you must request the <code class="prettyprint">products</code> scope. Each merchant that installs your app must grant you access to that scope, so that you can consume their products.   </p>
+
+<p>The <code class="prettyprint">auth_callback_url</code> is used to safely receive a token associated with the granted scopes. The <code class="prettyprint">load_url</code> is used to redirect merchants to your application when they click on it from their store&rsquo;s control panel.  </p>
+
+<h4 id="the-problem-we-solved">The problem we solved</h4>
+
+<p>Prior to this change, you had no way to change the scopes requested by your published app. If&nbsp;you changed these scopes, existing installations would cease to function. This forced each merchant to uninstall, then reinstall, your app to grant you the new scopes.  </p>
+
+<h4 id="what-hasn-39-t-changed">What hasn&rsquo;t changed?</h4>
+
+<ul>
+<li>When your app is installed, you&rsquo;ll still receive an HTTP call on the <code class="prettyprint">auth_callback_url</code> that you have registered in Developer Portal.</li>
+<li>You&rsquo;ll still need to do a token exchange, to receive a new token for granted scopes that you have requested.</li>
+</ul>
+
+<h4 id="what-has-changed">What has changed?</h4>
+
+<ul>
+<li><p>If you change the scopes you are requesting in Developer Portal, BigCommerce will mark your application as needing reauthorization. The next time the merchant loads your app, you will receive a call on the <code class="prettyprint">auth_callback_url</code> that you registered. You should then reinitiate the token exchange process, to receive a new token for that store with the updated scopes.<br>
+(Note: This applies to existing installations, where the scopes you are requesting do not match the token generated when the app was first installed.)</p></li>
+<li><p>We added an additional field in the signed payload you receive in your <code class="prettyprint">auth_callback_url</code>, containing the scopes associated with the token.</p></li>
+</ul>
+
+<p>Merchants will see changes only under certain conditions:   </p>
+
+<h4 id="what-hasn-39-t-changed">What hasn&rsquo;t changed?</h4>
+
+<ul>
+<li>When merchants install your application, they will still see a confirmation screen prompting them to grant you the scopes you requested.</li>
+<li>After completing installation, or when they launch your application, merchants will still be redirected to the <code class="prettyprint">load_url</code> you registered.</li>
+</ul>
+
+<h4 id="what-has-changed">What has changed?</h4>
+
+<ul>
+<li>If your app requires reauthorization, merchants will now see a reauthorization screen – similar to the initial installation screen – indicating the newly requested scopes.</li>
+</ul>
+
+<ol>
+<li><p>Modify your handler for <code class="prettyprint">auth_callback_url</code>, to account for the fact that it can now be called after your app has already been installed. If you have special, one-time initialization code that you execute during this callback, you must modify it to run that code only once per store. Note that you will get this call, with a new code, any time a merchant grants new scopes to your application.</p></li>
+<li><p>After you complete the token exchange, save the new access token. (You must save this token because the new token will be associated with the scopes that were granted.)</p></li>
+<li><p>Use the new access token to consume the store&rsquo;s API.</p></li>
+</ol>
+
+<p>You might have designed your application with the assumption that the <code class="prettyprint">auth_callback_url</code> would be triggered only at install time. However, under the new flow, <code class="prettyprint">auth_callback_url</code> will also be triggered when a merchant grants new scopes to an already-installed app.  </p>
+
+<p>If you rely on <code class="prettyprint">auth_callback_url</code> to trigger one-time initialization workflows – like charging the customer, or sending a welcome email – be aware that requesting new scopes might unintentionally re-trigger these workflows.  </p>
+
+<p>Note that until the merchant reauthorizes your app, the old token will continue to work with the limited set of scopes that were granted when the merchant initially installed your app.  </p>
+
+<p>Below are some foreseeable problems and their solutions.   </p>
+
+<h4 id="problem-1-your-auth_callback_url-endpoint-accounts-only-for-new-installs-not-reauthorizations">Problem 1: Your auth_callback_url endpoint accounts only for new installs, not reauthorizations</h4>
+
+<h5 id="steps-leading-to-this-problem">Steps leading to this problem:</h5>
+
+<ul>
+<li>You initially requested a certain scope (e.g., <code class="prettyprint">view products</code>)</li>
+<li>A merchant installs your app</li>
+<li>You add an extra scope (e.g., <code class="prettyprint">view orders</code>) to your list of requested scopes</li>
+<li>The next time the merchant loads your app, you receive a call on the <code class="prettyprint">auth_callback_url</code> you registered in Developer Portal.</li>
+</ul>
+
+<p>If your app incorporates an assumption that calls to the <code class="prettyprint">auth_callback_url</code> happen only at install time, it might treat this call as a new install, re-triggering initialization workflows that you did not intend.</p>
+
+<h5 id="solution">Solution</h5>
+
+<p>You should save the <code class="prettyprint">store_hash</code> associated with the token that your app received during the OAuth token exchange. Any time you receive a call on the <code class="prettyprint">auth_callback_url</code>, you should first look in your database for the <code class="prettyprint">store_hash</code>.</p>
+
+<p>If the <code class="prettyprint">store_hash</code> already exists, you will know that your app was already installed for that store, and that you have just been granted the new scopes.</p>
+
+<p>If the <code class="prettyprint">store_hash</code> does not exist, you will know that this is a first-time installation for the given store.</p>
+
+<p>From our sample app, <a href="https://github.com/bigcommerce/hello-world-app-ruby-sinatra/blob/master/hello.rb#L102">here is an example</a> of appropriate handling of this logic.</p>
+
+<h4 id="problem-2-missing-uninstall_callback_url-endpoint">Problem 2: Missing uninstall_callback_url endpoint</h4>
+
+<h5 id="steps-leading-to-this-problem">Steps leading to this problem:</h5>
+
+<ul>
+<li>You do not keep track of which merchants have uninstalled your app</li>
+<li>A merchant uninstalls your app</li>
+<li>This merchant reinstalls your app</li>
+<li>You receive a call on the <code class="prettyprint">auth_callback_url</code> you registered in Developer Portal</li>
+<li>At this point, you have no way to know whether this is an install or a reauthorization</li>
+</ul>
+
+<h5 id="solution">Solution:</h5>
+
+<p>We highly recommend that you register an endpoint in Developer Portal as the <code class="prettyprint">uninstall_callback_url</code>. This way, any time a merchant uninstalls your application, your <code class="prettyprint">uninstall_callback_url</code> will be hit.</p>
+
+<p>It is important that you keep track of uninstalls, so that the next time you receive a call on your <code class="prettyprint">auth_callback_url</code>, you&rsquo;ll be able to differentiate between a new installation versus a merchant granting new scopes for an already installed application.</p>
+
+<p>One way to keep track of uninstalls is by managing your database entries: Remove the <code class="prettyprint">store_hash</code> of the corresponding install. Another way is to use a boolean that is flagged/unflagged as a merchant installs/uninstalls your application.</p>
 
 <h2 id="march">March</h2>
 

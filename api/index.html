@@ -6,6 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BigCommerce API Documentation</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+
     <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -392,9 +474,9 @@
 
           <h1 id="oauth-scopes">OAuth Scopes</h1>
 
-<p>The following table identifies the name used for each OAuth scope in the My Apps and Control Panel GUI and what it corresponds to in terms of resources and the strings that get passed to your app during <a href="/api#callback">app installation</a>.</p>
+<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api#callback">installation or scope updates</a>.</p>
 
-<p>All OAuth scopes except <strong>default</strong> have <strong>read_only</strong> scopes which allow only <strong>GET</strong> and <strong>HEAD</strong> requests.</p>
+<p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
 
 <table><thead>
 <tr>
@@ -816,84 +898,83 @@
 
 <p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
 
-          <h1 id="api-registration">API Registration</h1>
+          <h2 id="app-registration"><a name="registration"></a> App Registration</h2>
 
-<h2 id="introduction">Introduction</h2>
-
-<p>Once you have a <a href="/api/using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
+<p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
 
 <ul>
 <li><p>The <strong>Client ID</strong> value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.</p></li>
-<li><p>The <strong>Client Secret</strong> value is a secret that your app and Bigcommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="/api/callbacks">app installation</a> sequence. Thereafter, Bigcommerce uses it to sign payloads in <a href="/api/load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from Bigcommerce.</p></li>
+<li><p>The <strong>Client Secret</strong> value is a secret that your app and BigCommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="#installation">app installation</a> sequence. Thereafter, BigCommerce uses it to sign payloads in <a href="#load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.</p></li>
 </ul>
 
 <p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
 
-<h2 id="technical-requirements">Technical Requirements</h2>
+<h3 id="technical-requirements">Technical Requirements</h3>
 
-<h3 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h3>
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
-<p>You must have a <a href="/api/callback">Auth Callback URI</a> and a <a href="/api/load#load">Load Callback URI</a> to register your app.</p>
+<h4 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h4>
 
-<blockquote>
-<p>PRO TIP: Because the <strong>Auth Callback URI</strong> and <strong>Load Callback URI</strong> requests originate from the browser and not Bigcommerce, you can use non-publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to and test your app with a publicly available <strong>Auth Callback URI</strong> and <strong>Load Callback URI</strong> before submitting your app for consideration in the App Store.</p>
-</blockquote>
+<p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
 
-<h3 id="uninstall-callback-optional">Uninstall callback (optional)</h3>
+<aside class="notice">
+NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+</aside>
 
-<p>If you want to receive a callback when the store owner uninstalls your app, you can provide a <a href="/api/load#uninstall">Uninstall Callback URI</a>.</p>
+<h4 id="uninstall-callback-optional">Uninstall callback (optional)</h4>
 
-<h3 id="multi-user-support-optional">Multi-user support (optional)</h3>
+<p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
+
+<h4 id="multi-user-support-optional">Multi-user support (optional)</h4>
 
 <p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
 
 <ul>
 <li>  Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.</li>
-<li>  Your app should be aware that when it receives the <a href="/api/load#load">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
-<li>  You can optionally specify a <a href="/api/load#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
+<li>  Your app should be aware that when it receives the <a href="#load_request">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
+<li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
 </ul>
 
-<h3 id="oauth-scopes">OAuth scopes</h3>
+<h4 id="oauth-scopes">OAuth scopes</h4>
 
 <p>If you know the <a href="/api/scopes">OAuth scopes</a> that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
-<li>  Uninstall your draft app from the Control Panel of your sandbox store.</li>
-<li>  Reinstall your draft app in the Control Panel of your sandbox store.</li>
-<li>  Obtain the new OAuth token during the <a href="/api/callback">App Installation</a> flow.</li>
+<li>  Obtain the new OAuth token during the <a href="#installation">App Installation or Update</a> flow.</li>
 <li>  Retest your app to make sure it still functions properly with the new token.</li>
 </ul>
 
-<h2 id="registering-your-app">Registering your app</h2>
+<h3 id="registering-your-app">Registering your app</h3>
 
 <p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
 
 <ol>
-<li> Click <strong>Log In</strong> in the top right of the developer portal.</li>
-<li> Within the login page, provide your sandbox store credentials.</li>
-</ol>
-
-<blockquote>
-<p>PRO TIP: These credentials must be the credentials of the owner of the store where you plan to install your draft app.</p>
-</blockquote>
-
-<ol>
-<li> Click <strong>My Apps</strong>.</li>
-<li> Click <strong>Create an app</strong>.</li>
-<li> Type a name for your app in the <strong>Create an App</strong> dialog.</li>
-<li> Click <strong>Next</strong>.</li>
-<li> Click <strong>Next</strong> again.</li>
-<li> Click <strong>Next</strong> one more time.</li>
-<li> Type your <strong>Auth Callback URI</strong> in the <strong>Auth Callback URL</strong> box.</li>
-<li> Type your <strong>Load Callback URI</strong> in the <strong>Load Callback URL</strong> box.</li>
-<li> If you have an <strong>Uninstall Callback URI</strong>, provide this in the <strong>Uninstall Callback URI</strong> box.</li>
-<li> If you want to support multiple users, select <strong>Multiple Users</strong> in the <strong>Supported Features</strong> area and provide a <strong>Remove User Callback URI</strong> in the <strong>Remove User Callback URI</strong> box.</li>
+<li> Click <code class="prettyprint">Log In</code> at Developer Portal&rsquo;s top right.</li>
+<li> In the resulting login page, provide your sandbox store credentials.
+<aside class="notice">
+NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+</aside>
+<aside class="warning">
+TEMPORARY MIGRATION NOTE: MK needs to rewrite the following instructions. Each step is written backwards. 
+</aside></li>
+<li> Click <code class="prettyprint">My Apps</code>.</li>
+<li> Click <code class="prettyprint">Create an app</code>.</li>
+<li> Type a name for your app in the <code class="prettyprint">Create an App</code> dialog.</li>
+<li> Click <code class="prettyprint">Next</code>.</li>
+<li> Click <code class="prettyprint">Next</code> again.</li>
+<li> Click <code class="prettyprint">Next</code> one more time.</li>
+<li> Type your <code class="prettyprint">Auth Callback URI</code> in the <code class="prettyprint">Auth Callback URL</code> box.</li>
+<li> Type your <code class="prettyprint">Load Callback URI</code> in the <code class="prettyprint">Load Callback URL</code> box.</li>
+<li> If you have an <code class="prettyprint">Uninstall Callback URI</code>, provide this in the <code class="prettyprint">Uninstall Callback URI</code> box.</li>
+<li> If you want to support multiple users, select <code class="prettyprint">Multiple Users</code> in the <code class="prettyprint">Supported Features</code> area and provide a <code class="prettyprint">Remove User Callback URI</code> in the <code class="prettyprint">Remove User Callback URI</code> box.</li>
 <li> Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.</li>
-<li> Click <strong>Update &amp; Close</strong>.</li>
-<li> Back in <strong>My Apps</strong> hover over your app.</li>
-<li> Click <strong>View Client ID</strong>.</li>
-<li> Copy the <strong>Client ID</strong> and <strong>Client Secret</strong> values from the dialog and paste them into a safe and secure place.</li>
+<li> Click <code class="prettyprint">Update &amp; Close</code>.</li>
+<li> Back in <code class="prettyprint">My Apps</code> hover over your app.</li>
+<li> Click <code class="prettyprint">View Client ID</code>.</li>
+<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog and paste them into a safe and secure place.</li>
 </ol>
 
           <h2 id="what-kind-of-apps-can-i-submit">What kind of apps can I submit?</h2>

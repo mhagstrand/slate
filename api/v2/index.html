@@ -6,6 +6,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BigCommerce API Documentation</title>
     <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+    
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+
     <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -92,13 +174,133 @@
 
 <p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
-          <h1 id="building-public-apps">Building Public Apps</h1>
+          <h1 id="building-oauth-apps">Building OAuth Apps</h1>
 
-<h2 id="app-installation">App Installation</h2>
+<aside class="notice">
+tK: We still need to migrate introductory content here. Should also add something explaining the new terminology &ldquo;OAuth Apps&rdquo; versus &ldquo;Basic-Auth Apps.&rdquo;
+</aside>
+
+<h2 id="overview"><a name="using-oauth-intro"></a>Overview</h2>
+
+<p>Public apps (also known as OAuth Apps or <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a>) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#registration"><strong>Client ID</strong> and <strong>Client Secret</strong></a>, and an <a href="#installation">OAuth token</a>. </p>
+
+<h3 id="api-endpoint">API Endpoint</h3>
+
+<p>Public API requests are protected by TLS, and use the following base URI: <code class="prettyprint">https://api.bigcommerce.com</code>. The exact paths are noted in the Reference section for each resource. </p>
+
+<h3 id="request-headers">Request Headers</h3>
+
+<p>Public API requests are authenticated by the following HTTP headers: </p>
+
+<ul>
+<li><code class="prettyprint">X-Auth-Client</code>: the <strong>Client ID</strong>. To get your <strong>Client ID</strong>, you must complete <a href="#registration">App Registration</a>. </li>
+<li><code class="prettyprint">X-Auth-Token</code>: the OAuth token. To get your OAuth token, you must complete <a href="#installation">App Installation</a>. </li>
+</ul>
+
+<p>In addition, while not all resources require the <code class="prettyprint">Accept</code> and <code class="prettyprint">Content-Type</code> headers, many do. To ensure that your calls succeed, always include these headers. </p>
+
+<h3 id="managing-users-39-session-timeouts">Managing Users&rsquo; Session Timeouts</h3>
+
+<p>We recommend that you add BigCommerce&rsquo;s JavaScript SDK to your Single-Click Apps, to protect your apps&rsquo; users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App: </p>
+<pre class="highlight plaintext"><code>&lt;script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js"&gt;
+</code></pre>
+
+<p>Optionally, you can pass a logout callback function within the initialization call:</p>
+<pre class="highlight plaintext"><code>BigCommerce.init({
+      onLogout: callback
+});
+</code></pre>
+
+<p>This callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.</p>
+
+<h3 id="monetizing-your-app">Monetizing Your App</h3>
+
+<p>If you want to charge merchants for your app, please note that BigCommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send BigCommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to <a href = "mailto:partnerpayments@bigcommerce.com">partnerpayments@bigcommerce.com</a>.</p>
+
+          <h2 id="app-registration"><a name="registration"></a> App Registration</h2>
+
+<p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
+
+<ul>
+<li><p>The <strong>Client ID</strong> value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.</p></li>
+<li><p>The <strong>Client Secret</strong> value is a secret that your app and BigCommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="#installation">app installation</a> sequence. Thereafter, BigCommerce uses it to sign payloads in <a href="#load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.</p></li>
+</ul>
+
+<p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
+
+<h3 id="technical-requirements">Technical Requirements</h3>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
+<h4 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h4>
+
+<p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
+
+<aside class="notice">
+NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+</aside>
+
+<h4 id="uninstall-callback-optional">Uninstall callback (optional)</h4>
+
+<p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
+
+<h4 id="multi-user-support-optional">Multi-user support (optional)</h4>
+
+<p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
+
+<ul>
+<li>  Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.</li>
+<li>  Your app should be aware that when it receives the <a href="#load_request">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
+<li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
+</ul>
+
+<h4 id="oauth-scopes">OAuth scopes</h4>
+
+<p>If you know the <a href="/api/scopes">OAuth scopes</a> that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:</p>
+
+<ul>
+<li>  Modify the scopes of your app in My Apps and save the changes.</li>
+<li>  Obtain the new OAuth token during the <a href="#installation">App Installation or Update</a> flow.</li>
+<li>  Retest your app to make sure it still functions properly with the new token.</li>
+</ul>
+
+<h3 id="registering-your-app">Registering your app</h3>
+
+<p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
+
+<ol>
+<li> Click <code class="prettyprint">Log In</code> at Developer Portal&rsquo;s top right.</li>
+<li> In the resulting login page, provide your sandbox store credentials.
+<aside class="notice">
+NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+</aside>
+<aside class="warning">
+TEMPORARY MIGRATION NOTE: MK needs to rewrite the following instructions. Each step is written backwards. 
+</aside></li>
+<li> Click <code class="prettyprint">My Apps</code>.</li>
+<li> Click <code class="prettyprint">Create an app</code>.</li>
+<li> Type a name for your app in the <code class="prettyprint">Create an App</code> dialog.</li>
+<li> Click <code class="prettyprint">Next</code>.</li>
+<li> Click <code class="prettyprint">Next</code> again.</li>
+<li> Click <code class="prettyprint">Next</code> one more time.</li>
+<li> Type your <code class="prettyprint">Auth Callback URI</code> in the <code class="prettyprint">Auth Callback URL</code> box.</li>
+<li> Type your <code class="prettyprint">Load Callback URI</code> in the <code class="prettyprint">Load Callback URL</code> box.</li>
+<li> If you have an <code class="prettyprint">Uninstall Callback URI</code>, provide this in the <code class="prettyprint">Uninstall Callback URI</code> box.</li>
+<li> If you want to support multiple users, select <code class="prettyprint">Multiple Users</code> in the <code class="prettyprint">Supported Features</code> area and provide a <code class="prettyprint">Remove User Callback URI</code> in the <code class="prettyprint">Remove User Callback URI</code> box.</li>
+<li> Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.</li>
+<li> Click <code class="prettyprint">Update &amp; Close</code>.</li>
+<li> Back in <code class="prettyprint">My Apps</code> hover over your app.</li>
+<li> Click <code class="prettyprint">View Client ID</code>.</li>
+<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog and paste them into a safe and secure place.</li>
+</ol>
+
+          <h2 id="app-installation-and-update-sequence"><a name="installation"></a> App Installation and Update Sequence</h2>
 
 <h3 id="introduction">Introduction</h3>
 
-<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="/api/registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
+<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
 
 <aside class="warning">
 NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
@@ -119,7 +321,7 @@ For security, Auth and Load callback should be handled server-side. If you are b
 <li> <a href="#post-receipt">Receiving the <code class="prettyprint">POST</code> response</a></li>
 </ol>
 
-<h3 id="receiving-the-get-request">Receiving the GET request</h3>
+<h3 id="receiving-the-get-request"><a name="get-req"></a> Receiving the GET request</h3>
 
 <h4 id="overview">Overview</h4>
 
@@ -127,7 +329,7 @@ For security, Auth and Load callback should be handled server-side. If you are b
 
 <h4 id="parameters">Parameters</h4>
 
-<p>The following table details the full list of parameters and values included in the <code class="prettyprint">GET</code> request from Bigcommerce to your <strong>Auth Callback URI</strong>. Bigcommerce passes these within the URI itself as query parameters.</p>
+<p>The following table details the full list of parameters and values included in the <code class="prettyprint">GET</code> request from BigCommerce to your <strong>Auth Callback URI</strong>. BigCommerce passes these within the URI itself as query parameters.</p>
 
 <table><thead>
 <tr>
@@ -145,7 +347,7 @@ For security, Auth and Load callback should be handled server-side. If you are b
 </tr>
 <tr>
 <td>context</td>
-<td>The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: <code class="prettyprint">stores/{store_hash}</code>. Save the store hash value, because you will need to pass it in all your requests to the Stores API.</td>
+<td>The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: <code class="prettyprint">stores/{store_hash}</code>. Save the store hash value, because you will need to pass it in all your requests to the Stores API.</td>
 </tr>
 </tbody></table>
 
@@ -158,20 +360,18 @@ Host: app.example.com
 
 <h4 id="example-updating-scopes">Example – Updating Scopes</h4>
 
-<p>Scope updates must always be additive. The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+<p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 <pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders+store_v2_products&amp;context=stores/g5cd38 HTTP/1.1  
 Host: app.example.com
 </code></pre>
 
 <p>(Note that when your app receives a new token, any previously issued token is invalidated.)</p>
 
-<h3 id="responding-to-the-get-request">Responding to the GET request</h3>
+<h3 id="responding-to-the-get-request"><a name="get-response"></a> Responding to the GET request</h3>
 
 <p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
 
-<h3 id="making-the-post-request">Making the POST request</h3>
-
-<h4 id="overview">Overview</h4>
+<h3 id="making-the-post-request"><a name="post-req"></a> Making the POST request</h3>
 
 <p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: <code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
 
@@ -197,11 +397,11 @@ Host: app.example.com
 </thead><tbody>
 <tr>
 <td>client_id</td>
-<td>The Client ID for your app, obtained during <a href="/api/registration">registration</a>.</td>
+<td>The Client ID for your app, obtained during <a href="#registration">registration</a>.</td>
 </tr>
 <tr>
 <td>client_secret</td>
-<td>The Client Secret for your app, obtained during <a href="/api/registration">registration</a>.</td>
+<td>The Client Secret for your app, obtained during <a href="#registration">registration</a>.</td>
 </tr>
 <tr>
 <td>code</td>
@@ -259,7 +459,7 @@ $token = $response-&gt;access_token;
 
 <h4 id="examples-updating-scopes">Examples – Updating Scopes</h4>
 
-<p>Here again, scope updates must be additive. The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
+<p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 
 <ul>
 <li>  <a href="#token-http">HTTP</a></li>
@@ -296,7 +496,7 @@ $response = $connection-&gt;post($tokenUrl, array(
 $token = $response-&gt;access_token;
 </code></pre>
 
-<h3 id="receiving-the-post-response">Receiving the POST response</h3>
+<h3 id="receiving-the-post-response"><a name="post-receipt"></a> Receiving the POST response</h3>
 
 <h4 id="overview">Overview</h4>
 
@@ -364,11 +564,15 @@ $token = $response-&gt;access_token;
 }
 </code></pre>
 
-<h2 id="load-uninstall-and-user-removal-requests">Load, Uninstall, and User Removal Requests</h2>
+          <h2 id="load-uninstall-and-user-removal-requests"><a name="load"></a> Load, Uninstall, and User Removal Requests</h2>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 <h3 id="introduction">Introduction</h3>
 
-<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="/api/registration">App Registration</a> wizard requests the following URIs.</p>
+<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="#registration">App Registration</a> wizard requests the following URIs.</p>
 
 <table><thead>
 <tr>
@@ -402,16 +606,16 @@ $token = $response-&gt;access_token;
 <li>  Identify the store owner or user.</li>
 </ul>
 
-<p>The remainder of this page discusses:</p>
+<p>The remainder of this entry discusses:</p>
 
 <ul>
-<li>  <a href="#load">The load request and response</a>.</li>
+<li>  <a href="#load_request">The load request and response</a>.</li>
 <li>  <a href="#uninstall">The uninstall request</a>.</li>
-<li>  <a href="#remove">The remove user request</a>.</li>
+<li>  <a href="#remove-user">The remove user request</a>.</li>
 <li>  <a href="#process">The signed payload</a>.</li>
 </ul>
 
-<h3 id="about-the-load-request-and-response"><a name="load"></a> About the load request and response</h3>
+<h3 id="about-the-load-request-and-response"><a name="load_request"></a> About the load request and response</h3>
 
 <p>Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a <strong>GET</strong> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
 
@@ -428,7 +632,7 @@ Host: app.example.com
 
 <p>Upon receiving a <strong>GET</strong> request to the <strong>Load Callback URI</strong>, your app needs to <a href="#process">process the signed payload</a>.</p>
 
-<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="/api/ui-constraints">User Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
+<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="/api/v2/ui-constraints">User Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
 
 <h3 id="about-the-uninstall-request-optional"><a name="uninstall"></a> About the uninstall request (optional)</h3>
 
@@ -447,9 +651,9 @@ Host: app.example.com
 NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
-<h3 id="about-the-remove-user-request-optional"><a name="remove"></a> About the remove user request (optional)</h3>
+<h3 id="about-the-remove-user-request-optional"><a name="remove-user"></a> About the remove user request (optional)</h3>
 
-<p>If you have not enabled <a href="/api/multi-user">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <strong>GET</strong> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
+<p>If you have not enabled <a href="/api/v2/multi-user">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <strong>GET</strong> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
 <pre class="highlight plaintext"><code>GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 </code></pre>
@@ -460,7 +664,11 @@ Host: app.example.com
 NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
-<h3 id="processing-the-signed-payload">Processing the signed payload</h3>
+<h3 id="processing-the-signed-payload"><a name="process"></a> Processing the signed payload</h3>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
 
 <h4 id="splitting-and-decoding-the-signed-payload"><a name="process"></a> Splitting and decoding the signed payload</h4>
 
@@ -483,7 +691,7 @@ NOTE: Any HTML that you return in your response will not be rendered.
 <p>To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.</p>
 
 <aside class="warning">
-NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
 <h5 id="examples">Examples</h5>
@@ -512,7 +720,7 @@ return $data;
 </ul>
 
 <aside class="notice">
-NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="hello-world-app-php-silex app">https://github.com/bigcommerce/hello-world-app-php-silex</a></nobr> does this automatically.
+NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
 </aside>
 
 <ul>
@@ -549,6 +757,10 @@ end
 
 <h4 id="processing-the-json-object">Processing the JSON object</h4>
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 <h5 id="introduction">Introduction</h5>
 
 <p>The JSON object embedded in the <code class="prettyprint">signed_payload</code> contains information about the BigCommerce store and the store owner or user.</p>
@@ -571,7 +783,7 @@ end
 <tr>
 <td>Load</td>
 <td>Compare the user information to see if it matches that of the store owner, received at the time of <a href="/api/callback">App Installation</a> or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage.</td>
-<td>The information should match that of the store owner, received at the time of <a href="/api/callback">App Installation</a>.</td>
+<td>The information should match that of the store owner, received at the time of <a href="/api//v2/callback">App Installation</a>.</td>
 </tr>
 <tr>
 <td>Uninstall</td>
@@ -621,7 +833,300 @@ end
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="categories">Categories</h1>
+          <h2 id="webhooks"><a name="webhooks_intro"></a>Webhooks</h2>
+
+<p><a href="http://en.wikipedia.org/wiki/Webhook">Webhooks</a> allow developers to build apps that receive information, in near real-time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
+
+<p>For example, you might build an app that needs to know when:</p>
+
+<ul>
+<li>  An order is placed.</li>
+<li>  A product is added.</li>
+<li>  A customer record is updated.</li>
+</ul>
+
+<aside class="notice">
+NOTES: Webhooks differ from the rest of the Stores API as follows:
+  <ul>
+    <li>OAuth is required; basic authentication is not supported.</li>
+    <li>Self-signed certificates are not supported.</li>
+    <li>JSON is required; XML is not supported.</li>
+  </ul>
+</aside>
+
+<p>All webhooks requests must include the following in their HTTP headers:</p>
+<pre class="highlight plaintext"><code>     Accept: application/json
+     Content-Type: application/json
+     X-Auth-Client: _the OAuth client id_
+     X-Auth-Token: _the OAuth token_
+</code></pre>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<p>Before you can send any requests or receive any responses, you will need the following:</p>
+
+<ul>
+<li>  <strong>A store</strong>: you can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/">Partner Program</a>.</li>
+<li>  <strong>OAuth Client ID</strong>: obtained during <a href="/api/registration">App Registration</a>.</li>
+<li>  <strong>OAuth token</strong>: obtained during <a href="/api/callback">App Installation</a>.</li>
+<li>  <strong>Valid TLS/SSL setup</strong>: verify your setup at the following site: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>.</li>
+</ul>
+
+<aside class="notice">
+NOTES: Any one of the following will cause a connection failure:
+  <ul>
+    <li>Hostname/DNS mismatch.</li>
+    <li>Self-signed certificate.</li>
+    <li>Intermediate certificates not loaded.</li>
+  </ul>
+</aside>
+
+<h3 id="creating-webhooks">Creating webhooks</h3>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
+<h4 id="sending-the-post-request">Sending the POST request</h4>
+
+<p>To create a webhook, send a <code class="prettyprint">POST</code> request to the <code class="prettyprint">hooks</code> resource, including:</p>
+
+<ul>
+<li>  As the <code class="prettyprint">scope</code> value, the event for which you would like to receive notification. See next section for the list of possibilities.
+<aside class="notice">
+NOTE: Wildcards are supported for <code>scope</code>.
+</aside></li>
+<li><p>As the <code class="prettyprint">destination</code> value, the callback&rsquo;s fully qualified URI.</p></li>
+<li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, Bigcommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from Bigcommerce instead of some other party, such as a malicious actor.</p></li>
+<li><p>By default, new webhooks will be set to be inactive and will have a blank value. If you want to create a webhook that should be active initially, you can also pass the following name-value pair: <code class="prettyprint">&quot;is_active&quot;: true</code>.</p></li>
+</ul>
+
+<p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
+
+<aside class="warning">
+MIGRATION NOTE: Links above and below here still need to be set, after Slate file refactoring.
+</aside>
+
+<p>Please review the <a href="https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook">hooks resource</a> and <a href="https://developer.bigcommerce.com/api/objects/v2/webhook">webhook object</a> pages for more details.</p>
+
+<h4 id="list-of-webhook-events">List of webhook events</h4>
+
+<ul>
+<li>  store/order/*</li>
+<li>  store/order/created</li>
+<li>  store/order/updated</li>
+<li>  store/order/archived</li>
+<li>  store/order/statusUpdated</li>
+<li>  store/product/*</li>
+<li>  store/product/created</li>
+<li>  store/product/updated</li>
+<li>  store/product/deleted</li>
+<li>  store/customer/*</li>
+<li>  store/customer/created</li>
+<li>  store/customer/updated</li>
+<li>  store/customer/deleted</li>
+<li>  store/app/uninstalled</li>
+</ul>
+
+<h3 id="receiving-webhook-callbacks">Receiving webhook callbacks</h3>
+
+<p>You&rsquo;ll need to build an application and configure your server to receive the callback, which we send when events are triggered.</p>
+
+<aside class="notice">
+NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
+</aside>
+
+<h4 id="lightweight-callback-payload">Lightweight callback payload</h4>
+
+<p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/products#get-a-product">Products resource</a>.</p>
+
+<p>An example payload follows.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"store_id"</span><span class="p">:</span><span class="mi">11111</span><span class="p">,</span><span class="nt">"producer"</span><span class="p">:</span><span class="s2">"stores/abcde"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"store/order/statusUpdated"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">173331</span><span class="p">},</span><span class="nt">"hash"</span><span class="p">:</span><span class="s2">"3f9ea420af83450d7ef9f78b08c8af25b2213637"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="multiple-events-are-triggered-during-bulk-data-imports">Multiple events are triggered during bulk data imports</h4>
+
+<p>Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on <code class="prettyprint">store/product/created</code>, when the merchant imports 2,000 products, then we will send 2,000 individual callback events.</p>
+
+<h4 id="payloads-are-serialized">Payloads are serialized</h4>
+
+<p>Payloads are serialized per hook per store.</p>
+
+<p>In the future, we are looking at enabling a replay feature, allowing you to replay select events. What this means is, based on the serialized payload IDs, you can detect if you&rsquo;ve missed certain callbacks and then, via a future update, you will be able call a replay method to get the missing events.</p>
+
+<h3 id="respond-to-webhook-callbacks">Respond to webhook callbacks</h3>
+
+<p>To acknowledge that you received the webhook without issue, your server should return a <code class="prettyprint">200 HTTP</code> status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the <code class="prettyprint">200</code> range, including <code class="prettyprint">3_xx_</code> codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will attempt to callback as described just below.</p>
+
+<h3 id="callback-retry-mechanism">Callback retry mechanism</h3>
+
+<p>Webhooks will do their best to deliver the events to your callback URI. The dispatcher will attempt several retries until the maximum retry limit is reached, as follows:</p>
+
+<ul>
+<li>  Whenever a webhook gives a non-<code class="prettyprint">2_xx_</code> response, or times out, the app will be blocked for 60 seconds.</li>
+<li>  Webhooks created during that 60-second block will be queued up to send on the next scheduled retry attempt after the block expires, so that webhooks are not lost.</li>
+</ul>
+
+<p>The dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached, as follows:</p>
+
+<h4 id="retry-intervals">Retry intervals</h4>
+
+<ol>
+<li> 60 seconds after the most recent failure</li>
+<li> 180 seconds after the most recent failure</li>
+<li> 300 seconds after the most recent failure</li>
+<li> 600 seconds after the most recent failure</li>
+<li> 900 seconds after the most recent failure</li>
+<li> 1800 seconds after the most recent failure</li>
+<li> 3600 seconds after the most recent failure</li>
+<li> 7200 seconds after the most recent failure</li>
+<li> 21600 seconds after the most recent failure</li>
+<li> 50400 seconds after the most recent failure</li>
+<li> 86400 seconds (24 hours) after the most recent failure</li>
+</ol>
+
+<p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/stores/v2/webhooks#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="updating-a-webhook">Updating a webhook</h3>
+
+<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#update-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="deleting-a-webhook">Deleting a webhook</h3>
+
+<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#delete-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
+<h4 id="not-receiving-the-post-requests-to-my-callback-uri">Not receiving the POST requests to my callback URI</h4>
+
+<p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
+
+<p>You can proactively check to make sure that everything is OK by periodically making a GET request and checking the <code class="prettyprint">is_active</code> flag.</p>
+
+<p>If you receive an email or discover that the <code class="prettyprint">is_active</code> flag has been flipped to <code class="prettyprint">false</code>, try the following.</p>
+
+<ul>
+<li>  Check to see if your app is responding to the POST request with something other than <code class="prettyprint">HTTP 200</code>.</li>
+<li><p>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </p></li>
+<li><p>Self-signed certificate</p></li>
+<li><p>Host name of the certificate does not match the server&rsquo;s DNS</p></li>
+<li><p>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust</p></li>
+</ul>
+
+<p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
+
+<h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook">Not receiving an HTTP 201 response after sending POST to create webhook</h4>
+
+<p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks_intro">introduction</a> above.</p>
+
+<h3 id="tools-for-debugging-and-testing-webhooks">Tools for Debugging and Testing Webhooks</h3>
+
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
+<h5 id="requestbin">RequestBin</h5>
+
+<p>While planning your integration, <a href="http://requestb.in/">RequestBin</a> is a very helpful tool to help view webhooks we send without much setup. In seconds you can start seeing the webhooks we are firing and their data.</p>
+
+<h5 id="ngrok">ngrok</h5>
+
+<p>As you are building your integration, you may desire the abilty to test webhooks on your dev machines.</p>
+
+<p>We suggest using <a href="https://ngrok.com/">ngrok</a>, which can be used to easily set up tunnels between a server running on localhost and a public URL.</p>
+
+<p>This enables our webhooks to be sent to your localhost environments via a public URL. No production push required.</p>
+
+          <h2 id="multi-user-support"><a name="multi_intro"></a> Multi-User Support</h2>
+
+<p>When you register your app with Bigcommerce, if you <a href="/api/registration#multiuser">enable multi-user support</a>, it will allow store admins to manually authorize users other than the store owner to load the app. This feature is not available for <a href="/api/legacy/basic-auth">Private Apps</a>.</p>
+
+<h3 id="enable-multi-user-support">Enable multi-user support</h3>
+
+<p>As soon as you <a href="/api/registration#multiuser">enable multi-user support</a>, it affects the Control Panel of any store with your app installed. If you already have an app published in the App Store, be mindful that this setting takes affect immediately. We recommend testing your multi-user support using a separate app in Draft status.</p>
+
+<blockquote>
+<p>NOTE: Let your customers know that you&rsquo;ve enabled this feature! Otherwise, they won&rsquo;t know that they can start granting access to users.</p>
+</blockquote>
+
+<p>To opt in:</p>
+
+<ol>
+<li> Log into <a href="https://developer.bigcommerce.com/auth/bigcommerce"><strong>My Apps</strong></a>.</li>
+<li> In the <strong>Technical</strong> panel, select <strong>Multiple Users</strong> in the <strong>Supported Features</strong> area.</li>
+<li> Provide a <strong>Remove User Callback URI</strong> in the <strong>Remove User Callback URI</strong> box.</li>
+<li> Save and close your app.</li>
+</ol>
+
+<h3 id="about-the-control-panel-experience">About the control panel experience</h3>
+
+<p>Store admins will be able to adjust user permissions to grant/deny access to your app for other store users.</p>
+
+<p>The next time the user logs in, they will see any apps for which they have been granted access. The user can then click on the app icon in the left navigation to load it.</p>
+
+<p>Use your draft app and your sandbox store to review this behavior.</p>
+
+<h3 id="about-the-load-request">About the load request</h3>
+
+<p>Apps with multiple users enabled can expect more than just the store owner&rsquo;s email and ID in the JSON object sent in the load request. If a load request is sent with user information you haven&rsquo;t seen yet, you should provision the user account and associate it with the store in your database.</p>
+
+<p>Because you know the store owner&rsquo;s email and ID from the <a href="/api/callback">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. A summary of the two types of users follows.</p>
+
+<ul>
+<li>  <strong>Store owner</strong>: can install, uninstall, and load apps.</li>
+<li>  <strong>Users</strong>: cannot install or uninstall apps. Only allowed to load the apps that a store admin has authorized.</li>
+</ul>
+
+<p>Review <a href="/api/load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
+
+<h3 id="about-the-remove-user-request">About the remove user request</h3>
+
+<p>In addition to the ability to add users, store admins can also remove users. This action results in a <code class="prettyprint">**GET**</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete the user identified in the request from its records.</p>
+
+<p>Review <a href="/api/load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
+
+          <h2 id="ui-constraints">UI Constraints</h2>
+
+<p>OAuth apps benefit from a high level of integration with the BigCommerce platform. Users interacting with your app will enjoy a seamless experience. BigCommerce achieves this by rendering your app&rsquo;s user interface inside of an iframe within the control panel. To ensure acceptance into the App Store, your app should be able to perform all of its functions inside of the iframe.</p>
+
+<p>While very usable and friendly, the iframe approach does require special attention from app developers. The remainder of this page discusses several functional areas to consider when designing and developing your app.</p>
+
+<ul>
+<li>  <a href="#mixed">Mixed content</a></li>
+<li>  <a href="#xss">Same-origin policies</a></li>
+<li>  <a href="#p3p">P3P and cookies</a></li>
+</ul>
+
+<h3 id="about-mixed-content">About mixed content</h3>
+
+<p>The BigCommerce control panel is served over TLS/SSL. Your app must be hosted on a web server that accepts and sends TLS/SSL requests. In addition, all of the resources referenced in the HTML that you present to the end users must be served over TLS/SSL. You may find protocol-agnostic addressing helpful.</p>
+
+<p>If the user interface retrieves images, scripts, or other assets over a connection not encrypted with TLS/SSL, the user will experience errors and possibly an inability to interact with your app. Before submitting your app, use an <a href="https://www.jitbit.com/sslcheck/">online crawler</a> to check for insecure content.</p>
+
+<h3 id="about-same-origin-policies">About same-origin policies</h3>
+
+<p><a href="http://en.wikipedia.org/wiki/Same-origin_policy">Same-origin policies</a> restrict apps running within iframes from performing certain activities, such as interacting with other services and making OAuth connections. While apps that operate within the BigCommerce iframe get strong preference during App Store considerations, we sometimes make exceptions for apps that need to interact with, and authenticate to, other services. If your app requires this, we advise you to open a new tab for actions that cannot occur within the iframe.</p>
+
+<h3 id="about-p3p-and-cookies">About P3P and cookies</h3>
+
+<p>Internet Explorer is one of the browsers that BigCommerce <a href="/api/browsers">supports</a> and our merchants do use it to access the control panel. If your app needs to set a cookie, you will need to craft a <a href="http://en.wikipedia.org/wiki/P3P">P3P policy</a>. Otherwise, your app will experience issues on Internet Explorer. Please review the following pages for more information.</p>
+
+<ul>
+<li>  <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/">Craft a P3P policy to make IE behave</a></li>
+<li>  <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx">MSDN Intro to P3P Cookie Blocking</a></li>
+</ul>
+
+          <h1 id="building-basic-auth-apps">Building Basic-Auth Apps</h1>
+
+<aside class="notice">
+tK: We still need to migrate content here. 
+</aside>
+
+          <h1 class="jumptarget"> Categories </h1>
 
 <p>Index of hierarchical categories used to organize and group products.</p>
 
@@ -1154,39 +1659,39 @@ end
 <td>/api/v2/brands?limit={count}</td>
 </tr>
 </tbody></table>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Microsoft"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="err">```</span><span class="w">
+<pre class="highlight plaintext"><code>[
+  {
+    "id": 1,
+    "name": "Apple",
+    "page_title": "",
+    "meta_keywords": "",
+    "meta_description": "",
+    "image_file": "",
+    "search_keywords": ""
+  },
+  {
+    "id": 2,
+    "name": "Microsoft",
+    "page_title": "",
+    "meta_keywords": "",
+    "meta_description": "",
+    "image_file": "",
+    "search_keywords": ""
+  }
+]
+</code></pre>
 
+<h2 id="get-a-brand">Get a Brand</h2>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
+<p>Gets a brand.</p>
 
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">brand.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-brand-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-brand-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<ul>
+<li>  <a href="#get-a-brand-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/brands/{id}</code></li>
+<li>  <a href="#get-a-brand-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/brands/{id}</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
@@ -1194,59 +1699,60 @@ end
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
+<h2 id="get-a-count-of-brands">Get a Count of Brands</h2>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Brands</span><span class="w">
+<p>Returns the total number of brands in the store.</p>
 
-</span><span class="err">Returns</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">total</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-brands-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/count`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-brands-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/count`</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<ul>
+<li>  <a href="#get-a-count-of-brands-oauth">OAuth</a>
+&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/brands/count</code></li>
+<li>  <a href="#get-a-count-of-brands-basic">Basic Auth</a>
+&gt;<code class="prettyprint">GET /api/v2/brands/count</code></li>
+</ul>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">25</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
+<h2 id="create-a-brand">Create a Brand</h2>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
+<p>Creates a new brand.</p>
 
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">brand.</span><span class="w">
+<ul>
+<li>  <a href="#create-a-brand-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/brands</code></li>
+<li>  <a href="#create-a-brand-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/brands</code></li>
+</ul>
 
+<h3 id="read-only-properties">Read-only Properties</h3>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-brand-oauth)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-brand-basic)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
+<p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+<ul>
+<li>  id</li>
+</ul>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<h3 id="requirements">Requirements</h3>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+<p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+<ul>
+<li>  name</li>
+</ul>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+<h3 id="notes">Notes</h3>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
-
-</span><span class="err">To</span><span class="w"> </span><span class="err">maximize</span><span class="w"> </span><span class="err">system</span><span class="w"> </span><span class="err">performance,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">caps</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">number</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="mi">30</span><span class="err">,</span><span class="mi">000</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">POST</span><span class="w"> </span><span class="err">causes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">store</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">exceed</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="mi">30</span><span class="err">,</span><span class="mi">000</span><span class="w"> </span><span class="err">brands,</span><span class="w"> </span><span class="err">Bigcommerce</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">403</span><span class="w"> </span><span class="err">error.</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>To maximize system performance, Bigcommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, Bigcommerce will return a 403 error.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="p">,</span><span class="w">
@@ -1254,30 +1760,32 @@ end
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
+<h2 id="update-a-brand">Update a Brand</h2>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
+<p>Updates an existing brand.</p>
 
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">brand.</span><span class="w">
+<ul>
+<li>  <a href="#update-a-brand-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/brands/{id}</code></li>
+<li>  <a href="#update-a-brand-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/brands/{id}</code></li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-brand-oauth)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-brand-basic)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+<h3 id="read-only-properties">Read-only Properties</h3>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+<p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<ul>
+<li>  id</li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
+<h3 id="requirements">Requirements</h3>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">brand</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"page_title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X men brand"</span><span class="p">,</span><span class="w">
@@ -1285,27 +1793,30 @@ end
   </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"t/apirmzk0a__43675.jpg"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xmen, awesomeness"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Brand</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">brand.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-brand-oauth)</span><span class="w">
-</span><span class="err">"&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-brand-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">All</span><span class="w"> </span><span class="err">Brands</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">brands</span><span class="w"> </span><span class="err">belonging</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">product.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-all-brands-oauth)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-all-brands-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/brands`</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h2 id="delete-a-brand">Delete a Brand</h2>
+
+<p>Deletes a brand.</p>
+
+<ul>
+<li>  <a href="#delete-a-brand-oauth">OAuth</a>
+&ldquo;&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/brands/{id}</code></li>
+<li>  <a href="#delete-a-brand-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/brands/{id}</code></li>
+</ul>
+
+<h2 id="delete-all-brands">Delete All Brands</h2>
+
+<p>Deletes all brands belonging to a product.</p>
+
+<ul>
+<li>  <a href="#delete-all-brands-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/brands</code></li>
+<li>  <a href="#delete-all-brands-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/brands</code></li>
+</ul>
 
           <h1 id="countries">Countries</h1>
 
@@ -1994,6 +2505,10 @@ end
 
           <h2 id="gift-certificate-operations">Gift Certificate Operations</h2>
 
+<aside class="warning">
+MIGRATION NOTE: Stacked heads; insert something here!
+</aside>
+
 <h2 id="list-gift-certificates">List Gift Certificates</h2>
 
 <p>Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)</p>
@@ -2298,28 +2813,93 @@ end
 
 <p>Banners available to display on a store.</p>
 
-<p>| &mdash;&ndash; |</p>
+<table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Manages</td>
+<td>Banner Object</td>
+</tr>
+<tr>
+<td>OAuth Scopes</td>
+<td>store_v2_marketing</td>
+</tr>
+<tr>
+<td></td>
+<td>store_v2_marketing_read_only</td>
+</tr>
+</tbody></table>
 
-<p>| Manages | Banner Object |
-| OAuth Scopes |  store_v2_marketing |
-| |store_v2_marketing_read_only |</p>
+<h2 id="banners-properties">Banners – Properties</h2>
 
-<h2 id="banners-properties">Banners - Properties</h2>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Required field.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>enum</td>
+<td>&lsquo;home_page&rsquo;, &#39;category_page&rsquo;, &#39;brand_page&rsquo;, &#39;search_page&rsquo;. Required field.</td>
+</tr>
+<tr>
+<td>dateto</td>
+<td>date</td>
+<td>If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should stop being visible on the storefront.</td>
+</tr>
+<tr>
+<td>content</td>
+<td>text</td>
+<td>Required field.</td>
+</tr>
+<tr>
+<td>bannerid</td>
+<td>int</td>
+<td>Read-only.</td>
+</tr>
+<tr>
+<td>datefrom</td>
+<td>date</td>
+<td>If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should become visible on the storefront.</td>
+</tr>
+<tr>
+<td>datetype</td>
+<td>enum</td>
+<td>Accepted values are &#39;always&rsquo; or &#39;custom&rsquo;. This specifies whether the banner should be visible during a specific date range. Required field.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>enum</td>
+<td>&#39;top&rsquo;, &#39;bottom&rsquo;. Required field.</td>
+</tr>
+<tr>
+<td>datecreated</td>
+<td>date</td>
+<td>Date the banner was first created. This will default to today&rsquo;s date.</td>
+</tr>
+<tr>
+<td>catorbrandid</td>
+<td>int</td>
+<td>ID for the brand or category.</td>
+</tr>
+<tr>
+<td>status/visible</td>
+<td>int</td>
+<td>Integer value denoting whether or not the banner is visible on the storefront: 1 = visible; 0 = not visible.</td>
+</tr>
+</tbody></table>
 
-<p>| &mdash;&ndash; |
-| name |  string |  Required field. |
-| page |  enum |  &lsquo;home_page&rsquo;, &#39;category_page&rsquo;, &#39;brand_page&rsquo;, &#39;search_page&rsquo;. Required field. |
-| dateto |  date |  If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should stop being visible on the storefront. |
-| content |  text |  Required field. |
-| bannerid |  int |  Read-only. |
-| datefrom |  date |  If the datetype is set as &#39;custom&rsquo;, this field specifies the date when the banner should become visible on the storefront. |
-| datetype |  enum |  Accepted values are &#39;always&rsquo; or &#39;custom&rsquo;. This specifies whether the banner should be visible during a specific date range. Required field. |
-| location |  enum |  &#39;top&rsquo;, &#39;bottom&rsquo;. Required field. |
-| datecreated |  date |  Date the banner was first created. This will default to today&rsquo;s date. |
-| catorbrandid |  int |  ID for the brand or category. |
-| status/visible |  int |  Integer value denoting whether or not the banner is visible on the storefront: 1 = visible; 0 = not visible. |  </p>
-
-          <h2 id="banner-operations">Banner - Operations</h2>
+          <h2 id="banner-operations">Banner – Operations</h2>
 
 <ul>
 <li>  <a href="#list-blog-posts">List Banners</a></li>
@@ -2362,6 +2942,8 @@ end
 </tr>
 </tbody></table>
 
+<h3 id="pagination">Pagination</h3>
+
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn&rsquo;t provided, up to 50 banners are returned by default.</p>
 
 <table><thead>
@@ -2385,67 +2967,66 @@ end
 
 <h3 id="response">Response</h3>
 
-<p>Example JSON returned in the response:
-<code class="prettyprint">
-    {
-      &quot;banners&quot;: {
-        &quot;banner&quot;: [
-          {
-            &quot;id&quot;: &quot;1&quot;,
-            &quot;name&quot;: &quot;Grand Closing Sale&quot;,
-            &quot;page&quot;: &quot;home_page&quot;,
-            &quot;content&quot;: &quot;Thanks for shopping with us.&quot;,
-            &quot;date_to&quot;: &quot;1393218000&quot;,
-            &quot;item_id&quot;: &quot;0&quot;,
-            &quot;visible&quot;: &quot;0&quot;,
-            &quot;location&quot;: &quot;top&quot;,
-            &quot;date_from&quot;: &quot;1391576400&quot;,
-            &quot;date_type&quot;: &quot;custom&quot;,
-            &quot;date_created&quot;: &quot;1392073898&quot;
-          },
-          {
-            &quot;id&quot;: &quot;2&quot;,
-            &quot;name&quot;: &quot;New Year Nerd Bling&quot;,
-            &quot;page&quot;: &quot;category_page&quot;,
-            &quot;content&quot;: &quot;Discount on Apparel for Orders of $20 or more to Celebrate 2014. Use code NRDBLING14 at Checkout.&quot;,
-            &quot;date_to&quot;: &quot;1394427600&quot;,
-            &quot;item_id&quot;: &quot;30&quot;,
-            &quot;visible&quot;: &quot;0&quot;,
-            &quot;location&quot;: &quot;top&quot;,
-            &quot;date_from&quot;: &quot;1392008400&quot;,
-            &quot;date_type&quot;: &quot;custom&quot;,
-            &quot;date_created&quot;: &quot;1392073935&quot;
-          },
-          {
-            &quot;id&quot;: &quot;3&quot;,
-            &quot;name&quot;: &quot;Test&quot;,
-            &quot;page&quot;: &quot;home_page&quot;,
-            &quot;content&quot;: &quot;The latest in popular board games. Game night fun for the whole family.&quot;,
-            &quot;date_to&quot;: &quot;0&quot;,
-            &quot;item_id&quot;: &quot;0&quot;,
-            &quot;visible&quot;: &quot;0&quot;,
-            &quot;location&quot;: &quot;top&quot;,
-            &quot;date_from&quot;: &quot;0&quot;,
-            &quot;date_type&quot;: &quot;always&quot;,
-            &quot;date_created&quot;: &quot;1429485000&quot;
-          },
-          {
-            &quot;id&quot;: &quot;4&quot;,
-            &quot;name&quot;: &quot;Hi, Jason&quot;,
-            &quot;page&quot;: &quot;home_page&quot;,
-            &quot;content&quot;: &quot;Swanky&quot;,
-            &quot;date_to&quot;: &quot;0&quot;,
-            &quot;item_id&quot;: &quot;0&quot;,
-            &quot;visible&quot;: &quot;0&quot;,
-            &quot;location&quot;: &quot;top&quot;,
-            &quot;date_from&quot;: &quot;0&quot;,
-            &quot;date_type&quot;: &quot;always&quot;,
-            &quot;date_created&quot;: &quot;1441858037&quot;
-          }
-        ]
-      }
-    }
-</code></p>
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"banners"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"banner"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Grand Closing Sale"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thanks for shopping with us."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1393218000"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1391576400"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1392073898"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New Year Nerd Bling"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category_page"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Discount on Apparel for Orders of $20 or more to Celebrate 2014. Use code NRDBLING14 at Checkout."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1394427600"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1392008400"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1392073935"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The latest in popular board games. Game night fun for the whole family."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1429485000"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, Jason"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swanky"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1441858037"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="get-a-banner">Get a Banner</h2>
 
@@ -2457,37 +3038,36 @@ end
 <li>  <a href="#create-a-banner">Basic Auth</a>
 &gt;<code class="prettyprint">GET /api/v2/banners</code></li>
 </ul>
-
-<p>GET /api/v2/banners/{id}</p>
+<pre class="highlight plaintext"><code>GET /api/v2/banners/{id}
+</code></pre>
 
 <h3 id="response">Response</h3>
 
-<p>Example JSON returned in the response:
-<code class="prettyprint">
-    {
-      &quot;banner&quot;: {
-        &quot;id&quot;: &quot;4&quot;,
-        &quot;name&quot;: &quot;Hi, Jason&quot;,
-        &quot;page&quot;: &quot;home_page&quot;,
-        &quot;content&quot;: &quot;Swanky&quot;,
-        &quot;date_to&quot;: &quot;0&quot;,
-        &quot;item_id&quot;: &quot;0&quot;,
-        &quot;visible&quot;: &quot;0&quot;,
-        &quot;location&quot;: &quot;top&quot;,
-        &quot;date_from&quot;: &quot;0&quot;,
-        &quot;date_type&quot;: &quot;always&quot;,
-        &quot;date_created&quot;: &quot;1441858037&quot;
-      }
-    }
-</code></p>
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"banner"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi, Jason"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"home_page"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Swanky"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"item_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"top"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_from"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"always"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1441858037"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="create-a-banner">Create a Banner</h2>
 
 <p>Creates a new banner.</p>
+<pre class="highlight plaintext"><code>POST /stores/{store_hash}/v2/banners
 
-<p>POST /stores/{store_hash}/v2/banners</p>
-
-<p>POST /api/v2/banners</p>
+POST /api/v2/banners
+</code></pre>
 
 <h3 id="read-only-properties">Read-only Properties</h3>
 
@@ -2528,10 +3108,10 @@ end
 <h2 id="update-a-banner">Update a Banner</h2>
 
 <p>Updates an existing banner. Your request may update any of the properties that are writeable for the Create (POST) operation.</p>
+<pre class="highlight plaintext"><code>PUT /stores/{store_hash}/v2/banners
 
-<p>PUT /stores/{store_hash}/v2/banners</p>
-
-<p>PUT /api/v2/banners</p>
+PUT /api/v2/banners
+</code></pre>
 
 <h3 id="read-only-properties">Read-only Properties</h3>
 
@@ -2560,18 +3140,18 @@ end
 <h2 id="delete-a-banner">Delete a Banner</h2>
 
 <p>Deletes a specified banner. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+<pre class="highlight plaintext"><code>DELETE /stores/{store_hash}/v2/banners/{id}
 
-<p>DELETE /stores/{store_hash}/v2/banners/{id}</p>
-
-<p>DELETE /api/v2/banners/{id}</p>
+DELETE /api/v2/banners/{id}
+</code></pre>
 
 <h2 id="delete-all-banners">Delete All Banners</h2>
 
 <p>Deletes all banners associated with the store. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
+<pre class="highlight plaintext"><code>DELETE /stores/{store_hash}/v2/banners
 
-<p>DELETE /stores/{store_hash}/v2/banners</p>
-
-<p>DELETE /api/v2/banners</p>
+DELETE /api/v2/banners
+</code></pre>
 
           <h1 id="blog-posts">Blog Posts</h1>
 
@@ -2660,12 +3240,15 @@ end
 <p>Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)</p>
 
 <ul>
-<li><p><a href="#list-blog-posts-oauth">OAuth</a></p>
+<li>  <a href="#list-blog-posts-oauth">OAuth</a></li>
+</ul>
 
 <blockquote>
 <p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts</code></p>
-</blockquote></li>
-<li><p><a href="#list-blog-posts-basic">Basic Auth</a></p></li>
+</blockquote>
+
+<ul>
+<li>  <a href="#list-blog-posts-basic">Basic Auth</a></li>
 </ul>
 
 <blockquote>
@@ -2765,19 +3348,24 @@ end
     </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="err">]```</span><span class="w">
+</span><span class="err">]</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+<h2 id="get-a-blog-post">Get a Blog Post</h2>
 
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+<p>Gets a blog post.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-blog-post-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-blog-post-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+<ul>
+<li>  <a href="#get-a-blog-post-oauth">OAuth</a></li>
+</ul>
 
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<blockquote>
+<p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts/{id}</code>
+*   <a href="#get-a-blog-post-basic">Basic Auth</a></p>
+
+<p><code class="prettyprint">GET /api/v2/blog/posts/{id}</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your first blog post!"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/your-first-blog-post/"</span><span class="p">,</span><span class="w">
@@ -2795,56 +3383,63 @@ end
   </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"author_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"thumbnail_path"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Posts</span><span class="w">
+<h2 id="get-a-count-of-blog-posts">Get a Count of Blog Posts</h2>
 
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">posts.</span><span class="w">
+<p>Gets a count of blog posts.</p>
 
+<ul>
+<li>  <a href="#get-a-count-of-blog-posts-oauth">OAuth</a></li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#get-a-count-of-blog-posts-oauth)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/count`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#get-a-count-of-blog-posts-basic)</span><span class="w">
-</span><span class="err">&gt;`GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/count`</span><span class="w">
+<blockquote>
+<p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts/count</code>
+*   <a href="#get-a-count-of-blog-posts-basic">Basic Auth</a></p>
 
-
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p><code class="prettyprint">GET /api/v2/blog/posts/count</code></p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+<h2 id="create-a-blog-post">Create a Blog Post</h2>
 
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+<p>Creates a new blog post.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#create-a-blog-post-oauth)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#create-a-blog-post-basic)</span><span class="w">
-</span><span class="err">&gt;`POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
+<ul>
+<li>  <a href="#create-a-blog-post-oauth">OAuth</a>
+&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/blog/posts</code></li>
+<li>  <a href="#create-a-blog-post-basic">Basic Auth</a>
+&gt;<code class="prettyprint">POST /api/v2/blog/posts</code></li>
+</ul>
 
+<h3 id="read-only-properties">Read-only Properties</h3>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<ul>
+<li>  id</li>
+<li>  preview_url</li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">preview_url</span><span class="w">
+<h3 id="requirements">Requirements</h3>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+<ul>
+<li>  title</li>
+<li>  body</li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">title</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">body</span><span class="w">
+<h3 id="notes">Notes</h3>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Notes</span><span class="w">
+<p>Blog posts default to draft status. Set is_published to true to publish posts to the storefront.</p>
 
-</span><span class="err">Blog</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">default</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">draft</span><span class="w"> </span><span class="err">status.</span><span class="w"> </span><span class="err">Set</span><span class="w"> </span><span class="err">is_published</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">publish</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">storefront.</span><span class="w">
-
-</span><span class="err">If</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">custom</span><span class="w"> </span><span class="err">url</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">provided,</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">post’s</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">generated</span><span class="w"> </span><span class="err">based</span><span class="w"> </span><span class="err">on</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">value</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">title.</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>If a custom url is not provided, the post’s URL will be generated based on the value of title.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Sample Blog Post"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;This is a blog post.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Author Name"</span><span class="p">,</span><span class="w">
@@ -2855,71 +3450,88 @@ end
     </span><span class="s2">"Blog"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"Example"</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
+<h2 id="update-a-blog-post">Update a Blog Post</h2>
 
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
+<p>Updates an existing blog post.</p>
 
+<ul>
+<li>  <a href="#update-a-blog-post-oauth">OAuth</a>
+&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/blog/posts/{id}</code></li>
+<li>  <a href="#update-a-blog-post-basic">Basic Auth</a>
+&gt;<code class="prettyprint">PUT /api/v2/blog/posts/{id}</code></li>
+</ul>
 
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#update-a-blog-post-oauth)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#update-a-blog-post-basic)</span><span class="w">
-</span><span class="err">&gt;`PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
+<h3 id="read-only-properties">Read-only Properties</h3>
 
+<p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+<ul>
+<li>  id</li>
+<li>  preview_url</li>
+</ul>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<h3 id="requirements">Requirements</h3>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">id</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">preview_url</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New: A Sample Blog Post"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/blog/sample-post"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Post</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">post.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-a-blog-post-oauth)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-a-blog-post-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">`</span><span class="w">
-
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Delete</span><span class="w"> </span><span class="err">Multiple</span><span class="w"> </span><span class="err">Blog</span><span class="w"> </span><span class="err">Posts</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">multiple</span><span class="w"> </span><span class="err">blog</span><span class="w"> </span><span class="err">posts</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">collection.</span><span class="w">
-
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">OAuth</span><span class="p">]</span><span class="err">(#delete-multiple-blog-posts-oauth)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="p">[</span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="p">]</span><span class="err">(#delete-multiple-blog-posts-basic)</span><span class="w">
-</span><span class="err">&gt;`DELETE</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts`</span><span class="w">
-
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">Pagination</span><span class="w">
-
-</span><span class="err">Parameters</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">added</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">query</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">paginate</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">collection.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">maximum</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">250</span><span class="err">.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">limit</span><span class="w"> </span><span class="err">isn’t</span><span class="w"> </span><span class="err">provided,</span><span class="w"> </span><span class="err">up</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="err">blog_posts</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default.</span><span class="w">
-
-</span><span class="err">|</span><span class="w"> </span><span class="err">Parameter</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">---</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">Page</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts?page=</span><span class="p">{</span><span class="err">number</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">Limit</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">int</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/blog/posts?limit=</span><span class="p">{</span><span class="err">count</span><span class="p">}</span><span class="w"> </span><span class="err">|</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h2 id="delete-a-blog-post">Delete a Blog Post</h2>
+
+<p>Deletes a blog post.</p>
+
+<ul>
+<li>  <a href="#delete-a-blog-post-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts/{id}</code></li>
+<li>  <a href="#delete-a-blog-post-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/blog/posts/{id}</code></li>
+</ul>
+
+<h2 id="delete-multiple-blog-posts">Delete Multiple Blog Posts</h2>
+
+<p>Deletes multiple blog posts in the collection.</p>
+
+<ul>
+<li>  <a href="#delete-multiple-blog-posts-oauth">OAuth</a>
+&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts</code></li>
+<li>  <a href="#delete-multiple-blog-posts-basic">Basic Auth</a>
+&gt;<code class="prettyprint">DELETE /api/v2/blog/posts</code></li>
+</ul>
+
+<h3 id="pagination">Pagination</h3>
+
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Page</td>
+<td>int</td>
+<td>/api/v2/blog/posts?page={number}</td>
+</tr>
+<tr>
+<td>Limit</td>
+<td>int</td>
+<td>/api/v2/blog/posts?limit={count}</td>
+</tr>
+</tbody></table>
 
           <h1 id="payment-methods">Payment Methods</h1>
 
 <p>Enabled payment types or methods in a store.</p>
 
-<h2 id="payment-method-object-properties">Payment Method Object - Properties</h2>
+<h2 id="payment-method-object-properties">Payment Method Object – Properties</h2>
 
 <table><thead>
 <tr>
@@ -3036,7 +3648,7 @@ end
 
 <p>A 301 redirect, mapping from a given URL path to another URL</p>
 
-<h2 id="redirect-object-properties">Redirect Object - Properties</h2>
+<h2 id="redirect-object-properties">Redirect Object – Properties</h2>
 
 <table><thead>
 <tr>
@@ -3112,7 +3724,7 @@ end
 
 <h3 id="pagination">Pagination</h3>
 
-<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">redirects</code> are returned by default.</p>
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.</p>
 
 <table><thead>
 <tr>
@@ -3225,31 +3837,29 @@ end
 
 <h3 id="request">Request</h3>
 
-<p>Example request object:
-<code class="prettyprint">
-{
-  &quot;path&quot;: &quot;/mens_clothing&quot;,
-  &quot;forward&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;ref&quot;: 3
-  }
-}
-</code></p>
+<p>Example request object:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/mens_clothing"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"forward"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h3 id="response">Response</h3>
 
-<p>Example JSON returned in the response:
-<code class="prettyprint">
-{
-  &quot;id&quot;: 3,
-  &quot;path&quot;: &quot;/mens_clothing&quot;,
-  &quot;forward&quot;: {
-    &quot;type&quot;: &quot;category&quot;,
-    &quot;ref&quot;: 3
-  },
-  &quot;url&quot;: &quot;http://store.example.com/mens&quot;
-}
-</code></p>
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/mens_clothing"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"forward"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"category"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"ref"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://store.example.com/mens"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
 <h2 id="update-a-redirect">Update a Redirect</h2>
 
@@ -3279,9 +3889,9 @@ end
 <li>  forward</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
-
-<p>The <code class="prettyprint">path</code>, <code class="prettyprint">forward.type</code> and <code class="prettyprint">forward.ref</code> fields of an existing redirect can be updated.</p>
+<aside class="notice">
+NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> fields of an existing redirect can be updated.
+</aside>
 
 <h2 id="delete-a-redirect">Delete a Redirect</h2>
 
