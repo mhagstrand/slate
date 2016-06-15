@@ -1903,7 +1903,7 @@
 <td></td>
 </tr>
 <tr>
-<td>shipping_provider</td>
+<td>shipping_carrier</td>
 <td>string</td>
 <td>Enum of the delivery service fulfilling the shipment</td>
 </tr>
@@ -1925,7 +1925,7 @@
 <tr>
 <td>items</td>
 <td>object_array</td>
-<td>The items in the shipment. Is an object. Look at the items table. A sample value can be [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</td>
+<td>The items in the shipment. This is an object; see the items table. A sample value might be: [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</td>
 </tr>
 </tbody></table>
 
@@ -2008,7 +2008,7 @@
     </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 17:17:10 +0000"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111222333444"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_ups"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ups"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A sample shipment for order 115"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Louise"</span><span class="p">,</span><span class="w">
@@ -2067,7 +2067,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-123-123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_usps"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usps"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
@@ -2189,7 +2189,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 19:49:15 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EJ958083578US"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_canadapost"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canada-post"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ready to go..."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Henry"</span><span class="p">,</span><span class="w">
@@ -2271,7 +2271,7 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex1245"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shipping_fedex"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notes about the shipment"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">

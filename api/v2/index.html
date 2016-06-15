@@ -174,21 +174,21 @@
 
 <p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
-          <h1 id="building-oauth-apps">Building OAuth Apps</h1>
+          <h1 id="building-oauth-apps"><span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span></h1>
 
 <aside class="notice">
 tK: We still need to migrate introductory content here. Should also add something explaining the new terminology &ldquo;OAuth Apps&rdquo; versus &ldquo;Basic-Auth Apps.&rdquo;
 </aside>
 
-<h2 id="overview"><a name="using-oauth-intro"></a>Overview</h2>
+<h2 id="about-single-click-apps"><span class="jumptarget"> About Single-Click Apps </span></h2>
 
-<p>Public apps (also known as OAuth Apps or <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a>) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#registration"><strong>Client ID</strong> and <strong>Client Secret</strong></a>, and an <a href="#installation">OAuth token</a>. </p>
+<p>Public apps (also known as OAuth Apps or <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a> can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="/api/v2/#registration"><strong>Client ID</strong> and <strong>Client Secret</strong></a>, and an <a href="/api/v2/#installation">OAuth token</a>. </p>
 
-<h3 id="api-endpoint">API Endpoint</h3>
+<h3 id="api-endpoint"><span class="jumptarget"> API Endpoint </span></h3>
 
 <p>Public API requests are protected by TLS, and use the following base URI: <code class="prettyprint">https://api.bigcommerce.com</code>. The exact paths are noted in the Reference section for each resource. </p>
 
-<h3 id="request-headers">Request Headers</h3>
+<h3 id="request-headers"><span class="jumptarget"> Request Headers </span></h3>
 
 <p>Public API requests are authenticated by the following HTTP headers: </p>
 
@@ -199,7 +199,7 @@ tK: We still need to migrate introductory content here. Should also add somethin
 
 <p>In addition, while not all resources require the <code class="prettyprint">Accept</code> and <code class="prettyprint">Content-Type</code> headers, many do. To ensure that your calls succeed, always include these headers. </p>
 
-<h3 id="managing-users-39-session-timeouts">Managing Users&rsquo; Session Timeouts</h3>
+<h3 id="managing-users-39-session-timeouts"><span class="jumptarget"> Managing Users&rsquo; Session Timeouts </span></h3>
 
 <p>We recommend that you add BigCommerce&rsquo;s JavaScript SDK to your Single-Click Apps, to protect your apps&rsquo; users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App: </p>
 <pre class="highlight plaintext"><code>&lt;script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js"&gt;
@@ -213,11 +213,11 @@ tK: We still need to migrate introductory content here. Should also add somethin
 
 <p>This callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.</p>
 
-<h3 id="monetizing-your-app">Monetizing Your App</h3>
+<h3 id="monetizing-your-app"><span class="jumptarget"> Monetizing Your App </span></h3>
 
 <p>If you want to charge merchants for your app, please note that BigCommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send BigCommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to <a href = "mailto:partnerpayments@bigcommerce.com">partnerpayments@bigcommerce.com</a>.</p>
 
-          <h2 id="app-registration"><a name="registration"></a> App Registration</h2>
+          <h2 id="app-registration"><span class="jumptarget"> <a name="registration"></a> App Registration </span></h2>
 
 <p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
 
@@ -228,13 +228,13 @@ tK: We still need to migrate introductory content here. Should also add somethin
 
 <p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
 
-<h3 id="technical-requirements">Technical Requirements</h3>
+<h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h4 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h4>
+<h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
 
 <p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
 
@@ -242,11 +242,11 @@ MIGRATION NOTE: Stacked heads; insert something here!
 NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
-<h4 id="uninstall-callback-optional">Uninstall callback (optional)</h4>
+<h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall callback (optional) </span></h4>
 
 <p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
 
-<h4 id="multi-user-support-optional">Multi-user support (optional)</h4>
+<h4 id="multi-user-support-optional"><span class="jumptarget"> Multi-user support (optional) </span></h4>
 
 <p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
 
@@ -256,9 +256,9 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 <li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
 </ul>
 
-<h4 id="oauth-scopes">OAuth scopes</h4>
+<h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span></h4>
 
-<p>If you know the <a href="/api/scopes">OAuth scopes</a> that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:</p>
+<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code>Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
@@ -266,39 +266,34 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 <li>  Retest your app to make sure it still functions properly with the new token.</li>
 </ul>
 
-<h3 id="registering-your-app">Registering your app</h3>
+<h3 id="registering-your-app"><span class="jumptarget"> Registering your app </span></h3>
 
 <p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
 
 <ol>
-<li> Click <code class="prettyprint">Log In</code> at Developer Portal&rsquo;s top right.</li>
+<li> Log in at Developer Portal&rsquo;s top right.</li>
 <li> In the resulting login page, provide your sandbox store credentials.
 <aside class="notice">
 NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
-</aside>
-<aside class="warning">
-TEMPORARY MIGRATION NOTE: MK needs to rewrite the following instructions. Each step is written backwards. 
 </aside></li>
 <li> Click <code class="prettyprint">My Apps</code>.</li>
 <li> Click <code class="prettyprint">Create an app</code>.</li>
-<li> Type a name for your app in the <code class="prettyprint">Create an App</code> dialog.</li>
+<li> In the <code class="prettyprint">Create an App</code> dialog, type a name for your app.</li>
 <li> Click <code class="prettyprint">Next</code>.</li>
 <li> Click <code class="prettyprint">Next</code> again.</li>
 <li> Click <code class="prettyprint">Next</code> one more time.</li>
-<li> Type your <code class="prettyprint">Auth Callback URI</code> in the <code class="prettyprint">Auth Callback URL</code> box.</li>
-<li> Type your <code class="prettyprint">Load Callback URI</code> in the <code class="prettyprint">Load Callback URL</code> box.</li>
-<li> If you have an <code class="prettyprint">Uninstall Callback URI</code>, provide this in the <code class="prettyprint">Uninstall Callback URI</code> box.</li>
-<li> If you want to support multiple users, select <code class="prettyprint">Multiple Users</code> in the <code class="prettyprint">Supported Features</code> area and provide a <code class="prettyprint">Remove User Callback URI</code> in the <code class="prettyprint">Remove User Callback URI</code> box.</li>
-<li> Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.</li>
+<li> In the <code class="prettyprint">Auth Callback URL</code> box, type your <code class="prettyprint">Auth Callback URI</code>.</li>
+<li> In the <code class="prettyprint">Load Callback URL</code> box, type your <code class="prettyprint">Load Callback URI</code>.</li>
+<li> In the <code class="prettyprint">Uninstall Callback URI</code> box, provide your <code class="prettyprint">Uninstall Callback URI</code> if you have one.</li>
+<li> If you want to support multiple users: In the <code class="prettyprint">Supported Features</code> area, select <code class="prettyprint">Multiple Users</code>; and in the <code class="prettyprint">Remove User Callback URI</code> box, provide a <code class="prettyprint">Remove User Callback URI</code>.</li>
+<li> Select the OAuth scopes that your app requires. If you do not yet know, select minimal scopes, such as <code class="prettyprint">Information: Read-Only</code>.</li>
 <li> Click <code class="prettyprint">Update &amp; Close</code>.</li>
-<li> Back in <code class="prettyprint">My Apps</code> hover over your app.</li>
+<li> Back in <code class="prettyprint">My Apps</code>, hover over your app.</li>
 <li> Click <code class="prettyprint">View Client ID</code>.</li>
-<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog and paste them into a safe and secure place.</li>
+<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog, and paste them into a safe and secure place.</li>
 </ol>
 
-          <h2 id="app-installation-and-update-sequence"><a name="installation"></a> App Installation and Update Sequence</h2>
-
-<h3 id="introduction">Introduction</h3>
+          <h2 id="app-installation-and-update-sequence"><span class="jumptarget"> <a name="installation"></a> App Installation and Update Sequence </span></h2>
 
 <p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
 
@@ -321,13 +316,11 @@ For security, Auth and Load callback should be handled server-side. If you are b
 <li> <a href="#post-receipt">Receiving the <code class="prettyprint">POST</code> response</a></li>
 </ol>
 
-<h3 id="receiving-the-get-request"><a name="get-req"></a> Receiving the GET request</h3>
-
-<h4 id="overview">Overview</h4>
+<h3 id="receiving-the-get-request"><span class="jumptarget"> <a name="get-req"></a> Receiving the GET request </span></h3>
 
 <p>The <code class="prettyprint">GET</code> request to your <strong>Auth Callback URI</strong> contains a temporary code that you can exchange for a permanent OAuth token. It also includes a unique value that identifies the store installing or updating your app, as well as other values.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters"><span class="jumptarget"> Parameters </span></h4>
 
 <p>The following table details the full list of parameters and values included in the <code class="prettyprint">GET</code> request from BigCommerce to your <strong>Auth Callback URI</strong>. BigCommerce passes these within the URI itself as query parameters.</p>
 
@@ -351,14 +344,14 @@ For security, Auth and Load callback should be handled server-side. If you are b
 </tr>
 </tbody></table>
 
-<h4 id="example-initial-installation">Example – Initial Installation</h4>
+<h4 id="example-initial-installation"><span class="jumptarget"> Example – Initial Installation </span></h4>
 
 <p>This example initiates the token exchange, with a requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 <pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders&amp;context=stores/g5cd38 HTTP/1.1  
 Host: app.example.com
 </code></pre>
 
-<h4 id="example-updating-scopes">Example – Updating Scopes</h4>
+<h4 id="example-updating-scopes"><span class="jumptarget"> Example – Updating Scopes </span></h4>
 
 <p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 <pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders+store_v2_products&amp;context=stores/g5cd38 HTTP/1.1  
@@ -367,25 +360,25 @@ Host: app.example.com
 
 <p>(Note that when your app receives a new token, any previously issued token is invalidated.)</p>
 
-<h3 id="responding-to-the-get-request"><a name="get-response"></a> Responding to the GET request</h3>
+<h3 id="responding-to-the-get-request"><span class="jumptarget"> <a name="get-response"></a> Responding to the GET request </span></h3>
 
 <p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
 
-<h3 id="making-the-post-request"><a name="post-req"></a> Making the POST request</h3>
+<h3 id="making-the-post-request"><span class="jumptarget"> <a name="post-req"></a> Making the POST request </span></h3>
 
 <p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: <code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
 
 <p>Make the <code class="prettyprint">POST</code> request to the following address: <code class="prettyprint">https://login.bigcommerce.com/oauth2/token</code>.</p>
 
-<h4 id="initial-installation">Initial Installation</h4>
+<h4 id="initial-installation"><span class="jumptarget"> Initial Installation </span></h4>
 
 <p>During initial installation, upon receiving the <code class="prettyprint">POST</code>, BigCommerce marks the status of your app as &ldquo;Installed,&rdquo; removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response"><code class="prettyprint">GET</code> response</a>.</p>
 
-<h4 id="updates">Updates</h4>
+<h4 id="updates"><span class="jumptarget"> Updates </span></h4>
 
 <p>During app updates, upon receiving the <code class="prettyprint">POST</code>, BigCommerce removes the update prompt from the Control Panel.</p>
 
-<h4 id="parameters">Parameters</h4>
+<h4 id="parameters"><span class="jumptarget"> Parameters </span></h4>
 
 <p>Include values for each of the following parameters.</p>
 
@@ -425,7 +418,7 @@ Host: app.example.com
 </tr>
 </tbody></table>
 
-<h4 id="examples-initial-installation">Examples – Initial Installation</h4>
+<h4 id="examples-initial-installation"><span class="jumptarget"> Examples – Initial Installation </span></h4>
 
 <ul>
 <li>  <a href="#token-http">HTTP</a></li>
@@ -457,7 +450,7 @@ $response = $connection-&gt;post($tokenUrl, array(
 $token = $response-&gt;access_token;
 </code></pre>
 
-<h4 id="examples-updating-scopes">Examples – Updating Scopes</h4>
+<h4 id="examples-updating-scopes"><span class="jumptarget"> Examples – Updating Scopes </span></h4>
 
 <p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 
@@ -496,13 +489,13 @@ $response = $connection-&gt;post($tokenUrl, array(
 $token = $response-&gt;access_token;
 </code></pre>
 
-<h3 id="receiving-the-post-response"><a name="post-receipt"></a> Receiving the POST response</h3>
+<h3 id="receiving-the-post-response"><span class="jumptarget"> <a name="post-receipt"></a> Receiving the POST response </span></h3>
 
-<h4 id="overview">Overview</h4>
+<h4 id="overview"><span class="jumptarget"> Overview </span></h4>
 
 <p>The <code class="prettyprint">POST</code> response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.</p>
 
-<h4 id="json-values">JSON Values</h4>
+<h4 id="json-values"><span class="jumptarget"> JSON Values </span></h4>
 
 <table><thead>
 <tr>
@@ -538,7 +531,7 @@ $token = $response-&gt;access_token;
 </tr>
 </tbody></table>
 
-<h4 id="json-example-initial-installation">JSON Example – Initial Installation</h4>
+<h4 id="json-example-initial-installation"><span class="jumptarget"> JSON Example – Initial Installation </span></h4>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"g3y3ab5cctiu0edpy9n8gzl0p25og9u"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store_v2_orders"</span><span class="p">,</span><span class="w">
@@ -550,7 +543,7 @@ $token = $response-&gt;access_token;
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h4 id="json-example-updating-scopes">JSON Example – Updating Scopes</h4>
+<h4 id="json-example-updating-scopes"><span class="jumptarget"> JSON Example – Updating Scopes </span></h4>
 
 <p>Update requests will refresh the payload&rsquo;s <code class="prettyprint">access_token</code> and <code class="prettyprint">scope</code> values. Here again, the following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
 <pre class="highlight plaintext"><code>&lt;code class="language-js"&gt;{
@@ -833,9 +826,9 @@ MIGRATION NOTE: Stacked heads; insert something here!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h2 id="webhooks"><a name="webhooks_intro"></a>Webhooks</h2>
+          <h2 id="webhooks"><span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks </span></h2>
 
-<p><a href="http://en.wikipedia.org/wiki/Webhook">Webhooks</a> allow developers to build apps that receive information, in near real-time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
+<p><a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near real-time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
 
 <p>For example, you might build an app that needs to know when:</p>
 
@@ -861,14 +854,14 @@ NOTES: Webhooks differ from the rest of the Stores API as follows:
      X-Auth-Token: _the OAuth token_
 </code></pre>
 
-<h3 id="prerequisites">Prerequisites</h3>
+<h3 id="prerequisites"><span class="jumptarget"> Prerequisites </span></h3>
 
 <p>Before you can send any requests or receive any responses, you will need the following:</p>
 
 <ul>
 <li>  <strong>A store</strong>: you can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/">Partner Program</a>.</li>
-<li>  <strong>OAuth Client ID</strong>: obtained during <a href="/api/registration">App Registration</a>.</li>
-<li>  <strong>OAuth token</strong>: obtained during <a href="/api/callback">App Installation</a>.</li>
+<li>  <strong>OAuth Client ID</strong>: obtained during <a href="/api/v2/#registration">App Registration</a>.</li>
+<li>  <strong>OAuth token</strong>: obtained during <a href="/api/v2/#installation">App Installation</a>.</li>
 <li>  <strong>Valid TLS/SSL setup</strong>: verify your setup at the following site: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>.</li>
 </ul>
 
@@ -881,13 +874,13 @@ NOTES: Any one of the following will cause a connection failure:
   </ul>
 </aside>
 
-<h3 id="creating-webhooks">Creating webhooks</h3>
+<h3 id="creating-webhooks"><span class="jumptarget"> Creating webhooks </span></h3>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h4 id="sending-the-post-request">Sending the POST request</h4>
+<h4 id="sending-the-post-request"><span class="jumptarget"> Sending the POST request </span></h4>
 
 <p>To create a webhook, send a <code class="prettyprint">POST</code> request to the <code class="prettyprint">hooks</code> resource, including:</p>
 
@@ -909,7 +902,7 @@ MIGRATION NOTE: Links above and below here still need to be set, after Slate fil
 
 <p>Please review the <a href="https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook">hooks resource</a> and <a href="https://developer.bigcommerce.com/api/objects/v2/webhook">webhook object</a> pages for more details.</p>
 
-<h4 id="list-of-webhook-events">List of webhook events</h4>
+<h4 id="list-of-webhook-events"><span class="jumptarget"> List of webhook events </span></h4>
 
 <ul>
 <li>  store/order/*</li>
@@ -928,7 +921,7 @@ MIGRATION NOTE: Links above and below here still need to be set, after Slate fil
 <li>  store/app/uninstalled</li>
 </ul>
 
-<h3 id="receiving-webhook-callbacks">Receiving webhook callbacks</h3>
+<h3 id="receiving-webhook-callbacks"><span class="jumptarget"> Receiving webhook callbacks </span></h3>
 
 <p>You&rsquo;ll need to build an application and configure your server to receive the callback, which we send when events are triggered.</p>
 
@@ -936,7 +929,7 @@ MIGRATION NOTE: Links above and below here still need to be set, after Slate fil
 NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
 </aside>
 
-<h4 id="lightweight-callback-payload">Lightweight callback payload</h4>
+<h4 id="lightweight-callback-payload"><span class="jumptarget"> Lightweight callback payload </span></h4>
 
 <p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/products#get-a-product">Products resource</a>.</p>
 
@@ -944,21 +937,21 @@ NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</
 <pre class="highlight json"><code><span class="p">{</span><span class="nt">"store_id"</span><span class="p">:</span><span class="mi">11111</span><span class="p">,</span><span class="nt">"producer"</span><span class="p">:</span><span class="s2">"stores/abcde"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"store/order/statusUpdated"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">173331</span><span class="p">},</span><span class="nt">"hash"</span><span class="p">:</span><span class="s2">"3f9ea420af83450d7ef9f78b08c8af25b2213637"</span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h4 id="multiple-events-are-triggered-during-bulk-data-imports">Multiple events are triggered during bulk data imports</h4>
+<h4 id="multiple-events-are-triggered-during-bulk-data-imports"><span class="jumptarget"> Multiple events are triggered during bulk data imports </span></h4>
 
 <p>Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on <code class="prettyprint">store/product/created</code>, when the merchant imports 2,000 products, then we will send 2,000 individual callback events.</p>
 
-<h4 id="payloads-are-serialized">Payloads are serialized</h4>
+<h4 id="payloads-are-serialized"><span class="jumptarget"> Payloads are serialized </span></h4>
 
 <p>Payloads are serialized per hook per store.</p>
 
 <p>In the future, we are looking at enabling a replay feature, allowing you to replay select events. What this means is, based on the serialized payload IDs, you can detect if you&rsquo;ve missed certain callbacks and then, via a future update, you will be able call a replay method to get the missing events.</p>
 
-<h3 id="respond-to-webhook-callbacks">Respond to webhook callbacks</h3>
+<h3 id="respond-to-webhook-callbacks"><span class="jumptarget"> Respond to webhook callbacks </span></h3>
 
 <p>To acknowledge that you received the webhook without issue, your server should return a <code class="prettyprint">200 HTTP</code> status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the <code class="prettyprint">200</code> range, including <code class="prettyprint">3_xx_</code> codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will attempt to callback as described just below.</p>
 
-<h3 id="callback-retry-mechanism">Callback retry mechanism</h3>
+<h3 id="callback-retry-mechanism"><span class="jumptarget"> Callback retry mechanism </span></h3>
 
 <p>Webhooks will do their best to deliver the events to your callback URI. The dispatcher will attempt several retries until the maximum retry limit is reached, as follows:</p>
 
@@ -969,7 +962,7 @@ NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</
 
 <p>The dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached, as follows:</p>
 
-<h4 id="retry-intervals">Retry intervals</h4>
+<h4 id="retry-intervals"><span class="jumptarget"> Retry intervals </span></h4>
 
 <ol>
 <li> 60 seconds after the most recent failure</li>
@@ -987,21 +980,21 @@ NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</
 
 <p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/stores/v2/webhooks#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
-<h3 id="updating-a-webhook">Updating a webhook</h3>
+<h3 id="updating-a-webhook"><span class="jumptarget"> Updating a webhook </span></h3>
 
 <p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#update-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
-<h3 id="deleting-a-webhook">Deleting a webhook</h3>
+<h3 id="deleting-a-webhook"><span class="jumptarget"> Deleting a webhook </span></h3>
 
 <p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#delete-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
-<h3 id="troubleshooting">Troubleshooting</h3>
+<h3 id="troubleshooting"><span class="jumptarget"> Troubleshooting </span></h3>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h4 id="not-receiving-the-post-requests-to-my-callback-uri">Not receiving the POST requests to my callback URI</h4>
+<h4 id="not-receiving-the-post-requests-to-my-callback-uri"><span class="jumptarget"> Not receiving the POST requests to my callback URI </span></h4>
 
 <p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
 
@@ -1011,7 +1004,7 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
 <ul>
 <li>  Check to see if your app is responding to the POST request with something other than <code class="prettyprint">HTTP 200</code>.</li>
-<li><p>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </p></li>
+<li><p>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com<a>. Any of the following will cause the TLS/SSL handshake to fail: </p></li>
 <li><p>Self-signed certificate</p></li>
 <li><p>Host name of the certificate does not match the server&rsquo;s DNS</p></li>
 <li><p>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust</p></li>
@@ -1019,21 +1012,21 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
 <p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
 
-<h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook">Not receiving an HTTP 201 response after sending POST to create webhook</h4>
+<h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook"><span class="jumptarget"> Not receiving an HTTP 201 response after sending POST to create webhook </span></h4>
 
 <p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks_intro">introduction</a> above.</p>
 
-<h3 id="tools-for-debugging-and-testing-webhooks">Tools for Debugging and Testing Webhooks</h3>
+<h3 id="tools-for-debugging-and-testing-webhooks"><span class="jumptarget"> Tools for Debugging and Testing Webhooks </span></h3>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h5 id="requestbin">RequestBin</h5>
+<h5 id="requestbin"><span class="jumptarget"> RequestBin </span></h5>
 
 <p>While planning your integration, <a href="http://requestb.in/">RequestBin</a> is a very helpful tool to help view webhooks we send without much setup. In seconds you can start seeing the webhooks we are firing and their data.</p>
 
-<h5 id="ngrok">ngrok</h5>
+<h5 id="ngrok"><span class="jumptarget"> ngrok </span></h5>
 
 <p>As you are building your integration, you may desire the abilty to test webhooks on your dev machines.</p>
 
@@ -1120,7 +1113,392 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <li>  <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx">MSDN Intro to P3P Cookie Blocking</a></li>
 </ul>
 
-          <h1 id="building-basic-auth-apps">Building Basic-Auth Apps</h1>
+          <h2 id="oauth-scopes"><span class="jumptarget"> <a name="scopes"></a> OAuth Scopes </span></h2>
+
+<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api/v2/#installation">installation or scope updates</a>.</p>
+
+<p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
+
+<aside class="warning">
+MIGRATION NOTE: All links in the right column need to be re-set!
+</aside>
+
+<table><thead>
+<tr>
+<th>Scope GUI Name</th>
+<th>Scope Strings</th>
+<th>Resources</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Content</td>
+<td><strong>store_v2_content</strong></td>
+<td><a href="/api/stores/v2/blog/posts">blog/posts</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_content_read_only</strong></td>
+<td><a href="/api/stores/v2/blog/tags">blog/tags</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/redirects">redirects</a></td>
+</tr>
+<tr>
+<td>Customers</td>
+<td><strong>store_v2_customers</strong></td>
+<td><a href="/api/stores/v2/customers">customers</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_customers_read_only</strong></td>
+<td><a href="/api/stores/v2/customers/addresses">customers/{id}/addresses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
+</tr>
+<tr>
+<td>Default</td>
+<td><strong>default</strong></td>
+<td><a href="/api/stores/v2/countries">countries</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/countries/states">countries/{id}/states</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/webhooks">hooks</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/time">time</a></td>
+</tr>
+<tr>
+<td>Information</td>
+<td><strong>store_v2_information</strong></td>
+<td><a href="/api/stores/v2/payments/methods">payments/methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_information_read_only</strong></td>
+<td><a href="/api/stores/v2/shipping/methods">shipping/methods</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/store_information">store</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/tax_classes">tax_classes</a></td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td><strong>store_v2_marketing</strong></td>
+<td><a href="/api/stores/v2/coupons">coupons</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_marketing_read_only</strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/gift_certificates">gift_certificates</a></td>
+</tr>
+<tr>
+<td>Orders</td>
+<td><strong>store_v2_orders</strong></td>
+<td><a href="/api/stores/v2/orders">orders</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_orders_read_only</strong></td>
+<td><a href="/api/stores/v2/orders/coupons">orders/{id}/coupons</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/messages">orders/{id}/messages</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/products">orders/{id}/products</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/shipping_addresses">orders/{id}/shipping_addresses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/order_statuses">orders/{id}/order_statuses</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/taxes">orders/{id}/taxes</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/orders/shipments">orders/{id}/shipments</a></td>
+</tr>
+<tr>
+<td>Products</td>
+<td><strong>store_v2_products</strong></td>
+<td><a href="/api/stores/v2/brands">brands</a></td>
+</tr>
+<tr>
+<td></td>
+<td><strong>store_v2_products_read_only</strong></td>
+<td><a href="/api/stores/v2/products/discount_rules">products/{id}/discount_rules</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/categories">categories</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/configurable_fields">products/{id}/configurable_fields</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/custom_fields">products/{id}/custom_fields</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/stores/v2/products/googleproductsearch">products/{id}/googleproductsearch</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-options">options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#option-sets">option_sets</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#option-sets-options">option_sets/{id}/options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-option-values">options/{id}/values</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products">products</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-images">products/{id}/images</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-options">products/{id}/options</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-reviews">products/{id}/reviews</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-rules">products/{id}/rules</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#products-videos">products/{id}/videos</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><a href="/api/v2/products/#product-skus">products/{id}/skus</a></td>
+</tr>
+</tbody></table>
+
+          <h2 id="rate-limits"><span class="jumptarget"> <a name="rate-limits_oauth"></a> Rate Limits </span></h2>
+
+<p>Apps that authenticate with OAuth are rate limited based on a quota that is refreshed every five seconds. The maximum quota for a store will vary depending on the store’s <a href="https://www.bigcommerce.com/pricing/" target="_blank"> plan </a>.</p>
+
+<p>Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.</p>
+
+<p>The store’s overall quota is evenly distributed across all apps that are accessing that store. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself.</p>
+
+<h3 id="playing-nicely-with-the-platform">Playing Nicely With The Platform</h3>
+
+<p>Your ability to honor the rate limiter is very easy.</p>
+
+<p>If your request to the API results in a <strong>429 Too Many Requests</strong> response, then you know you’ve been limited.</p>
+
+<p>The rate limited response will contain the <strong>X-Retry-After</strong> header, specifying a time (in seconds) that your client must wait before its quota has refreshed.</p>
+
+<p>Retry the request after this time has elapsed and your API service will resume as normal.</p>
+
+<h4 id="example">Example</h4>
+
+<p>When you see a response with the <code class="prettyprint">429</code> status code your client shouldn’t make any further requests until your quota has refreshed.</p>
+
+<p>HTTP/1.1 429 Too Many Requests
+    Date: Mon, 03 Feb 2014 20:36:00 GMT
+    Content-Type: application/json
+    X-Retry-After: 15</p>
+
+<p>Parse the <strong>X-Retry-After</strong> header to determine how long you have to wait. In this case, it would be 15 seconds.</p>
+
+<p>Your client can sleep on it:</p>
+
+<p>$seconds = $response-&gt;getHeader(&ldquo;X-Retry-After&rdquo;);
+    sleep($seconds);</p>
+
+<p>After waiting for the given number of seconds, you can go back to making API requests again.</p>
+
+          <h2 id="app-store-approval-requirements"><span class="jumptarget" id="approval"> App Store Approval Requirements </span></h2>
+
+<p>Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively:</p>
+
+<ul>
+<li><p>Apps must perform as described.</p></li>
+<li><p>All information supplied as part of the app submission process must be genuine and accurate.</p></li>
+<li><p>Apps must provide pricing information – including pricing for starting a new service, and the cost of services after the free trial.</p></li>
+<li><p>All API requests must be made using OAuth authentication.</p></li>
+<li><p>Apps must be production-ready and free of defects.
+<aside class="warning">
+NOTE: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
+</aside></p></li>
+<li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/v2/#ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
+<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
+<li><p>Apps must be easy to use.</p></li>
+<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
+<aside class="info">
+NOTE: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store&#160;Information</a> resource.
+</aside></p></li>
+<li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
+<li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
+<li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
+<li><p>No competitor integrations or references should appear in the app or in marketing materials.</p></li>
+<li><p>Any instances of the BigCommerce brand name must match current branding, i.e., one word with an uppercase &ldquo;C&rdquo;.</p></li>
+<li><p>Apps must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
+</ul>
+
+<h3 id="types-of-apps-we-39-re-accepting"><span class="jumptarget" id="apps-accepted"> Types of apps we&rsquo;re accepting </span></h3>
+
+<table><thead>
+<tr>
+<th>Accepting</th>
+<th>Not accepting</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Accounting</td>
+<td>Real-Time Tax</td>
+</tr>
+<tr>
+<td>Advertising</td>
+<td>Customized Checkout</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Real-time Shipping Rate updates</td>
+</tr>
+<tr>
+<td>Cloud integration</td>
+<td>Payment Methods</td>
+</tr>
+<tr>
+<td>Customer feedback</td>
+<td></td>
+</tr>
+<tr>
+<td>Drop shipping</td>
+<td></td>
+</tr>
+<tr>
+<td>Email marketing</td>
+<td></td>
+</tr>
+<tr>
+<td>Live chat</td>
+<td></td>
+</tr>
+<tr>
+<td>Marketing</td>
+<td></td>
+</tr>
+<tr>
+<td>Merchandising</td>
+<td></td>
+</tr>
+<tr>
+<td>Mobile</td>
+<td></td>
+</tr>
+<tr>
+<td>Multichannel listing</td>
+<td></td>
+</tr>
+<tr>
+<td>Order fulfillment</td>
+<td></td>
+</tr>
+<tr>
+<td>Order management</td>
+<td></td>
+</tr>
+<tr>
+<td>Point of sale</td>
+<td></td>
+</tr>
+<tr>
+<td>Product review</td>
+<td></td>
+</tr>
+<tr>
+<td>Shipping</td>
+<td></td>
+</tr>
+<tr>
+<td>Shopping comparison</td>
+<td></td>
+</tr>
+<tr>
+<td>Social media</td>
+<td></td>
+</tr>
+<tr>
+<td>Split testing</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
+
+          <h1 id="building-basic-auth-apps"><span class="jumptarget"> Building Basic-Auth Apps </span></h1>
 
 <aside class="notice">
 tK: We still need to migrate content here. 
@@ -1130,7 +1508,7 @@ tK: We still need to migrate content here.
 
 <p>Index of hierarchical categories used to organize and group products.</p>
 
-<h2 id="category-object-properties">Category Object – Properties</h2>
+<h2 id="category-object-properties"><span class="jumptarget"> Category Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1231,7 +1609,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="category-operations">Category Operations</h2>
+<h2 id="category-operations"><span class="jumptarget"> Category Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-categories">List Categories</a></li>
@@ -1243,7 +1621,7 @@ tK: We still need to migrate content here.
 <li>  <a href="#delete-all-categories">Delete All Categories</a></li>
 </ul>
 
-<h2 id="list-categories">List Categories</h2>
+<h2 id="list-categories"><span class="jumptarget"> List Categories </span></h2>
 
 <p>Gets the list of categories. (Default sorting is by category id, from lowest to highest.)</p>
 
@@ -1254,7 +1632,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/categories</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific categories in the collection.</p>
 
@@ -1292,7 +1670,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 categories are returned by default.</p>
 
@@ -1336,7 +1714,7 @@ tK: We still need to migrate content here.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-category">Get a Category</h2>
+<h2 id="get-a-category"><span class="jumptarget"> Get a Category </span></h2>
 
 <p>Gets a single category.</p>
 
@@ -1367,7 +1745,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-categories">Get a Count of Categories</h2>
+<h2 id="get-a-count-of-categories"><span class="jumptarget"> Get a Count of Categories </span></h2>
 
 <p>Gets a count of the total number of categories in the store.</p>
 
@@ -1382,7 +1760,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-category">Create a Category</h2>
+<h2 id="create-a-category"><span class="jumptarget"> Create a Category </span></h2>
 
 <p>Creates a new category.</p>
 
@@ -1393,7 +1771,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">POST /api/v2/categories</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1402,7 +1780,7 @@ tK: We still need to migrate content here.
 <li>  parent_category_list</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -1410,7 +1788,7 @@ tK: We still need to migrate content here.
 <li>  name</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your <code class="prettyprint">POST</code> causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.</p>
 
@@ -1440,7 +1818,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-category">Update a Category</h2>
+<h2 id="update-a-category"><span class="jumptarget"> Update a Category </span></h2>
 
 <p>Updates an existing category.</p>
 
@@ -1451,7 +1829,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">PUT /api/v2/categories/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties">Read-only Properties </span></h3>
 
 <p>The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1460,11 +1838,11 @@ tK: We still need to migrate content here.
 <li>  parent_category_list</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.</p>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">PUT</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your <code class="prettyprint">PUT</code> would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1488,7 +1866,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-category">Delete a Category</h2>
+<h2 id="delete-a-category"><span class="jumptarget"> Delete a Category </span></h2>
 
 <p>Deletes a category.</p>
 
@@ -1499,7 +1877,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">DELETE /api/v2/categories/{id}</code></li>
 </ul>
 
-<h2 id="delete-all-categories">Delete All Categories</h2>
+<h2 id="delete-all-categories"><span class="jumptarget"> Delete All Categories </span></h2>
 
 <p>Deletes all the categories in the store.</p>
 
@@ -1510,13 +1888,11 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">DELETE /api/v2/categories</code></li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<aside class="warning">
+NOTE: The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+</aside>
 
-<blockquote>
-<p>The <code class="prettyprint">DELETE</code> all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.</p>
-</blockquote>
-
-          <h1 id="brands">Brands</h1>
+          <h1 id="brands"><span class="jumptarget"> Brands </span></h1>
 
 <p>Brand facets for identifying and categorizing products according to their manufacturer or company metonym.</p>
 
@@ -1540,7 +1916,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="brand-object-properties">Brand Object - Properties</h2>
+<h2 id="brand-object-properties"><span class="jumptarget"> Brand Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1586,7 +1962,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-          <h2 id="operations">Operations</h2>
+          <h2 id="operations"><span class="jumptarget"> Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-brands">List Brands</a></li>
@@ -1598,7 +1974,7 @@ tK: We still need to migrate content here.
 <li>  <a href="#delete-all-brands">Delete All Brands</a></li>
 </ul>
 
-<h2 id="list-brands">List Brands</h2>
+<h2 id="list-brands"><span class="jumptarget"> List Brands </span></h2>
 
 <p>Gets the collection of brands. (Default sorting is by brand id, from lowest to highest.)</p>
 
@@ -1609,7 +1985,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/brands</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific brands in the collection.</p>
 
@@ -1637,7 +2013,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, Bigcommerce returns up to 50 brands by default.</p>
 
@@ -1681,7 +2057,7 @@ tK: We still need to migrate content here.
 ]
 </code></pre>
 
-<h2 id="get-a-brand">Get a Brand</h2>
+<h2 id="get-a-brand"><span class="jumptarget"> Get a Brand </span></h2>
 
 <p>Gets a brand.</p>
 
@@ -1702,7 +2078,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-brands">Get a Count of Brands</h2>
+<h2 id="get-a-count-of-brands"><span class="jumptarget"> Get a Count of Brands </span></h2>
 
 <p>Returns the total number of brands in the store.</p>
 
@@ -1717,7 +2093,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-brand">Create a Brand</h2>
+<h2 id="create-a-brand"><span class="jumptarget"> Create a Brand </span></h2>
 
 <p>Creates a new brand.</p>
 
@@ -1728,7 +2104,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">POST /api/v2/brands</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1736,7 +2112,7 @@ tK: We still need to migrate content here.
 <li>  id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -1744,7 +2120,7 @@ tK: We still need to migrate content here.
 <li>  name</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To maximize system performance, Bigcommerce caps the number of brands that can be added to a store at 30,000. If your POST causes the store to exceed the maximum of 30,000 brands, Bigcommerce will return a 403 error.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1763,7 +2139,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-brand">Update a Brand</h2>
+<h2 id="update-a-brand"><span class="jumptarget"> Update a Brand </span></h2>
 
 <p>Updates an existing brand.</p>
 
@@ -1774,7 +2150,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">PUT /api/v2/brands/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the brand are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1782,7 +2158,7 @@ tK: We still need to migrate content here.
 <li>  id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the brand are required. The request won’t be fulfilled unless these properties are valid.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1796,7 +2172,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-brand">Delete a Brand</h2>
+<h2 id="delete-a-brand"><span class="jumptarget"> Delete a Brand </span></h2>
 
 <p>Deletes a brand.</p>
 
@@ -1807,7 +2183,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">DELETE /api/v2/brands/{id}</code></li>
 </ul>
 
-<h2 id="delete-all-brands">Delete All Brands</h2>
+<h2 id="delete-all-brands"><span class="jumptarget"> Delete All Brands </span></h2>
 
 <p>Deletes all brands belonging to a product.</p>
 
@@ -1818,11 +2194,11 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">DELETE /api/v2/brands</code></li>
 </ul>
 
-          <h1 id="countries">Countries</h1>
+          <h1 id="countries"><span class="jumptarget"> Countries </span></h1>
 
 <p>A country or territory, identifiable by an ISO 3166 country code</p>
 
-<h2 id="country-object-properties">Country Object - Properties</h2>
+<h2 id="country-object-properties"><span class="jumptarget"> Country Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1874,7 +2250,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="country-operations">Country Operations</h2>
+<h2 id="country-operations"><span class="jumptarget"> Country Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-countries">List Countries</a></li>
@@ -1882,7 +2258,7 @@ tK: We still need to migrate content here.
 <li>  <a href="#get-a-count-of-countries">Get a Count of Countries</a></li>
 </ul>
 
-<h2 id="list-countries">List Countries</h2>
+<h2 id="list-countries"><span class="jumptarget"> List Countries </span></h2>
 
 <p>Gets the list of countries.</p>
 
@@ -1893,7 +2269,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/countries</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific countries in the collection.</p>
 
@@ -1921,7 +2297,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 countries are returned by default.</p>
 
@@ -1967,7 +2343,7 @@ tK: We still need to migrate content here.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-country">Get a Country</h2>
+<h2 id="get-a-country"><span class="jumptarget"> Get a Country </span></h2>
 
 <p>Gets a country.</p>
 
@@ -1989,7 +2365,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-countries">Get a Count of Countries</h2>
+<h2 id="get-a-count-of-countries"><span class="jumptarget"> Get a Count of Countries </span></h2>
 
 <p>Gets a count of countries.</p>
 
@@ -2004,11 +2380,11 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="state">State</h1>
+          <h1 id="state"><span class="jumptarget"> State </span></h1>
 
 <p>A state or province, identifiable by an ISO 3166 subdivision code</p>
 
-<h2 id="properties">Properties</h2>
+<h2 id="properties"><span class="jumptarget"> Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2055,7 +2431,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="state-operations">State Operations</h2>
+<h2 id="state-operations"><span class="jumptarget"> State Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-states">List States</a></li>
@@ -2063,7 +2439,7 @@ tK: We still need to migrate content here.
 <li>  <a href="#get-a-count-of-states">Get a Count of States</a></li>
 </ul>
 
-<h2 id="list-states">List States</h2>
+<h2 id="list-states"><span class="jumptarget"> List States </span></h2>
 
 <p>Gets the list of states belonging to a country.</p>
 
@@ -2074,7 +2450,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/countries/{country_id}/states</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific states in the collection.</p>
 
@@ -2097,7 +2473,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 states are returned by default.</p>
 
@@ -2135,7 +2511,7 @@ tK: We still need to migrate content here.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-state">Get a State</h2>
+<h2 id="get-a-state"><span class="jumptarget"> Get a State </span></h2>
 
 <p>Gets a state belonging to a country.</p>
 
@@ -2153,7 +2529,7 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-states">Get a Count of States</h2>
+<h2 id="get-a-count-of-states"><span class="jumptarget"> Get a Count of States </span></h2>
 
 <p>Gets a count of the number of states within a specified country.</p>
 
@@ -2168,11 +2544,11 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="tax-class">Tax Class</h1>
+          <h1 id="tax-class"><span class="jumptarget"> Tax Class </span></h1>
 
 <p>Tax classes are used to apply different tax rates for specific types of products and orders. NOTE: Data inside the <code class="prettyprint">tax_class</code> object of a store configured to use automatic taxes is ignored during tax calculations.</p>
 
-<h2 id="tax-class-object-properties">Tax Class Object - Properties</h2>
+<h2 id="tax-class-object-properties"><span class="jumptarget"> Tax Class Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2213,14 +2589,14 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="tax-class-operations">Tax Class Operations</h2>
+<h2 id="tax-class-operations"><span class="jumptarget"> Tax Class Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-tax-classes">List Tax Classes</a></li>
 <li>  <a href="#get-a-tax-class">Get a Tax Class</a></li>
 </ul>
 
-<h2 id="list-tax-classes">List Tax Classes</h2>
+<h2 id="list-tax-classes"><span class="jumptarget"> List Tax Classes </span></h2>
 
 <p>Gets the tax classes set up for a store. (Default sorting is by tax-class id, from lowest to highest.)</p>
 
@@ -2231,11 +2607,11 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/tax_classes</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">tax_classes</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 tax_classes are returned by default.</p>
 
@@ -2258,7 +2634,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="get-a-tax-class">Get a Tax Class</h2>
+<h2 id="get-a-tax-class"><span class="jumptarget"> Get a Tax Class </span></h2>
 
 <p>Gets a tax class.</p>
 
@@ -2269,11 +2645,11 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/tax_classes/{id}</code></li>
 </ul>
 
-          <h1 id="shipping-methods">Shipping Methods</h1>
+          <h1 id="shipping-methods"><span class="jumptarget"> Shipping Methods </span></h1>
 
 <p>Enabled Shipping Methods within the store.</p>
 
-<h2 id="shipping-method-object-properties">Shipping Method Object - Properties</h2>
+<h2 id="shipping-method-object-properties"><span class="jumptarget"> Shipping Method Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2319,14 +2695,14 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="shipping-method-operations">Shipping Method Operations</h2>
+<h2 id="shipping-method-operations"><span class="jumptarget"> Shipping Method Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-shipping-methods">List Shipping Methods</a></li>
 <li>  <a href="#get-a-shipping-method">Get a Shipping Method</a></li>
 </ul>
 
-<h2 id="list-shipping-methods">List Shipping Methods</h2>
+<h2 id="list-shipping-methods"><span class="jumptarget"> List Shipping Methods </span></h2>
 
 <p>Gets the list of shipping methods. (Default sorting is by shipping-method id, from lowest to highest.)</p>
 
@@ -2337,7 +2713,7 @@ tK: We still need to migrate content here.
 &gt;<code class="prettyprint">GET /api/v2/shipping/methods</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific shipping_methods in the collection.</p>
 
@@ -2365,7 +2741,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipping_methods are returned by default.</p>
 
@@ -2396,7 +2772,7 @@ tK: We still need to migrate content here.
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-shipping-method">Get a Shipping Method</h2>
+<h2 id="get-a-shipping-method"><span class="jumptarget"> Get a Shipping Method </span></h2>
 
 <p>Gets a shipping method.</p>
 
@@ -2413,11 +2789,11 @@ tK: We still need to migrate content here.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="gift-certificates">Gift Certificates</h1>
+          <h1 id="gift-certificates"><span class="jumptarget"> Gift Certificates </span></h1>
 
 <p>Gift certificates available to offer to a store&rsquo;s customers.</p>
 
-<h2 id="gift-certificate-object-properties">Gift Certificate Object - Properties</h2>
+<h2 id="gift-certificate-object-properties"><span class="jumptarget"> Gift Certificate Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2503,23 +2879,24 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-          <h2 id="gift-certificate-operations">Gift Certificate Operations</h2>
+          <h2 id="gift-certificate-operations"><span class="jumptarget"> Gift Certificate Operations </span></h2>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h2 id="list-gift-certificates">List Gift Certificates</h2>
+<h2 id="list-gift-certificates"><span class="jumptarget"> List Gift Certificates </span></h2>
 
 <p>Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)</p>
 
-<blockquote>
-<p><code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates</code></p>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates</code><br></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">GET /api/v2/gift_certificates</code></li>
+</ul>
 
-<p><code class="prettyprint">GET /api/v2/gift_certificates</code></p>
-</blockquote>
-
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific gift_certificates in the collection.</p>
 
@@ -2643,15 +3020,16 @@ MIGRATION NOTE: Stacked heads; insert something here!
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-gift-certificate">Get a Gift Certificate</h2>
+<h2 id="get-a-gift-certificate"><span class="jumptarget"> Get a Gift Certificate </span></h2>
 
 <p>Retrieves a specified gift certificate.</p>
 
-<blockquote>
-<p><code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates/{id}</code></p>
-
-<p><code class="prettyprint">GET /api/v2/gift_certificates/{id}</code></p>
-</blockquote>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">GET /stores/{store_hash}/v2/gift_certificates/{id}</code></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">GET /api/v2/gift_certificates/{id}</code></li>
+</ul>
 <pre class="highlight json"><code><span class="w">    </span><span class="p">{</span><span class="w">
       </span><span class="nt">"giftcertificate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"24"</span><span class="p">,</span><span class="w">
@@ -2672,21 +3050,22 @@ MIGRATION NOTE: Stacked heads; insert something here!
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-gift-certificate">Create a Gift Certificate</h2>
+<h2 id="create-a-gift-certificate"><span class="jumptarget"> Create a Gift Certificate </span></h2>
 
 <p>Creates a new gift certificate.</p>
 
-<blockquote>
-<p><code class="prettyprint">POST /stores/{store_hash}/v2/gift_certificates</code></p>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">POST /stores/{store_hash}/v2/gift_certificates</code></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">POST /api/v2/gift_certificates</code></li>
+</ul>
 
-<p><code class="prettyprint">POST /api/v2/gift_certificates</code></p>
-</blockquote>
-
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the gift certificate are required. The request won&rsquo;t be fulfilled unless these properties are valid.</p>
 
@@ -2698,7 +3077,7 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <li>amount</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>When a gift certificate is created through the API, no email notification is triggered to the specified recipient.</p>
 
@@ -2752,17 +3131,18 @@ MIGRATION NOTE: Stacked heads; insert something here!
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-gift-certificate">Update a Gift Certificate</h2>
+<h2 id="update-a-gift-certificate"><span class="jumptarget"> Update a Gift Certificate </span></h2>
 
 <p>Updates an existing gift certificate.</p>
 
-<blockquote>
-<p><code class="prettyprint">PUT /stores/{store_hash}/v2/gift_certificates</code></p>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">PUT /stores/{store_hash}/v2/gift_certificates</code></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">PUT /api/v2/gift_certificates</code></li>
+</ul>
 
-<p><code class="prettyprint">PUT /api/v2/gift_certificates</code></p>
-</blockquote>
-
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 <pre class="highlight plaintext"><code>    {
@@ -2789,25 +3169,27 @@ MIGRATION NOTE: Stacked heads; insert something here!
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-gift-certificate">Delete a Gift Certificate</h2>
+<h2 id="delete-a-gift-certificate"><span class="jumptarget"> Delete a Gift Certificate </span></h2>
 
 <p>Deletes a specified gift certificate. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
 
-<blockquote>
-<p><code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates/{id}</code></p>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates/{id}</code></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">DELETE /api/v2/gift_certificates/{id}</code></li>
+</ul>
 
-<p><code class="prettyprint">DELETE /api/v2/gift_certificates/{id}</code></p>
-</blockquote>
-
-<h2 id="delete-all-gift-certificates">Delete All Gift Certificates</h2>
+<h2 id="delete-all-gift-certificates"><span class="jumptarget"> Delete All Gift Certificates </span></h2>
 
 <p>Deletes all gift certificates associated with the store. (If successful, this will typically return a &ldquo;204 No Content&rdquo;.)</p>
 
-<blockquote>
-<p><code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates</code></p>
-
-<p><code class="prettyprint">DELETE /api/v2/gift_certificates</code> </p>
-</blockquote>
+<ul>
+<li>  <a href="#list-shipping-methods-oauth">OAuth</a>
+<code class="prettyprint">DELETE /stores/{store_hash}/v2/gift_certificates</code></li>
+<li>  <a href="#list-shipping-methods-basic">Basic Auth</a>
+<code class="prettyprint">DELETE /api/v2/gift_certificates</code> </li>
+</ul>
 
           <h1 id="banners">Banners</h1>
 
@@ -3153,11 +3535,11 @@ DELETE /api/v2/banners/{id}
 DELETE /api/v2/banners
 </code></pre>
 
-          <h1 id="blog-posts">Blog Posts</h1>
+          <h1 id="blog-posts"><span class="jumptarget"> Blog Posts </span></h1>
 
 <p>A content entry in the store’s blog</p>
 
-<h2 id="blog-post-object-properties">Blog Post Object - Properties</h2>
+<h2 id="blog-post-object-properties"><span class="jumptarget"> Blog Post Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -3223,7 +3605,7 @@ DELETE /api/v2/banners
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
+<h2 id="operations"><span class="jumptarget"> Operations </span></h2>
 
 <ul>
 <li>  <a href="#list-blog-posts">List Blog Posts</a></li>
@@ -3235,7 +3617,7 @@ DELETE /api/v2/banners
 <li>  <a href="#delete-multiple-blog-posts">Delete Multiple Blog Posts</a></li>
 </ul>
 
-<h2 id="list-blog-posts">List Blog Posts</h2>
+<h2 id="list-blog-posts"><span class="jumptarget"> List Blog Posts </span></h2>
 
 <p>Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)</p>
 
@@ -3243,19 +3625,15 @@ DELETE /api/v2/banners
 <li>  <a href="#list-blog-posts-oauth">OAuth</a></li>
 </ul>
 
-<blockquote>
 <p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts</code></p>
-</blockquote>
 
 <ul>
 <li>  <a href="#list-blog-posts-basic">Basic Auth</a></li>
 </ul>
 
-<blockquote>
 <p><code class="prettyprint">GET /api/v2/blog/posts</code></p>
-</blockquote>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific blog_posts in the collection.</p>
 
@@ -3288,7 +3666,7 @@ DELETE /api/v2/banners
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
 
@@ -3351,7 +3729,7 @@ DELETE /api/v2/banners
 </span><span class="err">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-blog-post">Get a Blog Post</h2>
+<h2 id="get-a-blog-post"><span class="jumptarget"> Get a Blog Post </span></h2>
 
 <p>Gets a blog post.</p>
 
@@ -3359,12 +3737,10 @@ DELETE /api/v2/banners
 <li>  <a href="#get-a-blog-post-oauth">OAuth</a></li>
 </ul>
 
-<blockquote>
 <p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts/{id}</code>
 *   <a href="#get-a-blog-post-basic">Basic Auth</a></p>
 
 <p><code class="prettyprint">GET /api/v2/blog/posts/{id}</code></p>
-</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Your first blog post!"</span><span class="p">,</span><span class="w">
@@ -3386,37 +3762,33 @@ DELETE /api/v2/banners
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-blog-posts">Get a Count of Blog Posts</h2>
+<h2 id="get-a-count-of-blog-posts"><span class="jumptarget"> Get a Count of Blog Posts </span></h2>
 
 <p>Gets a count of blog posts.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-blog-posts-oauth">OAuth</a></li>
+<li>  <a href="#get-a-count-of-blog-posts-oauth">OAuth</a>
+<code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts/count</code></li>
+<li>  <a href="#get-a-count-of-blog-posts-basic">Basic Auth</a>
+<code class="prettyprint">GET /api/v2/blog/posts/count</code></li>
 </ul>
-
-<blockquote>
-<p><code class="prettyprint">GET /stores/{store_hash}/v2/blog/posts/count</code>
-*   <a href="#get-a-count-of-blog-posts-basic">Basic Auth</a></p>
-
-<p><code class="prettyprint">GET /api/v2/blog/posts/count</code></p>
-</blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-blog-post">Create a Blog Post</h2>
+<h2 id="create-a-blog-post"><span class="jumptarget"> Create a Blog Post </span></h2>
 
 <p>Creates a new blog post.</p>
 
 <ul>
 <li>  <a href="#create-a-blog-post-oauth">OAuth</a>
-&gt;<code class="prettyprint">POST /stores/{store_hash}/v2/blog/posts</code></li>
+<code class="prettyprint">POST /stores/{store_hash}/v2/blog/posts</code></li>
 <li>  <a href="#create-a-blog-post-basic">Basic Auth</a>
-&gt;<code class="prettyprint">POST /api/v2/blog/posts</code></li>
+<code class="prettyprint">POST /api/v2/blog/posts</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3425,7 +3797,7 @@ DELETE /api/v2/banners
 <li>  preview_url</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -3434,11 +3806,11 @@ DELETE /api/v2/banners
 <li>  body</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-<p>Blog posts default to draft status. Set is_published to true to publish posts to the storefront.</p>
+<p>Blog posts default to draft status. Set <code class="prettyprint">is_published</code> to true to publish posts to the storefront.</p>
 
-<p>If a custom url is not provided, the post’s URL will be generated based on the value of title.</p>
+<p>If a custom url is not provided, the post’s URL will be generated based on the value of <code class="prettyprint">title</code>.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Sample Blog Post"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"body"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;p&gt;This is a blog post.&lt;/p&gt;"</span><span class="p">,</span><span class="w">
@@ -3453,18 +3825,18 @@ DELETE /api/v2/banners
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-blog-post">Update a Blog Post</h2>
+<h2 id="update-a-blog-post"><span class="jumptarget"> Update a Blog Post </span></h2>
 
 <p>Updates an existing blog post.</p>
 
 <ul>
 <li>  <a href="#update-a-blog-post-oauth">OAuth</a>
-&gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/blog/posts/{id}</code></li>
+<code class="prettyprint">PUT /stores/{store_hash}/v2/blog/posts/{id}</code></li>
 <li>  <a href="#update-a-blog-post-basic">Basic Auth</a>
-&gt;<code class="prettyprint">PUT /api/v2/blog/posts/{id}</code></li>
+<code class="prettyprint">PUT /api/v2/blog/posts/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3473,7 +3845,7 @@ DELETE /api/v2/banners
 <li>  preview_url</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3482,29 +3854,29 @@ DELETE /api/v2/banners
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-blog-post">Delete a Blog Post</h2>
+<h2 id="delete-a-blog-post"><span class="jumptarget"> Delete a Blog Post </span></h2>
 
 <p>Deletes a blog post.</p>
 
 <ul>
 <li>  <a href="#delete-a-blog-post-oauth">OAuth</a>
-&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts/{id}</code></li>
+<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts/{id}</code></li>
 <li>  <a href="#delete-a-blog-post-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/blog/posts/{id}</code></li>
+<code class="prettyprint">DELETE /api/v2/blog/posts/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-blog-posts">Delete Multiple Blog Posts</h2>
+<h2 id="delete-multiple-blog-posts"><span class="jumptarget"> Delete Multiple Blog Posts </span></h2>
 
 <p>Deletes multiple blog posts in the collection.</p>
 
 <ul>
 <li>  <a href="#delete-multiple-blog-posts-oauth">OAuth</a>
-&gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts</code></li>
+<code class="prettyprint">DELETE /stores/{store_hash}/v2/blog/posts</code></li>
 <li>  <a href="#delete-multiple-blog-posts-basic">Basic Auth</a>
-&gt;<code class="prettyprint">DELETE /api/v2/blog/posts</code></li>
+<code class="prettyprint">DELETE /api/v2/blog/posts</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination">Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.</p>
 
@@ -3960,6 +4332,11 @@ NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</
 <td>domain</td>
 <td>string</td>
 <td>Primary domain name.</td>
+</tr>
+<tr>
+<td>secure_URL</td>
+<td>string</td>
+<td>The store&rsquo;s current HTTPS URL.</td>
 </tr>
 <tr>
 <td>name</td>

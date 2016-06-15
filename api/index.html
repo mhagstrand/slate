@@ -472,11 +472,15 @@
 </tr>
 </tbody></table>
 
-          <h1 id="oauth-scopes">OAuth Scopes</h1>
+          <h2 id="oauth-scopes"><span class="jumptarget"> <a name="scopes"></a> OAuth Scopes </span></h2>
 
-<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api#callback">installation or scope updates</a>.</p>
+<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api/v2/#installation">installation or scope updates</a>.</p>
 
 <p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
+
+<aside class="warning">
+MIGRATION NOTE: All links in the right column need to be re-set!
+</aside>
 
 <table><thead>
 <tr>
@@ -697,132 +701,7 @@
 </tr>
 </tbody></table>
 
-          <h2 id="introduction">Introduction</h2>
-
-<p>Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively.</p>
-
-<h2 id="app-requirements">App Requirements</h2>
-
-<ul>
-<li><p>Apps must perform as described.</p></li>
-<li><p>All information supplied as part of the app submission process must be genuine and accurate.</p></li>
-<li><p>Apps must provide pricing information – including pricing for starting a new service, and the cost of services after the free trial.</p></li>
-<li><p>All API requests must be made using OAuth authentication.</p></li>
-<li><p>Apps must be production-ready and free of defects.</p></li>
-</ul>
-
-<p>PRO TIP: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store as a draft area to conduct your tests.</p>
-
-<ul>
-<li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
-<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
-<li><p>Apps must be easy to use.</p></li>
-<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p></li>
-</ul>
-
-<p>PRO TIP: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store&#160;Information</a> resource.</p>
-
-<ul>
-<li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
-<li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
-<li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
-<li><p>No competitor integrations or references should appear in the app or in marketing materials.</p></li>
-<li><p>Any instances of the BigCommerce brand name must match current branding, i.e., one word with an uppercase &ldquo;C&rdquo;.</p></li>
-<li><p>Apps must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
-</ul>
-
-<h2 id="types-of-apps-we-39-re-accepting">Types of apps we&rsquo;re accepting</h2>
-
-<table><thead>
-<tr>
-<th>Accepting</th>
-<th>Not accepting</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Accounting</td>
-<td>Real-Time Tax</td>
-</tr>
-<tr>
-<td>Advertising</td>
-<td>Customized Checkout</td>
-</tr>
-<tr>
-<td>Analytics</td>
-<td>Real-time Shipping Rate updates</td>
-</tr>
-<tr>
-<td>Cloud integration</td>
-<td>Payment Methods</td>
-</tr>
-<tr>
-<td>Customer feedback</td>
-<td></td>
-</tr>
-<tr>
-<td>Drop shipping</td>
-<td></td>
-</tr>
-<tr>
-<td>Email marketing</td>
-<td></td>
-</tr>
-<tr>
-<td>Live chat</td>
-<td></td>
-</tr>
-<tr>
-<td>Marketing</td>
-<td></td>
-</tr>
-<tr>
-<td>Merchandising</td>
-<td></td>
-</tr>
-<tr>
-<td>Mobile</td>
-<td></td>
-</tr>
-<tr>
-<td>Multichannel listing</td>
-<td></td>
-</tr>
-<tr>
-<td>Order fulfillment</td>
-<td></td>
-</tr>
-<tr>
-<td>Order management</td>
-<td></td>
-</tr>
-<tr>
-<td>Point of sale</td>
-<td></td>
-</tr>
-<tr>
-<td>Product review</td>
-<td></td>
-</tr>
-<tr>
-<td>Shipping</td>
-<td></td>
-</tr>
-<tr>
-<td>Shopping comparison</td>
-<td></td>
-</tr>
-<tr>
-<td>Social media</td>
-<td></td>
-</tr>
-<tr>
-<td>Split testing</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
-
+          
           <h1 id="supported-browsers">Supported Browsers</h1>
 
 <p>The following table identifies the browsers supported for the Bigcommerce Control Panel. We drop support when usage falls below 2%. The browsers are sorted by popularity, with the most popular browsers at the top.</p>
@@ -898,7 +777,7 @@
 
 <p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
 
-          <h2 id="app-registration"><a name="registration"></a> App Registration</h2>
+          <h2 id="app-registration"><span class="jumptarget"> <a name="registration"></a> App Registration </span></h2>
 
 <p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
 
@@ -909,13 +788,13 @@
 
 <p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
 
-<h3 id="technical-requirements">Technical Requirements</h3>
+<h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-<h4 id="auth-callback-and-load-callback-uris">Auth Callback and Load Callback URIs</h4>
+<h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
 
 <p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
 
@@ -923,11 +802,11 @@ MIGRATION NOTE: Stacked heads; insert something here!
 NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
-<h4 id="uninstall-callback-optional">Uninstall callback (optional)</h4>
+<h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall callback (optional) </span></h4>
 
 <p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
 
-<h4 id="multi-user-support-optional">Multi-user support (optional)</h4>
+<h4 id="multi-user-support-optional"><span class="jumptarget"> Multi-user support (optional) </span></h4>
 
 <p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
 
@@ -937,9 +816,9 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 <li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
 </ul>
 
-<h4 id="oauth-scopes">OAuth scopes</h4>
+<h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span></h4>
 
-<p>If you know the <a href="/api/scopes">OAuth scopes</a> that your app requires, you should select these. If you do not know the scopes that you need yet, you can just request the maximum permissions to get going quickly. However, once you determine the scopes you need, you must:</p>
+<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code>Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
@@ -947,34 +826,31 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 <li>  Retest your app to make sure it still functions properly with the new token.</li>
 </ul>
 
-<h3 id="registering-your-app">Registering your app</h3>
+<h3 id="registering-your-app"><span class="jumptarget"> Registering your app </span></h3>
 
 <p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
 
 <ol>
-<li> Click <code class="prettyprint">Log In</code> at Developer Portal&rsquo;s top right.</li>
+<li> Log in at Developer Portal&rsquo;s top right.</li>
 <li> In the resulting login page, provide your sandbox store credentials.
 <aside class="notice">
 NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
-</aside>
-<aside class="warning">
-TEMPORARY MIGRATION NOTE: MK needs to rewrite the following instructions. Each step is written backwards. 
 </aside></li>
 <li> Click <code class="prettyprint">My Apps</code>.</li>
 <li> Click <code class="prettyprint">Create an app</code>.</li>
-<li> Type a name for your app in the <code class="prettyprint">Create an App</code> dialog.</li>
+<li> In the <code class="prettyprint">Create an App</code> dialog, type a name for your app.</li>
 <li> Click <code class="prettyprint">Next</code>.</li>
 <li> Click <code class="prettyprint">Next</code> again.</li>
 <li> Click <code class="prettyprint">Next</code> one more time.</li>
-<li> Type your <code class="prettyprint">Auth Callback URI</code> in the <code class="prettyprint">Auth Callback URL</code> box.</li>
-<li> Type your <code class="prettyprint">Load Callback URI</code> in the <code class="prettyprint">Load Callback URL</code> box.</li>
-<li> If you have an <code class="prettyprint">Uninstall Callback URI</code>, provide this in the <code class="prettyprint">Uninstall Callback URI</code> box.</li>
-<li> If you want to support multiple users, select <code class="prettyprint">Multiple Users</code> in the <code class="prettyprint">Supported Features</code> area and provide a <code class="prettyprint">Remove User Callback URI</code> in the <code class="prettyprint">Remove User Callback URI</code> box.</li>
-<li> Select the OAuth scopes that your app requires. If you do not yet know, select the maximum scopes.</li>
+<li> In the <code class="prettyprint">Auth Callback URL</code> box, type your <code class="prettyprint">Auth Callback URI</code>.</li>
+<li> In the <code class="prettyprint">Load Callback URL</code> box, type your <code class="prettyprint">Load Callback URI</code>.</li>
+<li> In the <code class="prettyprint">Uninstall Callback URI</code> box, provide your <code class="prettyprint">Uninstall Callback URI</code> if you have one.</li>
+<li> If you want to support multiple users: In the <code class="prettyprint">Supported Features</code> area, select <code class="prettyprint">Multiple Users</code>; and in the <code class="prettyprint">Remove User Callback URI</code> box, provide a <code class="prettyprint">Remove User Callback URI</code>.</li>
+<li> Select the OAuth scopes that your app requires. If you do not yet know, select minimal scopes, such as <code class="prettyprint">Information: Read-Only</code>.</li>
 <li> Click <code class="prettyprint">Update &amp; Close</code>.</li>
-<li> Back in <code class="prettyprint">My Apps</code> hover over your app.</li>
+<li> Back in <code class="prettyprint">My Apps</code>, hover over your app.</li>
 <li> Click <code class="prettyprint">View Client ID</code>.</li>
-<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog and paste them into a safe and secure place.</li>
+<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog, and paste them into a safe and secure place.</li>
 </ol>
 
           <h2 id="what-kind-of-apps-can-i-submit">What kind of apps can I submit?</h2>
