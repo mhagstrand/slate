@@ -1,5 +1,33 @@
 # 2016
 
+## June
+
+### Store Information endpoint now passes secure store URL
+
+The Store Information endpoint now provides a `secure_url` field, containing the store's secure (HTTPS) URL.
+
+This new field facilitates the <a href="https://jwt.io/introduction/" target="_blank"> JWT (JSON Web Token)</a> approach to login tokens. Apps and integrations will be able to generate tokens on the client side, containing a partial URL. By consuming the `secure_url` value, the app or integration will be able to complete the URL.
+
+We have this new property to our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
+
+
+### New variables separate raw price from currency
+
+Bigcommerce's Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:
+
+- `%%GLOBAL_RawProductPrice%%`
+- `%%GLOBAL_SelectedCurrencyCode%%`
+
+The `%%GLOBAL_RawProductPrice%%` variable specifies a product's raw numeric price, with no currency metadata. The `%%GLOBAL_SelectedCurrencyCode%%` variable specifies the currency as an [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)–compliant alphanumeric code.
+
+You can use these variables as alternatives to the `%%GLOBAL_ProductPrice%%` variable, which combines the numeric price with a currency token. If your theme uses microdata, these new variables facilitate two microdata best practices:
+
+- Isolate numeric price from currency metadata.
+- Represent currency as a unique alphanumeric code, rather than as an "ambiguous" token/symbol that could be shared among multiple national currencies.
+
+The two new variables are available in all snippets where products are available. (In general, this is anywhere that `%%GLOBAL_ProductPrice%%` appears). You can find them listed on [this updated reference page](/themes/global_variables).
+
+
 ## May
 
 ### Order Shipment resource adds "shipping_provider" field
