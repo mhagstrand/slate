@@ -2,6 +2,13 @@
 
 ## June
 
+### API: Order Shipment resource adds "shipping_provider" field
+
+The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
+
+We have added this field to the [Order Shipment](/api/v2#shipping-methods) documentation, including the sample responses for Order Shipment endpoints that can return this field.
+
+
 ### Store Information endpoint now passes secure store URL
 
 The Store Information endpoint now provides a `secure_url` field, containing the store's secure (HTTPS) URL.
