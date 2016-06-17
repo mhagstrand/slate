@@ -914,6 +914,19 @@ img {
       /* background-color:  #86848C;  /* BC '16 Medium Gray */
 }
 
+/* Added by Alyss 6/15/16, for brand/site consistency: */
+.changelog {
+  .content h1, h2 {
+    color: white;
+    font-size: 0em;
+  }
+/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
+    left h1 unchanged from default "$h1-margin-bottom": */
+  h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 11px;
+  }
+} 
 
 /* Next block commented out 5/20/16, to prevent changelog's left nav from scrolling to arbitrary past years: */
 /* .changelog {
@@ -921,13 +934,6 @@ img {
   display: none;
   }
 } */
-
-/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
-    left h1 unchanged from default "$h1-margin-bottom": */
-.changelog h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 11px;
-}
 
 table td:nth-child(3) {
   word-break: break-word;
