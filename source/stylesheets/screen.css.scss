@@ -233,6 +233,9 @@ html, body {
       color: $nav-text;
       font-size: 13px;
       font-weight: $tocify-font-weight;
+      /* Added 6/13/16: BlockCypher-style shadeing of whole selected section in left nav: */
+      /* background-color:  #86848C;  /* BC '16 Medium Gray */
+      background-color:  #5D5B66;  /* BC '16 Dark Gray */
 
       // Nested for nested 3rd level, from: https://github.com/tripit/slate/wiki/Deeper-Nesting:
       .tocify-subheader {
@@ -558,7 +561,11 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
+    /* background-color: rgba(0,0,0,0.05); */
+    /* ^ Swapped out this indistinct dark gray, 6/8/16, for: */
+    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+    /* Added 6/8/16 to color *inline* code text (*not* over a black code box) crimson, like Stencil site's: */
+    color: #cc2255;
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
@@ -568,6 +575,8 @@ html, body {
   pre>code {
     background-color: transparent;
     padding: 0;
+    /* Added 6/8/16 to maintain standard *gray* code text when code appears over black – because all reds clash with black: */
+    color: #F7F7F7;
   }
 
   aside {
@@ -578,11 +587,10 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
-    /* Next tags copied from body, 5/15/16, to conform callout boxes to global column width: */
+    /* Added 6/8/16 to achieve consistent "aside" appearance, even when callouts are indented: */
+    padding-left: 1em;
+    /* Next tag copied from body, 5/15/16, to conform callout boxes to global column width: */
     margin-left: 2em;
-    /* Next 2 do nothing – right side refuses to pull in flush with body-text margin: 
-    width: 90%;
-    min-width: 850px; */
     /* :End width-conforming tags */
 
     &.warning {
@@ -661,26 +669,51 @@ html, body {
     width: 90%;
   }
 
+  /* Added 6/8/16 to match blockquotes' padding/"frame" to center's/"p's"	 plain-gray: \/ */
+  blockquote {
+    /* background-color: #919596; */
+    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+  }
+
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
+      /* background-color: $code-annotation-bg; */
+      /* ^ Swapped 6/8/16 to turn blockquotes from framed-black to plain-gray boxes: \/ */
+      /* background-color: #D3D5D5; – tried, but too close to grayish body-text color */
+      /* background-color: #919596;  – tried, but too dark for crimson text */
+      background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
       border-radius: 5px;
       padding: $code-annotation-padding;
       color: #ccc;
-      border-top: 1px solid #34313F;
-      border-bottom: 1px solid #404040;
+      /* border-top: 1px solid #34313F;
+      border-bottom: 1px solid #404040; */
+      /* ^ Swapped 6/8/16 to match blockquotes' padding to center's plain-gray: \/ */
+      /* border-top: 1px solid #919596;
+      border-bottom: 1px solid #919596; */
+      border-top: 1px solid #f5f5f5;  /* "White smoke" */
+      border-bottom: 1px solid #f5f5f5;  /* "White smoke" */
     }
   }
 }
 
 body.twocolumn {
   .content {
-    pre, blockquote {
+     /* Commented out blockquotes 6/8/16, to separately conform their width to overall column width: */
+    pre/*, blockquote*/ {
       width: auto;
       float: none;
       padding: 0.8em 18px;
       margin-right: 28px;
     }
+
+     /* Separated out blockquotes 6/8/16, to conform their width to overall column width; 80% is too wide: */
+    blockquote {
+      width: 75%;
+      float: none;
+      padding: 0.8em 18px;
+      margin-right: 28px;
+    }
+
 
     pre {
       margin-left: 28px;
@@ -690,14 +723,26 @@ body.twocolumn {
       font-size: 13px;
       line-height: 1.6;
       margin-bottom: 1.4em;
-      width: 90%;
+      /* width: 90%; */
+      /* ^ Swapped 6/8/16 to trim code blocks' right margin to match surrounding body text; 80% is too wide: \/ */
+      width: 75%;
     }
 
-    &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+     /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
+    &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, /* &>aside,*/ &>dl {
       margin-right: 0;
       /* Next 2–3 lines added 4/27/16 to, constrain vertical and horizontal bloat: */
       line-height: 125%;      
       width: 80%;
+      min-width: 850px;
+    }
+
+     /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
+    &>aside {
+      margin-right: 0;
+      line-height: 125%;      
+      /* Tweaked 6/8/16 to conform "aside" width: */
+      width: 70%;
       min-width: 850px;
     }
   }
@@ -865,19 +910,24 @@ img {
 
 #tocify-header0 > li {
   display: none;
+      /* Added 6/13/16: BlockCypher-style shadeing of whole selected section in left nav: */
+      /* background-color:  #86848C;  /* BC '16 Medium Gray */
 }
 
-.changelog {
+
+/* Next block commented out 5/20/16, to prevent changelog's left nav from scrolling to arbitrary past years: */
+/* .changelog {
   .content h1, h2 {
-    color: white;
-    font-size: 0em;
+  display: none;
   }
-  h2, h3, h4, h5, h6 {
+} */
+
+/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
+    left h1 unchanged from default "$h1-margin-bottom": */
+.changelog h2, h3, h4, h5, h6 {
     margin-top: 0;
     margin-bottom: 11px;
-  }
-} 
-
+}
 
 table td:nth-child(3) {
   word-break: break-word;
@@ -899,9 +949,73 @@ table td:nth-child(3) {
 }
 
 /* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
+
 .jumptarget::before {
   content:"";
   display:block;
   height:85px; /* fixed header height*/
-  margin:-85px 0 0; /* negative fixed header height */
+  margin:-85px 0 0; /* negative fixed header height */ 
+}
+
+/* Added 6/10/16: Failed riff on earlier "jumptarget". This supports an empty "jumptarget" span in the headings' html, *above* the span containing the actual heading. That span was a hack intended to clear jump targets from under the top nav, when the links are clicked from body text. (The negative margin-left in this selector is a hack to undo the unwanted left indent created by the empty-span hack.) 
+
+Unfortunately, this fails. It does clear headings selected from within body text. But it breaks all behavior around the left nav: Children of headings with this tagging don't show in the left nav. When clicked from the left nav, these links do NOT clear the top nav. Also, when clicked, this tag entirely collapses the left nav's parent heading. So, ignore: */
+
+.jumpleft {
+  margin-left: -0.4em;
+}
+
+/* Tried 6/13/16: Combines jumptarget & jumpleft code into one new group, intended 
+to clear all jump targets from top nav. Uses pseudo-elements both above & below. 
+But doesn't work – requires dual tagging, so breaks left nav just like the separate jumpleft tag:
+
+.jumptarget2::before {
+  content:"";
+  display:block;
+  height:85px;
+  margin:-85px 0 0; 
+}
+
+.jumptarget2::after {
+   content: "";
+   display: block;
+  margin-left: -0.4em;
+} */
+
+/* Tried 6/12/16: nicolasgallagher.com's "Method D+", intended to clear all jump targets from 
+top nav, ideally using one tag. Employs pseudo-element to mimic top-border. But doesn't work:
+
+.jumpfancy {
+    position: relative;
+    padding: 15px;
+    border-top: 87px solid transparent;
+    margin-top: -85px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+
+.jumpfancy:before {
+    content: "";
+    position: absolute;
+    top: -25px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid #ccc;
+} */
+
+/* Noted 5/18/16: The following selector would constrain the width of /api/ body text & blockquote (other than blockquote's added border – blockquote is getting $examples-width + some added border and/or padding). But this would also rein in code blocks' widths, to slightly narrower than the body-text width. That looks good to the eye, but will truncate wide code blocks: */
+
+/* .api .content {
+.themes, .api > html, body { 
+    width: 80%;
+    min-width: 850px;
+} */
+
+/* Stashed 6/9/16, just in case: A hack that provides transparent text, to double-tag h2's that weren't showing up the left nav. But didn't need this – the real fix is to avoid any jumps from an h1 directly down to an h3. */ 
+
+ .invisible {
+    color: #000; /* Fallback for older browsers */
+    color: rgba(0, 0, 0, 0);
+    line-height: 1%;
 }
