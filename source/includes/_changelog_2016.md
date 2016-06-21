@@ -2,7 +2,22 @@
 
 ## June
 
-### API: Order Shipment resource adds "shipping_provider" field
+
+### Request for comment on proposed Cart API schema
+
+BigCommerce requests our App Partners' help in creating a public Cart API. We have posted an open <a href="https://github.com/bigcommerce/api" target="_blank">request for comment (RFC)</a> on our proposed Cart API schema. We invite your feedback, to ensure that this API will accommodate your needs and use cases. 
+
+So far, our draft anticipates use cases like these: 
+
+  * Retrieving an abandoned cart.
+  * Reconstructing a cart from a URL.
+  * Supporting multiple shipping destinations for a single cart quote.
+
+Links to the post are also available on the <a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW" target="_blank">BigCommerce Developer forum</a>, and on Twitter from <a href="https://twitter.com/BigEng/status/744945588316180481" target="_blank">@BigEng</a>.
+
+
+
+### Order Shipment resource adds "shipping_provider" field
 
 The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
 
