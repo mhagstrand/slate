@@ -233,9 +233,10 @@ html, body {
       color: $nav-text;
       font-size: 13px;
       font-weight: $tocify-font-weight;
-      /* Added 6/13/16: BlockCypher-style shadeing of whole selected section in left nav: */
-      /* background-color:  #86848C;  /* BC '16 Medium Gray */
-      background-color:  #5D5B66;  /* BC '16 Dark Gray */
+      /* Added 6/13/16, commented out 6/22/13: 
+         BlockCypher-style shading of whole selected section in left nav: */
+      /* background-color:  #86848C; */  /* BC '16 Medium Gray */
+      /* background-color:  #5D5B66; */  /* BC '16 Dark Gray */
 
       // Nested for nested 3rd level, from: https://github.com/tripit/slate/wiki/Deeper-Nesting:
       .tocify-subheader {
