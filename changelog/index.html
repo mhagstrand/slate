@@ -165,6 +165,56 @@
 
           <h1 id="2016">2016</h1>
 
+<h2 id="june">June</h2>
+
+<h3 id="request-for-comment-on-proposed-cart-api-schema">Request for comment on proposed Cart API schema</h3>
+
+<p>BigCommerce requests our App Partners&rsquo; help in creating a public Cart API. We have posted an open <a href="https://github.com/bigcommerce/api" target="_blank">request for comment (RFC)</a> on our proposed Cart API schema. We invite your feedback, to ensure that this API will accommodate your needs and use cases. </p>
+
+<p>So far, our draft anticipates use cases like these: </p>
+
+<ul>
+<li>Retrieving an abandoned cart.</li>
+<li>Reconstructing a cart from a URL.</li>
+<li>Supporting multiple shipping destinations for a single cart quote.</li>
+</ul>
+
+<p>Links to the post are also available on the <a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW" target="_blank">BigCommerce Developer forum</a>, and on Twitter from <a href="https://twitter.com/BigEng/status/744945588316180481" target="_blank">@BigEng</a>.</p>
+
+<h3 id="order-shipment-resource-adds-quot-shipping_provider-quot-field">Order Shipment resource adds &ldquo;shipping_provider&rdquo; field</h3>
+
+<p>The Order Shipment resource has a new <code class="prettyprint">shipping_provider</code> field, which contains the enum of the delivery service used to fulfill the shipment.</p>
+
+<p>We have added this field to the <a href="/api/v2#shipping-methods">Order Shipment</a> documentation, including the sample responses for Order Shipment endpoints that can return this field.</p>
+
+<h3 id="store-information-endpoint-now-passes-secure-store-url">Store Information endpoint now passes secure store URL</h3>
+
+<p>The Store Information endpoint now provides a <code class="prettyprint">secure_url</code> field, containing the store&rsquo;s secure (HTTPS) URL.</p>
+
+<p>This new field facilitates the <a href="https://jwt.io/introduction/" target="_blank"> JWT (JSON Web Token)</a> approach to login tokens. Apps and integrations will be able to generate tokens on the client side, containing a partial URL. By consuming the <code class="prettyprint">secure_url</code> value, the app or integration will be able to complete the URL.</p>
+
+<p>We have this new property to our documentation on the Store Information <a href="/api/v2/#store-information-object">object</a> and <a href="/api/v2/#get-a-store-s-information">resource</a>.</p>
+
+<h3 id="new-variables-separate-raw-price-from-currency">New variables separate raw price from currency</h3>
+
+<p>Bigcommerce&rsquo;s Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:</p>
+
+<ul>
+<li><code class="prettyprint">%%GLOBAL_RawProductPrice%%</code></li>
+<li><code class="prettyprint">%%GLOBAL_SelectedCurrencyCode%%</code></li>
+</ul>
+
+<p>The <code class="prettyprint">%%GLOBAL_RawProductPrice%%</code> variable specifies a product&rsquo;s raw numeric price, with no currency metadata. The <code class="prettyprint">%%GLOBAL_SelectedCurrencyCode%%</code> variable specifies the currency as an <a href="https://en.wikipedia.org/wiki/ISO_4217#Active_codes">ISO 4217</a>–compliant alphanumeric code.</p>
+
+<p>You can use these variables as alternatives to the <code class="prettyprint">%%GLOBAL_ProductPrice%%</code> variable, which combines the numeric price with a currency token. If your theme uses microdata, these new variables facilitate two microdata best practices:</p>
+
+<ul>
+<li>Isolate numeric price from currency metadata.</li>
+<li>Represent currency as a unique alphanumeric code, rather than as an &ldquo;ambiguous&rdquo; token/symbol that could be shared among multiple national currencies.</li>
+</ul>
+
+<p>The two new variables are available in all snippets where products are available. (In general, this is anywhere that <code class="prettyprint">%%GLOBAL_ProductPrice%%</code> appears). You can find them listed on <a href="/themes/global_variables">this updated reference page</a>.</p>
+
 <h2 id="may">May</h2>
 
 <h3 id="order-shipment-resource-adds-quot-shipping_provider-quot-field">Order Shipment resource adds &ldquo;shipping_provider&rdquo; field</h3>
