@@ -12,17 +12,6 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
 includes:
-  - api_root_oauth
-  - api_registration
-  - api_callback
-  - api_load
-  - api_webhooks_getting_started
-  - api_multi-user
-  - api_ui_constraints
-  - api_scopes
-  - api_rate-limits_oauth
-  - api_approval-requirements
-  - api_root_basic_auth
   - api_objects_category
   - api_CRUD_categories
   - api_objects_brand

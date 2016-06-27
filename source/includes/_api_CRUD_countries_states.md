@@ -3,19 +3,13 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## <span class="jumptarget"> State Operations </span>
-
-*   [List States](#list-states)
-*   [Get a State](#get-a-state)
-*   [Get a Count of States](#get-a-count-of-states)
-
 ## <span class="jumptarget"> List States </span>
 
 Gets the list of states belonging to a country.
 
-*   [OAuth](#list-states-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries/{country_id}/states`
-*   [Basic Auth](#list-states-basic)
+*   Basic Auth
 >`GET /api/v2/countries/{country_id}/states`
 
 ### <span class="jumptarget"> Filters </span>
@@ -57,9 +51,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a state belonging to a country.
 
-*   [OAuth](#get-a-state-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries/{country_id}/states/{id}`
-*   [Basic Auth](#get-a-state-basic)
+*   Basic Auth
 >`GET /api/v2/countries/{country_id}/states/{id}`
 
 ```json
@@ -75,9 +69,9 @@ Gets a state belonging to a country.
 
 Gets a count of the number of states within a specified country.
 
-*   [OAuth](#get-a-count-of-states-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries/{country_id}/states/count`
-*   [Basic Auth](#get-a-count-of-states-basic)
+*   Basic Auth
 >`GET /api/v2/countries/{country_id}/states/count`
 
 ```json

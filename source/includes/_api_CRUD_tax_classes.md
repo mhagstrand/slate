@@ -1,21 +1,16 @@
 |||
 |---|---|
-| Manages |
-| OAuth Scopes | `store_v2_information`
-||`store_v2_information_read_only`
-
-## <span class="jumptarget"> Tax Class Operations </span>
-
-*   [List Tax Classes](#list-tax-classes)
-*   [Get a Tax Class](#get-a-tax-class)
+| **Manages** |
+| **OAuth Scopes** | store_v2_information
+||store_v2_information_read_only
 
 ## <span class="jumptarget"> List Tax Classes </span>
 
 Gets the tax classes set up for a store. (Default sorting is by tax-class id, from lowest to highest.)
 
-*   [OAuth](#list-tax-classes-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/tax_classes`
-*   [Basic Auth](#list-tax-classes-basic)
+*   Basic Auth
 >`GET /api/v2/tax_classes`
 
 ### <span class="jumptarget"> Filters </span>
@@ -35,7 +30,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a tax class.
 
-*   [OAuth](#get-a-tax-class-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/tax_classes/{id}`
-*   [Basic Auth](#get-a-tax-class-basic)
+*   Basic Auth
 >`GET /api/v2/tax_classes/{id}`

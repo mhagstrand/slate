@@ -1,29 +1,19 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Product Video Operations
-
-*   [List Product Videos](#list-product-videos)
-*   [Get a Product Video](#get-a-product-video)
-*   [Get a Count of Product Videos](#get-a-count-of-product-videos)
-*   [Create a Product Video](#create-a-product-video)
-*   [Update Product Video Metadata](#update-product-video-metadata)
-*   [Delete a Product Video](#delete-a-product-video)
-*   [Delete All Product Videos](#delete-all-product-videos)
-
-## List Product Videos
+## <span class="jumptarget"> List Product Videos </span>
 
 Gets the videos associated with a product.
 
-*   [OAuth](#list-product-videos-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos`
-*   [Basic Auth](#list-product-videos-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/videos`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_videos` are returned by default.
 
@@ -43,22 +33,22 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Product Video
+## <span class="jumptarget"> Get a Product Video </span>
 
 Gets a product video.
 
-*   [OAuth](#get-a-product-video-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
-*   [Basic Auth](#get-a-product-video-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/videos/{id}`
 
-## Get a Count of Product Videos
+## <span class="jumptarget"> Get a Count of Product Videos </span>
 
 Gets a count of the number of product videos in the store.
 
-*   [OAuth](#get-a-count-of-product-videos-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/videos/count`
-*   [Basic Auth](#get-a-count-of-product-videos-basic)
+*   Basic Auth
 >`GET /api/v2/products/videos/count`
 
 ```json
@@ -67,29 +57,29 @@ Gets a count of the number of product videos in the store.
 }
 ```
 
-## Create a Product Video
+## <span class="jumptarget"> Create a Product Video </span>
 
 Adds a link to a YouTube video to a product.
 
-*   [OAuth](#create-a-product-video-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/videos`
-*   [Basic Auth](#create-a-product-video-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/videos`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product video are required. The request won’t be fulfilled unless these properties are valid.
 
 *   url
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 Only YouTube videos are supported. To create a new video, pass the full `url` in the request body.
 
@@ -99,27 +89,27 @@ Only YouTube videos are supported. To create a new video, pass the full `url` in
 }
 ```
 
-## Update Product Video Metadata
+## <span class="jumptarget"> Update Product Video Metadata </span>
 
 Edit the metadata of a product video.
 
-*   [OAuth](#update-product-video-metadata-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
-*   [Basic Auth](#update-product-video-metadata-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/videos/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 There are no required properties when updating a product video. 
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 The `name`, `sort_order` and `url` properties of the product video are editable.
 
@@ -132,20 +122,20 @@ Posting a new `url` will update the `id` of the video to reference the new video
 }
 ```
 
-## Delete a Product Video
+## <span class="jumptarget"> Delete a Product Video </span>
 
 Delete a product video.
 
-*   [OAuth](#delete-a-product-video-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}`
-*   [Basic Auth](#delete-a-product-video-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/videos/{id}`
 
-## Delete All Product Videos
+## <span class="jumptarget"> Delete All Product Videos </span>
 
 Deletes all videos belonging to a product.
 
-*   [OAuth](#delete-all-product-videos-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/videos`
-*   [Basic Auth](#delete-all-product-videos-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/videos`

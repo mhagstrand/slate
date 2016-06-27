@@ -1,30 +1,19 @@
 |||
 |---|---|
-| Manages |
-| OAuth Scopes | `store_v2_products`
-||`store_v2_products_read_only`
+| **Manages** |
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-
-## Option Value Operations
-
-*   [List Option Values](#list-option-values)
-*   [Get an Option Value](#get-an-option-value)
-*   [Create an Option Value](#create-an-option-value)
-*   [Update an Option Value](#update-an-option-value)
-*   [Delete an Option Value](#delete-an-option-value)
-*   [Delete Multiple Option Values](#delete-multiple-option-values)
-
-## List Option Values
+## <span class="jumptarget"> List Option Values </span>
 
 Gets the values belonging to an option. (Default sorting is by option-value id, from lowest to highest.)
 
-
-*   [OAuth](#list-option-values-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/options/{option_id}/values`
-*   [Basic Auth](#list-option-values-basic)
+*   Basic Auth
 >`GET /api/v2/options/{option_id}/values`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.
 
@@ -54,13 +43,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Option Value
+## <span class="jumptarget"> Get an Option Value </span>
 
 Gets an option value.
 
-*   [OAuth](#get-an-option-value-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/options/{option_id}/values/{id}`
-*   [Basic Auth](#get-an-option-value-basic)
+*   Basic Auth
 >`GET /api/v2/options/{option_id}/values/{id}`
 
 ```json
@@ -74,33 +63,32 @@ Gets an option value.
 }
 ```
 
-## Create an Option Value
+## <span class="jumptarget"> Create an Option Value </span>
 
 Creates a new option value.
 
-*   [OAuth](#create-an-option-value-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/options/{option_id}/values`
-*   [Basic Auth](#create-an-option-value-basic)
+*   Basic Auth
 >`POST /api/v2/options/{option_id}/values`
 
-
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   option_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.
 
 *   label
 *   value
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
-To maximize system performance, Bigcommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.
+To maximize system performance, BigCommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.
 
 When you POST an `is_default`property of `true`, all other option values on the parent option will have their `is_default` property set to `false`.
 
@@ -124,27 +112,27 @@ When you POST an `is_default`property of `true`, all other option values on the 
 }
 ```
 
-## Update an Option Value
+## <span class="jumptarget"> Update an Option Value </span>
 
 Updates an existing option value.
 
-*   [OAuth](#update-an-option-value-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/options/{option_id}/values/{id}`
-*   [Basic Auth](#update-an-option-value-basic)
+*   Basic Auth
 >`PUT /api/v2/options/{option_id}/values/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties
 
 The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   option_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes
+### <span class="jumptarget"> Notes
 
 When you PUT an `is_default` property of `true`, all other option values on the parent option will have their `is_default` property set to `false`.
 
@@ -168,25 +156,25 @@ When you PUT an `is_default` property of `true`, all other option values on the 
 }
 ```
 
-## Delete an Option Value
+## <span class="jumptarget"> Delete an Option Value </span>
 
 Deletes an option value.
 
-*   [OAuth](#delete-an-option-value-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}`
-*   [Basic Auth](#delete-an-option-value-basic)
+*   Basic Auth
 >`DELETE /api/v2/options/{option_id}/values/{id}`
 
-## Delete Multiple Option Values
+## <span class="jumptarget"> Delete Multiple Option Values </span>
 
 Deletes multiple values belonging to an option.
 
-*   [OAuth](#delete-multiple-option-values-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/options/{option_id}/values`
-*   [Basic Auth](#delete-multiple-option-values-basic)
+*   Basic Auth
 >`DELETE /api/v2/options/{option_id}/values`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.
 

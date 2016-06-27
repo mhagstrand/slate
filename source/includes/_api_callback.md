@@ -67,12 +67,11 @@ Make the `POST` request to the following address: `https://login.bigcommerce.com
 
 #### <span class="jumptarget"> Initial Installation </span>
 
-During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
+During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your `GET` response.
 
 #### <span class="jumptarget"> Updates </span>
 
 During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the Control Panel.
-
 
 #### <span class="jumptarget"> Parameters </span>
 
@@ -98,7 +97,7 @@ Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
-client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
+client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=store_v2_orders&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 
 *   [PHP](#token-php)
@@ -109,8 +108,8 @@ $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
 $connection->useUrlencoded();
 $response = $connection->post($tokenUrl, array(
-    "client_id" => "236754",
-    "client_secret" => "m1ng83993rsq3yxg",
+    "client_id" => "CLIENT_ID",
+    "client_secret" => "CLIENT_SECRET",
     "redirect_uri" => "https://app.example.com/oauth",
     "grant_type" => "authorization_code",
     "code" => $request->get("code"),
@@ -132,10 +131,7 @@ Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
-client_id=236754&client_secret=m1ng83993rsq3yxg&code=qr6h3thvbvag2ffq&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/g5cd38
-</b></code></pre>
-  </div>
-  <div class="bui-tab-panel" id="token-php">
+client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_v2_products&grant_type=authorization_code&redirect_uri=https://app.example.com/oauth&context=stores/{STORE_HASH}
 ```
 
 *   [PHP](#token-php)
@@ -147,8 +143,8 @@ $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
 $connection->useUrlencoded();
 $response = $connection->post($tokenUrl, array(
-    "client_id" => "236754",
-    "client_secret" => "m1ng83993rsq3yxg",
+    "client_id" => "CLIENT_ID",
+    "client_secret" => "CLIENT_SECRET",
     "redirect_uri" => "https://app.example.com/oauth",
     "grant_type" => "authorization_code",
     "code" => $request->get("code"),
@@ -179,13 +175,13 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 
 ```
 {
-  "access_token": "g3y3ab5cctiu0edpy9n8gzl0p25og9u",
+  "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders",
   "user": {
     "id": 24654,
     "email": "merchant@mybigcommerce.com"
   },
-  "context": "stores/g5cd38"
+  "context": "stores/STORE_HASH"
 }
 ```
 
@@ -195,12 +191,12 @@ Update requests will refresh the payload's `access_token` and `scope` values. He
 
 ```
 <code class="language-js">{
-  "access_token": "hyjielngd8iu0edpy9n8gzl0p25xc7q",
+  "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders store_v2_products",
   "user": {
     "id": 24654,
     "email": "merchant@mybigcommerce.com"
   },
-  "context": "stores/g5cd38"
+  "context": "stores/STORE_HASH"
 }
 ```

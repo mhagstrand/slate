@@ -1,33 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Product Rule Operations
-
-*   [List Product Rules](#list-product-rules)
-*   [Get a Product Rule](#get-a-product-rule)
-*   [Get a Count of Product Rules](#get-a-count-of-product-rules)
-*   [Create a Product Rule](#create-a-product-rule)
-*   [Update a Product Rule](#update-a-product-rule)
-*   [Delete a Product Rule](#delete-a-product-rule)
-*   [Delete Multiple Product Rules](#delete-multiple-product-rules)
-
-## List Product Rules
+## <span class="jumptarget"> List Product Rules </span>
 
 Gets the collection of rules associated with a product. (Default sorting is by rule id, from lowest to highest.)
 
-*   [OAuth](#list-product-rules-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/rules`
-*   [Basic Auth](#list-product-rules-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/rules`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product rules.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.
 
@@ -81,13 +71,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Product Rule
+## <span class="jumptarget"> Get a Product Rule </span>
 
 Gets a single product rule.
 
-*   [OAuth](#get-a-product-rule-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-*   [Basic Auth](#get-a-product-rule-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/rules/{id}`
 
 ```json
@@ -113,13 +103,13 @@ Gets a single product rule.
 }
 ```
 
-## Get a Count of Product Rules
+## <span class="jumptarget"> Get a Count of Product Rules </span>
 
 Gets a count of the number of product rules in the store.
 
-*   [OAuth](#get-a-count-of-product-rules-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/rules/count`
-*   [Basic Auth](#get-a-count-of-product-rules-basic)
+*   Basic Auth
 >`GET /api/v2/products/rules/count`
 
 ```json
@@ -128,24 +118,24 @@ Gets a count of the number of product rules in the store.
 }
 ```
 
-## Create a Product Rule
+## <span class="jumptarget"> Create a Product Rule </span>
 
 Creates a new product rule.
 
-*   [OAuth](#create-a-product-rule-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/rules`
-*   [Basic Auth](#create-a-product-rule-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/rules`
 
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -174,27 +164,27 @@ The following properties of the product rule are required. The request won’t b
 }
 ```
 
-## Update a Product Rule
+## <span class="jumptarget"> Update a Product Rule </span>
 
 Updates an existing product rule. 
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.
 
-*   [OAuth](#update-a-product-rule-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-*   [Basic Auth](#update-a-product-rule-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/rules/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 There are no property requirements for updating a product rule.
 
@@ -221,25 +211,25 @@ There are no property requirements for updating a product rule.
 }
 ```
 
-## Delete a Product Rule
+## <span class="jumptarget"> Delete a Product Rule </span>
 
 Deletes a product rule.
 
-*   [OAuth](#delete-a-product-rule-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}`
-*   [Basic Auth](#delete-a-product-rule-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/rules/{id}`
 
-## Delete Multiple Product Rules
+## <span class="jumptarget"> Delete Multiple Product Rules </span>
 
 Deletes multiple product rules.
 
-*   [OAuth](#delete-multiple-product-rules-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/rules`
-*   [Basic Auth](#delete-multiple-product-rules-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/rules`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_rules` are returned by default.
 

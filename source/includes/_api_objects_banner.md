@@ -1,14 +1,8 @@
-# Banners
+# <span class="jumptarget"> Banners </span>
 
 Banners available to display on a store.
 
-|   |   |
-| ----- | ----- |
-| Manages | Banner Object |
-| OAuth Scopes |  store_v2_marketing |
-| |store_v2_marketing_read_only |
-
-## Banners – Properties
+## <span class="jumptarget"> Banners – Properties </span>
 
 | Name | Type | Description |
 | ----- | ----- | ----- |

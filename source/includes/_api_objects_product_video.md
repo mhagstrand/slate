@@ -1,8 +1,8 @@
-# Videos
+# <span class="jumptarget"> Videos </span>
 
 Embedded videos displayed on product listings.
 
-## Videos Object – Properties
+## <span class="jumptarget"> Videos Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

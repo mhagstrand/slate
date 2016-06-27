@@ -3,19 +3,13 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## <span class="jumptarget"> Country Operations </span>
-
-*   [List Countries](#list-countries)
-*   [Get a Country](#get-a-country)
-*   [Get a Count of Countries](#get-a-count-of-countries)
-
 ## <span class="jumptarget"> List Countries </span>
 
 Gets the list of countries.
 
-*   [OAuth](#list-countries-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries`
-*   [Basic Auth](#list-countries-basic)
+*   Basic Auth
 >`GET /api/v2/countries`
 
 ### <span class="jumptarget"> Filters </span>
@@ -66,9 +60,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a country.
 
-*   [OAuth](#get-a-country-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries/{id}`
-*   [Basic Auth](#get-a-country-basic)
+*   Basic Auth
 >`GET /api/v2/countries/{id}`
 
 ```json
@@ -87,9 +81,9 @@ Gets a country.
 
 Gets a count of countries.
 
-*   [OAuth](#get-a-count-of-countries-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/countries/count`
-*   [Basic Auth](#get-a-count-of-countries-basic)
+*   Basic Auth
 >`GET /api/v2/countries/count`
 
 ```json

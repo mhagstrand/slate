@@ -1,34 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_orders`
-||`store_v2_orders_read_only`
+| **OAuth Scopes** | store_v2_orders
+||store_v2_orders_read_only
 
-## Shipments Operations
-
-*   [List Shipments](#list-shipments)
-*   [Get a Shipment](#get-a-shipment)
-*   [Get a Count of Shipments](#get-a-count-of-shipments)
-*   [Get a Count of Shipments per Order](#get-a-count-of-shipments-per-order)
-*   [Create a Shipment](#create-a-shipment)
-*   [Update a Shipment](#update-a-shipment)
-*   [Delete a Shipment](#delete-a-shipment)
-*   [Delete Multiple Shipments](#delete-multiple-shipments)
-
-## List Shipments
+## <span class="jumptarget"> List Shipments </span>
 
 Gets the shipments associated with an order.
 
-*   [OAuth](#list-shipments-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#list-shipments-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `shipments`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.
 
@@ -88,13 +77,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Shipment
+## <span class="jumptarget"> Get a Shipment </span>
 
 Gets a shipment associated with an order.
 
-*   [OAuth](#get-a-shipment-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#get-a-shipment-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/{id}`
 
 ```json
@@ -146,13 +135,13 @@ Gets a shipment associated with an order.
 }
 ```
 
-## Get a Count of Shipments
+## <span class="jumptarget"> Get a Count of Shipments </span>
 
 Gets a count of the number of orders that have shipped.
 
-*   [OAuth](#get-a-count-of-shipments-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/shipments/count`
-*   [Basic Auth](#get-a-count-of-shipments-basic)
+*   Basic Auth
 >`GET /api/v2/orders/shipments/count`
 
 ```json
@@ -161,13 +150,13 @@ Gets a count of the number of orders that have shipped.
 }
 ```
 
-## Get a Count of Shipments per Order
+## <span class="jumptarget"> Get a Count of Shipments per Order </span>
 
 Gets a count of the number of shipments that have been made for a single order.
 
-*   [OAuth](#get-a-count-of-shipments-per-order-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments/count`
-*   [Basic Auth](#get-a-count-of-shipments-per-order-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/count`
 
 ```json
@@ -176,16 +165,16 @@ Gets a count of the number of shipments that have been made for a single order.
 }
 ```
 
-## Create a Shipment
+## <span class="jumptarget"> Create a Shipment </span>
 
 Creates a new shipment for an order.
 
-*   [OAuth](#create-a-shipment-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#create-a-shipment-basic)
+*   Basic Auth
 >`POST /api/v2/orders/{order_id}/shipments`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -196,7 +185,7 @@ The following properties of the shipment are read-only. If one or more of these 
 *   billing_address
 *   shipping_address
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -266,17 +255,16 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
-## Update a Shipment
+## <span class="jumptarget"> Update a Shipment </span>
 
 Updates an existing shipment associated with an order.
 
-
-*   [OAuth](#update-a-shipment-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#update-a-shipment-basic)
+*   Basic Auth
 >`PUT /api/v2/orders/{order_id}/shipments/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -288,7 +276,7 @@ The following properties of the shipment are read-only. If one or more of these 
 *   billing_address
 *   shipping_address
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -349,25 +337,25 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
-## Delete a Shipment
+## <span class="jumptarget"> Delete a Shipment </span>
 
 Deletes a shipment associated with an order.
 
-*   [OAuth](#delete-a-shipment-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#delete-a-shipment-basic)
+*   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments/{id}`
 
-## Delete Multiple Shipments
+## <span class="jumptarget"> Delete Multiple Shipments </span>
 
 Deletes multiple shipments associated with an order.
 
-*   [OAuth](#delete-multiple-shipments-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#delete-multiple-shipments-basic)
+*   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.
 

@@ -1,26 +1,16 @@
 |||
 |---|---|
-| Manages | [Product Image Object](/api/?BasicAuth#product-image-properties) |
-| OAuth Scopes | `store_v2_products`|
-||`store_v2_products_read_only`|
-
-## <span class="jumptarget"> Product Image Operations </span>
-
-*   [List Product Images](#list-product-images)
-*   [Get a Product Image](#get-a-product-image)
-*   [Get a Count of Product Images](#get-a-count-of-product-images)
-*   [Create a Product Image](#create-a-product-image)
-*   [Update a Product Image](#update-a-product-image)
-*   [Delete a Product Image](#delete-a-product-image)
-*   [Delete Multiple Product Images](#delete-multiple-product-images)
+| Manages | Product Image Object |
+| OAuth Scopes | store_v2_products|
+||store_v2_products_read_only|
 
 ## <span class="jumptarget"> List Product Images </span>
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
-*   [OAuth](#list-product-images-oauth)
+*   OAuth
 >GET /stores/{store_hash}/v2/products/{product_id}/images
-*   [Basic Auth](#list-product-images-basic)
+*   Basic Auth
 >GET /api/v2/products/{product_id}/images
 
 ### <span class="jumptarget"> Filters </span>
@@ -67,14 +57,13 @@ json
 ]
 ```
 
-
 ## <span class="jumptarget"> Get a Product Image </span>
 
 Gets a product image.
 
-*   [OAuth](#get-a-product-image-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-*   [Basic Auth](#get-a-product-image-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/images/{id}`
 
 ```json
@@ -93,14 +82,13 @@ Gets a product image.
 }
 ```
 
-
 ## <span class="jumptarget"> Get a Count of Product Images </span>
 
 Gets a count of the number of product images in the store.
 
-*   [OAuth](#get-a-count-of-product-images-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/images/count`
-*   [Basic Auth](#get-a-count-of-product-images-basic)
+*   Basic Auth
 >`GET /api/v2/products/images/count`
 
 ```json
@@ -109,14 +97,13 @@ Gets a count of the number of product images in the store.
 }
 ```
 
-
 ## <span class="jumptarget"> Create a Product Image </span>
 
 Creates a new product image.
 
-*   [OAuth](#create-a-product-image-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/images`
-*   [Basic Auth](#create-a-product-image-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/images`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -145,14 +132,13 @@ The following properties of the product image are required. The request won’t 
 }
 ```
 
-
 ## <span class="jumptarget"> Update a Product Image </span>
 
 Updates an existing product image.
 
-*   [OAuth](#update-a-product-image-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-*   [Basic Auth](#update-a-product-image-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/images/{id}`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -179,23 +165,22 @@ The following properties of the product image are required. The request won’t 
 }
 ```
 
-
 ## <span class="jumptarget"> Delete a Product Image </span>
 
 Deletes a product image.
 
-*   [OAuth](#delete-a-product-image-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}`
-*   [Basic Auth](#delete-a-product-image-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/images/{id}`
 
 ## <span class="jumptarget"> Delete Multiple Product Images </span>
 
 Deletes multiple product images.
 
-*   [OAuth](#delete-multiple-product-images-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/images`
-*   [Basic Auth](#delete-multiple-product-images-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/images`
 
 ### <span class="jumptarget"> Pagination </span>

@@ -1,10 +1,10 @@
-## <a name="load"></a> Load, Uninstall, and User Removal Requests
+## <span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-### Introduction
+### <span class="jumptarget"> Introduction</span>
 
 In addition to the **Auth Callback URI**, the [App Registration](#registration) wizard requests the following URIs.
 
@@ -27,7 +27,7 @@ The remainder of this entry discusses:
 *   [The remove user request](#remove-user).
 *   [The signed payload](#process).
 
-### <a name="load_request"></a> About the load request and response
+### <span class="jumptarget"> <a name="load_request"></a> About the load request and response</span>
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
@@ -46,9 +46,9 @@ Host: app.example.com
 
 Upon receiving a **GET** request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
 
-After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/v2/ui-constraints) for important information about your app's user interface.
+After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
 
-### <a name="uninstall"></a> About the uninstall request (optional)
+### <span class="jumptarget"> <a name="uninstall"></a> About the uninstall request (optional)</span>
 
 Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app's OAuth token is revoked and the app cannot make requests to the Stores API on the store's behalf anymore.
 
@@ -68,7 +68,7 @@ NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
 
-### <a name="remove-user"></a> About the remove user request (optional)
+### <span class="jumptarget"> <a name="remove-user"></a> About the remove user request (optional)</span>
 
 If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
@@ -83,13 +83,13 @@ Upon receiving the **GET** request, your app will need to [process the signed pa
 NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
-### <a name="process"></a> Processing the signed payload
+### <span class="jumptarget"> <a name="process"></a> Processing the signed payload</span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-#### <a name="process"></a> Splitting and decoding the signed payload
+#### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span>
 
 The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the **.** character:
 
@@ -105,7 +105,7 @@ To decode the signed payload, complete the following steps:
 4.  Decode `encoded_hmac_signature` using base64url.
 5.  Use your client secret to verify the signature. See the next section for more details.
 
-#### Verifying the HMAC signature
+#### <span class="jumptarget"> Verifying the HMAC signature</span>
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
@@ -113,7 +113,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
-##### Examples
+##### <span class="jumptarget"> Examples</span>
 
 *   [PHP](#strcmp-php)
 ```
@@ -172,31 +172,31 @@ def secure_compare(a, b)
 end
 ```
 
-#### Processing the JSON object
+#### <span class="jumptarget"> Processing the JSON object</span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
-##### Introduction
+##### <span class="jumptarget"> Introduction</span>
 
 The JSON object embedded in the `signed_payload` contains information about the BigCommerce store and the store owner or user.
 
-##### Identifying the store
+##### <span class="jumptarget"> Identifying the store</span>
 
 You should use the store information to identify the store that the request pertains to.
 
-##### Interpreting the user information
+##### <span class="jumptarget"> Interpreting the user information</span>
 
 Interpreting the user information varies as follows.
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
-| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api/callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api//v2/callback). |
+| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api#callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api#callback). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 
-##### JSON Values
+##### <span class="jumptarget"> JSON Values</span>
 
 | Name | Data Type | Value Description |
 | --- | --- | --- |
@@ -204,14 +204,14 @@ Interpreting the user information varies as follows.
 | email | string | The user’s email address. |
 | store_hash | string | Unique identifier of the store. |
 
-##### JSON Example
+##### <span class="jumptarget"> JSON Example</span>
 
-```
+```json
 {
   "user": {
 	"id": 24654,
 	"email": "user@mybigcommerce.com"
   },
-  "store_hash": "g5cd38"
+  "store_hash": "STORE_HASH"
 }
 ```

@@ -1,6 +1,6 @@
-# Google Product Search Mappings
+# <span class="jumptarget"> Google Product Search Mappings </span>
 
-## Google Product Search Mapping Object - Properties
+## <span class="jumptarget"> Google Product Search Mapping Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

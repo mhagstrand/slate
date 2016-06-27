@@ -21,7 +21,26 @@ under the License.
   var languages = [];
 
   global.setupLanguages = setupLanguages;
+  global.getPlatform = getPlatform;
   global.activateLanguage = activateLanguage;
+
+  function getPlatform() {
+        var pathname = window.location.pathname;
+
+        if (pathname.indexOf('/api/v2') === 0) {
+            return 'V2'
+        }
+
+        if (pathname.indexOf('/api/v3') === 0) {
+            return 'v3'
+        }
+
+        if (pathname.indexOf('/api') === 0) {
+            return 'home'
+        }
+
+        return 'unknown';
+    }
 
   function activateLanguage(language) {
     if (!language) return;

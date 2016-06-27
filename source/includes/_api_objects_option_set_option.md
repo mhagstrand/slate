@@ -1,8 +1,8 @@
-# Product Option Set Options
+# <span class="jumptarget">  Product Option Set Options </span>
 
 Options belonging to an option set.
 
-## Option Set Option Object - Properties
+## <span class="jumptarget">  Option Set Option Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

@@ -1,8 +1,8 @@
-# Coupons
+# <span class="jumptarget"> Coupons </span>
 
 Category or product discounts that can be applied to orders for customers who enter a given code.
 
-## Coupon Object - Properties
+## <span class="jumptarget"> Coupon Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

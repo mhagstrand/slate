@@ -1,8 +1,8 @@
-# Customer Groups
+# <span class="jumptarget"> Customer Groups </span>
 
 Grouping of customers who share the same level of access and discounts at a store
 
-## Customer Group - Properties
+## <span class="jumptarget"> Customer Group - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

@@ -1,30 +1,19 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_marketing`
-||`store_v2_marketing_read_only`
+| **OAuth Scopes** | store_v2_marketing
+||store_v2_marketing_read_only
 
-## Coupon Operations
-
-*   [List Coupons](#list-coupons)
-*   [Get a Coupon](#get-a-coupon)
-*   [Get a Count of Coupons](#get-a-count-of-coupons)
-*   [Create a Coupon](#create-a-coupon)
-*   [Update a Coupon](#update-a-coupon)
-*   [Delete a Coupon](#delete-a-coupon)
-*   [Delete All Coupons](#delete-all-coupons)
-
-## List Coupons
+## <span class="jumptarget"> List Coupons </span>
 
 Gets the collection of coupons. (Default sorting is by coupon/discount id, from lowest to highest.)
 
-
-*   [OAuth](#list-coupons-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/coupons`
-*   [Basic Auth](#list-coupons-basic)
+*   Basic Auth
 >`GET /api/v2/coupons`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific coupons in the collection.
 
@@ -37,7 +26,7 @@ Filter parameters can be added to the URL query string to select specific coupon
 | min_id | int | /api/v2/coupons?min_id={value} |
 | max_id | int | /api/v2/coupons?max_id={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 coupons are returned by default.
 
@@ -175,13 +164,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Coupon
+## <span class="jumptarget"> Get a Coupon </span>
 
 Gets a coupon.
 
-*   [OAuth](#get-a-coupon-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/coupons/{id}`
-*   [Basic Auth](#get-a-coupon-basic)
+*   Basic Auth
 ">`GET /api/v2/coupons/{id}`
 
 ```json
@@ -208,13 +197,13 @@ Gets a coupon.
 }
 ```
 
-## Get a Count of Coupons
+## <span class="jumptarget"> Get a Count of Coupons </span>
 
 Gets a count of the number of coupons in the store.
 
-*   [OAuth](#get-a-count-of-coupons-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/coupons/count`
-*   [Basic Auth](#get-a-count-of-coupons-basic)
+*   Basic Auth
 >`GET /api/v2/coupons/count`
 
 ```json
@@ -223,23 +212,23 @@ Gets a count of the number of coupons in the store.
 }
 ```
 
-## Create a Coupon
+## <span class="jumptarget"> Create a Coupon </span>
 
 Creates a new coupon.
 
-*   [OAuth](#create-a-coupon-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/coupons`
-*   [Basic Auth](#create-a-coupon-basic)
+*   Basic Auth
 >`POST /api/v2/coupons`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the coupon are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   num_uses
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the coupon are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -249,7 +238,7 @@ The following properties of the coupon are required. The request won’t be fulf
 *   amount
 *   applies_to
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 The coupon type can be one of the following:
 
@@ -299,23 +288,23 @@ The coupon type can be one of the following:
 }
 ```
 
-## Update a Coupon
+## <span class="jumptarget"> Update a Coupon </span>
 
 Updates an existing coupon.
 
-*   [OAuth](#update-a-coupon-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/coupons/{id}`
-*   [Basic Auth](#update-a-coupon-basic)
+*   Basic Auth
 >`PUT /api/v2/coupons/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the coupon are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   num_uses
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the coupon are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -342,20 +331,20 @@ The following properties of the coupon are required. The request won’t be fulf
   "shipping_methods": null
 }
 ```
-## Delete a Coupon
+## <span class="jumptarget"> Delete a Coupon </span>
 
 Deletes a coupon.
 
-*   [OAuth](#delete-a-coupon-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/coupons/{id}`
-*   [Basic Auth](#delete-a-coupon-basic)
+*   Basic Auth
 >`DELETE /api/v2/coupons/{id}`
 
-## Delete All Coupons
+## <span class="jumptarget"> Delete All Coupons </span>
 
 Deletes all coupons in the store.
 
-*   [OAuth](#delete-all-coupons-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/coupons`
-*   [Basic Auth](#delete-all-coupons-basic)
+*   Basic Auth
 >`DELETE /api/v2/coupons`

@@ -23,29 +23,18 @@ under the License.
 
 // BACKGROUND COLORS
 ////////////////////
-/* $nav-bg: #f6f7f9; */
-/* ^ Swapped out 6/6/16 for BigCommerce black, below: */
-$nav-bg: #34313f;  /* BC '16 Black */
+$nav-bg: #f6f7f9;
 $examples-bg: #34313f;
 $code-bg: #34313f;
 $code-annotation-bg: #2e2c38;
-/* $nav-subitem-bg: #f6f7f9; */
-/* ^ Swapped out 6/6/16 for BigCommerce black, below: */
-$nav-subitem-bg: #34313f;  /* BC '16 Black */
-/* $nav-active-bg: #f6f7f9; */
-/* ^ Swapped out 6/6/16 for BigCommerce gray, below: */
-/* $nav-active-bg: #5D5B66; */  /* BC '16 Dark Gray */
-/* ^ Swapped  6/13/16, to achieve BlockCypher-style shading: */
-$nav-active-bg: #86848C;  /* BC '16 Medium Gray */
+$nav-subitem-bg: #f6f7f9;
+$nav-active-bg: #f6f7f9;
 $lang-select-border: #292732;
 $lang-select-bg: #292732;
 $lang-select-active-bg: $lang-select-bg; // feel free to change this to blue or something
 $lang-select-pressed-bg: $lang-select-bg; // color of language tab bg when mouse is pressed
 $main-bg: #ffffff;
-/* $aside-notice-bg: #e3f1fc; */
 $aside-notice-bg: #DBE3FE;      /* Changed blue to shade matching BC 2016 branding */ 
-/* $aside-warning-bg: #fce0d8; */
-/* $aside-warning-bg: #FCF8F2;   Changed salmon to orange like Stencil docs; could be more vibrant */ 
 $aside-warning-bg: #F9F2E6;  /* Changed salmon to orange, matching Stencil docs; could be more vibrant */ 
 $aside-success-bg: #e1f5e2;
 $search-notice-bg: #c97a7e;
@@ -54,12 +43,8 @@ $search-notice-bg: #c97a7e;
 // TEXT COLORS
 ////////////////////
 $main-text: #53525e; // main content text color
-/* $nav-text: #8e919c; */
-/* ^ Swapped out 6/6/16 for BigCommerce light gray, below: */
-$nav-text: #E4E7ED;   /* BC '16 Light Gray */
-/* $nav-active-text: #595864; */
-/* ^ Swapped out 6/6/16 for BigCommerce white, below: */
-$nav-active-text: #F6F7F9;    /* BC '16 White */
+$nav-text: #8e919c;
+$nav-active-text: #595864;
 $lang-select-text: #e3e3e4; // color of unselected language tab text
 $lang-select-active-text: #4b71fc; // color of selected language tab text
 $lang-select-pressed-text: #4b71fc; // color of language tab text when mouse is pressed

@@ -3,19 +3,11 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## Webhook Operations
-
-*   [List Hooks](#list-hooks)
-*   [Get a Hook](#get-a-hook)
-*   [Create a Hook](#create-a-hook)
-*   [Update a Hook](#update-a-hook)
-*   [Delete a Hook](#delete-a-hook)
-
-## List Hooks
+## <span class="jumptarget"> List Hooks </span>
 
 Index of registered webhooks.
 
-*   [OAuth](#list-hooks-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/hooks`
 
 ```json
@@ -49,11 +41,11 @@ Index of registered webhooks.
 ]
 ```
 
-## Get a Hook
+## <span class="jumptarget"> Get a Hook </span>
 
 Gets a registered webhook.
 
-*   [OAuth](#get-a-hook-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/hooks/{id}`
 
 ```json
@@ -72,21 +64,21 @@ Gets a registered webhook.
 }
 ```
 
-## Create a Hook
+## <span class="jumptarget"> Create a Hook </span>
 
 Register a new webhook.
 
-*   [OAuth](#create-a-hook-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/hooks`
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the webhooks are required. The request won’t be fulfilled unless these properties are valid.
 
 *   scope
 *   destination
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 Scopes can be specified using wildcard syntax, or the full path to an event.
 
@@ -101,11 +93,11 @@ Scopes can be specified using wildcard syntax, or the full path to an event.
 }
 ```
 
-## Update a Hook
+## <span class="jumptarget"> Update a Hook </span>
 
 Edit the details of a registered webhook.
 
-*   [OAuth](#update-a-hook-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/hooks/{id}`
 
 ```curl
@@ -131,9 +123,9 @@ Edit the details of a registered webhook.
 }
 ```
 
-## Delete a Hook
+## <span class="jumptarget"> Delete a Hook </span>
 
 Deletes a single webhook.
 
-*   [OAuth](#delete-a-hook-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/hooks/{id}`

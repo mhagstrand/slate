@@ -1,26 +1,16 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
-
-## <span class="jumptarget"> Category Operations </span>
-
-*   [List Categories](#list-categories)
-*   [Get a Category](#get-a-category)
-*   [Get a Count of Categories](#get-a-count-of-categories)
-*   [Create a Category](#create-a-category)
-*   [Update a Category](#update-a-category)
-*   [Delete a Category](#delete-a-category)
-*   [Delete All Categories](#delete-all-categories)
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
 ## <span class="jumptarget"> List Categories </span>
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
-*   [OAuth](#list-categories-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/categories`
-*   [Basic Auth](#list-categories-basic)
+*   Basic Auth
 >`GET /api/v2/categories`
 
 
@@ -68,14 +58,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-
 ## <span class="jumptarget"> Get a Category </span>
 
 Gets a single category.
 
-*   [OAuth](#get-a-category-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/categories/{id}`
-*   [Basic Auth](#get-a-category-basic)
+*   Basic Auth
 >`GET /api/v2/categories/{id}`
 
 ```json
@@ -105,9 +94,9 @@ Gets a single category.
 
 Gets a count of the total number of categories in the store.
 
-*   [OAuth](#get-a-count-of-categories-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/categories/count`
-*   [Basic Auth](#get-a-count-of-categories-basic)
+*   Basic Auth
 >`GET /api/v2/categories/count`
 
 ```json
@@ -120,9 +109,9 @@ Gets a count of the total number of categories in the store.
 
 Creates a new category.
 
-*   [OAuth](#create-a-category-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/categories`
-*   [Basic Auth](#create-a-category-basic)
+*   Basic Auth
 >`POST /api/v2/categories`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -150,7 +139,6 @@ In addition, Bigcommerce caps the total number of parent categories at seven. If
 }
 ```
 
-
 ```json
 {
   "id": 10,
@@ -177,12 +165,12 @@ In addition, Bigcommerce caps the total number of parent categories at seven. If
 
 Updates an existing category.
 
-*   [OAuth](#update-a-category-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/categories/{id}`
-*   [Basic Auth](#update-a-category-basic)
+*   Basic Auth
 >`PUT /api/v2/categories/{id}`
 
-### Read-only Properties </span>
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -219,24 +207,22 @@ To maximize system performance, Bigcommerce caps the total number of parent cate
 }
 ```
 
-
 ## <span class="jumptarget"> Delete a Category </span>
 
 Deletes a category.
 
-
-*   [OAuth](#delete-a-category-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/categories/{id}`
-*   [Basic Auth](#delete-a-category-basic)
+*   Basic Auth
 >`DELETE /api/v2/categories/{id}`
 
 ## <span class="jumptarget"> Delete All Categories </span>
 
 Deletes all the categories in the store.
 
-*   [OAuth](#delete-all-categories-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/categories`
-*   [Basic Auth](#delete-all-categories-basic)
+*   Basic Auth
 >`DELETE /api/v2/categories`
 
 <aside class="warning">

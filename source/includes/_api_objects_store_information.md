@@ -1,8 +1,8 @@
-# Store Information Object
+# <span class="jumptarget"> Store Information Object </span>
 
 Profile and metadata of an individual store.
 
-## Store Information Object - Properties
+## <span class="jumptarget"> Store Information Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -35,9 +35,9 @@ Profile and metadata of an individual store.
 | features | object | Array of flags for features that affect app compatibility or functionality. Child \"stencil_enabled\" element is a Boolean that indicates whether a store is using a Stencil theme. |
 
 
-## Webhook Events
+## <span class="jumptarget"> Webhook Events </span>
 
-### Store Cancelled
+### <span class="jumptarget"> Store Cancelled </span>
 
 ```
 store/app/uninstall
