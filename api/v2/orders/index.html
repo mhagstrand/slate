@@ -125,7 +125,7 @@
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
-          <li><a href="/api/v2" title="API">API</a></li>
+          <li><a href="/api/" title="API">API</a></li>
           <li><a href="/themes" title="Themes">Themes</a></li>
           <li><a href="/changelog" title="Changelog">Changelog</a></li>
           <li><a href="/support" title="Help and Support">Support</a></li>
@@ -162,11 +162,11 @@
     <div class="page-wrapper">
       <div class="content">
         
-          <h1 id="orders">Orders</h1>
+          <h1 id="orders"><span class="jumptarget"> Orders </span></h1>
 
 <p>A record of the purchase agreement between a shopper and a merchant.</p>
 
-<h2 id="order-object-properties">Order Object – Properties</h2>
+<h2 id="order-object-properties"><span class="jumptarget"> Order Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -472,21 +472,21 @@
 </tr>
 </tbody></table>
 
-<h2 id="webhook-events">Webhook Events</h2>
+<h2 id="webhook-events"><span class="jumptarget"> Webhook Events </span></h2>
 
-<h3 id="order-created">Order Created</h3>
+<h3 id="order-created"><span class="jumptarget"> Order Created </span></h3>
 <pre class="highlight plaintext"><code>store/order/created
 </code></pre>
 
 <p>Occurs when an order is received from the checkout, or when a manual order is created in the control panel.</p>
 
-<h3 id="order-updated">Order Updated</h3>
+<h3 id="order-updated"><span class="jumptarget"> Order Updated </span></h3>
 <pre class="highlight plaintext"><code>store/order/updated
 </code></pre>
 
 <p>Occurs when order details are updated through the control panel, or when an order status is changed from the control panel or the API.</p>
 
-<h3 id="order-archived">Order archived</h3>
+<h3 id="order-archived"><span class="jumptarget"> Order archived </span></h3>
 <pre class="highlight plaintext"><code>store/order/archived
 </code></pre>
 
@@ -504,38 +504,26 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="order-operations">Order Operations</h2>
-
-<ul>
-<li>  <a href="#list-orders">List Orders</a></li>
-<li>  <a href="#get-an-order">Get an Order</a></li>
-<li>  <a href="#get-a-count-of-orders">Get a Count of Orders</a></li>
-<li>  <a href="#create-an-order">Create an Order</a></li>
-<li>  <a href="#update-an-order">Update an Order</a></li>
-<li>  <a href="#delete-an-order">Delete an Order</a></li>
-<li>  <a href="#delete-all-orders">Delete All Orders</a></li>
-</ul>
-
-<h2 id="list-orders">List Orders</h2>
+<h2 id="list-orders"><span class="jumptarget"> List Orders </span></h2>
 
 <p>Gets the collection of orders. (The default sort is by order id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-orders-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders</code></li>
-<li>  <a href="#list-orders-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific orders in the collection.</p>
 
@@ -613,7 +601,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 orders are returned by default.</p>
 
@@ -723,14 +711,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-order">Get an Order</h2>
+<h2 id="get-an-order"><span class="jumptarget"> Get an Order </span></h2>
 
 <p>Gets an order.</p>
 
 <ul>
-<li>  <a href="#get-an-order-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{id}</code></li>
-<li>  <a href="#get-an-order-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -814,14 +802,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-orders">Get a Count of Orders</h2>
+<h2 id="get-a-count-of-orders"><span class="jumptarget"> Get a Count of Orders </span></h2>
 
 <p>Gets a count of the number of orders in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-orders-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/count</code></li>
-<li>  <a href="#get-a-count-of-orders-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -829,18 +817,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-an-order">Create an Order</h2>
+<h2 id="create-an-order"><span class="jumptarget"> Create an Order </span></h2>
 
 <p>Manually create and submit an order.</p>
 
 <ul>
-<li>  <a href="#create-an-order-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/orders</code></li>
-<li>  <a href="#create-an-order-basic">Basic Auth</a>
+<li>  Basic Auth
 <code class="prettyprint">POST /api/v2/orders</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -872,7 +860,7 @@
 <li>  coupons</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the order are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -881,7 +869,7 @@
 <li>  billing_address</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <blockquote>
 <p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.</p>
@@ -889,15 +877,15 @@
 <p>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying <code class="prettyprint">**CA**</code> as a state name results in no tax document submission. Supplying <code class="prettyprint">**California**</code> as a state name results in a successful submission.</p>
 </blockquote>
 
-<h4 id="overriding-pre-set-values">Overriding Pre-set Values</h4>
+<h4 id="overriding-pre-set-values"><span class="jumptarget"> Overriding Pre-set Values </span></h4>
 
 <p>You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the pre-set store values and tax rules.</p>
 
-<h4 id="order-products">Order Products</h4>
+<h4 id="order-products"><span class="jumptarget"> Order Products </span></h4>
 
 <ul>
 <li>  Existing products can be added to the order with a reference to their <code class="prettyprint">product_id</code>.</li>
-<li>  Custom products can be added to the order using the <a title="products object/array" href="/api/orders/order/products">products array</a>.</li>
+<li>  Custom products can be added to the order using the <code class="prettyprint">products array</code>.</li>
 <li>  If price is not specified, it will automatically pick up the price from the store’s product catalog, however you can override it via <code class="prettyprint">price_inc_tax</code> and <code class="prettyprint">price_ex_tax</code>.</li>
 <li>  If <code class="prettyprint">price_inc_tax</code> and <code class="prettyprint">price_ex_tax</code> is specified, price and rulesets are ignored and the <code class="prettyprint">**price_inc_tax**</code> or <code class="prettyprint">**price_ex_tax**</code> are written to <code class="prettyprint">**base_price**</code>, according to the store settings.</li>
 <li>  When the store is subscribed to Avalara Premium, a value of <code class="prettyprint">**API Tax Override**</code> is written to the <code class="prettyprint">**name**</code> field of the order tax object.</li>
@@ -908,14 +896,14 @@
 <li>  Product quantity must be specified.</li>
 </ul>
 
-<h4 id="calculation-of-totals">Calculation of Totals</h4>
+<h4 id="calculation-of-totals"><span class="jumptarget"> Calculation of Totals </span></h4>
 
 <ul>
 <li>  When not specified, order subtotal and total are automatically calculated.</li>
 <li>  You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both as the system will not be able to accurately calculate the other.</li>
 </ul>
 
-<h4 id="order-properties">Order Properties</h4>
+<h4 id="order-properties"><span class="jumptarget"> Order Properties </span></h4>
 
 <ul>
 <li>  Billing address is mandatory.</li>
@@ -939,7 +927,7 @@
 </ul></li>
 </ul>
 
-<h4 id="changing-the-order-status">Changing the Order Status</h4>
+<h4 id="changing-the-order-status"><span class="jumptarget"> Changing the Order Status </span></h4>
 
 <ul>
 <li><p><code class="prettyprint">status_id</code> can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.</p></li>
@@ -953,7 +941,7 @@
 <li>  Completed</li>
 <li>  Awaiting Fulfillment</li>
 </ul></li>
-<li><p>Bigcommerce considers all statuses other than the above to be of the unpaid type, except <code class="prettyprint">**Refunded**</code>, which is considered neither paid or unpaid. Orders created using the <code class="prettyprint">**POST**</code> method that include a status of the paid type result in the submission of tax documents to Avalara.</p></li>
+<li><p>BigCommerce considers all statuses other than the above to be of the unpaid type, except <code class="prettyprint">**Refunded**</code>, which is considered neither paid or unpaid. Orders created using the <code class="prettyprint">**POST**</code> method that include a status of the paid type result in the submission of tax documents to Avalara.</p></li>
 </ul>
 <pre class="highlight plaintext"><code>{
   "customer_id": 0,
@@ -1115,18 +1103,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-an-order">Update an Order</h2>
+<h2 id="update-an-order"><span class="jumptarget"> Update an Order </span></h2>
 
 <p>Updates an existing order.</p>
 
 <ul>
-<li>  <a href="#update-an-order-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/orders/{id}</code></li>
-<li>  <a href="#update-an-order-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/orders/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1157,17 +1145,17 @@
 <li>  coupons</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <blockquote>
 <p>KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.</p>
 </blockquote>
 
-<h3 id="changing-the-order-status">Changing the Order Status</h3>
+<h3 id="changing-the-order-status"><span class="jumptarget"> Changing the Order Status </span></h3>
 
 <p>The <code class="prettyprint">status</code> property cannot be edited directly as it is generated based on the <code class="prettyprint">status_id</code>.</p>
 
-<p>Use the <code class="prettyprint">status_id</code> property to set the order to a specific state. The list of available statuses is provided by the <a href="/api/stores/v2/order_statuses">Order Statuses</a> resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the <code class="prettyprint">status_id</code> property changes. The following table details the behavior for <code class="prettyprint">**PUT**</code> operations. See also the list of <a href="#paid-status">Paid Statuses</a>.</p>
+<p>Use the <code class="prettyprint">status_id</code> property to set the order to a specific state. The list of available statuses is provided by the <a href="/api/v2#order_statuses">Order Statuses</a> resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the <code class="prettyprint">status_id</code> property changes. The following table details the behavior for <code class="prettyprint">**PUT**</code> operations. See also the list of <a href="#paid-status">Paid Statuses</a>.</p>
 
 <table><thead>
 <tr>
@@ -1209,7 +1197,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="calculated-fields">Calculated Fields</h3>
+<h3 id="calculated-fields"><span class="jumptarget"> Calculated Fields </span></h3>
 
 <p>Edits to the following properties will trigger a recalculation of the subtotal and total:</p>
 
@@ -1230,39 +1218,39 @@
 <p>NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.</p>
 </blockquote>
 
-<h2 id="delete-an-order">Delete an Order</h2>
+<h2 id="delete-an-order"><span class="jumptarget"> Delete an Order </span></h2>
 
 <p>Deletes an order.</p>
 
 <ul>
-<li>  <a href="#delete-an-order-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders/{id}</code></li>
-<li>  <a href="#delete-an-order-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/orders/{id}</code></li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <blockquote>
 <p>NOTE: Attempts to <code class="prettyprint">DELETE</code> an order on a store with automatic tax enabled will fail and return <code class="prettyprint">405 Method not allowed</code>.</p>
 </blockquote>
 
-<h2 id="delete-all-orders">Delete All Orders</h2>
+<h2 id="delete-all-orders"><span class="jumptarget"> Delete All Orders </span></h2>
 
 <p>Deletes all orders in the store.</p>
 
 <ul>
-<li>  <a href="#delete-all-orders-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders</code></li>
-<li>  <a href="#delete-all-orders-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/orders</code></li>
 </ul>
 
-          <h1 id="order-statuses">Order Statuses</h1>
+          <h1 id="order-statuses"><span class="jumptarget"> Order Statuses </span></h1>
 
 <p>Represents a state in the order fulfillment workflow</p>
 
-<h2 id="order-status-object-properties">Order Status Object - Properties</h2>
+<h2 id="order-status-object-properties"><span class="jumptarget"> Order Status Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1300,37 +1288,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="order-status-operations">Order Status Operations</h2>
-
-<ul>
-<li>  <a href="#list-order-statuses">List Order Statuses</a></li>
-<li>  <a href="#get-an-order-status">Get an Order Status</a></li>
-</ul>
-
-<h2 id="list-order-statuses">List Order Statuses</h2>
+<h2 id="list-order-statuses">List Order Statuses </span></h2>
 
 <p>Gets the list of order statuses.</p>
 
 <ul>
-<li>  <a href="#list-order-statuses-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/order_statuses</code></li>
-<li>  <a href="#list-order-statuses-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/order_statuses</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters">Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">order_statuses</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination">Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_statuses are returned by default.</p>
 
@@ -1426,14 +1407,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-order-status">Get an Order Status</h2>
+<h2 id="get-an-order-status">Get an Order Status </span></h2>
 
 <p>Gets a single order status.</p>
 
 <ul>
-<li>  <a href="#get-an-order-status-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/order_statuses/{id}</code></li>
-<li>  <a href="#get-an-order-status-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/order_statuses/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1443,11 +1424,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="order-products">Order Products</h1>
+          <h1 id="order-products"><span class="jumptarget"> Order Products </span></h1>
 
 <p>Product line item belonging to an order.</p>
 
-<h2 id="order-product-object-properties">Order Product Object - Properties</h2>
+<h2 id="order-product-object-properties"><span class="jumptarget"> Order Product Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1685,38 +1666,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="order-product-operations">Order Product Operations</h2>
-
-<ul>
-<li>  <a href="#list-order-products">List Order Products</a></li>
-<li>  <a href="#get-an-order-product">Get an Order Product</a></li>
-<li>  <a href="#get-a-count-of-order-products">Get a Count of Order Products</a></li>
-</ul>
-
-<h2 id="list-order-products">List Order Products</h2>
+<h2 id="list-order-products"><span class="jumptarget"> List Order Products </span></h2>
 
 <p>Gets the product line items associated with an order. (By default, items sort from lowest to highest according to a newly created id, separate from the order_id and the product_id.)</p>
 
 <ul>
-<li>  <a href="#list-order-products-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/products</code></li>
-<li>  <a href="#list-order-products-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/products</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">order products</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.</p>
 
@@ -1796,14 +1769,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-order-product">Get an Order Product</h2>
+<h2 id="get-an-order-product"><span class="jumptarget"> Get an Order Product </span></h2>
 
 <p>Gets a product line item associated with the order.</p>
 
 <ul>
-<li>  <a href="#get-an-order-product-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/products/{id}</code></li>
-<li>  <a href="#get-an-order-product-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/products/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1839,14 +1812,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-order-products">Get a Count of Order Products</h2>
+<h2 id="get-a-count-of-order-products"><span class="jumptarget"> Get a Count of Order Products </span></h2>
 
 <p>Gets a count of order product line items.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-order-products-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/products/count</code></li>
-<li>  <a href="#get-a-count-of-order-products-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/products/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1854,11 +1827,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="shipments">Shipments</h1>
+          <h1 id="shipments"><span class="jumptarget"> Shipments </span></h1>
 
 <p>Tracks a package consignment from an order, shipped from the seller to the buyer.</p>
 
-<h2 id="shipment-object-properties">Shipment Object - Properties</h2>
+<h2 id="shipment-object-properties"><span class="jumptarget"> Shipment Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1941,43 +1914,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="shipments-operations">Shipments Operations</h2>
-
-<ul>
-<li>  <a href="#list-shipments">List Shipments</a></li>
-<li>  <a href="#get-a-shipment">Get a Shipment</a></li>
-<li>  <a href="#get-a-count-of-shipments">Get a Count of Shipments</a></li>
-<li>  <a href="#get-a-count-of-shipments-per-order">Get a Count of Shipments per Order</a></li>
-<li>  <a href="#create-a-shipment">Create a Shipment</a></li>
-<li>  <a href="#update-a-shipment">Update a Shipment</a></li>
-<li>  <a href="#delete-a-shipment">Delete a Shipment</a></li>
-<li>  <a href="#delete-multiple-shipments">Delete Multiple Shipments</a></li>
-</ul>
-
-<h2 id="list-shipments">List Shipments</h2>
+<h2 id="list-shipments"><span class="jumptarget"> List Shipments </span></h2>
 
 <p>Gets the shipments associated with an order.</p>
 
 <ul>
-<li>  <a href="#list-shipments-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
-<li>  <a href="#list-shipments-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">shipments</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.</p>
 
@@ -2049,14 +2009,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-shipment">Get a Shipment</h2>
+<h2 id="get-a-shipment"><span class="jumptarget"> Get a Shipment </span></h2>
 
 <p>Gets a shipment associated with an order.</p>
 
 <ul>
-<li>  <a href="#get-a-shipment-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
-<li>  <a href="#get-a-shipment-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2107,14 +2067,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-shipments">Get a Count of Shipments</h2>
+<h2 id="get-a-count-of-shipments"><span class="jumptarget"> Get a Count of Shipments </span></h2>
 
 <p>Gets a count of the number of orders that have shipped.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-shipments-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/shipments/count</code></li>
-<li>  <a href="#get-a-count-of-shipments-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/shipments/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2122,14 +2082,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-shipments-per-order">Get a Count of Shipments per Order</h2>
+<h2 id="get-a-count-of-shipments-per-order"><span class="jumptarget"> Get a Count of Shipments per Order </span></h2>
 
 <p>Gets a count of the number of shipments that have been made for a single order.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-shipments-per-order-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipments/count</code></li>
-<li>  <a href="#get-a-count-of-shipments-per-order-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipments/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2137,18 +2097,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-shipment">Create a Shipment</h2>
+<h2 id="create-a-shipment"><span class="jumptarget"> Create a Shipment </span></h2>
 
 <p>Creates a new shipment for an order.</p>
 
 <ul>
-<li>  <a href="#create-a-shipment-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
-<li>  <a href="#create-a-shipment-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/orders/{order_id}/shipments</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2161,7 +2121,7 @@
 <li>  shipping_address</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -2229,18 +2189,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-shipment">Update a Shipment</h2>
+<h2 id="update-a-shipment"><span class="jumptarget"> Update a Shipment </span></h2>
 
 <p>Updates an existing shipment associated with an order.</p>
 
 <ul>
-<li>  <a href="#update-a-shipment-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
-<li>  <a href="#update-a-shipment-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/orders/{order_id}/shipments/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2254,7 +2214,7 @@
 <li>  shipping_address</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.</p>
 <pre class="highlight plaintext"><code>{
@@ -2311,29 +2271,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-shipment">Delete a Shipment</h2>
+<h2 id="delete-a-shipment"><span class="jumptarget"> Delete a Shipment </span></h2>
 
 <p>Deletes a shipment associated with an order.</p>
 
 <ul>
-<li>  <a href="#delete-a-shipment-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}</code></li>
-<li>  <a href="#delete-a-shipment-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/orders/{order_id}/shipments/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-shipments">Delete Multiple Shipments</h2>
+<h2 id="delete-multiple-shipments"><span class="jumptarget"> Delete Multiple Shipments </span></h2>
 
 <p>Deletes multiple shipments associated with an order.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-shipments-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments</code></li>
-<li>  <a href="#delete-multiple-shipments-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/orders/{order_id}/shipments</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.</p>
 
@@ -2356,11 +2316,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="order-shipping-addresses">Order Shipping Addresses</h1>
+          <h1 id="order-shipping-addresses"><span class="jumptarget"> Order Shipping Addresses </span></h1>
 
 <p>Customer shipping address belonging to an order.</p>
 
-<h2 id="order-shipping-address-object-properties">Order Shipping Address Object - Properties</h2>
+<h2 id="order-shipping-address-object-properties"><span class="jumptarget"> Order Shipping Address Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2528,38 +2488,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="order-shipping-address-operations">Order Shipping Address Operations</h2>
-
-<ul>
-<li>  <a href="#list-order-shipping-addresses">List Order Shipping Addresses</a></li>
-<li>  <a href="#get-an-order-shipping-address">Get an Order Shipping Address</a></li>
-<li>  <a href="#get-a-count-of-shipments">Get a Count of Shipments</a></li>
-</ul>
-
-<h2 id="list-order-shipping-addresses">List Order Shipping Addresses</h2>
+<h2 id="list-order-shipping-addresses">List Order Shipping Addresses </span></h2>
 
 <p>Gets the shipping addresses associated with an order.</p>
 
 <ul>
-<li>  <a href="#list-order-shipping-addresses-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses</code></li>
-<li>  <a href="#list-order-shipping-addresses-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipping_addresses</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters">Filters </span></h3>
 
 <p>There are no filter parameters specific to order shipping addresses.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination">Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_shipping_addresses are returned by default.</p>
 
@@ -2616,14 +2568,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-order-shipping-address">Get an Order Shipping Address</h2>
+<h2 id="get-an-order-shipping-address">Get an Order Shipping Address </span></h2>
 
 <p>Gets a shipping address associated with an order.</p>
 
 <ul>
-<li>  <a href="#get-an-order-shipping-address-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{id}</code></li>
-<li>  <a href="#get-an-order-shipping-address-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/shipping_addresses/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2659,14 +2611,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-shipments">Get a Count of Shipments</h2>
+<h2 id="get-a-count-of-shipments">Get a Count of Shipments </span></h2>
 
 <p>Gets a count of the number of orders that have shipped.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-shipments-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/shipments/count</code></li>
-<li>  <a href="#get-a-count-of-shipments-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/shipments/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2674,11 +2626,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="order-coupons">Order Coupons</h1>
+          <h1 id="order-coupons"><span class="jumptarget"> Order Coupons </span></h1>
 
 <p>Coupon code applied to an order</p>
 
-<h2 id="order-coupon-object-properties">Order Coupon Object - Properties</h2>
+<h2 id="order-coupon-object-properties"><span class="jumptarget"> Order Coupon Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2735,38 +2687,31 @@
 <td></td>
 </tr>
 <tr>
-<td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
-
-<ul>
-<li>  <a href="#list-order-coupons">List Order Coupons</a></li>
-<li>  <a href="#get-an-order-coupon">Get an Order Coupon</a></li>
-</ul>
-
-<h2 id="list-order-coupons">List Order Coupons</h2>
+<h2 id="list-order-coupons"><span class="jumptarget"> List Order Coupons </span></h2>
 
 <p>Gets the coupon codes applied to an order. (Default sorting is by coupon id, from lowest to highest; however, only one coupon can be applied to each order.)</p>
 
 <ul>
-<li>  <a href="#list-order-coupons-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/coupons</code></li>
-<li>  <a href="#list-order-coupons-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/coupons</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">order_coupons</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_coupons are returned by default.</p>
 
@@ -2801,14 +2746,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-order-coupon">Get an Order Coupon</h2>
+<h2 id="get-an-order-coupon"><span class="jumptarget"> Get an Order Coupon </span></h2>
 
 <p>Gets a coupon code associated with an order.</p>
 
 <ul>
-<li>  <a href="#get-an-order-coupon-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/coupons/{id}</code></li>
-<li>  <a href="#get-an-order-coupon-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/coupons/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2822,11 +2767,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="order-messages">Order Messages</h1>
+          <h1 id="order-messages"><span class="jumptarget"> Order Messages </span></h1>
 
 <p>Messages associated with an order.</p>
 
-<h2 id="order-message-object-properties">Order Message Object - Properties</h2>
+<h2 id="order-message-object-properties"><span class="jumptarget"> Order Message Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2904,33 +2849,26 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_orders</code></td>
+<td>store_v2_orders</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_orders_read_only</code></td>
+<td>store_v2_orders_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="order-message-operations">Order Message Operations</h2>
-
-<ul>
-<li>  <a href="#list-order-messages">List Order Messages</a></li>
-<li>  <a href="#get-order-message">Get Order Message</a></li>
-</ul>
-
-<h2 id="list-order-messages">List Order Messages</h2>
+<h2 id="list-order-messages"><span class="jumptarget"> List Order Messages </span></h2>
 
 <p>Gets the messages associated with an order.</p>
 
 <ul>
-<li>  <a href="#list-order-messages-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/messages</code></li>
-<li>  <a href="#list-order-messages-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/messages</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific <code class="prettyprint">order_message</code> in the collection.</p>
 
@@ -2978,7 +2916,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_messages are returned by default.</p>
 
@@ -3001,14 +2939,14 @@
 </tr>
 </tbody></table>
 
-<h2 id="get-order-message">Get Order Message</h2>
+<h2 id="get-order-message"><span class="jumptarget"> Get Order Message </span></h2>
 
 <p>Gets a message associated with an order.</p>
 
 <ul>
-<li>  <a href="#get-order-message-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/orders/{order_id}/messages/{id}</code></li>
-<li>  <a href="#get-order-message-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/orders/{order_id}/messages/{id}</code></li>
 </ul>
 

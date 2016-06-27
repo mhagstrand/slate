@@ -125,7 +125,7 @@
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
-          <li><a href="/api/v2" title="API">API</a></li>
+          <li><a href="/api/" title="API">API</a></li>
           <li><a href="/themes" title="Themes">Themes</a></li>
           <li><a href="/changelog" title="Changelog">Changelog</a></li>
           <li><a href="/support" title="Help and Support">Support</a></li>
@@ -610,7 +610,7 @@
 </thead><tbody>
 <tr>
 <td><strong>Manages</strong></td>
-<td><a href="/api/?BasicAuth#product-properties">Product Object</a></td>
+<td><a href="/api/v2#product">Product Object</a></td>
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
@@ -622,21 +622,16 @@
 </tr>
 </tbody></table>
 
-<h2 id="product-operations"><span class="jumptarget"> Product Operations </span></h2>
-
-<ul>
-<li>  <a href="#list-products">List Products</a></li>
-<li>  <a href="#get-a-product">Get a Product</a></li>
-<li>  <a href="#get-a-product-count">Get a Product Count</a></li>
-<li>  <a href="#create-a-product">Create a Product</a></li>
-<li>  <a href="#update-a-product">Update a Product</a></li>
-<li>  <a href="#delete-a-product">Delete a Product</a></li>
-<li>  <a href="#delete-all-products">Delete All Products</a></li>
-</ul>
-
-<h2 id="list-products"><span class="jumptarget"> List Products</h2>
+<h2 id="list-products"><span class="jumptarget"> List Products </span></h2>
 
 <p>Gets the collection of products. (Default sorting is by product id, from lowest to highest.)</p>
+
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/products</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">GET /api/v2/products</code></li>
+</ul>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
@@ -886,22 +881,6 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>GET /api/v2/products</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>GET /stores/{store_hash}/v2/products</td>
-</tr>
-</tbody></table>
-
 <h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific products in the collection.</p>
@@ -1071,6 +1050,13 @@
 <h2 id="get-a-product"><span class="jumptarget"> Get a Product </span></h2>
 
 <p>Gets a product.</p>
+
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/products/{id}</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">GET /api/v2/products/{id}</code></li>
+</ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
   </span><span class="nt">"keyword_filter"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -1194,45 +1180,20 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>GET /api/v2/products/{id}</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>GET /stores/{store_hash}/v2/products/{id}</td>
-</tr>
-</tbody></table>
-
 <h2 id="get-a-product-count"><span class="jumptarget"> Get a Product Count </span></h2>
 
 <p>Gets a count of products.</p>
+
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/products/count</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">GET /api/v2/products/count</code></li>
+</ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">44</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>GET /api/v2/products/count</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>GET /stores/{store_hash}/v2/products/count</td>
-</tr>
-</tbody></table>
 
 <h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
@@ -1383,7 +1344,14 @@
 
 <h2 id="create-a-product"><span class="jumptarget"> Create a Product </span></h2>
 
-<p>Creates a new product. The example request shows how to create a basic product by sending a <a href="/api/?javascript#product-properties">product object</a> with the minimum required properties.</p>
+<p>Creates a new product. The example request shows how to create a basic product by sending a <a href="/api/v2#product-properties">product object</a> with the minimum required properties.</p>
+
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">POST /stores/{store_hash}/v2/products</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">POST /api/v2/products</code></li>
+</ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Plain T-Shirt"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"physical"</span><span class="p">,</span><span class="w">
@@ -1394,22 +1362,6 @@
     </span><span class="nt">"weight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.5"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>POST /api/v2/products</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>POST /stores/{store_hash}/v2/products</td>
-</tr>
-</tbody></table>
 
 <h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
@@ -1455,25 +1407,16 @@
 
 <p>If automatic tax is enabled on the store, the value of <code class="prettyprint">tax_class_id</code> will have no effect on the calculation of taxes.</p>
 
-<h2 id="update-a-product">Update a Product</h2>
+<h2 id="update-a-product"><span class="jumptarget"> Update a Product </span></h2>
 
 <p>Updates an existing product.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>PUT /api/v2/products/{id}</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>PUT /stores/{store_hash}/v2/products/{id}</td>
-</tr>
-</tbody></table>
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">PUT /stores/{store_hash}/v2/products/{id}</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">PUT /api/v2/products/{id}</code></li>
+</ul>
 
 <h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
@@ -1507,7 +1450,7 @@
 
 <h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-<p>To update a product, set one or more <a href="/api/?javascript#product-properties">product properties</a> in the <code class="prettyprint">PUT</code> request:</p>
+<p>To update a product, set one or more <a href="/api/v2#product-properties">product properties</a> in the <code class="prettyprint">PUT</code> request:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"custom_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/plain-tshirt/"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"is_visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -1533,7 +1476,6 @@
     "number_sold": 99
 }```
 
-
 ```json 
 400 Bad Request
 </code></pre>
@@ -1548,21 +1490,12 @@
 
 <p>Deletes a product.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>DELETE /api/v2/products/{id}</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>DELETE /stores/{store_hash}/v2/products/{id}</td>
-</tr>
-</tbody></table>
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{id}</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">DELETE /api/v2/products/{id}</code></li>
+</ul>
 
 <h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
@@ -1574,21 +1507,12 @@
 
 <p>Deletes all products from the store.</p>
 
-<table><thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Basic Auth:</td>
-<td>DELETE /api/v2/products</td>
-</tr>
-<tr>
-<td>OAuth:</td>
-<td>DELETE /stores/{store_hash}/v2/products</td>
-</tr>
-</tbody></table>
+<ul>
+<li>  OAuth 
+&gt; <code class="prettyprint">DELETE /stores/{store_hash}/v2/products</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">DELETE /api/v2/products</code></li>
+</ul>
 
 <h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
@@ -1596,11 +1520,11 @@
 <pre class="highlight json"><code><span class="mi">204</span><span class="w"> </span><span class="err">No</span><span class="w"> </span><span class="err">Content</span><span class="w">
 </span></code></pre>
 
-          <h1 id="product-options">Product Options</h1>
+          <h1 id="product-options"><span class="jumptarget"> Product Options </span></h1>
 
 <p>Shared attributes that control value facets on a product.</p>
 
-<h2 id="product-option-object-properties">Product Option Object - Properties</h2>
+<h2 id="product-option-object-properties"><span class="jumptarget"> Product Option Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1648,37 +1572,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="product-option-operations">Product Option Operations</h2>
-
-<ul>
-<li>  <a href="#list-product-options">List Product Options</a></li>
-<li>  <a href="#get-a-product-option">Get a Product Option</a></li>
-</ul>
-
-<h2 id="list-product-options">List Product Options</h2>
+<h2 id="list-product-options"><span class="jumptarget"> List Product Options </span></h2>
 
 <p>Gets the options associated with a product.</p>
 
 <ul>
-<li>  <a href="#list-product-options-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/options</code></li>
-<li>  <a href="#list-product-options-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/options</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to product options. </p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_options are returned by default.</p>
 
@@ -1718,14 +1635,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-option">Get a Product Option</h2>
+<h2 id="get-a-product-option"><span class="jumptarget"> Get a Product Option </span></h2>
 
 <p>Gets an option associated with a product.</p>
 
 <ul>
-<li>  <a href="#get-a-product-option-oauth">OAuth</a>
+<li>  OAuth
 &ldquo;&gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/options/{id}</code></li>
-<li>  <a href="#get-a-product-option-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/options/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1737,11 +1654,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="product-option-values">Product Option Values</h1>
+          <h1 id="product-option-values"><span class="jumptarget"> Product Option Values </span></h1>
 
 <p>Values that can be selected for an option.</p>
 
-<h2 id="product-object-value-object-properties">Product Object Value Object - Properties</h2>
+<h2 id="product-object-value-object-properties"><span class="jumptarget"> Product Object Value Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1789,42 +1706,31 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Manages</td>
+<td><strong>Manages</strong></td>
 <td></td>
 </tr>
 <tr>
-<td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="option-value-operations">Option Value Operations</h2>
-
-<ul>
-<li>  <a href="#list-option-values">List Option Values</a></li>
-<li>  <a href="#get-an-option-value">Get an Option Value</a></li>
-<li>  <a href="#create-an-option-value">Create an Option Value</a></li>
-<li>  <a href="#update-an-option-value">Update an Option Value</a></li>
-<li>  <a href="#delete-an-option-value">Delete an Option Value</a></li>
-<li>  <a href="#delete-multiple-option-values">Delete Multiple Option Values</a></li>
-</ul>
-
-<h2 id="list-option-values">List Option Values</h2>
+<h2 id="list-option-values"><span class="jumptarget"> List Option Values </span></h2>
 
 <p>Gets the values belonging to an option. (Default sorting is by option-value id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-option-values-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/options/{option_id}/values</code></li>
-<li>  <a href="#list-option-values-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/options/{option_id}/values</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.</p>
 
@@ -1866,14 +1772,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-option-value">Get an Option Value</h2>
+<h2 id="get-an-option-value"><span class="jumptarget"> Get an Option Value </span></h2>
 
 <p>Gets an option value.</p>
 
 <ul>
-<li>  <a href="#get-an-option-value-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
-<li>  <a href="#get-an-option-value-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/options/{option_id}/values/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -1886,18 +1792,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-an-option-value">Create an Option Value</h2>
+<h2 id="create-an-option-value"><span class="jumptarget"> Create an Option Value </span></h2>
 
 <p>Creates a new option value.</p>
 
 <ul>
-<li>  <a href="#create-an-option-value-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/options/{option_id}/values</code></li>
-<li>  <a href="#create-an-option-value-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/options/{option_id}/values</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1906,7 +1812,7 @@
 <li>  option_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -1915,9 +1821,9 @@
 <li>  value</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-<p>To maximize system performance, Bigcommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.</p>
+<p>To maximize system performance, BigCommerce caps the total number of values per option at 250. IF the option has 250 values and you try to create another one, Bigcommerce will return a 403 error.</p>
 
 <p>When you POST an <code class="prettyprint">is_default</code>property of <code class="prettyprint">true</code>, all other option values on the parent option will have their <code class="prettyprint">is_default</code> property set to <code class="prettyprint">false</code>.</p>
 <pre class="highlight plaintext"><code>{
@@ -1937,18 +1843,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-an-option-value">Update an Option Value</h2>
+<h2 id="update-an-option-value"><span class="jumptarget"> Update an Option Value </span></h2>
 
 <p>Updates an existing option value.</p>
 
 <ul>
-<li>  <a href="#update-an-option-value-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
-<li>  <a href="#update-an-option-value-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/options/{option_id}/values/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties</h3>
 
 <p>The following properties of the option value are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -1957,11 +1863,11 @@
 <li>  option_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option value are required. The request won’t be fulfilled unless these properties are valid.</p>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes</h3>
 
 <p>When you PUT an <code class="prettyprint">is_default</code> property of <code class="prettyprint">true</code>, all other option values on the parent option will have their <code class="prettyprint">is_default</code> property set to <code class="prettyprint">false</code>.</p>
 <pre class="highlight plaintext"><code>{
@@ -1981,29 +1887,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-an-option-value">Delete an Option Value</h2>
+<h2 id="delete-an-option-value"><span class="jumptarget"> Delete an Option Value </span></h2>
 
 <p>Deletes an option value.</p>
 
 <ul>
-<li>  <a href="#delete-an-option-value-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/options/{option_id}/values/{id}</code></li>
-<li>  <a href="#delete-an-option-value-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/options/{option_id}/values/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-option-values">Delete Multiple Option Values</h2>
+<h2 id="delete-multiple-option-values"><span class="jumptarget"> Delete Multiple Option Values </span></h2>
 
 <p>Deletes multiple values belonging to an option.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-option-values-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/options/{option_id}/values</code></li>
-<li>  <a href="#delete-multiple-option-values-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/options/{option_id}/values</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_values are returned by default.</p>
 
@@ -2026,11 +1932,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="product-option-sets">Product Option Sets</h1>
+          <h1 id="product-option-sets"><span class="jumptarget"> Product Option Sets </span></h1>
 
 <p>A reusable set of option facets that can be applied to products.</p>
 
-<h2 id="product-option-set-object-properties">Product Option Set Object - Properties</h2>
+<h2 id="product-option-set-object-properties"><span class="jumptarget"> Product Option Set Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2063,43 +1969,31 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Manages</td>
+<td><strong>Manages</strong></td>
 <td></td>
 </tr>
 <tr>
-<td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="option-set-operations">Option Set Operations</h2>
-
-<ul>
-<li>  <a href="#list-option-sets">List Option Sets</a></li>
-<li>  <a href="#get-an-option-set">Get an Option Set</a></li>
-<li>  <a href="#get-a-count-of-option-sets">Get a Count of Option Sets</a></li>
-<li>  <a href="#create-an-option-set">Create an Option Set</a></li>
-<li>  <a href="#update-an-option-set">Update an Option Set</a></li>
-<li>  <a href="#delete-an-option-set">Delete an Option Set</a></li>
-<li>  <a href="#delete-all-option-sets">Delete All Option Sets</a></li>
-</ul>
-
-<h2 id="list-option-sets">List Option Sets</h2>
+<h2 id="list-option-sets"><span class="jumptarget"> List Option Sets  </span></h2>
 
 <p>Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-option-sets-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets</code></li>
-<li>  <a href="#list-option-sets-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/option_sets</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific option_sets in the collection.</p>
 
@@ -2117,7 +2011,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_sets are returned by default.</p>
 
@@ -2159,14 +2053,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-option-set">Get an Option Set</h2>
+<h2 id="get-an-option-set"><span class="jumptarget"> Get an Option Set </span></h2>
 
 <p>Gets an option set.</p>
 
 <ul>
-<li>  <a href="#get-an-option-set-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{id}</code></li>
-<li>  <a href="#get-an-option-set-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/option_sets/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2179,14 +2073,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-option-sets">Get a Count of Option Sets</h2>
+<h2 id="get-a-count-of-option-sets"><span class="jumptarget"> Get a Count of Option Sets </span></h2>
 
 <p>Gets a count of the number of option sets in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-option-sets-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/count</code></li>
-<li>  <a href="#get-a-count-of-option-sets-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/option_sets/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2194,18 +2088,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-an-option-set">Create an Option Set</h2>
+<h2 id="create-an-option-set"><span class="jumptarget"> Create an Option Set </span></h2>
 
 <p>Creates a new Option set.</p>
 
 <ul>
-<li>  <a href="#create-an-option-set-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/option_sets</code></li>
-<li>  <a href="#create-an-option-set-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/option_sets</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2214,7 +2108,7 @@
 <li>  options</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -2235,18 +2129,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-an-option-set">Update an Option Set</h2>
+<h2 id="update-an-option-set"><span class="jumptarget"> Update an Option Set </span></h2>
 
 <p>Updates an existing option set.</p>
 
 <ul>
-<li>  <a href="#update-an-option-set-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/option_sets/{id}</code></li>
-<li>  <a href="#update-an-option-set-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/option_sets/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2255,7 +2149,7 @@
 <li>  options</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -2276,33 +2170,33 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-an-option-set">Delete an Option Set</h2>
+<h2 id="delete-an-option-set"><span class="jumptarget"> Delete an Option Set </span></h2>
 
 <p>Deletes an option set.</p>
 
 <ul>
-<li>  <a href="#delete-an-option-set-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{id}</code></li>
-<li>  <a href="#delete-an-option-set-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/option_sets/{id}</code></li>
 </ul>
 
-<h2 id="delete-all-option-sets">Delete All Option Sets</h2>
+<h2 id="delete-all-option-sets"><span class="jumptarget"> Delete All Option Sets </span></h2>
 
 <p>Deletes all option sets in the store.</p>
 
 <ul>
-<li>  <a href="#delete-all-option-sets-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets</code></li>
-<li>  <a href="#delete-all-option-sets-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/option_sets</code></li>
 </ul>
 
-          <h1 id="product-option-set-options">Product Option Set Options</h1>
+          <h1 id="product-option-set-options"><span class="jumptarget">  Product Option Set Options </span></h1>
 
 <p>Options belonging to an option set.</p>
 
-<h2 id="option-set-option-object-properties">Option Set Option Object - Properties</h2>
+<h2 id="option-set-option-object-properties"><span class="jumptarget">  Option Set Option Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2365,37 +2259,26 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="option-set-option-operations">Option Set Option Operations</h2>
-
-<ul>
-<li>  <a href="#list-option-set-options">List Option Set Options</a></li>
-<li>  <a href="#get-an-option-set-option">Get an Option Set Option</a></li>
-<li>  <a href="#create-an-option-set-option">Create an Option Set Option</a></li>
-<li>  <a href="#update-an-option-set-option">Update an Option Set Option</a></li>
-<li>  <a href="#delete-an-option-set-option">Delete an Option Set Option</a></li>
-<li>  <a href="#delete-multiple-option-set-options">Delete Multiple Option Set Options</a></li>
-</ul>
-
-<h2 id="list-option-set-options">List Option Set Options</h2>
+<h2 id="list-option-set-options"><span class="jumptarget"> List Option Set Options </span></h2>
 
 <p>Gets the options associated with an option set. (Default sorting is by option id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-option-set-options-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
-<li>  <a href="#list-option-set-options-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/option_sets/{option_set_id}/options</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.</p>
 
@@ -2497,14 +2380,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-an-option-set-option">Get an Option Set Option</h2>
+<h2 id="get-an-option-set-option"><span class="jumptarget"> Get an Option Set Option </span></h2>
 
 <p>Gets an option set option.</p>
 
 <ul>
-<li>  <a href="#get-an-option-set-option-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
-<li>  <a href="#get-an-option-set-option-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2521,18 +2404,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-an-option-set-option">Create an Option Set Option</h2>
+<h2 id="create-an-option-set-option"><span class="jumptarget"> Create an Option Set Option </span></h2>
 
 <p>Creates a new option associated with an option set.</p>
 
 <ul>
-<li>  <a href="#create-an-option-set-option-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
-<li>  <a href="#create-an-option-set-option-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/option_sets/{option_set_id}/options</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2543,7 +2426,7 @@
 <li>  option</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option set option are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -2571,18 +2454,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-an-option-set-option">Update an Option Set Option</h2>
+<h2 id="update-an-option-set-option"><span class="jumptarget"> Update an Option Set Option </span></h2>
 
 <p>Updates an existing option set option.</p>
 
 <ul>
-<li>  <a href="#update-an-option-set-option-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
-<li>  <a href="#update-an-option-set-option-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -2594,7 +2477,7 @@
 <li>  option</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the option set option are required. The request won’t be fulfilled unless these properties are valid.</p>
 <pre class="highlight plaintext"><code>{
@@ -2617,29 +2500,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-an-option-set-option">Delete an Option Set Option</h2>
+<h2 id="delete-an-option-set-option"><span class="jumptarget"> Delete an Option Set Option </span></h2>
 
 <p>Deletes an option belonging to an option set.</p>
 
 <ul>
-<li>  <a href="#delete-an-option-set-option-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}</code></li>
-<li>  <a href="#delete-an-option-set-option-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/option_sets/{option_set_id}/options/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-option-set-options">Delete Multiple Option Set Options</h2>
+<h2 id="delete-multiple-option-set-options"><span class="jumptarget"> Delete Multiple Option Set Options </span></h2>
 
 <p>Deletes multiple options associated with an option set.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-option-set-options-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/option_sets/{option_set_id}/options</code></li>
-<li>  <a href="#delete-multiple-option-set-options-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/option_sets/{option_set_id}/options</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_set_options are returned by default.</p>
 
@@ -2720,38 +2603,26 @@
 </thead><tbody>
 <tr>
 <td>Manages</td>
-<td><a href="/api/?BasicAuth#product-image-properties">Product Image Object</a></td>
+<td>Product Image Object</td>
 </tr>
 <tr>
 <td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
-
-<h2 id="product-image-operations"><span class="jumptarget"> Product Image Operations </span></h2>
-
-<ul>
-<li>  <a href="#list-product-images">List Product Images</a></li>
-<li>  <a href="#get-a-product-image">Get a Product Image</a></li>
-<li>  <a href="#get-a-count-of-product-images">Get a Count of Product Images</a></li>
-<li>  <a href="#create-a-product-image">Create a Product Image</a></li>
-<li>  <a href="#update-a-product-image">Update a Product Image</a></li>
-<li>  <a href="#delete-a-product-image">Delete a Product Image</a></li>
-<li>  <a href="#delete-multiple-product-images">Delete Multiple Product Images</a></li>
-</ul>
 
 <h2 id="list-product-images"><span class="jumptarget"> List Product Images </span></h2>
 
 <p>Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-product-images-oauth">OAuth</a>
+<li>  OAuth
 &gt;GET /stores/{store_hash}/v2/products/{product_id}/images</li>
-<li>  <a href="#list-product-images-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;GET /api/v2/products/{product_id}/images</li>
 </ul>
 
@@ -2818,9 +2689,9 @@
 <p>Gets a product image.</p>
 
 <ul>
-<li>  <a href="#get-a-product-image-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/images/{id}</code></li>
-<li>  <a href="#get-a-product-image-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/images/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2843,9 +2714,9 @@
 <p>Gets a count of the number of product images in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-product-images-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/images/count</code></li>
-<li>  <a href="#get-a-count-of-product-images-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/images/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -2858,9 +2729,9 @@
 <p>Creates a new product image.</p>
 
 <ul>
-<li>  <a href="#create-a-product-image-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/images</code></li>
-<li>  <a href="#create-a-product-image-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/images</code></li>
 </ul>
 
@@ -2897,9 +2768,9 @@
 <p>Updates an existing product image.</p>
 
 <ul>
-<li>  <a href="#update-a-product-image-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/images/{id}</code></li>
-<li>  <a href="#update-a-product-image-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/images/{id}</code></li>
 </ul>
 
@@ -2932,9 +2803,9 @@
 <p>Deletes a product image.</p>
 
 <ul>
-<li>  <a href="#delete-a-product-image-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/images/{id}</code></li>
-<li>  <a href="#delete-a-product-image-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/images/{id}</code></li>
 </ul>
 
@@ -2943,9 +2814,9 @@
 <p>Deletes multiple product images.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-product-images-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/images</code></li>
-<li>  <a href="#delete-multiple-product-images-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/images</code></li>
 </ul>
 
@@ -2972,11 +2843,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="product-rules">Product Rules</h1>
+          <h1 id="product-rules"><span class="jumptarget"> Product Rules </span></h1>
 
 <p>Rules that modify the properties of a product, such as weight, price, and product image.</p>
 
-<h2 id="product-rule-object-properties">Product Rule Object - Properties</h2>
+<h2 id="product-rule-object-properties"><span class="jumptarget"> Product Rule Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -3059,42 +2930,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="product-rule-operations">Product Rule Operations</h2>
-
-<ul>
-<li>  <a href="#list-product-rules">List Product Rules</a></li>
-<li>  <a href="#get-a-product-rule">Get a Product Rule</a></li>
-<li>  <a href="#get-a-count-of-product-rules">Get a Count of Product Rules</a></li>
-<li>  <a href="#create-a-product-rule">Create a Product Rule</a></li>
-<li>  <a href="#update-a-product-rule">Update a Product Rule</a></li>
-<li>  <a href="#delete-a-product-rule">Delete a Product Rule</a></li>
-<li>  <a href="#delete-multiple-product-rules">Delete Multiple Product Rules</a></li>
-</ul>
-
-<h2 id="list-product-rules">List Product Rules</h2>
+<h2 id="list-product-rules"><span class="jumptarget"> List Product Rules </span></h2>
 
 <p>Gets the collection of rules associated with a product. (Default sorting is by rule id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-product-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
-<li>  <a href="#list-product-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/rules</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to product rules.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_rules are returned by default.</p>
 
@@ -3160,14 +3019,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-rule">Get a Product Rule</h2>
+<h2 id="get-a-product-rule"><span class="jumptarget"> Get a Product Rule </span></h2>
 
 <p>Gets a single product rule.</p>
 
 <ul>
-<li>  <a href="#get-a-product-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
-<li>  <a href="#get-a-product-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/rules/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3192,14 +3051,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-product-rules">Get a Count of Product Rules</h2>
+<h2 id="get-a-count-of-product-rules"><span class="jumptarget"> Get a Count of Product Rules </span></h2>
 
 <p>Gets a count of the number of product rules in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-product-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/rules/count</code></li>
-<li>  <a href="#get-a-count-of-product-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/rules/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3207,18 +3066,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-product-rule">Create a Product Rule</h2>
+<h2 id="create-a-product-rule"><span class="jumptarget"> Create a Product Rule </span></h2>
 
 <p>Creates a new product rule.</p>
 
 <ul>
-<li>  <a href="#create-a-product-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
-<li>  <a href="#create-a-product-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/rules</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3227,7 +3086,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the product rule are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -3256,22 +3115,22 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-product-rule">Update a Product Rule</h2>
+<h2 id="update-a-product-rule"><span class="jumptarget"> Update a Product Rule </span></h2>
 
 <p>Updates an existing product rule. </p>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>If you include a conditions object array, its contents will be appended to any existing conditions. This operation does not overwrite existing conditions.</p>
 
 <ul>
-<li>  <a href="#update-a-product-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
-<li>  <a href="#update-a-product-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/rules/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3280,7 +3139,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>There are no property requirements for updating a product rule.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3305,29 +3164,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-product-rule">Delete a Product Rule</h2>
+<h2 id="delete-a-product-rule"><span class="jumptarget"> Delete a Product Rule </span></h2>
 
 <p>Deletes a product rule.</p>
 
 <ul>
-<li>  <a href="#delete-a-product-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/rules/{id}</code></li>
-<li>  <a href="#delete-a-product-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/rules/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-product-rules">Delete Multiple Product Rules</h2>
+<h2 id="delete-multiple-product-rules"><span class="jumptarget"> Delete Multiple Product Rules </span></h2>
 
 <p>Deletes multiple product rules.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-product-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/rules</code></li>
-<li>  <a href="#delete-multiple-product-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/rules</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">product_rules</code> are returned by default.</p>
 
@@ -3350,11 +3209,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="product-reviews">Product Reviews</h1>
+          <h1 id="product-reviews"><span class="jumptarget"> Product Reviews </span></h1>
 
 <p>Reviews associated with a product.</p>
 
-<h2 id="product-review-object-properties">Product Review Object - Properties</h2>
+<h2 id="product-review-object-properties"><span class="jumptarget"> Product Review Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -3413,45 +3272,34 @@
 </thead><tbody>
 <tr>
 <td><strong>Manages</strong></td>
-<td><a href="/api/objects/v2/product_review">Product Review Object</a></td>
+<td>Product Review Object</td>
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="product-review-operations">Product Review Operations</h2>
-
-<ul>
-<li>  <a href="#list-product-reviews">List Product Reviews</a></li>
-<li>  <a href="#get-a-product-review">Get a Product Review</a></li>
-<li>  <a href="#create-a-product-review">Create a Product Review</a></li>
-<li>  <a href="#update-a-product-review">Update a Product Review</a></li>
-<li>  <a href="#delete-a-product-review">Delete a Product Review</a></li>
-<li>  <a href="#delete-all-product-reviews">Delete All Product Reviews</a></li>
-</ul>
-
-<h2 id="list-product-reviews">List Product Reviews</h2>
+<h2 id="list-product-reviews"><span class="jumptarget"> List Product Reviews </span></h2>
 
 <p>Gets the reviews associated with a product. (Default sorting is by review id, from lowest to highest.)</p>
 
 <ul>
-<li>  <a href="#list-product-reviews-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{id}/reviews</code></li>
-<li>  <a href="#list-product-reviews-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{id}/reviews</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to product reviews. </p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.</p>
 
@@ -3507,14 +3355,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-review">Get a Product Review</h2>
+<h2 id="get-a-product-review"><span class="jumptarget"> Get a Product Review </span></h2>
 
 <p>Gets a product review.</p>
 
 <ul>
-<li>  <a href="#get-a-product-review-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
-<li>  <a href="#get-a-product-review-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/reviews/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3529,22 +3377,22 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-product-review">Create a Product Review</h2>
+<h2 id="create-a-product-review"><span class="jumptarget"> Create a Product Review </span></h2>
 
 <p>Creates a new product review. </p>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>The <code class="prettyprint">review</code> property is the review&rsquo;s text. The <code class="prettyprint">rating</code> property must be a whole number between 1–5. If the optional <code class="prettyprint">date_created</code> property is not specified, it defaults to the current date/time. If the optional &ldquo;status&rdquo; property is not specified, it defaults to 0 [<code class="prettyprint">Pending</code>]. Other allowable values are 1 [<code class="prettyprint">Approved</code>] or 2 [<code class="prettyprint">Disapproved</code>].)</p>
 
 <ul>
-<li>  <a href="#create-a-product-review-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/reviews</code></li>
-<li>  <a href="#create-a-product-review-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/reviews</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3553,7 +3401,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the product review are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -3575,18 +3423,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-product-review">Update a Product Review</h2>
+<h2 id="update-a-product-review"><span class="jumptarget"> Update a Product Review </span></h2>
 
 <p>Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.</p>
 
 <ul>
-<li>  <a href="#update-a-product-review-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
-<li>  <a href="#update-a-product-review-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/reviews/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3606,33 +3454,33 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-product-review">Delete a Product Review</h2>
+<h2 id="delete-a-product-review"><span class="jumptarget"> Delete a Product Review </span></h2>
 
 <p>Deletes a specified product review. (If successful, this will typically return a <code class="prettyprint">204 No Content</code>.)</p>
 
 <ul>
-<li>  <a href="#delete-a-product-review-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/reviews/{id}</code></li>
-<li>  <a href="#delete-a-product-review-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/reviews/{id}</code></li>
 </ul>
 
-<h2 id="delete-all-product-reviews">Delete All Product Reviews</h2>
+<h2 id="delete-all-product-reviews"><span class="jumptarget"> Delete All Product Reviews </span></h2>
 
 <p>Deletes all reviews for the specified product. (If successful, this will typically return a <code class="prettyprint">204 No Content</code>.)</p>
 
 <ul>
-<li>  <a href="#delete-all-product-reviews-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/reviews</code></li>
-<li>  <a href="#delete-all-product-reviews-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/reviews</code></li>
 </ul>
 
-          <h1 id="product-skus">Product SKUs</h1>
+          <h1 id="product-skus"><span class="jumptarget"> Product SKUs </span></h1>
 
 <p>Stock Keeping Unit identifiers associated with products or product options.</p>
 
-<h2 id="product-sku-object-properties">Product SKU Object - Properties</h2>
+<h2 id="product-sku-object-properties"><span class="jumptarget"> Product SKU Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -3735,42 +3583,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="product-sku-operations">Product SKU Operations</h2>
-
-<ul>
-<li>  <a href="#list-product-skus">List Product SKUs</a></li>
-<li>  <a href="#get-a-product-sku">Get a Product SKU</a></li>
-<li>  <a href="#get-a-count-of-product-skus">Get a Count of Product SKUs</a></li>
-<li>  <a href="#create-a-product-sku">Create a Product SKU</a></li>
-<li>  <a href="#update-a-product-sku">Update a Product SKU</a></li>
-<li>  <a href="#delete-a-product-sku">Delete a Product SKU</a></li>
-<li>  <a href="#delete-multiple-product-skus">Delete Multiple Product SKUs</a></li>
-</ul>
-
-<h2 id="list-product-skus">List Product SKUs</h2>
+<h2 id="list-product-skus"><span class="jumptarget"> List Product SKUs </span></h2>
 
 <p>Gets the collection of SKUs associated with a product.</p>
 
 <ul>
-<li>  <a href="#list-product-skus-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/skus</code></li>
-<li>  <a href="#list-product-skus-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/skus</code></li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)</p>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific skus in the collection.</p>
 
@@ -3838,7 +3674,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.</p>
 
@@ -3918,14 +3754,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-sku">Get a Product SKU</h2>
+<h2 id="get-a-product-sku"><span class="jumptarget"> Get a Product SKU </span></h2>
 
 <p>Gets a single product SKU.</p>
 
 <ul>
-<li>  <a href="#get-a-product-sku-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}</code></li>
-<li>  <a href="#get-a-product-sku-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/skus/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3953,14 +3789,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-product-skus">Get a Count of Product SKUs</h2>
+<h2 id="get-a-count-of-product-skus"><span class="jumptarget"> Get a Count of Product SKUs </span></h2>
 
 <p>Gets a count of the number of product SKUs in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-product-skus-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/skus/count</code></li>
-<li>  <a href="#get-a-count-of-product-skus-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/skus/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -3968,18 +3804,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-product-sku">Create a Product SKU</h2>
+<h2 id="create-a-product-sku"><span class="jumptarget"> Create a Product SKU </span></h2>
 
 <p>Creates a new product SKU.</p>
 
 <ul>
-<li>  <a href="#create-a-product-sku-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/skus</code></li>
-<li>  <a href="#create-a-product-sku-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/skus</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -3990,7 +3826,7 @@
 <li>  adjusted_weight</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the sku are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -3999,7 +3835,7 @@
 <li>  options</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To maximize system performance, Bigcommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, Bigcommerce will return a 403 error.</p>
 
@@ -4029,18 +3865,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-product-sku">Update a Product SKU</h2>
+<h2 id="update-a-product-sku"><span class="jumptarget"> Update a Product SKU </span></h2>
 
 <p>Updates an existing product SKU.</p>
 
 <ul>
-<li>  <a href="#update-a-product-sku-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}</code></li>
-<li>  <a href="#update-a-product-sku-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/skus/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -4051,7 +3887,7 @@
 <li>  adjusted_weight</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>There are no required properties for updating a product SKU.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4079,29 +3915,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-product-sku">Delete a Product SKU</h2>
+<h2 id="delete-a-product-sku"><span class="jumptarget"> Delete a Product SKU </span></h2>
 
 <p>Deletes a product SKU.</p>
 
 <ul>
-<li>  <a href="#delete-a-product-sku-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}</code></li>
-<li>  <a href="#delete-a-product-sku-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/skus/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-product-skus">Delete Multiple Product SKUs</h2>
+<h2 id="delete-multiple-product-skus"><span class="jumptarget"> Delete Multiple Product SKUs </span></h2>
 
 <p>Deletes multiple product SKUs.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-product-skus-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/skus</code></li>
-<li>  <a href="#delete-multiple-product-skus-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/skus</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>Filter parameters can be added to the URL query string to select specific SKUs in the collection.</p>
 
@@ -4169,7 +4005,7 @@
 </tr>
 </tbody></table>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.</p>
 
@@ -4192,11 +4028,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="custom-fields">Custom Fields</h1>
+          <h1 id="custom-fields"><span class="jumptarget"> Custom Fields </span></h1>
 
 <p>Custom fields associated with a product.</p>
 
-<h2 id="custom-field-object-properties">Custom Field Object - Properties</h2>
+<h2 id="custom-field-object-properties"><span class="jumptarget"> Custom Field Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -4239,42 +4075,30 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="custom-field-operations">Custom Field Operations</h2>
-
-<ul>
-<li>  <a href="#list-custom-fields">List Custom Fields</a></li>
-<li>  <a href="#get-a-custom-field">Get a Custom Field</a></li>
-<li>  <a href="#get-a-count-of-custom-fields">Get a Count of Custom Fields</a></li>
-<li>  <a href="#create-a-custom-field">Create a Custom Field</a></li>
-<li>  <a href="#update-a-custom-field">Update a Custom Field</a></li>
-<li>  <a href="#delete-a-custom-field">Delete a Custom Field</a></li>
-<li>  <a href="#delete-multiple-custom-fields">Delete Multiple Custom Fields</a></li>
-</ul>
-
-<h2 id="list-custom-fields">List Custom Fields</h2>
+<h2 id="list-custom-fields"><span class="jumptarget"> List Custom Fields </span></h2>
 
 <p>Gets custom fields associated with a product.</p>
 
 <ul>
-<li>  <a href="#list-custom-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
-<li>  <a href="#list-custom-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/custom_fields</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">custom_fields</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.</p>
 
@@ -4312,14 +4136,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-custom-field">Get a Custom Field</h2>
+<h2 id="get-a-custom-field"><span class="jumptarget"> Get a Custom Field </span></h2>
 
 <p>Gets a custom field associated with a product.</p>
 
 <ul>
-<li>  <a href="#get-a-custom-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
-<li>  <a href="#get-a-custom-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/custom_fields/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4330,14 +4154,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-custom-fields">Get a Count of Custom Fields</h2>
+<h2 id="get-a-count-of-custom-fields"><span class="jumptarget"> Get a Count of Custom Fields </span></h2>
 
 <p>Gets a count of the number of custom fields in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-custom-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/custom_fields/count</code></li>
-<li>  <a href="#get-a-count-of-custom-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/custom_fields/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4345,18 +4169,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-custom-field">Create a Custom Field</h2>
+<h2 id="create-a-custom-field"><span class="jumptarget"> Create a Custom Field </span></h2>
 
 <p>Creates a new custom field associated with a product</p>
 
 <ul>
-<li>  <a href="#create-a-custom-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
-<li>  <a href="#create-a-custom-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/custom_fields</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -4364,7 +4188,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -4385,18 +4209,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-custom-field">Update a Custom Field</h2>
+<h2 id="update-a-custom-field"><span class="jumptarget"> Update a Custom Field </span></h2>
 
 <p>Updates an existing custom field associated with a product.</p>
 
 <ul>
-<li>  <a href="#update-a-custom-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
-<li>  <a href="#update-a-custom-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/custom_fields/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -4404,7 +4228,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -4425,29 +4249,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-custom-field">Delete a Custom Field</h2>
+<h2 id="delete-a-custom-field"><span class="jumptarget"> Delete a Custom Field </span></h2>
 
 <p>Deletes a custom field associated with a product.</p>
 
 <ul>
-<li>  <a href="#delete-a-custom-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}</code></li>
-<li>  <a href="#delete-a-custom-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/custom_fields/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-custom-fields">Delete Multiple Custom Fields</h2>
+<h2 id="delete-multiple-custom-fields"><span class="jumptarget"> Delete Multiple Custom Fields </span></h2>
 
 <p>Deletes multiple custom fields associated with a product.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-custom-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields</code></li>
-<li>  <a href="#delete-multiple-custom-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/custom_fields</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.</p>
 
@@ -4470,11 +4294,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="configurable-fields">Configurable Fields</h1>
+          <h1 id="configurable-fields"><span class="jumptarget"> Configurable Fields </span></h1>
 
 <p>Configurable fields associated with a product.</p>
 
-<h2 id="configureable-field-properties">Configureable Field - Properties</h2>
+<h2 id="configureable-field-properties"><span class="jumptarget"> Configureable Field - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -4537,45 +4361,35 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>Manages</td>
+<td><strong>Manages</strong></td>
 <td></td>
 </tr>
 <tr>
-<td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="configurable-field-operations">Configurable Field Operations</h2>
-
-<ul>
-<li>  <a href="#list-configurable-fields">List Configurable Fields</a></li>
-<li>  <a href="#get-a-configurable-field">Get a Configurable Field</a></li>
-<li>  <a href="#get-a-count-of-configurable-fields">Get a Count of Configurable Fields</a></li>
-<li>  <a href="#delete-a-configurable-field">Delete a Configurable Field</a></li>
-<li>  <a href="#delete-multiple-configurable-fields">Delete Multiple Configurable Fields</a></li>
-</ul>
-
-<h2 id="list-configurable-fields">List Configurable Fields</h2>
+<h2 id="list-configurable-fields"><span class="jumptarget"> List Configurable Fields </span></h2>
 
 <p>Gets the collection of configurable fields associated with a product.</p>
 
 <ul>
-<li>  <a href="#list-configurable-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields</code></li>
-<li>  <a href="#list-configurable-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/configurable_fields</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">configurable_fields</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.</p>
 
@@ -4612,14 +4426,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-configurable-field">Get a Configurable Field</h2>
+<h2 id="get-a-configurable-field"><span class="jumptarget"> Get a Configurable Field </span></h2>
 
 <p>Gets a configurable field associated with a product.</p>
 
 <ul>
-<li>  <a href="#get-a-configurable-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}</code></li>
-<li>  <a href="#get-a-configurable-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/configurable_fields/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4635,14 +4449,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-configurable-fields">Get a Count of Configurable Fields</h2>
+<h2 id="get-a-count-of-configurable-fields"><span class="jumptarget"> Get a Count of Configurable Fields </span></h2>
 
 <p>Gets a count of the number of configurable fields in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-configurable-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/configurable_fields/count</code></li>
-<li>  <a href="#get-a-count-of-configurable-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/configurable_fields/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4650,29 +4464,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-configurable-field">Delete a Configurable Field</h2>
+<h2 id="delete-a-configurable-field"><span class="jumptarget"> Delete a Configurable Field </span></h2>
 
 <p>Deletes a configurable field associated with a product.</p>
 
 <ul>
-<li>  <a href="#delete-a-configurable-field-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}</code></li>
-<li>  <a href="#delete-a-configurable-field-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/configurable_fields/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-configurable-fields">Delete Multiple Configurable Fields</h2>
+<h2 id="delete-multiple-configurable-fields"><span class="jumptarget"> Delete Multiple Configurable Fields </span></h2>
 
 <p>Deletes multiple configurable fields associated with a product.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-configurable-fields-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields</code></li>
-<li>  <a href="#delete-multiple-configurable-fields-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/configurable_fields</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.</p>
 
@@ -4695,11 +4509,11 @@
 </tr>
 </tbody></table>
 
-          <h1 id="bulk-pricing">Bulk Pricing</h1>
+          <h1 id="bulk-pricing"><span class="jumptarget">  Bulk Pricing </span></h1>
 
 <p>Bulk pricing rules applied to a product.</p>
 
-<h2 id="bulk-pricing-object-properties">Bulk Pricing Object - Properties</h2>
+<h2 id="bulk-pricing-object-properties"><span class="jumptarget">  Bulk Pricing Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -4752,42 +4566,30 @@
 </tr>
 <tr>
 <td>OAuth Scopes</td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="bulk-pricing-rule-operations">Bulk Pricing Rule Operations</h2>
-
-<ul>
-<li>  <a href="#list-bulk-pricing-rules">List Bulk Pricing Rules</a></li>
-<li>  <a href="#get-a-product-bulk-pricing-rule">Get a Product Bulk Pricing Rule</a></li>
-<li>  <a href="#get-a-count-of-bulk-pricing-rules">Get a Count of Bulk Pricing Rules</a></li>
-<li>  <a href="#create-a-product-bulk-pricing-rule">Create a Product Bulk Pricing Rule</a></li>
-<li>  <a href="#update-a-product-bulk-pricing-rule">Update a Product Bulk Pricing Rule</a></li>
-<li>  <a href="#delete-a-product-bulk-pricing-rule">Delete a Product Bulk Pricing Rule</a></li>
-<li>  <a href="#delete-multiple-product-bulk-pricing-rules">Delete Multiple Product Bulk Pricing Rules</a></li>
-</ul>
-
-<h2 id="list-bulk-pricing-rules">List Bulk Pricing Rules</h2>
+<h2 id="list-bulk-pricing-rules"><span class="jumptarget"> List Bulk Pricing Rules </span></h2>
 
 <p>Gets the collection of product bulk pricing rules.</p>
 
 <ul>
-<li>  <a href="#list-bulk-pricing-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
-<li>  <a href="#list-bulk-pricing-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/discount_rules</code></li>
 </ul>
 
-<h3 id="filters">Filters</h3>
+<h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
 <p>There are no filter parameters specific to <code class="prettyprint">discount_rules</code>.</p>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.</p>
 
@@ -4821,14 +4623,14 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-bulk-pricing-rule">Get a Product Bulk Pricing Rule</h2>
+<h2 id="get-a-product-bulk-pricing-rule"><span class="jumptarget"> Get a Product Bulk Pricing Rule </span></h2>
 
 <p>Gets a product bulk pricing rule.</p>
 
 <ul>
-<li>  <a href="#get-a-product-bulk-pricing-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
-<li>  <a href="#get-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/discount_rules/{id}</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4841,14 +4643,14 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-count-of-bulk-pricing-rules">Get a Count of Bulk Pricing Rules</h2>
+<h2 id="get-a-count-of-bulk-pricing-rules"><span class="jumptarget"> Get a Count of Bulk Pricing Rules </span></h2>
 
 <p>Gets a count of the number of bulk pricing rules in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-bulk-pricing-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/discount_rules/count</code></li>
-<li>  <a href="#get-a-count-of-bulk-pricing-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/discount_rules/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -4856,18 +4658,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-product-bulk-pricing-rule">Create a Product Bulk Pricing Rule</h2>
+<h2 id="create-a-product-bulk-pricing-rule"><span class="jumptarget"> Create a Product Bulk Pricing Rule </span></h2>
 
 <p>Creates a new product bulk pricing rule.</p>
 
 <ul>
-<li>  <a href="#create-a-product-bulk-pricing-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
-<li>  <a href="#create-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/discount_rules</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -4875,7 +4677,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -4884,7 +4686,7 @@
 <li>  type_value</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To specify that a <code class="prettyprint">min</code> or <code class="prettyprint">max</code> value is unbounded, these properties must be explicitly set with a value of <code class="prettyprint">0</code>. If neither <code class="prettyprint">min</code> nor <code class="prettyprint">max</code> properties are included in the request, the existing value will remain unchanged.</p>
 
@@ -4906,18 +4708,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="update-a-product-bulk-pricing-rule">Update a Product Bulk Pricing Rule</h2>
+<h2 id="update-a-product-bulk-pricing-rule"><span class="jumptarget"> Update a Product Bulk Pricing Rule </span></h2>
 
 <p>Updates an existing product bulk pricing rule.</p>
 
 <ul>
-<li>  <a href="#update-a-product-bulk-pricing-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
-<li>  <a href="#update-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/discount_rules/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -4925,7 +4727,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -4934,7 +4736,7 @@
 <li>  type_value</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To specify that a <code class="prettyprint">min</code> or <code class="prettyprint">max</code> value is unbounded, these properties must be explicitly set with a value of <code class="prettyprint">0</code>. If neither <code class="prettyprint">min</code> nor <code class="prettyprint">max</code> properties are included in the request, the existing value will remain unchanged.</p>
 
@@ -4956,29 +4758,29 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="delete-a-product-bulk-pricing-rule">Delete a Product Bulk Pricing Rule</h2>
+<h2 id="delete-a-product-bulk-pricing-rule"><span class="jumptarget"> Delete a Product Bulk Pricing Rule </span></h2>
 
 <p>Deletes a product bulk pricing rule.</p>
 
 <ul>
-<li>  <a href="#delete-a-product-bulk-pricing-rule-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}</code></li>
-<li>  <a href="#delete-a-product-bulk-pricing-rule-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/discount_rules/{id}</code></li>
 </ul>
 
-<h2 id="delete-multiple-product-bulk-pricing-rules">Delete Multiple Product Bulk Pricing Rules</h2>
+<h2 id="delete-multiple-product-bulk-pricing-rules"><span class="jumptarget"> Delete Multiple Product Bulk Pricing Rules </span></h2>
 
 <p>Deletes bulk pricing rules associated with a product.</p>
 
 <ul>
-<li>  <a href="#delete-multiple-product-bulk-pricing-rules-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules</code></li>
-<li>  <a href="#delete-multiple-product-bulk-pricing-rules-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/discount_rules</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">bulk_pricing_rules</code> are returned by default.</p>
 
@@ -5001,9 +4803,9 @@
 </tr>
 </tbody></table>
 
-          <h1 id="google-product-search-mappings">Google Product Search Mappings</h1>
+          <h1 id="google-product-search-mappings"><span class="jumptarget"> Google Product Search Mappings </span></h1>
 
-<h2 id="google-product-search-mapping-object-properties">Google Product Search Mapping Object - Properties</h2>
+<h2 id="google-product-search-mapping-object-properties"><span class="jumptarget"> Google Product Search Mapping Object - Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -5099,28 +4901,22 @@
 </tr>
 </tbody></table>
 
-<h2 id="operations">Operations</h2>
-
-<ul>
-<li>  <a href="#list-google-product-search-mappings">List Google Product Search Mappings</a></li>
-</ul>
-
-<h2 id="list-google-product-search-mappings">List Google Product Search Mappings</h2>
+<h2 id="list-google-product-search-mappings"><span class="jumptarget"> List Google Product Search Mappings </span></h2>
 
 <p>Gets the Google Product Search mappings for a product.</p>
 
 <ul>
-<li>  <a href="#list-google-product-search-mappings-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/googleproductsearch</code></li>
-<li>  <a href="#list-google-product-search-mappings-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/googleproductsearch</code></li>
 </ul>
 
-          <h1 id="videos">Videos</h1>
+          <h1 id="videos"><span class="jumptarget"> Videos </span></h1>
 
 <p>Embedded videos displayed on product listings.</p>
 
-<h2 id="videos-object-properties">Videos Object – Properties</h2>
+<h2 id="videos-object-properties"><span class="jumptarget"> Videos Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -5163,38 +4959,26 @@
 </tr>
 <tr>
 <td><strong>OAuth Scopes</strong></td>
-<td><code class="prettyprint">store_v2_products</code></td>
+<td>store_v2_products</td>
 </tr>
 <tr>
 <td></td>
-<td><code class="prettyprint">store_v2_products_read_only</code></td>
+<td>store_v2_products_read_only</td>
 </tr>
 </tbody></table>
 
-<h2 id="product-video-operations">Product Video Operations</h2>
-
-<ul>
-<li>  <a href="#list-product-videos">List Product Videos</a></li>
-<li>  <a href="#get-a-product-video">Get a Product Video</a></li>
-<li>  <a href="#get-a-count-of-product-videos">Get a Count of Product Videos</a></li>
-<li>  <a href="#create-a-product-video">Create a Product Video</a></li>
-<li>  <a href="#update-product-video-metadata">Update Product Video Metadata</a></li>
-<li>  <a href="#delete-a-product-video">Delete a Product Video</a></li>
-<li>  <a href="#delete-all-product-videos">Delete All Product Videos</a></li>
-</ul>
-
-<h2 id="list-product-videos">List Product Videos</h2>
+<h2 id="list-product-videos"><span class="jumptarget"> List Product Videos </span></h2>
 
 <p>Gets the videos associated with a product.</p>
 
 <ul>
-<li>  <a href="#list-product-videos-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
-<li>  <a href="#list-product-videos-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/videos</code></li>
 </ul>
 
-<h3 id="pagination">Pagination</h3>
+<h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
 <p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">product_videos</code> are returned by default.</p>
 
@@ -5226,25 +5010,25 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<h2 id="get-a-product-video">Get a Product Video</h2>
+<h2 id="get-a-product-video"><span class="jumptarget"> Get a Product Video </span></h2>
 
 <p>Gets a product video.</p>
 
 <ul>
-<li>  <a href="#get-a-product-video-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
-<li>  <a href="#get-a-product-video-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/{product_id}/videos/{id}</code></li>
 </ul>
 
-<h2 id="get-a-count-of-product-videos">Get a Count of Product Videos</h2>
+<h2 id="get-a-count-of-product-videos"><span class="jumptarget"> Get a Count of Product Videos </span></h2>
 
 <p>Gets a count of the number of product videos in the store.</p>
 
 <ul>
-<li>  <a href="#get-a-count-of-product-videos-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">GET /stores/{store_hash}/v2/products/videos/count</code></li>
-<li>  <a href="#get-a-count-of-product-videos-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/products/videos/count</code></li>
 </ul>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
@@ -5252,18 +5036,18 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<h2 id="create-a-product-video">Create a Product Video</h2>
+<h2 id="create-a-product-video"><span class="jumptarget"> Create a Product Video </span></h2>
 
 <p>Adds a link to a YouTube video to a product.</p>
 
 <ul>
-<li>  <a href="#create-a-product-video-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">POST /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
-<li>  <a href="#create-a-product-video-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">POST /api/v2/products/{product_id}/videos</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -5272,7 +5056,7 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the product video are required. The request won’t be fulfilled unless these properties are valid.</p>
 
@@ -5280,7 +5064,7 @@
 <li>  url</li>
 </ul>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>Only YouTube videos are supported. To create a new video, pass the full <code class="prettyprint">url</code> in the request body.</p>
 <pre class="highlight plaintext"><code>{
@@ -5288,18 +5072,18 @@
 }
 </code></pre>
 
-<h2 id="update-product-video-metadata">Update Product Video Metadata</h2>
+<h2 id="update-product-video-metadata"><span class="jumptarget"> Update Product Video Metadata </span></h2>
 
 <p>Edit the metadata of a product video.</p>
 
 <ul>
-<li>  <a href="#update-product-video-metadata-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">PUT /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
-<li>  <a href="#update-product-video-metadata-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">PUT /api/v2/products/{product_id}/videos/{id}</code></li>
 </ul>
 
-<h3 id="read-only-properties">Read-only Properties</h3>
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
 
 <p>The following properties of the product video are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
@@ -5308,11 +5092,11 @@
 <li>  product_id</li>
 </ul>
 
-<h3 id="requirements">Requirements</h3>
+<h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>There are no required properties when updating a product video. </p>
 
-<h3 id="notes">Notes</h3>
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>The <code class="prettyprint">name</code>, <code class="prettyprint">sort_order</code> and <code class="prettyprint">url</code> properties of the product video are editable.</p>
 
@@ -5323,25 +5107,25 @@
 }
 </code></pre>
 
-<h2 id="delete-a-product-video">Delete a Product Video</h2>
+<h2 id="delete-a-product-video"><span class="jumptarget"> Delete a Product Video </span></h2>
 
 <p>Delete a product video.</p>
 
 <ul>
-<li>  <a href="#delete-a-product-video-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/videos/{id}</code></li>
-<li>  <a href="#delete-a-product-video-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/videos/{id}</code></li>
 </ul>
 
-<h2 id="delete-all-product-videos">Delete All Product Videos</h2>
+<h2 id="delete-all-product-videos"><span class="jumptarget"> Delete All Product Videos </span></h2>
 
 <p>Deletes all videos belonging to a product.</p>
 
 <ul>
-<li>  <a href="#delete-all-product-videos-oauth">OAuth</a>
+<li>  OAuth
 &gt;<code class="prettyprint">DELETE /stores/{store_hash}/v2/products/{product_id}/videos</code></li>
-<li>  <a href="#delete-all-product-videos-basic">Basic Auth</a>
+<li>  Basic Auth
 &gt;<code class="prettyprint">DELETE /api/v2/products/{product_id}/videos</code></li>
 </ul>
 
