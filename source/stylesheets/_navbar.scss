@@ -135,7 +135,7 @@ header {
 
 .top-bar .name img,
 [top-bar] .name img {
-    width: 120px
+    width: 52px
 }
 
 .top-bar .toggle-topbar,
@@ -373,9 +373,9 @@ header {
     [top-bar] .title-area {
         padding-left: 0;
         padding-right: 0;
-        width: 16.66667%;
+        width: 11%;
         display: table-cell;
-        padding-top: 1.11111rem;
+        padding-top: 1.28rem;
         margin-top: 0
     }
     .top-bar .title-area .name a,
@@ -766,4 +766,57 @@ header {
 
 .topBar-container--fixed.is-expanded {
     position: fixed
+}
+
+@media (max-width: 768px) {
+    .top-bar .title-area, [top-bar] .title-area {
+        margin-left: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .top-bar .name img, [top-bar] .name img {
+        display: inherit;
+        height: 100%;
+    }
+}
+
+.top-bar-actions {
+  width: 30%;
+}
+
+.top-bar .name img, [top-bar] .name img {
+    width: 7.33333rem;
+    top: 2px;
+    position: relative;
+}
+
+.topBar-container {
+  background-color: #4f75f8;
+
+  a {
+    color: #ffffff;
+
+    &:hover, &:focus {
+      color: #E5E5E5 !important;
+    }
+  }
+
+  .button--action {
+    background-color: #4b71fc;
+    border-color: #fff;
+    color: #fff;
+
+    &:hover, &:focus {
+      background-color: #3a426e;
+      border-color: #3a426e;
+    }
+  }
+}
+
+@media only screen and (max-width:450px) {
+    .top-bar .name img, [top-bar] .name img {
+        position: relative;
+        width: 30%
+    }
 }
