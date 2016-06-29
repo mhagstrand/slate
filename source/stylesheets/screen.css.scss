@@ -957,12 +957,39 @@ table td:nth-child(3) {
 
 /* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
 
-.jumptarget::before {
+/* Commented out 6/24/16, to see if top-nav scrollaway functions fine without it: */
+
+/* .jumptarget::before {
   content:"";
   display:block;
-  height:85px; /* fixed header height*/
-  margin:-85px 0 0; /* negative fixed header height */ 
+  height:85px; fixed header height
+  margin:-85px 0 0; negative fixed header height 
+} */
+
+
+/* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
+
+.content aside.warning.orange {
+    /* color: #ffffff; */   /* white */
+    /* font-weight: 600; */
+    text-shadow: 0 1px 0 #efcf86 !important;
+    background-color: #E6B442 !important;
+    background-image: url(../images/caution-tape.jpg);
+    background-color: white;
+    background-blend-mode: lighten;
+    /* background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/caution-tape.jpg); */
 }
+
+/* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
+
+.content aside.warning.brightorange {
+    color: #ffffff;   /* white */
+    font-weight: 600;
+    text-shadow: 0 1px 0 #efcf86 !important;
+    background-color: #E6B442 !important;
+    background-image: url(../images/caution-tape.jpg);
+}
+
 
 /* Added 6/10/16: Failed riff on earlier "jumptarget". This supports an empty "jumptarget" span in the headings' html, *above* the span containing the actual heading. That span was a hack intended to clear jump targets from under the top nav, when the links are clicked from body text. (The negative margin-left in this selector is a hack to undo the unwanted left indent created by the empty-span hack.) 
 
