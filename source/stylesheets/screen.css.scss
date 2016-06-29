@@ -336,7 +336,6 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 
 .page-wrapper {
-  margin-left: $nav-width;
   position: relative;
   z-index: 10;
   background-color: $main-bg;
@@ -955,6 +954,7 @@ table td:nth-child(3) {
     min-width: 850px;
 }
 
+<<<<<<< HEAD
 /* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
 
 /* Commented out 6/24/16, to see if top-nav scrollaway functions fine without it: */
@@ -965,6 +965,8 @@ table td:nth-child(3) {
   height:85px; /* fixed header height */
   margin:-85px 0 0; /* negative fixed header height */
 } 
+=======
+>>>>>>> pr/25
 
 
 /* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
@@ -998,57 +1000,15 @@ Unfortunately, this fails. It does clear headings selected from within body text
   margin-left: -0.4em;
 }
 
-/* Tried 6/13/16: Combines jumptarget & jumpleft code into one new group, intended 
-to clear all jump targets from top nav. Uses pseudo-elements both above & below. 
-But doesn't work – requires dual tagging, so breaks left nav just like the separate jumpleft tag:
 
-.jumptarget2::before {
-  content:"";
-  display:block;
-  height:85px;
-  margin:-85px 0 0; 
-}
 
-.jumptarget2::after {
-   content: "";
-   display: block;
-  margin-left: -0.4em;
-} */
 
-/* Tried 6/12/16: nicolasgallagher.com's "Method D+", intended to clear all jump targets from 
-top nav, ideally using one tag. Employs pseudo-element to mimic top-border. But doesn't work:
 
-.jumpfancy {
-    position: relative;
-    padding: 15px;
-    border-top: 87px solid transparent;
-    margin-top: -85px;
-    -webkit-background-clip: padding-box;
-    -moz-background-clip: padding;
-    background-clip: padding-box;
-}
-
-.jumpfancy:before {
-    content: "";
-    position: absolute;
-    top: -25px;
-    left: 0;
-    right: 0;
-    border-top: 1px solid #ccc;
-} */
-
-/* Noted 5/18/16: The following selector would constrain the width of /api/ body text & blockquote (other than blockquote's added border – blockquote is getting $examples-width + some added border and/or padding). But this would also rein in code blocks' widths, to slightly narrower than the body-text width. That looks good to the eye, but will truncate wide code blocks: */
-
-/* .api .content {
-.themes, .api > html, body { 
-    width: 80%;
-    min-width: 850px;
-} */
-
-/* Stashed 6/9/16, just in case: A hack that provides transparent text, to double-tag h2's that weren't showing up the left nav. But didn't need this – the real fix is to avoid any jumps from an h1 directly down to an h3. */ 
-
- .invisible {
-    color: #000; /* Fallback for older browsers */
-    color: rgba(0, 0, 0, 0);
-    line-height: 1%;
+.super-wrapper {
+  position: fixed;
+  top: 85px;
+  left: $nav-width;
+  right: 0px;
+  bottom: 0px;
+  overflow: scroll;
 }

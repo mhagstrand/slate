@@ -12,7 +12,7 @@
 
   var makeToc = function() {
     global.toc = $("#toc").tocify({
-      selectors: 'h1, h2, h3, h4, h5, h6, h7', 
+      selectors: 'h1, h2, h3, h4, h5, h6, h7',
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
@@ -20,9 +20,8 @@
       hideEffectSpeed: 180,
       ignoreSelector: '.toc-ignore',
       highlightOffset: 60,
-      /* Swapped on 6/24/16 – This clears left nav's link "upward" targets from below 
+      /* Swapped on 6/24/16 – This clears left nav's link "upward" targets from below
          the top nav, when using Nate's .erb JavaScript to make top nav intermittent: */
-      /* scrollTo: -1, */
       /* scrollTo: 85, */
       scrollTo: -1,
       scrollHistory: true,
