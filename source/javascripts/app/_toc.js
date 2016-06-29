@@ -23,7 +23,8 @@
       /* Swapped on 6/24/16 – This clears left nav's link "upward" targets from below 
          the top nav, when using Nate's .erb JavaScript to make top nav intermittent: */
       /* scrollTo: -1, */
-      scrollTo: 85,
+      /* scrollTo: 85, */
+      scrollTo: -1,
       scrollHistory: true,
       hashGenerator: function (text, element) {
         return element.prop('id');
