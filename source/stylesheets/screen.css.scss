@@ -954,8 +954,6 @@ table td:nth-child(3) {
     min-width: 850px;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 /* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
 
 /* Commented out 6/24/16, to see if top-nav scrollaway functions fine without it: */
@@ -966,11 +964,6 @@ table td:nth-child(3) {
   height:85px; /* fixed header height */
   margin:-85px 0 0; /* negative fixed header height */
 } 
-=======
->>>>>>> pr/25
-=======
->>>>>>> pr/25
-
 
 /* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
 
@@ -1003,9 +996,7 @@ Unfortunately, this fails. It does clear headings selected from within body text
   margin-left: -0.4em;
 }
 
-
-
-
+/* Added 6/29/16 by Chris Hegre: */
 
 .super-wrapper {
   position: fixed;
