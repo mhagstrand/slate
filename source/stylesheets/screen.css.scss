@@ -958,12 +958,12 @@ table td:nth-child(3) {
 
 /* Commented out 6/24/16, to see if top-nav scrollaway functions fine without it: */
 
- .jumptarget::before {
+/* .jumptarget::before {
   content:"";
   display:block;
-  height:85px; /* fixed header height */
-  margin:-85px 0 0; /* negative fixed header height */
-} 
+  height:85px; fixed header height
+  margin:-85px 0 0; negative fixed header height/
+} */
 
 /* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
 
