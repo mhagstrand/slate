@@ -73,6 +73,7 @@ A saleable item in the catalog.
 | option_set_display | enum | The position the option set options will be displayed on the product page. |
 | bin_picking_number | string | The BIN picking number for the product. |
 | custom_url | string |
+| primary_image | object | An image object, corresponding to the image that is set as the product's thumbnail. This object includes that image's `id`, plus four URL values identifying where to pull the image at different sizes: `zoom_url` is the original image size provided to BigCommerce; `thumbnail_url` is used for product list-box images on category pages and in side panels; `standard_url` is the image used in the product page's image box; and `tiny_url` is the thumbnail image displayed below the product page's image box. |
 | availability | enum | Availability of the product. availability options: available - The product can be purchased in the store front. disabled - The product is listed in the store front but can not be purchased. preorder - The product is listed for pre-orders. |
 | brand | resource |
 | downloads | resource |
