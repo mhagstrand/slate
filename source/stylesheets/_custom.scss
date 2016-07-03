@@ -29,6 +29,45 @@
   }
 }
 
+.home-block-bottom {
+  background: url('../images/HomePageBottom.jpg') no-repeat 100%;
+  background-size: 100% 100%;
+  color: #fff;
+  text-align: center;
+  padding-top: 0;
+
+  h1 {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .block-text {
+    position: relative;
+    left: 40%;
+    vertical-align: top;
+
+    h2 {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+  }
+
+  .type-large {
+    font-size: 1rem;
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .button {
+    background-color: #4f75f8;
+    border-color: #fff;
+  }
+}
+
 .blocks-home {
   position: relative;
   left: 15%;
@@ -77,13 +116,10 @@
     margin-bottom: 0;
   }
 
-  #changelog {
-    @extend %header-font;
-    color: #4f75f8;
-    font-size: 1.55556rem;
-    text-transform: uppercase;
-    padding-top: 3%;
-    letter-spacing: 1.8px;  
+  h1 {
+    color: white !important;
+    font-size: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   h2, h3, h4, h5, h6 {
@@ -95,7 +131,17 @@
     padding-top: 2%;
     padding-bottom: 2%;
   }
-} 
+}
+
+  #changelog, #api-documentation, #understanding-themes, #support {
+    @extend %header-font;
+    color: #4f75f8 !important;
+    font-size: 1.55556rem !important;
+    text-transform: uppercase;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    letter-spacing: 1.8px;  
+  }
 
 table td:nth-child(3) {
   word-break: break-word;
