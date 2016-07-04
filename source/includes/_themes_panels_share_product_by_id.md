@@ -1,14 +1,13 @@
-# ShareProductById Panel
+# <span class="jumptarget"> ShareProductById Panel </span>
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `ShareProductById` |
-| `ShareProductById` |
+| ShareProductById |
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_HideChooseAnotherToShare%%` |
-| `%%GLOBAL_FirstProductId%%` |
-| `%%GLOBAL_SharingData%%` |
+| %%GLOBAL_HideChooseAnotherToShare%% |
+| %%GLOBAL_FirstProductId%% |
+| %%GLOBAL_SharingData%% |

@@ -1,8 +1,8 @@
-# Maintenance Layout
+# <span class="jumptarget"> Maintenance Layout </span>
 
 `maintenance.html`
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_MessageText%%` |
+| %%GLOBAL_MessageText%% |

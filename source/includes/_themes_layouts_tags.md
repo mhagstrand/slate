@@ -1,18 +1,18 @@
-# Tags Layout
+# <span class="jumptarget"> Tags Layout </span>
 
 `tags.html`
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `%%Panel.HTMLHead%%` |
-| `%%Panel.Header%%` |
-| `%%Panel.WrapperBanner%%` |
-| `%%Panel.SideCategoryList%%` |
-| `%%Panel.SideShopByBrand%%` |
-| `%%Panel.SideNewsletterBox%%` |
-| `%%Panel.SideLiveChatServices%%` |
-| `%%Panel.Breadcrumb%%` |
-| `%%Panel.ProductTagCloud%%` |
-| `%%Panel.TagProducts%%` |
-| `%%Panel.Footer%%` |
+| %%Panel.HTMLHead%% |
+| %%Panel.Header%% |
+| %%Panel.WrapperBanner%% |
+| %%Panel.SideCategoryList%% |
+| %%Panel.SideShopByBrand%% |
+| %%Panel.SideNewsletterBox%% |
+| %%Panel.SideLiveChatServices%% |
+| %%Panel.Breadcrumb%% |
+| %%Panel.ProductTagCloud%% |
+| %%Panel.TagProducts%% |
+| %%Panel.Footer%% |

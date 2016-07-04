@@ -1,8 +1,8 @@
-# API Status Codes
+# <span class="jumptarget"> API Status Codes </span>
 
 The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.
 
-## 2xx Success
+## <span class="jumptarget"> 2xx Success </span>
 
 These codes are returned for requests that were understood and processed successfully.
 
@@ -13,7 +13,7 @@ These codes are returned for requests that were understood and processed success
 | **202** | **Accepted** | For a request that resulted in a scheduled task being created to perform the actual request. |
 | **204** | **No Content** | For a successful request that produced no response (such as **DELETE** requests). |
 
-## 3xx Redirection
+## <span class="jumptarget"> 3xx Redirection </span>
 
 These codes are returned for requests that have resulted in the client needing to take further action to complete the request.
 
@@ -23,7 +23,7 @@ These codes are returned for requests that have resulted in the client needing t
 | **302** | **Found** | When the resource was found at a different location. When a request to a deprecated version of the API is received, a **302 Found** response will be issued to the current API version. |
 | **304** | **Not Modified** | If an **If-Modified-Since** header is sent in the request and the resource has not been modified since the specified date, then this response will be sent. See resource specific pages for support for the **If-Modified-Since** header. |
 
-## 4xx Client Error
+## <span class="jumptarget"> 4xx Client Error </span>
 
 | Code | Definition | Purpose |
 | --- | --- | --- |
@@ -49,7 +49,7 @@ These codes are returned for requests that have resulted in the client needing t
  |
 | **429** | **Too Many Requests** | When an OAuth client exceeds the rate limit for API requests to a store. |
 
-## 5xx Server Error
+## <span class="jumptarget"> 5xx Server Error </span>
 
 These codes are returned for requests that could not be processed due to an internal error with the API or server.
 

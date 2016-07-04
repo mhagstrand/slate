@@ -1,31 +1,31 @@
-# Cart Layout
+# <span class="jumptarget"> Cart Layout </span>
 
 `cart.html`
 
 The “View Cart” page showing the contents of the current customers cart.
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `%%Panel.HTMLHead%%` |
-| `%%Panel.Header%%` |
-| `%%Panel.WrapperBanner%%` |
-| `%%Panel.SideCategoryList%%` |
-| `%%Panel.SideNewProducts%%` |
-| `%%Panel.SideNewsletterBox%%` |
-| `%%Panel.CartBreadcrumb%%` |
-| `%%Panel.CartHeader%%` |
-| `%%Panel.CartStatusMessage%%` |
-| `%%Panel.CartContent%%` |
-| `%%Panel.SuggestiveCartContent%%` |
-| `%%Panel.SideCouponCodeBox%%` |
-| `%%Panel.SideGiftCertificateCodeBox%%` |
-| `%%Panel.SideProductRecentlyViewed%%` |
-| `%%Panel.SideTopSellers%%` |
-| `%%Panel.Footer%%` |
+| %%Panel.HTMLHead%% |
+| %%Panel.Header%% |
+| %%Panel.WrapperBanner%% |
+| %%Panel.SideCategoryList%% |
+| %%Panel.SideNewProducts%% |
+| %%Panel.SideNewsletterBox%% |
+| %%Panel.CartBreadcrumb%% |
+| %%Panel.CartHeader%% |
+| %%Panel.CartStatusMessage%% |
+| %%Panel.CartContent%% |
+| %%Panel.SuggestiveCartContent%% |
+| %%Panel.SideCouponCodeBox%% |
+| %%Panel.SideGiftCertificateCodeBox%% |
+| %%Panel.SideProductRecentlyViewed%% |
+| %%Panel.SideTopSellers%% |
+| %%Panel.Footer%% |
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_CdnAppPath%%` |
-| `%%GLOBAL_JSCacheToken%%` |
+| %%GLOBAL_CdnAppPath%% |
+| %%GLOBAL_JSCacheToken%% |

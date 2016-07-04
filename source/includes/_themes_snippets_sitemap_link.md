@@ -1,7 +1,7 @@
-# SitemapLink Snippet
+# <span class="jumptarget"> SitemapLink Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_SitemapURL_HTML%%` |
-| `%%LNG_Sitemap%%` |
+| %%GLOBAL_SitemapURL_HTML%% |
+| %%LNG_Sitemap%% |

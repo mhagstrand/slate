@@ -1,7 +1,7 @@
-# CookieNotification Snippet
+# <span class="jumptarget"> CookieNotification Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_PrivacyCookieNotification%%` |
-| `%%LNG_HC_ok%%` |
+| %%GLOBAL_PrivacyCookieNotification%% |
+| %%LNG_HC_ok%% |

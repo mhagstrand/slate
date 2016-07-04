@@ -1,10 +1,10 @@
-# Ideal Layout
+# <span class="jumptarget"> Ideal Layout </span>
 
 `ideal.html`
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_HideIdealError%%` |
-| `%%GLOBAL_IdealErrorMessage%%` |
-| `%%GLOBAL_IdealPaymentForm%%` |
+| %%GLOBAL_HideIdealError%% |
+| %%GLOBAL_IdealErrorMessage%% |
+| %%GLOBAL_IdealPaymentForm%% |

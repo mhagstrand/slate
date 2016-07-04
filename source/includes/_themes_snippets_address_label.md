@@ -1,13 +1,13 @@
-# AddressLabel Snippet
+# <span class="jumptarget"> AddressLabel Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ShipFullName%%` |
-| `%%GLOBAL_ShipCompany%%` |
-| `%%GLOBAL_ShipAddressLines%%` |
-| `%%GLOBAL_ShipSuburb%%` |
-| `%%GLOBAL_ShipState%%` |
-| `%%GLOBAL_ShipZip%%` |
-| `%%GLOBAL_ShipCountry%%` |
-| `%%GLOBAL_ShipPhone%%` |  
+| %%GLOBAL_ShipFullName%% |
+| %%GLOBAL_ShipCompany%% |
+| %%GLOBAL_ShipAddressLines%% |
+| %%GLOBAL_ShipSuburb%% |
+| %%GLOBAL_ShipState%% |
+| %%GLOBAL_ShipZip%% |
+| %%GLOBAL_ShipCountry%% |
+| %%GLOBAL_ShipPhone%% |  

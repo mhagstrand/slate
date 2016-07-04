@@ -1,8 +1,8 @@
-# PinterestButton Snippet
+# <span class="jumptarget"> PinterestButton Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_CurrentProductLink%%` |
-| `%%GLOBAL_InitialZoomImage%%` |
-| `%%GLOBAL_PinterestButtonDescription%%` |
+| %%GLOBAL_CurrentProductLink%% |
+| %%GLOBAL_InitialZoomImage%% |
+| %%GLOBAL_PinterestButtonDescription%% |

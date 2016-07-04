@@ -1,7 +1,7 @@
-# TopMenuGiftCertificates Snippet
+# <span class="jumptarget">TopMenuGiftCertificates Snippet </span>
 
-### Available Variables
+## <span class="jumptarget">Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ShopPathNormal%%` |
-| `%%LNG_GiftCertificates%%` |
+| %%GLOBAL_ShopPathNormal%% |
+| %%LNG_GiftCertificates%% |

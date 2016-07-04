@@ -1,9 +1,9 @@
-# SimilarProductsByTagTag Snippet
+# SimilarProductsByTagTag Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_FontSize%%` |
-| `%%GLOBAL_TagLink%%` |
-| `%%GLOBAL_TagProductCount%%` |
-| `%%GLOBAL_TagName%%` |
+| %%GLOBAL_FontSize%% |
+| %%GLOBAL_TagLink%% |
+| %%GLOBAL_TagProductCount%% |
+| %%GLOBAL_TagName%% |

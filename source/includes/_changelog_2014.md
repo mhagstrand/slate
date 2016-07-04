@@ -1,8 +1,8 @@
-# 2014
+# <span class="jumptarget"> 2014 </span>
 
-## October
+## <span class="jumptarget"> October </span>
 
-### Values for tax_class ignored if automatic tax enabled
+### <span class="jumptarget"> Values for tax_class ignored if automatic tax enabled </span>
 
 Stores located inside the United States no longer need to manually configure sales taxes. Enabled by default on new U.S. stores, the new automatic tax feature renders `**tax_class**` values irrelevant. The list of ignored `**tax_class**` values follows.
 
@@ -19,9 +19,9 @@ Bigcommerce does not currently offer any programmatic means of determining if a 
 [3]: /api/v2#order
 [4]: /api/v2#order_tax
 
-## April
+## <span class="jumptarget"> April </span>
 
-### Full CRUD support for Product Videos
+### <span class="jumptarget"> Full CRUD support for Product Videos </span>
 
 Product videos in the Stores API can now be created, updated and deleted. This allows you to embed promotional videos from YouTube on storefront product pages.
 
@@ -31,10 +31,9 @@ The reference for the [Product Videos resource][5] has all the details.
 
 [5]: /api/v2#products-videos
 
-## March
+## <span class="jumptarget"> March </span>
 
-### Product Image CDN URLs
-
+### <span class="jumptarget"> Product Image CDN URLs </span>
 
 We've released a small usability improvement for people working with products and images.
 

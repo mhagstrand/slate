@@ -1,7 +1,7 @@
-# FacebookLikeButton Snippet
+# <span class="jumptarget"> FacebookLikeButton Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_FrameWidth%%` |
-| `%%GLOBAL_FacebookButtonHref%%` |
+| %%GLOBAL_FrameWidth%% |
+| %%GLOBAL_FacebookButtonHref%% |

@@ -1,9 +1,9 @@
-# VideoListSide Snippet
+# <span class="jumptarget"> VideoListSide Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_VideoId%%` |
-| `%%GLOBAL_IMG_PATH%%` |
-| `%%GLOBAL_VideoTitleLong%%` |
-| `%%GLOBAL_VideoLength%%` |
+| %%GLOBAL_VideoId%% |
+| %%GLOBAL_IMG_PATH%% |
+| %%GLOBAL_VideoTitleLong%% |
+| %%GLOBAL_VideoLength%% |

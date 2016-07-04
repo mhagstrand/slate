@@ -1,9 +1,9 @@
-# MultiShippingItem Snippet
+# <span class="jumptarget"> MultiShippingItem Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ProductName%%` |
-| `%%GLOBAL_ProductOptions%%` |
-| `%%GLOBAL_AddressFieldId%%` |
-| `%%GLOBAL_ShippingAddressSelect%%` |
+| %%GLOBAL_ProductName%% |
+| %%GLOBAL_ProductOptions%% |
+| %%GLOBAL_AddressFieldId%% |
+| %%GLOBAL_ShippingAddressSelect%% |

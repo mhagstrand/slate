@@ -1,7 +1,7 @@
-# QuickSearchJs Snippet
+# <span class="jumptarget"> QuickSearchJs Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_CdnAppPath%%` |
-| `%%GLOBAL_JSCacheToken%%` |
+| %%GLOBAL_CdnAppPath%% |
+| %%GLOBAL_JSCacheToken%% |

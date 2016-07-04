@@ -1,10 +1,10 @@
-# SitemapBreadcrumb Panel
+# <span class="jumptarget"> SitemapBreadcrumb Panel </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_HideIfSubsection%%` |
-| `%%GLOBAL_HideIfNoSubsection%%` |
-| `%%GLOBAL_SitemapLink%%` |
-| `%%GLOBAL_HideIfNoSubsection%%` |
-| `%%GLOBAL_SitemapSubsectionTrail%%` |
+| %%GLOBAL_HideIfSubsection%% |
+| %%GLOBAL_HideIfNoSubsection%% |
+| %%GLOBAL_SitemapLink%% |
+| %%GLOBAL_HideIfNoSubsection%% |
+| %%GLOBAL_SitemapSubsectionTrail%% |

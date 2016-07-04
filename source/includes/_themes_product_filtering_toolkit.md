@@ -1,4 +1,4 @@
-# Product Filtering Toolkit
+# <span class="jumptarget"> Product Filtering Toolkit </span>
 
 **Before you attempt to add Product Filtering to your theme, please note that this is recommended for experienced theme developers.** Other than knowledge in HTML and CSS, familiarizing yourself with how Bigcommerce themes are structured and operate will be essential in effectively implementing Product Filtering in your theme.
 
@@ -6,17 +6,17 @@ We also recommend working on a temporary sandbox store. You can create a trial s
 
 NOTE: Product Filtering is a Premium feature. If you would like it enabled to an active public store, you must upgrade to a Premium plan.
 
-## Creating a new theme with Product Filtering
+## <span class="jumptarget"> Creating a new theme with Product Filtering </span>
 
 Product Filtering is fully functional in the Blueprint theme. If you are creating a new theme, we recommend starting from the Blueprint theme. Once you’ve enabled Developer Mode, you’ll be able to access Blueprint and Product Filtering in your developer store.
 
-## Enabling Product Filtering for your customised theme
+## <span class="jumptarget"> Enabling Product Filtering for your customised theme </span>
 
 To enable Product Filtering, all you have to do is enable developer mode on your store. This will enable Product Filtering on your store by default, regardless of whether your theme supports it or not. Depending on the customisations you have to your theme, this could have unexpected results. **We recommend using a sandbox store (not your main store) when applying these changes for the first time.**
 
 If you have a new store, Product Filtering may already work out of the box for your theme.
 
-## Implementing Product Filtering in your theme
+## <span class="jumptarget"> Implementing Product Filtering in your theme </span>
 
 If you haven’t already, follow the steps above to have the Product Filtering feature enabled for your sandbox store. Once you’ve completed this and your store has the Product Filtering feature enabled, you’ll need to get the most up-to-date files from Blueprint and copy them into your own theme. The best way to do this is:
 

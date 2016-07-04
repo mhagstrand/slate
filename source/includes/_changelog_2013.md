@@ -1,8 +1,8 @@
-# 2013
+# <span class="jumptarget"> 2013 </span>
 
-## December
+## <span class="jumptarget"> December </span>
 
-### Option Value Objects
+### <span class="jumptarget"> Option Value Objects </span>
 
 The original design of our Stores API treated every entity in our entire domain model as an individually addressable resource with a unique URL ID.
 
@@ -16,9 +16,9 @@ Providing all the relevant data in one place avoids some of the complex traversa
 
 [1]: /api/v2#option-sets-options
 
-## November
+## <span class="jumptarget"> November </span>
 
-### Orders Date Filters
+### <span class="jumptarget"> Orders Date Filters </span>
 
 We've just released a small update to the [Orders Resource][2] to improve the way that filtering by date works.
 
@@ -55,9 +55,9 @@ Support for the existing RFC 2822 format hasn't changed, so existing apps won't 
 [3]: http://en.wikipedia.org/wiki/ISO_8601
 [4]: http://tools.ietf.org/html/rfc5322
 
-## July
+## <span class="jumptarget"> July </span>
 
-### Redirects Resource
+### <span class="jumptarget"> Redirects Resource </span>
 
 Today, we're pleased to announce the addition of [Redirects][5] to the Stores API.
 

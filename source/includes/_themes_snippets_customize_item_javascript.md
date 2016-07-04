@@ -1,6 +1,6 @@
-# CustomizeItemJavascript Snippet
+# <span class="jumptarget"> CustomizeItemJavascript Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ProductAttributesJavascript%%` |
+| %%GLOBAL_ProductAttributesJavascript%% |

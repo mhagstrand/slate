@@ -1,7 +1,7 @@
-# PostTag Snippet
+# <span class="jumptarget"> PostTag Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_TagUrl%%` |
-| `%%GLOBAL_TagName%%` |
+| %%GLOBAL_TagUrl%% |
+| %%GLOBAL_TagName%% |

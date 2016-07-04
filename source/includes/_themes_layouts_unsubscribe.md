@@ -1,8 +1,8 @@
-# Unsubscribe Layout
+# <span class="jumptarget"> Unsubscribe Layout <span>
 
 `unsubscribe.html`
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_UnsubscribeTitle%%` |
+| %%GLOBAL_UnsubscribeTitle%% |

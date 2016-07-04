@@ -1,11 +1,11 @@
-# UnformattedAddressLabel Snippet
+# <span class="jumptarget">UnformattedAddressLabel Snippet </span>
 
-### Available Variables
+## <span class="jumptarget">Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ShipAddressLine1%%` |
-| `%%GLOBAL_ShipAddressLine2%%` |
-| `%%GLOBAL_ShipSuburb%%` |
-| `%%GLOBAL_ShipState%%` |
-| `%%GLOBAL_ShipZip%%` |
-| `%%GLOBAL_ShipCountry%%` |
+| %%GLOBAL_ShipAddressLine1%% |
+| %%GLOBAL_ShipAddressLine2%% |
+| %%GLOBAL_ShipSuburb%% |
+| %%GLOBAL_ShipState%% |
+| %%GLOBAL_ShipZip%% |
+| %%GLOBAL_ShipCountry%% |

@@ -1,4 +1,4 @@
-# Request Headers
+# <span class="jumptarget"> Request Headers </span>
 
 | Header | Allowed Values | Description | Example |
 | --- | --- | --- | --- |
@@ -9,7 +9,7 @@
 | `**X-Auth-Client**` | String | Client ID of the requesting app |
 | `**X-Auth-Token**` | String | Access token authorizing the app to access resources on behalf of a user |
 
-## Deprecated Headers
+## <span class="jumptarget"> Deprecated Headers </span>
 
 The following headers are deprecated and will eventually be removed from the API.
 

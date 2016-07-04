@@ -1,7 +1,7 @@
-# AddThisLink Snippet
+# <span class="jumptarget"> AddThisLink Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_AddThisServiceButtonMeta%%` |
-| `%%GLOBAL_AddThisServiceButtons%%` |
+| %%GLOBAL_AddThisServiceButtonMeta%% |
+| %%GLOBAL_AddThisServiceButtons%% |

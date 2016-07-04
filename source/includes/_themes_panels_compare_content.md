@@ -1,11 +1,11 @@
-# CompareContent Panel
+# <span class="jumptarget"> CompareContent Panel </span>
 
 The table showing the products being compared.
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_NumCompareItems%%` |
-| `%%GLOBAL_ComparisonHeading%%` |
-| `%%GLOBAL_HideTooManyProductsMessage%%` |
-| `%%GLOBAL_TooManyProductsMessage%%` |
+| %%GLOBAL_NumCompareItems%% |
+| %%GLOBAL_ComparisonHeading%% |
+| %%GLOBAL_HideTooManyProductsMessage%% |
+| %%GLOBAL_TooManyProductsMessage%% |

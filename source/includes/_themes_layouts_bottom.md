@@ -1,8 +1,8 @@
-# Bottom Layout
+# <span class="jumptarget"> Bottom Layout </span>
 
 `bottom.html`
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `%%Panel.Footer%%` |
+| %%Panel.Footer%% |
