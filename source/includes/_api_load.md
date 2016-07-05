@@ -101,7 +101,7 @@ To decode the signed payload, complete the following steps:
 
 1.  Split `signed_payload` into its two parts at the `.` delimiter.
 2.  Decode `encoded_json_string` using base64url.
-3.  Convert the decoded JSON string into an object. See [Processing the JSON object](#Identifying) in for more about this object.
+3.  Convert the decoded JSON string into an object. See [Processing the JSON object](#Identifying) for more about this object.
 4.  Decode `encoded_hmac_signature` using base64url.
 5.  Use your client secret to verify the signature. See the next section for more details.
 
@@ -172,7 +172,7 @@ def secure_compare(a, b)
 end
 ```
 
-#### Processing the JSON object
+#### <span id="Identifying"> Processing the JSON object </span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
