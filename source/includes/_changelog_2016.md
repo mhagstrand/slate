@@ -1,9 +1,9 @@
-# 2016
+# <span class="jumptarget"> 2016 </span>
 
-## July
+## <span class="jumptarget"> July </span>
 
 
-### Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
+### <span class="jumptarget"> Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
 
 The Order Shipment resource has been refreshed with two fields that can be used to track shipments:
 
@@ -13,10 +13,10 @@ The Order Shipment resource has been refreshed with two fields that can be used 
 We have added these fields to the [Order Shipment](/api/v2#shipping-methods) documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You'll also find usage guidelines, a list of allowable values for the `shipping_provider` field, and a linked, downloadable spreadsheet of allowable values for the `tracking_carrier` field.
 
 
-## June
+## <span class="jumptarget"> June </span>
 
 
-### Request for comment on proposed Cart API schema
+### <span class="jumptarget"> Request for comment on proposed Cart API schema </span>
 
 BigCommerce requests our App Partners' help in creating a public Cart API. We have posted an open <a href="https://github.com/bigcommerce/api" target="_blank">request for comment (RFC)</a> on our proposed Cart API schema. We invite your feedback, to ensure that this API will accommodate your needs and use cases. 
 
@@ -30,14 +30,14 @@ Links to the post are also available on the <a href="https://forum.bigcommerce.c
 
 
 
-### Order Shipment resource adds "shipping_provider" field
+### <span class="jumptarget"> Order Shipment resource adds "shipping_provider" field </span>
 
 The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
 
 We have added this field to the [Order Shipment](/api/v2#shipping-methods) documentation, including the sample responses for Order Shipment endpoints that can return this field.
 
 
-### Store Information endpoint now passes secure store URL
+### <span class="jumptarget"> Store Information endpoint now passes secure store URL </span>
 
 The Store Information endpoint now provides a `secure_url` field, containing the store's secure (HTTPS) URL.
 
@@ -46,7 +46,7 @@ This new field facilitates the <a href="https://jwt.io/introduction/" target="_b
 We have this new property to our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
 
 
-### New variables separate raw price from currency
+### <span class="jumptarget"> New variables separate raw price from currency </span>
 
 Bigcommerce's Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:
 
@@ -63,9 +63,9 @@ You can use these variables as alternatives to the `%%GLOBAL_ProductPrice%%` var
 The two new variables are available in all snippets where products are available. (In general, this is anywhere that `%%GLOBAL_ProductPrice%%` appears). You can find them listed on [this updated reference page](/themes/global_variables).
 
 
-## May
+## <span class="jumptarget"> May </span>
 
-### Order Shipment resource adds "shipping_provider" field
+### <span class="jumptarget"> Order Shipment resource adds "shipping_provider" field </span>
 
 The Order Shipment resource has a new `shipping_provider` field, which contains the enum of the delivery service used to fulfill the shipment.
 
@@ -73,7 +73,7 @@ We have added this field to the [Order Shipment object](/api/v2/orders/#shipment
 [Order Shipment endpoints](/api/v2/orders/#shipments-operations) that can return this field.
 
 
-### Stencil Cornerstone theme 1.2.1 released
+### <span class="jumptarget"> Stencil Cornerstone theme 1.2.1 released </span>
 
 Version 1.2.1 of the Stencil Cornerstone theme is now available. This maintenance release corrects a bug that allowed shoppers to add items to their cart without selecting those items' required options. It also corrects an Internet Explorer 10–specific bug that blocked shoppers from editing cart contents and certain other functions.
 
@@ -82,12 +82,12 @@ For details, please see the Cornerstone 1.2.1 [release notes](https://stencil.bi
 Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.2.1`
 
 
-### List Orders endpoint adds email filter
+### <span class="jumptarget"> List Orders endpoint adds email filter </span>
 
 The List Orders endpoint now allows filtering by customer email address. We have added the `email` field to the list of filters on the [List Orders reference page](api/v2/orders/#list-orders).
 
 
-### Apps can now request new auth scopes after publication
+### Apps can now request new auth scopes after publication </span>
 
 Apps for BigCommerce stores can now request new OAuth scopes after publication. To grant these new scopes, merchants no longer need to uninstall and reinstall the app.
 
@@ -96,7 +96,7 @@ For details (including how to make sure your apps are compatible with this new o
 We have updated our [app registration](/api/v2#registration) instructions, and our [app installation/update](/api/v2#installation) reference and diagram, to cover token exchanges that provide new scopes for installed apps.
 
 
-### Stencil Cornerstone 1.2 theme released; adds logo positioning
+### <span class="jumptarget"> Stencil Cornerstone 1.2 theme released; adds logo positioning </span>
 
 Version 1.2 of the Stencil Cornerstone theme is now available. This release allows merchants to use Theme Editor to globally align their store's logo left, center, or right. There are also several minor bug fixes.
 
@@ -105,7 +105,7 @@ For details, please see the Cornerstone 1.2 [release notes](https://stencil.bigc
 Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.2.0`
 
 
-### Store Information endpoint adds "features" array
+### <span class="jumptarget"> Store Information endpoint adds "features" array </span>
 
 The Store Information endpoint now provides a `features` array, whose elements flag features that affect app compatibility or functionality. This array's initial `stencil_enabled` (Boolean) element indicates whether a store is using a Stencil theme, as in this example:
 
@@ -116,16 +116,16 @@ The Store Information endpoint now provides a `features` array, whose elements f
 BigCommerce will add other features to this array, as warranted. For details, please see our documentation on the Store Information [object](/api/v2/#store-information-object) and [resource](/api/v2/#get-a-store-s-information).
 
 
-### Stencil custom/private theme uploads now available
+### <span class="jumptarget"> Stencil custom/private theme uploads now available </span>
 
 Developers can now upload custom/private Stencil themes to storefronts, via the BigCommerce control panel. 
 
 For details, please see [this Knowledge Base article](https://support.bigcommerce.com/articles/Public/Custom-Theme-Upload) and [this troubleshooting page](https://stencil.bigcommerce.com/docs/uploading-a-custom-theme).
 
 
-## April 
+## <span class="jumptarget"> April 
 
-### New API SKU Properties Available
+### <span class="jumptarget"> New API SKU Properties Available </span>
 
 We have updated the product SKU API to make several new properties available directly on the SKU resource. This update means that you no longer need to create a product rule in order to set these properties – you can now update them directly on the SKU:
 
@@ -149,7 +149,7 @@ However, as we make SKU-only properties available directly on SKUs, BigCommerce 
 [2]: /api/v2/
 
 
-### Please prepare your apps for new auth-scopes options
+### <span class="jumptarget"> Please prepare your apps for new auth-scopes options </span>
 
 Starting May 2, 2016, BigCommerce will enable you to change your application's required scopes, after you have published the app. Merchants will be prompted to update the app, and to grant new scopes, the next time they load the app. You will then receive a new token with the updated scopes.  
 
@@ -157,7 +157,7 @@ This change opens up new options for your apps. However, at a minimum, you might
 
 Please read this entire advisory to ensure that your application will continue to function as expected, after we make this change.  
 
-#### Scopes background
+#### <span class="jumptarget"> Scopes background </span>
 
 When you registered your application in Developer Portal, you were required to specify an `auth_callback_url`, to specify a `load_url`, and to request some scopes. Scopes define permissions associated with a set of store resources. By granting your app access to scopes, a merchant allows you to use their store's API.  
 
@@ -165,16 +165,16 @@ For example, if you want to access the BigCommerce `products` API for your user'
 
 The `auth_callback_url` is used to safely receive a token associated with the granted scopes. The `load_url` is used to redirect merchants to your application when they click on it from their store's control panel.  
 
-#### The problem we solved
+#### <span class="jumptarget"> The problem we solved </span>
 
 Prior to this change, you had no way to change the scopes requested by your published app. If&nbsp;you changed these scopes, existing installations would cease to function. This forced each merchant to uninstall, then reinstall, your app to grant you the new scopes.  
 
-#### What hasn't changed?
+#### <span class="jumptarget"> What hasn't changed? </span>
 
 * When your app is installed, you'll still receive an HTTP call on the `auth_callback_url` that you have registered in Developer Portal.
 * You'll still need to do a token exchange, to receive a new token for granted scopes that you have requested.
 
-#### What has changed?
+#### <span class="jumptarget"> What has changed? </span>
 
 * If you change the scopes you are requesting in Developer Portal, BigCommerce will mark your application as needing reauthorization. The next time the merchant loads your app, you will receive a call on the `auth_callback_url` that you registered. You should then reinitiate the token exchange process, to receive a new token for that store with the updated scopes.  
 (Note: This applies to existing installations, where the scopes you are requesting do not match the token generated when the app was first installed.)
@@ -183,12 +183,12 @@ Prior to this change, you had no way to change the scopes requested by your publ
 
 Merchants will see changes only under certain conditions:   
 
-#### What hasn't changed?
+#### <span class="jumptarget"> What hasn't changed? </span>
 
 * When merchants install your application, they will still see a confirmation screen prompting them to grant you the scopes you requested.
 * After completing installation, or when they launch your application, merchants will still be redirected to the `load_url` you registered.
 
-#### What has changed?
+#### <span class="jumptarget"> What has changed? </span>
 
 * If your app requires reauthorization, merchants will now see a reauthorization screen – similar to the initial installation screen – indicating the newly requested scopes.
 
@@ -206,9 +206,9 @@ Note that until the merchant reauthorizes your app, the old token will continue 
 
 Below are some foreseeable problems and their solutions.   
 
-#### Problem 1: Your auth_callback_url endpoint accounts only for new installs, not reauthorizations
+#### <span class="jumptarget"> Problem 1: Your auth_callback_url endpoint accounts only for new installs, not reauthorizations </span>
 
-##### Steps leading to this problem:
+##### <span class="jumptarget"> Steps leading to this problem: </span>
 
 * You initially requested a certain scope (e.g., `view products`)
 * A merchant installs your app
@@ -217,7 +217,7 @@ Below are some foreseeable problems and their solutions.
 
 If your app incorporates an assumption that calls to the `auth_callback_url` happen only at install time, it might treat this call as a new install, re-triggering initialization workflows that you did not intend.
 
-##### Solution
+##### <span class="jumptarget"> Solution </span>
 
 You should save the `store_hash` associated with the token that your app received during the OAuth token exchange. Any time you receive a call on the `auth_callback_url`, you should first look in your database for the `store_hash`.
 
@@ -227,9 +227,9 @@ If the `store_hash` does not exist, you will know that this is a first-time inst
 
 From our sample app, [here is an example](https://github.com/bigcommerce/hello-world-app-ruby-sinatra/blob/master/hello.rb#L102) of appropriate handling of this logic.
 
-#### Problem 2: Missing uninstall_callback_url endpoint
+#### <span class="jumptarget"> Problem 2: Missing uninstall_callback_url endpoint </span>
 
-##### Steps leading to this problem:
+##### <span class="jumptarget"> Steps leading to this problem: </span>
 
 * You do not keep track of which merchants have uninstalled your app
 * A merchant uninstalls your app
@@ -237,7 +237,7 @@ From our sample app, [here is an example](https://github.com/bigcommerce/hello-w
 * You receive a call on the `auth_callback_url` you registered in Developer Portal
 * At this point, you have no way to know whether this is an install or a reauthorization
 
-##### Solution:
+##### <span class="jumptarget"> Solution: </span>
 
 We highly recommend that you register an endpoint in Developer Portal as the `uninstall_callback_url`. This way, any time a merchant uninstalls your application, your `uninstall_callback_url` will be hit.
 
@@ -246,15 +246,15 @@ It is important that you keep track of uninstalls, so that the next time you rec
 One way to keep track of uninstalls is by managing your database entries: Remove the `store_hash` of the corresponding install. Another way is to use a boolean that is flagged/unflagged as a merchant installs/uninstalls your application.
 
 
-## March
+## <span class="jumptarget"> March </span>
 
-### SNI (Server Name Indication) required as of June 30, 2016
+### <span class="jumptarget"> SNI (Server Name Indication) required as of June 30, 2016 </span>
 
 As of June 30, 2016, all requests to the BigCommerce API will be required to support [Server Name Indication][3] (SNI). After that date, requests will fail if they don't support SNI.
 
 [3]: https://en.m.wikipedia.org/wiki/Server_Name_Indication
 
-### Orders API provies opt-in email field
+### <span class="jumptarget"> Orders API provies opt-in email field </span>
 
 The Orders API provides a new `is_email_opt_in` field. This Boolean field will be `true` if the shopper has opted in (on the checkout page) to receive a store's email newsletter. It is read-only.
 
@@ -268,7 +268,7 @@ We have updated the following documentation to cover this new field:
 [5]: /api/v2/#create-an-order
 [6]: /api/v2/#update-an-order
 
-### Stencil Framework now generally available
+### <span class="jumptarget"> Stencil Framework now generally available </span>
 
 Developers can now install the Stencil themes framework without registering for access. Please follow the documentation link that's relevant to your experience with Stencil:
 
@@ -280,9 +280,9 @@ Developers can now install the Stencil themes framework without registering for 
 [8]: https://stencil.bigcommerce.com/docs/installing-and-launching-stencil-1
 [9]: https://stencil.bigcommerce.com/docs/early-access-please-reinstall
 
-## February 
+## <span class="jumptarget"> February </span>
 
-### Gift Certificate API
+### <span class="jumptarget"> Gift Certificate API </span>
 
 BigCommerce has published a new API for managing gift certificates. The API allows your applications to manage gift certificates' amount/balance, purchaser, recipient, dates of purchase and expiration, and current status.
 
@@ -290,7 +290,7 @@ The new endpoint information is available [here][10].
 
 [10]: /api/v2#gift_certificates
 
-### Customer/Address resource have new custom fields
+### <span class="jumptarget"> Customer/Address resource have new custom fields </span>
 
 Two Customers endpoints, and two Customer Addresses endpoints, now provide support for read-only custom fields:
 
@@ -306,7 +306,7 @@ You can access custom fields within the new   **`form_fields`**   element. For d
 
 [11]: /api/v2#customers
 
-### New Store Updated & Order Webhooks
+### <span class="jumptarget"> New Store Updated & Order Webhooks </span>
 
 BigCommerce has made available two new webhooks. We encourage you to use these webhooks, as appropriate, in your applications:
 
@@ -318,7 +318,7 @@ We have updated the [webhooks reference page][13] to include these new webhooks.
 [12]: /api/v2/#order-messages
 [13]: /#placeholder
 
-### Expanded faceted-search display
+### <span class="jumptarget"> Expanded faceted-search display </span>
 
 [Compatible][14] Blueprint themes can now display up to 500 values in faceted-search results. This expands the previous 30-value limit on facets like brands, categories, product options, and custom fields.
 
@@ -331,7 +331,7 @@ We have also updated merchant-oriented documentation that covers [enabling facet
 [16]: https://support.bigcommerce.com/articles/Public/Product-Filtering-Settings#enabling
 [17]: https://support.bigcommerce.com/articles/Public/Platform-Limits/
 
-### Banners API
+### <span class="jumptarget"> Banners API </span>
 
 BigCommerce has published a new API for managing storefront banners. The API allows your applications to manage banners' display location, timing, and content.
 
@@ -339,9 +339,9 @@ Information about this new endpoint is available [here][18].
 
 [18]: https://developer.bigcommerce.com/api/v2#banners
 
-## January
+## <span class="jumptarget"> January </span>
 
-### New global product variables: SKU, Brand Name, Custom Fields
+### <span class="jumptarget"> New global product variables: SKU, Brand Name, Custom Fields </span>
 
 BigCommerce's Blueprint theme framework now provides three new global variables:
 
@@ -353,7 +353,7 @@ These variables are available in all snippets where products are available. (In 
 
 [19]: /themes/global_variables
 
-### New product and SKU webhooks added
+### <span class="jumptarget"> New product and SKU webhooks added </span>
 
 BigCommerce has made available several new webhooks. In the list below, the new options are highlighted within the `store/product/`,   
 `store/product/inventory/`, `store/sku/`, and `store/sku/inventory*` categories. We encourage you to use these webhooks, as appropriate,  
@@ -394,7 +394,7 @@ We have updated the [webhooks reference page][20] to include these new webhooks.
 
 [20]: /api#webhooks
 
-### Status fields added to order/statusUpdated webhook
+### <span class="jumptarget"> Status fields added to order/statusUpdated webhook </span>
 
 On January 22nd, 2016, BigCommerce will add status fields to the   `store/order/statusUpdated`   webhook event. These new fields will allow your applications to monitor order status more efficiently, with fewer API calls.
 
@@ -457,7 +457,7 @@ Here is the same webhook message in the new format, with the added   `status`   
 
 (This second example shows an order moving from an "Incomplete" status [`id: 0`] to an "Awaiting Fulfillment" status [`id: 11`]. This change occurs whenever an order is paid for during storefront checkout.)
 
-### Include or exclude specific fields for Products resource
+### <span class="jumptarget"> Include or exclude specific fields for Products resource </span>
 
 Your `Get a Product` or `List Products` requests can now include or exclude specific fields, by appending one of these options:
 
