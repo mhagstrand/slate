@@ -2,7 +2,7 @@
 
 Tracks a package consignment from an order, shipped from the seller to the buyer.
 
-## <span class="jumptarget"> Shipment Object - Properties </span>
+## <span class="jumptarget"> Shipment Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -13,7 +13,8 @@ Tracks a package consignment from an order, shipped from the seller to the buyer
 | date_created | date |
 | tracking_number | string | Tracking number of the shipment |
 | shipping_method | string |
-| shipping_carrier | string | Enum of the delivery service fulfilling the shipment |
+| shipping_provider | string | Enum of the delivery service fulfilling the shipment |
+| tracking_carrier | string | Enum of the shipping-carrier integration |
 | comments | text | Comments the shipper wishes to add |
 | billing_address | object |
 | shipping_address | object |
