@@ -337,6 +337,27 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
+### <span class="jumptarget"> Notes </span>
+
+The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: 
+
+* `shipping_provider`: Acceptable values are an empty string (`""`), or one of these valid BigCommerce shipping-provider values: `auspost`, `canadapost`, `endicia`, `usps`, `fedex`, `royalmail`, `ups`, `upsready`, `upsonline`, or `shipperhq`.
+* `tracking_carrier`: Acceptable values are an empty string (`""`), or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
+
+If you provide only the `shipping_provider` property, then any existing saved `tracking_carrier` value must refer to same carrier; and vice-versa.
+
+Possible mappings of `shipping_provider` values to `tracking_carrier` values are:
+     
+- `auspost` --> `australia-post`    
+- `canadapost` --> `canada-post`    
+- `endicia`   --> `usps`    
+- `fedex`     --> `fedex`    
+- `royalmail`   --> `royalmail`    
+- `ups`   --> `ups`    
+- `upsready`  --> `ups`    
+- `upsonline`   --> `ups`    
+- `shipperhq`  --> `ups` or `dhl` or `fedex` or `usps` or `australia-post` or `start-track`
+
 ## <span class="jumptarget"> Delete a Shipment </span>
 
 Deletes a shipment associated with an order.

@@ -1,7 +1,17 @@
 # <span class="jumptarget"> 2016 </span>
 
-## <span class="jumptarget"> June </span>
+## <span class="jumptarget"> July </span>
 
+### <span class="jumptarget"> Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
+
+The Order Shipment resource has been refreshed with two fields that can be used to track shipments:
+
+* `shipping_provider` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
+* `tracking_carrier` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
+
+We have added these fields to the [Order Shipment](/api/v2#shipping-methods) documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You'll also find usage guidelines, a list of allowable values for the `shipping_provider` field, and a linked, downloadable spreadsheet of allowable values for the `tracking_carrier` field.
+
+## <span class="jumptarget"> June </span>
 
 ### <span class="jumptarget"> Request for comment on proposed Cart API schema </span>
 
