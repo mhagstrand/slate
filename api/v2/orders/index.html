@@ -1830,7 +1830,7 @@
 
 <p>Tracks a package consignment from an order, shipped from the seller to the buyer.</p>
 
-<h2 id="shipment-object-properties"><span class="jumptarget"> Shipment Object - Properties </span></h2>
+<h2 id="shipment-object-properties"><span class="jumptarget"> Shipment Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1875,9 +1875,14 @@
 <td></td>
 </tr>
 <tr>
-<td>shipping_carrier</td>
+<td>shipping_provider</td>
 <td>string</td>
 <td>Enum of the delivery service fulfilling the shipment</td>
+</tr>
+<tr>
+<td>tracking_carrier</td>
+<td>string</td>
+<td>Enum of the shipping-carrier integration</td>
 </tr>
 <tr>
 <td>comments</td>
@@ -2269,6 +2274,31 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
+
+<p>The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: </p>
+
+<ul>
+<li><code class="prettyprint">shipping_provider</code>: Acceptable values are an empty string (<code class="prettyprint">&quot;&quot;</code>), or one of these valid BigCommerce shipping-provider values: <code class="prettyprint">auspost</code>, <code class="prettyprint">canadapost</code>, <code class="prettyprint">endicia</code>, <code class="prettyprint">usps</code>, <code class="prettyprint">fedex</code>, <code class="prettyprint">royalmail</code>, <code class="prettyprint">ups</code>, <code class="prettyprint">upsready</code>, <code class="prettyprint">upsonline</code>, or <code class="prettyprint">shipperhq</code>.</li>
+<li><code class="prettyprint">tracking_carrier</code>: Acceptable values are an empty string (<code class="prettyprint">&quot;&quot;</code>), or one of the valid tracking-carrier values viewable <a href="https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&amp;single=true">here</a> and downloadable as a .CSV file <a href="https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&amp;single=true&amp;output=csv">here</a>.</li>
+</ul>
+
+<p>If you provide only the <code class="prettyprint">shipping_provider</code> property, then any existing saved <code class="prettyprint">tracking_carrier</code> value must refer to same carrier; and vice-versa.</p>
+
+<p>Possible mappings of <code class="prettyprint">shipping_provider</code> values to <code class="prettyprint">tracking_carrier</code> values are:</p>
+
+<ul>
+<li><code class="prettyprint">auspost</code> &ndash;&gt; <code class="prettyprint">australia-post</code><br></li>
+<li><code class="prettyprint">canadapost</code> &ndash;&gt; <code class="prettyprint">canada-post</code><br></li>
+<li><code class="prettyprint">endicia</code>   &ndash;&gt; <code class="prettyprint">usps</code><br></li>
+<li><code class="prettyprint">fedex</code>     &ndash;&gt; <code class="prettyprint">fedex</code><br></li>
+<li><code class="prettyprint">royalmail</code>   &ndash;&gt; <code class="prettyprint">royalmail</code><br></li>
+<li><code class="prettyprint">ups</code>   &ndash;&gt; <code class="prettyprint">ups</code><br></li>
+<li><code class="prettyprint">upsready</code>  &ndash;&gt; <code class="prettyprint">ups</code><br></li>
+<li><code class="prettyprint">upsonline</code>   &ndash;&gt; <code class="prettyprint">ups</code><br></li>
+<li><code class="prettyprint">shipperhq</code>  &ndash;&gt; <code class="prettyprint">ups</code> or <code class="prettyprint">dhl</code> or <code class="prettyprint">fedex</code> or <code class="prettyprint">usps</code> or <code class="prettyprint">australia-post</code> or <code class="prettyprint">start-track</code></li>
+</ul>
 
 <h2 id="delete-a-shipment"><span class="jumptarget"> Delete a Shipment </span></h2>
 

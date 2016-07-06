@@ -164,6 +164,19 @@
 
           <h1 id="2016"><span class="jumptarget"> 2016 </span></h1>
 
+<h2 id="july"><span class="jumptarget"> July </span></h2>
+
+<h3 id="order-shipment-api-refreshed-with-quot-shipping_provider-quot-quot-tracking_carrier-quot-fields"><span class="jumptarget"> Order Shipment API refreshed with &ldquo;shipping_provider&rdquo;, &ldquo;tracking_carrier&rdquo; fields</h3>
+
+<p>The Order Shipment resource has been refreshed with two fields that can be used to track shipments:</p>
+
+<ul>
+<li><code class="prettyprint">shipping_provider</code> contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.</li>
+<li><code class="prettyprint">tracking_carrier</code> contains the enum of this shipment&rsquo;s BigCommerce shipping-carrier integration/module.</li>
+</ul>
+
+<p>We have added these fields to the <a href="/api/v2#shipping-methods">Order Shipment</a> documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You&rsquo;ll also find usage guidelines, a list of allowable values for the <code class="prettyprint">shipping_provider</code> field, and a linked, downloadable spreadsheet of allowable values for the <code class="prettyprint">tracking_carrier</code> field.</p>
+
 <h2 id="june"><span class="jumptarget"> June </span></h2>
 
 <h3 id="request-for-comment-on-proposed-cart-api-schema"><span class="jumptarget"> Request for comment on proposed Cart API schema </span></h3>
@@ -625,46 +638,46 @@ in your applications:</p>
 
 <p>Certain fields are retrieved with all requests. For details and examples, please see <a href="/api/v2/products#get-a-product">this documentation</a>.</p>
 
-          <h1 id="2015">2015</h1>
+          <h1 id="2015"><span class="jumptarget"> 2015  </span></h1>
 
-<h2 id="november">November</h2>
+<h2 id="november"><span class="jumptarget"> November </span></h2>
 
-<h3 id="new-block-retry-schedule-for-unsuccessful-webhook-calls">New block/retry schedule for unsuccessful webhook calls</h3>
+<h3 id="new-block-retry-schedule-for-unsuccessful-webhook-calls"><span class="jumptarget"> New block/retry schedule for unsuccessful webhook calls </span></h3>
 
-<p>To maximize the rapid delivery of successful webhooks, Bigcommerce has imposed a new 60-second block on webhooks reporting unsuccessful callbacks. The new mechanism works like this:</p>
+<p>To maximize the rapid delivery of successful webhooks, BigCommerce has imposed a new 60-second block on webhooks reporting unsuccessful callbacks. The new mechanism works like this:</p>
 
 <ul>
 <li>Whenever a webhook gives a non-<code class="prettyprint">**2_xx_**</code> response, or times out, the app will be blocked for 60 seconds.</li>
 <li>Webhooks created during that 60-second block will be queued up to send on the next scheduled retry attempt after the block expires, so that webhooks are not lost.</li>
-<li>The first retry will now occur 60 seconds after the most recent failure. (The dispatcher will no longer attempt retries immediately, nor at 30 seconds, as Bigcommerce previously stated.)</li>
+<li>The first retry will now occur 60 seconds after the most recent failure. (The dispatcher will no longer attempt retries immediately, nor at 30 seconds, as BigCommerce previously stated.)</li>
 <li>Remaining retries will occur on the previously published schedule, up to 48 hours after the first unsuccessful callback.</li>
 </ul>
 
 <p>For details, please see <a href="/api#webhooks-getting-started">this updated Dev Portal article</a>.</p>
 
-<h2 id="july">July</h2>
+<h2 id="july"><span class="jumptarget"> July </span></h2>
 
-<h3 id="manage-users-39-logout-and-session-timeouts">Manage users&rsquo; logout and session timeouts</h3>
+<h3 id="manage-users-39-logout-and-session-timeouts"><span class="jumptarget"> Manage users&rsquo; logout and session timeouts </span></h3>
 
-<p>A new callback function allows your Single-Click Apps to detect, and respond to, a user&rsquo;s logout or timeout from the Bigcommerce control panel.</p>
+<p>A new callback function allows your Single-Click Apps to detect, and respond to, a user&rsquo;s logout or timeout from the BigCommerce control panel.</p>
 
-<p>To use this function, first include Bigcommerce&rsquo;s JavaScript SDK in your Single-Click App. You do so by adding this script tag:</p>
+<p>To use this function, first include BigCommerce&rsquo;s JavaScript SDK in your Single-Click App. You do so by adding this script tag:</p>
 
-<p>http://www.google-analytics.com/ga.js&quot;&gt; src=&ldquo;&rdquo;&gt;https://cdn.bigcommerce.com/jssdk/bc-sdk.js&quot;&gt;</p>
+<p>http://www.google-analytics.com/ga.js&quot;&gt; src=&ldquo;&rdquo;&gt;https://cdn.BigCommerce.com/jssdk/bc-sdk.js&quot;&gt;</p>
 
 <p>Next, when you initialize the SDK, include the logout callback function:</p>
-<pre class="highlight plaintext"><code>    Bigcommerce.init({
+<pre class="highlight plaintext"><code>    BigCommerce.init({
           onLogout: callback
     });
 </code></pre>
 
-<p>The callback function will run when the user explicitly logs out of the Bigcommerce control panel, or is automatically timed out. Your app can then respond to this logout. <a href="/api#using-oauth-intro">Read more.</a></p>
+<p>The callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically timed out. Your app can then respond to this logout. <a href="/api#using-oauth-intro">Read more.</a></p>
 
-<h2 id="april">April</h2>
+<h2 id="april"><span class="jumptarget"> April </span></h2>
 
-<h3 id="limits-on-categories-skus-option-values-and-brands">Limits on categories, SKUs, option values, and brands</h3>
+<h3 id="limits-on-categories-skus-option-values-and-brands"><span class="jumptarget"> Limits on categories, SKUs, option values, and brands </span></h3>
 
-<p>To maximize platform availability and system performance, Bigcommerce has imposed the following limits.</p>
+<p>To maximize platform availability and system performance, BigCommerce has imposed the following limits.</p>
 
 <ul>
 <li>Maximum of 16,000 categories per store</li>
@@ -677,11 +690,11 @@ in your applications:</p>
 
 <p>Requests to the Stores API that exceed these limits will receive a 403 response.  </p>
 
-<h3 id="automatic-sales-tax-document-submissions-for-avalara-premium-stores">Automatic sales tax document submissions for Avalara Premium stores</h3>
+<h3 id="automatic-sales-tax-document-submissions-for-avalara-premium-stores"><span class="jumptarget"> Automatic sales tax document submissions for Avalara Premium stores </span></h3>
 
-<h4 id="post-or-put-orders-on-stores-with-avalara-premium-causes-tax-documents-to-be-submitted">POST or PUT Orders on stores with Avalara Premium causes tax documents to be submitted</h4>
+<h4 id="post-or-put-orders-on-stores-with-avalara-premium-causes-tax-documents-to-be-submitted"><span class="jumptarget"> POST or PUT Orders on stores with Avalara Premium causes tax documents to be submitted </span></h4>
 
-<p>If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:</p>
+<p>If a store has subscribed to Avalara Premium, BigCommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:</p>
 
 <ul>
 <li><code class="prettyprint">**Shipped**</code></li>
@@ -692,7 +705,7 @@ in your applications:</p>
 <li><code class="prettyprint">**Awaiting Fulfillment**</code></li>
 </ul>
 
-<p>Bigcommerce considers all statuses other than the above to be of the unpaid type, except <code class="prettyprint">**Refunded**</code>, which is considered neither paid or unpaid.</p>
+<p>BigCommerce considers all statuses other than the above to be of the unpaid type, except <code class="prettyprint">**Refunded**</code>, which is considered neither paid or unpaid.</p>
 
 <p>Orders created using the <code class="prettyprint">**POST**</code> method that include a status of the paid type result in the submission of tax documents to Avalara. The behavior becomes more complex with order updates. The following table details the behavior for <code class="prettyprint">**PUT**</code> operations.</p>
 
@@ -738,45 +751,45 @@ in your applications:</p>
 
 <p>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying <code class="prettyprint">**CA**</code> as a state name results in no tax document submission. Supplying <code class="prettyprint">**California**</code> as a state name results in a successful submission.</p>
 
-<h4 id="post-and-put-orders-now-results-in-better-order-tax-object-values">POST and PUT Orders now results in better order tax object values</h4>
+<h4 id="post-and-put-orders-now-results-in-better-order-tax-object-values"><span class="jumptarget"> POST and PUT Orders now results in better order tax object values </span></h4>
 
-<p>When values for <code class="prettyprint">**price_inc_tax**</code> and <code class="prettyprint">**price_ex_tax**</code> are passed, a value of <code class="prettyprint">**API Tax Override**</code> is written to the <code class="prettyprint">**name**</code> field of the order tax object. In addition, the <code class="prettyprint">**base_price**</code> value is no longer derived from the product object and any rulesets defined. Instead, Bigcommerce writes either the <code class="prettyprint">**price_inc_tax**</code> and <code class="prettyprint">**price_ex_tax**</code> value to <code class="prettyprint">**base_price**</code>, according to the store settings.</p>
+<p>When values for <code class="prettyprint">**price_inc_tax**</code> and <code class="prettyprint">**price_ex_tax**</code> are passed, a value of <code class="prettyprint">**API Tax Override**</code> is written to the <code class="prettyprint">**name**</code> field of the order tax object. In addition, the <code class="prettyprint">**base_price**</code> value is no longer derived from the product object and any rulesets defined. Instead, BigCommerce writes either the <code class="prettyprint">**price_inc_tax**</code> and <code class="prettyprint">**price_ex_tax**</code> value to <code class="prettyprint">**base_price**</code>, according to the store settings.</p>
 
 <p>When the product already exists in the store and no values for <code class="prettyprint">**price_inc_tax**</code> and <code class="prettyprint">**price_ex_tax**</code> are passed, an order tax object will be created with a <code class="prettyprint">**base_price**</code> value based on the product&rsquo;s price.</p>
 
-<h4 id="delete-orders-now-fails-if-automatic-tax-enabled-on-the-store">DELETE Orders now fails if automatic tax enabled on the store</h4>
+<h4 id="delete-orders-now-fails-if-automatic-tax-enabled-on-the-store"><span class="jumptarget"> DELETE Orders now fails if automatic tax enabled on the store </span></h4>
 
 <p>Attempts to <code class="prettyprint">**DELETE**</code> an order on a store with automatic tax enabled now return a <code class="prettyprint">**405 Method not allowed**</code>.  </p>
 
-<h2 id="march">March</h2>
+<h2 id="march"><span class="jumptarget"> March </span></h2>
 
-<h3 id="new-fields-to-support-deeper-avalara-integrations">New fields to support deeper Avalara integrations</h3>
+<h3 id="new-fields-to-support-deeper-avalara-integrations"><span class="jumptarget"> New fields to support deeper Avalara integrations </span></h3>
 
-<p>Bigcommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the Control Panel GUI. The extension consists of two new fields in the <code class="prettyprint">**customer**</code> and <code class="prettyprint">**product**</code> objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.</p>
+<p>BigCommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the Control Panel GUI. The extension consists of two new fields in the <code class="prettyprint">**customer**</code> and <code class="prettyprint">**product**</code> objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.</p>
 
 <p>Stores that do not have the AvaTax Pro subscription will store the codes but the codes will not impact their sales tax calculations. Please note that you should only pass one code per customer or product and the codes are case sensitive.</p>
 
-<h4 id="identify-customers-exempt-from-sales-tax">Identify customers exempt from sales tax</h4>
+<h4 id="identify-customers-exempt-from-sales-tax"><span class="jumptarget"> Identify customers exempt from sales tax </span></h4>
 
 <p>The <a href="/api/v2#customer"><strong>customer</strong></a> object includes a new <code class="prettyprint">**tax_exempt_category**</code> field, allowing you to identify customers that are either fully or partially exempt from paying sales tax. This includes employees of the federal government, Native Americans, foreign diplomats, and more. Review the <a href="http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers">Avalara documentation</a> to find out more about these categories and for the list of codes.</p>
 
-<h4 id="increase-sales-tax-accuracy-with-product-and-service-codes">Increase sales tax accuracy with product and service codes</h4>
+<h4 id="increase-sales-tax-accuracy-with-product-and-service-codes"><span class="jumptarget"> Increase sales tax accuracy with product and service codes</h4>
 
 <p>The <a href="/api/v2#product"><strong>product</strong></a> object includes a new <code class="prettyprint">**avalara_product_tax_code**</code> field that accepts a wide range of product and service codes. Refer to the &ldquo;AvaTax System tax codes&rdquo; section of the <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code">Avalara documentation</a> for more information and the full list of codes.</p>
 
-<h2 id="february">February</h2>
+<h2 id="february"><span class="jumptarget"> February </span></h2>
 
-<h3 id="new-test-payment-gateway">New Test Payment Gateway</h3>
+<h3 id="new-test-payment-gateway"><span class="jumptarget"> New Test Payment Gateway </span></h3>
 
 <p>Developers using the <code class="prettyprint">**orders**</code> resource may find the new Test Payment Gateway useful while developing and testing their apps. The Test Payment Gateway can be enabled from inside of your sandbox store. It allows a successful transaction to be processed from start to finish. To create or update an order to use the Test Payment Gateway, pass <code class="prettyprint">**Test Payment Gateway**</code> as the value for <code class="prettyprint">**payment_method**</code> in the <code class="prettyprint">**orders**</code> object.</p>
 
 <p>Further details can be reviewed in the <a href="/api/v2#order">orders</a> object documentation.</p>
 
-          <h1 id="2014">2014</h1>
+          <h1 id="2014"><span class="jumptarget"> 2014 </span></h1>
 
-<h2 id="october">October</h2>
+<h2 id="october"><span class="jumptarget"> October </span></h2>
 
-<h3 id="values-for-tax_class-ignored-if-automatic-tax-enabled">Values for tax_class ignored if automatic tax enabled</h3>
+<h3 id="values-for-tax_class-ignored-if-automatic-tax-enabled"><span class="jumptarget"> Values for tax_class ignored if automatic tax enabled </span></h3>
 
 <p>Stores located inside the United States no longer need to manually configure sales taxes. Enabled by default on new U.S. stores, the new automatic tax feature renders <code class="prettyprint">**tax_class**</code> values irrelevant. The list of ignored <code class="prettyprint">**tax_class**</code> values follows.</p>
 
@@ -790,9 +803,9 @@ in your applications:</p>
 
 <p>Bigcommerce does not currently offer any programmatic means of determining if a store is using automatic or manual taxes.</p>
 
-<h2 id="april">April</h2>
+<h2 id="april"><span class="jumptarget"> April </span></h2>
 
-<h3 id="full-crud-support-for-product-videos">Full CRUD support for Product Videos</h3>
+<h3 id="full-crud-support-for-product-videos"><span class="jumptarget"> Full CRUD support for Product Videos </span></h3>
 
 <p>Product videos in the Stores API can now be created, updated and deleted. This allows you to embed promotional videos from YouTube on storefront product pages.</p>
 
@@ -800,9 +813,9 @@ in your applications:</p>
 
 <p>The reference for the <a href="/api/v2#products-videos">Product Videos resource</a> has all the details.</p>
 
-<h2 id="march">March</h2>
+<h2 id="march"><span class="jumptarget"> March </span></h2>
 
-<h3 id="product-image-cdn-urls">Product Image CDN URLs</h3>
+<h3 id="product-image-cdn-urls"><span class="jumptarget"> Product Image CDN URLs </span></h3>
 
 <p>We&rsquo;ve released a small usability improvement for people working with products and images.</p>
 
@@ -833,11 +846,11 @@ in your applications:</p>
 
 <p>For this reason, we recommend updating your apps to use the CDN URLs for referencing product images.</p>
 
-          <h1 id="2013">2013</h1>
+          <h1 id="2013"><span class="jumptarget"> 2013 </span></h1>
 
-<h2 id="december">December</h2>
+<h2 id="december"><span class="jumptarget"> December </span></h2>
 
-<h3 id="option-value-objects">Option Value Objects</h3>
+<h3 id="option-value-objects"><span class="jumptarget"> Option Value Objects </span></h3>
 
 <p>The original design of our Stores API treated every entity in our entire domain model as an individually addressable resource with a unique URL ID.</p>
 
@@ -849,9 +862,9 @@ in your applications:</p>
 
 <p>Providing all the relevant data in one place avoids some of the complex traversals that were previously required to read the complete state of options and option values.</p>
 
-<h2 id="november">November</h2>
+<h2 id="november"><span class="jumptarget"> November </span></h2>
 
-<h3 id="orders-date-filters">Orders Date Filters</h3>
+<h3 id="orders-date-filters"><span class="jumptarget"> Orders Date Filters </span></h3>
 
 <p>We&rsquo;ve just released a small update to the <a href="/api/v2#orders">Orders Resource</a> to improve the way that filtering by date works.</p>
 
@@ -901,9 +914,9 @@ in your applications:</p>
 
 <p>Support for the existing RFC 2822 format hasn&rsquo;t changed, so existing apps won&rsquo;t require updates, though we do recommend you give this new date format a try!</p>
 
-<h2 id="july">July</h2>
+<h2 id="july"><span class="jumptarget"> July </span></h2>
 
-<h3 id="redirects-resource">Redirects Resource</h3>
+<h3 id="redirects-resource"><span class="jumptarget"> Redirects Resource </span></h3>
 
 <p>Today, we&rsquo;re pleased to announce the addition of <a href="/api/v2#redirects">Redirects</a> to the Stores API.</p>
 

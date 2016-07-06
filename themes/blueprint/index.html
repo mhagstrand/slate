@@ -170,13 +170,13 @@
 
 <p>To learn more about our new themes framework, <strong>Stencil</strong> – now available for Developer Early Access – please explore our <a href="https://stencil.bigcommerce.com/docs/">Stencil documentation</a>.</p>
 
-<p>For information about today’s Blueprint themes framework, please follow the navigation links within this portal.</p>
+<p>For information about the Blueprint themes framework, please follow the navigation links within this portal.</p>
 
-<p>Themes allow you to customize the look and feel of Bigcommerce stores. The compelling store designs in the <a href="http://www.bigcommerce.com/showcase/">Bigcommerce Showcase</a> demonstrate the kinds of things that can be done.</p>
+<p>Themes allow you to customize the look and feel of Bigcommerce stores. The compelling store designs in the <a href="http://www.bigcommerce.com/showcase/">BigCommerce Showcase</a> demonstrate the kinds of things that can be done.</p>
 
-<p>To ensure that your themes make the most of Bigcommerce’s extensive out-of-the-box features and capabilities, please be aware of all the <a href="https://www.bigcommerce.com/features/all/">supported features</a> that store owners manage and maintain through the Bigcommerce control panel.</p>
+<p>To ensure that your themes make the most of BigCommerce’s extensive out-of-the-box features and capabilities, please be aware of all the <a href="https://www.bigcommerce.com/features/all/">supported features</a> that store owners manage and maintain through the Bigcommerce control panel.</p>
 
-<p>This is a reference for working with v.1 (Blueprint) themes. You can ask further questions and seek advice in the <a href="http://forum.bigcommerce.com/f4/">Design &amp; Customization Forum</a>. For professional assistance in customizing a theme, consider hiring a <a href="http://www.bigcommerce.com/experts/">Bigcommerce Expert</a>.</p>
+<p>You can ask further questions and seek advice in the <a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW">Developer Forum</a>. For professional assistance in customizing a theme, consider hiring a <a href="http://www.bigcommerce.com/experts/">BigCommerce Expert</a>.</p>
 
           <h1 id="anatomy-of-a-theme">Anatomy of a Theme</h1>
 
@@ -225,9 +225,9 @@
 
 <p>Primary layout stylesheets for the Theme, with <code class="prettyprint">styles.css</code> being the core file.</p>
 
-          <h1 id="blueprint-and-developer-mode">Blueprint and Developer Mode</h1>
+          <h1 id="blueprint-and-developer-mode"><span class="jumptarget"> Blueprint and Developer Mode </span></h1>
 
-<h2 id="blueprint-is-a-foundation-from-which-developers-can-easily-create-great-themes">Blueprint is a foundation from which developers can easily create great themes</h2>
+<h2 id="blueprint-is-a-foundation-from-which-developers-can-easily-create-great-themes"><span class="jumptarget"> Blueprint is a foundation from which developers can easily create great themes </span></h2>
 
 <p>When creating a new theme we suggest that you start from our base theme, Blueprint.</p>
 
@@ -235,7 +235,7 @@
 
 <p><a href="https://blueprint-demo.mybigcommerce.com">View the demo</a></p>
 
-<h2 id="setting-up-your-environment">Setting up your environment</h2>
+<h2 id="setting-up-your-environment"><span class="jumptarget"> Setting up your environment </span></h2>
 
 <p>Follow these steps to start developing using the Blueprint theme:</p>
 
@@ -243,27 +243,27 @@
 <li> To enable the Blueprint theme on your store simply login to the control panel, and place &ldquo;<strong>/index.php?ToDo=viewTemplates&amp;dev=enable</strong>&rdquo; after &ldquo;/admin&rdquo;.
 (i.e. https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&amp;dev=enable)</li>
 <li> Apply the Blueprint theme</li>
-<li> Connect to the site via <a href="https://support.bigcommerce.com/questions/1513/How+do+I+connect+to+WebDAV%3F">WebDAV</a>.</li>
+<li> Connect to the site via <a href="https://support.bigcommerce.com/articles/Public/Connecting-to-WebDav/">WebDAV</a>.</li>
 <li> Once connected via WebDav, navigate to the &ldquo;template&rdquo; folder where you will have access to all the files that make up a theme.</li>
 <li> To make a change to a file, just download the file, edit and then upload it after you have made the change.</li>
 <li> Everytime you make changes to any files you will need to upload them through WebDAV for the changes to be reflected on your site.</li>
 </ol>
 
-          <h1 id="style-editor">Style Editor</h1>
+          <h1 id="style-editor"><span class="jumptarget"> Style Editor </span></h1>
 
-<h2 id="introducing-style-editor">Introducing Style Editor</h2>
+<h2 id="introducing-style-editor"><span class="jumptarget"> Introducing Style Editor </span></h2>
 
 <p>Style Editor allows users to customize the look and feel of their Bigcommerce store, without the need to know HTML/CSS. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.</p>
 
 <p>Style Editor uses LESS as a CSS preprocessor, allowing it to take advantage of variables and other functions to ensure design consistency.</p>
 
-<h2 id="what-is-less">What is LESS?</h2>
+<h2 id="what-is-less"><span class="jumptarget"> What is LESS? </span></h2>
 
 <p>LESS is a CSS preprocessor that allows theme designers to use advanced functions and programming principles in their CSS. A javascript compiler runs over the LESS files and converts them into usable CSS that can be included in themes.</p>
 
 <p>For more information on examples, techniques, and how to install LESS, go to <a href="http://lesscss.org/">lesscss.org</a></p>
 
-<h2 id="integrating-a-theme-with-the-style-editor">Integrating a theme with the Style Editor</h2>
+<h2 id="integrating-a-theme-with-the-style-editor"><span class="jumptarget"> Integrating a theme with the Style Editor </span></h2>
 
 <p>The Style Editor uses a specific group of files to build its User Interface, and to compile and generate the stylesheet. Bigcommerce’s developer theme, Blueprint, already contains these out of the box. The files are stored in the Styles/less directory.</p>
 
@@ -276,7 +276,7 @@
 <li>  <code class="prettyprint">theme.less</code></li>
 </ul>
 
-<h3 id="style-editor-variables-less">style-editor-variables.less</h3>
+<h3 id="style-editor-variables-less"><span class="jumptarget"> style-editor-variables.less </span></h3>
 
 <p>Style Editor uses this file to generate its User Interface. Here, you can enter variables for colours, fonts and numbers that will help the merchant customize the design of the theme. You can separate these variables out into sections with headings to help categorise the variables in a logical manner. No actual CSS is written in this file.</p>
 
@@ -285,10 +285,8 @@
 <p><code class="prettyprint">@color-your-text-here</code> — This is the naming convention for a color variable. The style editor will generate this as a color picker, with the value of the variable set as the color picker’s default hexadecimal color value.</p>
 
 <p>e.g.</p>
-
-<p><code class="prettyprint">
-@color-header-background: #FFFFFF;
-</code></p>
+<pre class="highlight plaintext"><code>@color-header-background: #FFFFFF;
+</code></pre>
 
 <p>This will generate a color picker with the label “Header Background”, set to #FFFFFF (white) by default.</p>
 
@@ -332,7 +330,7 @@
 
 <p>More information on syntax, and examples, can be found in the comments of the style-editor-variables.less file found in Blueprint.</p>
 
-<h3 id="internal-variables-less">internal-variables.less</h3>
+<h3 id="internal-variables-less"><span class="jumptarget"> internal-variables.less </span></h3>
 
 <p>This file is for you to store the variables that you may need to use, but don’t want the Style editor to see. For example, you can use it to create a hierarchy within your LESS file, so that:</p>
 
@@ -346,7 +344,7 @@
 
 <p>This way, we can reuse the color that gets set to <code class="prettyprint">@color-store-name</code> as the color for elements that we may not want to be edited in the Style Editor, but will now carry on the colour of the store name to create consistency within your design.</p>
 
-<h3 id="init-less">init.less</h3>
+<h3 id="init-less"><span class="jumptarget"> init.less </span></h3>
 
 <p>This is where you initialize the use of the variables. This file contains all the CSS that will be compiled and generated into the theme.css file. For example, the @color-store-name can now be applied to the <code class="prettyprint">#HeaderLogo h1</code> element by saying:</p>
 <pre class="highlight plaintext"><code>#HeaderLogo h1 {
@@ -354,14 +352,14 @@ color: @color-store-name
 }
 </code></pre>
 
-<h3 id="theme-less">theme.less</h3>
+<h3 id="theme-less"><span class="jumptarget"> theme.less </span></h3>
 
 <p>The file that ultimately gets compiled into theme.css. This just uses @import to include the other three LESS files for compilation. The Style Editor will read this file for instructions on how to compile your styles using LESS.</p>
 
 <p>Compiling your LESS files</p>
 
 <p>Once you have finished working on your .less files, <strong>don’t forget to compile them!</strong> If you are using command line, you should be doing something similar to:</p>
-<pre class="highlight plaintext"><code>lessc Styles/less/theme.less &gt; Styles/theme.css
+<pre class="highlight plaintext"><code>lessc Styles/less/theme.less &gt; Styles/theme.css 
 </code></pre>
 
 <p>This will use the theme.less file to generate the theme.css file into the <code class="prettyprint">Styles/</code> folder of your theme.</p>
@@ -370,18 +368,18 @@ color: @color-store-name
 
 <p>LESS offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.</p>
 
-<h2 id="testing-style-editor-with-your-theme">Testing Style Editor with your theme</h2>
+<h2 id="testing-style-editor-with-your-theme"><span class="jumptarget"> Testing Style Editor with your theme </span></h2>
 
 <p>If you&rsquo;d like to add Style Editor support to your theme, you can enable the Style Editor on just your store. simply login to the control panel and place &ldquo;/index.php?ToDo=viewTemplates&amp;dev=enable&rdquo; after &ldquo;/admin&rdquo;.
 (i.e. https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&amp;dev=enable)</p>
 
 <p>This will enable <a href="https://developer.bigcommerce.com/themes/blueprint">Developer Mode</a> for your store, which also enables Blueprint and other new features for theme developers. We recommend <a href="https://developer.bigcommerce.com/themes/blueprint">using Blueprint</a> to create new themes.</p>
 
-<h3 id="enabling-style-editor-in-the-theme-store">Enabling Style Editor in the Theme Store</h3>
+<h3 id="enabling-style-editor-in-the-theme-store"><span class="jumptarget"> Enabling Style Editor in the Theme Store </span></h3>
 
 <p>Once you have fitted your theme, just let us know that it supports Style Editor when you submit it to the theme store.</p>
 
-          <h1 id="product-filtering-toolkit">Product Filtering Toolkit</h1>
+          <h1 id="product-filtering-toolkit"><span class="jumptarget"> Product Filtering Toolkit </span></h1>
 
 <p><strong>Before you attempt to add Product Filtering to your theme, please note that this is recommended for experienced theme developers.</strong> Other than knowledge in HTML and CSS, familiarizing yourself with how Bigcommerce themes are structured and operate will be essential in effectively implementing Product Filtering in your theme.</p>
 
@@ -389,17 +387,17 @@ color: @color-store-name
 
 <p>NOTE: Product Filtering is a Premium feature. If you would like it enabled to an active public store, you must upgrade to a Premium plan.</p>
 
-<h2 id="creating-a-new-theme-with-product-filtering">Creating a new theme with Product Filtering</h2>
+<h2 id="creating-a-new-theme-with-product-filtering"><span class="jumptarget"> Creating a new theme with Product Filtering </span></h2>
 
 <p>Product Filtering is fully functional in the Blueprint theme. If you are creating a new theme, we recommend starting from the Blueprint theme. Once you’ve enabled Developer Mode, you’ll be able to access Blueprint and Product Filtering in your developer store.</p>
 
-<h2 id="enabling-product-filtering-for-your-customised-theme">Enabling Product Filtering for your customised theme</h2>
+<h2 id="enabling-product-filtering-for-your-customised-theme"><span class="jumptarget"> Enabling Product Filtering for your customised theme </span></h2>
 
 <p>To enable Product Filtering, all you have to do is enable developer mode on your store. This will enable Product Filtering on your store by default, regardless of whether your theme supports it or not. Depending on the customisations you have to your theme, this could have unexpected results. <strong>We recommend using a sandbox store (not your main store) when applying these changes for the first time.</strong></p>
 
 <p>If you have a new store, Product Filtering may already work out of the box for your theme.</p>
 
-<h2 id="implementing-product-filtering-in-your-theme">Implementing Product Filtering in your theme</h2>
+<h2 id="implementing-product-filtering-in-your-theme"><span class="jumptarget"> Implementing Product Filtering in your theme </span></h2>
 
 <p>If you haven’t already, follow the steps above to have the Product Filtering feature enabled for your sandbox store. Once you’ve completed this and your store has the Product Filtering feature enabled, you’ll need to get the most up-to-date files from Blueprint and copy them into your own theme. The best way to do this is:</p>
 

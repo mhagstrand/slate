@@ -1110,7 +1110,7 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
 <p>Review <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
 
-          <h2 id="ui-constraints">UI Constraints</h2>
+          <h2 id="ui-constraints"><span class="jumptarget"> UI Constraints </span></h2>
 
 <p>OAuth apps benefit from a high level of integration with the BigCommerce platform. Users interacting with your app will enjoy a seamless experience. BigCommerce achieves this by rendering your app&rsquo;s user interface inside of an iframe within the control panel. To ensure acceptance into the App Store, your app should be able to perform all of its functions inside of the iframe.</p>
 
@@ -1122,17 +1122,17 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <li>  <a href="#p3p">P3P and cookies</a></li>
 </ul>
 
-<h3 id="about-mixed-content">About mixed content</h3>
+<h3 id="about-mixed-content"><span class="jumptarget"> About mixed content </span></h3>
 
 <p>The BigCommerce control panel is served over TLS/SSL. Your app must be hosted on a web server that accepts and sends TLS/SSL requests. In addition, all of the resources referenced in the HTML that you present to the end users must be served over TLS/SSL. You may find protocol-agnostic addressing helpful.</p>
 
 <p>If the user interface retrieves images, scripts, or other assets over a connection not encrypted with TLS/SSL, the user will experience errors and possibly an inability to interact with your app. Before submitting your app, use an <a href="https://www.jitbit.com/sslcheck/">online crawler</a> to check for insecure content.</p>
 
-<h3 id="about-same-origin-policies">About same-origin policies</h3>
+<h3 id="about-same-origin-policies"><span class="jumptarget"> About same-origin policies </span></h3>
 
 <p><a href="http://en.wikipedia.org/wiki/Same-origin_policy">Same-origin policies</a> restrict apps running within iframes from performing certain activities, such as interacting with other services and making OAuth connections. While apps that operate within the BigCommerce iframe get strong preference during App Store considerations, we sometimes make exceptions for apps that need to interact with, and authenticate to, other services. If your app requires this, we advise you to open a new tab for actions that cannot occur within the iframe.</p>
 
-<h3 id="about-p3p-and-cookies">About P3P and cookies</h3>
+<h3 id="about-p3p-and-cookies"><span class="jumptarget"> About P3P and cookies </span></h3>
 
 <p>Internet Explorer is one of the browsers that BigCommerce <a href="/api/browsers">supports</a> and our merchants do use it to access the control panel. If your app needs to set a cookie, you will need to craft a <a href="http://en.wikipedia.org/wiki/P3P">P3P policy</a>. Otherwise, your app will experience issues on Internet Explorer. Please review the following pages for more information.</p>
 
@@ -1638,11 +1638,11 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-          <h1 id="api-status-codes">API Status Codes</h1>
+          <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
 
 <p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
 
-<h2 id="2xx-success">2xx Success</h2>
+<h2 id="2xx-success"><span class="jumptarget"> 2xx Success </span></h2>
 
 <p>These codes are returned for requests that were understood and processed successfully.</p>
 
@@ -1675,7 +1675,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="3xx-redirection">3xx Redirection</h2>
+<h2 id="3xx-redirection"><span class="jumptarget"> 3xx Redirection </span></h2>
 
 <p>These codes are returned for requests that have resulted in the client needing to take further action to complete the request.</p>
 
@@ -1703,7 +1703,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="4xx-client-error">4xx Client Error</h2>
+<h2 id="4xx-client-error"><span class="jumptarget"> 4xx Client Error </span></h2>
 
 <table><thead>
 <tr>
@@ -1819,7 +1819,7 @@ tK: We still need to migrate content here.
 </tr>
 </tbody></table>
 
-<h2 id="5xx-server-error">5xx Server Error</h2>
+<h2 id="5xx-server-error"><span class="jumptarget"> 5xx Server Error </span></h2>
 
 <p>These codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
 
@@ -2493,7 +2493,7 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
 <pre class="highlight json"><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">44</span><span class="p">,</span><span class="nt">"option_id"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Simpson family"</span><span class="p">,</span><span class="nt">"sort_order"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"is_required"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">"option"</span><span class="p">:{</span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33.json"</span><span class="p">,</span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"/options/33"</span><span class="p">}}</span><span class="w">
 </span></code></pre>
 
-          <h1 id="response-headers">Response Headers</h1>
+          <h1 id="response-headers"><span class="jumptarget"> Response Headers </span></h1>
 
 <table><thead>
 <tr>
@@ -2504,58 +2504,58 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">**Date**</code></td>
+<td><strong>Date</strong></td>
 <td>An [RFC 2822][47] date.</td>
 <td>The date the response was sent.</td>
-<td><code class="prettyprint">**Tue, 15 Nov 2011 12:45:26 GMT**</code></td>
+<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**Last-Modified**</code></td>
+<td><strong>Last-Modified</strong></td>
 <td>An [RFC 2822][47] date.</td>
 <td>The date the resource was last modified. Please refer to the individual resource pages for support for this header.</td>
-<td><code class="prettyprint">**Tue, 15 Nov 2011 12:45:26 GMT**</code></td>
+<td><strong>Tue, 15 Nov 2011 12:45:26 GMT</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**Content-Type**</code></td>
-<td><code class="prettyprint">**application/json**</code> (for JSON requests) <code class="prettyprint">**application/xml**</code> (for XML requests, or if no extension is supplied)</td>
+<td><strong>Content-Type</strong></td>
+<td><strong>application/json</strong> (for JSON requests) <strong>application/xml</strong> (for XML requests, or if no extension is supplied)</td>
 <td>The MIME type of the response, dependent on the extension of the endpoint that was requested.</td>
-<td><code class="prettyprint">**application/json**</code></td>
+<td><strong>application/json</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**Content-Location**</code></td>
+<td><strong>Content-Location</strong></td>
 <td>A URI.</td>
 <td>Sent if the request was redirected.</td>
-<td><code class="prettyprint">**/api/v2/orders/5.json**</code></td>
+<td><strong>/api/v2/orders/5.json</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**WWW-Authenticate**</code></td>
-<td><code class="prettyprint">**Basic**</code></td>
-<td>Indicates the authentication scheme that should be used to access the API. Sent with a <code class="prettyprint">**401 Unauthorized**</code> response if HTTP Basic Authentication credentials weren&rsquo;t supplied.</td>
-<td><code class="prettyprint">**Basic**</code></td>
+<td><strong>WWW-Authenticate</strong></td>
+<td><strong>Basic</strong></td>
+<td>Indicates the authentication scheme that should be used to access the API. Sent with a <strong>401 Unauthorized</strong> response if HTTP Basic Authentication credentials weren&rsquo;t supplied.</td>
+<td><strong>Basic</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**Location**</code></td>
+<td><strong>Location</strong></td>
 <td>A URI</td>
-<td>The URI of a newly created resource. Sent with a <code class="prettyprint">**201 Created**</code> response.</td>
-<td><code class="prettyprint">**/api/v2/products/7**</code></td>
+<td>The URI of a newly created resource. Sent with a <strong>201 Created</strong> response.</td>
+<td><strong>/api/v2/products/7</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**X-Retry-After**</code></td>
+<td><strong>X-Retry-After</strong></td>
 <td>An integer</td>
 <td>Rate limited response, indicating the number of seconds before the quota refreshes. See the [OAuth rate limits documentation][22] for more information.</td>
-<td><code class="prettyprint">**15**</code></td>
+<td><strong>15</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**X-BC-ApiLimit-Remaining**</code></td>
+<td><strong>X-BC-ApiLimit-Remaining</strong></td>
 <td>An integer</td>
 <td>The number of API requests remaining for the current period (rolling one hour). See the [Basic Auth rate limits documentation][28] for more information.</td>
-<td><code class="prettyprint">**987**</code></td>
+<td><strong>987</strong></td>
 </tr>
 <tr>
-<td><code class="prettyprint">**X-BC-Store-Version**</code></td>
+<td><strong>X-BC-Store-Version</strong></td>
 <td>A version number</td>
 <td>The version of Bigcommerce the store is running on. This header is available from versions 7.3.6+.</td>
-<td><code class="prettyprint">** 7.3.6**</code></td>
+<td>** 7.3.6**</td>
 </tr>
 </tbody></table>
 
