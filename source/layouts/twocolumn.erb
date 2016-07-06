@@ -128,5 +128,20 @@ under the License.
         <% end %>
       </div>
     </div>
+    <script>
+        var container = $('.page-wrapper .content');
+        var body = $('body');
+        var headerHeightPixels = 85;
+
+        container.on('click', function(event) {
+            var target = $(event.target);
+
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
+                }, 0);
+            }
+        });
+    </script>    
   </body>
 </html>

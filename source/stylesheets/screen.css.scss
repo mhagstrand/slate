@@ -336,6 +336,8 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 
 .page-wrapper {
+  /* Next line removed by CH 6/29/16, restored 7/6/16 for Timeout: */
+  margin-left: $nav-width;
   position: relative;
   z-index: 10;
   background-color: $main-bg;
@@ -956,14 +958,14 @@ table td:nth-child(3) {
 
 /* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
 
-/* Commented out 6/24/16, to see if top-nav scrollaway functions fine without it: */
+/* Commented out 6/24/16 for top-nav scrollaway test; restored 7/6/16: */
 
-/* .jumptarget::before {
+.jumptarget::before {
   content:"";
   display:block;
-  height:85px; fixed header height
-  margin:-85px 0 0; negative fixed header height/
-} */
+  height:85px; 			/* fixed header height */
+  margin:-85px 0 0; 		/* negative fixed header height */
+}
 
 /* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
 
@@ -996,7 +998,7 @@ Unfortunately, this fails. It does clear headings selected from within body text
   margin-left: -0.4em;
 }
 
-/* Added 6/29/16 by Chris Hegre: */
+/* Added 6/29/16 by Chris Hegre; then commented-out 7/6 in deference to improved Timeout substitute:
 
 .super-wrapper {
   position: fixed;
@@ -1005,4 +1007,4 @@ Unfortunately, this fails. It does clear headings selected from within body text
   right: 0px;
   bottom: 0px;
   overflow: scroll;
-}
+} */
