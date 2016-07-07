@@ -5,7 +5,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BigCommerce Blueprint Panels</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 
     <style>
       .highlight table td { padding: 5px; }
@@ -4926,5 +4926,20 @@
 
       </div>
     </div>
+    <script>
+        var container = $('.page-wrapper .content');
+        var body = $('body');
+        var headerHeightPixels = 85;
+
+        container.on('click', function(event) {
+            var target = $(event.target);
+
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
+                }, 0);
+            }
+        });
+    </script>
   </body>
 </html>

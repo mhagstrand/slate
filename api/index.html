@@ -5,7 +5,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>BigCommerce API Documentation</title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 
     <style>
       .highlight table td { padding: 5px; }
@@ -1185,6 +1185,11 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 </tr>
 <tr>
 <td></td>
+<td>*store_v2_customers_login_token</td>
+<td><a href="/api#placeholder">customers/{id}/token</a></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
 </tr>
@@ -1901,6 +1906,11 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 </tr>
 <tr>
 <td></td>
+<td>*store_v2_customers_login_token</td>
+<td><a href="/api#placeholder">customers/{id}/token</a></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
 </tr>
@@ -2561,5 +2571,20 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
 
       </div>
     </div>
+    <script>
+        var container = $('.page-wrapper .content');
+        var body = $('body');
+        var headerHeightPixels = 85;
+
+        container.on('click', function(event) {
+            var target = $(event.target);
+
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
+                }, 0);
+            }
+        });
+    </script>
   </body>
 </html>
