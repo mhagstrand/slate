@@ -1,22 +1,17 @@
 |||
 |---|---|
-| **Manages** | [Product Object](/api/?BasicAuth#product-properties) |
+| **Manages** | [Product Object](/api/v2#product) |
 | **OAuth Scopes** | store_v2_products |
 | |store_v2_products_read_only
 
-## <span class="jumptarget"> Product Operations </span>
-
-*   [List Products](#list-products)
-*   [Get a Product](#get-a-product)
-*   [Get a Product Count](#get-a-product-count)
-*   [Create a Product](#create-a-product)
-*   [Update a Product](#update-a-product)
-*   [Delete a Product](#delete-a-product)
-*   [Delete All Products](#delete-all-products)
-
-## <span class="jumptarget"> List Products
+## <span class="jumptarget"> List Products </span>
 
 Gets the collection of products. (Default sorting is by product id, from lowest to highest.)
+
+*   OAuth 
+> `GET /stores/{store_hash}/v2/products`
+*   Basic Auth
+> `GET /api/v2/products`
 
 ```json
 [
@@ -268,11 +263,6 @@ Gets the collection of products. (Default sorting is by product id, from lowest 
 ]
 ```
 
-|||
-|---|---|
-| Basic Auth: | GET /api/v2/products |
-| OAuth: | GET /stores/{store_hash}/v2/products |
-
 ### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
@@ -318,6 +308,11 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ## <span class="jumptarget"> Get a Product </span>
 
 Gets a product.
+
+*   OAuth 
+> `GET /stores/{store_hash}/v2/products/{id}`
+*   Basic Auth
+> `GET /api/v2/products/{id}`
 
 ```json
 {
@@ -443,25 +438,20 @@ Gets a product.
 }
 ```
 
-|||
-|---|---|
-| Basic Auth: | GET /api/v2/products/{id} |
-| OAuth: | GET /stores/{store_hash}/v2/products/{id} |
-
 ## <span class="jumptarget"> Get a Product Count </span>
 
 Gets a count of products.
+
+*   OAuth 
+> `GET /stores/{store_hash}/v2/products/count`
+*   Basic Auth
+> `GET /api/v2/products/count`
 
 ```json
 {
   "count": 44
 }
 ```
-
-|||
-|---|---|
-| Basic Auth: | GET /api/v2/products/count |
-| OAuth: | GET /stores/{store_hash}/v2/products/count |
 
 ### <span class="jumptarget"> Filters </span>
 
@@ -500,10 +490,14 @@ Filter parameters can be added to the URL query string to select specific produc
 
 If no filters are applied, the total number of products is returned.
 
-
 ## <span class="jumptarget"> Create a Product </span>
 
-Creates a new product. The example request shows how to create a basic product by sending a [product object](/api/?javascript#product-properties) with the minimum required properties.
+Creates a new product. The example request shows how to create a basic product by sending a [product object](/api/v2#product-properties) with the minimum required properties.
+
+*   OAuth 
+> `POST /stores/{store_hash}/v2/products`
+*   Basic Auth
+> `POST /api/v2/products`
 
 ```json
 {
@@ -517,11 +511,6 @@ Creates a new product. The example request shows how to create a basic product b
 }
 ```
 
-|||
-|---|---|
-| Basic Auth: | POST /api/v2/products |
-| OAuth: | POST /stores/{store_hash}/v2/products |
-
 ### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
@@ -532,6 +521,7 @@ The following properties of the product are read-only. If one or more of these p
 *   discount_rules
 *   configurable_fields
 *   custom_fields
+*   primary_image
 *   videos
 *   skus
 *   rules
@@ -562,17 +552,16 @@ To maximize system performance, Bigcommerce caps the number of categories that a
 403 Access Denied/Forbidden
 ```
 
-
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-## Update a Product
+## <span class="jumptarget"> Update a Product </span>
 
 Updates an existing product.
 
-|||
-|---|---|
-| Basic Auth: | PUT /api/v2/products/{id} |
-| OAuth: | PUT /stores/{store_hash}/v2/products/{id} |
+*   OAuth 
+> `PUT /stores/{store_hash}/v2/products/{id}`
+*   Basic Auth
+> `PUT /api/v2/products/{id}`
 
 ### <span class="jumptarget"> Read-only Properties </span>
 
@@ -591,6 +580,7 @@ The following properties of the product are read-only. If one or more of these p
 *   discount_rules
 *   configurable_fields
 *   custom_fields
+*   primary_image
 *   videos
 *   skus
 *   rules
@@ -604,7 +594,7 @@ There are no required properties when updating a product.
 
 ### <span class="jumptarget"> Notes </span>
 
-To update a product, set one or more [product properties](/api/?javascript#product-properties) in the `PUT` request:
+To update a product, set one or more [product properties](/api/v2#product-properties) in the `PUT` request:
 
 ```json
 {
@@ -612,7 +602,6 @@ To update a product, set one or more [product properties](/api/?javascript#produ
     "is_visible": true
 }
 ```
-
 
 For example, you can use a `PUT` to link a product to an option set:
 
@@ -622,7 +611,6 @@ For example, you can use a `PUT` to link a product to an option set:
 }
 ```
 
-
 Invalid property values will produce a `400 Bad Request` error response:
 
 ```curl 
@@ -631,11 +619,9 @@ Invalid property values will produce a `400 Bad Request` error response:
 }
 ```
 
-
 ```json 
 400 Bad Request
 ```
-
 
 Trying to set read-only properties will also produce a `400 Bad Request` error response:
 
@@ -643,7 +629,6 @@ Trying to set read-only properties will also produce a `400 Bad Request` error r
 {
     "number_sold": 99
 }```
-
 
 ```json 
 400 Bad Request
@@ -655,17 +640,16 @@ To maximize system performance, Bigcommerce caps the maximum number of categorie
 403 Access Denied/Forbidden
 ```
 
-
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
 ## <span class="jumptarget"> Delete a Product </span>
 
 Deletes a product.
 
-|||
-|---|---|
-| Basic Auth: | DELETE /api/v2/products/{id} |
-| OAuth: | DELETE /stores/{store_hash}/v2/products/{id} |
+*   OAuth 
+> `DELETE /stores/{store_hash}/v2/products/{id}`
+*   Basic Auth
+> `DELETE /api/v2/products/{id}`
 
 ### <span class="jumptarget"> Notes </span>
 
@@ -675,15 +659,14 @@ Successful deletion of a product results in a 204 No Content response.
 204 No Content
 ```
 
-
 ## <span class="jumptarget"> Delete All Products </span>
 
 Deletes all products from the store.
 
-|||
-|---|---|
-| Basic Auth: | DELETE /api/v2/products |
-| OAuth: | DELETE /stores/{store_hash}/v2/products |
+*   OAuth 
+> `DELETE /stores/{store_hash}/v2/products`
+*   Basic Auth
+> `DELETE /api/v2/products`
 
 ### <span class="jumptarget"> Notes </span>
 

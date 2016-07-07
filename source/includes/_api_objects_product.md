@@ -73,15 +73,15 @@ A saleable item in the catalog.
 | option_set_display | enum | The position the option set options will be displayed on the product page. |
 | bin_picking_number | string | The BIN picking number for the product. |
 | custom_url | string |
-| primary_image | object | An image object, corresponding to the image that is set as the product's thumbnail. This object includes that image's `id`, plus four URL values identifying where to pull the image at different sizes: `zoom_url` is the original image size provided to BigCommerce; `thumbnail_url` is used for product list-box images on category pages and in side panels; `standard_url` is the image used in the product page's image box; and `tiny_url` is the thumbnail image displayed below the product page's image box. |
+| primary_image | object | An image object, corresponding to the image that is set as the product's thumbnail. This object includes that image's `id`, plus four URL values identifying where to pull the image at different sizes: `standard_url` is the image used in the product page's image box. `tiny_url` is the thumbnail image displayed below the product page's image box. `thumbnail_url` is used for product list-box images on category pages and in side panels. And `zoom_url` is either the original image size provided to BigCommerce, or the merchant-selected `Product Zoom Image`/`Zoomed image` size – whichever is smaller. (You can always access the product's original image via the [Product Images resource](/api/v2/products/#product-images).) |
 | availability | enum | Availability of the product. availability options: available - The product can be purchased in the store front. disabled - The product is listed in the store front but can not be purchased. preorder - The product is listed for pre-orders. |
 | brand | resource |
 | downloads | resource |
-| images | resource | See the Images resource for information. |
+| images | resource | See the [Product Images resource](/api/v2/products/#product-images) for information. |
 | discount_rules | resource | See the Bulk Discount Rules resource for information. |
 | configurable_fields | resource | See the Configurable Fields resource for information. |
 | custom_fields | resource | See the Custom Fields resource for information. |
-| videos | resource | See the Videos resource for information. |
+| videos | resource | See the [Videos resource](/api/v2/products/#videos) for information. |
 | skus | resource | Stock Keeping Units for the product. See the SKU resource for the definition of a sku object. |
 | rules | resource | Rules which apply to this product only which are based on the products Option Set. See Rules resource for information. |
 | option_set | resource | See the Option Set resource for information. |
