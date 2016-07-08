@@ -1,8 +1,8 @@
-# Order Shipping Addresses
+# <span class="jumptarget"> Order Shipping Addresses </span>
 
 Customer shipping address belonging to an order.
 
-## Order Shipping Address Object - Properties
+## <span class="jumptarget"> Order Shipping Address Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

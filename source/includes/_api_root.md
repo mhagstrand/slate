@@ -1,12 +1,12 @@
-# Building OAuth Apps
+# <span class="jumptarget"> Building OAuth Apps </span>
 
 <aside class="notice">
 tK: We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
 </aside>
 
-## App Installation and Update Sequence
+## <span class="jumptarget"> App Installation and Update Sequence </span>
 
-### Introduction
+### <span class="jumptarget"> Introduction </span>
 
 A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](/api/registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
@@ -27,13 +27,13 @@ The remainder of this section discusses each action your app needs to take durin
 3.  [Making the `POST` request](#post-req)
 4.  [Receiving the `POST` response](#post-receipt)
 
-### Receiving the GET request
+### <span class="jumptarget"> Receiving the GET request </span>
 
-#### Overview
+#### <span class="jumptarget"> Overview </span>
 
 The `GET` request to your **Auth Callback URI** contains a temporary code that you can exchange for a permanent OAuth token. It also includes a unique value that identifies the store installing or updating your app, as well as other values.
 
-#### Parameters
+#### <span class="jumptarget"> Parameters </span>
 
 The following table details the full list of parameters and values included in the `GET` request from Bigcommerce to your **Auth Callback URI**. Bigcommerce passes these within the URI itself as query parameters.
 
@@ -43,7 +43,7 @@ The following table details the full list of parameters and values included in t
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
 
-#### Example – Initial Installation
+#### <span class="jumptarget"> Example – Initial Installation </span>
 
 This example initiates the token exchange, with a requested scope of `store_v2_orders`:
 
@@ -52,7 +52,7 @@ GET /auth?code=qr6h3thvbvag2ffq&scope=store_v2_orders&context=stores/g5cd38 HTTP
 Host: app.example.com
 ```
 
-#### Example – Updating Scopes
+#### <span class="jumptarget"> Example – Updating Scopes </span>
 
 The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
@@ -64,29 +64,29 @@ Host: app.example.com
 (Note that when your app receives a new token, any previously issued token is invalidated.)
 
 
-### Responding to the GET request
+### <span class="jumptarget"> Responding to the GET request </span>
 
 Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
 
-### Making the POST request
+### <span class="jumptarget"> Making the POST request </span>
 
-#### Overview
+#### <span class="jumptarget"> Overview </span>
 
 The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: `Content-Type: application/x-www-form-urlencoded`
 
 Make the `POST` request to the following address: `https://login.bigcommerce.com/oauth2/token`.
 
 
-#### Initial Installation
+#### <span class="jumptarget"> Initial Installation </span>
 
 During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
 
-#### Updates
+#### <span class="jumptarget"> Updates </span>
 
 During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the Control Panel.
 
 
-#### Parameters
+#### <span class="jumptarget"> Parameters </span>
 
 Include values for each of the following parameters.
 
@@ -100,7 +100,7 @@ Include values for each of the following parameters.
 | redirect_uri | Must be identical to your registered Auth Callback URI. |
 | context | The store hash received in the [GET request](#get-req), in the format: `stores/{_store_hash_}` |
 
-#### Examples – Initial Installation
+#### <span class="jumptarget"> Examples – Initial Installation </span>
 
 *   [HTTP](#token-http)
 
@@ -132,7 +132,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-#### Examples – Updating Scopes
+#### <span class="jumptarget"> Examples – Updating Scopes </span>
 
 The following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
@@ -171,13 +171,13 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-### Receiving the POST response
+### <span class="jumptarget"> Receiving the POST response </span>
 
-#### Overview
+#### <span class="jumptarget"> Overview </span>
 
 The `POST` response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.
 
-#### JSON Values
+#### <span class="jumptarget"> JSON Values </span>
 
 | Name | Data Type | Value Description |
 | --- | --- | --- |
@@ -187,7 +187,7 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 | email | string | The user’s email address. Store this value to identify the user at load and uninstall. |
 | context | string | The store hash, as well as a base path: `stores/{_store_hash_}` |
 
-#### JSON Example – Initial Installation
+#### <span class="jumptarget"> JSON Example – Initial Installation </span>
 
 ```
 {
@@ -201,7 +201,7 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 }
 ```
 
-#### JSON Example – Updating Scopes
+#### <span class="jumptarget"> JSON Example – Updating Scopes </span>
 
 Update requests will refresh the payload's `access_token` and `scope` values. Here again, the following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
@@ -218,9 +218,9 @@ Update requests will refresh the payload's `access_token` and `scope` values. He
 ```
 
 
-## Load, Uninstall, and User Removal Requests
+## <span class="jumptarget"> Load, Uninstall, and User Removal Requests </span>
 
-### Introduction
+### <span class="jumptarget"> Introduction </span>
 
 In addition to the **Auth Callback URI**, the [App Registration](/api/registration) wizard requests the following URIs.
 
@@ -243,7 +243,7 @@ The remainder of this page discusses:
 *   [The remove user request](#remove).
 *   [The signed payload](#process).
 
-### <a name="load"></a> About the load request and response
+### <span class="jumptarget"> <a name="load"></a> About the load request and response </span>
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
@@ -264,7 +264,7 @@ Upon receiving a **GET** request to the **Load Callback URI**, your app needs to
 
 After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api/ui-constraints) for important information about your app's user interface.
 
-### <a name="uninstall"></a> About the uninstall request (optional)
+### <span class="jumptarget"> <a name="uninstall"></a> About the uninstall request (optional) </span>
 
 Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app's OAuth token is revoked and the app cannot make requests to the Stores API on the store's behalf anymore.
 
@@ -284,7 +284,7 @@ NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
 
-### <a name="remove"></a> About the remove user request (optional)
+### <span class="jumptarget"> <a name="remove"></a> About the remove user request (optional) </span>
 
 If you have not enabled [multi-user support](/api/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
@@ -299,9 +299,9 @@ Upon receiving the **GET** request, your app will need to [process the signed pa
 NOTE: Any HTML that you return in your response will not be rendered.
 </aside>
 
-### Processing the signed payload
+### <span class="jumptarget"> Processing the signed payload </span>
 
-#### <a name="process"></a> Splitting and decoding the signed payload
+#### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload </span>
 
 The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the **.** character:
 
@@ -317,7 +317,7 @@ To decode the signed payload, complete the following steps:
 4.  Decode `encoded_hmac_signature` using base64url.
 5.  Use your client secret to verify the signature. See the next section for more details.
 
-#### Verifying the HMAC signature
+#### <span class="jumptarget"> Verifying the HMAC signature </span>
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
@@ -325,7 +325,7 @@ To verify the payload, you need to sign the payload using your client secret, an
 NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
-##### Examples
+##### <span class="jumptarget"> Examples </span>
 
 *   [PHP](#strcmp-php)
 ```
@@ -384,17 +384,17 @@ def secure_compare(a, b)
 end
 ```
 
-#### Processing the JSON object
+#### <span class="jumptarget"> Processing the JSON object </span>
 
-##### Introduction
+##### <span class="jumptarget"> Introduction </span>
 
 The JSON object embedded in the `signed_payload` contains information about the BigCommerce store and the store owner or user.
 
-##### Identifying the store
+##### <span class="jumptarget"> Identifying the store </span>
 
 You should use the store information to identify the store that the request pertains to.
 
-##### Interpreting the user information
+##### <span class="jumptarget"> Interpreting the user information </span>
 
 Interpreting the user information varies as follows.
 
@@ -404,7 +404,7 @@ Interpreting the user information varies as follows.
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 
-##### JSON Values
+##### <span class="jumptarget"> JSON Values </span>
 
 | Name | Data Type | Value Description |
 | --- | --- | --- |
@@ -412,7 +412,7 @@ Interpreting the user information varies as follows.
 | email | string | The user’s email address. |
 | store_hash | string | Unique identifier of the store. |
 
-##### JSON Example
+##### <span class="jumptarget"> JSON Example </span>
 
 ```
 {
@@ -424,9 +424,7 @@ Interpreting the user information varies as follows.
 }
 ```
 
-
-# Building Basic-Auth Apps
-
+# <span class="jumptarget"> Building Basic-Auth Apps </span>
 
 <aside class="notice">
 tK: We still need to migrate content here. 

@@ -1,16 +1,16 @@
-# Media Types
+# <span class="jumptarget"> Media Types</span>
 
-## Introduction to Media Types
+## <span class="jumptarget"> Introduction to Media Types</span>
 
 The Bigcommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.
 
 >NOTE: The XML media type is deprecated. The next version of the Stores API will support JSON only.</span></div>
 
-## Request Content Type
+## <span class="jumptarget"> Request Content Type</span>
 
 When performing a request that contains a body (eg. `**POST**` or `**PUT**`), the type of content you are sending needs to be specified in the `**Content-Type**` header. The values for this header are specified in the data types below. For example, to send an XML body, the header would be: `**Content-Type: application/xml**`
 
-## Response Content Type
+## <span class="jumptarget"> Response Content Type</span>
 
 There are several ways in which you can specify the type of content you would like to receive. The first method is by specifying an `**Accept**` header, the second is by supplying an extension to the resource you are request. Extensions are useful for browser-based testing.
 
@@ -20,11 +20,11 @@ The priority in which these methods are processed is outlined below:
 
 3.  Accept header low priority types (priorities less than 1, eg. `**Accept: application/json;q=0.9**`)
 
-## JSON
+## <span class="jumptarget"> JSON</span>
 
 JSON has a content type of `**application/json**`.
 
-### Request Structure
+### <span class="jumptarget"> Request Structure</span>
 
 The body of a JSON request is simply an object containing a set of key-value pairs. A simple representation of a product object is:
 
@@ -36,13 +36,14 @@ The body of a JSON request is simply an object containing a set of key-value pai
  } 
 ```
 
-### Response Structure
+### <span class="jumptarget"> Response Structure</span>
 
 Responses are structured similarly to requests. If a request returns a single object then the response will contain a single object containing the fields for that resource:
 
 The response will contain links to any sub-resource, for example images on the product below.
 
-<pre>**{
+```
+{
   "id":1,
   "name":"[Sample Product] iPod Shuffle",
   "sku":"IPOD-SHUFFLE",
@@ -95,11 +96,13 @@ The response will contain links to any sub-resource, for example images on the p
     "resource":"\/products\/1\/options"
   },
   "availability":"available"
-}** </pre>
+}
+```
 
 If the request returns more than one result, then the response will consist of an array of objects for each result:
 
-<pre> **[
+```
+[
   {
     "id":1,
     "name":"[Sample Product] iPod Shuffle",
@@ -216,9 +219,10 @@ If the request returns more than one result, then the response will consist of a
     },
     "availability":"available"
   }
-]** </pre>
+]
+```
 
-## XML
+## <span class="jumptarget"> XML</span>
 
 XML has a content type of `**application/xml**`. All XML transactions begin with the standard XML declaration:
 
@@ -227,7 +231,7 @@ XML has a content type of `**application/xml**`. All XML transactions begin with
 
 ```
 
-### Request Structure
+### <span class="jumptarget"> Request Structure</span>
 
 The body of an XML request should first contain an element that is named according to the resource in singular form, such as product for the products resource:
 
@@ -250,7 +254,7 @@ The resource element should then contain a set of elements that match the fields
 
 ```
 
-### Response Structure
+### <span class="jumptarget"> Response Structure</span>
 
 To receive an XML response, the request URI should include a .xml extension:
 

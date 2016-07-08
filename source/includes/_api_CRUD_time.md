@@ -1,15 +1,13 @@
-## Timestamp ping to check the system status.
+# <span class="jumptarget"> Time </span>
+
+Timestamp ping to check the system status.
 
 |||
 |---|---
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## Time Operations
-
-*   [Get a Timestamp](#get-a-timestamp)
-
-## Get a Timestamp
+## <span class="jumptarget"> Get a Timestamp </span>
 
 Gets the system timestamp.
 
@@ -18,7 +16,7 @@ Gets the system timestamp.
 *   [Basic Auth](#get-a-timestamp-basic)
 >`GET /api/v2/time`
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 The time resource is useful for validating API authentication details and testing client connections.
 

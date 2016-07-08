@@ -1,10 +1,10 @@
-# NewsletterContent Panel
+# <span class="jumptarget"> NewsletterContent Panel </span>
 
 Shows a confirmation message after the customer has subscribed to the store newsletter.
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_SubscriptionHeading%%` |
-| `%%GLOBAL_Class%%` |
-| `%%GLOBAL_SubscriptionMessage%%` |
+| %%GLOBAL_SubscriptionHeading%% |
+| %%GLOBAL_Class%% |
+| %%GLOBAL_SubscriptionMessage%% |

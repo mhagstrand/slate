@@ -1,8 +1,8 @@
-# Customer Addresses
+# <span class="jumptarget"> Customer Addresses </span>
 
 Postal address belonging to a Customer
 
-## Customer Addresss Object - Properties
+## <span class="jumptarget"> Customer Addresss Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

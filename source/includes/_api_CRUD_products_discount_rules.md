@@ -1,33 +1,23 @@
 |||
 |---|---|
 | Manages |
-| OAuth Scopes | `store_v2_products`
-||`store_v2_products_read_only`
+| OAuth Scopes | store_v2_products
+||store_v2_products_read_only
 
-## Bulk Pricing Rule Operations
-
-*   [List Bulk Pricing Rules](#list-bulk-pricing-rules)
-*   [Get a Product Bulk Pricing Rule](#get-a-product-bulk-pricing-rule)
-*   [Get a Count of Bulk Pricing Rules](#get-a-count-of-bulk-pricing-rules)
-*   [Create a Product Bulk Pricing Rule](#create-a-product-bulk-pricing-rule)
-*   [Update a Product Bulk Pricing Rule](#update-a-product-bulk-pricing-rule)
-*   [Delete a Product Bulk Pricing Rule](#delete-a-product-bulk-pricing-rule)
-*   [Delete Multiple Product Bulk Pricing Rules](#delete-multiple-product-bulk-pricing-rules)
-
-## List Bulk Pricing Rules
+## <span class="jumptarget"> List Bulk Pricing Rules </span>
 
 Gets the collection of product bulk pricing rules.
 
-*   [OAuth](#list-bulk-pricing-rules-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules`
-*   [Basic Auth](#list-bulk-pricing-rules-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/discount_rules`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `discount_rules`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 bulk_pricing_rules are returned by default.
 
@@ -49,13 +39,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Product Bulk Pricing Rule
+## <span class="jumptarget"> Get a Product Bulk Pricing Rule </span>
 
 Gets a product bulk pricing rule.
 
-*   [OAuth](#get-a-product-bulk-pricing-rule-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
-*   [Basic Auth](#get-a-product-bulk-pricing-rule-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/discount_rules/{id}`
 
 ```json
@@ -69,13 +59,13 @@ Gets a product bulk pricing rule.
 }
 ```
 
-## Get a Count of Bulk Pricing Rules
+## <span class="jumptarget"> Get a Count of Bulk Pricing Rules </span>
 
 Gets a count of the number of bulk pricing rules in the store.
 
-*   [OAuth](#get-a-count-of-bulk-pricing-rules-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/discount_rules/count`
-*   [Basic Auth](#get-a-count-of-bulk-pricing-rules-basic)
+*   Basic Auth
 >`GET /api/v2/products/discount_rules/count`
 
 ```json
@@ -84,29 +74,29 @@ Gets a count of the number of bulk pricing rules in the store.
 }
 ```
 
-## Create a Product Bulk Pricing Rule
+## <span class="jumptarget"> Create a Product Bulk Pricing Rule </span>
 
 Creates a new product bulk pricing rule.
 
-*   [OAuth](#create-a-product-bulk-pricing-rule-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/discount_rules`
-*   [Basic Auth](#create-a-product-bulk-pricing-rule-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/discount_rules`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.
 
 *   type
 *   type_value
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 
@@ -132,29 +122,29 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 }
 ```
 
-## Update a Product Bulk Pricing Rule
+## <span class="jumptarget"> Update a Product Bulk Pricing Rule </span>
 
 Updates an existing product bulk pricing rule.
 
-*   [OAuth](#update-a-product-bulk-pricing-rule-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
-*   [Basic Auth](#update-a-product-bulk-pricing-rule-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/discount_rules/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the discount rule are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the discount rule are required. The request won’t be fulfilled unless these properties are valid.
 
 *   type
 *   type_value
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To specify that a `min` or `max` value is unbounded, these properties must be explicitly set with a value of `0`. If neither `min` nor `max` properties are included in the request, the existing value will remain unchanged.
 
@@ -180,25 +170,25 @@ The range of the `min` and `max` values must not overlap an existing rule associ
 }
 ```
 
-## Delete a Product Bulk Pricing Rule
+## <span class="jumptarget"> Delete a Product Bulk Pricing Rule </span>
 
 Deletes a product bulk pricing rule.
 
-*   [OAuth](#delete-a-product-bulk-pricing-rule-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules/{id}`
-*   [Basic Auth](#delete-a-product-bulk-pricing-rule-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/discount_rules/{id}`
 
-## Delete Multiple Product Bulk Pricing Rules
+## <span class="jumptarget"> Delete Multiple Product Bulk Pricing Rules </span>
 
 Deletes bulk pricing rules associated with a product.
 
-*   [OAuth](#delete-multiple-product-bulk-pricing-rules-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/discount_rules`
-*   [Basic Auth](#delete-multiple-product-bulk-pricing-rules-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/discount_rules`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `bulk_pricing_rules` are returned by default.
 

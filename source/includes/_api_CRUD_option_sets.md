@@ -1,29 +1,19 @@
 |||
 |---|---|
-| Manages |
-| OAuth Scopes | `store_v2_products`
-||`store_v2_products_read_only`
+| **Manages** |
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Option Set Operations
-
-*   [List Option Sets](#list-option-sets)
-*   [Get an Option Set](#get-an-option-set)
-*   [Get a Count of Option Sets](#get-a-count-of-option-sets)
-*   [Create an Option Set](#create-an-option-set)
-*   [Update an Option Set](#update-an-option-set)
-*   [Delete an Option Set](#delete-an-option-set)
-*   [Delete All Option Sets](#delete-all-option-sets)
-
-## List Option Sets
+## <span class="jumptarget"> List Option Sets  </span>
 
 Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)
 
-*   [OAuth](#list-option-sets-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/option_sets`
-*   [Basic Auth](#list-option-sets-basic)
+*   Basic Auth
 >`GET /api/v2/option_sets`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific option_sets in the collection.
 
@@ -31,7 +21,7 @@ Filter parameters can be added to the URL query string to select specific option
 | --- | --- | --- |
 | name | string | /api/v2/option_sets?name={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_sets are returned by default.
 
@@ -61,13 +51,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Option Set
+## <span class="jumptarget"> Get an Option Set </span>
 
 Gets an option set.
 
-*   [OAuth](#get-an-option-set-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/option_sets/{id}`
-*   [Basic Auth](#get-an-option-set-basic)
+*   Basic Auth
 >`GET /api/v2/option_sets/{id}`
 
 ```json
@@ -81,13 +71,13 @@ Gets an option set.
 }
 ```
 
-## Get a Count of Option Sets
+## <span class="jumptarget"> Get a Count of Option Sets </span>
 
 Gets a count of the number of option sets in the store.
 
-*   [OAuth](#get-a-count-of-option-sets-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/option_sets/count`
-*   [Basic Auth](#get-a-count-of-option-sets-basic)
+*   Basic Auth
 >`GET /api/v2/option_sets/count`
 
 ```json
@@ -96,23 +86,23 @@ Gets a count of the number of option sets in the store.
 }
 ```
 
-## Create an Option Set
+## <span class="jumptarget"> Create an Option Set </span>
 
 Creates a new Option set.
 
-*   [OAuth](#create-an-option-set-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/option_sets`
-*   [Basic Auth](#create-an-option-set-basic)
+*   Basic Auth
 >`POST /api/v2/option_sets`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   options
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -135,24 +125,23 @@ The following properties of the option set are required. The request won’t be 
 }
 ```
 
-## Update an Option Set
+## <span class="jumptarget"> Update an Option Set </span>
 
 Updates an existing option set.
 
-*   [OAuth](#update-an-option-set-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/option_sets/{id}`
-*   [Basic Auth](#update-an-option-set-basic)
+*   Basic Auth
 >`PUT /api/v2/option_sets/{id}`
 
-
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   options
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -175,20 +164,20 @@ The following properties of the option set are required. The request won’t be 
 }
 ```
 
-## Delete an Option Set
+## <span class="jumptarget"> Delete an Option Set </span>
 
 Deletes an option set.
 
-*   [OAuth](#delete-an-option-set-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/option_sets/{id}`
-*   [Basic Auth](#delete-an-option-set-basic)
+*   Basic Auth
 >`DELETE /api/v2/option_sets/{id}`
 
-## Delete All Option Sets
+## <span class="jumptarget"> Delete All Option Sets </span>
 
 Deletes all option sets in the store.
 
-*   [OAuth](#delete-all-option-sets-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/option_sets`
-*   [Basic Auth](#delete-all-option-sets-basic)
+*   Basic Auth
 >`DELETE /api/v2/option_sets`

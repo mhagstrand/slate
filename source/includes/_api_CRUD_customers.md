@@ -4,26 +4,16 @@
 | **OAuth Scopes** | store_v2_customers |
 ||store_v2_customers_read_only|
 
-## Customer Operations
-
-*   [List Customers](#list-customers)
-*   [Get a Customer](#get-a-customer)
-*   [Get a Count of Customers](#get-a-count-of-customers)
-*   [Create a Customer](#create-a-customer)
-*   [Update a Customer](#update-a-customer)
-*   [Delete a Customer](#delete-a-customer)
-*   [Delete All Customers](#delete-all-customers)
-
-## List Customers
+## <span class="jumptarget"> List Customers </span>
 
 Gets the collection of customers. (Default sorting is by customer id, from lowest to highest.)
 
-*   [OAuth](#list-customers-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/customers`
-*   [Basic Auth](#list-customers-basic)
+*   Basic Auth
 >`GET /api/v2/customers`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific customers in the collection.
 
@@ -44,7 +34,7 @@ Filter parameters can be added to the URL query string to select specific custom
 | max_date_modified | dateTime or date | /api/v2/customers?max_date_modified={value} |
 | tax_exempt_category | date | /api/v2/customers?tax_exempt_category={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 customers are returned by default.
 
@@ -95,13 +85,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
   }
 ]```
 
-## Get a Customer
+## <span class="jumptarget"> Get a Customer </span>
 
 Gets a customer.
 
-*   [OAuth](#get-a-customer-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/customers/{id}`
-*   [Basic Auth](#get-a-customer-basic)
+*   Basic Auth
 >`GET /api/v2/customers/{id}`
 
 ```json
@@ -126,13 +116,13 @@ Gets a customer.
 }```
 
 
-## Get a Count of Customers
+## <span class="jumptarget"> Get a Count of Customers </span>
 
 Gets a count of customers.
 
-*   [OAuth](#get-a-count-of-customers-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/customers/count`
-*   [Basic Auth](#get-a-count-of-customers-basic)
+*   Basic Auth
 >`GET /api/v2/customers/count`
 
 ```json
@@ -140,17 +130,17 @@ Gets a count of customers.
   "count": 3
 }```
 
-## Create a Customer
+## <span class="jumptarget"> Create a Customer </span>
 
 Creates a new customer.
 
-*   [OAuth](#create-a-customer-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/customers`
-*   [Basic Auth](#create-a-customer-basic)
+*   Basic Auth
 >`POST /api/v2/customers`
 
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the customer are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -159,7 +149,7 @@ The following properties of the customer are read-only. If one or more of these 
 *   date_modified
 *   addresses
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the customer are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -167,13 +157,13 @@ The following properties of the customer are required. The request won’t be fu
 *   last_name
 *   email
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
 When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
-### Updating Passwords
+### <span class="jumptarget"> Updating Passwords </span>
 
 To manually update a customer password in the same way as the Control Panel, supply a value for the password field:
 ```curl
@@ -183,8 +173,7 @@ To manually update a customer password in the same way as the Control Panel, sup
     }
 }```
 
-
-### Confirming Passwords
+### <span class="jumptarget"> Confirming Passwords </span>
 
 An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
@@ -196,8 +185,7 @@ An additional optional `password_confirmation` field can also be sent, providing
     }
 }```
 
-
-### Forcing Password Resets
+### <span class="jumptarget"> Forcing Password Resets </span>
 
 To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
@@ -208,18 +196,16 @@ To force a customer to reset their password upon their next login attempt, give 
     }
 }```
 
-
-## Update a Customer
+## <span class="jumptarget"> Update a Customer </span>
 
 Updates an existing customer.
 
-*   [OAuth](#update-a-customer-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/customers/{id}`
-*   [Basic Auth](#update-a-customer-basic)
+*   Basic Auth
 >`PUT /api/v2/customers/{id}`
 
-
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the customer are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -228,17 +214,17 @@ The following properties of the customer are read-only. If one or more of these 
 *   date_modified
 *   addresses
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the customer are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
 When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
-### Updating Passwords
+### <span class="jumptarget"> Updating Passwords </span>
 
 To manually update a customer password in the same way as the Control Panel, supply a value for the `password` field:
 
@@ -249,8 +235,7 @@ To manually update a customer password in the same way as the Control Panel, sup
     }
 }```
 
-
-### Confirming Passwords
+### <span class="jumptarget"> Confirming Passwords </span>
 
 An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
@@ -262,8 +247,7 @@ An additional optional `password_confirmation` field can also be sent, providing
     }
 }```
 
-
-### Forcing Password Resets
+### <span class="jumptarget"> Forcing Password Resets </span>
 
 To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
@@ -274,22 +258,21 @@ To force a customer to reset their password upon their next login attempt, give 
     }
 }```
 
-
-## Delete a Customer
+## <span class="jumptarget"> Delete a Customer </span>
 
 Deletes a customer.
 
-*   [OAuth](#delete-a-customer-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/customers/{id}`
-*   [Basic Auth](#delete-a-customer-basic)
+*   Basic Auth
 >`DELETE /api/v2/customers/{id}`
 
 
-## Delete All Customers
+## <span class="jumptarget"> Delete All Customers </span>
 
 Deletes all customer objects from the store.
 
-*   [OAuth](#delete-all-customers-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/customers`
-*   [Basic Auth](#delete-all-customers-basic)
+*   Basic Auth
 >`DELETE /api/v2/customers`

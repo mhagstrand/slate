@@ -5,20 +5,16 @@ Index of tags used on the store’s blog.
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_content`|
-||`store_v2_content_read_only`|
+| **OAuth Scopes** | store_v2_content|
+||store_v2_content_read_only|
 
-## Blog Tag Operations
-
-*   [List Tags](#list-tags)
-
-## List Tags
+## <span class="jumptarget"> List Tags </span>
 
 List of tags with associated blog posts.
 
-*   [OAuth](#list-tags-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/blog/tags`
-*   [Basic Auth](#list-tags-basic)
+*   Basic Auth
 >`GET /api/blog/tags`
 
 ```json

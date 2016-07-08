@@ -1,7 +1,7 @@
-# MobileSiteLink Snippet
+# <span class="jumptarget"> MobileSiteLink Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_MobileSiteURL%%` |
-| `%%LNG_MobileSite%%` |
+| %%GLOBAL_MobileSiteURL%% |
+| %%LNG_MobileSite%% |

@@ -1,15 +1,15 @@
-# TopMenu Panel
+# <span class="jumptarget"> TopMenu Panel </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_HideWishlist%%` |
-| `%%GLOBAL_HideCartOptions%%` |
-| `%%GLOBAL_HideAccountOptions%%` |
-| `%%GLOBAL_LoginOrLogoutText%%` |
-| `%%GLOBAL_OptimizerLinkScript%%` |
-| `%%GLOBAL_HidePurchasingOptions%%` |
-| `%%GLOBAL_LiveChatCodeEnabled%%` |
-| `%%GLOBAL_LiveChatCode%%` |
-| `%%GLOBAL_HideAccountOptions%%` |
-| `%%GLOBAL_HideAccountOptions%%` |
+| %%GLOBAL_HideWishlist%% |
+| %%GLOBAL_HideCartOptions%% |
+| %%GLOBAL_HideAccountOptions%% |
+| %%GLOBAL_LoginOrLogoutText%% |
+| %%GLOBAL_OptimizerLinkScript%% |
+| %%GLOBAL_HidePurchasingOptions%% |
+| %%GLOBAL_LiveChatCodeEnabled%% |
+| %%GLOBAL_LiveChatCode%% |
+| %%GLOBAL_HideAccountOptions%% |
+| %%GLOBAL_HideAccountOptions%% |

@@ -4,7 +4,7 @@ layout: "twocolumn"
 
 toc_footers:
   - <a href="/">Home</a>
-  - <a href='/api/v2/'>API</a>
+  - <a href='/api/'>API</a>
   - <a href='/themes/'>Themes</a>
   - <a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a>
   - <a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a>
@@ -20,6 +20,55 @@ includes:
 search: true
 ---
 
-# Themes
+# Understanding Themes
 
-Getting Started with Themes
+To learn more about our new themes framework, **Stencil** – now available for Developer Early Access – please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
+
+For information about the Blueprint themes framework, please follow the navigation links within this portal.
+
+Themes allow you to customize the look and feel of Bigcommerce stores. The compelling store designs in the [BigCommerce Showcase](http://www.bigcommerce.com/showcase/) demonstrate the kinds of things that can be done.
+
+To ensure that your themes make the most of BigCommerce’s extensive out-of-the-box features and capabilities, please be aware of all the [supported features](https://www.bigcommerce.com/features/all/) that store owners manage and maintain through the Bigcommerce control panel.
+
+You can ask further questions and seek advice in the [Developer Forum](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW). For professional assistance in customizing a theme, consider hiring a [BigCommerce Expert](http://www.bigcommerce.com/experts/).
+
+<section class=
+    "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
+        <div class="block-container">
+            <div class="block-container-inner">
+                <div class=
+                "block--twoColTextOverBg-row block--twoColTextOverBg-row--split6">
+                    <div class=
+                    "block--twoColTextOverBg-column block--twoColTextOverBg-column--centerImageAlign">
+                        <div class="block-text block-shadow">
+                          <p class="rt-scheme--lightestGrey" rel=
+                          "text-align: center;" style="text-align: center;">
+                          <span class="type-large"><strong class=
+                          "rt-scheme-headline">Blueprint</strong><br>
+                          Lorem Ipsum Nonsense
+                          </span><span class=
+                          "type-large"><br>
+                          <br>
+                          <a class="button button--action" href=
+                          "/themes/blueprint">
+                          View Blueprint Docs</a><br></span></p>
+                        </div>
+                    </div>
+                    <div class=
+                    "block--twoColTextOverBg-column block--twoColTextOverBg-column--centerImageAlign">
+                        <div class="block-text block-shadow">
+                            <p class="rt-scheme--lightestGrey" style=
+                            "text-align: center;"><strong class=
+                            "rt-scheme-headline">Stencil</strong><span class="type-large"><br>
+                            Lorem Ipsum Nonsense</span><span class=
+                            "type-large"><br>
+                            <br>
+                            <a class="button button--action" href=
+                            "//stencil.bigcommerce.com">
+                            View Stencil Docs</a><br></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>

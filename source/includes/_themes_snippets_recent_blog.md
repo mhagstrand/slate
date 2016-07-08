@@ -1,8 +1,8 @@
-# RecentBlog Snippet
+# <span class="jumptarget"> RecentBlog Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_BlogLink%%` |
-| `%%GLOBAL_BlogText%%` |
-| `%%GLOBAL_BlogPreview%%` |
+| %%GLOBAL_BlogLink%% |
+| %%GLOBAL_BlogText%% |
+| %%GLOBAL_BlogPreview%% |

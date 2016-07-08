@@ -1,29 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_orders`
-||`store_v2_orders_read_only`
+| **OAuth Scopes** | store_v2_orders
+||store_v2_orders_read_only
 
-## Order Shipping Address Operations
-
-*   [List Order Shipping Addresses](#list-order-shipping-addresses)
-*   [Get an Order Shipping Address](#get-an-order-shipping-address)
-*   [Get a Count of Shipments](#get-a-count-of-shipments)
-
-## List Order Shipping Addresses
+## List Order Shipping Addresses </span>
 
 Gets the shipping addresses associated with an order.
 
-*   [OAuth](#list-order-shipping-addresses-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses`
-*   [Basic Auth](#list-order-shipping-addresses-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipping_addresses`
 
-### Filters
+### Filters </span>
 
 There are no filter parameters specific to order shipping addresses.
 
-### Pagination
+### Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_shipping_addresses are returned by default.
 
@@ -68,13 +62,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Order Shipping Address
+## Get an Order Shipping Address </span>
 
 Gets a shipping address associated with an order.
 
-*   [OAuth](#get-an-order-shipping-address-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{id}`
-*   [Basic Auth](#get-an-order-shipping-address-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipping_addresses/{id}`
 
 ```json
@@ -111,13 +105,13 @@ Gets a shipping address associated with an order.
 }
 ```
 
-## Get a Count of Shipments
+## Get a Count of Shipments </span>
 
 Gets a count of the number of orders that have shipped.
 
-*   [OAuth](#get-a-count-of-shipments-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/shipments/count`
-*   [Basic Auth](#get-a-count-of-shipments-basic)
+*   Basic Auth
 >`GET /api/v2/orders/shipments/count`
 
 ```json

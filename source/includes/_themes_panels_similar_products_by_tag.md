@@ -1,6 +1,6 @@
-# SimilarProductsByTag Panel
+# <span class="jumptarget"> SimilarProductsByTag Panel </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_HideSectionSeparator%%` |
+| %%GLOBAL_HideSectionSeparator%% |

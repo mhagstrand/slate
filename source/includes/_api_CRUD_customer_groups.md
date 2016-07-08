@@ -4,26 +4,16 @@
 | **OAuth Scopes** | store_v2_customers
 ||store_v2_customers_read_only
 
-## Operations
-
-*   [List Customer Groups](#list-customer-groups)
-*   [Get a Customer Group](#get-a-customer-group)
-*   [Get a Count of Customer Groups](#get-a-count-of-customer-groups)
-*   [Create a Customer Group](#create-a-customer-group)
-*   [Update a Customer Group](#update-a-customer-group)
-*   [Delete a Customer Group](#delete-a-customer-group)
-*   [Delete All Customer Groups](#delete-all-customer-groups)
-
-## List Customer Groups
+## <span class="jumptarget"> List Customer Groups </span>
 
 Gets the collection of customer groups. (Default sorting is by customer-group id, from lowest to highest.)
 
-*   [OAuth](#list-customer-groups-oauth)
+*   OAuth
 >GET /stores/{store_hash}/v2/customer_groups
-*   [Basic Auth](#list-customer-groups-basic)
+*   Basic Auth
 >GET /api/v2/customer_groups
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific customer_groups in the collection.
 
@@ -32,7 +22,7 @@ Filter parameters can be added to the URL query string to select specific custom
 | name | string | /api/v2/customer_groups?name={value} |
 | is_default | boolean | /api/v2/customer_groups?is_default={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 customer_groups are returned by default.
 
@@ -67,13 +57,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
   }
 ]```
 
-## Get a Customer Group
+## <span class="jumptarget"> Get a Customer Group </span>
 
 Gets a customer group.
 
-*   [OAuth](#get-a-customer-group-oauth)
+*   OAuth
 >GET /stores/{store_hash}/v2/customer_groups/{id}
-*   [Basic Auth](#get-a-customer-group-basic)
+*   Basic Auth
 >GET /api/v2/customer_groups/{id}
 
 ```json
@@ -93,14 +83,13 @@ Gets a customer group.
   ]
 }```
 
-
-## Get a Count of Customer Groups
+## <span class="jumptarget"> Get a Count of Customer Groups </span>
 
 Gets a count of customer groups.
 
-*   [OAuth](#get-a-count-of-customer-groups-oauth)
+*   OAuth
 >GET /stores/{store_hash}/v2/customer_groups/count
-*   [Basic Auth](#get-a-count-of-customer-groups-basic)
+*   Basic Auth
 >GET /api/v2/customer_groups/count
 
 ```json
@@ -108,34 +97,32 @@ Gets a count of customer groups.
   "count": 3
 }```
 
-
-## Create a Customer Group
+## <span class="jumptarget"> Create a Customer Group </span>
 
 Creates a new customer group.
 
-*   [OAuth](#create-a-customer-group-oauth)
+*   OAuth
 >POST /stores/{store_hash}/v2/customer_groups
-*   [Basic Auth](#create-a-customer-group-basic)
+*   Basic Auth
 >POST /api/v2/customer_groups
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties
 
 The following properties of the customer group are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### Requirements
+### <span class="jumptarget"> Requirements
 
 The following properties of the customer group are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 A minimal request requires only the customer group name:
 ```curl
 {
     "name": "Wholesale Customers"
 }```
-
 
 To assign all new customers to the group by default, set **is default** to true:
 
@@ -144,7 +131,6 @@ To assign all new customers to the group by default, set **is default** to true:
     "name": "Retail Customers",
     "is_default": true
 }```
-
 
 To restrict customers in the group to only view and order products from a specific set of categories, provide a **category access** type:
 
@@ -156,7 +142,6 @@ To restrict customers in the group to only view and order products from a specif
         "categories": [7, 12, 20]
     }
 }```
-
 
 To provide a 5% store-wide discount for customers in the group, provide a **discount rule** of type **all**:
 
@@ -171,25 +156,24 @@ To provide a 5% store-wide discount for customers in the group, provide a **disc
     }]
 }```
 
-
-## Update a Customer Group
+## <span class="jumptarget"> Update a Customer Group </span>
 
 Updates an existing customer group.
 
-*   [OAuth](#update-a-customer-group-oauth)
+*   OAuth
 >PUT /stores/{store_hash}/v2/customer_groups/{id}
-*   [Basic Auth](#update-a-customer-group-basic)
+*   Basic Auth
 >PUT /api/v2/customer_groups/{id}
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the customer group are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the customer group are required. The request won’t be fulfilled unless these properties are valid.
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.
 
@@ -218,25 +202,25 @@ The following request will remove any existing rules, and apply the new ones:
 }
 ```
 
-## Delete a Customer Group
+## <span class="jumptarget"> Delete a Customer Group </span>
 
 Deletes a customer group.
 
-*   [OAuth](#delete-a-customer-group-oauth)
+*   OAuth
 >DELETE /stores/{store_hash}/v2/customer_groups/{id}
-*   [Basic Auth](#delete-a-customer-group-basic)
+*   Basic Auth
 >DELETE /api/v2/customer_groups/{id}
 
-### Notes
+### <span class="jumptarget"> Notes
 
 All existing customers are unassigned from the group when it is deleted.
 
-## Delete All Customer Groups
+## <span class="jumptarget"> Delete All Customer Groups </span>
 
 Deletes all customer groups in the store.
 
 
-*   [OAuth](#delete-all-customer-groups-oauth)
+*   OAuth
 >DELETE /stores/{store_hash}/v2/customer_groups
-*   [Basic Auth](#delete-all-customer-groups-basic)
+*   Basic Auth
 >DELETE /api/v2/customer_groups

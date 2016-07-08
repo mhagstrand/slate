@@ -1,22 +1,22 @@
-# Error Layout
+# <span class="jumptarget"> Error Layout </span>
 
 `error.html`
 
 A generic page that can be shown whenever there is an error message on the store and no additional content on the page needs to be shown.
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `%%Panel.HTMLHead%%` |
-| `%%Panel.Header%%` |
-| `%%Panel.WrapperBanner%%` |
-| `%%Panel.SideCategoryList%%` |
-| `%%Panel.SideShopByBrand%%` |
-| `%%Panel.SideNewsletterBox%%` |
-| `%%Panel.Footer%%` |
+| %%Panel.HTMLHead%% |
+| %%Panel.Header%% |
+| %%Panel.WrapperBanner%% |
+| %%Panel.SideCategoryList%% |
+| %%Panel.SideShopByBrand%% |
+| %%Panel.SideNewsletterBox%% |
+| %%Panel.Footer%% |
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ErrorMessage%%` |
-| `%%GLOBAL_ErrorDetails%%` |
+| %%GLOBAL_ErrorMessage%% |
+| %%GLOBAL_ErrorDetails%% |

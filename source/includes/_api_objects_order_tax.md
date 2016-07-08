@@ -1,8 +1,8 @@
-# Order Taxes
+# <span class="jumptarget"> Order Taxes </span>
 
 Each tax applied to an order, which may be useful for reporting purposes. All values are read-only.
 
-## Order Tax Object - Properties
+## <span class="jumptarget"> Order Tax Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

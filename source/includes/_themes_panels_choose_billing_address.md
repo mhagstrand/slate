@@ -1,12 +1,12 @@
-# ChooseBillingAddress Panel
+# <span class="jumptarget"> ChooseBillingAddress Panel </span>
 
-### Available Panels
+## <span class="jumptarget"> Available Panels </span>
 |||
 |---|---|
-| `ChooseBillingAddress` |
+| ChooseBillingAddress |
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_CheckoutShippingTitle%%` |
-| `%%GLOBAL_CheckoutShippingIntro%%` |
+| %%GLOBAL_CheckoutShippingTitle%% |
+| %%GLOBAL_CheckoutShippingIntro%% |

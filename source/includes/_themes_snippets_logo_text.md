@@ -1,7 +1,7 @@
-# LogoText Snippet
+# <span class="jumptarget"> LogoText Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_ShopPathNormal%%` |
-| `%%GLOBAL_LogoText%%` |
+| %%GLOBAL_ShopPathNormal%% |
+| %%GLOBAL_LogoText%% |

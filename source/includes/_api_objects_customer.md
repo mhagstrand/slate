@@ -1,8 +1,8 @@
-# Customers
+# <span class="jumptarget"> Customers </span>
 
 Identity and account details for customers shopping on Bigcommerce stores
 
-## Customer Object - Properties
+## <span class="jumptarget"> Customer Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -22,21 +22,21 @@ Identity and account details for customers shopping on Bigcommerce stores
 | tax_exempt_category | string | Used to identify customers that fall into special sales tax categories, in particular, those who are fully or partially exempt from paying sales tax. Stores that subscribe to Avalara Premium will use this code to determine how/whether to apply sales tax. Doesn't affect the sales tax calculations of stores that don't subscribe to Avalara Premium. Either blank or contains/accepts a single AvaTax code. Should not contain more than one code. The codes are case-sensitive. Refer to the following page for further information and the full list of codes: http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers |
 | addresses | resource |
 
-## Events
+## <span class="jumptarget"> Events </span>
 
-### Customer Created
+### <span class="jumptarget"> Customer Created </span>
 
 `store/customer/created`
 
 Occurs when a customer registers from the storefront or is created in the control panel.
 
-### Customer Updated
+### <span class="jumptarget"> Customer Updated </span>
 
 `store/customer/updated`
 
 Occurs when a customer updates their details in the storefront or is updated in the control panel.
 
-### Customer Deleted
+### <span class="jumptarget"> Customer Deleted </span>
 
 `store/customer/deleted`
 

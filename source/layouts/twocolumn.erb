@@ -21,7 +21,7 @@ under the License.
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title><%= current_page.data.title || "API Documentation" %></title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
@@ -71,15 +71,14 @@ under the License.
   <div class="topBar-container topBar-container--fixed">
     <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
       <ul class="title-area ng-scope">
-        <li class="name"><%= link_to image_tag("BigCommerce_logo_white.svg"), "/" %></li>
+        <li class="name"><%= link_to image_tag("developer.png"), "/" %></li>
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
-          <li><a href="/api/v2" title="API">API</a></li>
+          <li><a href="/api/" title="API">API</a></li>
           <li><a href="/themes" title="Themes">Themes</a></li>
           <li><a href="/changelog" title="Changelog">Changelog</a></li>
           <li><a href="/support" title="Help and Support">Support</a></li>
-          <li class="hideOnTablet"><a href="/feedback" title="Send Feedback and Edits">Send Feedback/Edits</a></li>
         </ul>
       </section>
       <div class="top-bar-actions ng-scope">
@@ -142,6 +141,10 @@ under the License.
                 }, 0);
             }
         });
+<<<<<<< HEAD
     </script>    
+=======
+    </script>
+>>>>>>> master
   </body>
 </html>

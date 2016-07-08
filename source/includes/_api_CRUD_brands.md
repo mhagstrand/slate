@@ -1,20 +1,16 @@
-## <span class="jumptarget"> Operations </span>
-
-*   [List Brands](#list-brands)
-*   [Get a Brand](#get-a-brand)
-*   [Get a Count of Brands](#get-a-count-of-brands)
-*   [Create a Brand](#create-a-brand)
-*   [Update a Brand](#update-a-brand)
-*   [Delete a Brand](#delete-a-brand)
-*   [Delete All Brands](#delete-all-brands)
+|||
+|---|---|
+| **Manages** |
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
 ## <span class="jumptarget"> List Brands </span>
 
 Gets the collection of brands. (Default sorting is by brand id, from lowest to highest.)
 
-*   [OAuth](#list-brands-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/brands`
-*   [Basic Auth](#list-brands-basic)
+*   Basic Auth
 >`GET /api/v2/brands`
 
 ### <span class="jumptarget"> Filters </span>
@@ -64,9 +60,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a brand.
 
-*   [OAuth](#get-a-brand-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/brands/{id}`
-*   [Basic Auth](#get-a-brand-basic)
+*   Basic Auth
 >`GET /api/v2/brands/{id}`
 
 ```
@@ -86,9 +82,9 @@ Gets a brand.
 
 Returns the total number of brands in the store.
 
-*   [OAuth](#get-a-count-of-brands-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/brands/count`
-*   [Basic Auth](#get-a-count-of-brands-basic)
+*   Basic Auth
 >`GET /api/v2/brands/count`
 
 ```
@@ -103,9 +99,9 @@ Returns the total number of brands in the store.
 Creates a new brand.
 
 
-*   [OAuth](#create-a-brand-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/brands`
-*   [Basic Auth](#create-a-brand-basic)
+*   Basic Auth
 >`POST /api/v2/brands`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -131,7 +127,6 @@ To maximize system performance, Bigcommerce caps the number of brands that can b
 }
 ```
 
-
 ```
 {
   "id": 10,
@@ -144,14 +139,13 @@ To maximize system performance, Bigcommerce caps the number of brands that can b
 }
 ```
 
-
 ## <span class="jumptarget"> Update a Brand </span>
 
 Updates an existing brand.
 
-*   [OAuth](#update-a-brand-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/brands/{id}`
-*   [Basic Auth](#update-a-brand-basic)
+*   Basic Auth
 >`PUT /api/v2/brands/{id}`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -181,16 +175,16 @@ The following properties of the brand are required. The request won’t be fulfi
 
 Deletes a brand.
 
-*   [OAuth](#delete-a-brand-oauth)
+*   OAuth
 ">`DELETE /stores/{store_hash}/v2/brands/{id}`
-*   [Basic Auth](#delete-a-brand-basic)
+*   Basic Auth
 >`DELETE /api/v2/brands/{id}`
 
 ## <span class="jumptarget"> Delete All Brands </span>
 
 Deletes all brands belonging to a product.
 
-*   [OAuth](#delete-all-brands-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/brands`
-*   [Basic Auth](#delete-all-brands-basic)
+*   Basic Auth
 >`DELETE /api/v2/brands`

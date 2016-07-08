@@ -1,8 +1,8 @@
-# Product Option Values
+# <span class="jumptarget"> Product Option Values </span>
 
 Values that can be selected for an option.
 
-## Product Object Value Object - Properties
+## <span class="jumptarget"> Product Object Value Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

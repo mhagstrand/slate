@@ -1,33 +1,23 @@
 |||
 |---|---
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Product SKU Operations
-
-*   [List Product SKUs](#list-product-skus)
-*   [Get a Product SKU](#get-a-product-sku)
-*   [Get a Count of Product SKUs](#get-a-count-of-product-skus)
-*   [Create a Product SKU](#create-a-product-sku)
-*   [Update a Product SKU](#update-a-product-sku)
-*   [Delete a Product SKU](#delete-a-product-sku)
-*   [Delete Multiple Product SKUs](#delete-multiple-product-skus)
-
-## List Product SKUs
+## <span class="jumptarget"> List Product SKUs </span>
 
 Gets the collection of SKUs associated with a product.
 
-*   [OAuth](#list-product-skus-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus`
-*   [Basic Auth](#list-product-skus-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/skus`
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific skus in the collection.
 
@@ -45,7 +35,7 @@ Filter parameters can be added to the URL query string to select specific skus i
 | is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
 | product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
@@ -113,13 +103,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Product SKU
+## <span class="jumptarget"> Get a Product SKU </span>
 
 Gets a single product SKU.
 
-*   [OAuth](#get-a-product-sku-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-*   [Basic Auth](#get-a-product-sku-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/skus/{id}`
 
 ```json
@@ -148,13 +138,13 @@ Gets a single product SKU.
 }
 ```
 
-## Get a Count of Product SKUs
+## <span class="jumptarget"> Get a Count of Product SKUs </span>
 
 Gets a count of the number of product SKUs in the store.
 
-*   [OAuth](#get-a-count-of-product-skus-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/skus/count`
-*   [Basic Auth](#get-a-count-of-product-skus-basic)
+*   Basic Auth
 >`GET /api/v2/products/skus/count`
 
 ```json
@@ -163,16 +153,16 @@ Gets a count of the number of product SKUs in the store.
 }
 ```
 
-## Create a Product SKU
+## <span class="jumptarget"> Create a Product SKU </span>
 
 Creates a new product SKU.
 
-*   [OAuth](#create-a-product-sku-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/skus`
-*   [Basic Auth](#create-a-product-sku-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/skus`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -181,14 +171,14 @@ The following properties of the sku are read-only. If one or more of these prope
 *   adjusted_price
 *   adjusted_weight
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the sku are required. The request won’t be fulfilled unless these properties are valid.
 
 *   sku
 *   options
 
-### Notes
+### <span class="jumptarget"> Notes </span>
 
 To maximize system performance, Bigcommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, Bigcommerce will return a 403 error.
 
@@ -220,17 +210,17 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 }
 ```
 
-## Update a Product SKU
+## <span class="jumptarget"> Update a Product SKU </span>
 
 Updates an existing product SKU.
 
-*   [OAuth](#update-a-product-sku-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-*   [Basic Auth](#update-a-product-sku-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/skus/{id}`
 
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -239,7 +229,7 @@ The following properties of the sku are read-only. If one or more of these prope
 *   adjusted_price
 *   adjusted_weight
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 There are no required properties for updating a product SKU.
 
@@ -269,25 +259,25 @@ There are no required properties for updating a product SKU.
 }
 ```
 
-## Delete a Product SKU
+## <span class="jumptarget"> Delete a Product SKU </span>
 
 Deletes a product SKU.
 
-*   [OAuth](#delete-a-product-sku-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
-*   [Basic Auth](#delete-a-product-sku-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/skus/{id}`
 
-## Delete Multiple Product SKUs
+## <span class="jumptarget"> Delete Multiple Product SKUs </span>
 
 Deletes multiple product SKUs.
 
-*   [OAuth](#delete-multiple-product-skus-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/skus`
-*   [Basic Auth](#delete-multiple-product-skus-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/skus`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific SKUs in the collection.
 
@@ -305,7 +295,7 @@ Filter parameters can be added to the URL query string to select specific SKUs i
 | is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
 | product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 

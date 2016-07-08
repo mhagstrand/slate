@@ -1,7 +1,7 @@
-# ShareProductChoices Panel
+# <span class="jumptarget"> ShareProductChoices Panel </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_IMG_PATH%%` |
-| `%%GLOBAL_IMG_PATH%%` |
+| %%GLOBAL_IMG_PATH%% |
+| %%GLOBAL_IMG_PATH%% |

@@ -1,15 +1,15 @@
-# SlideList Snippet
+# <span class="jumptarget"> SlideList Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_Slide_Link_Url%%` |
-| `%%GLOBAL_Slide_Heading_Color%%` |
-| `%%GLOBAL_Slide_Heading_Text%%` |
-| `%%GLOBAL_Slide_Text_Color%%` |
-| `%%GLOBAL_Slide_Text_Text%%` |
-| `%%GLOBAL_Slide_Button_Hide%%` |
-| `%%GLOBAL_Slide_Button_Color%%` |
-| `%%GLOBAL_Slide_Button_Text%%` |
-| `%%GLOBAL_Slide_Image_Url%%` |
-| `%%GLOBAL_Slide_Image_AlternateText%%` |
+| %%GLOBAL_Slide_Link_Url%% |
+| %%GLOBAL_Slide_Heading_Color%% |
+| %%GLOBAL_Slide_Heading_Text%% |
+| %%GLOBAL_Slide_Text_Color%% |
+| %%GLOBAL_Slide_Text_Text%% |
+| %%GLOBAL_Slide_Button_Hide%% |
+| %%GLOBAL_Slide_Button_Color%% |
+| %%GLOBAL_Slide_Button_Text%% |
+| %%GLOBAL_Slide_Image_Url%% |
+| %%GLOBAL_Slide_Image_AlternateText%% |

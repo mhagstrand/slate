@@ -1,29 +1,19 @@
 |||
 |----|-----|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_content`
-||`store_v2_content_read_only`|
+| **OAuth Scopes** | store_v2_content
+||store_v2_content_read_only|
 
-## Redirect Operations
-
-*   [List Redirects](#list-redirects)
-*   [Get a Redirect](#get-a-redirect)
-*   [Get a Count of Redirects](#get-a-count-of-redirects)
-*   [Create a Redirect](#create-a-redirect)
-*   [Update a Redirect](#update-a-redirect)
-*   [Delete a Redirect](#delete-a-redirect)
-*   [Delete Multiple Redirects](#delete-multiple-redirects)
-
-## List Redirects
+## <span class="jumptarget"> List Redirects </span>
 
 Gets the collection of URL redirects.
 
-*   [OAuth](#list-redirects-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/redirects`
-*   [Basic Auth](#list-redirects-basic)
+*   Basic Auth
 >`GET /api/v2/redirects`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.
 
@@ -55,13 +45,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Redirect
+## <span class="jumptarget"> Get a Redirect </span>
 
 Gets a single URL redirect.
 
-*   [OAuth](#get-a-redirect-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/redirects/{id}`
-*   [Basic Auth](#get-a-redirect-basic)
+*   Basic Auth
 >`GET /api/v2/redirects/{id}`
 
 ```json
@@ -76,17 +66,17 @@ Gets a single URL redirect.
 }
 ```
 
-## Get a Count of Redirects
+## <span class="jumptarget"> Get a Count of Redirects </span>
 
 Gets a count of redirects.
 
-*   [OAuth](#get-a-count-of-redirects-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/redirects/count`
-*   [Basic Auth](#get-a-count-of-redirects-basic)
+*   Basic Auth
 >`GET /api/v2/redirects/count`
 
 
-### Response
+### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 ```
@@ -94,13 +84,13 @@ Example JSON returned in the response:
   "count": 0
 }
 ```
-## Create a Redirect
+## <span class="jumptarget"> Create a Redirect </span>
 
 Creates a new URL redirect.
 
-*   [OAuth](#create-a-redirect-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/redirects`
-*   [Basic Auth](#create-a-redirect-basic)
+*   Basic Auth
 >`POST /api/v2/redirects`
 
 ### Read-only Properties
@@ -109,14 +99,14 @@ The following properties of the redirect are read-only. If one or more of these 
 
 *   url
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
 *   path
 *   forward
 
-### Request
+### <span class="jumptarget"> Request </span>
 
 Example request object:
 
@@ -129,7 +119,7 @@ Example request object:
   }
 }
 ```
-### Response
+### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -144,22 +134,22 @@ Example JSON returned in the response:
   "url": "http://store.example.com/mens"
 }
 ```
-## Update a Redirect
+## <span class="jumptarget"> Update a Redirect </span>
 
 Updates an existing URL redirect.
 
-*   [OAuth](#update-a-redirect-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/redirects/{id}`
-*   [Basic Auth](#update-a-redirect-basic)
+*   Basic Auth
 >`PUT /api/v2/redirects/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   url
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -171,27 +161,27 @@ NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</
 </aside>
 
 
-## Delete a Redirect
+## <span class="jumptarget"> Delete a Redirect </span>
 
 Deletes a URL redirect.
 
-*   [OAuth](#delete-a-redirect-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/redirects/{id}`
-*   [Basic Auth](#delete-a-redirect-basic)
+*   Basic Auth
 >`DELETE /api/v2/redirects/{id}`
 
 
-## Delete Multiple Redirects
+## <span class="jumptarget"> Delete Multiple Redirects </span>
 
 Deletes multiple URL redirects.
 
-*   [OAuth](#delete-multiple-redirects-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/redirects`
-*   [Basic Auth](#delete-multiple-redirects-basic)
+*   Basic Auth
 >`DELETE /api/v2/redirects`
 
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `redirects` are returned by default.
 

@@ -1,20 +1,16 @@
 |||
 |---|---|
-| Manages |
-| OAuth Scopes | `store_v2_information`
-||`store_v2_information_read_only`
+| **Manages** |
+| **OAuth Scopes** | store_v2_information
+||store_v2_information_read_only
 
-## Store Information Operations
-
-*   [Get a Store's Information](#get-a-store-s-information)
-
-## Get a Store's Information
+## <span class="jumptarget"> Get a Store's Information </span>
 
 Gets metadata about a store.
 
-*   [OAuth](#get-a-store-s-information-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/store`
-*   [Basic Auth](#get-a-store-s-information-basic)
+*   Basic Auth
 >`GET /api/v2/store`
 
 ```json

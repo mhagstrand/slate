@@ -1,29 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_orders`
-||`store_v2_orders_read_only`
+| **OAuth Scopes** | store_v2_orders
+||store_v2_orders_read_only
 
-## Order Product Operations
-
-*   [List Order Products](#list-order-products)
-*   [Get an Order Product](#get-an-order-product)
-*   [Get a Count of Order Products](#get-a-count-of-order-products)
-
-## List Order Products
+## <span class="jumptarget"> List Order Products </span>
 
 Gets the product line items associated with an order. (By default, items sort from lowest to highest according to a newly created id, separate from the order_id and the product_id.)
 
-*   [OAuth](#list-order-products-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/products`
-*   [Basic Auth](#list-order-products-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/products`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `order products`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.
 
@@ -91,14 +85,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Order Product
+## <span class="jumptarget"> Get an Order Product </span>
 
 Gets a product line item associated with the order.
 
-
-*   [OAuth](#get-an-order-product-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/products/{id}`
-*   [Basic Auth](#get-an-order-product-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/products/{id}`
 
 ```json
@@ -135,13 +128,13 @@ Gets a product line item associated with the order.
 }
 ```
 
-## Get a Count of Order Products
+## <span class="jumptarget"> Get a Count of Order Products </span>
 
 Gets a count of order product line items.
 
-*   [OAuth](#get-a-count-of-order-products-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/products/count`
-*   [Basic Auth](#get-a-count-of-order-products-basic)
+*   Basic Auth
 >`GET /api/v2/orders/products/count`
 
 ```json

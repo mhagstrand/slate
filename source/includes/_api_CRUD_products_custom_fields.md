@@ -1,33 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Custom Field Operations
-
-*   [List Custom Fields](#list-custom-fields)
-*   [Get a Custom Field](#get-a-custom-field)
-*   [Get a Count of Custom Fields](#get-a-count-of-custom-fields)
-*   [Create a Custom Field](#create-a-custom-field)
-*   [Update a Custom Field](#update-a-custom-field)
-*   [Delete a Custom Field](#delete-a-custom-field)
-*   [Delete Multiple Custom Fields](#delete-multiple-custom-fields)
-
-## List Custom Fields
+## <span class="jumptarget"> List Custom Fields </span>
 
 Gets custom fields associated with a product.
 
-*   [OAuth](#list-custom-fields-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields`
-*   [Basic Auth](#list-custom-fields-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/custom_fields`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `custom_fields`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
@@ -53,13 +43,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Custom Field
+## <span class="jumptarget"> Get a Custom Field </span>
 
 Gets a custom field associated with a product.
 
-*   [OAuth](#get-a-custom-field-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
-*   [Basic Auth](#get-a-custom-field-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/custom_fields/{id}`
 
 ```json
@@ -71,13 +61,13 @@ Gets a custom field associated with a product.
 }
 ```
 
-## Get a Count of Custom Fields
+## <span class="jumptarget"> Get a Count of Custom Fields </span>
 
 Gets a count of the number of custom fields in the store.
 
-*   [OAuth](#get-a-count-of-custom-fields-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/custom_fields/count`
-*   [Basic Auth](#get-a-count-of-custom-fields-basic)
+*   Basic Auth
 >`GET /api/v2/products/custom_fields/count`
 
 ```json
@@ -86,22 +76,22 @@ Gets a count of the number of custom fields in the store.
 }
 ```
 
-## Create a Custom Field
+## <span class="jumptarget"> Create a Custom Field </span>
 
 Creates a new custom field associated with a product
 
-*   [OAuth](#create-a-custom-field-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/products/{product_id}/custom_fields`
-*   [Basic Auth](#create-a-custom-field-basic)
+*   Basic Auth
 >`POST /api/v2/products/{product_id}/custom_fields`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -124,22 +114,22 @@ The following properties of the custom field are required. The request won’t b
 }
 ```
 
-## Update a Custom Field
+## <span class="jumptarget"> Update a Custom Field </span>
 
 Updates an existing custom field associated with a product.
 
-*   [OAuth](#update-a-custom-field-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
-*   [Basic Auth](#update-a-custom-field-basic)
+*   Basic Auth
 >`PUT /api/v2/products/{product_id}/custom_fields/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -162,25 +152,25 @@ The following properties of the custom field are required. The request won’t b
 }
 ```
 
-## Delete a Custom Field
+## <span class="jumptarget"> Delete a Custom Field </span>
 
 Deletes a custom field associated with a product.
 
-*   [OAuth](#delete-a-custom-field-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
-*   [Basic Auth](#delete-a-custom-field-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/custom_fields/{id}`
 
-## Delete Multiple Custom Fields
+## <span class="jumptarget"> Delete Multiple Custom Fields </span>
 
 Deletes multiple custom fields associated with a product.
 
-*   [OAuth](#delete-multiple-custom-fields-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/custom_fields`
-*   [Basic Auth](#delete-multiple-custom-fields-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/custom_fields`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 

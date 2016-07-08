@@ -1,8 +1,8 @@
-# Product Option Sets
+# <span class="jumptarget"> Product Option Sets </span>
 
 A reusable set of option facets that can be applied to products.
 
-## Product Option Set Object - Properties
+## <span class="jumptarget"> Product Option Set Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

@@ -1,29 +1,19 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Operations
-
-*   [List Options](#list-options)
-*   [Get an Option](#get-an-option)
-*   [Get a Count of Options](#get-a-count-of-options)
-*   [Create an Option](#create-an-option)
-*   [Update an Option](#update-an-option)
-*   [Delete an Option](#delete-an-option)
-*   [Delete All Options](#delete-all-options)
-
-## List Options
+## <span class="jumptarget"> List Options </span>
 
 Gets the collection of options. (Default sorting is by option id, from lowest to highest.)
 
-*   [OAuth](#list-options-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/options`
-*   [Basic Auth](#list-options-basic)
+*   Basic Auth
 >`GET /api/v2/options`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific options in the collection.
 
@@ -33,7 +23,7 @@ Filter parameters can be added to the URL query string to select specific option
 | display_name | string | /api/v2/options?display_name={value} |
 | type | string | /api/v2/options?type={value} |
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 options are returned by default.
 
@@ -67,13 +57,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Option
+## <span class="jumptarget"> Get an Option </span>
 
 Gets an option.
 
-*   [OAuth](#get-an-option-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/options/{id}`
-*   [Basic Auth](#get-an-option-basic)
+*   Basic Auth
 >`GET /api/v2/options/{id}`
 
 ```json
@@ -89,13 +79,13 @@ Gets an option.
 }
 ```
 
-## Get a Count of Options
+## <span class="jumptarget"> Get a Count of Options </span>
 
 Gets a count of the number of options in the store.
 
-*   [OAuth](#get-a-count-of-options-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/options/count`
-*   [Basic Auth](#get-a-count-of-options-basic)
+*   Basic Auth
 >`GET /api/v2/options/count`
 
 ```json
@@ -104,23 +94,23 @@ Gets a count of the number of options in the store.
 }
 ```
 
-## Create an Option
+## <span class="jumptarget"> Create an Option </span>
 
 Creates a new option.
 
-*   [OAuth](#create-an-option-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/options`
-*   [Basic Auth](#create-an-option-basic)
+*   Basic Auth
 >`POST /api/v2/options`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   values
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -148,23 +138,23 @@ The following properties of the option are required. The request won’t be fulf
 }
 ```
 
-## Update an Option
+## <span class="jumptarget"> Update an Option </span>
 
 Updates an existing option.
 
-*   [OAuth](#update-an-option-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/options/{id}`
-*   [Basic Auth](#update-an-option-basic)
+*   Basic Auth
 >`PUT /api/v2/options/{id}`
 
-### Read-only Properties
+### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   `id`
 *   `values`
 
-### Requirements
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -189,20 +179,20 @@ The following properties of the option are required. The request won’t be fulf
 }
 ```
 
-## Delete an Option
+## <span class="jumptarget"> Delete an Option </span>
 
 Deletes an option.
 
-*   [OAuth](#delete-an-option-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/options/{id}`
-*   [Basic Auth](#delete-an-option-basic)
+*   Basic Auth
 >`DELETE /api/v2/options/{id}`
 
-## Delete All Options
+## <span class="jumptarget"> Delete All Options </span>
 
 Deletes all options from the store.
 
-*   [OAuth](#delete-all-options-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/options`
-*   [Basic Auth](#delete-all-options-basic)
+*   Basic Auth
 >`DELETE /api/v2/options`

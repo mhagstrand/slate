@@ -1,28 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| OAuth Scopes | `store_v2_orders`
-||`store_v2_orders_read_only`
+| **OAuth Scopes** | store_v2_orders
+||store_v2_orders_read_only
 
-## Operations
-
-*   [List Order Coupons](#list-order-coupons)
-*   [Get an Order Coupon](#get-an-order-coupon)
-
-## List Order Coupons
+## <span class="jumptarget"> List Order Coupons </span>
 
 Gets the coupon codes applied to an order. (Default sorting is by coupon id, from lowest to highest; however, only one coupon can be applied to each order.)
 
-*   [OAuth](#list-order-coupons-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/coupons`
-*   [Basic Auth](#list-order-coupons-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/coupons`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `order_coupons`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_coupons are returned by default.
 
@@ -45,13 +40,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Order Coupon
+## <span class="jumptarget"> Get an Order Coupon </span>
 
 Gets a coupon code associated with an order.
 
-*   [OAuth](#get-an-order-coupon-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/coupons/{id}`
-*   [Basic Auth](#get-an-order-coupon-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/coupons/{id}`
 
 ```json

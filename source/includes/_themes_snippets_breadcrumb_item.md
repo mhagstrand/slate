@@ -1,7 +1,7 @@
-# BreadcrumbItem Snippet
+# <span class="jumptarget"> BreadcrumbItem Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_CatTrailLink%%` |
-| `%%GLOBAL_CatTrailName%%` |
+| %%GLOBAL_CatTrailLink%% |
+| %%GLOBAL_CatTrailName%% |

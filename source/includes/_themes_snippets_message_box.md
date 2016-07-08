@@ -1,7 +1,7 @@
-# MessageBox Snippet
+# <span class="jumptarget"> MessageBox Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_MsgBox_Type%%` |
-| `%%GLOBAL_MsgBox_Message%%` |
+| %%GLOBAL_MsgBox_Type%% |
+| %%GLOBAL_MsgBox_Message%% |

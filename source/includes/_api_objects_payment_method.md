@@ -1,8 +1,8 @@
-# Payment Methods
+# <span class="jumptarget"> Payment Methods </span>
 
 Enabled payment types or methods in a store.
 
-## Payment Method Object – Properties
+## <span class="jumptarget"> Payment Method Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

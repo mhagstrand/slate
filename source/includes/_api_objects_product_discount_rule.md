@@ -1,8 +1,8 @@
-# Bulk Pricing
+# <span class="jumptarget">  Bulk Pricing </span>
 
 Bulk pricing rules applied to a product.
 
-## Bulk Pricing Object - Properties
+## <span class="jumptarget">  Bulk Pricing Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

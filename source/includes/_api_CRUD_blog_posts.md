@@ -4,26 +4,13 @@
 | **OAuth Scopes** | store_v2_content |
 ||store_v2_content_read_only|
 
-## <span class="jumptarget"> Operations </span>
-
-*   [List Blog Posts](#list-blog-posts)
-*   [Get a Blog Post](#get-a-blog-post)
-*   [Get a Count of Blog Posts](#get-a-count-of-blog-posts)
-*   [Create a Blog Post](#create-a-blog-post)
-*   [Update a Blog Post](#update-a-blog-post)
-*   [Delete a Blog Post](#delete-a-blog-post)
-*   [Delete Multiple Blog Posts](#delete-multiple-blog-posts)
-
 ## <span class="jumptarget"> List Blog Posts </span>
 
 Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)
 
-*   [OAuth](#list-blog-posts-oauth)
-
+*   OAuth
  `GET /stores/{store_hash}/v2/blog/posts`
-
-*   [Basic Auth](#list-blog-posts-basic)
-
+*   Basic Auth
  `GET /api/v2/blog/posts`
 
 ### <span class="jumptarget"> Filters </span>
@@ -92,11 +79,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a blog post.
 
-*   [OAuth](#get-a-blog-post-oauth)
-
+*   OAuth
 `GET /stores/{store_hash}/v2/blog/posts/{id}`
-*   [Basic Auth](#get-a-blog-post-basic)
-
+*   Basic Auth
 `GET /api/v2/blog/posts/{id}`
 
 ```
@@ -125,12 +110,10 @@ Gets a blog post.
 
 Gets a count of blog posts.
 
-
-*   [OAuth](#get-a-count-of-blog-posts-oauth)
+*   OAuth
 `GET /stores/{store_hash}/v2/blog/posts/count`
-*   [Basic Auth](#get-a-count-of-blog-posts-basic)
+*   Basic Auth
 `GET /api/v2/blog/posts/count`
-
 
 ```
 {
@@ -142,9 +125,9 @@ Gets a count of blog posts.
 
 Creates a new blog post.
 
-*   [OAuth](#create-a-blog-post-oauth)
+*   OAuth
 `POST /stores/{store_hash}/v2/blog/posts`
-*   [Basic Auth](#create-a-blog-post-basic)
+*   Basic Auth
 `POST /api/v2/blog/posts`
 
 
@@ -188,11 +171,10 @@ If a custom url is not provided, the post’s URL will be generated based on the
 Updates an existing blog post.
 
 
-*   [OAuth](#update-a-blog-post-oauth)
+*   OAuth
 `PUT /stores/{store_hash}/v2/blog/posts/{id}`
-*   [Basic Auth](#update-a-blog-post-basic)
+*   Basic Auth
 `PUT /api/v2/blog/posts/{id}`
-
 
 ### <span class="jumptarget"> Read-only Properties </span>
 
@@ -216,21 +198,19 @@ The following properties of the blog post are required. The request won’t be f
 
 Deletes a blog post.
 
-*   [OAuth](#delete-a-blog-post-oauth)
+*   OAuth
 `DELETE /stores/{store_hash}/v2/blog/posts/{id}`
-*   [Basic Auth](#delete-a-blog-post-basic)
+*   Basic Auth
 `DELETE /api/v2/blog/posts/{id}`
-
 
 ## <span class="jumptarget"> Delete Multiple Blog Posts </span>
 
 Deletes multiple blog posts in the collection.
 
-*   [OAuth](#delete-multiple-blog-posts-oauth)
+*   OAuth
 `DELETE /stores/{store_hash}/v2/blog/posts`
-*   [Basic Auth](#delete-multiple-blog-posts-basic)
+*   Basic Auth
 `DELETE /api/v2/blog/posts`
-
 
 ### Pagination </span>
 

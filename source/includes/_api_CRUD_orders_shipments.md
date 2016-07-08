@@ -1,9 +1,10 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_orders`
-||`store_v2_orders_read_only`
+| **OAuth Scopes** | store_v2_orders
+||store_v2_orders_read_only
 
+<<<<<<< HEAD
 ## <span class="jumptarget"> Shipments Operations </span>
 
 *   [List Shipments](#list-shipments)
@@ -15,13 +16,15 @@
 *   [Delete a Shipment](#delete-a-shipment)
 *   [Delete Multiple Shipments](#delete-multiple-shipments)
 
+=======
+>>>>>>> master
 ## <span class="jumptarget"> List Shipments </span>
 
 Gets the shipments associated with an order.
 
-*   [OAuth](#list-shipments-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#list-shipments-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments`
 
 ### <span class="jumptarget"> Filters </span>
@@ -93,9 +96,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a shipment associated with an order.
 
-*   [OAuth](#get-a-shipment-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#get-a-shipment-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/{id}`
 
 ```json
@@ -152,9 +155,9 @@ Gets a shipment associated with an order.
 
 Gets a count of the number of orders that have shipped.
 
-*   [OAuth](#get-a-count-of-shipments-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/shipments/count`
-*   [Basic Auth](#get-a-count-of-shipments-basic)
+*   Basic Auth
 >`GET /api/v2/orders/shipments/count`
 
 ```json
@@ -167,9 +170,9 @@ Gets a count of the number of orders that have shipped.
 
 Gets a count of the number of shipments that have been made for a single order.
 
-*   [OAuth](#get-a-count-of-shipments-per-order-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments/count`
-*   [Basic Auth](#get-a-count-of-shipments-per-order-basic)
+*   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/count`
 
 ```json
@@ -182,9 +185,9 @@ Gets a count of the number of shipments that have been made for a single order.
 
 Creates a new shipment for an order.
 
-*   [OAuth](#create-a-shipment-oauth)
+*   OAuth
 >`POST /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#create-a-shipment-basic)
+*   Basic Auth
 >`POST /api/v2/orders/{order_id}/shipments`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -269,6 +272,7 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
+<<<<<<< HEAD
 ### <span class="jumptarget"> Notes </span>
 
 The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: 
@@ -277,14 +281,15 @@ The following properties of the shipments are optional, but if you provide both 
 * `tracking_carrier`: Acceptable values are an empty string (`""`), or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
 
 
+=======
+>>>>>>> master
 ## <span class="jumptarget"> Update a Shipment </span>
 
 Updates an existing shipment associated with an order.
 
-
-*   [OAuth](#update-a-shipment-oauth)
+*   OAuth
 >`PUT /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#update-a-shipment-basic)
+*   Basic Auth
 >`PUT /api/v2/orders/{order_id}/shipments/{id}`
 
 ### <span class="jumptarget"> Read-only Properties </span>
@@ -382,23 +387,26 @@ Possible mappings of `shipping_provider` values to `tracking_carrier` values are
 - `upsonline`   --> `ups`    
 - `shipperhq`  --> `ups` or `dhl` or `fedex` or `usps` or `australia-post` or `start-track`
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 ## <span class="jumptarget"> Delete a Shipment </span>
 
 Deletes a shipment associated with an order.
 
-*   [OAuth](#delete-a-shipment-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
-*   [Basic Auth](#delete-a-shipment-basic)
+*   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments/{id}`
 
 ## <span class="jumptarget"> Delete Multiple Shipments </span>
 
 Deletes multiple shipments associated with an order.
 
-*   [OAuth](#delete-multiple-shipments-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/orders/{order_id}/shipments`
-*   [Basic Auth](#delete-multiple-shipments-basic)
+*   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments`
 
 ### <span class="jumptarget"> Pagination </span>

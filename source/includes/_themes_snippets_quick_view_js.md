@@ -1,9 +1,9 @@
-# QuickViewJs Snippet
+# <span class="jumptarget"> QuickViewJs Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_QuickViewButtonText%%` |
-| `%%GLOBAL_QuickViewButtonColor%%` |
-| `%%GLOBAL_QuickViewGradientColor%%` |
-| `%%GLOBAL_QuickViewTextColor%%` |
+| %%GLOBAL_QuickViewButtonText%% |
+| %%GLOBAL_QuickViewButtonColor%% |
+| %%GLOBAL_QuickViewGradientColor%% |
+| %%GLOBAL_QuickViewTextColor%% |

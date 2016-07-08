@@ -1,8 +1,8 @@
-# Product Reviews 
+# <span class="jumptarget"> Product Reviews </span>
 
 Reviews associated with a product.
 
-## Product Review Object - Properties
+## <span class="jumptarget"> Product Review Object - Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

@@ -64,6 +64,10 @@
     margin-bottom: 1.11111rem
 }
 
+.block-shadow {
+    box-shadow: 3px 3px 15px rgba(125,121,125,0.34);
+}
+
 @media (max-width: 768px) {
     .block-image {
         text-align: center

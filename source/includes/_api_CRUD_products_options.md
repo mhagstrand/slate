@@ -1,28 +1,23 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_products`
-||`store_v2_products_read_only`
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Product Option Operations
-
-*   [List Product Options](#list-product-options)
-*   [Get a Product Option](#get-a-product-option)
-
-## List Product Options
+## <span class="jumptarget"> List Product Options </span>
 
 Gets the options associated with a product.
 
-*   [OAuth](#list-product-options-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/options`
-*   [Basic Auth](#list-product-options-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/options`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product options. 
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_options are returned by default.
 
@@ -50,13 +45,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Product Option
+## <span class="jumptarget"> Get a Product Option </span>
 
 Gets an option associated with a product.
 
-*   [OAuth](#get-a-product-option-oauth)
+*   OAuth
 ">`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
-*   [Basic Auth](#get-a-product-option-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/options/{id}`
 
 ```json

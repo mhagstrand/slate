@@ -1,21 +1,16 @@
 |||
 |---|---|
 | **Manages** |
-| **OAuth Scopes** | `store_v2_information`
-||`store_v2_information_read_only`
-
-## <span class="jumptarget"> Shipping Method Operations </span>
-
-*   [List Shipping Methods](#list-shipping-methods)
-*   [Get a Shipping Method](#get-a-shipping-method)
+| **OAuth Scopes** | store_v2_information
+||store_v2_information_read_only
 
 ## <span class="jumptarget"> List Shipping Methods </span>
 
 Gets the list of shipping methods. (Default sorting is by shipping-method id, from lowest to highest.)
 
-*   [OAuth](#list-shipping-methods-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/shipping/methods`
-*   [Basic Auth](#list-shipping-methods-basic)
+*   Basic Auth
 >`GET /api/v2/shipping/methods`
 
 ### <span class="jumptarget"> Filters </span>
@@ -51,9 +46,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
 Gets a shipping method.
 
-*   [OAuth](#get-a-shipping-method-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/shipping/methods/{id}`
-*   [Basic Auth](#get-a-shipping-method-basic)
+*   Basic Auth
 >`GET /api/v2/shipping/methods/{id}`
 
 ```json

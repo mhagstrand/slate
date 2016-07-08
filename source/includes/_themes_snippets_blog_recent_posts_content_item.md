@@ -1,10 +1,10 @@
-# BlogRecentPostsContentItem Snippet
+# <span class="jumptarget"> BlogRecentPostsContentItem Snippet </span>
 
-### Available Variables
+## <span class="jumptarget"> Available Variables </span>
 |||
 |---|---|
-| `%%GLOBAL_Thumbnail%%` |
-| `%%GLOBAL_RecentPostUrl%%` |
-| `%%GLOBAL_RecentPostTitle%%` |
-| `%%GLOBAL_RecentPostSummary%%` |
-| `%%LNG_ReadMoreLink%%` |
+| %%GLOBAL_Thumbnail%% |
+| %%GLOBAL_RecentPostUrl%% |
+| %%GLOBAL_RecentPostTitle%% |
+| %%GLOBAL_RecentPostSummary%% |
+| %%LNG_ReadMoreLink%% |

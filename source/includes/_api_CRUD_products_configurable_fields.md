@@ -1,31 +1,23 @@
 |||
 |---|---|
-| Manages |
-| OAuth Scopes | `store_v2_products`
-||`store_v2_products_read_only`
+| **Manages** |
+| **OAuth Scopes** | store_v2_products
+||store_v2_products_read_only
 
-## Configurable Field Operations
-
-*   [List Configurable Fields](#list-configurable-fields)
-*   [Get a Configurable Field](#get-a-configurable-field)
-*   [Get a Count of Configurable Fields](#get-a-count-of-configurable-fields)
-*   [Delete a Configurable Field](#delete-a-configurable-field)
-*   [Delete Multiple Configurable Fields](#delete-multiple-configurable-fields)
-
-## List Configurable Fields
+## <span class="jumptarget"> List Configurable Fields </span>
 
 Gets the collection of configurable fields associated with a product.
 
-*   [OAuth](#list-configurable-fields-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields`
-*   [Basic Auth](#list-configurable-fields-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/configurable_fields`
 
-### Filters
+### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `configurable_fields`.
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.
 
@@ -50,13 +42,13 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get a Configurable Field
+## <span class="jumptarget"> Get a Configurable Field </span>
 
 Gets a configurable field associated with a product.
 
-*   [OAuth](#get-a-configurable-field-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}`
-*   [Basic Auth](#get-a-configurable-field-basic)
+*   Basic Auth
 >`GET /api/v2/products/{product_id}/configurable_fields/{id}`
 
 ```json
@@ -73,13 +65,13 @@ Gets a configurable field associated with a product.
 }
 ```
 
-## Get a Count of Configurable Fields
+## <span class="jumptarget"> Get a Count of Configurable Fields </span>
 
 Gets a count of the number of configurable fields in the store.
 
-*   [OAuth](#get-a-count-of-configurable-fields-oauth)
+*   OAuth
 >`GET /stores/{store_hash}/v2/products/configurable_fields/count`
-*   [Basic Auth](#get-a-count-of-configurable-fields-basic)
+*   Basic Auth
 >`GET /api/v2/products/configurable_fields/count`
 
 ```json
@@ -88,25 +80,25 @@ Gets a count of the number of configurable fields in the store.
 }
 ```
 
-## Delete a Configurable Field
+## <span class="jumptarget"> Delete a Configurable Field </span>
 
 Deletes a configurable field associated with a product.
 
-*   [OAuth](#delete-a-configurable-field-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields/{id}`
-*   [Basic Auth](#delete-a-configurable-field-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/configurable_fields/{id}`
 
-## Delete Multiple Configurable Fields
+## <span class="jumptarget"> Delete Multiple Configurable Fields </span>
 
 Deletes multiple configurable fields associated with a product.
 
-*   [OAuth](#delete-multiple-configurable-fields-oauth)
+*   OAuth
 >`DELETE /stores/{store_hash}/v2/products/{product_id}/configurable_fields`
-*   [Basic Auth](#delete-multiple-configurable-fields-basic)
+*   Basic Auth
 >`DELETE /api/v2/products/{product_id}/configurable_fields`
 
-### Pagination
+### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 configurable_fields are returned by default.
 
