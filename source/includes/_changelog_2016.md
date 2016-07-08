@@ -1,19 +1,26 @@
 # <span class="jumptarget"> 2016 </span>
 
-## <span class="jumptarget"> July </span>
 
+## <span class="jumptarget"> July </span>
 
 ### <span class="jumptarget"> Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
 
 The Order Shipment resource has been refreshed with two fields that can be used to track shipments:
 
-* `shipping_provider` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
-* `tracking_carrier` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
+* `shipping_provider` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
+* `tracking_carrier` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
 
 We have added these fields to the [Order Shipment](/api/v2#shipping-methods) documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You'll also find usage guidelines, a list of allowable values for the `shipping_provider` field, and a linked, downloadable spreadsheet of allowable values for the `tracking_carrier` field.
 
 
 ## <span class="jumptarget"> June </span>
+
+
+### <span class="jumptarget"> bigcommerce-api-ruby gem now generally available </span>
+
+The bigcommerce-api-ruby 1.0.0 gem is now generally available on <a href="https://github.com/bigcommerce/bigcommerce-api-ruby" target="_blank">GitHub</a> and <a href="https://rubygems.org/gems/bigcommerce" target="_blank">rubygems</a>.
+
+For other client libraries/SDKs that facilitate client requests to BigCommerce's RESTful API, please see our [Client Libraries](/api/#client-libraries) page.
 
 
 ### <span class="jumptarget"> Request for comment on proposed Cart API schema </span>
@@ -27,7 +34,6 @@ So far, our draft anticipates use cases like these:
   * Supporting multiple shipping destinations for a single cart quote.
 
 Links to the post are also available on the <a href="https://forum.bigcommerce.com/s/group/0F913000000HLjECAW" target="_blank">BigCommerce Developer forum</a>, and on Twitter from <a href="https://twitter.com/BigEng/status/744945588316180481" target="_blank">@BigEng</a>.
-
 
 
 ### <span class="jumptarget"> Order Shipment resource adds "shipping_provider" field </span>
@@ -87,7 +93,7 @@ Once once you have pulled the latest code from the [Stencil repo](https://github
 The List Orders endpoint now allows filtering by customer email address. We have added the `email` field to the list of filters on the [List Orders reference page](api/v2/orders/#list-orders).
 
 
-### Apps can now request new auth scopes after publication </span>
+### <span class="jumptarget"> Apps can now request new auth scopes after publication </span>
 
 Apps for BigCommerce stores can now request new OAuth scopes after publication. To grant these new scopes, merchants no longer need to uninstall and reinstall the app.
 
@@ -123,7 +129,7 @@ Developers can now upload custom/private Stencil themes to storefronts, via the 
 For details, please see [this Knowledge Base article](https://support.bigcommerce.com/articles/Public/Custom-Theme-Upload) and [this troubleshooting page](https://stencil.bigcommerce.com/docs/uploading-a-custom-theme).
 
 
-## <span class="jumptarget"> April 
+## <span class="jumptarget"> April </span>
 
 ### <span class="jumptarget"> New API SKU Properties Available </span>
 
@@ -139,14 +145,13 @@ We have updated the product SKU API to make several new properties available dir
 | purchasing_disabled_message | string  | The message to display if purchasing is disabled on this SKU. |
 | image_file | string | The image that will be displayed when this SKU is selected on the storefront. When updating a SKU image, send the publicly accessible URL. Supported image formats are JPEG, PNG, and GIF. |
 
-You can see the new SKU schema on our updated [Object page][1]. You'll find usage guidelines, and updated sample responses, on our updated [Resources page][2].
+You can see the new SKU schema, usage guidelines, and updated sample responses on our updated [sku entry][1].
 
 This update requires no immediate changes to your applications. Any existing SKU-only rules will still function as before, and will still be accessible via the API.
 
 However, as we make SKU-only properties available directly on SKUs, BigCommerce plans to eventually deprecate the management of SKU-only properties via product rules.
 
-[1]: /api/v2/
-[2]: /api/v2/
+[1]: /api/v2/products#sku
 
 
 ### <span class="jumptarget"> Please prepare your apps for new auth-scopes options </span>
@@ -167,7 +172,7 @@ The `auth_callback_url` is used to safely receive a token associated with the gr
 
 #### <span class="jumptarget"> The problem we solved </span>
 
-Prior to this change, you had no way to change the scopes requested by your published app. If&nbsp;you changed these scopes, existing installations would cease to function. This forced each merchant to uninstall, then reinstall, your app to grant you the new scopes.  
+Prior to this change, you had no way to change the scopes requested by your published app. If you changed these scopes, existing installations would cease to function. This forced each merchant to uninstall, then reinstall, your app to grant you the new scopes.  
 
 #### <span class="jumptarget"> What hasn't changed? </span>
 
@@ -351,7 +356,7 @@ BigCommerce's Blueprint theme framework now provides three new global variables:
 
 These variables are available in all snippets where products are available. (In general, this is anywhere that `%%GLOBAL_ProductPrice%%` appears). They are listed on [this reference page][19].
 
-[19]: /themes/global_variables
+[19]: /themes#global_variables
 
 ### <span class="jumptarget"> New product and SKU webhooks added </span>
 
@@ -392,7 +397,7 @@ in your applications:
 
 We have updated the [webhooks reference page][20] to include these new webhooks.
 
-[20]: /api#webhooks
+[20]: /api/v2#webhooks
 
 ### <span class="jumptarget"> Status fields added to order/statusUpdated webhook </span>
 
@@ -467,4 +472,4 @@ Your `Get a Product` or `List Products` requests can now include or exclude spec
 
 Certain fields are retrieved with all requests. For details and examples, please see [this documentation][21].
 
-[21]: /api/v2#get-a-product
+[21]: /api/v2/products#get-a-product
