@@ -1,18 +1,20 @@
 # <span class="jumptarget"> 2016 </span>
 
-<<<<<<< HEAD
-
 ## <span class="jumptarget"> July </span>
 
-=======
-## <span class="jumptarget"> July </span>
+### Store ownership tokens – new best practices
 
->>>>>>> master
+As of July 28, 2016, BigCommerce store owners can transfer their stores' ownership to a different user without breaking any installed apps. This change creates the potential for mismatched user information, if your app stores user data upon app installation. Therefore:
+
+* Apps should therefore associate API tokens with a store hash, not with a specific user. 
+
+* BigCommerce will now send information about the current store owner in the load callback, which apps should use as the source of truth about the store’s owner. (This might be important if your app needs to determine what user is active in the app; or if your account information is based on the incoming data, such as the store owner’s email address.)
+
+
 ### <span class="jumptarget"> Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
 
 The Order Shipment resource has been refreshed with two fields that can be used to track shipments:
 
-<<<<<<< HEAD
 * `shipping_provider` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
 * `tracking_carrier` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
 
@@ -29,15 +31,10 @@ The bigcommerce-api-ruby 1.0.0 gem is now generally available on <a href="https:
 For other client libraries/SDKs that facilitate client requests to BigCommerce's RESTful API, please see our [Client Libraries](/api/#client-libraries) page.
 
 
-=======
-* `shipping_provider` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
-* `tracking_carrier` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
-
-We have added these fields to the [Order Shipment](/api/v2#shipping-methods) documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You'll also find usage guidelines, a list of allowable values for the `shipping_provider` field, and a linked, downloadable spreadsheet of allowable values for the `tracking_carrier` field.
 
 ## <span class="jumptarget"> June </span>
 
->>>>>>> master
+
 ### <span class="jumptarget"> Request for comment on proposed Cart API schema </span>
 
 BigCommerce requests our App Partners' help in creating a public Cart API. We have posted an open <a href="https://github.com/bigcommerce/api" target="_blank">request for comment (RFC)</a> on our proposed Cart API schema. We invite your feedback, to ensure that this API will accommodate your needs and use cases. 
@@ -314,6 +311,7 @@ The new endpoint information is available [here][10].
 
 Two Customers endpoints, and two Customer Addresses endpoints, now provide support for read-only custom fields:
 
+```
         Customers
           List Customers
           Get a Customer
@@ -321,6 +319,7 @@ Two Customers endpoints, and two Customer Addresses endpoints, now provide suppo
         Customer Addresses
           List Customer Addresses
           Get a Customer Address
+```
 
 You can access custom fields within the new   **`form_fields`**   element. For details and examples, please see our updated [Customers][11] and [Customer Addresses][11] reference pages.
 
@@ -376,8 +375,7 @@ These variables are available in all snippets where products are available. (In 
 ### <span class="jumptarget"> New product and SKU webhooks added </span>
 
 BigCommerce has made available several new webhooks. In the list below, the new options are highlighted within the `store/product/`,   
-`store/product/inventory/`, `store/sku/`, and `store/sku/inventory*` categories. We encourage you to use these webhooks, as appropriate,  
-in your applications:
+`store/product/inventory/`, `store/sku/`, and `store/sku/inventory*` categories. We encourage you to use these webhooks, as appropriate, in your applications:
 
 ```
   store/order/
