@@ -11,12 +11,6 @@ toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
-includes:
-  - themes_anatomy
-  - themes_blueprint
-  - themes_style_editor
-  - themes_product_filtering_toolkit
-
 search: true
 ---
 

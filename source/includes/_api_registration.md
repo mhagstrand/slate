@@ -36,7 +36,7 @@ By default, your app will only be accessible to the store owner (ie. the user wh
 
 #### <span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span>
 
-If you know the [OAuth scopes](/api/#scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code>Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:
+If you know the [OAuth scopes](/api/#scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as `Information: Read-Only`) to get started. However, once you determine the scopes you need, you must:
 
 *   Modify the scopes of your app in My Apps and save the changes.
 *   Obtain the new OAuth token during the [App Installation or Update](#installation) flow.
@@ -48,9 +48,11 @@ The following procedure takes you through the minimum number of steps to success
 
 1.  Log in at Developer Portal's top right.
 2.  In the resulting login page, provide your sandbox store credentials.
+
 <aside class="notice">
 NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
 </aside>
+
 3.  Click `My Apps`.
 4.  Click `Create an app`.
 5.  In the `Create an App` dialog, type a name for your app.

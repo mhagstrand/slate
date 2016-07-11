@@ -91,7 +91,7 @@ Include values for each of the following parameters.
 
 *   [HTTP](#token-http)
 
-```
+```shell
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
@@ -102,7 +102,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 
 *   [PHP](#token-php)
 
-```
+```php
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -125,7 +125,7 @@ The following example requests a scope of `store_v2_products`, in addition to th
 
 *   [HTTP](#token-http)
 
-```
+```shell
 POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
@@ -136,7 +136,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_
 
 *   [PHP](#token-php)
 
-```
+```php
 use Bigcommerce\Api\Connection;
 
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
@@ -173,7 +173,7 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 
 #### <span class="jumptarget"> JSON Example – Initial Installation </span>
 
-```
+```json
 {
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders",
@@ -189,8 +189,8 @@ The `POST` response will include a JSON object containing the permanent OAuth to
 
 Update requests will refresh the payload's `access_token` and `scope` values. Here again, the following example requests a scope of `store_v2_products`, in addition to the initially requested scope of `store_v2_orders`:
 
-```
-<code class="language-js">{
+```json
+{
   "access_token": "ACCESS_TOKEN",
   "scope": "store_v2_orders store_v2_products",
   "user": {
