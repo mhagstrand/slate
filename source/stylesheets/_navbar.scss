@@ -770,7 +770,7 @@ header {
 
 @media (max-width: 768px) {
     .top-bar .title-area, [top-bar] .title-area {
-        margin-left: 0;
+        margin: 23px 0;
         padding: 0;
         text-align: center;
     }
@@ -817,6 +817,12 @@ header {
 @media only screen and (max-width:450px) {
     .top-bar .name img, [top-bar] .name img {
         position: relative;
-        width: 30%
+        width: 30%;
+        margin: 0;
+    }
+
+    .top-bar .title-area,
+    [top-bar] .title-area {
+        margin: 12px 10px 0;
     }
 }
