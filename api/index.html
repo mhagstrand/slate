@@ -107,6 +107,11 @@
       });
     });
     </script>
+      <script>
+        $(function() {
+          setupLanguages(["php","shell"]);
+        });
+      </script>
   </head>
 
   <body class="api api_index twocolumn">
@@ -121,7 +126,7 @@
   <div class="topBar-container topBar-container--fixed">
     <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
       <ul class="title-area ng-scope">
-        <li class="name"><a href="/"><img src="../images/developer.png" /></a></li>
+        <li class="name"><a href="/"><img src="../images/developer.svg" /></a></li>
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
@@ -142,6 +147,10 @@
 </header>
 
     <div class="tocify-wrapper">
+        <div class="lang-selector">
+              <a href="#" data-language-name="php">php</a>
+              <a href="#" data-language-name="shell">shell</a>
+        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -289,7 +298,7 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 
 <h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span></h4>
 
-<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code>Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
+<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code class="prettyprint">Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
@@ -303,10 +312,14 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 
 <ol>
 <li> Log in at Developer Portal&rsquo;s top right.</li>
-<li> In the resulting login page, provide your sandbox store credentials.
+<li> In the resulting login page, provide your sandbox store credentials.</li>
+</ol>
+
 <aside class="notice">
 NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
-</aside></li>
+</aside>
+
+<ol>
 <li> Click <code class="prettyprint">My Apps</code>.</li>
 <li> Click <code class="prettyprint">Create an app</code>.</li>
 <li> In the <code class="prettyprint">Create an App</code> dialog, type a name for your app.</li>
@@ -454,18 +467,18 @@ Host: app.example.com
 <ul>
 <li>  <a href="#token-http">HTTP</a></li>
 </ul>
-<pre class="highlight plaintext"><code>POST /oauth2/token HTTP/1.1
+<pre class="highlight shell"><code>POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
-client_id={CLIENT_ID}&amp;client_secret={CLIENT_SECRET}&amp;code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders&amp;grant_type=authorization_code&amp;redirect_uri=https://app.example.com/oauth&amp;context=stores/{STORE_HASH}
+<span class="nv">client_id</span><span class="o">={</span>CLIENT_ID<span class="o">}</span>&amp;client_secret<span class="o">={</span>CLIENT_SECRET<span class="o">}</span>&amp;code<span class="o">=</span>qr6h3thvbvag2ffq&amp;scope<span class="o">=</span>store_v2_orders&amp;grant_type<span class="o">=</span>authorization_code&amp;redirect_uri<span class="o">=</span>https://app.example.com/oauth&amp;context<span class="o">=</span>stores/<span class="o">{</span>STORE_HASH<span class="o">}</span>
 </code></pre>
 
 <ul>
 <li>  <a href="#token-php">PHP</a></li>
 </ul>
-<pre class="highlight plaintext"><code>use Bigcommerce\Api\Connection;
+<pre class="highlight php"><code>use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
 $connection-&gt;useUrlencoded();
@@ -488,18 +501,18 @@ $token = $response-&gt;access_token;
 <ul>
 <li>  <a href="#token-http">HTTP</a></li>
 </ul>
-<pre class="highlight plaintext"><code>POST /oauth2/token HTTP/1.1
+<pre class="highlight shell"><code>POST /oauth2/token HTTP/1.1
 Host: login.bigcommerce.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 186
 
-client_id={CLIENT_ID}&amp;client_secret={CLIENT_SECRET}&amp;scope=store_v2_orders+store_v2_products&amp;grant_type=authorization_code&amp;redirect_uri=https://app.example.com/oauth&amp;context=stores/{STORE_HASH}
+<span class="nv">client_id</span><span class="o">={</span>CLIENT_ID<span class="o">}</span>&amp;client_secret<span class="o">={</span>CLIENT_SECRET<span class="o">}</span>&amp;scope<span class="o">=</span>store_v2_orders+store_v2_products&amp;grant_type<span class="o">=</span>authorization_code&amp;redirect_uri<span class="o">=</span>https://app.example.com/oauth&amp;context<span class="o">=</span>stores/<span class="o">{</span>STORE_HASH<span class="o">}</span>
 </code></pre>
 
 <ul>
 <li>  <a href="#token-php">PHP</a></li>
 </ul>
-<pre class="highlight plaintext"><code>use Bigcommerce\Api\Connection;
+<pre class="highlight php"><code>use Bigcommerce\Api\Connection;
 
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -574,16 +587,16 @@ $token = $response-&gt;access_token;
 <h4 id="json-example-updating-scopes"><span class="jumptarget"> JSON Example – Updating Scopes </span></h4>
 
 <p>Update requests will refresh the payload&rsquo;s <code class="prettyprint">access_token</code> and <code class="prettyprint">scope</code> values. Here again, the following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
-<pre class="highlight plaintext"><code>&lt;code class="language-js"&gt;{
-  "access_token": "ACCESS_TOKEN",
-  "scope": "store_v2_orders store_v2_products",
-  "user": {
-    "id": 24654,
-    "email": "merchant@mybigcommerce.com"
-  },
-  "context": "stores/STORE_HASH"
-}
-</code></pre>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store_v2_orders store_v2_products"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24654</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merchant@mybigcommerce.com"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores/STORE_HASH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
           <h2 id="load-uninstall-and-user-removal-requests"><span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span></h2>
 
@@ -2212,7 +2225,7 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 
 <h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span></h4>
 
-<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code>Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
+<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code class="prettyprint">Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
@@ -2226,10 +2239,14 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 
 <ol>
 <li> Log in at Developer Portal&rsquo;s top right.</li>
-<li> In the resulting login page, provide your sandbox store credentials.
+<li> In the resulting login page, provide your sandbox store credentials.</li>
+</ol>
+
 <aside class="notice">
 NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
-</aside></li>
+</aside>
+
+<ol>
 <li> Click <code class="prettyprint">My Apps</code>.</li>
 <li> Click <code class="prettyprint">Create an app</code>.</li>
 <li> In the <code class="prettyprint">Create an App</code> dialog, type a name for your app.</li>

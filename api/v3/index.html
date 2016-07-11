@@ -88,10 +88,10 @@
 }
     </style>
 
-    <link href="../../../stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="../../../stylesheets/print.css" rel="stylesheet" media="print" />
+    <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../../../javascripts/all.js"></script>
+      <script src="../../javascripts/all.js"></script>
     <script>
     //This is Google's default GA code
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -107,18 +107,13 @@
       });
     });
     </script>
-      <script>
-        $(function() {
-          setupLanguages(["curl","json"]);
-        });
-      </script>
   </head>
 
-  <body class="api api_v2 api_v2_customers api_v2_customers_index twocolumn">
+  <body class="api api_v3 api_v3_index twocolumn">
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="../../../images/navbar.png" />
+        <img src="../../images/navbar.png" />
       </span>
     </a>
 
@@ -126,7 +121,7 @@
   <div class="topBar-container topBar-container--fixed">
     <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
       <ul class="title-area ng-scope">
-        <li class="name"><a href="/"><img src="../../../images/developer.svg" /></a></li>
+        <li class="name"><a href="/"><img src="../../images/developer.svg" /></a></li>
       </ul>
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
@@ -147,10 +142,6 @@
 </header>
 
     <div class="tocify-wrapper">
-        <div class="lang-selector">
-              <a href="#" data-language-name="curl">Request</a>
-              <a href="#" data-language-name="json">Response</a>
-        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -169,7 +160,13 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <h1 id="customers">Customers</h1>
+        <h1 id="api-v3-documentation">API v3 Documentation</h1>
+
+<p>The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.</p>
+
+<p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).</p>
+
+<p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
       </div>
     </div>
