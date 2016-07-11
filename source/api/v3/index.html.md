@@ -9,6 +9,7 @@ toc_footers:
   - <a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a>
   - <a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a>
   - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a>
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
 search: true
