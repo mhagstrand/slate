@@ -2,6 +2,9 @@
 title: BigCommerce API Documentation
 layout: "twocolumn"
 
+language_tabs:
+  - php
+  - shell
 
 toc_footers:
   - <a href="/">Home</a>
