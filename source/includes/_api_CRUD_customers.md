@@ -43,6 +43,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/customers?page={number} |
 | Limit | int | /api/v2/customers?limit={count} |
 
+
 ```json
 [
   {
@@ -83,7 +84,9 @@ Parameters can be added to the URL query string to paginate the collection. The 
       "resource": "/customers/2/addresses"
     }
   }
-]```
+]
+```
+
 
 ## <span class="jumptarget"> Get a Customer </span>
 
@@ -113,7 +116,8 @@ Gets a customer.
     "url": "https://store-bwvr466.mybigcommerce.com/api/v2/customers/1/addresses.json",
     "resource": "/customers/1/addresses"
   }
-}```
+}
+```
 
 
 ## <span class="jumptarget"> Get a Count of Customers </span>
@@ -128,7 +132,8 @@ Gets a count of customers.
 ```json
 {
   "count": 3
-}```
+}
+```
 
 ## <span class="jumptarget"> Create a Customer </span>
 
@@ -171,7 +176,8 @@ To manually update a customer password in the same way as the Control Panel, sup
     "_authentication": {
         "password": "12w69Y217PYR96J"
     }
-}```
+}
+```
 
 ### <span class="jumptarget"> Confirming Passwords </span>
 
@@ -183,7 +189,8 @@ An additional optional `password_confirmation` field can also be sent, providing
        "password": "12w69Y217PYR96J",
        "password_confirmation": "12w69Y217PYR96J"
     }
-}```
+}
+```
 
 ### <span class="jumptarget"> Forcing Password Resets </span>
 
@@ -194,7 +201,8 @@ To force a customer to reset their password upon their next login attempt, give 
     "_authentication": {
         "force_reset": true
     }
-}```
+}
+```
 
 ## <span class="jumptarget"> Update a Customer </span>
 
@@ -233,7 +241,8 @@ To manually update a customer password in the same way as the Control Panel, sup
     "_authentication": {
         "password": "12w69Y217PYR96J"
     }
-}```
+}
+```
 
 ### <span class="jumptarget"> Confirming Passwords </span>
 
@@ -245,7 +254,8 @@ An additional optional `password_confirmation` field can also be sent, providing
        "password": "12w69Y217PYR96J"
        "password_confirmation": "12w69Y217PYR96J"
     }
-}```
+}
+```
 
 ### <span class="jumptarget"> Forcing Password Resets </span>
 
@@ -256,7 +266,8 @@ To force a customer to reset their password upon their next login attempt, give 
     "_authentication": {
         "force_reset": true
     }
-}```
+}
+```
 
 ## <span class="jumptarget"> Delete a Customer </span>
 

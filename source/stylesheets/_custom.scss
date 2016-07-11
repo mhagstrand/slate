@@ -133,15 +133,16 @@
   }
 }
 
-  #changelog, #api-documentation, #understanding-themes, #support {
-    @extend %header-font;
-    color: #4f75f8 !important;
-    font-size: 1.55556rem !important;
-    text-transform: uppercase;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    letter-spacing: 1.8px;
-  }
+#changelog, #api-documentation, #understanding-themes, #api-v2-documentation, #api-v3-documentation {
+  @extend %header-font;
+  color: #4f75f8 !important;
+  font-size: 1.55556rem !important;
+  text-transform: uppercase;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  padding-bottom: 1.5%;
+  letter-spacing: 1.8px;  
+}
 
 table td:nth-child(3) {
   word-break: break-word;
