@@ -1,7 +1,5 @@
 # <span class="jumptarget"> Customer Storefront Login </span>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 This is a feature to enable single sign-on (SSO) by allowing generation of a token available to programmatically log in a storefront customer. An login entry point exists at `/login/token/{token}`, where `{token}` is expected to be a JWT token signed by the [single-click application](#)’s [client secret](), and to contain the parameters for the customer login request in the payload.
 
 | Name | Type | Description |
@@ -39,21 +37,12 @@ A full overview of the JWT standard and links to client libraries in a number of
 ## <span class="jumptarget"> JWT Login </span>
 
 A valid JWT token is a string composed of three parts separated by a period (“.”). Refer to [jwt.io](https://jwt.io/) and [RFC 7519](https://tools.ietf.org/html/rfc7519) for more details on the format. Client libraries exist in many languages to make the generation and verification of JWT tokens easier. 
->>>>>>> master
 
 Example URL: `https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ`
 
 Header
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> master
-```
-=======
 
 ```json
->>>>>>> master
 {
   "typ": "JWT",
   "alg": "HS256"
@@ -61,13 +50,6 @@ Header
 ```
 
 Payload
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> master
-```
-=======
 
 ```json
 >>>>>>> master
@@ -85,11 +67,7 @@ Payload
 
 ### <span class="jumptarget"> Signature </span>
 
-<<<<<<< HEAD
-The headers and payload must be signed using HS256 (HMAC-SHA256) and the single-click application’s client secret.
-=======
 The headers and payload must be signed using HS256 (HMAC-SHA256) and the single click application’s client secret.
->>>>>>> master
 
 ### <span class="jumptarget"> Sample Code </span>
 
@@ -154,11 +132,7 @@ The OAuth scope required for this feature is `v2_customers_login`. This is treat
 
 ### <span class="jumptarget"> Redirection </span>
 
-<<<<<<< HEAD
 For flexibility in navigation after login, we support an optional redirect parameter (`redirect_to`), which in turn supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at `/account.php`. 
-=======
-For flexibility in navigation after login, an optional redirect parameter is supported (`redirect_to`) which supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at `/account.php`. 
->>>>>>> master
 
 ```json
 {
@@ -170,12 +144,6 @@ For flexibility in navigation after login, an optional redirect parameter is sup
 
 Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token just prior to redirecting the user’s browser to `/login/token`.
 
-<<<<<<< HEAD
 Once a request has been made with a given jti, it cannot be made again. The jti is used to prevent replay attacks by malicious actors intercepting the request or obtaining it after the fact.
 
 The `request_ip` field can be used as an additional security precaution, to prevent a malicious actor from intercepting the request and making it from another browser or system before you do. If supplied, the incoming request will be checked to ensure that it is being made from the supplied IP address; if not, it will fail. We strongly encourage setting this IP-address value, but it is optional to support those cases where this information is not available.
-=======
-Once a request has been made with a given jti, it cannot be made again. It is used to prevent replay attacks by malicious actors intercepting the request or obtaining it after the fact.
-
-The `request_ip` field can be used as an additional security precaution to prevent a malicious actor from intercepting the request and making it from another browser or system before you do. If supplied, the incoming request will be checked to ensure it is being made from the given IP address, and fail otherwise. It is strongly encouraged to set this value, but it is made optional for those cases where this information may not be available.
->>>>>>> master
