@@ -140,7 +140,7 @@
     text-transform: uppercase;
     padding-top: 3%;
     padding-bottom: 3%;
-    letter-spacing: 1.8px;  
+    letter-spacing: 1.8px;
   }
 
 table td:nth-child(3) {
@@ -164,8 +164,8 @@ table td:nth-child(3) {
 .jumptarget::before {
   content: "";
   display: block;
-  height: 85px; 
-  margin: -85px 0 0; 
+  height: 85px;
+  margin: -85px 0 0;
 }
 
 #support-h1 {
@@ -175,7 +175,7 @@ table td:nth-child(3) {
   position: relative;
   left: 11%;
   text-transform: uppercase;
-  letter-spacing: 1.8px;  
+  letter-spacing: 1.8px;
 }
 
 .api-nav {
@@ -204,4 +204,48 @@ table td:nth-child(3) {
 
 .btn:focus {
   outline: 0;
+}
+
+/* Custom styles for the top navigation when the menu is expanded by default */
+
+@media only screen and (min-width: 931px) {
+    .top-bar {
+        margin: 0;
+        max-width: none;
+        padding: 0;
+    }
+
+    .top-bar .title-area {
+      min-width: 285px;
+      padding-left: 25px;
+      padding-top: 0;
+      vertical-align: middle;
+      width: 10%;
+    }
+
+    .top-bar-section,
+    [top-bar-section] {
+      width: 48%;
+    }
+
+    .top-bar-section ul,
+    [top-bar-section] ul {
+      background: none;
+    }
+
+    .top-bar-section ul li,
+    [top-bar-section] ul li {
+      display: inline-block;
+      float: none;
+    }
+
+    .top-bar-actions {
+      padding-right: 25px;
+      width: 30%;
+    }
+
+    .top-bar .optional,
+    [top-bar] .optional {
+      display: inline-block;
+    }
 }
