@@ -1,12 +1,12 @@
 # Customer Storefront Login API
 
-This is a feature to enable single sign-on (SSO) by allowing generation of a token available to programmatically log in a storefront customer. A login entry point exists at `/login/token/{token}`, where `{token}` is expected to be a JWT (JSON Web Token) signed by the [single-click application](#)’s [client secret](), and to contain the parameters for the customer login request in its payload.
+This is a feature to enable single sign-on (SSO) by allowing generation of a token available to programmatically log in a storefront customer. A login entry point exists at `/login/token/{token}`, where `{token}` is expected to be a JWT (JSON Web Token) signed by the <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>'s <a href="/api/#registration" target="_blank">client secret</a>, and to contain the parameters for the customer login request in its payload.
 
 For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will also find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating JWT login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.
 
 ## Storefront Login Request JWT
 
-A valid JWT token is a string composed of three parts, separated by periods (“.”). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and [RFC 7519](https://tools.ietf.org/html/rfc7519) for more details on the format.
+A valid JWT token is a string composed of three parts, separated by periods (“.”). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.
 
 ### Example URL
 
