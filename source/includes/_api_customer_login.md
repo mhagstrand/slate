@@ -10,7 +10,11 @@ A valid JWT token is a string composed of three parts, separated by periods (“
 
 ### Example URL
 
-```https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ```
+```
+https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9
+.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+```
 
 ### Header
 
@@ -40,7 +44,7 @@ A valid JWT token is a string composed of three parts, separated by periods (“
 
 | Field Name | Type | Description |
 | --- | ---| ---|
-| iss | string | Indicates the issuer of the token. This is the single-click application's client ID, which is obtained during application registration in Developer Portal. |
+| iss | string | Indicates the token's issuer. This is the single-click application's client ID, which is obtained during application registration in Developer Portal. |
 | iat | | Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time). |
 | jti | string | Request ID string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value. |
 | operation | enum | Must contain the string "custom_login". |
@@ -57,11 +61,16 @@ The headers and payload must be signed using HS256 (HMAC-SHA256) and the single-
 
 Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.
 
-### PHP Sample 
+#### PHP Sample 
 
 ```
 https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421
-Python: https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py
+```
+
+#### Python Sample 
+
+```
+https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py
 ```
 
 ### OAuth Scope
