@@ -15,13 +15,8 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 |||[redirects](/api/stores/v2/redirects)|
 | Customers | **store_v2_customers**|[customers](/api/stores/v2/customers)|
 ||**store_v2_customers_read_only** | [customers/{id}/addresses](/api/stores/v2/customers/addresses)|
-<<<<<<< HEAD
-||**store_v2_customers_login** | [customer_groups](/api/stores/v2/customer_groups) |
 |||[customer_groups](/api/stores/v2/customer_groups) |
-=======
-||*store_v2_customers_login | [customer_groups](/api/stores/v2/customer_groups) |
-||| [Customer Login Token](/api#placeholder) |
->>>>>>> master
+|Customer Login Token|**store_v2_customers_login** | [Customer login token](/api/v2/#customer-storefront-login) |
 | Default | **default** | [countries](/api/stores/v2/countries)|
 |||[countries/{id}/states](/api/stores/v2/countries/states)|
 |||[hooks](/api/stores/v2/webhooks)
