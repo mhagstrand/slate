@@ -1,8 +1,8 @@
 # Customer Login API
 
-The customer login API enables single sign-on (SSO) by allowing your apps to generate a token to programmatically log in a storefront customer,  using the login entry point  at `/login/token/{token}`. Here, `{token}` must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>'s <a href="/api/#registration" target="_blank">client secret</a>.
+The customer login API enables single sign-on (SSO). It allows your apps to generate a token to programmatically log in a storefront customer, by using the login entry point  at `/login/token/{token}`. Here, `{token}` must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>'s <a href="/api/#registration" target="_blank">client secret</a>.
 
-For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will also find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.
+For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.
 
 ## Customer Login Token
 
@@ -43,7 +43,7 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 ### Fields
 
 | Field Name | Type | Description |
-| --- | ---| ---|
+| --- | --- | --- |
 | iss | string | Indicates the token's issuer. This is your application's client ID, which is obtained during application registration in Developer Portal. |
 | iat | integer| Time when the token was generated. This is a numeric value indicating the number of seconds since the [Unix epoch](http://en.wikipedia.org/wiki/Unix_time). |
 | jti | string | Request ID string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value. |
