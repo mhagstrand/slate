@@ -2,6 +2,12 @@
 
 ## <span class="jumptarget"> July </span>
 
+### Customer login via JWT token generation
+
+A new `store_v2_customers_login` API facilitates single sign-on (SSO) by allowing generation of JWT's (JSON Web Tokens) to programatically log customers into stores.
+
+This API and its fields are described, with usage examples, on [this documentation page](/api/v2/#customer-storefront-login). We also now list `store_v2_customers_login`, and link to its documentation, from the [OAuth Scopes](/api/scopes) page.
+
 ### Store ownership tokens – new best practices
 
 As of July 28, 2016, BigCommerce store owners can transfer their stores' ownership to a different user without breaking any installed apps. This change creates the potential for mismatched user information, if your app stores user data upon app installation. Therefore:
