@@ -134,47 +134,28 @@ under the License.
         </ul>
       <% end %>
     </div>
-      <div class="page-wrapper">
-        <div class="content">
-          <%= yield %>
-          <% current_page.data.includes && current_page.data.includes.each do |include| %>
-            <%= partial "includes/#{include}" %>
-          <% end %>
-        </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <%= yield %>
+        <% current_page.data.includes && current_page.data.includes.each do |include| %>
+          <%= partial "includes/#{include}" %>
+        <% end %>
       </div>
+    </div>
+        <script>
+            var container = $('.page-wrapper .content');
+            var body = $('body');
+            var headerHeightPixels = 85;
 
-    <style>
-    body {
-      padding-top: 85px;
-    }
+            container.on('click', function(event) {
+                var target = $(event.target);
 
-    .topBar-container--fixed, .tocify-wrapper {
-        transition: top 0.2s ease-in-out;
-    }
-
-    .tocify-wrapper.nav-hidden {
-      top: 0;
-    }
-
-    .nav-up {
-        top: -85px;
-    }
-    </style>
-    
-    <script>
-        var container = $('.page-wrapper .content');
-        var body = $('body');
-        var headerHeightPixels = 85;
-
-        container.on('click', function(event) {
-            var target = $(event.target);
-
-            if (target.is('a') && target.attr('href').charAt(0) === '#') {
-                setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
-            }
-        });
-    </script>
+                if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                    setTimeout(function() {
+                        $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
+                    }, 0);
+                }
+            });
+        </script>
   </body>
 </html>
