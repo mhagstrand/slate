@@ -2,6 +2,31 @@
 
 ## <span class="jumptarget"> July </span>
 
+### v3 catalog API in partner release
+
+We're excited to announce that BigCommerce's v3 catalog API is now available to partners, for use on all production stores. This new API has been designed around two main goals:
+
+* Optimized for efficiency. A simplified variant/modifier model allows fewer API calls.
+* Backward-compatible with our v2 API.
+
+New features include:
+
+* Ability to create products, and all their variants, with one API call.
+* Ability to fetch a list of all variants, separate from their parent product.
+* Clear delineation of options tied to SKUs, versus those that adjust only base products.
+* Rules are not required when using options or modifiers. (Modifiers have easy-to-understand adjusters instead.)
+
+For key details, please see <a href="https://github.com/bigcommerce/api#v3-catalog-api" target="_blank">this announcement</a>, which links to Swagger documentation on the new API. 
+
+Please also see <a href="https://github.com/bigcommerce/api/blob/master/docs/v3-catalog.md" target="_blank">this broader overview</a>, which includes authentication instructions. It also provides links where we invite you to submit issues on GitHub – and use Trello to to nominate, vote on, and track future additions to our API.
+
+### Customer resource has new "accepts_marketing" field
+
+The Customer API has a new `accepts_marketing` field, which records whether the customer would like to receive marketing content from this store. The new field is a boolean and is read-only, reflecting the customer's selections on the storefront.
+
+We have updated our Customer API [documentation and example responses](/api/v2/#customers) to include this new field.
+
+
 ### Customer login via JWT token generation
 
 A new Customer Login API facilitates single sign-on (SSO) by allowing your apps to programatically log customers into stores.
