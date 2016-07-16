@@ -4,20 +4,6 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-<<<<<<< HEAD
-## <span class="jumptarget"> Shipments Operations </span>
-
-*   [List Shipments](#list-shipments)
-*   [Get a Shipment](#get-a-shipment)
-*   [Get a Count of Shipments](#get-a-count-of-shipments)
-*   [Get a Count of Shipments per Order](#get-a-count-of-shipments-per-order)
-*   [Create a Shipment](#create-a-shipment)
-*   [Update a Shipment](#update-a-shipment)
-*   [Delete a Shipment](#delete-a-shipment)
-*   [Delete Multiple Shipments](#delete-multiple-shipments)
-
-=======
->>>>>>> master
 ## <span class="jumptarget"> List Shipments </span>
 
 Gets the shipments associated with an order.
@@ -272,7 +258,6 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
-<<<<<<< HEAD
 ### <span class="jumptarget"> Notes </span>
 
 The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: 
@@ -281,8 +266,6 @@ The following properties of the shipments are optional, but if you provide both 
 * `tracking_carrier`: Acceptable values are an empty string (`""`), or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
 
 
-=======
->>>>>>> master
 ## <span class="jumptarget"> Update a Shipment </span>
 
 Updates an existing shipment associated with an order.
@@ -387,10 +370,7 @@ Possible mappings of `shipping_provider` values to `tracking_carrier` values are
 - `upsonline`   --> `ups`    
 - `shipperhq`  --> `ups` or `dhl` or `fedex` or `usps` or `australia-post` or `start-track`
 
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 ## <span class="jumptarget"> Delete a Shipment </span>
 
 Deletes a shipment associated with an order.

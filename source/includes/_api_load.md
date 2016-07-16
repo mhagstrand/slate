@@ -172,11 +172,7 @@ def secure_compare(a, b)
 end
 ```
 
-<<<<<<< HEAD
-#### <span id="Identifying"> Processing the JSON object </span>
-=======
-#### <span class="jumptarget"> Processing the JSON object</span>
->>>>>>> master
+#### <span class="jumptarget" id="Identifying"> Processing the JSON object</span>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
