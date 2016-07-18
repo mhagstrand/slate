@@ -229,10 +229,6 @@ html, body {
       color: $nav-text;
       font-size: 13px;
       font-weight: $tocify-font-weight;
-      /* Added 6/13/16, commented out 6/22/13: 
-         BlockCypher-style shading of whole selected section in left nav: */
-      /* background-color:  #86848C; */  /* BC '16 Medium Gray */
-      /* background-color:  #5D5B66; */  /* BC '16 Dark Gray */
 
       .tocify-subheader {
         .tocify-item>a {
@@ -643,9 +639,8 @@ html, body {
     width: 90%;
   }
 
-  /* Added 6/8/16 to match blockquotes' padding/"frame" to center's/"p's"	 plain-gray: \/ */
+  /* Added 6/8/16 to match blockquotes' padding/"frame" to center's/"p's" plain-gray: \/ */
   blockquote {
-    /* background-color: #919596; */
     background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
   }
 
@@ -653,17 +648,14 @@ html, body {
     &>p {
       /* background-color: $code-annotation-bg; */
       /* ^ Swapped 6/8/16 to turn blockquotes from framed-black to plain-gray boxes: \/ */
-      /* background-color: #D3D5D5; – tried, but too close to grayish body-text color */
-      /* background-color: #919596;  – tried, but too dark for crimson text */
       background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
       border-radius: 5px;
       padding: $code-annotation-padding;
-      color: #ccc;
+      /* Commented out 7/18/16 to eliminate gray-on-gray glitch: \/ */
+      /* color: #ccc; */
       /* border-top: 1px solid #34313F;
       border-bottom: 1px solid #404040; */
       /* ^ Swapped 6/8/16 to match blockquotes' padding to center's plain-gray: \/ */
-      /* border-top: 1px solid #919596;
-      border-bottom: 1px solid #919596; */
       border-top: 1px solid #f5f5f5;  /* "White smoke" */
       border-bottom: 1px solid #f5f5f5;  /* "White smoke" */
     }
@@ -810,164 +802,12 @@ img {
   background-color: $code-bg;
 }
 
+@import 'custom';
 @import 'page';
 @import 'buttons';
 @import 'navbar';
 @import 'blocks';
 
-.topBar-container {
-  background-color: #4f75f8;
-
-  a {
-    color: #ffffff;
-
-    &:hover, &:focus {
-      color: #E5E5E5 !important;
-    }
-  }
-
-  .button--action {
-    background-color: #41539b;
-    border-color: #41539b;
-
-    &:hover, &:focus {
-      background-color: #3a426e;
-      border-color: #3a426e;
-    }
-  }
-}
-
-.top-bar-actions {
-  width: 30%;
-}
-
-.top-bar .name img, [top-bar] .name img {
-    width: 7.33333rem;
-    top: 2px;
-    position: relative;
-}
-
-.block-container {
-    padding-top: 0 !important;
-}
-
-.home-block {
-    background: url('/images/hero.svg') no-repeat 100%;
-    background-size: 575px;
-}
-
-@media (max-width: 768px) {
-    .top-bar .title-area, [top-bar] .title-area {
-        margin-left: 0;
-        padding: 0;
-        text-align: center;
-    }
-
-    .top-bar .name img, [top-bar] .name img {
-        display: inherit;
-        height: 52px;
-    }
-}
-
-@media (min-width: 769px) {
-.top-bar-section, [top-bar-section] {
-    width: 50%;
-  }
-}
-
-@media (max-width: 1023px) {
-.hideOnTablet {
-    display: none;
-  }
-}
-
-#tocify-header0 > li {
-  display: none;
-      /* Added 6/13/16: BlockCypher-style shadeing of whole selected section in left nav: */
-      /* background-color:  #86848C;  /* BC '16 Medium Gray */
-}
-
-/* Added by Alyss 6/15/16, for brand/site consistency: */
-.changelog {
-  .content h1, h2 {
-    color: white;
-    font-size: 0em;
-  }
-/* Next selector added 5/20/16 to negate excessive space above h2..h6 Changelog headings;
-    left h1 unchanged from default "$h1-margin-bottom": */
-  h2, h3, h4, h5, h6 {
-    margin-top: 0;
-    margin-bottom: 11px;
-  }
-} 
-
-/* Next block commented out 5/20/16, to prevent changelog's left nav from scrolling to arbitrary past years: */
-/* .changelog {
-  .content h1, h2 {
-  display: none;
-  }
-} */
-
-table td:nth-child(3) {
-  word-break: break-word;
-}
-
-.vtwo-links {
-  padding: 0 15px 0 15px;
-
-  #vtwo-link1, #vtwo-link2, #vtwo-link3 {
-    font-size: 14px;
-    color: #595864;
-  }
-}
-
-/* Added 4/27/16 to constrain body text's width: */
-.themes .content {
-    width: 80%;
-    min-width: 850px;
-}
-
-/* Added 5/27/16: Specify class="jumptarget" within h1 targets. Adds an invisible element before each target, so that when heading is clicked from left nav, target will emerge from under top nav when page renders: */
-
-/* Commented out 6/24/16 for top-nav scrollaway test; restored 7/6/16: */
-
-.jumptarget::before {
-  content:"";
-  display:block;
-  height:85px; 			/* fixed header height */
-  margin:-85px 0 0; 		/* negative fixed header height */
-}
-
-/* Adapted 6/28/16 from whitestormjs.xyz: Black text, on caution-tape orange-gradient background pattern: */
-
-.content aside.warning.orange {
-    /* font-weight: 600; */
-    text-shadow: 0 1px 0 #efcf86 !important;
-    background-color: #E6B442 !important;
-    background-image: url(../images/caution-tape.jpg);
-    background-color: white;
-    background-blend-mode: lighten;
-    /* background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/caution-tape.jpg); */
-}
-
-/* Adapted 6/28/16 from whitestormjs.xyz: White text, on caution-tape orange-gradient background pattern: */
-
-.content aside.warning.brightorange {
-    color: #ffffff;   /* white */
-    font-weight: 600;
-    text-shadow: 0 1px 0 #efcf86 !important;
-    background-color: #E6B442 !important;
-    background-image: url(../images/caution-tape.jpg);
-}
-
-
-/* Added 6/10/16: Failed riff on earlier "jumptarget". This supports an empty "jumptarget" span in the headings' html, *above* the span containing the actual heading. That span was a hack intended to clear jump targets from under the top nav, when the links are clicked from body text. (The negative margin-left in this selector is a hack to undo the unwanted left indent created by the empty-span hack.) 
-
-Unfortunately, this fails. It does clear headings selected from within body text. But it breaks all behavior around the left nav: Children of headings with this tagging don't show in the left nav. When clicked from the left nav, these links do NOT clear the top nav. Also, when clicked, this tag entirely collapses the left nav's parent heading. So, ignore: */
-
-.jumpleft {
-  margin-left: -0.4em;
-}
 
 /* Added 6/29/16 by Chris Hegre; then commented-out 7/6 in deference to improved Timeout substitute:
 
@@ -979,5 +819,3 @@ Unfortunately, this fails. It does clear headings selected from within body text
   bottom: 0px;
   overflow: scroll;
 } */
-
-@import 'custom';
