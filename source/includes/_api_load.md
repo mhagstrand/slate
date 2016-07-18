@@ -116,7 +116,8 @@ NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-l
 ##### <span class="jumptarget"> Examples</span>
 
 *   [PHP](#strcmp-php)
-```
+
+```php?start_inline=1
 function verifySignedRequest($signedRequest)
 {
 	list($encodedData, $encodedSignature) = explode('.', $signedRequest, 2); 
