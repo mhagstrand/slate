@@ -1,23 +1,23 @@
 ## <span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span>
 
-When you register your app with Bigcommerce, if you [enable multi-user support](/api#multiuser), it will allow store admins to manually authorize users other than the store owner to load the app. This feature is not available for [Private Apps](/api#basic-auth).
+When you register your app with Bigcommerce, if you [enable multi-user support](/api#multiuser), this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for [basic-auth apps](/api#basic-auth).
 
 ### <span class="jumptarget"> Enable multi-user support</span>
 
-As soon as you [enable multi-user support](/api#multiuser), it affects the control panel of any store with your app installed. If you already have an app published in the App Store, be aware that this setting takes affect immediately. We recommend testing your multi-user support using a separate app that is in Draft status.
+As soon as you [enable multi-user support](/api#multiuser), this affects the control panel of any store that has your app installed. If you already have an app published in the App Store, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.
 
 >NOTE: Let your customers know that you've enabled this feature! Otherwise, they won't know that they can start granting access to users.
 
-To opt in:
+To opt into multi-user support:
 
 1.  Log into **My Apps**.
-2.  In the **Technical** panel, select **Multiple Users** in the **Supported Features** area.
-3.  Provide a **Remove User Callback URI** in the **Remove User Callback URI** box.
+2.  In the **Technical** panel > **Supported Features** area, select **Multiple Users**.
+3.  In the **Remove User Callback URI** box, provide a **Remove User Callback URI**.
 4.  Save and close your app.
 
 ### <span class="jumptarget"> About the control-panel experience</span> 
 
-Store admins will be able to adjust user permissions to grant/deny access to your app for other store users.
+Store admins will be able to adjust user permissions to grant/deny other store users' access to your app.
 
 The next time the user logs in, they will see any apps for which they have been granted access. The user can then click on the app icon in the left navigation to load it.
 
@@ -27,15 +27,15 @@ Use your draft app and your sandbox store to review this behavior.
 
 Apps with multiple users enabled can expect more than just the store owner's email and ID in the JSON object sent in the load request. If a load request is sent with user information you haven't seen yet, you should provision the user account and associate it with the store in your database.
 
-Because you know the store owner's email and ID from the [App Installation](/api#callback) sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. A summary of the two types of users follows.
+Because you know the store owner's email and ID from the [App Installation](/api#callback) sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:
 
-*   **Store owner**: can install, uninstall, and load apps.
-*   **Users**: cannot install or uninstall apps. Only allowed to load the apps that a store admin has authorized.
+*   **Store owner**: Can install, uninstall, and load apps.
+*   **Users**: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.
 
 Review [Processing Load, Uninstall, and User Removal Requests](/api#load) for more information.
 
 ### <span class="jumptarget"> About the remove user request </span>
 
-In addition to the ability to add users, store admins can also remove users. This action results in a `**GET**` request to the **Remove User Callback URI** that you provided in **My Apps**. Your app should delete the user identified in the request from its records.
+In addition to their ability to add users, store admins can also remove users. This action results in a `**GET**` request to the **Remove User Callback URI** that you provided in **My Apps**. Your app should delete from its records the user identified in the request.
 
-Review [Processing Load, Uninstall, and User Removal Requests](/api#load) for more information.
+For further information, please see [Processing Load, Uninstall, and User Removal Requests](/api#load).
