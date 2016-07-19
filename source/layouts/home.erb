@@ -198,9 +198,8 @@ under the License.
         </div>
     </section>    
     <script>
-        // This script reveals jump/link targets beneath a persistent header:
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
         var container = $('.page-wrapper .content');
-        var body = $('body');
         var headerHeightPixels = 85;
 
         container.on('click', function(event) {
@@ -208,8 +207,8 @@ under the License.
 
             if (target.is('a') && target.attr('href').charAt(0) === '#') {
                 setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
             }
         });
     </script>
