@@ -4,18 +4,18 @@ When you register your app with Bigcommerce, if you [enable multi-user support](
 
 ### <span class="jumptarget"> Enable multi-user support</span>
 
-As soon as you [enable multi-user support](/api#multiuser), it affects the Control Panel of any store with your app installed. If you already have an app published in the App Store, be mindful that this setting takes affect immediately. We recommend testing your multi-user support using a separate app in Draft status.
+As soon as you [enable multi-user support](/api#multiuser), it affects the control panel of any store with your app installed. If you already have an app published in the App Store, be aware that this setting takes affect immediately. We recommend testing your multi-user support using a separate app that is in Draft status.
 
 >NOTE: Let your customers know that you've enabled this feature! Otherwise, they won't know that they can start granting access to users.
 
 To opt in:
 
-1.  Log into My Apps
+1.  Log into **My Apps**.
 2.  In the **Technical** panel, select **Multiple Users** in the **Supported Features** area.
 3.  Provide a **Remove User Callback URI** in the **Remove User Callback URI** box.
 4.  Save and close your app.
 
-### <span class="jumptarget"> About the control panel experience</span> 
+### <span class="jumptarget"> About the control-panel experience</span> 
 
 Store admins will be able to adjust user permissions to grant/deny access to your app for other store users.
 
