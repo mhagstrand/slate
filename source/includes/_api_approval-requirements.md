@@ -23,7 +23,7 @@ NOTE: Install and test your app thoroughly prior to submission. Be sure to insta
 
 *   Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
 
-    <aside class="info">
+    <aside class="notice">
     NOTE: You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
     </aside>
 
