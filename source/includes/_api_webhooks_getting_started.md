@@ -53,7 +53,7 @@ NOTES: Any one of the following will cause a connection failure:
 MIGRATION NOTE: Stacked heads; insert something here!
 </aside>
 
->>> This is a test blockquote.
+>This is a test blockquote.
 
 #### <span class="jumptarget"> Sending the POST request </span>
 
