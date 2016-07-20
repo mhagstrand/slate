@@ -567,20 +567,28 @@ html, body {
     padding-left: 1em;
     /* Next tag copied from body, 5/15/16, to conform callout boxes to global column width: */
     margin-left: 2em;
+    /* Added 7/19/16 for left rule, matching Stencil docs: */
+    border-left: 4px solid #4E75F8;
 
     &.warning {
       background-color: $aside-warning-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 4px solid #df8a13;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
     &.success {
       background-color: $aside-success-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 4px solid #50af51;
       text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
     }
 
     /* Red `error` style added 7/19/16: */
     &.error {
       background-color: $aside-error-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 4px solid #D9534F;
       text-shadow: 0 1px 0 lighten($aside-error-bg, 15%);
     }
   }
