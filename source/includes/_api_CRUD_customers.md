@@ -60,6 +60,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "customer_group_id": 0,
     "notes": "",
     "tax_exempt_category": "",
+    "accepts_marketing": false,
     "addresses": {
       "url": "https://store-bwvr466.mybigcommerce.com/api/v2/customers/1/addresses.json",
       "resource": "/customers/1/addresses"
@@ -79,6 +80,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
     "customer_group_id": 0,
     "notes": "",
     "tax_exempt_category": "",
+    "accepts_marketing": false,
     "addresses": {
       "url": "https://store-bwvr466.mybigcommerce.com/api/v2/customers/2/addresses.json",
       "resource": "/customers/2/addresses"
@@ -112,6 +114,7 @@ Gets a customer.
   "customer_group_id": 0,
   "notes": "",
   "tax_exempt_category": "",
+  "accepts_marketing": false,
   "addresses": {
     "url": "https://store-bwvr466.mybigcommerce.com/api/v2/customers/1/addresses.json",
     "resource": "/customers/1/addresses"
@@ -152,6 +155,7 @@ The following properties of the customer are read-only. If one or more of these 
 *   id
 *   date_created
 *   date_modified
+*   accepts_marketing
 *   addresses
 
 ### <span class="jumptarget"> Requirements </span>
@@ -220,6 +224,7 @@ The following properties of the customer are read-only. If one or more of these 
 *   id
 *   date_created
 *   date_modified
+*   accepts_marketing
 *   addresses
 
 ### <span class="jumptarget"> Requirements </span>

@@ -169,14 +169,18 @@ As noted above, if your app does not return an `HTTP 2_xx_` to Bigcommerce upon 
 
 You can proactively check to make sure that everything is OK by periodically making a GET request and checking the `is_active` flag.
 
-If you receive an email or discover that the `is_active` flag has been flipped to `false`, try the following.
+If you receive an email or discover that the `is_active` flag has been flipped to `false`, try the following:
 
-*   Check to see if your app is responding to the POST request with something other than `HTTP 200`.
-*   Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com<a>. Any of the following will cause the TLS/SSL handshake to fail: 
+<ul>
+	<li>Check to see if your app is responding to the POST request with something other than `HTTP 200`.</li>
+	<li>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </li>
+	<ul>
+		<li>Self-signed certificate.</li>
+		<li>Host name of the certificate does not match the server's DNS.</li>
+	<li>Your server's key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust.</li>
+	</ul>
+</ul>
 
-*   Self-signed certificate
-*   Host name of the certificate does not match the server's DNS
-*   Your server's key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust
 
 Once you have resolved the issue preventing the connection, send a PUT request to flip the `is_active` flag back to `true`. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.
 

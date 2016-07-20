@@ -521,6 +521,7 @@ The following properties of the product are read-only. If one or more of these p
 *   discount_rules
 *   configurable_fields
 *   custom_fields
+*   primary_image
 *   videos
 *   skus
 *   rules
@@ -579,6 +580,7 @@ The following properties of the product are read-only. If one or more of these p
 *   discount_rules
 *   configurable_fields
 *   custom_fields
+*   primary_image
 *   videos
 *   skus
 *   rules

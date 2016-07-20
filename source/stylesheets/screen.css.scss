@@ -327,6 +327,7 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 
 .page-wrapper {
+  /* Next line removed by CH 6/29/16, restored 7/6/16 for Timeout: */
   margin-left: $nav-width;
   position: relative;
   z-index: 10;
@@ -533,7 +534,11 @@ html, body {
   }
 
   code {
-    background-color: rgba(0,0,0,0.05);
+    /* background-color: rgba(0,0,0,0.05); */
+    /* ^ Swapped out this indistinct dark gray, 6/8/16, for: */
+    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+    /* Added 6/8/16 to color *inline* code text (*not* over a black code box) crimson, like Stencil site's: */
+    color: #cc2255;
     padding: 3px;
     border-radius: 3px;
     @extend %break-words;
@@ -543,8 +548,13 @@ html, body {
   pre>code {
     background-color: transparent;
     padding: 0;
+    /* Added 6/8/16 to maintain standard *gray* code text when code appears over black – because all reds clash with black: */
+    color: #F7F7F7;
   }
 
+////////////////////////////////////////////////////////////////////////////////
+// Callout Styles
+////////////////////////////////////////////////////////////////////////////////
   aside {
     padding-top: 1em;
     padding-bottom: 1em;
@@ -553,16 +563,33 @@ html, body {
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
     line-height: 1.6;
+    /* Added 6/8/16 to achieve consistent "aside" appearance, even when callouts are indented: */
+    padding-left: 1em;
+    /* Next tag copied from body, 5/15/16, to conform callout boxes to global column width: */
     margin-left: 2em;
+    /* Added 7/19/16 for left rule, matching Stencil docs: */
+    border-left: 2px solid #4E75F8;
 
     &.warning {
       background-color: $aside-warning-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 2px solid #df8a13;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
     &.success {
       background-color: $aside-success-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 2px solid #50af51;
       text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+    }
+
+    /* Red `error` style added 7/19/16: */
+    &.error {
+      background-color: $aside-error-bg;
+      /* Added 7/19/16 for left rule, matching Stencil docs: */
+      border-left: 2px solid #D9534F;
+      text-shadow: 0 1px 0 lighten($aside-error-bg, 15%);
     }
   }
 
@@ -572,17 +599,28 @@ html, body {
     font-size: 14px;
   }
 
+///// Colors added to icons 7/19/16: /////
+
   aside.notice:before {
     @extend %icon-info-sign;
+    color: #4E75F8;
   }
 
   aside.warning:before {
     @extend %icon-exclamation-sign;
+    color: #df8a13;
+  }
+
+  aside.error:before {
+    @extend %icon-exclamation-sign;
+    color: #D9534F;
   }
 
   aside.success:before {
     @extend %icon-ok-sign;
+    color: #50af51;
   }
+
 
   .search-highlight {
     padding: 2px;
@@ -599,8 +637,11 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 // This is all the stuff that appears in the right half of the page
 
+/* Restricted to `pre` 7/18/16, so as to separately style blockquote 
+– + refactored to join all `pre` selectors: \/ */
+
 .content {
-  pre, blockquote {
+  pre {
     background-color: $code-bg;
     color: #F7F7F7;
 
@@ -615,6 +656,9 @@ html, body {
 
     @extend %right-col;
 
+    @extend %code-font;
+    width: 90%;
+
     &>p { margin: 0; }
 
     a {
@@ -624,31 +668,71 @@ html, body {
     }
   }
 
-  pre {
-    @extend %code-font;
-    width: 90%;
+
+  /* Split from `pre` 7/18/16, to separately style blockquote: \/ */
+
+  blockquote {
+  /* Added 6/8/16 to match blockquotes' padding/"frame" to center's/"p's" plain-gray: \/ */
+    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+
+    padding: 2em $main-padding;
+    /* Adapted from `body`, 5/16/16, to set flush-left: */
+    margin-left: 1.33em;
+    width: $examples-width;
+    float:right;
+    clear:right;
+
+    box-sizing: border-box;
+
+    @extend %right-col;
+
+    &>p { margin: 0; }
+
+    a {
+      /* color: #F7F7F7; */
+      text-decoration: none;
+      border-bottom: dashed 1px #ccc;
+    }
   }
 
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
+      /* background-color: $code-annotation-bg; */
+      /* ^ Swapped 6/8/16 to turn blockquotes from framed-black to plain-gray boxes: \/ */
+      background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
       border-radius: 5px;
       padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #34313F;
-      border-bottom: 1px solid #404040;
+      /* Commented out 7/18/16 to eliminate gray-on-gray glitch: \/ */
+      /* color: #ccc; */
+      /* border-top: 1px solid #34313F;
+      border-bottom: 1px solid #404040; */
+      /* ^ Swapped 6/8/16 to match blockquotes' padding to center's plain-gray: \/ */
+      border-top: 1px solid #f5f5f5;  /* "White smoke" */
+      border-bottom: 1px solid #f5f5f5;  /* "White smoke" */
     }
   }
 }
 
 body.twocolumn {
   .content {
-    pre, blockquote {
+     /* Commented out blockquotes 6/8/16, to separately conform their width to overall column width: */
+    pre/*, blockquote*/ {
       width: auto;
       float: none;
       padding: 0.8em 18px;
       margin-right: 28px;
     }
+
+     /* Separated out blockquotes 6/8/16, to conform their width to overall column width; 80% is too wide: */
+    blockquote {
+      width: 75%;
+      float: none;
+      /* padding: 0.8em 18px; */
+      /* ^ Swapped 7/18/16, to remove top/bottom bloat around blockquotes: \/ */
+      padding: 0em 18px;
+      margin-right: 28px;
+    }
+
 
     pre {
       margin-left: 28px;
@@ -658,13 +742,25 @@ body.twocolumn {
       font-size: 13px;
       line-height: 1.6;
       margin-bottom: 1.4em;
-      width: 90%;
+      /* width: 90%; */
+      /* ^ Swapped 6/8/16 to trim code blocks' right margin to match surrounding body text; 80% is too wide: \/ */
+      width: 75%;
     }
 
-    &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
+     /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
+    &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, /* &>aside,*/ &>dl {
       margin-right: 0;
       line-height: 125%;      
       width: 80%;
+      min-width: 850px;
+    }
+
+     /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
+    &>aside {
+      margin-right: 0;
+      line-height: 125%;      
+      /* Tweaked 6/8/16 to conform "aside" width: */
+      width: 70%;
       min-width: 850px;
     }
   }
@@ -759,8 +855,54 @@ img {
   background-color: $code-bg;
 }
 
+/* Added 6/29/16 by Chris Hegre; then commented-out 7/6 in deference to improved Timeout substitute:
+
+.super-wrapper {
+  position: fixed;
+  top: 85px;
+  left: $nav-width;
+  right: 0px;
+  bottom: 0px;
+  overflow: scroll;
+} */
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Callout HEADING Styles
+////////////////////////////////////////////////////////////////////////////////
+// Styles for asides' bold first lines – added 7/19/16.
+// These enforce a heading in each callout, which must end with <br>. 
+// If that's too confining, could change to an optional <span> style.
+// Each icon independently has the same color, 
+// so we can have colored icons a-la-carte.
+
+ .content aside.notice::first-line {
+  color: #4E75F8;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.content aside.success::first-line {
+  color: #50af51;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.content aside.warning::first-line {
+  color: #df8a13;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.content aside.error::first-line {
+  color: #D9534F;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+
+@import 'custom';
 @import 'page';
 @import 'buttons';
 @import 'navbar';
 @import 'blocks';
-@import 'custom';

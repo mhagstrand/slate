@@ -25,7 +25,10 @@
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+/*  line-height: 1; */
+/* ^ Next 2 lines swapped in 7/19/16, to pull icons up to baseline: */
+  line-height: 1.3;
+  vertical-align:text-top;
 }
 
 %icon-exclamation-sign {

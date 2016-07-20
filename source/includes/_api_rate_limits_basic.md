@@ -36,7 +36,7 @@ X-BC-ApiLimit-Remaining: 0
 
 If your client is rate limited, you won’t be able to make further requests until your quota resets.
 
-## <span class="jumptarget"> Working With Rate Limits </span>
+## <span class="jumptarget"> Working with Rate Limits </span>
 
 Applications that make a large volume of parallel requests or frequently poll resources to detect changes are particularly susceptible to being limited.
 

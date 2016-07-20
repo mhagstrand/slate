@@ -11,8 +11,10 @@ The app registration wizard requests a number of details that you may not know j
 ### <span class="jumptarget"> Technical Requirements </span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+MIGRATION NOTE:<br>
+Stacked heads; insert something here!
 </aside>
+
 
 #### <span class="jumptarget"> Auth Callback and Load Callback URIs </span>
 

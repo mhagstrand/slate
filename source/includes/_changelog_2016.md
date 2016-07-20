@@ -2,16 +2,69 @@
 
 ## <span class="jumptarget"> July </span>
 
+### v3 catalog API in partner release
+
+We're excited to announce that BigCommerce's v3 catalog API is now available to partners, for use on all production stores. This new API has been designed around two main goals:
+
+* Optimized for efficiency. A simplified variant/modifier model allows fewer API calls.
+* Backward-compatible with our v2 API.
+
+New features include:
+
+* Ability to create products, and all their variants, with one API call.
+* Ability to fetch a list of all variants, separate from their parent product.
+* Clear delineation of options tied to SKUs, versus those that adjust only base products.
+* Rules are not required when using options or modifiers. (Modifiers have easy-to-understand adjusters instead.)
+
+For key details, please see <a href="https://github.com/bigcommerce/api#v3-catalog-api" target="_blank">this announcement</a>, which links to Swagger documentation on the new API. 
+
+Please also see <a href="https://github.com/bigcommerce/api/blob/master/docs/v3-catalog.md" target="_blank">this broader overview</a>, which includes authentication instructions. It also provides links where we invite you to submit issues on GitHub – and use Trello to to nominate, vote on, and track future additions to our API.
+
+### Customer resource has new "accepts_marketing" field
+
+The Customer API has a new `accepts_marketing` field, which records whether the customer would like to receive marketing content from this store. The new field is a boolean and is read-only, reflecting the customer's selections on the storefront.
+
+We have updated our Customer API [documentation and example responses](/api/v2/#customers) to include this new field.
+
+
+### Customer login via JWT token generation
+
+A new Customer Login API facilitates single sign-on (SSO) by allowing your apps to programatically log customers into stores.
+
+This API and its fields are described, with usage examples, on [this documentation page](/api/v2/#customer-storefront-login). We also now list `store_v2_customers_login`, and link to its documentation, from the [OAuth Scopes](/api/scopes) page.
+
+### Store ownership tokens – new best practices
+
+As of July 28, 2016, BigCommerce store owners can transfer their stores' ownership to a different user without breaking any installed apps. This change creates the potential for mismatched user information, if your app stores user data upon app installation. Therefore:
+
+* Apps should therefore associate API tokens with a store hash, not with a specific user. 
+
+* BigCommerce will now send information about the current store owner in the load callback, which apps should use as the source of truth about the store’s owner. (This might be important if your app needs to determine what user is active in the app; or if your account information is based on the incoming data, such as the store owner’s email address.)
+
+
 ### <span class="jumptarget"> Order Shipment API refreshed with "shipping_provider", "tracking_carrier" fields
 
 The Order Shipment resource has been refreshed with two fields that can be used to track shipments:
 
-* `shipping_provider` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
-* `tracking_carrier` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
+* `shipping_provider` contains the enum of this shipment's BigCommerce shipping-carrier integration/module.
+* `tracking_carrier` contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.
 
 We have added these fields to the [Order Shipment](/api/v2#shipping-methods) documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You'll also find usage guidelines, a list of allowable values for the `shipping_provider` field, and a linked, downloadable spreadsheet of allowable values for the `tracking_carrier` field.
 
+
 ## <span class="jumptarget"> June </span>
+
+
+### <span class="jumptarget"> bigcommerce-api-ruby gem now generally available </span>
+
+The bigcommerce-api-ruby 1.0.0 gem is now generally available on <a href="https://github.com/bigcommerce/bigcommerce-api-ruby" target="_blank">GitHub</a> and <a href="https://rubygems.org/gems/bigcommerce" target="_blank">rubygems</a>.
+
+For other client libraries/SDKs that facilitate client requests to BigCommerce's RESTful API, please see our [Client Libraries](/api/#client-libraries) page.
+
+
+
+## <span class="jumptarget"> June </span>
+
 
 ### <span class="jumptarget"> Request for comment on proposed Cart API schema </span>
 
@@ -289,6 +342,7 @@ The new endpoint information is available [here][10].
 
 Two Customers endpoints, and two Customer Addresses endpoints, now provide support for read-only custom fields:
 
+```
         Customers
           List Customers
           Get a Customer
@@ -296,6 +350,7 @@ Two Customers endpoints, and two Customer Addresses endpoints, now provide suppo
         Customer Addresses
           List Customer Addresses
           Get a Customer Address
+```
 
 You can access custom fields within the new   **`form_fields`**   element. For details and examples, please see our updated [Customers][11] and [Customer Addresses][11] reference pages.
 
@@ -351,8 +406,7 @@ These variables are available in all snippets where products are available. (In 
 ### <span class="jumptarget"> New product and SKU webhooks added </span>
 
 BigCommerce has made available several new webhooks. In the list below, the new options are highlighted within the `store/product/`,   
-`store/product/inventory/`, `store/sku/`, and `store/sku/inventory*` categories. We encourage you to use these webhooks, as appropriate,  
-in your applications:
+`store/product/inventory/`, `store/sku/`, and `store/sku/inventory*` categories. We encourage you to use these webhooks, as appropriate, in your applications:
 
 ```
   store/order/

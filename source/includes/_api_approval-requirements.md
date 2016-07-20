@@ -22,9 +22,10 @@ NOTE: Install and test your app thoroughly prior to submission. Be sure to insta
 *   Apps must be easy to use.
 
 *   Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
-<aside class="info">
-NOTE: The store name, phone number, and other information can be obtained from the [Store&#160;Information](/api/store) resource.
-</aside>
+
+    <aside class="notice">
+    NOTE: You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
+    </aside>
 
 *   The user ID and email address from the [OAuth flow](/api/load#process) should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.
 
