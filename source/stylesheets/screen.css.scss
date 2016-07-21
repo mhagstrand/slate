@@ -574,7 +574,7 @@ html, body {
     &.warning {
       background-color: $aside-warning-bg;
       /* Added 7/19/16 for left rule, matching Stencil docs: */
-      border-left: 2px solid #df8a13;
+      border-left: 2px solid #ec971f;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
