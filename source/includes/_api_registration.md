@@ -10,7 +10,7 @@ The app registration wizard requests a number of details that you may not know j
 
 ### <span class="jumptarget"> Technical Requirements </span>
 
-<aside class="warning">
+<aside class="notice">
 MIGRATION NOTE:<br>
 Stacked heads; insert something here!
 </aside>

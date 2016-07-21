@@ -535,11 +535,12 @@ html, body {
 
   code {
     /* background-color: rgba(0,0,0,0.05); */
-    /* ^ Swapped out this indistinct dark gray, 6/8/16, for: */
-    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+    /* ^ Commented out this indistinct dark gray, 6/8/16, for: \/
+    background-color: transparent;
     /* Added 6/8/16 to color *inline* code text (*not* over a black code box) crimson, like Stencil site's: */
     color: #cc2255;
-    padding: 3px;
+    /* padding: 3px; */
+    padding: 2px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
@@ -573,7 +574,7 @@ html, body {
     &.warning {
       background-color: $aside-warning-bg;
       /* Added 7/19/16 for left rule, matching Stencil docs: */
-      border-left: 2px solid #df8a13;
+      border-left: 2px solid #ec971f;
       text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
     }
 
@@ -745,6 +746,8 @@ body.twocolumn {
       /* width: 90%; */
       /* ^ Swapped 6/8/16 to trim code blocks' right margin to match surrounding body text; 80% is too wide: \/ */
       width: 75%;
+      /* New 7/20/16: Un-comment next line if we want to let long code lines wrap?: */
+      /* white-space: pre-wrap; */
     }
 
      /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
@@ -889,7 +892,7 @@ img {
 }
 
 .content aside.warning::first-line {
-  color: #df8a13;
+  color: #ec971f;
   font-weight: bold;
   text-shadow: none;
 }
