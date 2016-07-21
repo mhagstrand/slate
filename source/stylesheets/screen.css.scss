@@ -539,7 +539,8 @@ html, body {
     background-color: transparent;
     /* Added 6/8/16 to color *inline* code text (*not* over a black code box) crimson, like Stencil site's: */
     color: #cc2255;
-    padding: 3px;
+    /* padding: 3px; */
+    padding: 2px;
     border-radius: 3px;
     @extend %break-words;
     @extend %code-font;
