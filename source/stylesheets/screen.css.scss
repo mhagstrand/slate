@@ -745,6 +745,8 @@ body.twocolumn {
       /* width: 90%; */
       /* ^ Swapped 6/8/16 to trim code blocks' right margin to match surrounding body text; 80% is too wide: \/ */
       width: 75%;
+      /* New 7/20/16: Un-comment next line if we want to let long code lines wrap?: */
+      /* white-space: pre-wrap; */
     }
 
      /* Separated out "aside" 6/8/16, to conform its width to body-text width: */
