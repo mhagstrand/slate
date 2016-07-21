@@ -536,7 +536,8 @@ html, body {
   code {
     /* background-color: rgba(0,0,0,0.05); */
     /* ^ Swapped out this indistinct dark gray, 6/8/16, for: */
-    background-color: #f5f5f5; /* "White smoke," matching Stencil docs */
+    /* background-color: #f5f5f5; */ /* "White smoke," matching Stencil docs */
+    /* background-color: transparent;
     /* Added 6/8/16 to color *inline* code text (*not* over a black code box) crimson, like Stencil site's: */
     color: #cc2255;
     padding: 3px;
@@ -891,7 +892,7 @@ img {
 }
 
 .content aside.warning::first-line {
-  color: #df8a13;
+  color: #ec971f;
   font-weight: bold;
   text-shadow: none;
 }
