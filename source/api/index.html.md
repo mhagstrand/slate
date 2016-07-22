@@ -43,7 +43,11 @@ search: true
 
 # API Documentation
 
-Lorem Ipsum 
+The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
+
+All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).
+
+With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
 
 <section class=
     "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
@@ -58,7 +62,7 @@ Lorem Ipsum
                           "text-align: center;" style="text-align: center;">
                           <span class="type-large"><strong class=
                           "rt-scheme-headline">API V2</strong><br>
-                          Lorem Ipsum Nonsense
+                          Core API, supporting all currently exposed resources via Basic Auth or OAuth.
                           </span><span class=
                           "type-large"><br>
                           <br>
@@ -73,7 +77,7 @@ Lorem Ipsum
                             <p class="rt-scheme--lightestGrey" style=
                             "text-align: center;"><strong class=
                             "rt-scheme-headline">API V3</strong><span class="type-large"><br>
-                            Lorem Ipsum Nonsense</span><span class=
+                            New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only.</span><span class=
                             "type-large"><br>
                             <br>
                             <a class="button button--action" href=
