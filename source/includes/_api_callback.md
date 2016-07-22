@@ -3,7 +3,8 @@
 A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd"> NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
@@ -60,7 +61,8 @@ Upon receiving the `GET` request at your **Auth Callback URI**, your app should 
 
 ### <span class="jumptarget"> <a name="post-req"></a> Making the POST request </span>
 
-The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: `Content-Type: application/x-www-form-urlencoded`
+The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header:    
+`Content-Type: application/x-www-form-urlencoded`
 
 Make the `POST` request to the following address: `https://login.bigcommerce.com/oauth2/token`.
 

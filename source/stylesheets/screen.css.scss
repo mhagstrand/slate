@@ -876,62 +876,34 @@ img {
 // Styles for asides' bold headings – added 7/19/16;
 // Changed 7/21/16 to an optional <span> style. 
 // So we no longer enforce a heading in each callout 
-// – too confining and too inconsistent.
-// Each icon independently has the same color, 
-// so we can have colored icons a-la-carte.
+// – that was too confining, and too inconsistent. 
+// Also, the spans allow sideheads.
+// Each icon independently takes the same color, so we 
+// can has colored icons a-la-carte without colored heads.
 
-.content aside.notice::first-line {
+.aside-notice-hd {
   color: #4E75F8;
   font-weight: bold;
   text-shadow: none;
 }
 
-.content aside.success::first-line {
+.aside-success-hd {
   color: #50af51;
   font-weight: bold;
   text-shadow: none;
 }
 
-.content aside.warning::first-line {
+.aside-warning-hd {
   color: #ec971f;
   font-weight: bold;
   text-shadow: none;
 }
 
-.content aside.error::first-line {
+.aside-error-hd {
   color: #D9534F;
   font-weight: bold;
   text-shadow: none;
 }
-
-
-/* .content aside.notice::first-line {
-  color: #4E75F8;
-  font-weight: bold;
-  text-shadow: none;
-  display: block;
-}
-
-.content aside.success::first-line {
-  color: #50af51;
-  font-weight: bold;
-  text-shadow: none;
-  display: block;
-}
-
-.content aside.warning::first-line {
-  color: #ec971f;
-  font-weight: bold;
-  text-shadow: none;
-  display: block;
-}
-
-.content aside.error::first-line {
-  color: #D9534F;
-  font-weight: bold;
-  text-shadow: none;
-  display: block;
-} */
 
 
 @import 'custom';
