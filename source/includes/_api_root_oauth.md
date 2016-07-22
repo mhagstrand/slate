@@ -1,7 +1,8 @@
 # <span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span>
 
-<aside class="notice">
-tK: We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
+<aside class="warning">
+<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
+We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
 </aside>
 
 ## <span class="jumptarget"> About Single-Click Apps </span>

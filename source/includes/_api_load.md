@@ -1,7 +1,8 @@
 ## <span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 ### <span class="jumptarget"> Introduction</span>
@@ -32,7 +33,8 @@ The remainder of this entry discusses:
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd">NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
@@ -64,7 +66,8 @@ Host: app.example.com
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 
@@ -80,13 +83,15 @@ Host: app.example.com
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 ### <span class="jumptarget"> <a name="process"></a> Processing the signed payload</span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 #### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span>
@@ -110,7 +115,8 @@ To decode the signed payload, complete the following steps:
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
 <aside class="warning">
-NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+<span class="aside-warning-hd">NOTE:</span>
+To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
 ##### <span class="jumptarget"> Examples</span>
@@ -138,7 +144,8 @@ function verifySignedRequest($signedRequest)
 ```
 
 <aside class="notice">
-NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce's sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
+<span class="aside-notice-hd">NOTE:</span> 
+<code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce's sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
 </aside>
 
 *   [Ruby](#strcmp-ruby)
@@ -176,7 +183,8 @@ end
 #### <span class="jumptarget" id="Identifying"> Processing the JSON object</span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 ##### <span class="jumptarget"> Introduction</span>

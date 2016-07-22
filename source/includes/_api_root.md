@@ -1,7 +1,8 @@
 # <span class="jumptarget"> Building OAuth Apps </span>
 
 <aside class="notice">
-tK: We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
+<span class="aside-notice-hd">tK:</span>
+We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
 </aside>
 
 ## <span class="jumptarget"> App Installation and Update Sequence </span>
@@ -11,7 +12,8 @@ tK: We still need to migrate introductory content here. Should also add somethin
 A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](/api/registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd">NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
@@ -248,7 +250,8 @@ The remainder of this page discusses:
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd">NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
@@ -280,7 +283,8 @@ Host: app.example.com
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 
@@ -296,7 +300,8 @@ Host: app.example.com
 Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 ### <span class="jumptarget"> Processing the signed payload </span>
@@ -322,7 +327,9 @@ To decode the signed payload, complete the following steps:
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
 <aside class="warning">
-NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+
+<span class="aside-warning-hd">NOTE:</span>
+To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
 ##### <span class="jumptarget"> Examples </span>
@@ -349,7 +356,8 @@ function verifySignedRequest($signedRequest)
 ```
 
 <aside class="notice">
-NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce's sample app <NOBR><a href="hello-world-app-php-silex app">https://github.com/bigcommerce/hello-world-app-php-silex</a></nobr> does this automatically.
+<span class="aside-notice-hd">NOTE:</span>
+<code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce's sample app <NOBR><a href="hello-world-app-php-silex app">https://github.com/bigcommerce/hello-world-app-php-silex</a></nobr> does this automatically.
 </aside>
 
 *   [Ruby](#strcmp-ruby)
@@ -426,7 +434,8 @@ Interpreting the user information varies as follows.
 
 # <span class="jumptarget"> Building Basic-Auth Apps </span>
 
-<aside class="notice">
-tK: We still need to migrate content here. 
+<aside class="warning">
+<span class="aside-warning-hd">MIGRATION NOTE – TK:</span>
+We still need to migrate content here. 
 </aside>
 

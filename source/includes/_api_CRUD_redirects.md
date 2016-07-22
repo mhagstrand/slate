@@ -157,7 +157,8 @@ The following properties of the redirect are required. The request won’t be fu
 *   forward
 
 <aside class="notice">
-NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> fields of an existing redirect can be updated.
+<span class="aside-notice-hd">NOTES:</span> 
+The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> fields of an existing redirect can be updated.
 </aside>
 
 

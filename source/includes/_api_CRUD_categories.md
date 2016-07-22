@@ -226,5 +226,7 @@ Deletes all the categories in the store.
 >`DELETE /api/v2/categories`
 
 <aside class="warning">
-NOTE: The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+<span class="aside-warning-hd">NOTE:</span>
+
+The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 </aside>

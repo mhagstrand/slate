@@ -11,7 +11,7 @@ The app registration wizard requests a number of details that you may not know j
 ### <span class="jumptarget"> Technical Requirements </span>
 
 <aside class="notice">
-MIGRATION NOTE:<br>
+<span class="aside-notice-hd">MIGRATION NOTE:</span>
 Stacked heads; insert something here!
 </aside>
 
@@ -21,7 +21,8 @@ Stacked heads; insert something here!
 You must have an [Auth Callback URI](#installation) and a [Load Callback URI](#load_request) to register your app.
 
 <aside class="notice">
-NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+<span class="aside-notice-hd">NOTE:</span>
+Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
 #### <span class="jumptarget"> Uninstall callback (optional) </span>
@@ -52,7 +53,8 @@ The following procedure takes you through the minimum number of steps to success
 2.  In the resulting login page, provide your sandbox store credentials.
 
 <aside class="notice">
-NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+<span class="aside-notice-hd">NOTE:</span>
+These must be the credentials of the owner of the store where you plan to install your draft app.
 </aside>
 
 3.  Click `My Apps`.

@@ -10,7 +10,8 @@ For example, you might build an app that needs to know when:
 
 
 <aside class="notice">
-NOTES: Webhooks differ from the rest of the Stores API as follows:
+<span class="aside-notice-hd">NOTES:</span>
+Webhooks differ from the rest of the Stores API as follows:
   <ul>
 	<li>OAuth is required; basic authentication is not supported.</li>
 	<li>Self-signed certificates are not supported.</li>
@@ -38,7 +39,8 @@ Before you can send any requests or receive any responses, you will need the fol
 *   **Valid TLS/SSL setup**: verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
 <aside class="notice">
-NOTES: Any one of the following will cause a connection failure:
+<span class="aside-notice-hd">NOTES:</span>
+Any one of the following will cause a connection failure:
   <ul>
 	<li>Hostname/DNS mismatch.</li>
 	<li>Self-signed certificate.</li>
@@ -50,7 +52,8 @@ NOTES: Any one of the following will cause a connection failure:
 ### <span class="jumptarget"> Creating webhooks </span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 #### <span class="jumptarget"> Sending the POST request </span>
@@ -59,7 +62,7 @@ To create a webhook, send a `POST` request to the `hooks` resource, including:
 
 *   As the `scope` value, the event for which you would like to receive notification. See next section for the list of possibilities.
 <aside class="notice">
-NOTE: Wildcards are supported for <code>scope</code>.
+<span class="aside-notice-hd">NOTE:</span> Wildcards are supported for <code>scope</code>.
 </aside>
 *   As the `destination` value, the callback's fully qualified URI.
 
@@ -70,7 +73,8 @@ NOTE: Wildcards are supported for <code>scope</code>.
 An `HTTP 201` response indicates that the webhook was set successfully.
 
 <aside class="warning">
-MIGRATION NOTE: Links above and below here still need to be set, after Slate file refactoring.
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Links above and below here still need to be set, after Slate file refactoring.
 </aside>
 
 Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook) and [webhook object](https://developer.bigcommerce.com/api/objects/v2/webhook) pages for more details.
@@ -97,7 +101,8 @@ Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/
 You'll need to build an application and configure your server to receive the callback, which we send when events are triggered.
 
 <aside class="notice">
-NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
+<span class="aside-notice-hd">NOTE:</span>
+It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
 </aside>
 
 #### <span class="jumptarget"> Lightweight callback payload </span>
@@ -160,7 +165,8 @@ Using your OAuth access token, send a [DELETE request](/api/stores/v2/webhooks#d
 ### <span class="jumptarget"> Troubleshooting </span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 #### <span class="jumptarget"> Not receiving the POST requests to my callback URI </span>
@@ -191,7 +197,8 @@ After sending a POST request to create a webhook, you should get an HTTP 201 bac
 ### <span class="jumptarget"> Tools for Debugging and Testing Webhooks </span>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 ##### <span class="jumptarget"> RequestBin </span>
