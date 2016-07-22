@@ -172,7 +172,11 @@
       <div class="content">
         <h1 id="api-documentation">API Documentation</h1>
 
-<p>Lorem Ipsum </p>
+<p>The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.</p>
+
+<p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).</p>
+
+<p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
 <section class=
     "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
@@ -187,7 +191,7 @@
                           "text-align: center;" style="text-align: center;">
                           <span class="type-large"><strong class=
                           "rt-scheme-headline">API V2</strong><br>
-                          Lorem Ipsum Nonsense
+                          Core API, supporting all currently exposed resources via Basic Auth or OAuth.
                           </span><span class=
                           "type-large"><br>
                           <br>
@@ -202,7 +206,7 @@
                             <p class="rt-scheme--lightestGrey" style=
                             "text-align: center;"><strong class=
                             "rt-scheme-headline">API V3</strong><span class="type-large"><br>
-                            Lorem Ipsum Nonsense</span><span class=
+                            New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only.</span><span class=
                             "type-large"><br>
                             <br>
                             <a class="button button--action" href=
@@ -217,8 +221,9 @@
 
           <h1 id="building-oauth-apps"><span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span></h1>
 
-<aside class="notice">
-tK: We still need to migrate introductory content here. Should also add something explaining the new terminology &ldquo;OAuth Apps&rdquo; versus &ldquo;Basic-Auth Apps.&rdquo;
+<aside class="warning">
+<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
+We still need to migrate introductory content here. Should also add something explaining the new terminology &ldquo;OAuth Apps&rdquo; versus &ldquo;Basic-Auth Apps.&rdquo;
 </aside>
 
 <h2 id="about-single-click-apps"><span class="jumptarget"> About Single-Click Apps </span></h2>
@@ -272,7 +277,7 @@ tK: We still need to migrate introductory content here. Should also add somethin
 <h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
 <aside class="notice">
-MIGRATION NOTE:<br>
+<span class="aside-notice-hd">MIGRATION NOTE:</span>
 Stacked heads; insert something here!
 </aside>
 
@@ -281,7 +286,8 @@ Stacked heads; insert something here!
 <p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
 
 <aside class="notice">
-NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+<span class="aside-notice-hd">NOTE:</span>
+Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
 <h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall callback (optional) </span></h4>
@@ -318,7 +324,8 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 </ol>
 
 <aside class="notice">
-NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+<span class="aside-notice-hd">NOTE:</span>
+These must be the credentials of the owner of the store where you plan to install your draft app.
 </aside>
 
 <ol>
@@ -344,7 +351,8 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
 <p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd"> NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
 </aside>
@@ -412,7 +420,8 @@ Host: app.example.com
 
 <h3 id="making-the-post-request"><span class="jumptarget"> <a name="post-req"></a> Making the POST request </span></h3>
 
-<p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header: <code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
+<p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header:<br>
+<code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
 
 <p>Make the <code class="prettyprint">POST</code> request to the following address: <code class="prettyprint">https://login.bigcommerce.com/oauth2/token</code>.</p>
 
@@ -603,7 +612,8 @@ $token = $response-&gt;access_token;
           <h2 id="load-uninstall-and-user-removal-requests"><span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span></h2>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h3 id="introduction"><span class="jumptarget"> Introduction</span></h3>
@@ -656,7 +666,8 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <p>Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a <strong>GET</strong> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
 
 <aside class="warning">
-NOTES: The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd">NOTES:</span>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
 </aside>
@@ -684,7 +695,8 @@ Host: app.example.com
 <p>Upon receiving the <strong>GET</strong> request, your app will need to <a href="#process">process the signed payload</a>.</p>
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 <h3 id="about-the-remove-user-request-optional"><span class="jumptarget"> <a name="remove-user"></a> About the remove user request (optional)</span></h3>
@@ -697,13 +709,15 @@ Host: app.example.com
 <p>Upon receiving the <strong>GET</strong> request, your app will need to <a href="#process">process the signed payload</a>.</p>
 
 <aside class="notice">
-NOTE: Any HTML that you return in your response will not be rendered.
+<span class="aside-notice-hd">NOTE:</span>
+Any HTML that you return in your response will not be rendered.
 </aside>
 
 <h3 id="processing-the-signed-payload"><span class="jumptarget"> <a name="process"></a> Processing the signed payload</span></h3>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h4 id="splitting-and-decoding-the-signed-payload"><span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span></h4>
@@ -727,7 +741,8 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <p>To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.</p>
 
 <aside class="warning">
-NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+<span class="aside-warning-hd">NOTE:</span>
+To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
 </aside>
 
 <h5 id="examples"><span class="jumptarget"> Examples</span></h5>
@@ -755,7 +770,8 @@ NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-l
 </code></pre>
 
 <aside class="notice">
-NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
+<span class="aside-notice-hd">NOTE:</span> 
+<code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
 </aside>
 
 <ul>
@@ -793,7 +809,8 @@ end
 <h4 id="processing-the-json-object"><span class="jumptarget" id="Identifying"> Processing the JSON object</span></h4>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h5 id="introduction"><span class="jumptarget"> Introduction</span></h5>
@@ -881,7 +898,8 @@ MIGRATION NOTE: Stacked heads; insert something here!
 </ul>
 
 <aside class="notice">
-NOTES: Webhooks differ from the rest of the Stores API as follows:
+<span class="aside-notice-hd">NOTES:</span>
+Webhooks differ from the rest of the Stores API as follows:
   <ul>
     <li>OAuth is required; basic authentication is not supported.</li>
     <li>Self-signed certificates are not supported.</li>
@@ -908,7 +926,8 @@ NOTES: Webhooks differ from the rest of the Stores API as follows:
 </ul>
 
 <aside class="notice">
-NOTES: Any one of the following will cause a connection failure:
+<span class="aside-notice-hd">NOTES:</span>
+Any one of the following will cause a connection failure:
   <ul>
     <li>Hostname/DNS mismatch.</li>
     <li>Self-signed certificate.</li>
@@ -919,7 +938,8 @@ NOTES: Any one of the following will cause a connection failure:
 <h3 id="creating-webhooks"><span class="jumptarget"> Creating webhooks </span></h3>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h4 id="sending-the-post-request"><span class="jumptarget"> Sending the POST request </span></h4>
@@ -929,7 +949,7 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <ul>
 <li>  As the <code class="prettyprint">scope</code> value, the event for which you would like to receive notification. See next section for the list of possibilities.
 <aside class="notice">
-NOTE: Wildcards are supported for <code>scope</code>.
+<span class="aside-notice-hd">NOTE:</span> Wildcards are supported for <code>scope</code>.
 </aside></li>
 <li><p>As the <code class="prettyprint">destination</code> value, the callback&rsquo;s fully qualified URI.</p></li>
 <li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, Bigcommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from Bigcommerce instead of some other party, such as a malicious actor.</p></li>
@@ -939,7 +959,8 @@ NOTE: Wildcards are supported for <code>scope</code>.
 <p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
 
 <aside class="warning">
-MIGRATION NOTE: Links above and below here still need to be set, after Slate file refactoring.
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Links above and below here still need to be set, after Slate file refactoring.
 </aside>
 
 <p>Please review the <a href="https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook">hooks resource</a> and <a href="https://developer.bigcommerce.com/api/objects/v2/webhook">webhook object</a> pages for more details.</p>
@@ -968,7 +989,8 @@ MIGRATION NOTE: Links above and below here still need to be set, after Slate fil
 <p>You&rsquo;ll need to build an application and configure your server to receive the callback, which we send when events are triggered.</p>
 
 <aside class="notice">
-NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
+<span class="aside-notice-hd">NOTE:</span>
+It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
 </aside>
 
 <h4 id="lightweight-callback-payload"><span class="jumptarget"> Lightweight callback payload </span></h4>
@@ -1033,7 +1055,8 @@ NOTE: It can take up to one minute for BigCommerce to start sending <code>POST</
 <h3 id="troubleshooting"><span class="jumptarget"> Troubleshooting </span></h3>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h4 id="not-receiving-the-post-requests-to-my-callback-uri"><span class="jumptarget"> Not receiving the POST requests to my callback URI </span></h4>
@@ -1063,7 +1086,8 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <h3 id="tools-for-debugging-and-testing-webhooks"><span class="jumptarget"> Tools for Debugging and Testing Webhooks </span></h3>
 
 <aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Stacked heads; insert something here!
 </aside>
 
 <h5 id="requestbin"><span class="jumptarget"> RequestBin </span></h5>
@@ -1164,7 +1188,8 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
 
 <aside class="warning">
-MIGRATION NOTE: All links in the right column need to be re-set!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+ All links in the right column need to be re-set!
 </aside>
 
 <table><thead>
@@ -1438,7 +1463,8 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 <li><p>All API requests must be made using OAuth authentication.</p></li>
 <li><p>Apps must be production-ready and free of defects.
 <aside class="warning">
-NOTE: Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
+<span class="aside-warning-hd">NOTE:</span>
+Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
 </aside></p></li>
 <li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/v2/#ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
 <li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
@@ -1446,7 +1472,7 @@ NOTE: Install and test your app thoroughly prior to submission. Be sure to insta
 <li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p>
 
 <aside class="notice">
-NOTE: You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
+<span class="aside-notice-hd">NOTE:</span> You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
 </aside></li>
 <li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
 <li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
@@ -1550,8 +1576,9 @@ NOTE: You can obtain the store name, phone number, and other information from th
 
           <h1 id="building-basic-auth-apps"><span class="jumptarget"> Building Basic-Auth Apps </span></h1>
 
-<aside class="notice">
-tK: We still need to migrate content here. 
+<aside class="warning">
+<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
+We still need to migrate this section&rsquo;s whole content! 
 </aside>
 
           <h1 id="client-libraries"><span class="jumptarget"> Client Libraries </span></h1>
@@ -1886,7 +1913,8 @@ tK: We still need to migrate content here.
 <p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
 
 <aside class="warning">
-MIGRATION NOTE: All links in the right column need to be re-set!
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+ All links in the right column need to be re-set!
 </aside>
 
 <table><thead>
@@ -2202,7 +2230,7 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 <h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
 <aside class="notice">
-MIGRATION NOTE:<br>
+<span class="aside-notice-hd">MIGRATION NOTE:</span>
 Stacked heads; insert something here!
 </aside>
 
@@ -2211,7 +2239,8 @@ Stacked heads; insert something here!
 <p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
 
 <aside class="notice">
-NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
+<span class="aside-notice-hd">NOTE:</span>
+Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
 <h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall callback (optional) </span></h4>
@@ -2248,7 +2277,8 @@ NOTE: Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests
 </ol>
 
 <aside class="notice">
-NOTE: These must be the credentials of the owner of the store where you plan to install your draft app.
+<span class="aside-notice-hd">NOTE:</span>
+These must be the credentials of the owner of the store where you plan to install your draft app.
 </aside>
 
 <ol>
