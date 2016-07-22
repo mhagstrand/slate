@@ -271,8 +271,9 @@ tK: We still need to migrate introductory content here. Should also add somethin
 
 <h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
-<aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<aside class="notice">
+MIGRATION NOTE:<br>
+Stacked heads; insert something here!
 </aside>
 
 <h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
@@ -716,7 +717,7 @@ MIGRATION NOTE: Stacked heads; insert something here!
 <ol>
 <li> Split <code class="prettyprint">signed_payload</code> into its two parts at the <code class="prettyprint">.</code> delimiter.</li>
 <li> Decode <code class="prettyprint">encoded_json_string</code> using base64url.</li>
-<li> Convert the decoded JSON string into an object. See <a href="#Identifying">Processing the JSON object</a> in for more about this object.</li>
+<li> Convert the decoded JSON string into an object. See <a href="#Identifying">Processing the JSON object</a> for more about this object.</li>
 <li> Decode <code class="prettyprint">encoded_hmac_signature</code> using base64url.</li>
 <li> Use your client secret to verify the signature. See the next section for more details.</li>
 </ol>
@@ -732,27 +733,26 @@ NOTE: To limit the vulnerability of your app to <a href="http://codahale.com/a-l
 <h5 id="examples"><span class="jumptarget"> Examples</span></h5>
 
 <ul>
-<li><p><a href="#strcmp-php">PHP</a>
-&ldquo;`
-function verifySignedRequest($signedRequest)
-{
-list($encodedData, $encodedSignature) = explode(&rsquo;.&rsquo;, $signedRequest, 2); </p>
-
-<p>// decode the data
-$signature = base64_decode($encodedSignature);
-    $jsonStr = base64_decode($encodedData);
-$data = json_decode($jsonStr, true);</p>
-
-<p>// confirm the signature
-$expectedSignature = hash_hmac(&lsquo;sha256&rsquo;, $jsonStr, $clientSecret(), $raw = false);
-if (!hash_equals($expectedSignature, $signature)) {
-    error_log(&#39;Bad signed request from BigCommerce!&rsquo;);
-    return null;
-}
-return $data;
-}
-&rdquo;`</p></li>
+<li>  <a href="#strcmp-php">PHP</a></li>
 </ul>
+<pre class="highlight php"><code><span class="k">function</span> <span class="nf">verifySignedRequest</span><span class="p">(</span><span class="nv">$signedRequest</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">list</span><span class="p">(</span><span class="nv">$encodedData</span><span class="p">,</span> <span class="nv">$encodedSignature</span><span class="p">)</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="nv">$signedRequest</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> 
+
+    <span class="c1">// decode the data
+</span>    <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$encodedSignature</span><span class="p">);</span>
+        <span class="nv">$jsonStr</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$encodedData</span><span class="p">);</span>
+    <span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$jsonStr</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+    <span class="c1">// confirm the signature
+</span>    <span class="nv">$expectedSignature</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$jsonStr</span><span class="p">,</span> <span class="nv">$clientSecret</span><span class="p">(),</span> <span class="nv">$raw</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hash_equals</span><span class="p">(</span><span class="nv">$expectedSignature</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nb">error_log</span><span class="p">(</span><span class="s1">'Bad signed request from BigCommerce!'</span><span class="p">);</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre>
 
 <aside class="notice">
 NOTE: <code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
@@ -790,7 +790,7 @@ def secure_compare(a, b)
 end
 </code></pre>
 
-<h4 id="processing-the-json-object"><span class="jumptarget"> Processing the JSON object</span></h4>
+<h4 id="processing-the-json-object"><span class="jumptarget" id="Identifying"> Processing the JSON object</span></h4>
 
 <aside class="warning">
 MIGRATION NOTE: Stacked heads; insert something here!
@@ -1042,14 +1042,16 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
 <p>You can proactively check to make sure that everything is OK by periodically making a GET request and checking the <code class="prettyprint">is_active</code> flag.</p>
 
-<p>If you receive an email or discover that the <code class="prettyprint">is_active</code> flag has been flipped to <code class="prettyprint">false</code>, try the following.</p>
+<p>If you receive an email or discover that the <code class="prettyprint">is_active</code> flag has been flipped to <code class="prettyprint">false</code>, try the following:</p>
 
 <ul>
-<li>  Check to see if your app is responding to the POST request with something other than <code class="prettyprint">HTTP 200</code>.</li>
-<li><p>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com<a>. Any of the following will cause the TLS/SSL handshake to fail: </p></li>
-<li><p>Self-signed certificate</p></li>
-<li><p>Host name of the certificate does not match the server&rsquo;s DNS</p></li>
-<li><p>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust</p></li>
+    <li>Check to see if your app is responding to the POST request with something other than `HTTP 200`.</li>
+    <li>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </li>
+    <ul>
+        <li>Self-signed certificate.</li>
+        <li>Host name of the certificate does not match the server&rsquo;s DNS.</li>
+    <li>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust.</li>
+    </ul>
 </ul>
 
 <p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
@@ -1078,28 +1080,28 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
           <h2 id="multi-user-support"><span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span></h2>
 
-<p>When you register your app with Bigcommerce, if you <a href="/api#multiuser">enable multi-user support</a>, it will allow store admins to manually authorize users other than the store owner to load the app. This feature is not available for <a href="/api#basic-auth">Private Apps</a>.</p>
+<p>When you register your app with Bigcommerce, if you <a href="/api#multiuser">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="/api#basic-auth">basic-auth apps</a>.</p>
 
 <h3 id="enable-multi-user-support"><span class="jumptarget"> Enable multi-user support</span></h3>
 
-<p>As soon as you <a href="/api#multiuser">enable multi-user support</a>, it affects the Control Panel of any store with your app installed. If you already have an app published in the App Store, be mindful that this setting takes affect immediately. We recommend testing your multi-user support using a separate app in Draft status.</p>
+<p>As soon as you <a href="/api#multiuser">enable multi-user support</a>, this affects the control panel of any store that has your app installed. If you already have an app published in the App Store, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.</p>
 
 <blockquote>
 <p>NOTE: Let your customers know that you&rsquo;ve enabled this feature! Otherwise, they won&rsquo;t know that they can start granting access to users.</p>
 </blockquote>
 
-<p>To opt in:</p>
+<p>To opt into multi-user support:</p>
 
 <ol>
-<li> Log into My Apps</li>
-<li> In the <strong>Technical</strong> panel, select <strong>Multiple Users</strong> in the <strong>Supported Features</strong> area.</li>
-<li> Provide a <strong>Remove User Callback URI</strong> in the <strong>Remove User Callback URI</strong> box.</li>
+<li> Log into <strong>My Apps</strong>.</li>
+<li> In the <strong>Technical</strong> panel &gt; <strong>Supported Features</strong> area, select <strong>Multiple Users</strong>.</li>
+<li> In the <strong>Remove User Callback URI</strong> box, provide a <strong>Remove User Callback URI</strong>.</li>
 <li> Save and close your app.</li>
 </ol>
 
-<h3 id="about-the-control-panel-experience"><span class="jumptarget"> About the control panel experience</span></h3>
+<h3 id="about-the-control-panel-experience"><span class="jumptarget"> About the control-panel experience</span></h3>
 
-<p>Store admins will be able to adjust user permissions to grant/deny access to your app for other store users.</p>
+<p>Store admins will be able to adjust user permissions to grant/deny other store users&rsquo; access to your app.</p>
 
 <p>The next time the user logs in, they will see any apps for which they have been granted access. The user can then click on the app icon in the left navigation to load it.</p>
 
@@ -1109,20 +1111,20 @@ MIGRATION NOTE: Stacked heads; insert something here!
 
 <p>Apps with multiple users enabled can expect more than just the store owner&rsquo;s email and ID in the JSON object sent in the load request. If a load request is sent with user information you haven&rsquo;t seen yet, you should provision the user account and associate it with the store in your database.</p>
 
-<p>Because you know the store owner&rsquo;s email and ID from the <a href="/api#callback">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. A summary of the two types of users follows.</p>
+<p>Because you know the store owner&rsquo;s email and ID from the <a href="/api#callback">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:</p>
 
 <ul>
-<li>  <strong>Store owner</strong>: can install, uninstall, and load apps.</li>
-<li>  <strong>Users</strong>: cannot install or uninstall apps. Only allowed to load the apps that a store admin has authorized.</li>
+<li>  <strong>Store owner</strong>: Can install, uninstall, and load apps.</li>
+<li>  <strong>Users</strong>: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.</li>
 </ul>
 
 <p>Review <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
 
 <h3 id="about-the-remove-user-request"><span class="jumptarget"> About the remove user request </span></h3>
 
-<p>In addition to the ability to add users, store admins can also remove users. This action results in a <code class="prettyprint">**GET**</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete the user identified in the request from its records.</p>
+<p>In addition to their ability to add users, store admins can also remove users. This action results in a <code class="prettyprint">**GET**</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete from its records the user identified in the request.</p>
 
-<p>Review <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
+<p>For further information, please see <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a>.</p>
 
           <h2 id="ui-constraints"><span class="jumptarget"> UI Constraints </span></h2>
 
@@ -1199,13 +1201,13 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 </tr>
 <tr>
 <td></td>
-<td>*store_v2_customers_login</td>
+<td></td>
 <td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td><a href="/api#placeholder">Customer Login Token</a></td>
+<td>Customer Login</td>
+<td><strong>store_v2_customers_login</strong></td>
+<td>[Grants access to <a href="/api/v2/#customer-storefront-login">Customer Login API</a>)]</td>
 </tr>
 <tr>
 <td>Default</td>
@@ -1397,33 +1399,33 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 
 <p>The store’s overall quota is evenly distributed across all apps that are accessing that store. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself.</p>
 
-<h3 id="playing-nicely-with-the-platform">Playing Nicely With The Platform</h3>
+<h3 id="playing-nicely-with-the-platform">Playing Nicely with The Platform</h3>
 
-<p>Your ability to honor the rate limiter is very easy.</p>
+<p>Honoring the rate limiter is very easy:</p>
 
-<p>If your request to the API results in a <strong>429 Too Many Requests</strong> response, then you know you’ve been limited.</p>
+<p>If your request to the API triggers a <strong>429 Too Many Requests</strong> response, then you know you’ve been limited.</p>
 
-<p>The rate limited response will contain the <strong>X-Retry-After</strong> header, specifying a time (in seconds) that your client must wait before its quota has refreshed.</p>
+<p>The rate-limited response will contain the <strong>X-Retry-After</strong> header, specifying a time (in seconds) that your client must wait before its quota has refreshed.</p>
 
-<p>Retry the request after this time has elapsed and your API service will resume as normal.</p>
+<p>Retry the request after this time has elapsed, and your API service will resume as normal.</p>
 
 <h4 id="example">Example</h4>
 
-<p>When you see a response with the <code class="prettyprint">429</code> status code your client shouldn’t make any further requests until your quota has refreshed.</p>
-
-<p>HTTP/1.1 429 Too Many Requests
+<p>When you see a response with a <code class="prettyprint">429</code> status code, your client shouldn’t make any further requests until your quota has refreshed:</p>
+<pre class="highlight plaintext"><code>    HTTP/1.1 429 Too Many Requests
     Date: Mon, 03 Feb 2014 20:36:00 GMT
     Content-Type: application/json
-    X-Retry-After: 15</p>
+    X-Retry-After: 15
+</code></pre>
 
 <p>Parse the <strong>X-Retry-After</strong> header to determine how long you have to wait. In this case, it would be 15 seconds.</p>
 
-<p>Your client can sleep on it:</p>
+<p>Your client can sleep on the specified interval:</p>
+<pre class="highlight plaintext"><code>    $seconds = $response-&gt;getHeader("X-Retry-After");
+    sleep($seconds);
+</code></pre>
 
-<p>$seconds = $response-&gt;getHeader(&ldquo;X-Retry-After&rdquo;);
-    sleep($seconds);</p>
-
-<p>After waiting for the given number of seconds, you can go back to making API requests again.</p>
+<p>After waiting for the given number of seconds, you can go back to making API requests.</p>
 
           <h2 id="app-store-approval-requirements"><span class="jumptarget" id="approval"> App Store Approval Requirements </span></h2>
 
@@ -1441,10 +1443,11 @@ NOTE: Install and test your app thoroughly prior to submission. Be sure to insta
 <li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/v2/#ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
 <li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
 <li><p>Apps must be easy to use.</p></li>
-<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
-<aside class="info">
-NOTE: The store name, phone number, and other information can be obtained from the <a href="/api/store">Store&#160;Information</a> resource.
-</aside></p></li>
+<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.</p>
+
+<aside class="notice">
+NOTE: You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
+</aside></li>
 <li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
 <li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
 <li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
@@ -1920,13 +1923,13 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 </tr>
 <tr>
 <td></td>
-<td>*store_v2_customers_login</td>
+<td></td>
 <td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td><a href="/api#placeholder">Customer Login Token</a></td>
+<td>Customer Login</td>
+<td><strong>store_v2_customers_login</strong></td>
+<td>[Grants access to <a href="/api/v2/#customer-storefront-login">Customer Login API</a>)]</td>
 </tr>
 <tr>
 <td>Default</td>
@@ -2198,8 +2201,9 @@ MIGRATION NOTE: All links in the right column need to be re-set!
 
 <h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
 
-<aside class="warning">
-MIGRATION NOTE: Stacked heads; insert something here!
+<aside class="notice">
+MIGRATION NOTE:<br>
+Stacked heads; insert something here!
 </aside>
 
 <h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
@@ -2590,8 +2594,8 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
       </div>
     </div>
     <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
         var container = $('.page-wrapper .content');
-        var body = $('body');
         var headerHeightPixels = 85;
 
         container.on('click', function(event) {
@@ -2599,8 +2603,8 @@ NOTE: These must be the credentials of the owner of the store where you plan to 
 
             if (target.is('a') && target.attr('href').charAt(0) === '#') {
                 setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
             }
         });
     </script>

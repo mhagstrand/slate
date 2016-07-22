@@ -520,7 +520,7 @@
 <tr>
 <td>primary_image</td>
 <td>object</td>
-<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes: <code class="prettyprint">zoom_url</code> is the original image size provided to BigCommerce; <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels; <code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box; and <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box.</td>
+<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes: <code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box. <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box. <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels. And <code class="prettyprint">zoom_url</code> is either the original image size provided to BigCommerce, or the merchant-selected <code class="prettyprint">Product Zoom Image</code>/<code class="prettyprint">Zoomed image</code> size – whichever is smaller. (You can always access the product&rsquo;s original image via the <a href="/api/v2/products/#product-images">Product Images resource</a>.)</td>
 </tr>
 <tr>
 <td>availability</td>
@@ -540,7 +540,7 @@
 <tr>
 <td>images</td>
 <td>resource</td>
-<td>See the Images resource for information.</td>
+<td>See the <a href="/api/v2/products/#product-images">Product Images resource</a> for information.</td>
 </tr>
 <tr>
 <td>discount_rules</td>
@@ -560,7 +560,7 @@
 <tr>
 <td>videos</td>
 <td>resource</td>
-<td>See the Videos resource for information.</td>
+<td>See the <a href="/api/v2/products/#videos">Videos resource</a> for information.</td>
 </tr>
 <tr>
 <td>skus</td>
@@ -1386,6 +1386,7 @@
 <li>  discount_rules</li>
 <li>  configurable_fields</li>
 <li>  custom_fields</li>
+<li>  primary_image</li>
 <li>  videos</li>
 <li>  skus</li>
 <li>  rules</li>
@@ -1448,6 +1449,7 @@
 <li>  discount_rules</li>
 <li>  configurable_fields</li>
 <li>  custom_fields</li>
+<li>  primary_image</li>
 <li>  videos</li>
 <li>  skus</li>
 <li>  rules</li>
@@ -6854,37 +6856,35 @@
 <td>string</td>
 <td></td>
 </tr>
-<tr>
-<td>shipping_provider</td>
-<td>string</td>
-<td>Enum of the delivery service fulfilling the shipment</td>
-</tr>
-<tr>
-<td>tracking_carrier</td>
-<td>string</td>
-<td>Enum of the shipping-carrier integration</td>
-</tr>
-<tr>
-<td>comments</td>
-<td>text</td>
-<td>Comments the shipper wishes to add</td>
-</tr>
-<tr>
-<td>billing_address</td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>shipping_address</td>
-<td>object</td>
-<td></td>
-</tr>
-<tr>
-<td>items</td>
-<td>object_array</td>
-<td>The items in the shipment. This is an object; see the items table. A sample value might be: [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</td>
-</tr>
 </tbody></table>
+
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+| shipping_provider | string | Enum of the shipping-carrier integration |</p>
+
+<h1 id="tracking_carrier-string-enum-of-the-delivery-service-fulfilling-the-shipment">| tracking_carrier | string | Enum of the delivery service fulfilling the shipment |</h1>
+
+<p>| shipping_provider | string | Enum of the delivery service fulfilling the shipment |
+| tracking_carrier | string | Enum of the shipping-carrier integration |</p>
+
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>master
+| comments | text | Comments the shipper wishes to add |
+| billing_address | object |
+| shipping_address | object |
+| items | object_array | The items in the shipment. This is an object; see the items table. A sample value might be: [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
           <table><thead>
 <tr>
@@ -6952,7 +6952,8 @@
     </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 17:17:10 +0000"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"111222333444"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ups"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ups"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tracking_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ups"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A sample shipment for order 115"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Louise"</span><span class="p">,</span><span class="w">
@@ -7011,7 +7012,8 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123-123-123"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usps"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usps"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"usps"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
@@ -7133,7 +7135,8 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 19:49:15 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EJ958083578US"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canada-post"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canadapost"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"canada-post"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ready to go..."</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Henry"</span><span class="p">,</span><span class="w">
@@ -7172,6 +7175,15 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
+
+<p>The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: </p>
+
+<ul>
+<li><code class="prettyprint">shipping_provider</code>: Acceptable values are an empty string (<code class="prettyprint">&quot;&quot;</code>), or one of these valid BigCommerce shipping- provider values: <code class="prettyprint">auspost</code>, <code class="prettyprint">canadapost</code>, <code class="prettyprint">endicia</code>, <code class="prettyprint">usps</code>, <code class="prettyprint">fedex</code>, <code class="prettyprint">royalmail</code>, <code class="prettyprint">ups</code>, <code class="prettyprint">upsready</code>, <code class="prettyprint">upsonline</code>, or <code class="prettyprint">shipperhq</code>.</li>
+<li><code class="prettyprint">tracking_carrier</code>: Acceptable values are an empty string (<code class="prettyprint">&quot;&quot;</code>), or one of the valid tracking-carrier values viewable <a href="https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&amp;single=true">here</a> and downloadable as a .CSV file <a href="https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&amp;single=true&amp;output=csv">here</a>.</li>
+</ul>
 
 <h2 id="update-a-shipment"><span class="jumptarget"> Update a Shipment </span></h2>
 
@@ -7215,7 +7227,8 @@
   </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wed, 19 Dec 2012 18:18:23 +0000"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tracking_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex1245"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"shipping_method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"None"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"shipping_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"shipping_provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"tracking_carrier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fedex"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Notes about the shipment"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"billing_address"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Julie"</span><span class="p">,</span><span class="w">
@@ -7963,7 +7976,7 @@
 
 <p>Identity and account details for customers shopping on Bigcommerce stores</p>
 
-<h2 id="customer-object-properties"><span class="jumptarget"> Customer Object - Properties </span></h2>
+<h2 id="customer-object-properties"><span class="jumptarget"> Customer Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -7990,12 +8003,12 @@
 <tr>
 <td>first_name</td>
 <td>string</td>
-<td>First name of customer</td>
+<td>First name of the customer</td>
 </tr>
 <tr>
 <td>last_name</td>
 <td>string</td>
-<td>Last name of customer</td>
+<td>Last name of the customer</td>
 </tr>
 <tr>
 <td>email</td>
@@ -8005,7 +8018,7 @@
 <tr>
 <td>phone</td>
 <td>string</td>
-<td>Phone number of customer</td>
+<td>Phone number of the customer</td>
 </tr>
 <tr>
 <td>date_created</td>
@@ -8043,9 +8056,19 @@
 <td>Used to identify customers that fall into special sales tax categories, in particular, those who are fully or partially exempt from paying sales tax. Stores that subscribe to Avalara Premium will use this code to determine how/whether to apply sales tax. Doesn&rsquo;t affect the sales tax calculations of stores that don&rsquo;t subscribe to Avalara Premium. Either blank or contains/accepts a single AvaTax code. Should not contain more than one code. The codes are case-sensitive. Refer to the following page for further information and the full list of codes: http://developer.avalara.com/api-docs/designing-your-integration/handling-tax-exempt-customers</td>
 </tr>
 <tr>
+<td>accepts_marketing</td>
+<td>boolean</td>
+<td>Records whether the customer would like to receive marketing content from this store. Read&#x2011;only.</td>
+</tr>
+<tr>
 <td>addresses</td>
 <td>resource</td>
 <td></td>
+</tr>
+<tr>
+<td>form_fields</td>
+<td>object</td>
+<td>Array of custom fields.</td>
 </tr>
 </tbody></table>
 
@@ -8220,6 +8243,7 @@
     </span><span class="nt">"customer_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"tax_exempt_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accepts_marketing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/customers/1/addresses.json"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/1/addresses"</span><span class="w">
@@ -8239,6 +8263,7 @@
     </span><span class="nt">"customer_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"tax_exempt_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"accepts_marketing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/customers/2/addresses.json"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/2/addresses"</span><span class="w">
@@ -8271,6 +8296,7 @@
   </span><span class="nt">"customer_group_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
   </span><span class="nt">"notes"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
   </span><span class="nt">"tax_exempt_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"accepts_marketing"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
   </span><span class="nt">"addresses"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://store-bwvr466.mybigcommerce.com/api/v2/customers/1/addresses.json"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/customers/1/addresses"</span><span class="w">
@@ -8312,6 +8338,7 @@
 <li>  id</li>
 <li>  date_created</li>
 <li>  date_modified</li>
+<li>  accepts_marketing</li>
 <li>  addresses</li>
 </ul>
 
@@ -8382,6 +8409,7 @@
 <li>  id</li>
 <li>  date_created</li>
 <li>  date_modified</li>
+<li>  accepts_marketing</li>
 <li>  addresses</li>
 </ul>
 
@@ -8448,14 +8476,47 @@
 &gt;<code class="prettyprint">DELETE /api/v2/customers</code></li>
 </ul>
 
-          <h1 id="customer-storefront-login"><span class="jumptarget"> Customer Storefront Login </span></h1>
+          <h1 id="customer-login-api">Customer Login API</h1>
 
-<p>This is a feature to enable single sign-on (SSO) by allowing a token to be generated and then programmatically sign in a storefront customer. A storefront login entrypoint exists at <code class="prettyprint">/login/token/{token}</code> where <code class="prettyprint">{token}</code> is expected to be a JWT (JSON Web Token) signed by the single click application’s client secret and containing the parameters for the customer login request in the payload.
-A full overview of the JWT standard and links to client libraries in a number of languages are available at <a href="https://jwt.io">JWT.io</a> . BigCommerce also supplies helper methods for generating JWT login tokens in our <a href="https://developer.bigcommerce.com/api/clients">API Client Libraries</a>.</p>
+<p>The Customer Login API enables single sign-on (SSO). It allows your apps to generate a token to programmatically log in a storefront customer, by using the login entry point  at <code class="prettyprint">/login/token/{token}</code>. Here, <code class="prettyprint">{token}</code> must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>&rsquo;s <a href="/api/#registration" target="_blank">client secret</a>.</p>
+
+<p>For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.</p>
+
+<h2 id="customer-login-token">Customer Login Token</h2>
+
+<p>A valid JWT token is a string composed of three parts, separated by periods (“.”). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.</p>
+
+<h3 id="example-url">Example URL</h3>
+<pre class="highlight plaintext"><code>https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9
+.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
+</code></pre>
+
+<h3 id="header">Header</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="nt">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="payload">Payload</h3>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">“iss”:</span><span class="w"> </span><span class="err">“&lt;application_client_id&gt;”,</span><span class="w">
+</span><span class="err">“iat”:</span><span class="w"> </span><span class="err">&lt;issued_at&gt;,</span><span class="w">
+</span><span class="err">“jti”:</span><span class="w"> </span><span class="err">“&lt;unique_string&gt;”,</span><span class="w">
+</span><span class="err">“operation”:</span><span class="w"> </span><span class="err">“customer_login”,</span><span class="w">
+</span><span class="err">“store_hash”:</span><span class="w"> </span><span class="err">“&lt;store_hash&gt;”,</span><span class="w">
+</span><span class="err">“customer_id”:</span><span class="w"> </span><span class="err">&lt;customer_id&gt;,</span><span class="w">
+</span><span class="err">“redirect_to”:</span><span class="w"> </span><span class="err">“&lt;relative_path</span><span class="w"> </span><span class="err">(optional)&gt;”,</span><span class="w">
+</span><span class="err">“request_ip”:</span><span class="w"> </span><span class="err">“&lt;ipv4_address</span><span class="w"> </span><span class="err">(optional)&gt;”</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="fields">Fields</h3>
 
 <table><thead>
 <tr>
-<th>Name</th>
+<th>Field Name</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -8463,147 +8524,74 @@ A full overview of the JWT standard and links to client libraries in a number of
 <tr>
 <td>iss</td>
 <td>string</td>
-<td>Indicates the issuer of the token. It is the client id of the single click application, which is obtained during application registration in Developer Portal.</td>
+<td>Indicates the token&rsquo;s issuer. This is your application&rsquo;s client ID, which is obtained during application registration in Developer Portal.</td>
 </tr>
 <tr>
 <td>iat</td>
-<td></td>
-<td>Time when the token was generated. It is a numeric value indicating the number of seconds since the <a href="http://en.wikipedia.org/wiki/Unix_time">unix epoch</a>.</td>
+<td>integer</td>
+<td>Time when the token was generated. This is a numeric value indicating the number of seconds since the <a href="http://en.wikipedia.org/wiki/Unix_time">Unix epoch</a>.</td>
 </tr>
 <tr>
 <td>jti</td>
 <td>string</td>
-<td>Unique string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value.</td>
+<td>Request ID string that must be unique across all requests made by your app. A UUID or other random string would be an appropriate value.</td>
 </tr>
 <tr>
 <td>operation</td>
 <td>enum</td>
-<td>Must contain the string &ldquo;custom_login&rdquo;</td>
+<td>Must contain the string &ldquo;customer_login&rdquo;.</td>
 </tr>
 <tr>
 <td>store_hash</td>
 <td>string</td>
-<td>Identifying ID of the store you are logging into</td>
+<td>Store hash identifying the store you are logging into.</td>
 </tr>
 <tr>
 <td>customer_id</td>
-<td>int</td>
-<td>ID of the customer you are logging in</td>
+<td>integer</td>
+<td>ID of the customer you are logging in, as obtained through the Customer API.</td>
 </tr>
 <tr>
 <td>redirect_to</td>
 <td>string</td>
-<td>Optional field containing a relative path for the destination for the shopper after login. Will default to <code class="prettyprint">/account.php</code></td>
+<td>Optional field containing a relative path for the shopper&rsquo;s destination after login. Will default to <code class="prettyprint">/account.php</code>.</td>
 </tr>
 <tr>
 <td>request_ip</td>
 <td>string</td>
-<td>Optional field containing the expected IP address for the request</td>
+<td>Optional field containing the expected IP address for the request.</td>
 </tr>
 </tbody></table>
 
-<h2 id="jwt-login"><span class="jumptarget"> JWT Login </span></h2>
+<h3 id="signature">Signature</h3>
 
-<p>A valid JWT token is a string composed of three parts separated by a period (“.”). Refer to <a href="https://jwt.io/">jwt.io</a> and <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> for more details on the format. Client libraries exist in many languages to make the generation and verification of JWT tokens easier. </p>
+<p>The headers and payload must be signed using HS256 (HMAC-SHA256) and the application’s client secret.</p>
 
-<p>Example URL: <code class="prettyprint">https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ</code></p>
+<h3 id="sample-code">Sample Code</h3>
 
-<p>Header</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"typ"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"alg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"HS256"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<p>Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>:</p>
 
-<p>Payload</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="err">“iss”:</span><span class="w"> </span><span class="err">“{application_client_id</span><span class="p">}</span><span class="err">”,</span><span class="w">
-  </span><span class="err">“iat”:</span><span class="w"> </span><span class="p">{</span><span class="err">issued_at</span><span class="p">}</span><span class="err">,</span><span class="w">
-  </span><span class="err">“jti”:</span><span class="w"> </span><span class="err">“</span><span class="p">{</span><span class="err">unique_string</span><span class="p">}</span><span class="err">”,</span><span class="w">
-  </span><span class="err">“operation”:</span><span class="w"> </span><span class="err">“customer_login”,</span><span class="w">
-  </span><span class="err">“store_hash”:</span><span class="w"> </span><span class="err">“</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">”,</span><span class="w">
-  </span><span class="err">“customer_id”:</span><span class="w"> </span><span class="p">{</span><span class="err">customer_id</span><span class="p">}</span><span class="err">,</span><span class="w">
-  </span><span class="err">“redirect_to”:</span><span class="w"> </span><span class="err">“</span><span class="p">{</span><span class="err">relative_path</span><span class="p">}</span><span class="err">”,</span><span class="w">
-  </span><span class="err">“request_ip”:</span><span class="w"> </span><span class="err">“</span><span class="p">{</span><span class="err">ipv4_address</span><span class="p">}</span><span class="err">”</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span></code></pre>
+<ul>
+<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421">PHP sample</a></p></li>
+<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py">Python sample</a></p></li>
+<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb">Ruby sample</a></p></li>
+</ul>
 
-<h3 id="signature"><span class="jumptarget"> Signature </span></h3>
+<h3 id="oauth-scope">OAuth Scope</h3>
 
-<p>The headers and payload must be signed using HS256 (HMAC-SHA256) and the single click application’s client secret.</p>
+<p>In order to use this feature, your app must be installed in the store, and must have the <code class="prettyprint">store_v2_customers_login</code> scope.</p>
 
-<h3 id="sample-code"><span class="jumptarget"> Sample Code </span></h3>
-<pre class="highlight php"><code>use Bigcommerce\Api\Client;
-use Bigcommerce\Api\Connection;
+<h3 id="redirection">Redirection</h3>
 
-public function testGetCustomerLoginTokenReturnsValidLoginToken()
-    {
-        Client::configureOAuth(array(
-            'client_id' =&gt; '123',
-            'auth_token' =&gt; 'def',
-            'store_hash' =&gt; 'abc',
-            'client_secret' =&gt; 'zyx'
-        ));
-        $expectedPayload = array(
-            'iss' =&gt; '123',
-            'operation' =&gt; 'customer_login',
-            'store_hash' =&gt; 'abc',
-            'customer_id' =&gt; 1,
-        );
-        $token = Client::getCustomerLoginToken(1);
-        $actualPayload = (array)\Firebase\JWT\JWT::decode($token, 'zyx', array('HS256'));
-        $this-&gt;assertArraySubset($expectedPayload, $actualPayload);
-    }
-</code></pre>
-<pre class="highlight python"><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
-<span class="kn">import</span> <span class="nn">bigcommerce.api</span>
-<span class="kn">import</span> <span class="nn">bigcommerce.customer_login_token</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<p>For flexibility in navigation after login, we support an optional redirect parameter (<code class="prettyprint">redirect_to</code>), which in turn supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at <code class="prettyprint">/account.php</code>. </p>
 
-<span class="c"># Customer login tokens must be signed with an app secret loaded in the environment</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">'APP_CLIENT_SECRET'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'client secret'</span>
+<h3 id="notes">Notes</h3>
 
-<span class="c"># Create API object using OAuth credentials</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">bigcommerce</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">BigcommerceApi</span><span class="p">(</span><span class="n">client_id</span><span class="o">=</span><span class="s">'id'</span><span class="p">,</span> <span class="n">store_hash</span><span class="o">=</span><span class="s">'hash'</span><span class="p">,</span> <span class="n">access_token</span><span class="o">=</span><span class="s">'token'</span><span class="p">)</span>
+<p>Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to <code class="prettyprint">/login/token/{token}</code>.</p>
 
-<span class="c"># Create a new customer</span>
-<span class="n">api</span><span class="o">.</span><span class="n">Customers</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s">'Bob'</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s">'Johnson'</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s">'bob.johnson@example.com'</span><span class="p">)</span>
+<p>Once a request has been made with a given <code class="prettyprint">jti</code>, it cannot be made again. This parameter is used to prevent replay attacks by malicious actors intercepting the request or obtaining it after the fact.</p>
 
-<span class="c"># Or get the customer if they already exist</span>
-<span class="n">customer</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">Customers</span><span class="o">.</span><span class="nb">all</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s">'bob.johnson@example.com'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="c"># Create the JWT login token</span>
-<span class="n">login_token</span> <span class="o">=</span> <span class="n">bigcommerce</span><span class="o">.</span><span class="n">customer_login_token</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">customer</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="s">'Token: </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">login_token</span><span class="p">)</span>
-
-<span class="c"># You can build the URL yourself</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s/login/token/</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="s">'https://domain.com'</span><span class="p">,</span> <span class="n">login_token</span><span class="p">))</span>
-
-<span class="c"># Or use the helper method to build the URL (uses 1 API request to get the secure domain for the store)</span>
-<span class="n">login_token_url</span> <span class="o">=</span> <span class="n">bigcommerce</span><span class="o">.</span><span class="n">customer_login_token</span><span class="o">.</span><span class="n">create_url</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">customer</span><span class="o">.</span><span class="nb">id</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s">'Token URL: </span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">login_token_url</span><span class="p">)</span>
-</code></pre>
-
-<h3 id="oauth-scope"><span class="jumptarget"> OAuth Scope </span></h3>
-
-<p>The OAuth scope required for this feature is <code class="prettyprint">v2_customers_login</code>. This is treated the same way as any of our other OAuth scopes: presented on Developer Portal when registering the app, and presented on the authorization screen when installing/reauthorizing the app.</p>
-
-<h3 id="redirection"><span class="jumptarget"> Redirection </span></h3>
-
-<p>For flexibility in navigation after login, an optional redirect parameter is supported (<code class="prettyprint">redirect_to</code>) which supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at <code class="prettyprint">/account.php</code>. </p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"redirect_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/mattresses"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
-
-<p>Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token just prior to redirecting the user’s browser to <code class="prettyprint">/login/token</code>.</p>
-
-<p>Once a request has been made with a given jti, it cannot be made again. It is used to prevent replay attacks by malicious actors intercepting the request or obtaining it after the fact.</p>
-
-<p>The <code class="prettyprint">request_ip</code> field can be used as an additional security precaution to prevent a malicious actor from intercepting the request and making it from another browser or system before you do. If supplied, the incoming request will be checked to ensure it is being made from the given IP address, and fail otherwise. It is strongly encouraged to set this value, but it is made optional for those cases where this information may not be available.</p>
+<p>The <code class="prettyprint">request_ip</code> field can be used as an additional security precaution, to prevent a malicious actor from intercepting the request and making it from another browser or system before you do. If you supply this value, BigCommerce will check the incoming request to ensure that it is being made from the stated IP address – and will otherwise fail the request. We strongly encourage setting this IP address value; but doing so is optional, to support those cases where this information is not available.</p>
 
           <h1 id="customer-addresses"><span class="jumptarget"> Customer Addresses </span></h1>
 
@@ -12135,8 +12123,8 @@ NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</
       </div>
     </div>
     <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
         var container = $('.page-wrapper .content');
-        var body = $('body');
         var headerHeightPixels = 85;
 
         container.on('click', function(event) {
@@ -12144,8 +12132,8 @@ NOTES: The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</
 
             if (target.is('a') && target.attr('href').charAt(0) === '#') {
                 setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
             }
         });
     </script>

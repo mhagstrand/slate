@@ -81,7 +81,7 @@
                         <h2>Build Gorgeous Themes</h2>
                         <p><span class="type-large">Our Stencil theme framework is a powerful new approach to creating beautiful, dynamic and high-converting storefronts.</span></p>
                         <p><span class="type-large"><a href="/themes">VIEW THEME DOCUMENTATION</a></span></p><br>
-                        <a href="https://www.bigcommerce.com/theme/atelier-classic/"><img src="../images/Atelier.png"/></a>
+                        <img src="../images/Atelier.png"/>
                     </div>
                 </div>
             </div>
@@ -169,6 +169,21 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>    
+    <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
+        var container = $('.page-wrapper .content');
+        var headerHeightPixels = 85;
+
+        container.on('click', function(event) {
+            var target = $(event.target);
+
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
+            }
+        });
+    </script>
   </body>
 </html>

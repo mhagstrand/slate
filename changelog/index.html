@@ -167,16 +167,67 @@
 
 <h2 id="july"><span class="jumptarget"> July </span></h2>
 
+<h3 id="v3-catalog-api-in-partner-release">v3 catalog API in partner release</h3>
+
+<p>We&rsquo;re excited to announce that BigCommerce&rsquo;s v3 catalog API is now available to partners, for use on all production stores. This new API has been designed around two main goals:</p>
+
+<ul>
+<li>Optimized for efficiency. A simplified variant/modifier model allows fewer API calls.</li>
+<li>Backward-compatible with our v2 API.</li>
+</ul>
+
+<p>New features include:</p>
+
+<ul>
+<li>Ability to create products, and all their variants, with one API call.</li>
+<li>Ability to fetch a list of all variants, separate from their parent product.</li>
+<li>Clear delineation of options tied to SKUs, versus those that adjust only base products.</li>
+<li>Rules are not required when using options or modifiers. (Modifiers have easy-to-understand adjusters instead.)</li>
+</ul>
+
+<p>For key details, please see <a href="https://github.com/bigcommerce/api#v3-catalog-api" target="_blank">this announcement</a>, which links to Swagger documentation on the new API. </p>
+
+<p>Please also see <a href="https://github.com/bigcommerce/api/blob/master/docs/v3-catalog.md" target="_blank">this broader overview</a>, which includes authentication instructions. It also provides links where we invite you to submit issues on GitHub – and use Trello to to nominate, vote on, and track future additions to our API.</p>
+
+<h3 id="customer-resource-has-new-quot-accepts_marketing-quot-field">Customer resource has new &ldquo;accepts_marketing&rdquo; field</h3>
+
+<p>The Customer API has a new <code class="prettyprint">accepts_marketing</code> field, which records whether the customer would like to receive marketing content from this store. The new field is a boolean and is read-only, reflecting the customer&rsquo;s selections on the storefront.</p>
+
+<p>We have updated our Customer API <a href="/api/v2/#customers">documentation and example responses</a> to include this new field.</p>
+
+<h3 id="customer-login-via-jwt-token-generation">Customer login via JWT token generation</h3>
+
+<p>A new Customer Login API facilitates single sign-on (SSO) by allowing your apps to programatically log customers into stores.</p>
+
+<p>This API and its fields are described, with usage examples, on <a href="/api/v2/#customer-storefront-login">this documentation page</a>. We also now list <code class="prettyprint">store_v2_customers_login</code>, and link to its documentation, from the <a href="/api/scopes">OAuth Scopes</a> page.</p>
+
+<h3 id="store-ownership-tokens-new-best-practices">Store ownership tokens – new best practices</h3>
+
+<p>As of July 28, 2016, BigCommerce store owners can transfer their stores&rsquo; ownership to a different user without breaking any installed apps. This change creates the potential for mismatched user information, if your app stores user data upon app installation. Therefore:</p>
+
+<ul>
+<li><p>Apps should therefore associate API tokens with a store hash, not with a specific user. </p></li>
+<li><p>BigCommerce will now send information about the current store owner in the load callback, which apps should use as the source of truth about the store’s owner. (This might be important if your app needs to determine what user is active in the app; or if your account information is based on the incoming data, such as the store owner’s email address.)</p></li>
+</ul>
+
 <h3 id="order-shipment-api-refreshed-with-quot-shipping_provider-quot-quot-tracking_carrier-quot-fields"><span class="jumptarget"> Order Shipment API refreshed with &ldquo;shipping_provider&rdquo;, &ldquo;tracking_carrier&rdquo; fields</h3>
 
 <p>The Order Shipment resource has been refreshed with two fields that can be used to track shipments:</p>
 
 <ul>
-<li><code class="prettyprint">shipping_provider</code> contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.</li>
-<li><code class="prettyprint">tracking_carrier</code> contains the enum of this shipment&rsquo;s BigCommerce shipping-carrier integration/module.</li>
+<li><code class="prettyprint">shipping_provider</code> contains the enum of this shipment&rsquo;s BigCommerce shipping-carrier integration/module.</li>
+<li><code class="prettyprint">tracking_carrier</code> contains the enum of the delivery service fulfilling this shipment, in a newly streamlined format.</li>
 </ul>
 
 <p>We have added these fields to the <a href="/api/v2#shipping-methods">Order Shipment</a> documentation, where they now appear in sample requests/responses for endpoints that can handle these fields. You&rsquo;ll also find usage guidelines, a list of allowable values for the <code class="prettyprint">shipping_provider</code> field, and a linked, downloadable spreadsheet of allowable values for the <code class="prettyprint">tracking_carrier</code> field.</p>
+
+<h2 id="june"><span class="jumptarget"> June </span></h2>
+
+<h3 id="bigcommerce-api-ruby-gem-now-generally-available"><span class="jumptarget"> bigcommerce-api-ruby gem now generally available </span></h3>
+
+<p>The bigcommerce-api-ruby 1.0.0 gem is now generally available on <a href="https://github.com/bigcommerce/bigcommerce-api-ruby" target="_blank">GitHub</a> and <a href="https://rubygems.org/gems/bigcommerce" target="_blank">rubygems</a>.</p>
+
+<p>For other client libraries/SDKs that facilitate client requests to BigCommerce&rsquo;s RESTful API, please see our <a href="/api/#client-libraries">Client Libraries</a> page.</p>
 
 <h2 id="june"><span class="jumptarget"> June </span></h2>
 
@@ -483,14 +534,14 @@
 <h3 id="customer-address-resource-have-new-custom-fields"><span class="jumptarget"> Customer/Address resource have new custom fields </span></h3>
 
 <p>Two Customers endpoints, and two Customer Addresses endpoints, now provide support for read-only custom fields:</p>
-
-<p>Customers
+<pre class="highlight plaintext"><code>        Customers
           List Customers
-          Get a Customer</p>
+          Get a Customer
 
-<p>Customer Addresses
+        Customer Addresses
           List Customer Addresses
-          Get a Customer Address</p>
+          Get a Customer Address
+</code></pre>
 
 <p>You can access custom fields within the new   <strong><code class="prettyprint">form_fields</code></strong>   element. For details and examples, please see our updated <a href="/api/v2#customers">Customers</a> and <a href="/api/v2#customers">Customer Addresses</a> reference pages.</p>
 
@@ -536,8 +587,7 @@
 <h3 id="new-product-and-sku-webhooks-added"><span class="jumptarget"> New product and SKU webhooks added </span></h3>
 
 <p>BigCommerce has made available several new webhooks. In the list below, the new options are highlighted within the <code class="prettyprint">store/product/</code>,<br>
-<code class="prettyprint">store/product/inventory/</code>, <code class="prettyprint">store/sku/</code>, and <code class="prettyprint">store/sku/inventory*</code> categories. We encourage you to use these webhooks, as appropriate,<br>
-in your applications:</p>
+<code class="prettyprint">store/product/inventory/</code>, <code class="prettyprint">store/sku/</code>, and <code class="prettyprint">store/sku/inventory*</code> categories. We encourage you to use these webhooks, as appropriate, in your applications:</p>
 <pre class="highlight plaintext"><code>  store/order/
     store/order/created
     store/order/updated
@@ -930,8 +980,8 @@ in your applications:</p>
       </div>
     </div>
     <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
         var container = $('.page-wrapper .content');
-        var body = $('body');
         var headerHeightPixels = 85;
 
         container.on('click', function(event) {
@@ -939,8 +989,8 @@ in your applications:</p>
 
             if (target.is('a') && target.attr('href').charAt(0) === '#') {
                 setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
             }
         });
     </script>

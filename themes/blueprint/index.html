@@ -155,7 +155,6 @@
             <li><a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a></li>
             <li><a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a></li>
             <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation by Slate</a></li>
         </ul>
     </div>
@@ -164,39 +163,6 @@
         <h1 id="blueprint-themes">Blueprint Themes</h1>
 
 <p>Getting Started with Blueprint</p>
-
-<p>block&ndash;multiColAbsolute-column.columnWidth&ndash;3</p>
-
-<section class=
-    "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
-        <div class="block-container">
-            <div class="block-container-inner">
-                <div class="block--multiColTextImage-row block--multiColTextImage-row--columns3">
-                    <div class="block--multiColTextImage-column block--multiColTextImage-column--centerImageAlign">
-                        <div class="block--multiColTextImage-column-inner">
-                            <div class="block-image block-image--png">
-                                    <img src="../images/FreshBooks.png" style="max-width:100%;"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block--multiColTextImage-column block--multiColTextImage-column--centerImageAlign">
-                        <div class="block--multiColTextImage-column-inner">
-                            <div class="block-image block-image--png">
-                                    <img src="../images/GoogleShopping.png" style="max-width:100%;"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block--multiColTextImage-column block--multiColTextImage-column--centerImageAlign">
-                        <div class="block--multiColTextImage-column-inner">
-                            <div class="block-image block-image--png">
-                                    <img src="../images/SalesForce.png" style="max-width:100%;"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
 
           <h1 id="themes">Themes</h1>
 
@@ -494,8 +460,8 @@ color: @color-store-name
       </div>
     </div>
     <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
         var container = $('.page-wrapper .content');
-        var body = $('body');
         var headerHeightPixels = 85;
 
         container.on('click', function(event) {
@@ -503,8 +469,8 @@ color: @color-store-name
 
             if (target.is('a') && target.attr('href').charAt(0) === '#') {
                 setTimeout(function() {
-                    $('body').scrollTop($('body').scrollTop() - headerHeightPixels)
-                }, 0);
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
             }
         });
     </script>
