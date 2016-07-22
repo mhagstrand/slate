@@ -59,13 +59,112 @@ The headers and payload must be signed using HS256 (HMAC-SHA256) and the applica
 
 ### Sample Code
 
-Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>:
+Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>. (The headings below are linked to the live code, which might have been updated since publication:)
 
-- [PHP sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+#### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 
-- [Python sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+```php?start_inline=1
+    public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')
+    {
+        if (empty(self::$client_secret)) {
+            throw new Exception('Cannot sign customer login tokens without a client secret');
+        }
 
-- [Ruby sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+        $payload = array(
+            'iss' => self::$client_id,
+            'iat' => time(),
+            'jti' => bin2hex(random_bytes(32)),
+            'operation' => 'customer_login',
+            'store_hash' => self::$store_hash,
+            'customer_id' => $id
+        );
+
+        if (!empty($redirectUrl)) {
+            $payload['redirect_to'] = $redirectUrl;
+        }
+
+        if (!empty($requestIp)) {
+            $payload['request_ip'] = $requestIp;
+        }
+
+        return JWT::encode($payload, self::$client_secret, 'HS256');
+    }
+```
+
+#### [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+
+```python
+import os
+import time
+import uuid
+import jwt
+
+
+class CustomerLoginTokens(object):
+    @classmethod
+    def create(cls, client, id, redirect_url=None, request_ip=None):
+        
+        # Get the client_secret needed to sign tokens from the environment
+        # Intended to play nice with the Python Hello World sample app
+        # https://github.com/bigcommerce/hello-world-app-python-flask
+        client_secret = os.getenv('APP_CLIENT_SECRET')
+        
+        if not client_secret:
+            raise AttributeError('No OAuth client secret specified in the environment, '
+                                 'please specify an APP_CLIENT_SECRET')
+
+        try:
+            client_id = client.connection.client_id
+            store_hash = client.connection.store_hash
+        except AttributeError:
+            raise AttributeError('Store hash or client ID not found in the connection - '
+                                 'make sure an OAuth API connection is configured. Basic auth is not supported.')
+
+        payload = dict(iss=client_id,
+                       iat=int(time.time()),
+                       jti=uuid.uuid4().hex,
+                       operation='customer_login',
+                       store_hash=store_hash,
+                       customer_id=id
+                       )
+
+        if redirect_url:
+            payload['redirect_url'] = redirect_url
+
+        if request_ip:
+            payload['request_ip'] = request_ip
+        
+        token = jwt.encode(payload, client_secret, algorithm='HS256')
+        
+        return token.decode('utf-8')
+
+    @classmethod
+    def create_url(cls, client, id, redirect_url=None, request_ip=None):
+        secure_url = client.Store.all()['secure_url']
+        login_token = cls.create(client, id, redirect_url, request_ip)
+        return '%s/login/token/%s' % (secure_url, login_token)
+
+```
+
+#### [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+
+```ruby
+require 'bigcommerce'
+
+Bigcommerce.configure do |config|
+  config.store_hash = ENV['BC_STORE_HASH']
+  config.client_id = ENV['BC_CLIENT_ID']
+  config.client_secret = ENV['BC_CLIENT_SECRET']
+  config.access_token = ENV['BC_ACCESS_TOKEN']
+end
+
+# Get a customer
+customer = Bigcommerce::Customer.all(page: 1).first
+
+# Generate token login url
+puts customer.login_token
+```
+
 
 ### OAuth Scope
 
