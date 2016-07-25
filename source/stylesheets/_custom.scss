@@ -162,6 +162,12 @@ table td:nth-child(3) {
     min-width: 850px;
 }
 
+/* Should be removed when switching back to 3 column API layout */
+.api .content {
+  width: 80%;
+  min-width: 850px;
+}
+
 .jumptarget::before {
   content: "";
   display: block;
