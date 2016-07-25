@@ -8569,13 +8569,105 @@
 
 <h3 id="sample-code">Sample Code</h3>
 
-<p>Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>:</p>
+<p>Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>. (The headings below are linked to the live code, which might have been updated since publication:)</p>
 
-<ul>
-<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421">PHP sample</a></p></li>
-<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py">Python sample</a></p></li>
-<li><p><a href="https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb">Ruby sample</a></p></li>
-</ul>
+<h4 id="php-sample"><a href="https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421">PHP Sample</a></h4>
+<pre class="highlight php"><code>    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">getCustomerLoginToken</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$redirectUrl</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="nv">$requestIp</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">empty</span><span class="p">(</span><span class="nx">self</span><span class="o">::</span><span class="nv">$client_secret</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s1">'Cannot sign customer login tokens without a client secret'</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$payload</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+            <span class="s1">'iss'</span> <span class="o">=&gt;</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$client_id</span><span class="p">,</span>
+            <span class="s1">'iat'</span> <span class="o">=&gt;</span> <span class="nb">time</span><span class="p">(),</span>
+            <span class="s1">'jti'</span> <span class="o">=&gt;</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nx">random_bytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)),</span>
+            <span class="s1">'operation'</span> <span class="o">=&gt;</span> <span class="s1">'customer_login'</span><span class="p">,</span>
+            <span class="s1">'store_hash'</span> <span class="o">=&gt;</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$store_hash</span><span class="p">,</span>
+            <span class="s1">'customer_id'</span> <span class="o">=&gt;</span> <span class="nv">$id</span>
+        <span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$redirectUrl</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$payload</span><span class="p">[</span><span class="s1">'redirect_to'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$redirectUrl</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$requestIp</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$payload</span><span class="p">[</span><span class="s1">'request_ip'</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$requestIp</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nx">JWT</span><span class="o">::</span><span class="na">encode</span><span class="p">(</span><span class="nv">$payload</span><span class="p">,</span> <span class="nx">self</span><span class="o">::</span><span class="nv">$client_secret</span><span class="p">,</span> <span class="s1">'HS256'</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre>
+
+<h4 id="python-sample"><a href="https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py">Python Sample</a></h4>
+<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">jwt</span>
+
+
+<span class="k">class</span> <span class="nc">CustomerLoginTokens</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">redirect_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">request_ip</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+
+        <span class="c"># Get the client_secret needed to sign tokens from the environment</span>
+        <span class="c"># Intended to play nice with the Python Hello World sample app</span>
+        <span class="c"># https://github.com/bigcommerce/hello-world-app-python-flask</span>
+        <span class="n">client_secret</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s">'APP_CLIENT_SECRET'</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">client_secret</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">AttributeError</span><span class="p">(</span><span class="s">'No OAuth client secret specified in the environment, '</span>
+                                 <span class="s">'please specify an APP_CLIENT_SECRET'</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">client_id</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">client_id</span>
+            <span class="n">store_hash</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">store_hash</span>
+        <span class="k">except</span> <span class="nb">AttributeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">AttributeError</span><span class="p">(</span><span class="s">'Store hash or client ID not found in the connection - '</span>
+                                 <span class="s">'make sure an OAuth API connection is configured. Basic auth is not supported.'</span><span class="p">)</span>
+
+        <span class="n">payload</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">iss</span><span class="o">=</span><span class="n">client_id</span><span class="p">,</span>
+                       <span class="n">iat</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()),</span>
+                       <span class="n">jti</span><span class="o">=</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="nb">hex</span><span class="p">,</span>
+                       <span class="n">operation</span><span class="o">=</span><span class="s">'customer_login'</span><span class="p">,</span>
+                       <span class="n">store_hash</span><span class="o">=</span><span class="n">store_hash</span><span class="p">,</span>
+                       <span class="n">customer_id</span><span class="o">=</span><span class="nb">id</span>
+                       <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">redirect_url</span><span class="p">:</span>
+            <span class="n">payload</span><span class="p">[</span><span class="s">'redirect_url'</span><span class="p">]</span> <span class="o">=</span> <span class="n">redirect_url</span>
+
+        <span class="k">if</span> <span class="n">request_ip</span><span class="p">:</span>
+            <span class="n">payload</span><span class="p">[</span><span class="s">'request_ip'</span><span class="p">]</span> <span class="o">=</span> <span class="n">request_ip</span>
+
+        <span class="n">token</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s">'HS256'</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">token</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">create_url</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">redirect_url</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">request_ip</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">secure_url</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">Store</span><span class="o">.</span><span class="nb">all</span><span class="p">()[</span><span class="s">'secure_url'</span><span class="p">]</span>
+        <span class="n">login_token</span> <span class="o">=</span> <span class="n">cls</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">redirect_url</span><span class="p">,</span> <span class="n">request_ip</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">'</span><span class="si">%</span><span class="s">s/login/token/</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">secure_url</span><span class="p">,</span> <span class="n">login_token</span><span class="p">)</span>
+
+</code></pre>
+
+<h4 id="ruby-sample"><a href="https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb">Ruby Sample</a></h4>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'bigcommerce'</span>
+
+<span class="no">Bigcommerce</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">store_hash</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'BC_STORE_HASH'</span><span class="p">]</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">client_id</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'BC_CLIENT_ID'</span><span class="p">]</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">client_secret</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'BC_CLIENT_SECRET'</span><span class="p">]</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">access_token</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">[</span><span class="s1">'BC_ACCESS_TOKEN'</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="c1"># Get a customer</span>
+<span class="n">customer</span> <span class="o">=</span> <span class="no">Bigcommerce</span><span class="o">::</span><span class="no">Customer</span><span class="p">.</span><span class="nf">all</span><span class="p">(</span><span class="ss">page: </span><span class="mi">1</span><span class="p">).</span><span class="nf">first</span>
+
+<span class="c1"># Generate token login url</span>
+<span class="nb">puts</span> <span class="n">customer</span><span class="p">.</span><span class="nf">login_token</span>
+</code></pre>
 
 <h3 id="oauth-scope">OAuth Scope</h3>
 
