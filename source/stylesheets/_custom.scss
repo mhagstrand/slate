@@ -133,7 +133,7 @@
   }
 }
 
-#changelog, #api-documentation, #understanding-themes, #api-v2-documentation, #api-v3-documentation {
+#changelog, #api-documentation, #understanding-themes, #api-v2-documentation, #api-v3-documentation, #blueprint-themes, #blueprint-theme-snippets, #blueprint-theme-layouts, #blueprint-theme-panels {
   @extend %header-font;
   color: #4f75f8 !important;
   font-size: 1.55556rem !important;
@@ -163,9 +163,11 @@ table td:nth-child(3) {
 }
 
 /* Should be removed when switching back to 3 column API layout */
-.api .content {
+.api .content .block-container {
   width: 80%;
   min-width: 850px;
+  float: left;
+  padding-left: 1%;
 }
 
 .jumptarget::before {
