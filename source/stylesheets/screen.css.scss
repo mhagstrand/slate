@@ -906,6 +906,17 @@ img {
 }
 
 
+// From Nate, 7/30/16 – forces all tables' borders to consistent width.
+// But check whether it distorts column widths, outside of edge cases:
+
+.content table {
+    display: table !important;
+    margin-left: 28px;
+    width: 75% !important;
+    min-width: initial !important;
+}
+
+
 @import 'custom';
 @import 'page';
 @import 'buttons';

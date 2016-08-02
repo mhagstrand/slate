@@ -209,18 +209,30 @@ Interpreting the user information varies as follows.
 
 | Name | Data Type | Value Description |
 | --- | --- | --- |
-| id | integer | Unique identifier for the user. |
-| email | string | The user’s email address. |
-| store_hash | string | Unique identifier of the store. |
+| user.id | integer | Unique identifier for the user who initiated the callback. |
+| user.email | string | Email address of the user who initiated the callback. |
+| owner.id | integer | Unique identifier for the user listed as the store owner. |
+| owner.email | string | Email address of the user listed as the store owner. |
+| context | string | The context value is part of the API path for this store and includes the store_hash. |
+| store_hash | string |Unique identifier for the store. |
+| timestamp | float | The time (in Unix time) when the callback was generated. |
 
 ##### <span class="jumptarget"> JSON Example</span>
 
 ```json
 {
-  "user": {
-	"id": 24654,
-	"email": "user@mybigcommerce.com"
-  },
-  "store_hash": "STORE_HASH"
+    "user":
+         {
+        "id":9128,
+        "email":"user@mybigcommerce.com"
+     },
+     "owner":
+          {
+         "id":9128,
+         "email":"user@mybigcommerce.com"
+     },
+     "context":"stores/z4zn3wo",
+     "store_hash":"z4zn3wo",
+     "timestamp":1469823892.9123988
 }
 ```
