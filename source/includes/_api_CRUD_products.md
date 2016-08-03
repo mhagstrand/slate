@@ -515,6 +515,7 @@ Creates a new product. The example request shows how to create a basic product b
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
+*   id
 *   calculated_price
 *   brand
 *   images
