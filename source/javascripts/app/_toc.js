@@ -12,7 +12,9 @@
 
   var makeToc = function() {
     global.toc = $("#toc").tocify({
-      selectors: 'h1, h2, h3, h4, h5, h6, h7',
+      /* selectors: 'h1, h2, h3, h4, h5, h6, h7', */
+      // ^ Swapped 8/4/16: Try limiting left-nav depth to 3 levels \/:
+      selectors: 'h1, h2, h3',
       extendPage: false,
       theme: 'none',
       smoothScroll: false,
