@@ -86,6 +86,7 @@ The list below is sorted by the number of times that the Blueprint base theme re
 | `%%GLOBAL_HideCreditCardError%%` | . |
 | `%%GLOBAL_CustomerName%%` | . |
 | `%%GLOBAL_CustomerEmail%%` | . |
+| `%%GLOBAL_CustomerGroupId%%` | . |
 | `%%GLOBAL_ReCaptchaAPIKeyPublic%%` | . |
 | `%%GLOBAL_SearchId%%` | . |
 | `%%GLOBAL_OrderComments%%` | . |
