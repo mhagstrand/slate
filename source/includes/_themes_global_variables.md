@@ -86,7 +86,7 @@ The list below is sorted by the number of times that the Blueprint base theme re
 | `%%GLOBAL_HideCreditCardError%%` | . |
 | `%%GLOBAL_CustomerName%%` | . |
 | `%%GLOBAL_CustomerEmail%%` | . |
-| `%%GLOBAL_CustomerGroupId%%` | Contains the group ID for a logged-in customer who is part of a group; or for a guest, where a default group is set for guests. Blank for a logged-in customer who belongs to no group; or for a guest, where no default group is set for guests.  |
+| `%%GLOBAL_CustomerGroupId%%` | Contains the group ID for a logged-in customer who is part of a group. Also contains the group ID for a guest where a default group is set for guests. Blank for a logged-in customer who belongs to no group. Also blank for a guest where no default group is set for guests. Globally available across panels and snippets. |
 | `%%GLOBAL_ReCaptchaAPIKeyPublic%%` | . |
 | `%%GLOBAL_SearchId%%` | . |
 | `%%GLOBAL_OrderComments%%` | . |
