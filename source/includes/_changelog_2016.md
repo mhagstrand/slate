@@ -1,5 +1,29 @@
 # <span class="jumptarget"> 2016 </span>
 
+## <span class="jumptarget"> August </span>
+
+
+### "Create a Product" documentation updated
+
+In the [Create a Product](/api/v2/products#create-a-product) endpoint's documentation, the list of read-only properties now includes the `id` field.
+
+
+### GLOBAL "Customer Group ID" variable documented
+
+We have added the `%%GLOBAL_CustomerGroupId%%` variable to the [GLOBAL Variables](themes/#global_variables) documentation page.
+
+
+### Stencil theme downloads for customization
+
+You can now download free and purchased Stencil themes from a BigCommerce store, to customize those themes.
+
+For merchant-oriented instructions (with screenshots) on initially downloading themes via the BigCommerce control panel, please see [this Knowledge Base Article](https://support.bigcommerce.com/articles/Public/Custom-Theme-Upload#download).
+
+For developer-oriented instructions on installing required dependencies and launching downloaded themes, please see [this new documentation subsection](https://stencil.bigcommerce.com/docs/download-and-build-scenarios).
+
+For developers, we list different workflows for a downloaded Cornerstone theme refresh, versus downloads of other Theme Marketplace themes. To see the complete workflow for your scenario, please see our expanded [Installing Stencil](https://stencil.bigcommerce.com/docs/installing-and-launching-stencil-1) overview.
+
+
 ## <span class="jumptarget"> July </span>
 
 ### v3 catalog API in partner release
