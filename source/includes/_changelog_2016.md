@@ -2,6 +2,12 @@
 
 ## <span class="jumptarget"> August </span>
 
+
+### GLOBAL "Customer Group ID" variable documented
+
+We have added the `%%GLOBAL_CustomerGroupId%%` variable to the [GLOBAL Variables](themes/#global_variables) documentation page.
+
+
 ### Stencil theme downloads for customization
 
 You can now download free and purchased Stencil themes from a BigCommerce store, to customize those themes.
