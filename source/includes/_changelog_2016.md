@@ -3,6 +3,11 @@
 ## <span class="jumptarget"> August </span>
 
 
+### "Create a Product" documentation updated
+
+In the [Create a Product](/api/v2/products#create-a-product) endpoint's documentation, the list of read-only properties now includes the `id` field.
+
+
 ### GLOBAL "Customer Group ID" variable documented
 
 We have added the `%%GLOBAL_CustomerGroupId%%` variable to the [GLOBAL Variables](themes/#global_variables) documentation page.
