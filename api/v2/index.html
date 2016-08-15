@@ -185,7 +185,7 @@
 <tr>
 <td>id</td>
 <td>int</td>
-<td>The unique numerical ID of the product, increments sequentially</td>
+<td>The unique numerical ID of the product. Increments sequentially.</td>
 </tr>
 <tr>
 <td>keyword_filter</td>
@@ -200,47 +200,47 @@
 <tr>
 <td>type</td>
 <td>enum</td>
-<td>The product type: physical - a physical stock unit digital - a digital download</td>
+<td>The product type. One of:<br> physical – a physical stock unit.<br> digital – a digital download.</td>
 </tr>
 <tr>
 <td>sku</td>
 <td>string</td>
-<td>User defined product code/stock keeping unit (SKU).</td>
+<td>User-defined product code/stock keeping unit (SKU).</td>
 </tr>
 <tr>
 <td>description</td>
 <td>text</td>
-<td>The product description which can include HTML formatting.</td>
+<td>Product description, which can include HTML formatting.</td>
 </tr>
 <tr>
 <td>search_keywords</td>
 <td>text</td>
-<td>A comma separated list of keywords that can be used to locate the product when searching the store.</td>
+<td>A comma-separated list of keywords that can be used to locate the product when searching the store.</td>
 </tr>
 <tr>
 <td>availability_description</td>
 <td>string</td>
-<td>Availability text displayed on the checkout page under the product title telling the customer how long it will normally take to ship this product, such as &ldquo;Usually ships in 24 hours&rdquo;.</td>
+<td>Availability text, displayed on the checkout page under the product title, telling the customer how long it will normally take to ship this product. E.g.: &ldquo;Usually ships in 24 hours&rdquo;.</td>
 </tr>
 <tr>
 <td>price</td>
 <td>decimal</td>
-<td>The price of the product, the price should include or exclude tax based on the store settings.</td>
+<td>The product&rsquo;s price. Should include, or exclude, tax based on the store settings.</td>
 </tr>
 <tr>
 <td>cost_price</td>
 <td>decimal</td>
-<td>The cost price of the product, stored for reference only, it is not used or displayed anywhere on the store.</td>
+<td>The product&rsquo;s cost price. Stored for reference only; not used or displayed anywhere on the store.</td>
 </tr>
 <tr>
 <td>retail_price</td>
 <td>decimal</td>
-<td>The retail cost of the product, if entered the retail cost price will be shown on the product page.</td>
+<td>The product&rsquo;s retail cost. If entered, this retail price will be shown on the product page.</td>
 </tr>
 <tr>
 <td>sale_price</td>
 <td>decimal</td>
-<td>The sale price will be used instead of value in the price field when calculating the products cost if entered.</td>
+<td>Sale price. If entered, this will be used instead of value in the price field when calculating the product&rsquo;s cost.</td>
 </tr>
 <tr>
 <td>calculated_price</td>
@@ -250,72 +250,77 @@
 <tr>
 <td>sort_order</td>
 <td>int</td>
-<td>Priority this product will be given when included in product lists on category pages and search results. The lower the number, the closer to the top of the results the product will be.</td>
+<td>Priority to give this product when included in product lists on category pages and in search results. Lower integers will place the product closer to the top of the results.</td>
 </tr>
 <tr>
 <td>is_visible</td>
 <td>boolean</td>
-<td>Flag to determine if the product should be displayed to customers browsing the store or not. If true the product will be displayed, false the product will be hidden from view.</td>
+<td>Flag to determine whether or not the product should be displayed to customers browsing. If <code class="prettyprint">true</code>, the product will be displayed. If <code class="prettyprint">false</code>, the product will be hidden from view.</td>
 </tr>
 <tr>
 <td>is_featured</td>
 <td>boolean</td>
-<td>Flag to determine if the product should be included in &ldquo;featured products&rdquo; panel when viewing the store.</td>
+<td>Flag to determine whether the product should be included in the &ldquo;featured products&rdquo; panel for shoppers viewing the store.</td>
 </tr>
 <tr>
 <td>related_products</td>
 <td>string</td>
-<td>Defaults to -1, which causes the store to automatically generate a list of related products. To manually specify the list of related products, include their IDs, separated by commas. For example, &ldquo;3, 6, 7, 21&rdquo;.</td>
+<td>Defaults to <code class="prettyprint">-1</code>, which causes the store to automatically generate a list of related products. To manually specify the list of related products, include their IDs, separated by commas. For example: <code class="prettyprint">3, 6, 7, 21</code>.</td>
 </tr>
 <tr>
 <td>inventory_level</td>
 <td>int</td>
-<td>Current inventory level of the product. Simple inventory tracking must be enabled (See the inventory_tracking field) for this to take any effect.</td>
+<td>Current inventory level of the product. Simple inventory tracking must be enabled (see the <code class="prettyprint">inventory_tracking</code> field) for this to take effect.</td>
 </tr>
 <tr>
 <td>inventory_warning_level</td>
 <td>int</td>
-<td>Inventory Warning level for the product. When the products inventory level drops below the warning level the store owner will be informed. Simple inventory tracking must be enabled (See the inventory_tracking field) for this to take any effect.</td>
+<td>Inventory Warning level for the product. When the product&rsquo;s inventory level drops below this warning level, the store owner will be sent a notification. Simple inventory tracking must be enabled (see the <code class="prettyprint">inventory_tracking</code> field) for this to take effect.</td>
 </tr>
 <tr>
 <td>warranty</td>
 <td>text</td>
-<td>Warranty information displayed on the product page which can include HTML formatting.</td>
+<td>Warranty information displayed on the product page. Can include HTML formatting.</td>
 </tr>
 <tr>
 <td>weight</td>
 <td>decimal</td>
-<td>Weight of the product used which can be used when calculating shipping costs.</td>
+<td>Weight of the product, which can be used when calculating shipping costs.</td>
 </tr>
 <tr>
 <td>width</td>
 <td>decimal</td>
-<td>Width of the product used which can be used when calculating shipping costs.</td>
+<td>Width of the product, which can be used when calculating shipping costs.</td>
 </tr>
 <tr>
 <td>height</td>
 <td>decimal</td>
-<td>Height of the product used which can be used when calculating shipping costs.</td>
+<td>Height of the product, which can be used when calculating shipping costs.</td>
 </tr>
 <tr>
 <td>depth</td>
 <td>decimal</td>
-<td>Depth of the product used which can be used when calculating shipping costs.</td>
+<td>Depth of the product, which can be used when calculating shipping costs.</td>
 </tr>
 <tr>
 <td>fixed_cost_shipping_price</td>
 <td>decimal</td>
-<td>A fixed shipping cost for the product, if defined the value will be used during checkout instead of normal shipping cost calculation.</td>
+<td>A fixed shipping cost for the product. If defined, this value will be used instead of normal shipping-cost calculation during checkout.</td>
 </tr>
 <tr>
 <td>is_free_shipping</td>
 <td>boolean</td>
-<td>Flag used to indicate if the product has free shipping or not. If true the shipping cost for the product will be zero.</td>
+<td>Flag used to indicate whether or not the product has free shipping. If <code class="prettyprint">true</code>, the shipping cost for the product will be zero.</td>
 </tr>
 <tr>
 <td>inventory_tracking</td>
 <td>enum</td>
-<td>The type of inventory tracking for the product: none - inventory levels will not be tracked. simple - inventory levels will be tracked using the &ldquo;inventory_level&rdquo; and &ldquo;inventory_warning_level&rdquo; fields. sku - inventory levels will be tracked based on individual product options which maintain their own warning levels and inventory levels.</td>
+<td>The type of inventory tracking for the product. One of:<br></td>
+</tr>
+<tr>
+<td><code class="prettyprint">none</code> – inventory levels will not be tracked.<br> <code class="prettyprint">simple</code> – inventory levels will be tracked using the <code class="prettyprint">inventory_level</code> and <code class="prettyprint">inventory_warning_level</code> fields.<br> <code class="prettyprint">sku</code> – inventory levels will be tracked based on individual product options, which maintain their own warning levels and inventory levels.</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td>rating_total</td>
@@ -350,7 +355,7 @@
 <tr>
 <td>page_title</td>
 <td>string</td>
-<td>Custom title for the products page, if not defined the product name will be used as the page title.</td>
+<td>Custom title for the product&rsquo;s page. If not defined, the product name will be used as the page title.</td>
 </tr>
 <tr>
 <td>meta_keywords</td>
@@ -360,27 +365,27 @@
 <tr>
 <td>meta_description</td>
 <td>text</td>
-<td>Custom meta description for the product page, if not defined the store default meta description will be used.</td>
+<td>Custom meta description for the product page. If not defined, the store&rsquo;s default meta description will be used.</td>
 </tr>
 <tr>
 <td>layout_file</td>
 <td>string</td>
-<td>The layout template file used to render this category.</td>
+<td>The layout template file used to render this product category.</td>
 </tr>
 <tr>
 <td>is_price_hidden</td>
 <td>boolean</td>
-<td>False by default, which indicates that the price of this product should be shown on the product page. If set to &ldquo;true&rdquo;, the price is hidden. NOTE: To successfully set &ldquo;is_price_hidden&rdquo; to &ldquo;true&rdquo;, the &ldquo;availability&rdquo; value must be &ldquo;disabled&rdquo;.</td>
+<td>The default <code class="prettyprint">false</code> value indicates that this product&rsquo;s price should be shown on the product page. If set to <code class="prettyprint">true</code>, the price will be hidden hidden. (NOTE: To successfully set <code class="prettyprint">is_price_hidden</code> to <code class="prettyprint">true</code>, the <code class="prettyprint">availability</code> value must be <code class="prettyprint">disabled</code>.)</td>
 </tr>
 <tr>
 <td>price_hidden_label</td>
 <td>string</td>
-<td>By default, an empty string. If &ldquo;is_price_hidden&rdquo; is &ldquo;true&rdquo;, the value of &ldquo;price_hidden_label&rdquo; is displayed instead of the price. NOTE: To successfully set a non-empty string value for &ldquo;price_hidden_label&rdquo;, the &ldquo;availability&rdquo; value must be &ldquo;disabled&rdquo;.</td>
+<td>By default, an empty string. If <code class="prettyprint">is_price_hidden</code> is <code class="prettyprint">true</code>, the value of <code class="prettyprint">price_hidden_label</code> will be displayed instead of the price. (NOTE: To successfully set a non-empty string value for <code class="prettyprint">price_hidden_label</code>, the <code class="prettyprint">availability</code> value must be <code class="prettyprint">disabled</code>.)</td>
 </tr>
 <tr>
 <td>categories</td>
 <td>array</td>
-<td>An array of IDs for the categories this product belongs to. When updating a product, if an array of categories is supplied all product categories will be overwritten. Does not accept more than 1,000 ID values.</td>
+<td>An array of IDs for the categories this product belongs to. When updating a product, if an array of categories is supplied, then all product categories will be overwritten. Does not accept more than 1,000 ID values.</td>
 </tr>
 <tr>
 <td>date_modified</td>
@@ -390,22 +395,22 @@
 <tr>
 <td>event_date_field_name</td>
 <td>string</td>
-<td>Name of the field to be displayed on the product page when selecting the &ldquo;delivery/event&rdquo; date.</td>
+<td>Name of the field to be displayed on the product page when selecting the event/delivery date.</td>
 </tr>
 <tr>
 <td>event_date_type</td>
 <td>enum</td>
-<td>none - If set to none then the event/delivery date requirement and field will be disabled. after - The selected date must fall either on or after the date specified in the &ldquo;event_date_start&rdquo; field. before - The selected date must fall either before or on the date specified in the &ldquo;event_date_end&rdquo; field. range - The selected date must fall between the &ldquo;event_date_start&rdquo; and &ldquo;event_date_end&rdquo; dates.</td>
+<td>One of the following values:<br> <code class="prettyprint">none</code> – A <code class="prettyprint">none</code> value disables the event/delivery date requirement and field.<br> <code class="prettyprint">after</code> – The selected date must fall either on, or after, the date specified in the <code class="prettyprint">event_date_start</code> field.<br> <code class="prettyprint">before</code> – The selected date must fall either before, or on, the date specified in the <code class="prettyprint">event_date_end</code> field.<br> <code class="prettyprint">range</code> – The selected date must fall between the <code class="prettyprint">event_date_start</code> and <code class="prettyprint">event_date_end</code> dates.</td>
 </tr>
 <tr>
 <td>event_date_start</td>
 <td>date</td>
-<td>The date which is used as the &ldquo;after&rdquo; date when the product requires the customer to select a delivery/event date.</td>
+<td>When the product requires the customer to select an event/delivery date, this date is used as the &ldquo;after&rdquo; date.</td>
 </tr>
 <tr>
 <td>event_date_end</td>
 <td>date</td>
-<td>The date which is used as the &ldquo;before&rdquo; date when the product requires the customer to select a delivery/event date.</td>
+<td>When the product requires the customer to select an event/delivery date, this date is used as the &ldquo;before&rdquo; date.</td>
 </tr>
 <tr>
 <td>myob_asset_account</td>
@@ -430,32 +435,32 @@
 <tr>
 <td>condition</td>
 <td>enum</td>
-<td>The product condition, will be shown on the product page if the value of the &ldquo;is_condition_shown&rdquo; field is true. Possible values: New, Used, Refurbished</td>
+<td>The product&rsquo;s condition. Will be shown on the product page if the value of the <code class="prettyprint">is_condition_shown</code> field is true. Possible values: <code class="prettyprint">New</code>, <code class="prettyprint">Used</code>, <code class="prettyprint">Refurbished</code>.</td>
 </tr>
 <tr>
 <td>is_condition_shown</td>
 <td>boolean</td>
-<td>Flag used to determine if the product condition is shown to the customer on the product page.</td>
+<td>Flag used to determine whether the product&rsquo;s condition will be shown to the customer on the product page.</td>
 </tr>
 <tr>
 <td>preorder_release_date</td>
 <td>date</td>
-<td>Pre-order release date. See availability field for details on setting a products availability to accept pre-orders.</td>
+<td>Pre-order release date. See <code class="prettyprint">availability</code> field for details on setting a product&rsquo;s availability to accept pre-orders.</td>
 </tr>
 <tr>
 <td>is_preorder_only</td>
 <td>boolean</td>
-<td>If set to false, the product will not change its availability from preorder to available on the release date. Otherwise on the release date the products availability/status will change to available.</td>
+<td>If set to <code class="prettyprint">false</code>, the product will not change its <code class="prettyprint">availability</code> from <code class="prettyprint">preorder</code> to <code class="prettyprint">available</code> on the release date. Otherwise, on the release date the product&rsquo;s availability/status will change to <code class="prettyprint">available</code>.</td>
 </tr>
 <tr>
 <td>preorder_message</td>
 <td>string</td>
-<td>Custom expected date message to display on the product page, if undefined the message defaults to the store wide setting. Can contain the %%DATE%% place holder which will be substituted for the release date</td>
+<td>Custom expected-date message to display on the product page. If undefined, the message defaults to the storewide setting. Can contain the <code class="prettyprint">%%DATE%%</code> placeholder, which will be replaced with the release date.</td>
 </tr>
 <tr>
 <td>order_quantity_minimum</td>
 <td>int</td>
-<td>The minimum quantity an order has to contain to be able to purchase this product.</td>
+<td>The minimum quantity an order must contain in order to purchase this product.</td>
 </tr>
 <tr>
 <td>order_quantity_maximum</td>
@@ -465,47 +470,47 @@
 <tr>
 <td>open_graph_type</td>
 <td>enum</td>
-<td>Type of product, valid values are: product album book drink food game movie song tv_show</td>
+<td>Type of product. Acceptable values are: <code class="prettyprint">product</code>, <code class="prettyprint">album</code>, <code class="prettyprint">book</code>, <code class="prettyprint">drink</code>, <code class="prettyprint">food</code>, <code class="prettyprint">game</code>, <code class="prettyprint">movie</code>, <code class="prettyprint">song</code>, <code class="prettyprint">tv_show</code></td>
 </tr>
 <tr>
 <td>open_graph_title</td>
 <td>string</td>
-<td>Title of the product, if not specified the product name will be used instead.</td>
+<td>Title of the product. If not specified, the product&rsquo;s name will be used instead.</td>
 </tr>
 <tr>
 <td>open_graph_description</td>
 <td>text</td>
-<td>Description to use for the product, if not specified then the meta_description will be used instead.</td>
+<td>Description to use for the product. If not specified, the <code class="prettyprint">meta_description</code> will be used instead.</td>
 </tr>
 <tr>
 <td>is_open_graph_thumbnail</td>
 <td>boolean</td>
-<td>If set to true, the product thumbnail image will be used as the open graph image.</td>
+<td>If set to <code class="prettyprint">true</code>, the product thumbnail image will be used as the open graph image.</td>
 </tr>
 <tr>
 <td>upc</td>
 <td>string</td>
-<td>The product UPC code which is used in feeds for shopping comparison sites.</td>
+<td>The product UPC code, which is used in feeds for shopping comparison sites.</td>
 </tr>
 <tr>
 <td>date_last_imported</td>
 <td>date</td>
-<td>The date of which the product was last imported using the bulk importer.</td>
+<td>The date on which the product was last imported using the bulk importer.</td>
 </tr>
 <tr>
 <td>option_set_id</td>
 <td>int</td>
-<td>The ID of the option set applied to the product. Note: To remove the option set off the product, set the value to &ldquo;null&rdquo; on update.</td>
+<td>The ID of the <a href="/v2#product-option-sets">option set</a> applied to the product. (NOTE: To remove the option set from the product, set the value to <code class="prettyprint">null</code> on update.)</td>
 </tr>
 <tr>
 <td>tax_class_id</td>
 <td>int</td>
-<td>The ID of the tax class applied to the product. NOTE: Value ignored if automatic tax is enabled.</td>
+<td>The ID of the tax class applied to the product. (NOTE: Value ignored if automatic tax is enabled.)</td>
 </tr>
 <tr>
 <td>option_set_display</td>
 <td>enum</td>
-<td>The position the option set options will be displayed on the product page.</td>
+<td>The position on the product page where options from the option set will be displayed.</td>
 </tr>
 <tr>
 <td>bin_picking_number</td>
@@ -520,12 +525,12 @@
 <tr>
 <td>primary_image</td>
 <td>object</td>
-<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes: <code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box. <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box. <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels. And <code class="prettyprint">zoom_url</code> is either the original image size provided to BigCommerce, or the merchant-selected <code class="prettyprint">Product Zoom Image</code>/<code class="prettyprint">Zoomed image</code> size – whichever is smaller. (You can always access the product&rsquo;s original image via the <a href="/api/v2/products/#product-images">Product Images resource</a>.)</td>
+<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes:<br> <code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box.<br> <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box.<br> <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels.<br> <code class="prettyprint">zoom_url</code> is either the original image size provided to BigCommerce, or the merchant-selected <code class="prettyprint">Product Zoom Image</code>/<code class="prettyprint">Zoomed image</code> size – whichever is smaller. (You can always access the product&rsquo;s original image via the <a href="/api/v2/products/#product-images">Product Images resource</a>.)</td>
 </tr>
 <tr>
 <td>availability</td>
 <td>enum</td>
-<td>Availability of the product. availability options: available - The product can be purchased in the store front. disabled - The product is listed in the store front but can not be purchased. preorder - The product is listed for pre-orders.</td>
+<td>Availability of the product. Possible values:<br> <code class="prettyprint">available</code> – the product can be purchased on the storefront.<br> <code class="prettyprint">disabled</code> - the product is listed on the storefront, but cannot be purchased.<br> <code class="prettyprint">preorder</code> – the product is listed for pre-orders.</td>
 </tr>
 <tr>
 <td>brand</td>
@@ -545,17 +550,17 @@
 <tr>
 <td>discount_rules</td>
 <td>resource</td>
-<td>See the Bulk Discount Rules resource for information.</td>
+<td>See the <a href="/api/v2#bulk-pricing">Bulk Pricing/Discount</a> resource for information.</td>
 </tr>
 <tr>
 <td>configurable_fields</td>
 <td>resource</td>
-<td>See the Configurable Fields resource for information.</td>
+<td>See the <a href="/api/v2#configurable-fields">Configurable Fields</a> resource for information.</td>
 </tr>
 <tr>
 <td>custom_fields</td>
 <td>resource</td>
-<td>See the Custom Fields resource for information.</td>
+<td>See the <a href="/api/v2#custom-fields">Custom Fields</a> resource for information.</td>
 </tr>
 <tr>
 <td>videos</td>
@@ -565,22 +570,22 @@
 <tr>
 <td>skus</td>
 <td>resource</td>
-<td>Stock Keeping Units for the product. See the SKU resource for the definition of a sku object.</td>
+<td>Stock Keeping Units for the product. See the <a href="/api/v2#product-skus">Product SKUs</a> resource for the definition of a sku object.</td>
 </tr>
 <tr>
 <td>rules</td>
 <td>resource</td>
-<td>Rules which apply to this product only which are based on the products Option Set. See Rules resource for information.</td>
+<td>Rules that apply only to this product, based on the product&rsquo;s <a href="/v2#product-option-sets">option set</a>. See <a href="/api/v2#product-rules">Product Rules</a> resource for information.</td>
 </tr>
 <tr>
 <td>option_set</td>
 <td>resource</td>
-<td>See the Option Set resource for information.</td>
+<td>See the <a href="/v2#product-option-sets">Product Option Sets</a> resource for information.</td>
 </tr>
 <tr>
 <td>options</td>
 <td>resource</td>
-<td>Options from the option set applied to the product. See the Product Options resource for information.</td>
+<td>Options from the <a href="/v2#product-option-sets">option set</a> applied to the product. See the <a href="/api/v2#product-options">Product Options</a> resource for information.</td>
 </tr>
 <tr>
 <td>tax_class</td>
@@ -590,7 +595,7 @@
 <tr>
 <td>avalara_product_tax_code</td>
 <td>resource</td>
-<td>Accepts AvaTax system codes that identify products and services that fall into special sales tax categories. Allows merchants that subscribe to Avalara Premium to achieve increased accuracy in sales tax calculations. Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. Refer to the &ldquo;AvaTax System tax codes&rdquo; section of the following page for further information and the full list of codes: https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code</td>
+<td>Accepts AvaTax system codes, which identify products and services that fall into special sales-tax categories. Allows merchants who subscribe to Avalara Premium to achieve increased accuracy in sales-tax calculations. Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. Refer to the &ldquo;AvaTax System tax codes&rdquo; section of the following page for further information and for the full list of codes: <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code">https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code</a></td>
 </tr>
 </tbody></table>
 
@@ -600,7 +605,7 @@
 <pre class="highlight plaintext"><code>store/product/created
 </code></pre>
 
-<p>Occurs when a product is created from the control panel, bulk import or via the API.</p>
+<p>Occurs when a product is created from the control panel, via bulk import, or via the API.</p>
 
 <h3 id="product-updated"><span class="jumptarget"> Product Updated </span></h3>
 <pre class="highlight plaintext"><code>store/product/updated
@@ -1380,6 +1385,7 @@
 <p>The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.</p>
 
 <ul>
+<li>  id</li>
 <li>  calculated_price</li>
 <li>  brand</li>
 <li>  images</li>
@@ -4312,7 +4318,7 @@
 
 <p>Configurable fields associated with a product.</p>
 
-<h2 id="configureable-field-properties"><span class="jumptarget"> Configureable Field - Properties </span></h2>
+<h2 id="configurable-fields-properties"><span class="jumptarget"> Configurable Fields – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -4819,7 +4825,7 @@
 
           <h1 id="google-product-search-mappings"><span class="jumptarget"> Google Product Search Mappings </span></h1>
 
-<h2 id="google-product-search-mapping-object-properties"><span class="jumptarget"> Google Product Search Mapping Object - Properties </span></h2>
+<h2 id="google-product-search-mapping-object-properties"><span class="jumptarget"> Google Product Search Mapping Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -4831,7 +4837,7 @@
 <tr>
 <td>enabled</td>
 <td>boolean</td>
-<td></td>
+<td>[Descriptions are pending – will be added here]</td>
 </tr>
 <tr>
 <td>product_id</td>
