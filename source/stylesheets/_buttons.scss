@@ -211,7 +211,9 @@
 
 .btn {
     display: inline-block;
-    padding: 9px 11px;
+    /* padding: 9px 11px; */
+    /* ^ Swapped 8/15/16 to center button captions: \/ */
+    padding: 9px 6px 9px 6px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
