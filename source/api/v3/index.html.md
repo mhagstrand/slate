@@ -1,6 +1,6 @@
 ---
 title: BigCommerce API Documentation
-layout: "twocolumn"
+layout: "apitwocolumn"
 
 toc_footers:
   - <a href="/">Home</a>
