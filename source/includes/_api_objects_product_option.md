@@ -2,7 +2,7 @@
 
 Shared attributes that control value facets on a product.
 
-## <span class="jumptarget"> Product Option Object - Properties </span>
+## <span class="jumptarget"> Product Options Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
