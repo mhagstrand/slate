@@ -6,7 +6,7 @@ For a full overview of the JWT standard, please see <a href="https://jwt.io/" ta
 
 ## Customer Login Token
 
-A valid JWT token is a string composed of three parts, separated by periods (“.”). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.
+A valid JWT token is a string composed of three parts, separated by periods ("."). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.
 
 ### Example URL
 
@@ -27,16 +27,16 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 ### Payload
 
-```
+```json
 {
-“iss”: “<application_client_id>”,
-“iat”: <issued_at>,
-“jti”: “<unique_string>”,
-“operation”: “customer_login”,
-“store_hash”: “<store_hash>”,
-“customer_id”: <customer_id>,
-“redirect_to”: “<relative_path (optional)>”,
-“request_ip”: “<ipv4_address (optional)>”
+"iss": "<application_client_id>",
+"iat": "<issued_at>",
+"jti": "<unique_string>",
+"operation": "customer_login",
+"store_hash": "<store_hash>",
+"customer_id": "<customer_id>",
+"redirect_to": "<relative_path (optional)>",
+"request_ip": "<ipv4_address (optional)>"
 }
 ```
 
