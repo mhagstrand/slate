@@ -22,6 +22,23 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/customers/{customer_id}/addresses?page={number} |
 | Limit | int | /api/v2/customers/{customer_id}/addresses?limit={count} |
 
+### <span class="jumptarget"> Read-only Properties </span>
+
+The following property is read-only. If included in the request, it will be rejected.
+
+*   form_fields
+
+### <span class="jumptarget"> Notes </span>
+
+Allowable values for the `address_type` property are `residential` or `commercial`.
+
+In the example Response below, within the `form_fields` array, the first custom field is a checkbox field that could return any number of answers. The second custom field is a date field.
+
+
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 [
   {
@@ -51,6 +68,23 @@ Gets a customer address.
 *   Basic Auth
 >`GET /api/v2/customers/{customer_id}/addresses/{id}`
 
+### <span class="jumptarget"> Read-only Properties </span>
+
+The following property is read-only. If included in the request, it will be rejected.
+
+*   form_fields
+
+### <span class="jumptarget"> Notes </span>
+
+Allowable values for the `address_type` property are `residential` or `commercial`.
+
+In the example Response below, within the `form_fields` array, the first custom field is a checkbox field that could return any number of answers. The second custom field is a date field.
+
+
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "id": 1,
@@ -78,6 +112,9 @@ Gets a count of customer addresses.
 *   Basic Auth
 >`GET /api/v2/customers/{customer_id}/addresses/count`
 
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -115,7 +152,11 @@ The following properties of the customer address are required. The request wonâ€
 *   zip
 *   country
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "first_name": "Trisha",
   "last_name": "McLaughlin",
@@ -129,6 +170,10 @@ The following properties of the customer address are required. The request wonâ€
   "phone": "512-123-4567"
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -168,7 +213,11 @@ The following properties of the customer address are read-only. If one or more o
 
 The following properties of the customer address are required. The request wonâ€™t be fulfilled unless these properties are valid.
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "first_name": "Trisha",
   "last_name": "McLaughlin",
@@ -182,6 +231,10 @@ The following properties of the customer address are required. The request wonâ€
   "phone": ""
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
