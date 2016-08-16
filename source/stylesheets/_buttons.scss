@@ -257,3 +257,10 @@
 .btn-group>.btn:first-child:not(.language-dropdown) {
     border-right: none
 }
+
+// Added 8/15/16 make sure top-left buttons stay white, 
+// instead of inheriting standard (dark-blue) link color:
+
+.api-selector a { 
+    color: white  
+}
