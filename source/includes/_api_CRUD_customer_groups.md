@@ -1,7 +1,7 @@
-|||
-|--|--|
-| **Manages** |
-| **OAuth Scopes** | store_v2_customers
+| | |
+|---|---|
+| **Manages** |  |
+| **OAuth Scopes** | store_v2_customers |
 ||store_v2_customers_read_only
 
 ## <span class="jumptarget"> List Customer Groups </span>
@@ -55,7 +55,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
     ]
   }
-]```
+]
+```
 
 ## <span class="jumptarget"> Get a Customer Group </span>
 
@@ -81,7 +82,8 @@ Gets a customer group.
       "amount": "5.0000"
     }
   ]
-}```
+}
+```
 
 ## <span class="jumptarget"> Get a Count of Customer Groups </span>
 
@@ -95,7 +97,8 @@ Gets a count of customer groups.
 ```json
 {
   "count": 3
-}```
+}
+```
 
 ## <span class="jumptarget"> Create a Customer Group </span>
 
@@ -119,10 +122,12 @@ The following properties of the customer group are required. The request won’t
 ### <span class="jumptarget"> Notes </span>
 
 A minimal request requires only the customer group name:
+
 ```curl
 {
     "name": "Wholesale Customers"
-}```
+}
+```
 
 To assign all new customers to the group by default, set **is default** to true:
 
@@ -130,7 +135,8 @@ To assign all new customers to the group by default, set **is default** to true:
 {
     "name": "Retail Customers",
     "is_default": true
-}```
+}
+```
 
 To restrict customers in the group to only view and order products from a specific set of categories, provide a **category access** type:
 
@@ -141,7 +147,8 @@ To restrict customers in the group to only view and order products from a specif
         "type": "specific",
         "categories": [7, 12, 20]
     }
-}```
+}
+```
 
 To provide a 5% store-wide discount for customers in the group, provide a **discount rule** of type **all**:
 
@@ -154,7 +161,8 @@ To provide a 5% store-wide discount for customers in the group, provide a **disc
         "method": "percent",
         "amount": 5.00
     }]
-}```
+}
+```
 
 ## <span class="jumptarget"> Update a Customer Group </span>
 
@@ -178,6 +186,7 @@ The following properties of the customer group are required. The request won’t
 Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.
 
 The following request will remove any existing rules, and apply the new ones:
+
 ```curl
 {
         "discount_rules": [
