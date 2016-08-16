@@ -6,7 +6,7 @@ Groupings of customers who share the same level of access and discounts at a sto
 
 | Name | Type | Description |
 | --- | --- | --- |
-| id | int |
+| id | int | |
 | name | string | Name of the group |
 | is_default | boolean | Determines whether new customers are assigned to this group by default. |
 | category_access | object | Determines the categories to which customers in this group have access to view and order products.<br><br> `type` is an enum specifying the method of category access applied to customers in this group, with the following possible values:<br> `all`: customers can access all categories;<br> `specific`: customers can access a specific list of categories;<br> `none`: customers are prevented from viewing any of the categories in this group.<br><br> `categories` is an array of category IDs and should be supplied only if `type` is `specific`. |
