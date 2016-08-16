@@ -239,7 +239,9 @@
 .btn-group {
     position: relative;
     vertical-align: middle;
-    margin-left: 36px;
+    /* margin-left: 36px; */
+    /* ^ Swapped 8/15/16 to left-align whole left nav \/: */
+    margin-left: 8px;
     margin-right: 32px
 }
 

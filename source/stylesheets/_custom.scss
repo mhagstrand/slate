@@ -200,7 +200,9 @@ table td:nth-child(3) {
 }
 
 .nav-label {
-  margin-left: 36px;
+  /* margin-left: 36px; */
+    /* ^ Swapped 8/15/16 to left-align whole left nav \/: */
+  margin-left: 12px;
   margin-bottom: 12px;
   font-size: 15px;
   font-weight: normal;

@@ -84,7 +84,8 @@ under the License.
       <div class="top-bar-actions ng-scope">
         <div class="optional"><a href="https://login.bigcommerce.com/login">Log In</a></div>
         <div class="optional">
-          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
+          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a>
+          </button>
         </div>
       </div>
     </nav>
@@ -120,11 +121,12 @@ under the License.
         <ul class="search-results"></ul>
       <% end %>
       <div id="toc">
-        <ul style="padding: 0 15px 0 15px;">
+      <%# Commented out 8/15/16 to suppress top-of-TOC links: %>
+        <%# <ul style="padding: 0 15px 0 15px;">
           <li id="vtwo-link1" style="font-size: 14px;color: #595864;"><a href="/api/v2/products/">Products</a></li>
           <li id="vtwo-link2" style="font-size: 14px;color: #595864;"><a href="/api/v2/orders/">Orders</a></li>
           <li id="vtwo-link3" style="font-size: 14px;color: #595864;"><a href="/api/v2/customers/">Customers</a></li>
-        </ul>
+        </ul> %>
       </div>
       <% if current_page.data.toc_footers %>
         <ul class="toc-footer">
