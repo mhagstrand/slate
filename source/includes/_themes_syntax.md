@@ -1,8 +1,10 @@
+# <span class="jumptarget"> Template Syntax </span>
+
 Each of the layout, panel, and snippet files in a theme uses variables (also called placeholders) to show external content or content fetched from the database (such as the name of a product).
 
 Template variables are enclosed within `%%` markers. There are various different types of variables available for use in templates: global variables, string variables, panel references, snippet references, and file includes.
 
-### Global Variables
+### <span class="jumptarget"> Global Variables </span>
 
 Global variables are used to render dynamic content into a template. Global variables are referenced using the following syntax:
 
@@ -14,7 +16,7 @@ For example:
 
 The availability of specific variables differs on the layout template that’s being edited (for example, the variable for the description of a product is available on the product details page, but not on the category view/product listing page).
 
-### Panel References
+### <span class="jumptarget"> Panel References </span>
 
 Panels are the different blocks used by Bigcommerce to build a page. Panels are referenced both inside layout files and inside other panel files.
 
@@ -28,7 +30,7 @@ For example:
 
 This panel reference will load in the content from the `Panels/HomeFeaturedProducts.html` panel file.
 
-### Snippet References
+### <span class="jumptarget"> Snippet References </span>
 
 Snippets are templates containing HTML that can be used multiple times on one page either by being used in different parts of the template or being part of a loop that for example builds a list of products on the page (each product in the list being a repeated version of the same snippet)
 
@@ -42,7 +44,7 @@ In most cases, this will correspond to a similarly named file in the Theme’s S
 
 This snippet reference will contain a repeated copy of `Snippets/HomeFeaturedProductsItem.html`, one for each featured product to be shown in the list.
 
-### Reference your own theme assets explicitly
+### <span class="jumptarget"> Reference your own theme assets explicitly </span>
 
 As these practices have recently changed, this documentation will provide examples comparing the syntax you may have used before with the updated syntax.
 
@@ -60,9 +62,9 @@ will be output as:
 
 <pre>http://cdn-host/templates/__custom/Styles/myonwstyle.css?t=123</pre>
 
-#### Syntax Examples
+#### <span class="jumptarget"> Syntax Examples </span>
 
-##### Assets in CSS files
+##### <span class="jumptarget"> Assets in CSS files </span>
 
 | Previous Syntax | Updated Syntax(CDN) |
 |-----------------|---------------------|
@@ -73,7 +75,7 @@ will be output as:
 |url(icons/foo.ico) | url(%%ASSET_Styles/icons/foo.ico%%)
 |url(//mystore.com/template/images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
 
-##### Assets in HTML files
+##### <span class="jumptarget"> Assets in HTML files </span>
 
 | Previous Syntax | Updated Syntax(CDN) |
 |---------------|----------------|
@@ -82,7 +84,7 @@ will be output as:
 |<link href="/template/Styles/foo.css" /> |<link href="%%ASSET_Styles/foo.css%%" />
 |<script src="/template/js/foo.js%%"></script> | <script src="%%ASSET_js/foo.js%%"></script>
 
-##### Assets outside of the template directory
+##### <span class="jumptarget"> Assets outside of the template directory </span>
 
 The `ASSET` variable can only be used with files and folders inside of the template directory. In order to take advantage of the benefits provided when using a CDN, we strongly recommend moving your assets to the template directory. However, if you need to keep assets outside of the template directory, the best practice is to use **protocol-relative** absolute or fully qualified URLs.
 
@@ -90,7 +92,7 @@ The `ASSET` variable can only be used with files and folders inside of the templ
 url(//mystore.com/content/images/foo.jpg")
 <link href="//mystore.com/content/foo.css" rel="stylesheet" type="text/css" /></pre>
 
-### File Includes
+### <span class="jumptarget"> File Includes </span>
 
 It’s also possible to include another file within a template. This can be accomplished using file include variables. This is extremely useful if external files such as banners, site-network headers or other content need to be included.
 
