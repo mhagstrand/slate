@@ -74,12 +74,12 @@ The following tables map earlier to current syntax:
 
 | Previous Syntax | Updated Syntax(CDN) |
 |-----------------|---------------------|
-|url(/template/images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
-|url(/templates/__custom/images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
-|url(/template/foo/bar/font.woff) | url(%%ASSET_foo/bar/font.woff%%)
-|url(../images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
-|url(icons/foo.ico) | url(%%ASSET_Styles/icons/foo.ico%%)
-|url(//mystore.com/template/images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
+| `url(/template/images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
+| `url(/templates/__custom/images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
+| `url(/template/foo/bar/font.woff)` | `url(%%ASSET_foo/bar/font.woff%%)` |
+| `url(../images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
+| `url(icons/foo.ico)` | `url(%%ASSET_Styles/icons/foo.ico%%)` |
+| `url(//mystore.com/template/images/foo.jpg)` | `url(%%ASSET_images/foo.jpg%%)` |
 
 ##### <span class="jumptarget"> Assets in HTML Files </span>
 
