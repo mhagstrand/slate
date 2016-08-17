@@ -44,27 +44,33 @@ In most cases, this will correspond to a similarly named file in the Theme’s S
 
 This snippet reference will contain a repeated copy of `Snippets/HomeFeaturedProductsItem.html`, one for each featured product to be shown in the list.
 
-### <span class="jumptarget"> Reference your own theme assets explicitly </span>
+### <span class="jumptarget"> Reference Your Own Theme Assets Explicitly </span>
 
-As these practices have recently changed, this documentation will provide examples comparing the syntax you may have used before with the updated syntax.
+As these practices have changed, this documentation will provide examples comparing the syntax you may have used before with the updated syntax.
 
-You can use WebDav to upload your own custom theme assets (javascripts, stylesheets, images, fonts, etc). Reference these assets which aren’t present in the base theme using the `ASSET` syntax in your html.
+You can use WebDAV to upload your own custom theme assets (JavaScripts, stylesheets, images, fonts, etc). In your HTML, reference these assets that aren’t present in the base theme using the `ASSET` syntax:
 
 <pre>%%ASSET_[path_to_asset]%%</pre>
 
-This syntax will output an absolute URL like `http://cdn-host/templates/__custom/path_to_asset?t=timestamp`, which loads the custom asset from our CDN server, and includes a cache busting querystring.
+This syntax will output an absolute URL like: 
+
+<pre>http://cdn-host/templates/__custom/path_to_asset?t=timestamp`</pre>
+
+This loads the custom asset from our CDN server, and includes a cache-busting querystring.
 
 For example:
 
 <pre>%%ASSET_Styles/myownstyle.css%%</pre>
 
-will be output as:
+...will be output as:
 
 <pre>http://cdn-host/templates/__custom/Styles/myonwstyle.css?t=123</pre>
 
 #### <span class="jumptarget"> Syntax Examples </span>
 
-##### <span class="jumptarget"> Assets in CSS files </span>
+The following tables map earlier to current syntax:
+
+##### <span class="jumptarget"> Assets in CSS Files </span>
 
 | Previous Syntax | Updated Syntax(CDN) |
 |-----------------|---------------------|
@@ -75,22 +81,24 @@ will be output as:
 |url(icons/foo.ico) | url(%%ASSET_Styles/icons/foo.ico%%)
 |url(//mystore.com/template/images/foo.jpg) | url(%%ASSET_images/foo.jpg%%)
 
-##### <span class="jumptarget"> Assets in HTML files </span>
+##### <span class="jumptarget"> Assets in HTML Files </span>
 
 | Previous Syntax | Updated Syntax(CDN) |
 |---------------|----------------|
-|<pre><img src="../images/foo.jpg" />|<pre><img src="%%ASSET_images/foo.jpg%%" />|
-|<img src="//mystore.com/template/images/foo.jpg"> |<img src="%%ASSET_images/foo.jpg%%" />
-|<link href="/template/Styles/foo.css" /> |<link href="%%ASSET_Styles/foo.css%%" />
-|<script src="/template/js/foo.js%%"></script> | <script src="%%ASSET_js/foo.js%%"></script>
+| `<img src="../images/foo.jpg" />` | `<img src="%%ASSET_images/foo.jpg%%" />` |
+| `<img src="//mystore.com/template/images/foo.jpg">` | `<img src="%%ASSET_images/foo.jpg%%" />` |
+| `<link href="/template/Styles/foo.css" />` | `<link href="%%ASSET_Styles/foo.css%%" />` |
+| `<script src="/template/js/foo.js%%"></script>` | `<script src="%%ASSET_js/foo.js%%"></script>` |
 
-##### <span class="jumptarget"> Assets outside of the template directory </span>
+##### <span class="jumptarget"> Assets Outside of the Template Directory </span>
 
-The `ASSET` variable can only be used with files and folders inside of the template directory. In order to take advantage of the benefits provided when using a CDN, we strongly recommend moving your assets to the template directory. However, if you need to keep assets outside of the template directory, the best practice is to use **protocol-relative** absolute or fully qualified URLs.
+The `ASSET` variable can be used only with files and folders inside of the template directory. In order to take advantage of the benefits provided when using a CDN, we strongly recommend moving your assets to the template directory. However, if you need to keep assets outside of the template directory, the best practice is to use _protocol-relative_, absolute or fully qualified, URLs.
 
-<pre><img src="//mystore.com/content/images/foo.jpg" />
+```
+<img src="//mystore.com/content/images/foo.jpg" />
 url(//mystore.com/content/images/foo.jpg")
-<link href="//mystore.com/content/foo.css" rel="stylesheet" type="text/css" /></pre>
+<link href="//mystore.com/content/foo.css" rel="stylesheet" type="text/css" />
+```
 
 ### <span class="jumptarget"> File Includes </span>
 
