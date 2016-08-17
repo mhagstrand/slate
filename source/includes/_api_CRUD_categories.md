@@ -35,6 +35,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/categories?page={number} |
 | Limit | int | /api/v2/categories?limit={count} |
 
+### Response
+
+Example JSON returned in the response:
+
 ```json
 [
   {
@@ -67,6 +71,10 @@ Gets a single category.
 *   Basic Auth
 >`GET /api/v2/categories/{id}`
 
+### Response
+
+Example JSON returned in the response:
+
 ```json
 {
   "id": 10,
@@ -98,6 +106,10 @@ Gets a count of the total number of categories in the store.
 >`GET /stores/{store_hash}/v2/categories/count`
 *   Basic Auth
 >`GET /api/v2/categories/count`
+
+### Response
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -133,11 +145,19 @@ To maximize system performance, Bigcommerce caps the number of categories that c
 
 In addition, Bigcommerce caps the total number of parent categories at seven. If your `POST` includes the ID of a parent category in the `parent_id` field, Bigcommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your `POST` would cause the total number of parent categories to exceed seven, Bigcommerce will return a 403 error.
 
-```curl
+### Request
+
+Example request object:
+
+```json
 {
   "name": "Xmen toys"
 }
 ```
+
+### Response
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -185,6 +205,10 @@ The following properties of the category are required. The request won’t be fu
 
 To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.
 
+### Response
+
+Example JSON returned in the response:
+
 ```json
 {
   "id": 10,
@@ -226,7 +250,7 @@ Deletes all the categories in the store.
 >`DELETE /api/v2/categories`
 
 <aside class="warning">
-<span class="aside-warning-hd">NOTE:</span>
-
-The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+<span class="aside-warning-hd">Delete Products before Categories</span>
+<br><br>
+The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 </aside>
