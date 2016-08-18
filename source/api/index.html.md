@@ -1,6 +1,6 @@
 ---
 title: BigCommerce API Documentation
-layout: "twocolumn"
+layout: "apitwocolumn"
 
 language_tabs:
   - php

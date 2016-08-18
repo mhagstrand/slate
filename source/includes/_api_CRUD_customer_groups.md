@@ -1,21 +1,21 @@
-|||
-|--|--|
-| **Manages** |
-| **OAuth Scopes** | store_v2_customers
+| | |
+|---|---|
+| **Manages** |  |
+| **OAuth Scopes** | store_v2_customers |
 ||store_v2_customers_read_only
 
 ## <span class="jumptarget"> List Customer Groups </span>
 
-Gets the collection of customer groups. (Default sorting is by customer-group id, from lowest to highest.)
+Gets the collection of customer groups. (Default sorting is by customer-group `id`, from lowest to highest.)
 
 *   OAuth
->GET /stores/{store_hash}/v2/customer_groups
+> `GET /stores/{store_hash}/v2/customer_groups`
 *   Basic Auth
->GET /api/v2/customer_groups
+> `GET /api/v2/customer_groups`
 
 ### <span class="jumptarget"> Filters </span>
 
-Filter parameters can be added to the URL query string to select specific customer_groups in the collection.
+Filter parameters can be added to the URL query string to select specific `customer_group`s in the collection.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
@@ -24,12 +24,16 @@ Filter parameters can be added to the URL query string to select specific custom
 
 ### <span class="jumptarget"> Pagination </span>
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 customer_groups are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `customer_group`s are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
 | Page | int | /api/v2/customer_groups?page={number} |
 | Limit | int | /api/v2/customer_groups?limit={count} |
+
+### Response
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -55,16 +59,21 @@ Parameters can be added to the URL query string to paginate the collection. The 
 
     ]
   }
-]```
+]
+```
 
 ## <span class="jumptarget"> Get a Customer Group </span>
 
 Gets a customer group.
 
 *   OAuth
->GET /stores/{store_hash}/v2/customer_groups/{id}
+> `GET /stores/{store_hash}/v2/customer_groups/{id}`
 *   Basic Auth
->GET /api/v2/customer_groups/{id}
+> `GET /api/v2/customer_groups/{id}`
+
+### Response
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -81,34 +90,36 @@ Gets a customer group.
       "amount": "5.0000"
     }
   ]
-}```
+}
+```
 
 ## <span class="jumptarget"> Get a Count of Customer Groups </span>
 
 Gets a count of customer groups.
 
 *   OAuth
->GET /stores/{store_hash}/v2/customer_groups/count
+> `GET /stores/{store_hash}/v2/customer_groups/count`
 *   Basic Auth
->GET /api/v2/customer_groups/count
+> `GET /api/v2/customer_groups/count`
+
+### Response
+
+Example JSON returned in the response:
 
 ```json
 {
   "count": 3
-}```
+}
+```
 
 ## <span class="jumptarget"> Create a Customer Group </span>
 
 Creates a new customer group.
 
 *   OAuth
->POST /stores/{store_hash}/v2/customer_groups
+> `POST /stores/{store_hash}/v2/customer_groups`
 *   Basic Auth
->POST /api/v2/customer_groups
-
-### <span class="jumptarget"> Read-only Properties
-
-The following properties of the customer group are read-only. If one or more of these properties are included in the request, it will be rejected.
+> `POST /api/v2/customer_groups`
 
 ### <span class="jumptarget"> Requirements
 
@@ -119,33 +130,37 @@ The following properties of the customer group are required. The request won’t
 ### <span class="jumptarget"> Notes </span>
 
 A minimal request requires only the customer group name:
-```curl
+
+```json
 {
     "name": "Wholesale Customers"
-}```
+}
+```
 
-To assign all new customers to the group by default, set **is default** to true:
+To assign all new customers to the group by default, set `is default` to true:
 
-```curl
+```json
 {
     "name": "Retail Customers",
     "is_default": true
-}```
+}
+```
 
-To restrict customers in the group to only view and order products from a specific set of categories, provide a **category access** type:
+To restrict customers in the group to only view and order products from a specific set of categories, provide a `category access` type:
 
-```curl
+```json
 {
     "name": "Bulk Purchasers",
     "category_access": {
         "type": "specific",
         "categories": [7, 12, 20]
     }
-}```
+}
+```
 
-To provide a 5% store-wide discount for customers in the group, provide a **discount rule** of type **all**:
+To provide a 5% store-wide discount for customers in the group, use a `discount rule` of type `all`:
 
-```curl
+```json
 {
     "name": "Student Discounts",
     "discount_rules": 
@@ -154,31 +169,25 @@ To provide a 5% store-wide discount for customers in the group, provide a **disc
         "method": "percent",
         "amount": 5.00
     }]
-}```
+}
+```
 
 ## <span class="jumptarget"> Update a Customer Group </span>
 
 Updates an existing customer group.
 
 *   OAuth
->PUT /stores/{store_hash}/v2/customer_groups/{id}
+> `PUT /stores/{store_hash}/v2/customer_groups/{id}`
 *   Basic Auth
->PUT /api/v2/customer_groups/{id}
-
-### <span class="jumptarget"> Read-only Properties </span>
-
-The following properties of the customer group are read-only. If one or more of these properties are included in the request, it will be rejected.
-
-### <span class="jumptarget"> Requirements </span>
-
-The following properties of the customer group are required. The request won’t be fulfilled unless these properties are valid.
+> `PUT /api/v2/customer_groups/{id}`
 
 ### <span class="jumptarget"> Notes </span>
 
 Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.
 
 The following request will remove any existing rules, and apply the new ones:
-```curl
+
+```json
 {
         "discount_rules": [
             {
@@ -207,20 +216,20 @@ The following request will remove any existing rules, and apply the new ones:
 Deletes a customer group.
 
 *   OAuth
->DELETE /stores/{store_hash}/v2/customer_groups/{id}
+> `DELETE /stores/{store_hash}/v2/customer_groups/{id}`
 *   Basic Auth
->DELETE /api/v2/customer_groups/{id}
+> `DELETE /api/v2/customer_groups/{id}`
 
 ### <span class="jumptarget"> Notes
 
 All existing customers are unassigned from the group when it is deleted.
 
+
 ## <span class="jumptarget"> Delete All Customer Groups </span>
 
 Deletes all customer groups in the store.
 
-
 *   OAuth
->DELETE /stores/{store_hash}/v2/customer_groups
+> `DELETE /stores/{store_hash}/v2/customer_groups`
 *   Basic Auth
->DELETE /api/v2/customer_groups
+> `DELETE /api/v2/customer_groups`

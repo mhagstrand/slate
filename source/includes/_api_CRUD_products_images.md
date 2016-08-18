@@ -26,8 +26,8 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page | int | /api/v2/products/{product_id}/images?page={number} |
 | limit | int | /api/v2/products/{product_id}/images?limit={count} |
 
-json
-```[
+```json
+[
   {
     "id": 247,
     "product_id": 32,

@@ -543,11 +543,11 @@ The following properties of the product are required. The request won’t be ful
 
 ### <span class="jumptarget"> Notes </span>
 
-When the `is_visible` property is not provided, the product visibility is `false` by default.
+When the `is_visible` property is not provided, the product's visibility is `false` by default.
 
-To make newly created products immediately visible on the storefront, you must set `is_visible` to true when you create the product.
+To make newly created products immediately visible on the storefront, you must set `is_visible` to `true` when you create each product.
 
-To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your `POST` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
+To maximize system performance, Bigcommerce caps the number of categories to which a product can belong. The maximum is 1,000. If your `POST` includes an array of more than 1,000 categories' ID values, Bigcommerce will return a 403 error.
 
 ```json
 403 Access Denied/Forbidden

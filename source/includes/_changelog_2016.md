@@ -1,6 +1,16 @@
 # <span class="jumptarget"> 2016 </span>
 
+
 ## <span class="jumptarget"> August </span>
+
+
+### Store-owner changes: New support and best practices
+
+BigCommerce now makes it possible to change store ownership without breaking any installed apps. A store's new owner will no longer need to reinstall apps, and will not lose apps' historical data associated with the store.
+
+The downside of this benefit is a possibility of mismatched user information, if your app stores user data upon app installation. Therefore, your app should now associate each API token with the store hash, rather than storing it against a specific user.
+
+We will now be sending information on the current store owner in the load callback, and you should use this as the source of truth about the store’s owner. This could be important where your app needs to determine what user is active in the app, or if your account information is based on the incoming data (such as the store owner’s email address).
 
 
 ### "Create a Product" documentation updated

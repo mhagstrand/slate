@@ -17,6 +17,8 @@ includes:
   - themes_blueprint
   - themes_style_editor
   - themes_product_filtering_toolkit
+  - themes_syntax
+  - themes_theme_update_process
 
 search: true
 ---

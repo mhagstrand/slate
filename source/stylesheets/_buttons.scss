@@ -211,7 +211,10 @@
 
 .btn {
     display: inline-block;
-    padding: 9px 11px;
+    /* padding: 9px 11px; */
+    /* ^ Swapped 8/15/16 to avoid de-centering button labels (left/right: 6px);
+          then trimmed to 0 on 8/17/16 to fit "Blueprint" label: \/ */
+    padding: 9px 0px 9px 0px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: 400;
@@ -237,7 +240,9 @@
 .btn-group {
     position: relative;
     vertical-align: middle;
-    margin-left: 36px;
+    /* margin-left: 36px; */
+    /* ^ Swapped 8/15/16 to left-align whole left nav \/: */
+    margin-left: 8px;
     margin-right: 32px
 }
 
@@ -254,4 +259,11 @@
 
 .btn-group>.btn:first-child:not(.language-dropdown) {
     border-right: none
+}
+
+// Added 8/15/16 make sure top-left buttons stay white, 
+// instead of inheriting standard (dark-blue) link color:
+
+.api-selector a { 
+    color: white  
 }
