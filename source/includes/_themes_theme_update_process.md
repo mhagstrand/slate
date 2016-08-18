@@ -1,27 +1,39 @@
-# Theme Update Process
+# <span class="jumptarget"> Theme Update Process </span>
 
-This page describes process of integrating theme changes/updates made by a Partner into Bigcommerce Theme Store.
+This page describes process of integrating theme changes/updates made by a partner into the BigCommerce Theme Store.
 
-## Prerequisites
+## <span class="jumptarget"> Prerequisites </span>
 
-*   Partner has an existing theme in the Bigcommerce Theme Store.
+Integrating a partner's theme changes requires these preconditions
 
-*   Bigcommerce sets up Theme Development store (or converts existing regular store) and applies the theme. All theme files will automatically be copied into /template/ directory on WebDAV.
+*   Partner has an existing theme in the BigCommerce Theme Store.
 
-_Note that Theme Development store resolves `%%GLOBAL_TPL_PATH%%` variable into `/template/`, therefore assets will be pulled from the `/template/` directory, which is accessible via WebDAV or via Control Panel._
+*   BigCommerce sets up a Theme Development store (or converts an existing regular store) and applies the theme. All theme files will automatically be copied into the WebDAV `/template/` directory.
 
-## Update Process
+<aside class="notice">
+<span class="aside-notice-hd">Template Path Abstracted</span>
+<br><br>
+The Theme Development store resolves the <code>%%GLOBAL_TPL_PATH%%</code> variable into <code>/template/</code>. Therefore, assets will be pulled from the <code>/template/</code> directory, which is accessible via WebDAV or via the BigCommerce control panel.
+</aside>
 
-1.  Partner switches on Theme Development mode by http://<STORE>/admin/index.php?ToDo=viewTemplates&dev=enable
-2.  Partner ask Bigcommerce to switch a theme (it currently cannot be switched directly by a partner, because it’s paid)
-    **Warning:** this step will wipe all files in `/template/` directory and copies the latest version of the integrated theme.
-3.  Partner pulls changes from BC GitHub fork to get the most recent version also on his local machine.
-4.  Partner makes appropriate changes in CSS/HTML files.
-5.  Partner commits his changes into feature branch and opens pull request against BC fork. Note: If there were conflicting changes made by Bigcommerce (which should happen only when resolving urgent issues), Partner might need to rebase changes in order to resolve conflicts (i.e. `git rebase master`).
-6.  Partner [emails](mailto:themestore@bigcommerce.com) the Git URL to the theme store.
-7.  Bigcommerce integrates changes into Bigcommerce Themes.
+## <span class="jumptarget"> Update Process </span>
 
-## Other Notes
+1.  The partner switches on Theme Development mode, by using:  
+`http://<STORE>/admin/index.php?ToDo=viewTemplates&dev=enable`.
+2.  The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly by a partner, because it’s a paid theme.)
+	<aside class="error">
+This step will wipe out all files in the `/template/` directory and copy in the latest version of the integrated theme.
+	</aside>
+3.  The partner pulls changes from BigCommerce's GitHub fork, to get the most recent version onto their local machine as well.
+4.  The partner makes appropriate changes to CSS/HTML files.
+5.  The partner commits their changes into the feature branch, and opens a pull request against the BigCommerce fork.
+	<aside class="warning">
+If BigCommerce made conflicting changes (which should happen only when resolving urgent issues), the partner might need to rebase changes (using <code>git rebase master</code>) in order to resolve the conflicts.
+6.  Partner [emails](mailto:themestore@bigcommerce.com) their Git URL to the BigCommerce Theme Store.
+7.  BigCommerce integrates changes into BigCommerce Themes.
 
-*   Don’t change directory names or directory structure of the repository.
-*   Files should have permission 644 (rw-r–r–) and directories permission 755 (rwxr-x-r-x).
+## <span class="jumptarget"> Other Requirements </span>
+
+*   Partners must not change the repository's directory structure or directory names.
+*   Files should have permission 644 (`rw-r–r–`).
+*   Directories should have permission 755 (`drwxr-x-r-x`).

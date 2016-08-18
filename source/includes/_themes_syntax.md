@@ -18,7 +18,7 @@ The availability of specific variables differs on the layout template that’s b
 
 ### <span class="jumptarget"> Panel References </span>
 
-Panels are the different blocks used by Bigcommerce to build a page. Panels are referenced both inside layout files and inside other panel files.
+Panels are the different blocks used by BigCommerce to build a page. Panels are referenced both inside layout files and inside other panel files.
 
 Panels are referenced in templates as follows, where [panel_name] is the name of a file in the Theme’s Panels directory:
 
