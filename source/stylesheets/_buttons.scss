@@ -213,7 +213,7 @@
     display: inline-block;
     /* padding: 9px 11px; */
     /* ^ Swapped 8/15/16 to avoid de-centering button labels (left/right: 6px);
-          then trimmed to 0 on 8/17/16 to fit "Blueprint" label: \/ */
+          then trimmed to 0 on 8/17/16 to fit Themes labels: \/ */
     padding: 9px 0px 9px 0px;
     margin-bottom: 0;
     font-size: 14px;
@@ -243,13 +243,16 @@
     /* margin-left: 36px; */
     /* ^ Swapped 8/15/16 to left-align whole left nav \/: */
     margin-left: 8px;
-    margin-right: 32px
+    /* Hacked 8/18/16 to fit 4th button across: */
+    width: 225px;
 }
 
 .btn-group>.btn {
     position: relative;
     float: left;
-    width: 33%
+    /* width: 33% */
+    /* ^ Swapped 8/18/16 to fit 4th button across \/: */
+    width: 25%
 }
 
 .btn-group>.btn:first-child:not(:last-child):not(.language-dropdown) {
