@@ -25,7 +25,28 @@ search: true
 
 # Blueprint Themes
 
-Getting Started with Blueprint
+## Getting Started with Blueprint
+
+If you, Skipper, prefer not to navigate large tiles like those below – then here is an austere bullet list of things you can do with Blueprint themes. It is inspired by [this Smooch landing page](http://docs.smooch.io/javascript/#welcome) that Nate suggested as a model.
+
+We're all developers here, so please feel free to iterate on this as a prototype for other landing pages that essentially ask, "Do you want to take the red pill or the blue pill?":  
+
+* [Layouts](/themes/blueprint/layouts)  
+  
+	Layout templates provide the base HTML structure that wraps storefront page content. Each layout file corresponds to a specific page, and typically contains references to individual panels to be shown on a page.
+
+* [Panels](/themes/blueprint/panels)  
+
+	Panels provide reusable blocks of content. Panels are contained in div tags that generally define a page's left, center, or right column. Panels can contain content, or can generate content dynamically.
+
+* [Snippets](/themes/blueprint/snippets)  
+ 
+	Snippets are templates containing a fragment of HTML that can be embedded multiple times on a page.	
+* Styles  
+ 
+	These are the theme's primary layout stylesheets, with styles.css being the core file.	
+	
+But wait: Perhaps you _are_ a fan of large tiles? Well then, Champ, be our guest. Please play Twister with these:	
 
 <section class=
     "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
