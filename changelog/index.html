@@ -167,6 +167,14 @@
 
 <h2 id="august"><span class="jumptarget"> August </span></h2>
 
+<h3 id="store-owner-changes-new-support-and-best-practices">Store-owner changes: New support and best practices</h3>
+
+<p>BigCommerce now makes it possible to change store ownership without breaking any installed apps. A store&rsquo;s new owner will no longer need to reinstall apps, and will not lose apps&rsquo; historical data associated with the store.</p>
+
+<p>The downside of this benefit is a possibility of mismatched user information, if your app stores user data upon app installation. Therefore, your app should now associate each API token with the store hash, rather than storing it against a specific user.</p>
+
+<p>We will now be sending information on the current store owner in the load callback, and you should use this as the source of truth about the store’s owner. This could be important where your app needs to determine what user is active in the app, or if your account information is based on the incoming data (such as the store owner’s email address).</p>
+
 <h3 id="quot-create-a-product-quot-documentation-updated">&ldquo;Create a Product&rdquo; documentation updated</h3>
 
 <p>In the <a href="/api/v2/products#create-a-product">Create a Product</a> endpoint&rsquo;s documentation, the list of read-only properties now includes the <code class="prettyprint">id</code> field.</p>

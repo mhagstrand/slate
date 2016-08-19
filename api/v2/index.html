@@ -91,7 +91,7 @@
     <link href="../../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../../javascripts/all.js"></script>
+      <script src="../../javascripts/all_toggle.js"></script>
     <script>
     //This is Google's default GA code
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -126,15 +126,16 @@
       <section class="top-bar-section ng-scope">
         <ul class="menuItems">
           <li><a href="/api/" title="API">API</a></li>
-          <li><a href="/themes" title="Themes">Themes</a></li>
-          <li><a href="/changelog" title="Changelog">Changelog</a></li>
-          <li><a href="/support" title="Help and Support">Support</a></li>
+          <li><a href="/themes/" title="Themes">Themes</a></li>
+          <li><a href="/changelog/" title="Changelog">Changelog</a></li>
+          <li><a href="/support/" title="Help and Support">Support</a></li>
         </ul>
       </section>
       <div class="top-bar-actions ng-scope">
-        <div class="optional"><a href="https://dev-tools.bigcommerce.com/myapps">Log In</a></div>
+        <div class="optional"><a href="https://login.bigcommerce.com/login">Log In</a></div>
         <div class="optional">
-          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
+          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a>
+          </button>
         </div>
       </div>
     </nav>
@@ -142,6 +143,17 @@
 </header>
 
     <div class="tocify-wrapper">
+      <div class="separator separator-top"></div>
+      <div class="api-nav">
+        <div class="nav-label">API Docs</div>
+        <div class="api-selector btn-group">
+          <a href="/api/" class="btn btn-default" data-page-name="home">Basics</a>
+          <a href="/api/v2/" class="btn btn-default" data-page-name="V2">V2</a>
+          <a href="/api/v3/" class="btn btn-default" data-page-name="V3">V3</a>
+          <a href="/themes/" class="btn btn-default" data-page-name="Themes">Themes</a>
+        </div>
+        <div class="clear"></div>
+    </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -200,7 +212,7 @@
 <tr>
 <td>type</td>
 <td>enum</td>
-<td>The product type. One of:<br> physical – a physical stock unit.<br> digital – a digital download.</td>
+<td>The product type. One of:<br><br> <code class="prettyprint">physical</code> – a physical stock unit.<br> <code class="prettyprint">digital</code> – a digital download.</td>
 </tr>
 <tr>
 <td>sku</td>
@@ -315,12 +327,7 @@
 <tr>
 <td>inventory_tracking</td>
 <td>enum</td>
-<td>The type of inventory tracking for the product. One of:<br></td>
-</tr>
-<tr>
-<td><code class="prettyprint">none</code> – inventory levels will not be tracked.<br> <code class="prettyprint">simple</code> – inventory levels will be tracked using the <code class="prettyprint">inventory_level</code> and <code class="prettyprint">inventory_warning_level</code> fields.<br> <code class="prettyprint">sku</code> – inventory levels will be tracked based on individual product options, which maintain their own warning levels and inventory levels.</td>
-<td></td>
-<td></td>
+<td>The type of inventory tracking for the product. One of:<br><br> <code class="prettyprint">none</code> – inventory levels will not be tracked.<br> <code class="prettyprint">simple</code> – inventory levels will be tracked using the <code class="prettyprint">inventory_level</code> and <code class="prettyprint">inventory_warning_level</code> fields.<br> <code class="prettyprint">sku</code> – inventory levels will be tracked based on individual product options, which maintain their own warning levels and inventory levels.</td>
 </tr>
 <tr>
 <td>rating_total</td>
@@ -380,7 +387,7 @@
 <tr>
 <td>price_hidden_label</td>
 <td>string</td>
-<td>By default, an empty string. If <code class="prettyprint">is_price_hidden</code> is <code class="prettyprint">true</code>, the value of <code class="prettyprint">price_hidden_label</code> will be displayed instead of the price. (NOTE: To successfully set a non-empty string value for <code class="prettyprint">price_hidden_label</code>, the <code class="prettyprint">availability</code> value must be <code class="prettyprint">disabled</code>.)</td>
+<td>By default, an empty string. If <code class="prettyprint">is_price_hidden</code> is <code class="prettyprint">true</code>, the value of <code class="prettyprint">price_hidden_label</code> will be displayed instead of the price. (NOTE:&#160;To successfully set a non-empty string value for <code class="prettyprint">price_hidden_label</code>, the <code class="prettyprint">availability</code> value must be <code class="prettyprint">disabled</code>.)</td>
 </tr>
 <tr>
 <td>categories</td>
@@ -400,7 +407,7 @@
 <tr>
 <td>event_date_type</td>
 <td>enum</td>
-<td>One of the following values:<br> <code class="prettyprint">none</code> – A <code class="prettyprint">none</code> value disables the event/delivery date requirement and field.<br> <code class="prettyprint">after</code> – The selected date must fall either on, or after, the date specified in the <code class="prettyprint">event_date_start</code> field.<br> <code class="prettyprint">before</code> – The selected date must fall either before, or on, the date specified in the <code class="prettyprint">event_date_end</code> field.<br> <code class="prettyprint">range</code> – The selected date must fall between the <code class="prettyprint">event_date_start</code> and <code class="prettyprint">event_date_end</code> dates.</td>
+<td>One of the following values:<br><br> <code class="prettyprint">none</code> – Disables the event/delivery date requirement and field.<br> <code class="prettyprint">after</code> – The selected date must fall either on, or after, the date specified in the <code class="prettyprint">event_date_start</code> field.<br> <code class="prettyprint">before</code> – The selected date must fall either before, or on, the date specified in the <code class="prettyprint">event_date_end</code> field.<br> <code class="prettyprint">range</code> – The selected date must fall between the <code class="prettyprint">event_date_start</code> and <code class="prettyprint">event_date_end</code> dates.</td>
 </tr>
 <tr>
 <td>event_date_start</td>
@@ -525,12 +532,12 @@
 <tr>
 <td>primary_image</td>
 <td>object</td>
-<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes:<br> <code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box.<br> <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box.<br> <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels.<br> <code class="prettyprint">zoom_url</code> is either the original image size provided to BigCommerce, or the merchant-selected <code class="prettyprint">Product Zoom Image</code>/<code class="prettyprint">Zoomed image</code> size – whichever is smaller. (You can always access the product&rsquo;s original image via the <a href="/api/v2/products/#product-images">Product Images resource</a>.)</td>
+<td>An image object, corresponding to the image that is set as the product&rsquo;s thumbnail. This object includes that image&rsquo;s <code class="prettyprint">id</code>, plus four URL values identifying where to pull the image at different sizes:<br> <br><code class="prettyprint">standard_url</code> is the image used in the product page&rsquo;s image box.<br> <code class="prettyprint">tiny_url</code> is the thumbnail image displayed below the product page&rsquo;s image box.<br> <code class="prettyprint">thumbnail_url</code> is used for product list-box images on category pages and in side panels.<br> <code class="prettyprint">zoom_url</code> is either the original image size provided to BigCommerce, or the merchant-selected <code class="prettyprint">Product Zoom Image</code>/<code class="prettyprint">Zoomed image</code> size – whichever is smaller. (You can always access the product&rsquo;s original image via the <a href="/api/v2/products/#product-images">Product Images resource</a>.)</td>
 </tr>
 <tr>
 <td>availability</td>
 <td>enum</td>
-<td>Availability of the product. Possible values:<br> <code class="prettyprint">available</code> – the product can be purchased on the storefront.<br> <code class="prettyprint">disabled</code> - the product is listed on the storefront, but cannot be purchased.<br> <code class="prettyprint">preorder</code> – the product is listed for pre-orders.</td>
+<td>Availability of the product. Possible values:<br><br> <code class="prettyprint">available</code> – the product can be purchased on the storefront.<br> <code class="prettyprint">disabled</code> - the product is listed on the storefront, but cannot be purchased.<br> <code class="prettyprint">preorder</code> – the product is listed for pre-orders.</td>
 </tr>
 <tr>
 <td>brand</td>
@@ -595,7 +602,7 @@
 <tr>
 <td>avalara_product_tax_code</td>
 <td>resource</td>
-<td>Accepts AvaTax system codes, which identify products and services that fall into special sales-tax categories. Allows merchants who subscribe to Avalara Premium to achieve increased accuracy in sales-tax calculations. Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive. Refer to the &ldquo;AvaTax System tax codes&rdquo; section of the following page for further information and for the full list of codes: <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code">https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code</a></td>
+<td>Accepts AvaTax system codes, which identify products and services that fall into special sales-tax categories. Allows merchants who subscribe to Avalara Premium to achieve increased accuracy in sales-tax calculations.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For further information and the full list of codes, please see <a href="https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code">this Avalara reference page</a> &gt; &ldquo;AvaTax System tax codes&rdquo; section.</td>
 </tr>
 </tbody></table>
 
@@ -1416,11 +1423,11 @@
 
 <h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-<p>When the <code class="prettyprint">is_visible</code> property is not provided, the product visibility is <code class="prettyprint">false</code> by default.</p>
+<p>When the <code class="prettyprint">is_visible</code> property is not provided, the product&rsquo;s visibility is <code class="prettyprint">false</code> by default.</p>
 
-<p>To make newly created products immediately visible on the storefront, you must set <code class="prettyprint">is_visible</code> to true when you create the product.</p>
+<p>To make newly created products immediately visible on the storefront, you must set <code class="prettyprint">is_visible</code> to <code class="prettyprint">true</code> when you create each product.</p>
 
-<p>To maximize system performance, Bigcommerce caps the number of categories that a product can belong to at 1,000. If your <code class="prettyprint">POST</code> includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.</p>
+<p>To maximize system performance, Bigcommerce caps the number of categories to which a product can belong. The maximum is 1,000. If your <code class="prettyprint">POST</code> includes an array of more than 1,000 categories&rsquo; ID values, Bigcommerce will return a 403 error.</p>
 <pre class="highlight json"><code><span class="mi">403</span><span class="w"> </span><span class="err">Access</span><span class="w"> </span><span class="err">Denied/Forbidden</span><span class="w">
 </span></code></pre>
 
@@ -1544,7 +1551,7 @@
 
 <p>Shared attributes that control value facets on a product.</p>
 
-<h2 id="product-option-object-properties"><span class="jumptarget"> Product Option Object - Properties </span></h2>
+<h2 id="product-options-object-properties"><span class="jumptarget"> Product Options Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1678,7 +1685,7 @@
 
 <p>Values that can be selected for an option.</p>
 
-<h2 id="product-object-value-object-properties"><span class="jumptarget"> Product Object Value Object - Properties </span></h2>
+<h2 id="product-option-value-object-properties"><span class="jumptarget"> Product Option Value Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -1695,7 +1702,7 @@
 <tr>
 <td>option_id</td>
 <td>int</td>
-<td>A read-only value identifying the option that this option value is assigned to.</td>
+<td>A read-only value identifying the option to which this option value is assigned.</td>
 </tr>
 <tr>
 <td>label</td>
@@ -1710,12 +1717,12 @@
 <tr>
 <td>value</td>
 <td>text</td>
-<td>Acceptable values generally depend on the option type, as defined in the option: &ldquo;RB&rdquo;: string to be displayed to the customer; &ldquo;RT&rdquo;: string to be displayed to the customer; &ldquo;S&rdquo;: string to be displayed to the customer; &ldquo;P&rdquo;: product ID; &ldquo;PI&rdquo;: product ID; &ldquo;CS&rdquo;: hexadecimal color code to create a color option, e.g., &ldquo;#0f0000&rdquo;, a CSS 2.1 color name, e.g., &ldquo;blue&rdquo;, or up to three hexadecimal color codes and/or color names separated by a pipe, e.g., &ldquo;#FF0000</td>
+<td>Acceptable values generally depend on the option type, as defined in the option:<br><br> <code class="prettyprint">RB</code>: string to be displayed to the customer.<br> <code class="prettyprint">RT</code>: string to be displayed to the customer.<br> <code class="prettyprint">S</code>: string to be displayed to the customer.<br> <code class="prettyprint">P</code>: product ID;<br> <code class="prettyprint">PI</code>: product ID.<br> <code class="prettyprint">CS</code>: one of the following color values – a hexadecimal color code to create a color option (e.g., <code class="prettyprint">#0f0000</code>);<br> a CSS 2.1 color name (e.g., <code class="prettyprint">blue</code>);<br> up to three hexadecimal color codes and/or color names, separated by pipe symbols (e.g., <code>#FF0000&#124;lime&#124;#0000FF</code>);<br>  a URI to an image to create a texture (e.g., <code class="prettyprint">http://store.com/images/myimg.png</code>);<br> or the name of an image file in the store&rsquo;s WebDAV <code class="prettyprint">import</code> folder  (e.g., <code class="prettyprint">myimg.png</code>).</td>
 </tr>
 <tr>
 <td>is_default</td>
 <td>boolean</td>
-<td>Whether or not this value is selected by default. Only one option value can be selected by default for each option.</td>
+<td>Whether or not this value is selected by default. For each option, only one option value can be selected by default.</td>
 </tr>
 </tbody></table>
 
@@ -2672,37 +2679,35 @@
 <td>/api/v2/products/{product_id}/images?limit={count}</td>
 </tr>
 </tbody></table>
-
-<p>json
-<code class="prettyprint">[
-  {
-    &quot;id&quot;: 247,
-    &quot;product_id&quot;: 32,
-    &quot;image_file&quot;: &quot;sample_images/in_123__14581.jpg&quot;,
-    &quot;zoom_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.1280.1280.jpg?c=1&quot;,
-    &quot;thumbnail_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.386.513.jpg?c=1&quot;,
-    &quot;standard_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.220.290.jpg?c=1&quot;,
-    &quot;tiny_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.44.58.jpg?c=1&quot;,
-    &quot;is_thumbnail&quot;: true,
-    &quot;sort_order&quot;: 0,
-    &quot;description&quot;: null,
-    &quot;date_created&quot;: &quot;Mon, 24 Sep 2012 01:14:30 +0000&quot;
-  },
-  {
-    &quot;id&quot;: 248,
-    &quot;product_id&quot;: 32,
-    &quot;image_file&quot;: &quot;sample_images/in_122__93910.jpg&quot;,
-    &quot;zoom_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.1280.1280.jpg?c=1&quot;,
-    &quot;thumbnail_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.386.513.jpg?c=1&quot;,
-    &quot;standard_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.220.290.jpg?c=1&quot;,
-    &quot;tiny_url&quot;: &quot;https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.44.58.jpg?c=1&quot;,
-    &quot;is_thumbnail&quot;: false,
-    &quot;sort_order&quot;: 1,
-    &quot;description&quot;: null,
-    &quot;date_created&quot;: &quot;Mon, 24 Sep 2012 01:17:14 +0000&quot;
-  }
-]
-</code></p>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">247</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample_images/in_123__14581.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zoom_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.1280.1280.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.386.513.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"standard_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.220.290.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tiny_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/247/in_123__14581.1393831046.44.58.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 24 Sep 2012 01:14:30 +0000"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">248</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"image_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sample_images/in_122__93910.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"zoom_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.1280.1280.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.386.513.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"standard_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.220.290.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"tiny_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://cdn.url.path/bcapp/et7xe3pz/products/32/images/248/in_122__93910.1393831046.44.58.jpg?c=1"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sort_order"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mon, 24 Sep 2012 01:17:14 +0000"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 
 <h2 id="get-a-product-image"><span class="jumptarget"> Get a Product Image </span></h2>
 
@@ -2867,7 +2872,7 @@
 
 <p>Rules that modify the properties of a product, such as weight, price, and product image.</p>
 
-<h2 id="product-rule-object-properties"><span class="jumptarget"> Product Rule Object - Properties </span></h2>
+<h2 id="product-rule-object-properties"><span class="jumptarget"> Product Rule Object – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -2884,32 +2889,32 @@
 <tr>
 <td>product_id</td>
 <td>int</td>
-<td>The ID of the product the rule belongs to</td>
+<td>The ID of the product to which the rule belongs.</td>
 </tr>
 <tr>
 <td>sort_order</td>
 <td>int</td>
-<td>The order in which the rule will be displayed on the product page. When updating if the rule is given a lower priority, all rules with a sort_order the same or greater than the rules new sort_order value will have their sort_order reordered</td>
+<td>The order in which the rule will be displayed on the product page. Lower integers will give the rule a higher priority. If the rule is given a lower priority, then when updating, all rules with a <code class="prettyprint">sort_order</code> the same or greater than the rule&rsquo;s new <code class="prettyprint">sort_order</code> value will have their <code class="prettyprint">sort_order</code> reordered.</td>
 </tr>
 <tr>
 <td>is_enabled</td>
 <td>boolean</td>
-<td>If set to true, the rule will be evaluated when a customer configures a products options.</td>
+<td>If set to <code class="prettyprint">true</code>, the rule will be evaluated when a customer configures a product&rsquo;s options.</td>
 </tr>
 <tr>
 <td>is_stop</td>
 <td>boolean</td>
-<td>If set to true and the rule evaluates to true, no more rules with a higher sort_order will be processed.</td>
+<td>If set to <code class="prettyprint">true</code> and the rule evaluates to <code class="prettyprint">true</code>, no more rules with a higher <code class="prettyprint">sort_order</code> will be processed.</td>
 </tr>
 <tr>
 <td>price_adjuster</td>
 <td>object</td>
-<td>If a product option rule specifies a change to the price based on an option, the &ldquo;price_adjuster&rdquo; object will consist of two name/value pairs. The first pair is named &ldquo;adjuster&rdquo; and contains one of the following values: &ldquo;relative&rdquo;, &ldquo;percentage&rdquo;, or &ldquo;absolute&rdquo;. The &ldquo;percentage&rdquo; value causes the price to vary based on either a positive or negative percentage. The &ldquo;relative&rdquo; value causes the price to vary by either a positive or negative monetary amount. The &ldquo;absolute&rdquo; value resets the price, so it should always be a positive number. The second pair is named &ldquo;adjuster_value&rdquo; and contains a decimal value representing one of the following: the amount to add or subtract from the price, the percentage by which the price should change, or the new price (as per the &ldquo;adjuster&rdquo; setting). If the product option rule does not specify a change to the price based on size or color, &ldquo;price_adjuster&rdquo; will be null.</td>
+<td>If a product option rule specifies a change to the price based on an option, the <code class="prettyprint">price_adjuster</code> object will consist of two name/value pairs. The first pair is named <code class="prettyprint">adjuster</code> and contains one of the following values: <code class="prettyprint">relative</code>, <code class="prettyprint">percentage</code>, or <code class="prettyprint">absolute</code>. The <code class="prettyprint">percentage</code> value causes the price to vary based on either a positive or negative percentage. The <code class="prettyprint">relative</code> value causes the price to vary by either a positive or negative monetary amount. The <code class="prettyprint">absolute</code> value resets the price, so it should always be a positive number. The second pair is named <code class="prettyprint">adjuster_value</code> and contains a decimal value representing one of the following: the amount to add or subtract from the price, the percentage by which the price should change, or the new price (as per the <code class="prettyprint">adjuster</code> setting). If the product option rule does not specify a change to the price based on size or color, <code class="prettyprint">price_adjuster</code> will be null.</td>
 </tr>
 <tr>
 <td>weight_adjuster</td>
 <td>object</td>
-<td>If a product option rule specifies a change to the weight based on an option, the &ldquo;weight_adjuster&rdquo; object will consist of two name/value pairs. The first pair is named &ldquo;adjuster&rdquo; and contains one of the following values: &ldquo;relative&rdquo; or &ldquo;absolute&rdquo;. The &ldquo;relative&rdquo; value causes the weight to vary by either a positive or negative amount. The &ldquo;absolute&rdquo; value resets the weight, so it should always be a positive number. The second pair is named &ldquo;adjuster_value&rdquo; and contains a decimal value representing one of the following: the amount to add or subtract from the weight or the new weight (as per the &ldquo;adjuster&rdquo; setting). If the product option rule does not specify a change to the price based on size or color, &ldquo;weight_adjuster&rdquo; will be null.</td>
+<td>If a product option rule specifies a change to the weight based on an option, the <code class="prettyprint">weight_adjuster</code> object will consist of two name/value pairs. The first pair is named <code class="prettyprint">adjuster</code> and contains one of the following values: <code class="prettyprint">relative</code> or <code class="prettyprint">absolute</code>. The <code class="prettyprint">relative</code> value causes the weight to vary by either a positive or negative amount. The <code class="prettyprint">absolute</code> value resets the weight, so it should always be a positive number. The second pair is named <code class="prettyprint">adjuster_value</code> and contains a decimal value representing one of the following: the amount to add or subtract from the weight or the new weight (as per the <code class="prettyprint">adjuster</code> setting). If the product option rule does not specify a change to the price based on size or color, <code class="prettyprint">weight_adjuster</code> will be null.</td>
 </tr>
 <tr>
 <td>is_purchasing_disabled</td>
@@ -2934,7 +2939,7 @@
 <tr>
 <td>conditions</td>
 <td>array</td>
-<td>The conditions array can contain one or more objects. Each object inside the array contains three name/value pairs, but at least one value will be missing at any given time. If a &ldquo;product_option_id&rdquo; value is present, then a &ldquo;option_value_id&rdquo; must also be present. If &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; values are present, then a &ldquo;sku_id&rdquo; value must not be present. This also holds true in the reverse, where if a &ldquo;sku_id&rdquo; value exists, values for the &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; cannot exist. NOTE: if you can use a SKU value, this is preferred for simplicity. Empty values are represented as &ldquo;null&rdquo;. If multiple objects are included in the array, the software runs through them using an AND/OR logic. Objects with identical &ldquo;product_option_id&rdquo; values will be linked with an OR. Objects with different &ldquo;product_option_id&rdquo; values will be linked with an AND. When one object contains a &ldquo;sku_id&rdquo; value and the other contains &ldquo;product_option_id&rdquo; and &ldquo;option_value_id&rdquo; values, they will be linked with an AND. Two objects which both contain &ldquo;sku_id&rdquo; values will be linked with an OR.</td>
+<td>The conditions array can contain one or more objects. Each object inside the array contains three name/value pairs, but at least one value will be missing at any given time. If a <code class="prettyprint">product_option_id</code> value is present, then a <code class="prettyprint">option_value_id</code> must also be present. If <code class="prettyprint">product_option_id</code> and <code class="prettyprint">option_value_id</code> values are present, then a <code class="prettyprint">sku_id</code> value must not be present. This also holds true in the reverse, where if a <code class="prettyprint">sku_id</code> value exists, values for the <code class="prettyprint">product_option_id</code> and <code class="prettyprint">option_value_id</code> cannot exist. NOTE: if you can use a SKU value, this is preferred for simplicity. Empty values are represented as <code class="prettyprint">null</code>. If multiple objects are included in the array, the software runs through them using an AND/OR logic. Objects with identical <code class="prettyprint">product_option_id</code> values will be linked with an OR. Objects with different <code class="prettyprint">product_option_id</code> values will be linked with an AND. When one object contains a <code class="prettyprint">sku_id</code> value and the other contains <code class="prettyprint">product_option_id</code> and <code class="prettyprint">option_value_id</code> values, they will be linked with an AND. Two objects which both contain <code class="prettyprint">sku_id</code> values will be linked with an OR.</td>
 </tr>
 </tbody></table>
 
@@ -6862,35 +6867,37 @@
 <td>string</td>
 <td></td>
 </tr>
+<tr>
+<td>shipping_provider</td>
+<td>string</td>
+<td>Enum of the BigCommerce shipping-carrier integration/module</td>
+</tr>
+<tr>
+<td>tracking_carrier</td>
+<td>string</td>
+<td>Enum of the delivery service fulfilling the shipment</td>
+</tr>
+<tr>
+<td>comments</td>
+<td>text</td>
+<td>Comments the shipper wishes to add</td>
+</tr>
+<tr>
+<td>billing_address</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>shipping_address</td>
+<td>object</td>
+<td></td>
+</tr>
+<tr>
+<td>items</td>
+<td>object_array</td>
+<td>The items in the shipment. This is an object; see the items table. A sample value might be: [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</td>
+</tr>
 </tbody></table>
-
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-| shipping_provider | string | Enum of the shipping-carrier integration |</p>
-
-<h1 id="tracking_carrier-string-enum-of-the-delivery-service-fulfilling-the-shipment">| tracking_carrier | string | Enum of the delivery service fulfilling the shipment |</h1>
-
-<p>| shipping_provider | string | Enum of the delivery service fulfilling the shipment |
-| tracking_carrier | string | Enum of the shipping-carrier integration |</p>
-
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>master
-| comments | text | Comments the shipper wishes to add |
-| billing_address | object |
-| shipping_address | object |
-| items | object_array | The items in the shipment. This is an object; see the items table. A sample value might be: [{&ldquo;order_product_id&rdquo;:15,&ldquo;quantity&rdquo;:2}]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
 
           <table><thead>
 <tr>
@@ -8490,7 +8497,7 @@
 
 <h2 id="customer-login-token">Customer Login Token</h2>
 
-<p>A valid JWT token is a string composed of three parts, separated by periods (“.”). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.</p>
+<p>A valid JWT token is a string composed of three parts, separated by periods (&ldquo;.&rdquo;). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.</p>
 
 <h3 id="example-url">Example URL</h3>
 <pre class="highlight plaintext"><code>https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
@@ -8507,14 +8514,14 @@
 
 <h3 id="payload">Payload</h3>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="err">“iss”:</span><span class="w"> </span><span class="err">“&lt;application_client_id&gt;”,</span><span class="w">
-</span><span class="err">“iat”:</span><span class="w"> </span><span class="err">&lt;issued_at&gt;,</span><span class="w">
-</span><span class="err">“jti”:</span><span class="w"> </span><span class="err">“&lt;unique_string&gt;”,</span><span class="w">
-</span><span class="err">“operation”:</span><span class="w"> </span><span class="err">“customer_login”,</span><span class="w">
-</span><span class="err">“store_hash”:</span><span class="w"> </span><span class="err">“&lt;store_hash&gt;”,</span><span class="w">
-</span><span class="err">“customer_id”:</span><span class="w"> </span><span class="err">&lt;customer_id&gt;,</span><span class="w">
-</span><span class="err">“redirect_to”:</span><span class="w"> </span><span class="err">“&lt;relative_path</span><span class="w"> </span><span class="err">(optional)&gt;”,</span><span class="w">
-</span><span class="err">“request_ip”:</span><span class="w"> </span><span class="err">“&lt;ipv4_address</span><span class="w"> </span><span class="err">(optional)&gt;”</span><span class="w">
+</span><span class="nt">"iss"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;application_client_id&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"iat"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;issued_at&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"jti"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;unique_string&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"operation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer_login"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"store_hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;store_hash&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;customer_id&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"redirect_to"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;relative_path (optional)&gt;"</span><span class="p">,</span><span class="w">
+</span><span class="nt">"request_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ipv4_address (optional)&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -8829,6 +8836,24 @@
 <td>/api/v2/customers/{customer_id}/addresses?limit={count}</td>
 </tr>
 </tbody></table>
+
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
+
+<p>The following property is read-only. If included in the request, it will be rejected.</p>
+
+<ul>
+<li>  form_fields</li>
+</ul>
+
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
+
+<p>Allowable values for the <code class="prettyprint">address_type</code> property are <code class="prettyprint">residential</code> or <code class="prettyprint">commercial</code>.</p>
+
+<p>In the example Response below, within the <code class="prettyprint">form_fields</code> array, the first custom field is a checkbox field that could return any number of answers. The second custom field is a date field.</p>
+
+<h3 id="response"><span class="jumptarget"> Response </span></h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -8858,6 +8883,24 @@
 <li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/customers/{customer_id}/addresses/{id}</code></li>
 </ul>
+
+<h3 id="read-only-properties"><span class="jumptarget"> Read-only Properties </span></h3>
+
+<p>The following property is read-only. If included in the request, it will be rejected.</p>
+
+<ul>
+<li>  form_fields</li>
+</ul>
+
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
+
+<p>Allowable values for the <code class="prettyprint">address_type</code> property are <code class="prettyprint">residential</code> or <code class="prettyprint">commercial</code>.</p>
+
+<p>In the example Response below, within the <code class="prettyprint">form_fields</code> array, the first custom field is a checkbox field that could return any number of answers. The second custom field is a date field.</p>
+
+<h3 id="response"><span class="jumptarget"> Response </span></h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
@@ -8885,6 +8928,10 @@
 <li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/customers/{customer_id}/addresses/count</code></li>
 </ul>
+
+<h3 id="response"><span class="jumptarget"> Response </span></h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -8924,19 +8971,27 @@
 <li>  zip</li>
 <li>  country</li>
 </ul>
-<pre class="highlight plaintext"><code>{
-  "first_name": "Trisha",
-  "last_name": "McLaughlin",
-  "company": "",
-  "street_1": "12345 W Anderson Ln",
-  "street_2": "",
-  "city": "Austin",
-  "state": "Texas",
-  "zip": "78757",
-  "country": "United States",
-  "phone": "512-123-4567"
-}
-</code></pre>
+
+<h4 id="request"><span class="jumptarget"> Request </span></h4>
+
+<p>Example request object:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trisha"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"McLaughlin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345 W Anderson Ln"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Texas"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78757"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"512-123-4567"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="response"><span class="jumptarget"> Response </span></h4>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -8977,19 +9032,27 @@
 <h3 id="requirements"><span class="jumptarget"> Requirements </span></h3>
 
 <p>The following properties of the customer address are required. The request won’t be fulfilled unless these properties are valid.</p>
-<pre class="highlight plaintext"><code>{
-  "first_name": "Trisha",
-  "last_name": "McLaughlin",
-  "company": "",
-  "street_1": "12345 W Anderson Ln",
-  "street_2": "",
-  "city": "Austin",
-  "state": "Texas",
-  "zip": "78757",
-  "country": "United States",
-  "phone": ""
-}
-</code></pre>
+
+<h4 id="request"><span class="jumptarget"> Request </span></h4>
+
+<p>Example request object:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Trisha"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"McLaughlin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"company"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345 W Anderson Ln"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"street_2"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Austin"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Texas"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"zip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78757"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"United States"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="response"><span class="jumptarget"> Response </span></h4>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9054,9 +9117,9 @@
 
           <h1 id="customer-groups"><span class="jumptarget"> Customer Groups </span></h1>
 
-<p>Grouping of customers who share the same level of access and discounts at a store</p>
+<p>Groupings of customers who share the same level of access and discounts at a store.</p>
 
-<h2 id="customer-group-properties"><span class="jumptarget"> Customer Group - Properties </span></h2>
+<h2 id="customer-group-properties"><span class="jumptarget"> Customer Group – Properties </span></h2>
 
 <table><thead>
 <tr>
@@ -9078,40 +9141,54 @@
 <tr>
 <td>is_default</td>
 <td>boolean</td>
-<td>Determines whether new customers are assigned to this group by default</td>
+<td>Determines whether new customers are assigned to this group by default.</td>
 </tr>
 <tr>
 <td>category_access</td>
 <td>object</td>
-<td>Determines which categories customers in this group have access to view and order products from. type is an enum specifying the method of category access applied to customers in this group: all: customers can access all categories specific: customers can access a specific list of categories none: customers are prevented from viewing any of the categories in this group categories is an array of category ids and should only be supplied if type is specific.</td>
+<td>Determines the categories to which customers in this group have access to view and order products.<br><br> <code class="prettyprint">type</code> is an enum specifying the method of category access applied to customers in this group, with the following possible values:<br> <code class="prettyprint">all</code>: customers can access all categories;<br> <code class="prettyprint">specific</code>: customers can access a specific list of categories;<br> <code class="prettyprint">none</code>: customers are prevented from viewing any of the categories in this group.<br><br> <code class="prettyprint">categories</code> is an array of category IDs and should be supplied only if <code class="prettyprint">type</code> is <code class="prettyprint">specific</code>.</td>
 </tr>
 <tr>
 <td>discount_rules</td>
 <td>object_array</td>
-<td>A collection of discount rules which are automatically applied for customers who are members of the group. All discount rules have the following properties: type is an enum specifying the type of discount rule: all: a store-wide rule (applies to everything) product: a rule applying to a specific product category: a rule applying to a specific category method is an enum which specifies a price modifying strategy: price modify the price by the given amount percent modify the price by the given percentage fixed modify the price with a fixed discount amount is a decimal which specifies the value applied to the price modifier product and category rules also require a product_id or category_id field, respectively.</td>
+<td>A collection of discount rules that are automatically applied to customers who are members of the group. All discount rules have the following properties:<br><br> <code class="prettyprint">type</code> is an enum specifying the type of discount rule, with the following possible values:<br> <code class="prettyprint">all</code>: a store-wide rule (applies to everything);<br> <code class="prettyprint">product</code>: a rule applying to a specific product;<br> <code class="prettyprint">category</code>: a rule applying to a specific category.<br><br> <code class="prettyprint">method</code> is an enum that specifies a price-modifying strategy, with the following possible values:<br> <code class="prettyprint">price</code>: modify the price by the given amount;<br> <code class="prettyprint">percent</code>: modify the price by the given percentage;<br> <code class="prettyprint">fixed</code>: modify the price by a fixed discount.<br><br> <code class="prettyprint">amount</code> is a decimal number that specifies the value applied to the price modifier.<br><br> Product and category rules also require a <code class="prettyprint">product_id</code> or <code class="prettyprint">category_id</code> field, respectively.</td>
 </tr>
 </tbody></table>
 
-          <p>|||
-|&ndash;|&ndash;|
-| <strong>Manages</strong> |
-| <strong>OAuth Scopes</strong> | store_v2_customers
-||store_v2_customers_read_only</p>
+          <table><thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Manages</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>OAuth Scopes</strong></td>
+<td>store_v2_customers</td>
+</tr>
+<tr>
+<td></td>
+<td>store_v2_customers_read_only</td>
+</tr>
+</tbody></table>
 
 <h2 id="list-customer-groups"><span class="jumptarget"> List Customer Groups </span></h2>
 
-<p>Gets the collection of customer groups. (Default sorting is by customer-group id, from lowest to highest.)</p>
+<p>Gets the collection of customer groups. (Default sorting is by customer-group <code class="prettyprint">id</code>, from lowest to highest.)</p>
 
 <ul>
 <li>  OAuth
-&gt;GET /stores/{store_hash}/v2/customer_groups</li>
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/customer_groups</code></li>
 <li>  Basic Auth
-&gt;GET /api/v2/customer_groups</li>
+&gt; <code class="prettyprint">GET /api/v2/customer_groups</code></li>
 </ul>
 
 <h3 id="filters"><span class="jumptarget"> Filters </span></h3>
 
-<p>Filter parameters can be added to the URL query string to select specific customer_groups in the collection.</p>
+<p>Filter parameters can be added to the URL query string to select specific <code class="prettyprint">customer_group</code>s in the collection.</p>
 
 <table><thead>
 <tr>
@@ -9134,7 +9211,7 @@
 
 <h3 id="pagination"><span class="jumptarget"> Pagination </span></h3>
 
-<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 customer_groups are returned by default.</p>
+<p>Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 <code class="prettyprint">customer_group</code>s are returned by default.</p>
 
 <table><thead>
 <tr>
@@ -9154,6 +9231,10 @@
 <td>/api/v2/customer_groups?limit={count}</td>
 </tr>
 </tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9177,19 +9258,24 @@
 
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="err">```</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Customer</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
+<h2 id="get-a-customer-group"><span class="jumptarget"> Get a Customer Group </span></h2>
 
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group.</span><span class="w">
+<p>Gets a customer group.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">OAuth</span><span class="w">
-</span><span class="err">&gt;GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/customer_groups/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="w">
-</span><span class="err">&gt;GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/customer_groups/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w">
+<ul>
+<li>  OAuth
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/customer_groups/{id}</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">GET /api/v2/customer_groups/{id}</code></li>
+</ul>
 
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student Discounts"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -9203,72 +9289,74 @@
       </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5.0000"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Get</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Customer</span><span class="w"> </span><span class="err">Groups</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
+<h2 id="get-a-count-of-customer-groups"><span class="jumptarget"> Get a Count of Customer Groups </span></h2>
 
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">count</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">groups.</span><span class="w">
+<p>Gets a count of customer groups.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">OAuth</span><span class="w">
-</span><span class="err">&gt;GET</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/customer_groups/count</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="w">
-</span><span class="err">&gt;GET</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/customer_groups/count</span><span class="w">
+<ul>
+<li>  OAuth
+&gt; <code class="prettyprint">GET /stores/{store_hash}/v2/customer_groups/count</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">GET /api/v2/customer_groups/count</code></li>
+</ul>
 
-</span><span class="err">```json</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Customer</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
+<h2 id="create-a-customer-group"><span class="jumptarget"> Create a Customer Group </span></h2>
 
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group.</span><span class="w">
+<p>Creates a new customer group.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">OAuth</span><span class="w">
-</span><span class="err">&gt;POST</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/customer_groups</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="w">
-</span><span class="err">&gt;POST</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/customer_groups</span><span class="w">
+<ul>
+<li>  OAuth
+&gt; <code class="prettyprint">POST /stores/{store_hash}/v2/customer_groups</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">POST /api/v2/customer_groups</code></li>
+</ul>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w">
+<h3 id="requirements"><span class="jumptarget"> Requirements</h3>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<p>The following properties of the customer group are required. The request won’t be fulfilled unless these properties are valid.</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Requirements</span><span class="w">
+<ul>
+<li>  name</li>
+</ul>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">name</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Notes</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
-
-</span><span class="err">A</span><span class="w"> </span><span class="err">minimal</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">requires</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">name:</span><span class="w">
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>A minimal request requires only the customer group name:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wholesale Customers"</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">To</span><span class="w"> </span><span class="err">assign</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">customers</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">default,</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">**is</span><span class="w"> </span><span class="err">default**</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="kc">true</span><span class="err">:</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>To assign all new customers to the group by default, set <code class="prettyprint">is default</code> to true:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Retail Customers"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"is_default"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">To</span><span class="w"> </span><span class="err">restrict</span><span class="w"> </span><span class="err">customers</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">view</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">order</span><span class="w"> </span><span class="err">products</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">categories,</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">**category</span><span class="w"> </span><span class="err">access**</span><span class="w"> </span><span class="err">type:</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>To restrict customers in the group to only view and order products from a specific set of categories, provide a <code class="prettyprint">category access</code> type:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bulk Purchasers"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"category_access"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"specific"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"categories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">To</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="mi">5</span><span class="err">%</span><span class="w"> </span><span class="err">store-wide</span><span class="w"> </span><span class="err">discount</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">customers</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">group,</span><span class="w"> </span><span class="err">provide</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">**discount</span><span class="w"> </span><span class="err">rule**</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">type</span><span class="w"> </span><span class="err">**all**:</span><span class="w">
-
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>To provide a 5% store-wide discount for customers in the group, use a <code class="prettyprint">discount rule</code> of type <code class="prettyprint">all</code>:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Student Discounts"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"discount_rules"</span><span class="p">:</span><span class="w"> 
     </span><span class="p">[{</span><span class="w">
@@ -9276,32 +9364,26 @@
         </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"percent"</span><span class="p">,</span><span class="w">
         </span><span class="nt">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">5.00</span><span class="w">
     </span><span class="p">}]</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
-</span><span class="err">##</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Update</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Customer</span><span class="w"> </span><span class="err">Group</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
+<h2 id="update-a-customer-group"><span class="jumptarget"> Update a Customer Group </span></h2>
 
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group.</span><span class="w">
+<p>Updates an existing customer group.</p>
 
-</span><span class="err">*</span><span class="w">   </span><span class="err">OAuth</span><span class="w">
-</span><span class="err">&gt;PUT</span><span class="w"> </span><span class="err">/stores/</span><span class="p">{</span><span class="err">store_hash</span><span class="p">}</span><span class="err">/v</span><span class="mi">2</span><span class="err">/customer_groups/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w">
-</span><span class="err">*</span><span class="w">   </span><span class="err">Basic</span><span class="w"> </span><span class="err">Auth</span><span class="w">
-</span><span class="err">&gt;PUT</span><span class="w"> </span><span class="err">/api/v</span><span class="mi">2</span><span class="err">/customer_groups/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="w">
+<ul>
+<li>  OAuth
+&gt; <code class="prettyprint">PUT /stores/{store_hash}/v2/customer_groups/{id}</code></li>
+<li>  Basic Auth
+&gt; <code class="prettyprint">PUT /api/v2/customer_groups/{id}</code></li>
+</ul>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Read-only</span><span class="w"> </span><span class="err">Properties</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
+<h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">read-only.</span><span class="w"> </span><span class="err">If</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">more</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">included</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">request,</span><span class="w"> </span><span class="err">it</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">rejected.</span><span class="w">
+<p>Any combination of fields can be updated at once. Discount rules are treated in bulk. The entire set of rules is overwritten when a request is sent.</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Requirements</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">customer</span><span class="w"> </span><span class="err">group</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">required.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">won’t</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">fulfilled</span><span class="w"> </span><span class="err">unless</span><span class="w"> </span><span class="err">these</span><span class="w"> </span><span class="err">properties</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">valid.</span><span class="w">
-
-</span><span class="err">###</span><span class="w"> </span><span class="err">&lt;span</span><span class="w"> </span><span class="err">class=</span><span class="s2">"jumptarget"</span><span class="err">&gt;</span><span class="w"> </span><span class="err">Notes</span><span class="w"> </span><span class="err">&lt;/span&gt;</span><span class="w">
-
-</span><span class="err">Any</span><span class="w"> </span><span class="err">combination</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">fields</span><span class="w"> </span><span class="err">can</span><span class="w"> </span><span class="err">be</span><span class="w"> </span><span class="err">updated</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">once.</span><span class="w"> </span><span class="err">Discount</span><span class="w"> </span><span class="err">rules</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">treated</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">bulk.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">entire</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">rules</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">overwritten</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">sent.</span><span class="w">
-
-</span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">remove</span><span class="w"> </span><span class="err">any</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">rules,</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">apply</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">ones:</span><span class="w">
-</span><span class="err">```curl</span><span class="w">
-</span><span class="p">{</span><span class="w">
+<p>The following request will remove any existing rules, and apply the new ones:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
         </span><span class="nt">"discount_rules"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"all"</span><span class="p">,</span><span class="w">
@@ -9330,9 +9412,9 @@
 
 <ul>
 <li>  OAuth
-&gt;DELETE /stores/{store_hash}/v2/customer_groups/{id}</li>
+&gt; <code class="prettyprint">DELETE /stores/{store_hash}/v2/customer_groups/{id}</code></li>
 <li>  Basic Auth
-&gt;DELETE /api/v2/customer_groups/{id}</li>
+&gt; <code class="prettyprint">DELETE /api/v2/customer_groups/{id}</code></li>
 </ul>
 
 <h3 id="notes"><span class="jumptarget"> Notes</h3>
@@ -9345,9 +9427,9 @@
 
 <ul>
 <li>  OAuth
-&gt;DELETE /stores/{store_hash}/v2/customer_groups</li>
+&gt; <code class="prettyprint">DELETE /stores/{store_hash}/v2/customer_groups</code></li>
 <li>  Basic Auth
-&gt;DELETE /api/v2/customer_groups</li>
+&gt; <code class="prettyprint">DELETE /api/v2/customer_groups</code></li>
 </ul>
 
           <h1 id="categories"><span class="jumptarget"> Categories </span></h1>
@@ -9371,7 +9453,7 @@
 <tr>
 <td>parent_id</td>
 <td>int</td>
-<td>The ID of the parent category this category belongs to. NOTE: the total number of parent categories cannot exceed seven.</td>
+<td>The ID of the parent category to which this category belongs.<br> (NOTE: the total number of parent categories cannot exceed seven.)</td>
 </tr>
 <tr>
 <td>name</td>
@@ -9381,32 +9463,32 @@
 <tr>
 <td>description</td>
 <td>text</td>
-<td>A description for the category</td>
+<td>A description for the category.</td>
 </tr>
 <tr>
 <td>sort_order</td>
 <td>int</td>
-<td>The sort order of the category</td>
+<td>The sort order of the category.</td>
 </tr>
 <tr>
 <td>page_title</td>
 <td>string</td>
-<td>The page title for the category page</td>
+<td>The page title for the category page.</td>
 </tr>
 <tr>
 <td>meta_keywords</td>
 <td>text</td>
-<td>Comma separated list of meta keywords to include in the HTML</td>
+<td>Comma-separated list of meta keywords to include in the HTML.</td>
 </tr>
 <tr>
 <td>meta_description</td>
 <td>text</td>
-<td>A meta description to include</td>
+<td>A meta description to include.</td>
 </tr>
 <tr>
 <td>layout_file</td>
 <td>string</td>
-<td>A valid layout file. Refer to this article on creating category files.</td>
+<td>A valid layout file. (Please refer to <a href="https://support.bigcommerce.com/articles/Public/Creating-Custom-Template-Files/">this article</a> on creating category files.)</td>
 </tr>
 <tr>
 <td>parent_category_list</td>
@@ -9416,7 +9498,7 @@
 <tr>
 <td>image_file</td>
 <td>string</td>
-<td>A valid image</td>
+<td>A valid image.</td>
 </tr>
 <tr>
 <td>is_visible</td>
@@ -9426,7 +9508,7 @@
 <tr>
 <td>search_keywords</td>
 <td>string</td>
-<td>A comma separated list of keywords that can be used to locate this brand</td>
+<td>A comma-separated list of keywords that can be used to locate this brand.</td>
 </tr>
 <tr>
 <td>url</td>
@@ -9526,6 +9608,10 @@
 <td>/api/v2/categories?limit={count}</td>
 </tr>
 </tbody></table>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9558,6 +9644,10 @@
 <li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/categories/{id}</code></li>
 </ul>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9589,6 +9679,10 @@
 <li>  Basic Auth
 &gt;<code class="prettyprint">GET /api/v2/categories/count</code></li>
 </ul>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -9627,10 +9721,18 @@
 <p>To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your <code class="prettyprint">POST</code> causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.</p>
 
 <p>In addition, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">POST</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your <code class="prettyprint">POST</code> would cause the total number of parent categories to exceed seven, Bigcommerce will return a 403 error.</p>
-<pre class="highlight plaintext"><code>{
-  "name": "Xmen toys"
-}
-</code></pre>
+
+<h3 id="request">Request</h3>
+
+<p>Example request object:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xmen toys"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9679,6 +9781,10 @@
 <h3 id="notes"><span class="jumptarget"> Notes </span></h3>
 
 <p>To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your <code class="prettyprint">PUT</code> includes the ID of a parent category in the <code class="prettyprint">parent_id</code> field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your <code class="prettyprint">PUT</code> would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.</p>
+
+<h3 id="response">Response</h3>
+
+<p>Example JSON returned in the response:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
   </span><span class="nt">"parent_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -9723,9 +9829,9 @@
 </ul>
 
 <aside class="warning">
-<span class="aside-warning-hd">NOTE:</span>
-
-The `DELETE` all categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
+<span class="aside-warning-hd">Delete Products before Categories</span>
+<br><br>
+The Delete All Categories operation will not succeed unless the store has zero products. If any products in the store belong to any categories, the entire operation will fail. Therefore, if you really want to delete all the categories of the store, you must first delete all of the products in the store.
 </aside>
 
           <h1 id="brands"><span class="jumptarget"> Brands </span></h1>

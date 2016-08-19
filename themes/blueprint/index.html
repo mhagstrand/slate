@@ -162,7 +162,28 @@
       <div class="content">
         <h1 id="blueprint-themes">Blueprint Themes</h1>
 
-<p>Getting Started with Blueprint</p>
+<h2 id="getting-started-with-blueprint">Getting Started with Blueprint</h2>
+
+<p>If you, Skipper, prefer not to navigate large tiles like those below – then here is an austere bullet list of things you can do with Blueprint themes. It is inspired by <a href="http://docs.smooch.io/javascript/#welcome">this Smooch landing page</a> that Nate suggested as a model.</p>
+
+<p>We&rsquo;re all developers here, so please feel free to iterate on this as a prototype for other landing pages that essentially ask, &ldquo;Do you want to take the red pill or the blue pill?&rdquo;:  </p>
+
+<ul>
+<li><p><a href="/themes/blueprint/layouts">Layouts</a>  </p>
+
+<p>Layout templates provide the base HTML structure that wraps storefront page content. Each layout file corresponds to a specific page, and typically contains references to individual panels to be shown on a page.</p></li>
+<li><p><a href="/themes/blueprint/panels">Panels</a>  </p>
+
+<p>Panels provide reusable blocks of content. Panels are contained in div tags that generally define a page&rsquo;s left, center, or right column. Panels can contain content, or can generate content dynamically.</p></li>
+<li><p><a href="/themes/blueprint/snippets">Snippets</a>  </p>
+
+<p>Snippets are templates containing a fragment of HTML that can be embedded multiple times on a page. </p></li>
+<li><p>Styles  </p>
+
+<p>These are the theme&rsquo;s primary layout stylesheets, with styles.css being the core file.  </p></li>
+</ul>
+
+<p>But wait: Perhaps you <em>are</em> a fan of large tiles? Well then, Champ, be our guest. Please play Twister with these:   </p>
 
 <section class=
     "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
@@ -524,6 +545,206 @@ color: @color-store-name
 </ul>
 
 <p><strong>Please note:</strong> You will not see the category filter on storefront category pages. This has been hidden for SEO reasons.</p>
+
+          <h1 id="template-syntax"><span class="jumptarget"> Template Syntax </span></h1>
+
+<p>Each of the layout, panel, and snippet files in a theme uses variables (also called placeholders) to show external content or content fetched from the database (such as the name of a product).</p>
+
+<p>Template variables are enclosed within <code class="prettyprint">%%</code> markers. There are various different types of variables available for use in templates: global variables, string variables, panel references, snippet references, and file includes.</p>
+
+<h3 id="global-variables"><span class="jumptarget"> Global Variables </span></h3>
+
+<p>Global variables are used to render dynamic content into a template. Global variables are referenced using the following syntax:</p>
+
+<pre>%%GLOBAL_[placeholder_name]%%</pre>
+
+<p>For example:</p>
+
+<pre>%%GLOBAL_ProductName%%</pre>
+
+<p>The availability of specific variables differs on the layout template that’s being edited (for example, the variable for the description of a product is available on the product details page, but not on the category view/product listing page).</p>
+
+<h3 id="panel-references"><span class="jumptarget"> Panel References </span></h3>
+
+<p>Panels are the different blocks used by BigCommerce to build a page. Panels are referenced both inside layout files and inside other panel files.</p>
+
+<p>Panels are referenced in templates as follows, where [panel_name] is the name of a file in the Theme’s Panels directory:</p>
+
+<pre>%%Panel.[panel_name]%%</pre>
+
+<p>For example:</p>
+
+<pre>%%Panel.HomeFeaturedProducts%%</pre>
+
+<p>This panel reference will load in the content from the <code class="prettyprint">Panels/HomeFeaturedProducts.html</code> panel file.</p>
+
+<h3 id="snippet-references"><span class="jumptarget"> Snippet References </span></h3>
+
+<p>Snippets are templates containing HTML that can be used multiple times on one page either by being used in different parts of the template or being part of a loop that for example builds a list of products on the page (each product in the list being a repeated version of the same snippet)</p>
+
+<p>Snippets are referenced in templates as follows:</p>
+
+<pre>%%SNIPPET_[snippet_name]%%</pre>
+
+<p>In most cases, this will correspond to a similarly named file in the Theme’s Snippets directory. For example:</p>
+
+<pre>%%SNIPPET_HomeFeaturedProducts%%</pre>
+
+<p>This snippet reference will contain a repeated copy of <code class="prettyprint">Snippets/HomeFeaturedProductsItem.html</code>, one for each featured product to be shown in the list.</p>
+
+<h3 id="reference-your-own-theme-assets-explicitly"><span class="jumptarget"> Reference Your Own Theme Assets Explicitly </span></h3>
+
+<p>As these practices have changed, this documentation will provide examples comparing the syntax you may have used before with the updated syntax.</p>
+
+<p>You can use WebDAV to upload your own custom theme assets (JavaScripts, stylesheets, images, fonts, etc). In your HTML, reference these assets that aren’t present in the base theme using the <code class="prettyprint">ASSET</code> syntax:</p>
+
+<pre>%%ASSET_[path_to_asset]%%</pre>
+
+<p>This syntax will output an absolute URL like: </p>
+
+<pre>http://cdn-host/templates/__custom/path_to_asset?t=timestamp`</pre>
+
+<p>This loads the custom asset from our CDN server, and includes a cache-busting querystring.</p>
+
+<p>For example:</p>
+
+<pre>%%ASSET_Styles/myownstyle.css%%</pre>
+
+<p>&hellip;will be output as:</p>
+
+<pre>http://cdn-host/templates/__custom/Styles/myonwstyle.css?t=123</pre>
+
+<h4 id="syntax-examples"><span class="jumptarget"> Syntax Examples </span></h4>
+
+<p>The following tables map earlier to current syntax:</p>
+
+<h5 id="assets-in-css-files"><span class="jumptarget"> Assets in CSS Files </span></h5>
+
+<table><thead>
+<tr>
+<th>Previous Syntax</th>
+<th>Updated Syntax(CDN)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">url(../../template/images/foo.jpg)</code></td>
+<td><code class="prettyprint">url(%%ASSET_images/foo.jpg%%)</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url(../../templates/__custom/images/foo.jpg)</code></td>
+<td><code class="prettyprint">url(%%ASSET_images/foo.jpg%%)</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url(../../template/foo/bar/font.woff)</code></td>
+<td><code class="prettyprint">url(%%ASSET_foo/bar/font.woff%%)</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url(../images/foo.jpg)</code></td>
+<td><code class="prettyprint">url(%%ASSET_images/foo.jpg%%)</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url(icons/foo.ico)</code></td>
+<td><code class="prettyprint">url(%%ASSET_Styles/icons/foo.ico%%)</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">url(//mystore.com/template/images/foo.jpg)</code></td>
+<td><code class="prettyprint">url(%%ASSET_images/foo.jpg%%)</code></td>
+</tr>
+</tbody></table>
+
+<h5 id="assets-in-html-files"><span class="jumptarget"> Assets in HTML Files </span></h5>
+
+<table><thead>
+<tr>
+<th>Previous Syntax</th>
+<th>Updated Syntax(CDN)</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;img src=&quot;../images/foo.jpg&quot; /&gt;</code></td>
+<td><code class="prettyprint">&lt;img src=&quot;%%ASSET_images/foo.jpg%%&quot; /&gt;</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&lt;img src=&quot;//mystore.com/template/images/foo.jpg&quot;&gt;</code></td>
+<td><code class="prettyprint">&lt;img src=&quot;%%ASSET_images/foo.jpg%%&quot; /&gt;</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&lt;link href=&quot;/template/Styles/foo.css&quot; /&gt;</code></td>
+<td><code class="prettyprint">&lt;link href=&quot;%%ASSET_Styles/foo.css%%&quot; /&gt;</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">&lt;script src=&quot;/template/js/foo.js%%&quot;&gt;&lt;/script&gt;</code></td>
+<td><code class="prettyprint">&lt;script src=&quot;%%ASSET_js/foo.js%%&quot;&gt;&lt;/script&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h5 id="assets-outside-of-the-template-directory"><span class="jumptarget"> Assets Outside of the Template Directory </span></h5>
+
+<p>The <code class="prettyprint">ASSET</code> variable can be used only with files and folders inside of the template directory. In order to take advantage of the benefits provided when using a CDN, we strongly recommend moving your assets to the template directory. However, if you need to keep assets outside of the template directory, the best practice is to use <em>protocol-relative</em>, absolute or fully qualified, URLs.</p>
+<pre class="highlight plaintext"><code>&lt;img src="//mystore.com/content/images/foo.jpg" /&gt;
+url(//mystore.com/content/images/foo.jpg")
+&lt;link href="//mystore.com/content/foo.css" rel="stylesheet" type="text/css" /&gt;
+</code></pre>
+
+<h3 id="file-includes"><span class="jumptarget"> File Includes </span></h3>
+
+<p>It’s also possible to include another file within a template. This can be accomplished using file include variables. This is extremely useful if external files such as banners, site-network headers or other content need to be included.</p>
+
+<p>File includes can either be local (relative to the <code class="prettyprint">template/Includes/</code> directory), contain absolute file system paths, or be remote includes by specifying the full URL to a file to be included.</p>
+
+<p>Includes are referenced in the template files as follows:</p>
+
+<pre>%%Include.[file_path]%%</pre>
+
+<p>For example:</p>
+
+<pre>
+%%Include.http://www.example.com/remote_file.html%%</pre>
+
+          <h1 id="theme-update-process"><span class="jumptarget"> Theme Update Process </span></h1>
+
+<p>This page describes process of integrating theme changes/updates made by a partner into the BigCommerce Theme Store.</p>
+
+<h2 id="prerequisites"><span class="jumptarget"> Prerequisites </span></h2>
+
+<p>Integrating a partner&rsquo;s theme changes requires these preconditions</p>
+
+<ul>
+<li><p>Partner has an existing theme in the BigCommerce Theme Store.</p></li>
+<li><p>BigCommerce sets up a Theme Development store (or converts an existing regular store) and applies the theme. All theme files will automatically be copied into the WebDAV <code class="prettyprint">/template/</code> directory.</p></li>
+</ul>
+
+<aside class="notice">
+<span class="aside-notice-hd">Template Path Abstracted</span>
+<br><br>
+The Theme Development store resolves the <code>%%GLOBAL_TPL_PATH%%</code> variable into <code>/template/</code>. Therefore, assets will be pulled from the <code>/template/</code> directory, which is accessible via WebDAV or via the BigCommerce control panel.
+</aside>
+
+<h2 id="update-process"><span class="jumptarget"> Update Process </span></h2>
+
+<ol>
+<li> The partner switches on Theme Development mode, by using:<br>
+<code class="prettyprint">http://&lt;STORE&gt;/admin/index.php?ToDo=viewTemplates&amp;dev=enable</code>.</li>
+<li> The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly by a partner, because it’s a paid theme.)
+<aside class="error">
+This step will wipe out all files in the <code class="prettyprint">/template/</code> directory and copy in the latest version of the integrated theme.
+</aside></li>
+<li> The partner pulls changes from BigCommerce&rsquo;s GitHub fork, to get the most recent version onto their local machine as well.</li>
+<li> The partner makes appropriate changes to CSS/HTML files.</li>
+<li> The partner commits their changes into the feature branch, and opens a pull request against the BigCommerce fork.
+<aside class="warning">
+If BigCommerce made conflicting changes (which should happen only when resolving urgent issues), the partner might need to rebase changes (using <code>git rebase master</code>) in order to resolve the conflicts.</li>
+<li> Partner <a href="mailto:themestore@bigcommerce.com">emails</a> their Git URL to the BigCommerce Theme Store.</li>
+<li> BigCommerce integrates changes into BigCommerce Themes.</li>
+</ol>
+
+<h2 id="other-requirements"><span class="jumptarget"> Other Requirements </span></h2>
+
+<ul>
+<li>  Partners must not change the repository&rsquo;s directory structure or directory names.</li>
+<li>  Files should have permission 644 (<code class="prettyprint">rw-r–r–</code>).</li>
+<li>  Directories should have permission 755 (<code class="prettyprint">drwxr-x-r-x</code>).</li>
+</ul>
 
       </div>
     </div>
