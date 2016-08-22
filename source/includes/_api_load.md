@@ -1,12 +1,5 @@
 ## <span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
-
-### <span class="jumptarget"> Introduction</span>
-
 In addition to the **Auth Callback URI**, the [App Registration](#registration) wizard requests the following URIs.
 
 | Name | Required? | Event Discussion |
@@ -28,7 +21,7 @@ The remainder of this entry discusses:
 *   [The remove user request](#remove-user).
 *   [The signed payload](#process).
 
-### <span class="jumptarget"> <a name="load_request"></a> About the load request and response</span>
+### <span class="jumptarget"> <a name="load_request"></a> Load request and response</span>
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
@@ -48,9 +41,9 @@ Host: app.example.com
 
 Upon receiving a **GET** request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
 
-After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
+After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User&#160;Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
 
-### <span class="jumptarget"> <a name="uninstall"></a> About the uninstall request (optional)</span>
+### <span class="jumptarget"> <a name="uninstall"></a> Uninstall request (optional)</span>
 
 Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app's OAuth token is revoked and the app cannot make requests to the Stores API on the store's behalf anymore.
 
@@ -71,7 +64,7 @@ Any HTML that you return in your response will not be rendered.
 </aside>
 
 
-### <span class="jumptarget"> <a name="remove-user"></a> About the remove user request (optional)</span>
+### <span class="jumptarget"> <a name="remove-user"></a> Remove user request (optional)</span>
 
 If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
@@ -89,10 +82,7 @@ Any HTML that you return in your response will not be rendered.
 
 ### <span class="jumptarget"> <a name="process"></a> Processing the signed payload</span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
+Processing the signed payload involves splitting and decoding it verifying the HMAC signature, and processing the JSON object. 
 
 #### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span>
 
@@ -180,24 +170,17 @@ def secure_compare(a, b)
 end
 ```
 
-#### <span class="jumptarget" id="Identifying"> Processing the JSON object</span>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
-
-##### <span class="jumptarget"> Introduction</span>
+### <span class="jumptarget" id="Identifying"> Processing the JSON object</span>
 
 The JSON object embedded in the `signed_payload` contains information about the BigCommerce store and the store owner or user.
 
-##### <span class="jumptarget"> Identifying the store</span>
+#### <span class="jumptarget"> Identifying the store</span>
 
-You should use the store information to identify the store that the request pertains to.
+You should use the store information to identify the store to which the request pertains.
 
-##### <span class="jumptarget"> Interpreting the user information</span>
+#### <span class="jumptarget"> Interpreting the user information</span>
 
-Interpreting the user information varies as follows.
+Interpreting the user information varies as follows:
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
@@ -205,7 +188,7 @@ Interpreting the user information varies as follows.
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 
-##### <span class="jumptarget"> JSON Values</span>
+#### <span class="jumptarget"> JSON Values</span>
 
 | Name | Data Type | Value Description |
 | --- | --- | --- |
@@ -217,7 +200,7 @@ Interpreting the user information varies as follows.
 | store_hash | string |Unique identifier for the store. |
 | timestamp | float | The time (in Unix time) when the callback was generated. |
 
-##### <span class="jumptarget"> JSON Example</span>
+#### <span class="jumptarget"> JSON Example</span>
 
 ```json
 {
