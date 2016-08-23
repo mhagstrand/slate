@@ -1,32 +1,32 @@
-# <span class="jumptarget"> OAuth App Getting Started </span>
+# <span class="jumptarget"> App Submission </span>
 
-When you first get up and running with your app development, you will leave many fields in **My Apps** blank, as discussed in the [App Registration](/api/registration) section. Before submitting your app for consideration, you must come back through the **My Apps** wizard and fill in the missing information. This section discusses each page of the wizard and identifies the information and files required for App Store approval.
+When you first get up and running with your app development, you will leave many fields in `My Apps` blank, as discussed in the [App&#160;Registration](/api/registration) section. Before submitting your app for consideration, you must come back through the `My Apps` wizard and fill in the missing information. This section discusses each page of the wizard and identifies the information and files required for App Store approval.
 
 >NOTE: The wizard validates for the Partner user name and ID, as well as correctly formatted URLs. However, additional information is required to get accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.
 
 ## <span class="jumptarget"> App Summary
 
-The required fields in the **App Summary** panel are identified and discussed below:
+The required fields in the `App Summary` panel are identified and discussed below:
 
-*   _Username_: your Partner Portal user name.
+*   `Username`: your Partner Portal user name.
 
-*   _Partner ID_: your Partner Portal ID.
+*   `Partner ID`: your Partner Portal ID.
 
-*   _Logo_: upload the image that you want to be displayed in the [App Store](https://www.bigcommerce.com/apps/). To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.
+*   `Logo`: upload the image that you want to be displayed in the [App Store](https://www.bigcommerce.com/apps/). To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.
 
-*   _Price_: defaults to **Free**. If you do not want to receive any monies for your app, you can leave this in place. Otherwise, select the price that you want to charge merchants. NOTE: if you select **Free Trial**, make sure that you select a price to charge at the end of the trial period.
+*   `Price`: defaults to `Free`. If you do not want to receive any monies for your app, you can leave this in place. Otherwise, select the price that you want to charge merchants. NOTE: if you select `Free Trial`, make sure that you select a price to charge at the end of the trial period.
 
-*   _Summary_: a brief description of your app (your value proposition) to show alongside the logo in the [App Store](https://www.bigcommerce.com/apps/).
+*   `Summary`: a brief description of your app (your value proposition) to show alongside the logo in the [App Store](https://www.bigcommerce.com/apps/).
 
-*   _Category_: select at least one.
+*   `Category`: select at least one.
 
 ## <span class="jumptarget"> Details </span>
 
-All of the fields in the **Details** panel are required. Each is discussed below:
+All of the fields in the `Details` panel are required. Each is discussed below:
 
-*   _App Details_: provide a bulleted list of features or benefits, as well as which payment gateways/options the app supports.
+*   `App Details`: provide a bulleted list of features or benefits, as well as which payment gateways/options the app supports.
 
-*   _App Screenshots_: at least one is required. You can include up to four. Screenshots should be 860 by 560 pixels.
+*   `App Screenshots`: at least one is required. You can include up to four. Screenshots should be 860 by 560 pixels.
 
 ## <span class="jumptarget"> Launch Bar </span>
 
