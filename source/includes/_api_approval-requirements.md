@@ -12,7 +12,7 @@ Our submission guidelines aim to protect the merchant experience, and to provide
 
 *   Apps must be production-ready and free of defects.
 <aside class="warning">
-<span class="aside-warning-hd">NOTE:</span>
+<span class="aside-warning-hd">Test before Submitting </span><br>
 Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
 </aside>
 
@@ -22,10 +22,10 @@ Install and test your app thoroughly prior to submission. Be sure to install and
 
 *   Apps must be easy to use.
 
-*   Whenever possible, apps must use the API resources to auto-fill and obtain information rather than prompting the user. Apps requesting information that can be auto-filled will be rejected.
+*   Whenever possible, apps must use the API resources to auto-fill and obtain information, rather than prompting the user. BigCommerce will reject apps requesting information that can be auto-filled.
 
     <aside class="notice">
-    <span class="aside-notice-hd">NOTE:</span> You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
+    <span class="aside-notice-hd">Auto-Filling API</span><br> You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
     </aside>
 
 *   The user ID and email address from the [OAuth flow](/api/load#process) should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.

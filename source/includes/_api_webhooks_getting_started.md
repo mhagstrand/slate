@@ -10,7 +10,7 @@ For example, you might build an app that needs to know when:
 
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTES:</span>
+<span class="aside-notice-hd">Webhooks Requirements and Limitations</span><br><br>
 Webhooks differ from the rest of the Stores API as follows:
   <ul>
 	<li>OAuth is required; basic authentication is not supported.</li>
@@ -33,13 +33,13 @@ All webhooks requests must include the following in their HTTP headers:
 
 Before you can send any requests or receive any responses, you will need the following:
 
-*   **A store**: you can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
-*   **OAuth Client ID**: obtained during [App Registration](/api/v2/#registration).
-*   **OAuth token**: obtained during [App Installation](/api/v2/#installation).
-*   **Valid TLS/SSL setup**: verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
+*   **A store:** You can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
+*   **OAuth Client ID:** Obtained during [App Registration](/api/v2/#registration).
+*   **OAuth token:** Obtained during [App Installation](/api/v2/#installation).
+*   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTES:</span>
+<span class="aside-notice-hd">Connection Breakers</span><br><br>
 Any one of the following will cause a connection failure:
   <ul>
 	<li>Hostname/DNS mismatch.</li>
@@ -55,7 +55,7 @@ To create a webhook, send a `POST` request to the `hooks` resource, including:
 
 *   As the `scope` value, the event for which you would like to receive notification. See next section for the list of possibilities.
 <aside class="notice">
-<span class="aside-notice-hd">NOTE:</span> Wildcards are supported for <code>scope</code>.
+Wildcards are supported for <code>scope</code>.
 </aside>
 *   As the `destination` value, the callback's fully qualified URI.
 
@@ -91,11 +91,11 @@ Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/
 
 ### <span class="jumptarget"> Receiving webhook callbacks </span>
 
-You'll need to build an application and configure your server to receive the callback, which we send when events are triggered.
+You'll need to build an application, and configure your server, to receive the callback that we send when events are triggered.
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
+<span class="aside-notice-hd">One-Minute Timeout</span><br><br>
+Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI.
 </aside>
 
 #### <span class="jumptarget"> Lightweight callback payload </span>

@@ -8,7 +8,7 @@ In addition to the **Auth Callback URI**, the [App Registration](#registration) 
 | Uninstall Callback URI | No | Called when the store owner clicks to uninstall your app. |
 | Remove User Callback URI | No | Called when the store admin revokes a user's access to your app. |
 
-Each BigCommerce request is a **GET** request and includes a signed payload that allows your app to:
+Each BigCommerce request is a `GET` request and includes a signed payload that allows your app to:
 
 *   Verify that the request came from BigCommerce.
 *   Identify the store.
@@ -17,29 +17,29 @@ Each BigCommerce request is a **GET** request and includes a signed payload that
 The remainder of this entry discusses:
 
 *   [The load request and response](#load_request).
-*   [The uninstall request](#uninstall).
-*   [The remove user request](#remove-user).
+*   [The Uninstall request](#uninstall).
+*   [The Remove User request](#remove-user).
 *   [The signed payload](#process).
 
 ### <span class="jumptarget"> <a name="load_request"></a> Load request and response</span>
 
-Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
+Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a `GET` request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
 <aside class="warning">
-<span class="aside-warning-hd">NOTES:</span>
+<span class="aside-warning-hd">Handling Requests Securely</span><br><br>
 The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
 
-The **GET** request contains a signed payload, as shown below.
+The `GET` request contains a signed payload, as shown below.
 
 ```
 GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving a **GET** request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
+Upon receiving a `GET` request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
 
 After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User&#160;Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
 
@@ -49,14 +49,14 @@ Store owners have the option to uninstall any app at any time. When a store owne
 
 You do not need to provide an **Uninstall Callback URI**. The lack of an **Uninstall Callback URI** does not prevent uninstallation. Instead, the **Uninstall Callback URI** allows you to track store owners who uninstall your app and to run cleanup operations, such as removing the store's user accounts from your system.
 
-Should you choose to avail of this option and provide an **Uninstall Callback URI**, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a **GET** request to your **Uninstall Callback URI** when a store owner clicks to uninstall your app. An example follows.
+Should you choose to avail of this option and provide an **Uninstall Callback URI**, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a `GET` request to your **Uninstall Callback URI** when a store owner clicks to uninstall your app. An example follows.
 
 ```
 GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
+Upon receiving the `GET` request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -64,16 +64,16 @@ Any HTML that you return in your response will not be rendered.
 </aside>
 
 
-### <span class="jumptarget"> <a name="remove-user"></a> Remove user request (optional)</span>
+### <span class="jumptarget"> <a name="remove-user"></a> Remove User request (optional)</span>
 
-If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a **GET** request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
+If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a `GET` request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
 ```
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving the **GET** request, your app will need to [process the signed payload](#process).
+Upon receiving the `GET` request, your app will need to [process the signed payload](#process).
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -86,7 +86,7 @@ Processing the signed payload involves splitting and decoding it verifying the H
 
 #### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span>
 
-The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the **.** character:
+The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the `.` character:
 
 ```
 encoded_json_string.encoded_hmac_signature
@@ -105,8 +105,8 @@ To decode the signed payload, complete the following steps:
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
 <aside class="warning">
-<span class="aside-warning-hd">NOTE:</span>
-To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time string comparison function rather than the equality operator to check that the signatures match.
+<span class="aside-warning-hd">Blocking Timing Attacks</span><br><br>
+To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
 </aside>
 
 ##### <span class="jumptarget"> Examples</span>
@@ -140,7 +140,7 @@ function verifySignedRequest($signedRequest)
 
 *   [Ruby](#strcmp-ruby)
 
-```
+```ruby
 require "base64"
 require "openssl"
 

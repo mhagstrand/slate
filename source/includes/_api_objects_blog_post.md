@@ -2,7 +2,7 @@
 
 A content entry in the store’s blog
 
-## <span class="jumptarget"> Blog Post Object – Properties </span>
+## <span class="jumptarget"> Blog Posts Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

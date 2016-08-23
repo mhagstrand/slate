@@ -1,8 +1,13 @@
 # <span class="jumptarget"> App Submission </span>
 
-When you first get up and running with your app development, you will leave many fields in `My Apps` blank, as discussed in the [App&#160;Registration](/api/registration) section. Before submitting your app for consideration, you must come back through the `My Apps` wizard and fill in the missing information. This section discusses each page of the wizard and identifies the information and files required for App Store approval.
+When you first get up and running with your app development, you will leave many fields in `My Apps` blank, as discussed in the [App&#160;Registration](/api/registration) section. Before submitting your app for consideration, you must come back through the `My Apps` wizard and fill in the missing information. This section discusses each page of the wizard, and identifies the information and files required for App Store approval.
 
->NOTE: The wizard validates for the Partner user name and ID, as well as correctly formatted URLs. However, additional information is required to get accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.
+<aside class="warning">
+<span class="aside-warning-hd">Check for Complete Information</span><br><br>
+The wizard validates for your Partner user name and ID, as well as for correctly formatted URLs. However, additional information is required to get your app accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.
+</aside>
+
+
 
 ## <span class="jumptarget"> App Summary
 
