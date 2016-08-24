@@ -48,9 +48,10 @@ With clever use of this API, you can automate various commerce, business, and pu
 
 All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:
 
-### [API v3](/api/v3)
+<span class="fake-h3"> [API v3](/api/v3) </span>
 
   New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.
 
-### [API v2](/api/v2)
+<span class="fake-h3"> [API v2](/api/v2) </span>
+
   Core API, supporting all currently exposed resources via Basic Auth or OAuth.
