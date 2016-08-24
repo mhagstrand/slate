@@ -48,9 +48,9 @@ All connections require authentication, and are secured by TLS encryption. As of
 
 With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
 
-## [API V3](/api/v3)
+### [API V3](/api/v3)
 
   New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with V2.
 
-## [API V2](/api/v2)
+### [API V2](/api/v2)
   Core API, supporting all currently exposed resources via Basic Auth or OAuth.
