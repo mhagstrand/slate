@@ -48,43 +48,9 @@ All connections require authentication, and are secured by TLS encryption. As of
 
 With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
 
-<section class=
-    "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">
-        <div class="block-container">
-            <div class="block-container-inner">
-                <div class=
-                "block--twoColTextOverBg-row block--twoColTextOverBg-row--split6">
-                    <div class=
-                    "block--twoColTextOverBg-column block--twoColTextOverBg-column--centerImageAlign">
-                        <div class="block-text block-shadow">
-                          <p class="rt-scheme--lightestGrey" rel=
-                          "text-align: center;" style="text-align: center;">
-                          <span class="type-large"><strong class=
-                          "rt-scheme-headline">API V2</strong><br>
-                          Core API, supporting all currently exposed resources via Basic Auth or OAuth.
-                          </span><span class=
-                          "type-large"><br>
-                          <br>
-                          <a class="button button--action" href=
-                          "/api/v2">
-                          View V2 Docs</a><br></span></p>
-                        </div>
-                    </div>
-                    <div class=
-                    "block--twoColTextOverBg-column block--twoColTextOverBg-column--centerImageAlign">
-                        <div class="block-text block-shadow">
-                            <p class="rt-scheme--lightestGrey" style=
-                            "text-align: center;"><strong class=
-                            "rt-scheme-headline">API V3</strong><span class="type-large"><br>
-                            New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only.</span><span class=
-                            "type-large"><br>
-                            <br>
-                            <a class="button button--action" href=
-                            "/api/v3">
-                            View V3 Docs</a><br></span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
+## [API V3](/api/v3)
+
+  New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with V2.
+
+## [API V2](/api/v2)
+  Core API, supporting all currently exposed resources via Basic Auth or OAuth.
