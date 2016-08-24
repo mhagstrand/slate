@@ -1,6 +1,6 @@
 # <span class="jumptarget"> Style Editor </span>
 
-## <span class="jumptarget"> Introducing Style Editor </span>
+## <span class="jumptarget"> About Style Editor </span>
 
 Style Editor allows users to customize the look and feel of their Bigcommerce store, without the need to know HTML/CSS. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.
 

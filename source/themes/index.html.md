@@ -17,9 +17,9 @@ search: true
 
 # Understanding Themes
 
-For information about our new themes framework, **Stencil**, please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
+<!-- For information about our new themes framework, **Stencil**, please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
 
-For information about our legacy  Blueprint themes framework, please follow the navigation links within this portal.
+For information about our legacy  Blueprint themes framework, please follow the navigation links within this portal. -->
 
 Themes allow you to customize the look and feel of Bigcommerce stores. The compelling store designs in the [BigCommerce Showcase](http://www.bigcommerce.com/showcase/) demonstrate the kinds of things that can be done.
 
