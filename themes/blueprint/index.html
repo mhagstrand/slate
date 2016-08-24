@@ -106,7 +106,7 @@
         ga('send', 'pageview', {'page': location.pathname + location.search  + location.hash});
       });
     });
-    </script>
+</script>
   </head>
 
   <body class="themes themes_blueprint themes_blueprint_index twocolumn">
@@ -117,29 +117,30 @@
       </span>
     </a>
 
-<header role="banner">
-  <div class="topBar-container topBar-container--fixed">
-    <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
-      <ul class="title-area ng-scope">
-        <li class="name"><a href="/"><img src="../../images/developer.png" /></a></li>
+    <header role="banner">
+      <div class="topBar-container topBar-container--fixed">
+  <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
+    <ul class="title-area ng-scope">
+      <li class="name"><a href="/"><img src="../../images/developer.png" /></a></li>
+    </ul>
+    <section class="top-bar-section ng-scope">
+      <ul class="menuItems">
+        <li><a href="/api/" title="API">API</a></li>
+        <li><a href="/themes/" title="Themes">Themes</a></li>
+        <li><a href="/changelog/" title="Changelog">Changelog</a></li>
+        <li><a href="/support/" title="Help and Support">Support</a></li>
       </ul>
-      <section class="top-bar-section ng-scope">
-        <ul class="menuItems">
-          <li><a href="/api/" title="API">API</a></li>
-          <li><a href="/themes" title="Themes">Themes</a></li>
-          <li><a href="/changelog" title="Changelog">Changelog</a></li>
-          <li><a href="/support" title="Help and Support">Support</a></li>
-        </ul>
-      </section>
-      <div class="top-bar-actions ng-scope">
-        <div class="optional"><a href="https://dev-tools.bigcommerce.com/myapps">Log In</a></div>
-        <div class="optional">
-          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
-        </div>
-      </div>
-    </nav>
+    </section>
+    <div class="top-bar-actions ng-scope">
+      <div class="optional"><a href="https://dev-tools.bigcommerce.com/myapps">Log In</a></div>
+      <div class="optional">
+    <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
   </div>
-</header>
+    </div>
+  </nav>
+</div>
+
+    </header>
 
     <div class="tocify-wrapper">
         <div class="search">
@@ -676,19 +677,20 @@ If BigCommerce made conflicting changes (which should happen only when resolving
       </div>
     </div>
     <script>
-        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
-        var container = $('.page-wrapper .content');
-        var headerHeightPixels = 85;
+    // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
+    var container = $('.page-wrapper .content');
+    var headerHeightPixels = 85;
 
-        container.on('click', function(event) {
-            var target = $(event.target);
+    container.on('click', function(event) {
+        var target = $(event.target);
 
-            if (target.is('a') && target.attr('href').charAt(0) === '#') {
-                setTimeout(function() {
-                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
-                }, 10);
-            }
-        });
-    </script>
+        if (target.is('a') && target.attr('href').charAt(0) === '#') {
+            setTimeout(function() {
+                $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+            }, 10);
+        }
+    });
+</script>
+
   </body>
 </html>
