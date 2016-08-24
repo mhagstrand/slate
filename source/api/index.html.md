@@ -42,15 +42,15 @@ search: true
 
 # API Documentation
 
-The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
+The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding. 
 
-All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).
+With clever use of this API, you can automate various commerce, business, and publishing tasks, and can integrate all kinds of apps with our platform. 
 
-With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
+All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:
 
-### [API V3](/api/v3)
+### [API v3](/api/v3)
 
-  New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with V2.
+  New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.
 
-### [API V2](/api/v2)
+### [API v2](/api/v2)
   Core API, supporting all currently exposed resources via Basic Auth or OAuth.
