@@ -46,11 +46,15 @@ Parameters can be added to the URL query string to paginate the collection. The 
     ],
     "summary": "Here's ten new products that make great gifts...",
     "is_published": false,
-    "published_date": "2014-05-26T01:34:41+0000",
+    "published_date": {
+        "date": "2013-05-09 08:35:45.000000",
+        "timezone_type": 1,
+        "timezone": "+00:00"
+        },
+    "published_date_iso8601": "2013-05-09T14:35:45+0000",
     "meta_description": null,
     "meta_keywords": "New,Products",
     "author": "",
-    "author_url": "",
     "thumbnail_path": ""
   },
   {
@@ -65,11 +69,15 @@ Parameters can be added to the URL query string to paginate the collection. The 
     ],
     "summary": " Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]",
     "is_published": true,
-    "published_date": "2014-02-15T19:46:34+0000",
+    "published_date": {
+        "date": "2013-05-09 08:35:45.000000",
+        "timezone_type": 1,
+        "timezone": "+00:00"
+        },
+    "published_date_iso8601": "2013-05-09T14:35:45+0000",
     "meta_description": "",
     "meta_keywords": "Blog,SEO",
     "author": "",
-    "author_url": "",
     "thumbnail_path": ""
   }
 ]
@@ -97,11 +105,15 @@ Gets a blog post.
   ],
   "summary": " Welcome to your blog! A blog is a great place to share details on your products, business and whatever else you think your shoppers might like to hear from you. You can include photos in your blog posts and even videos. For ideas and inspiration on how to structure your blog, take a look [...]",
   "is_published": true,
-  "published_date": "2014-02-15T19:46:34+0000",
+    "published_date": {
+        "date": "2013-05-09 08:35:45.000000",
+        "timezone_type": 1,
+        "timezone": "+00:00"
+        },
+    "published_date_iso8601": "2013-05-09T14:35:45+0000",
   "meta_description": "",
   "meta_keywords": "Blog,SEO",
   "author": "",
-  "author_url": "",
   "thumbnail_path": ""
 }
 ```
@@ -137,6 +149,7 @@ The following properties of the blog post are read-only. If one or more of these
 
 *   id
 *   preview_url
+*   summary
 
 ### <span class="jumptarget"> Requirements </span>
 
@@ -156,7 +169,6 @@ If a custom url is not provided, the post’s URL will be generated based on the
   "title": "A Sample Blog Post",
   "body": "<p>This is a blog post.</p>",
   "author": "Author Name",
-  "author_url": "http://example.com/author-name",
   "thumbnail_path": "http://cdn.example.com/sample-post.jpg",
   "is_published": true,
   "tags": [

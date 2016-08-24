@@ -1,6 +1,6 @@
 ## <span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks </span>
 
-<a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near real-time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
+<a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
 
 For example, you might build an app that needs to know when:
 
@@ -10,7 +10,7 @@ For example, you might build an app that needs to know when:
 
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTES:</span>
+<span class="aside-notice-hd">Webhooks Requirements and Limitations</span><br><br>
 Webhooks differ from the rest of the Stores API as follows:
   <ul>
 	<li>OAuth is required; basic authentication is not supported.</li>
@@ -33,13 +33,13 @@ All webhooks requests must include the following in their HTTP headers:
 
 Before you can send any requests or receive any responses, you will need the following:
 
-*   **A store**: you can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
-*   **OAuth Client ID**: obtained during [App Registration](/api/v2/#registration).
-*   **OAuth token**: obtained during [App Installation](/api/v2/#installation).
-*   **Valid TLS/SSL setup**: verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
+*   **A store:** You can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
+*   **OAuth Client ID:** Obtained during [App Registration](/api/v2/#registration).
+*   **OAuth token:** Obtained during [App Installation](/api/v2/#installation).
+*   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTES:</span>
+<span class="aside-notice-hd">Connection Breakers</span><br><br>
 Any one of the following will cause a connection failure:
   <ul>
 	<li>Hostname/DNS mismatch.</li>
@@ -49,20 +49,13 @@ Any one of the following will cause a connection failure:
 </aside>
 
 
-### <span class="jumptarget"> Creating webhooks </span>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
-
-#### <span class="jumptarget"> Sending the POST request </span>
+### <span class="jumptarget"> Creating webhooks: Sending the POST request </span>
 
 To create a webhook, send a `POST` request to the `hooks` resource, including:
 
 *   As the `scope` value, the event for which you would like to receive notification. See next section for the list of possibilities.
 <aside class="notice">
-<span class="aside-notice-hd">NOTE:</span> Wildcards are supported for <code>scope</code>.
+Wildcards are supported for <code>scope</code>.
 </aside>
 *   As the `destination` value, the callback's fully qualified URI.
 
@@ -98,11 +91,11 @@ Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/
 
 ### <span class="jumptarget"> Receiving webhook callbacks </span>
 
-You'll need to build an application and configure your server to receive the callback, which we send when events are triggered.
+You'll need to build an application, and configure your server, to receive the callback that we send when events are triggered.
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-It can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI following the creation of a webhook.
+<span class="aside-notice-hd">One-Minute Timeout</span><br><br>
+Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI.
 </aside>
 
 #### <span class="jumptarget"> Lightweight callback payload </span>
@@ -164,10 +157,7 @@ Using your OAuth access token, send a [DELETE request](/api/stores/v2/webhooks#d
 
 ### <span class="jumptarget"> Troubleshooting </span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
+Below are remedies for certain errors commonly encountered with webhooks:
 
 #### <span class="jumptarget"> Not receiving the POST requests to my callback URI </span>
 
@@ -178,7 +168,7 @@ You can proactively check to make sure that everything is OK by periodically mak
 If you receive an email or discover that the `is_active` flag has been flipped to `false`, try the following:
 
 <ul>
-	<li>Check to see if your app is responding to the POST request with something other than `HTTP 200`.</li>
+	<li>Check to see if your app is responding to the POST request with something other than <code>HTTP 200</code>.</li>
 	<li>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </li>
 	<ul>
 		<li>Self-signed certificate.</li>
@@ -196,20 +186,17 @@ After sending a POST request to create a webhook, you should get an HTTP 201 bac
 
 ### <span class="jumptarget"> Tools for Debugging and Testing Webhooks </span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
+We recommend these diagnostic tools: 
 
 ##### <span class="jumptarget"> RequestBin </span>
 
-While planning your integration, [RequestBin](http://requestb.in/) is a very helpful tool to help view webhooks we send without much setup. In seconds you can start seeing the webhooks we are firing and their data.
+While planning your integration, [RequestBin](http://requestb.in/) is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.
 
 ##### <span class="jumptarget"> ngrok </span>
 
-As you are building your integration, you may desire the abilty to test webhooks on your dev machines.
+As you are building your integration, you might want the abilty to test webhooks on your dev machines.
 
-We suggest using [ngrok](https://ngrok.com/), which can be used to easily set up tunnels between a server running on localhost and a public URL.
+We suggest using [ngrok](https://ngrok.com/), which you can use to easily set up tunnels between a server running on `localhost` and a public URL.
 
-This enables our webhooks to be sent to your localhost environments via a public URL. No production push required.
+This will enable you to send our webhooks to your `localhost` environments via a public URL. No production push is required.
 

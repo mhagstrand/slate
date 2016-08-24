@@ -4,6 +4,10 @@
 ## <span class="jumptarget"> August </span>
 
 
+### Blog Posts documentation updated
+
+We have updated our [Blog Posts documentation](/api/v2/#blog-posts) to cover several new fields, as well as the replacement of the single `published_at` field by a new `published_date` object and `published_date_iso8601` field.
+
 ### Store-owner changes: New support and best practices
 
 BigCommerce now makes it possible to change store ownership without breaking any installed apps. A store's new owner will no longer need to reinstall apps, and will not lose apps' historical data associated with the store.

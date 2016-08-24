@@ -33,7 +33,6 @@ includes:
   - api_scopes
   - api_browsers
   - api_completing_reg
-  - api_registration
   - api_faqs
   - api_guides_curl_quickstart
   - api_response_headers

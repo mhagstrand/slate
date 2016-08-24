@@ -27,9 +27,7 @@ search: true
 
 ## Getting Started with Blueprint
 
-If you, Skipper, prefer not to navigate large tiles like those below – then here is an austere bullet list of things you can do with Blueprint themes. It is inspired by [this Smooch landing page](http://docs.smooch.io/javascript/#welcome) that Nate suggested as a model.
-
-We're all developers here, so please feel free to iterate on this as a prototype for other landing pages that essentially ask, "Do you want to take the red pill or the blue pill?":  
+**To replace the large tiles below:** Here are the building blocks of Blueprint themes:  
 
 * [Layouts](/themes/blueprint/layouts)  
   
@@ -46,7 +44,7 @@ We're all developers here, so please feel free to iterate on this as a prototype
  
 	These are the theme's primary layout stylesheets, with styles.css being the core file.	
 	
-But wait: Perhaps you _are_ a fan of large tiles? Well then, Champ, be our guest. Please play Twister with these:	
+**[Remove or comment out these tiles:]** 
 
 <section class=
     "block block--defaultScheme block--allViewport block--paddingTop block--twoColTextOverBg">

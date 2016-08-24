@@ -3,8 +3,8 @@
 A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
 <aside class="warning">
-<span class="aside-warning-hd"> NOTES:</span>
-The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
+<span class="aside-warning-hd"> Handling Requests Securely</span><br><br>
+The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth&#160;Callback URI</b> while testing your app.<br><br>
 
 For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app's entry point.
 </aside>
@@ -158,8 +158,6 @@ $token = $response->access_token;
 ```
 
 ### <span class="jumptarget"> <a name="post-receipt"></a> Receiving the POST response </span>
-
-#### <span class="jumptarget"> Overview </span>
 
 The `POST` response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.
 
