@@ -35,21 +35,7 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-    <script>
-    //This is Google's default GA code
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-47823747-2', 'auto');
-    ga('send', 'pageview');
-    // Used for navlink tracking (https://github.com/tripit/slate/issues/209)
-    $(document).ready(function() {
-      $('.tocify-item a').on('click', function(){
-        ga('send', 'pageview', {'page': location.pathname + location.search  + location.hash});
-      });
-    });
-    </script>
+    <%= partial "layouts/ga" %>
     <% if language_tabs %>
       <script>
         $(function() {
@@ -67,29 +53,9 @@ under the License.
       </span>
     </a>
 
-<header role="banner">
-  <div class="topBar-container topBar-container--fixed">
-    <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
-      <ul class="title-area ng-scope">
-        <li class="name"><%= link_to image_tag("developer.png"), "/" %></li>
-      </ul>
-      <section class="top-bar-section ng-scope">
-        <ul class="menuItems">
-          <li><a href="/api/" title="API">API</a></li>
-          <li><a href="/themes" title="Themes">Themes</a></li>
-          <li><a href="/changelog" title="Changelog">Changelog</a></li>
-          <li><a href="/support" title="Help and Support">Support</a></li>
-        </ul>
-      </section>
-      <div class="top-bar-actions ng-scope">
-        <div class="optional"><a href="https://dev-tools.bigcommerce.com/myapps">Log In</a></div>
-        <div class="optional">
-          <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
-        </div>
-      </div>
-    </nav>
-  </div>
-</header>
+    <header role="banner">
+      <%= partial "layouts/navbar" %>
+    </header>
 
     <div class="tocify-wrapper">
       <% if language_tabs %>
@@ -127,20 +93,6 @@ under the License.
         <% end %>
       </div>
     </div>
-    <script>
-        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
-        var container = $('.page-wrapper .content');
-        var headerHeightPixels = 85;
-
-        container.on('click', function(event) {
-            var target = $(event.target);
-
-            if (target.is('a') && target.attr('href').charAt(0) === '#') {
-                setTimeout(function() {
-                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
-                }, 10);
-            }
-        });
-    </script>
+    <%= partial "layouts/footerscript" %>
   </body>
 </html>
