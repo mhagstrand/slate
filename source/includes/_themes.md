@@ -2,9 +2,9 @@
 
 ## Design and develop custom storefront themes
 
-To learn more about our new themes framework, **Stencil** – now available for Developer Early Access – please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
+<!-- To learn more about our new themes framework, **Stencil** – now available for Developer Early Access – please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
 
-For information about the Blueprint themes framework, please follow the navigation links within this portal.
+For information about the Blueprint themes framework, please follow the navigation links within this portal. -->
 
 Themes allow you to customize the look and feel of Bigcommerce stores. The compelling store designs in the [BigCommerce Showcase](http://www.bigcommerce.com/showcase/) demonstrate the kinds of things that can be done.
 
