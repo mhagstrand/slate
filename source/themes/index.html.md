@@ -27,10 +27,10 @@ To ensure that your themes make the most of BigCommerce’s extensive out-of-the
 
 You can ask further questions, and seek advice, in the [Developer Forum](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW). For professional assistance in customizing a theme, consider hiring a [BigCommerce Expert](http://www.bigcommerce.com/experts/).
 
-## [Stencil](//stencil.bigcommerce.com)
+### [Stencil](//stencil.bigcommerce.com)
 
   Handlebars.js-based theming engine, designed to support  local development, conditional logic, flexible choice of libraries, and responsive layouts.
 
-## [Blueprint](/themes/blueprint)
+### [Blueprint](/themes/blueprint)
 
   Legacy theming framework. Uses a proprietary templating language; offers merchants direct HTML customization.
