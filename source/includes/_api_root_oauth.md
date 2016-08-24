@@ -1,13 +1,12 @@
 # <span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
-We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
-</aside>
+OAuth apps (also known as public apps or <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a>) can be listed in the App Store for easy installation in all BigCommerce stores. They&#160;use OAuth to obtain an access token and to communicate with the central BigCommerce API endpoint. 
 
 ## <span class="jumptarget"> About Single-Click Apps </span>
 
-Public apps (also known as OAuth Apps or <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a> can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](#approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](/api/v2/#registration), and an [OAuth token](/api/v2/#installation). 
+Building an OAuth app is the recommended approach in almost all cases. BigCommerce plans to deprecate the alternative Basic Auth mechanism that currently supports [private apps](/api/#building-basic-auth-apps) for individual stores.
+
+Before you start, we suggest reviewing the [App Store acceptance requirements](#approval-requirements). To start making API requests, you'll need a [Client ID and Client&#160;Secret](/api/v2/#registration), and an [OAuth token](/api/v2/#installation). 
 
 ### <span class="jumptarget"> API Endpoint </span>
 
@@ -26,13 +25,13 @@ In addition, while not all resources require the `Accept` and `Content-Type` hea
 
 We recommend that you add BigCommerce's JavaScript SDK to your Single-Click Apps, to protect your apps' users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App: 
 
-```
+```html
 <script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js">
 ```
 
 Optionally, you can pass a logout callback function within the initialization call:
 
-```
+```js
 BigCommerce.init({
       onLogout: callback
 });
