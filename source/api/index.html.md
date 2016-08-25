@@ -10,32 +10,19 @@ toc_footers:
   - <a href="/">Home</a>
   - <a href='/api/v2/'>API</a>
   - <a href='/themes/'>Themes</a>
-  - <a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a>
   - <a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a>
+  - <a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a>
   - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a>
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
 includes:
-  - api_root_oauth
-  - api_registration
-  - api_callback
-  - api_load
-  - api_webhooks_getting_started
-  - api_multi-user
-  - api_ui_constraints
-  - api_scopes
-  - api_rate-limits_oauth
-  - api_approval-requirements
-  - api_root_basic_auth
-  - api_clients
-  - api_status_codes
-  - api_scopes
-  - api_browsers
-  - api_completing_reg
-  - api_faqs
-  - api_guides_curl_quickstart
+  - api
+  - api_req_headers
   - api_response_headers
+  - api_media_types
+  - api_webhooks_getting_started
+  - api_clients
 
 search: true
 ---

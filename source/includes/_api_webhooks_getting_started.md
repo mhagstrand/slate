@@ -1,27 +1,4 @@
-## <span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks </span>
-
-<a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
-
-For example, you might build an app that needs to know when:
-
-*   An order is placed.
-*   A product is added.
-*   A customer record is updated.
-
-
-<aside class="notice">
-<span class="aside-notice-hd">Webhooks Requirements and Limitations</span><br><br>
-Webhooks differ from the rest of the Stores API as follows:
-  <ul>
-	<li>OAuth is required; basic authentication is not supported.</li>
-	<li>Self-signed certificates are not supported.</li>
-	<li>JSON is required; XML is not supported.</li>
-  </ul>
-</aside>
-
-
-All webhooks requests must include the following in their HTTP headers:
-
+# <span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks Overview
 ```
      Accept: application/json
      Content-Type: application/json
