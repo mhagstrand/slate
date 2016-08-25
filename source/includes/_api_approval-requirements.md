@@ -40,9 +40,9 @@ Install and test your app thoroughly prior to submission. Be sure to install and
 
 *   Apps must have all required information and files discussed in [App Submission](/api/completing-reg).
 
-### <span class="jumptarget" id="apps-accepted"> Types of apps we're accepting </span>
+### <span class="jumptarget" id="apps-accepted"> Types of Apps We're Accepting </span>
 
-| Accepting | Not accepting |
+| Accepting | Not Accepting |
 | --- | --- |
 | Accounting | Real-Time Tax |
 | Advertising | Customized Checkout |
