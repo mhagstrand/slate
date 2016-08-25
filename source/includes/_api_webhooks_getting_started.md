@@ -38,8 +38,8 @@ Before you can send any requests or receive any responses, you will need the fol
 *   **OAuth token:** Obtained during [App Installation](/api/v2/#installation).
 *   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
-<aside class="notice">
-<span class="aside-notice-hd">Connection Breakers</span><br><br>
+<aside class="warning">
+<span class="aside-warning-hd">Connection Breakers</span><br><br>
 Any one of the following will cause a connection failure:
   <ul>
 	<li>Hostname/DNS mismatch.</li>
@@ -49,7 +49,7 @@ Any one of the following will cause a connection failure:
 </aside>
 
 
-### <span class="jumptarget"> Creating webhooks: Sending the POST request </span>
+### <span class="jumptarget"> Creating Webhooks: Sending the POST Request </span>
 
 To create a webhook, send a `POST` request to the `hooks` resource, including:
 
@@ -70,9 +70,9 @@ An `HTTP 201` response indicates that the webhook was set successfully.
 Links above and below here still need to be set, after Slate file refactoring.
 </aside>
 
-Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook) and [webhook object](https://developer.bigcommerce.com/api/objects/v2/webhook) pages for more details.
+Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook) and [webhook object](https://developer.bigcommerce.com/api/objects/v2/webhook) pages for more details.
 
-#### <span class="jumptarget"> List of webhook events </span>
+#### <span class="jumptarget"> List of Webhook Events </span>
 
 *   store/order/*
 *   store/order/created
@@ -89,7 +89,7 @@ Please review the [hooks resource](https://developer.bigcommerce.com/api/stores/
 *   store/customer/deleted
 *   store/app/uninstalled
 
-### <span class="jumptarget"> Receiving webhook callbacks </span>
+### <span class="jumptarget"> Receiving Webhook Callbacks </span>
 
 You'll need to build an application, and configure your server, to receive the callback that we send when events are triggered.
 
@@ -98,7 +98,7 @@ You'll need to build an application, and configure your server, to receive the c
 Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI.
 </aside>
 
-#### <span class="jumptarget"> Lightweight callback payload </span>
+#### <span class="jumptarget"> Lightweight Callback Payload </span>
 
 In the callback, we send a light payload with only minimum details regarding the event that's been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the `store/product/update` event, we'll send you the product ID when it's been updated, and you might want to handle it by fetching the product via a request to the [Products resource](/api/v2/products#get-a-product).
 
@@ -108,21 +108,21 @@ An example payload follows.
 {"store_id":11111,"producer":"stores/abcde","scope":"store/order/statusUpdated","data":{"type":"order","id":173331},"hash":"3f9ea420af83450d7ef9f78b08c8af25b2213637"}
 ```
 
-#### <span class="jumptarget"> Multiple events are triggered during bulk data imports </span>
+#### <span class="jumptarget"> Multiple Events Are Triggered during Bulk Data Imports </span>
 
 Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on `store/product/created`, when the merchant imports 2,000 products, then we will send 2,000 individual callback events.
 
-#### <span class="jumptarget"> Payloads are serialized </span>
+#### <span class="jumptarget"> Payloads are Serialized </span>
 
 Payloads are serialized per hook per store.
 
 In the future, we are looking at enabling a replay feature, allowing you to replay select events. What this means is, based on the serialized payload IDs, you can detect if you've missed certain callbacks and then, via a future update, you will be able call a replay method to get the missing events.
 
-### <span class="jumptarget"> Respond to webhook callbacks </span>
+### <span class="jumptarget"> Respond to Webhook Callbacks </span>
 
 To acknowledge that you received the webhook without issue, your server should return a `200 HTTP` status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the `200` range, including `3_xx_` codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will attempt to callback as described just below.
 
-### <span class="jumptarget"> Callback retry mechanism </span>
+### <span class="jumptarget"> Callback Retry Mechanism </span>
 
 Webhooks will do their best to deliver the events to your callback URI. The dispatcher will attempt several retries until the maximum retry limit is reached, as follows:
 
@@ -131,7 +131,7 @@ Webhooks will do their best to deliver the events to your callback URI. The disp
 
 The dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached, as follows:
 
-#### <span class="jumptarget"> Retry intervals </span>
+#### <span class="jumptarget"> Retry Intervals </span>
 
 1.  60 seconds after the most recent failure
 2.  180 seconds after the most recent failure
@@ -147,11 +147,11 @@ The dispatcher will then attempt several retries (at increasing intervals) until
 
 After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer's email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the `is_active` flag back to `true` via a [PUT request](/api/stores/v2/webhooks#update-a-hook) to the `hooks` resource.
 
-### <span class="jumptarget"> Updating a webhook </span>
+### <span class="jumptarget"> Updating a Webhook </span>
 
 Using your OAuth access token, send a [PUT request](/api/stores/v2/webhooks#update-hook) to the `hooks` resource.
 
-### <span class="jumptarget"> Deleting a webhook </span>
+### <span class="jumptarget"> Deleting a Webhook </span>
 
 Using your OAuth access token, send a [DELETE request](/api/stores/v2/webhooks#delete-hook) to the `hooks` resource.
 
@@ -159,7 +159,7 @@ Using your OAuth access token, send a [DELETE request](/api/stores/v2/webhooks#d
 
 Below are remedies for certain errors commonly encountered with webhooks:
 
-#### <span class="jumptarget"> Not receiving the POST requests to my callback URI </span>
+#### <span class="jumptarget"> Not Receiving the POST Requests to My Callback URI </span>
 
 As noted above, if your app does not return an `HTTP 2_xx_` to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the `is_active` flag to `false`.
 
@@ -180,7 +180,7 @@ If you receive an email or discover that the `is_active` flag has been flipped t
 
 Once you have resolved the issue preventing the connection, send a PUT request to flip the `is_active` flag back to `true`. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.
 
-#### <span class="jumptarget"> Not receiving an HTTP 201 response after sending POST to create webhook </span>
+#### <span class="jumptarget"> Not Receiving an HTTP 201 Response after Sending POST to Create Webhook </span>
 
 After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the [introduction](#webhooks_intro) above.
 
