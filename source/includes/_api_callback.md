@@ -104,7 +104,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 
 *   [PHP](#token-php)
 
-```php
+```php?start_inline=1
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -138,7 +138,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_
 
 *   [PHP](#token-php)
 
-```php
+```php?start_inline=1
 use Bigcommerce\Api\Connection;
 
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
