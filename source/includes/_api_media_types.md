@@ -5,13 +5,9 @@
 The BigCommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.
 
 <aside class="warning">
-<span class="aside-warning-hd">XML Deprecation</span><br><br>
-The XML media type is deprecated. Stores API versions after v2 will support JSON only.
+<span class="aside-warning-hd">Restricted XML Support</span><br><br>
+The XML media type is deprecated. Our v2 webhooks support JSON only, and Stores API versions after v2 will support JSON only. 
 </aside>
-
-
-
->NOTE: The XML media type is deprecated. The next version of the Stores API will support JSON only.
 
 ## <span class="jumptarget"> Request Content Type</span>
 

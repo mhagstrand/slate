@@ -1,19 +1,19 @@
 # <span class="jumptarget"> Client Libraries </span>
 
-## <span class="jumptarget"> Official Bigcommerce SDKs </span>
+## <span class="jumptarget"> Official BigCommerce  SDKs </span>
 
-Bigcommerce provides and maintains the following full-featured SDKs in a variety of languages.
+BigCommerce  provides and maintains the following full-featured SDKs in a variety of languages.
 
 |[PHP](https://github.com/bigcommerce/bigcommerce-api-php)|[Ruby](https://github.com/bigcommerce/bigcommerce-api-ruby)|
 |:----------|:-----------|
-|The official Bigcommerce PHP client, with minimal external dependencies. Uses either OAuth or Basic Authentication.|The official Bigcommerce Ruby client. Uses either OAuth or Basic Authentication.
+|The official BigCommerce  PHP client, with minimal external dependencies. Uses either OAuth or Basic Authentication.|The official BigCommerce  Ruby client. Uses either OAuth or Basic Authentication.
 |[**Python**](https://github.com/bigcommerce/bigcommerce-api-python)|| 
-|The official Bigcommerce Python client, available as a PyPi package. Uses either OAuth or Basic Authentication.||
+|The official BigCommerce  Python client, available as a PyPi package. Uses either OAuth or Basic Authentication.||
 
 
-## <span class="jumptarget"> Official Bigcommerce OAuth Hello World Apps </span>
+## <span class="jumptarget"> Official BigCommerce  OAuth Hello World Apps </span>
 
-Bigcommerce provides and maintains the following hello world apps in a variety of languages. These allow you to get a quick start with your OAuth app development.
+BigCommerce  provides and maintains the following hello world apps in a variety of languages. These allow you to get a quick start with your OAuth app development.
 
 |[Silex](https://github.com/bigcommerce/hello-world-app-php-silex)| [Sinatra](https://github.com/bigcommerce/hello-world-app-ruby-sinatra)|
 |:--------------------------|:--------------------|
@@ -26,7 +26,7 @@ Bigcommerce provides and maintains the following hello world apps in a variety o
 |A sample app written in Python, using [Flask](http://flask.pocoo.org/).|A Ruby gem that allows you to authenticate using [OmniAuth](https://github.com/intridea/omniauth/wiki).|
 
 
-## <span class="jumptarget"> Community Contributed Libraries </span>
+## <span class="jumptarget"> Community-Contributed Libraries </span>
 
 The following libraries and tools have been contributed by our community. They’re not officially supported, but we think they’re great.
 
