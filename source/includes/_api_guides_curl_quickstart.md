@@ -1,4 +1,4 @@
-## <span class="jumptarget"> cURL Quickstart Guide </span>
+## <span class="jumptarget" id="curl_quickstart"> cURL Quickstart Guide </span>
 
 This page provides some sample cURL commands for quick-start purposes. These use Basic Authentication. Before you can issue them, you must generate Basic Authentication credentials, following the steps discussed in the [Overview](/api#basic-auth). Once you have your Basic Authentication credentials, you can issue cURL commands as shown below.
 
@@ -143,7 +143,7 @@ To search by a product SKU, we could use the following code. Remember that when 
     https://store.mybigcommerce.com/api/v2/products/skus.json?sku="abcd"
 ```
 
-## <span class="jumptarget"> Coupons</span>
+### <span class="jumptarget"> Coupons</span>
 
 ### <span class="jumptarget"> Get a list of coupons from the store</span>
 
