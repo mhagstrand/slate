@@ -13,6 +13,23 @@ toc_footers:
   - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
 
 includes:
+  - api_root_oauth
+  - api_registration
+  - api_callback
+  - api_load
+  - api_multi-user
+  - api_ui_constraints
+  - api_scopes
+  - api_rate-limits_oauth
+  - api_approval-requirements
+  - api_completing_reg
+  - api_app_gallery
+  - api_sample_contract
+  - api_root_basic_auth
+  - api_legacy_basic_auth
+  - api_guides_curl_quickstart
+  - api_rate_limits_basic
+  - api_guides_oauth_transition
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -91,9 +108,8 @@ search: true
 
 # API v2 Documentation
 
-The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
+<!-- The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.
 
 All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).
 
-With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
-
+With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform. -->
