@@ -44,10 +44,10 @@ The following table provides a quick comparison of the syntax and example paths.
 
 ### Rate Limiting
 
-Rate limiting only impacts high volume applications but there are several changes that all consumers of the API should be aware of:
+Rate limiting affects only high-volume applications, but there are several changes that all consumers of the API should be aware of:
 
-*   **509 status codes are no longer returned**: we’re now returning a `429` status code to represent “Too Many Requests”. This is consistent with [RFC 6585](http://tools.ietf.org/html/rfc6585).
+*   **509 status codes are no longer returned**: We’re now returning a `429` status code to represent “Too Many Requests”. This is consistent with [RFC 6585](http://tools.ietf.org/html/rfc6585).
 
-*   **Time to wait before retries**: the old rate limiting scheme used a fixed hourly limit, regardless of who was accessing the API and how many requests were made per app or per user. This value was returned in the `X-BC-ApiLimit-Remaining` header. The `X-BC-ApiLimit-Remaining` header is not sent to OAuth apps. When an OAuth client is rate limited, the header `X-Retry-After` signals the number of seconds that a client should wait before retrying the request.
+*   **Time to wait before retries**: The old rate limiting scheme used a fixed hourly limit, regardless of who was accessing the API and how many requests were made per app or per user. This value was returned in the `X-BC-ApiLimit-Remaining` header. The `X-BC-ApiLimit-Remaining` header is not sent to OAuth apps. When an OAuth client is rate limited, the header `X-Retry-After` signals the number of seconds that a client should wait before retrying the request.
 
 *   **More information**: Further information can be found on the [OAuth rate limits page](/api/rate-limits/oauth) and the [Response Headers page](/api/headers).
