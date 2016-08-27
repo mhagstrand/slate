@@ -97,7 +97,7 @@ You can create a shipment for an order via the [Orders > Create a Shipment](/api
 
 By default, the API request returns only 50 products. If you want to return all the products from the store, you must use filters, as shown in the example below.
 
-### <span class="jumptarget"> Get all products from the store</span>
+#### <span class="jumptarget"> Get all products from the store</span>
 
 Use the `limit` and `page` filter parameters to get data beyond what the default query returns. Note that a maximum of 200 products are returned per page:
 
@@ -145,7 +145,7 @@ To search by a product SKU, we could use the following code. Remember that when 
 
 ### <span class="jumptarget"> Coupons</span>
 
-### <span class="jumptarget"> Get a list of coupons from the store</span>
+#### <span class="jumptarget"> Get a list of coupons from the store</span>
 
 ```
     curl --request GET \
@@ -210,7 +210,9 @@ Use the following command to create an option:
 
 BigCommerce returns the following, which includes an option ID:
 
-```{"id":33,"name":"homer simpson","display_name":"homer simpson","type":"T","values":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33/values.json","resource":"/options/33/values"}}```
+```
+{"id":33,"name":"homer simpson","display_name":"homer simpson","type":"T","values":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33/values.json","resource":"/options/33/values"}}
+```
 
 Next, create a new option set:
 
@@ -224,7 +226,9 @@ Next, create a new option set:
 
 The API returns the following, which includes an option-set ID:
 
-```{"id":27,"name":"Simpson family","options":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/optionsets/27/options.json","resource":"/optionsets/27/options"}}```
+```
+{"id":27,"name":"Simpson family","options":{"url":"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/optionsets/27/options.json","resource":"/optionsets/27/options"}}
+```
 
 The final step is to connect the option with the option set:
 
