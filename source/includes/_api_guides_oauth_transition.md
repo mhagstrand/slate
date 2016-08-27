@@ -42,7 +42,7 @@ The following table provides a quick comparison of the syntax and example paths.
 | **SYNTAX** | https://store-{_store_hash_}.mybigcommerce.com/api | https://api.bigcommerce.com/stores/{_store_hash_} |
 | **EXAMPLE** | https://store-g5cd38.mybigcommerce.com/api/v2/time | https://api.bigcommerce.com/stores/g5cd38/v2/time |
 
-### Rate Limiting
+### Rate Limiting after OAuth Migration
 
 Rate limiting affects only high-volume applications, but there are several changes that all consumers of the API should be aware of:
 
