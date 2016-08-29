@@ -15,12 +15,12 @@ The following diagram illustrates the entire sequence.
 
 The remainder of this section discusses each action your app needs to take during the sequence.
 
-1.  [Receiving the `GET` request](#get-req)
-2.  [Responding to the `GET` request](#get-response)
-3.  [Making the `POST` request](#post-req)
-4.  [Receiving the `POST` response](#post-receipt)
+1.  [Receiving the `GET` Request](#get-req)
+2.  [Responding to the `GET` Request](#get-response)
+3.  [Making the `POST` Request](#post-req)
+4.  [Receiving the `POST` Response](#post-receipt)
 
-### <span class="jumptarget"> <a name="get-req"></a> Receiving the GET request </span>
+### <span class="jumptarget"> <a name="get-req"></a> Receiving the GET Request </span>
 
 The `GET` request to your **Auth Callback URI** contains a temporary code that you can exchange for a permanent OAuth token. It also includes a unique value that identifies the store installing or updating your app, as well as other values.
 
@@ -55,11 +55,11 @@ Host: app.example.com
 (Note that when your app receives a new token, any previously issued token is invalidated.)
 
 
-### <span class="jumptarget"> <a name="get-response"></a> Responding to the GET request </span>
+### <span class="jumptarget"> <a name="get-response"></a> Responding to the GET Request </span>
 
 Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
 
-### <span class="jumptarget"> <a name="post-req"></a> Making the POST request </span>
+### <span class="jumptarget"> <a name="post-req"></a> Making the POST Request </span>
 
 The `POST` request's primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header:    
 `Content-Type: application/x-www-form-urlencoded`
@@ -104,7 +104,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&code=qr6h3thvbvag2ffq&scope=
 
 *   [PHP](#token-php)
 
-```php
+```php?start_inline=1
 use Bigcommerce\Api\Connection;
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
 $connection = new Connection();
@@ -138,7 +138,7 @@ client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&scope=store_v2_orders+store_
 
 *   [PHP](#token-php)
 
-```php
+```php?start_inline=1
 use Bigcommerce\Api\Connection;
 
 $tokenUrl = "https://login.bigcommerce.com/oauth2/token";
@@ -157,7 +157,7 @@ $response = $connection->post($tokenUrl, array(
 $token = $response->access_token;
 ```
 
-### <span class="jumptarget"> <a name="post-receipt"></a> Receiving the POST response </span>
+### <span class="jumptarget"> <a name="post-receipt"></a> Receiving the POST Response </span>
 
 The `POST` response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.
 

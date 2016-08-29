@@ -8,12 +8,9 @@ Once you have a [sandbox store](#using-oauth-intro), you must register your app 
 
 The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in [App Submission](/api/completing-reg)).
 
-### <span class="jumptarget"> Technical Requirements </span>
+### <span class="jumptarget"> Technical Prerequisites </span>
 
-<aside class="notice">
-<span class="aside-notice-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
+Before you register your app, consider the required and optional steps below.
 
 
 #### <span class="jumptarget"> Auth Callback and Load Callback URIs </span>
@@ -21,15 +18,15 @@ Stacked heads; insert something here!
 You must have an [Auth Callback URI](#installation) and a [Load Callback URI](#load_request) to register your app.
 
 <aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
+<span class="aside-notice-hd">Public URIs Required before Submission</span><br><br>
 Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
 </aside>
 
-#### <span class="jumptarget"> Uninstall callback (optional) </span>
+#### <span class="jumptarget"> Uninstall Callback (Optional) </span>
 
 If you want to receive a callback when the store owner uninstalls your app, you can provide an [Uninstall Callback URI](#uninstall).
 
-#### <span class="jumptarget"> Multi-user support (optional) </span>
+#### <span class="jumptarget"> Multi-User Support (Optional) </span>
 
 By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling [multi-user support](/api/multi-user).
 
@@ -37,7 +34,7 @@ By default, your app will only be accessible to the store owner (ie. the user wh
 *   Your app should be aware that when it receives the [Load Callback](#load_request), the user information passed in, [may not be the store owner](/api/multi-user#loadrequest). You'll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.
 *   You can optionally specify a [Remove User Callback URI](#remove-user) to receive a callback when a store admin revokes a user's access.
 
-#### <span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span>
+#### <span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth Scopes </span>
 
 If you know the [OAuth scopes](/api/#scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as `Information: Read-Only`) to get started. However, once you determine the scopes you need, you must:
 
@@ -45,14 +42,14 @@ If you know the [OAuth scopes](/api/#scopes) that your app requires, you should 
 *   Obtain the new OAuth token during the [App Installation or Update](#installation) flow.
 *   Retest your app to make sure it still functions properly with the new token.
 
-### <span class="jumptarget"> Registering your app </span>
+### <span class="jumptarget"> Registering Your App </span>
 
 The following procedure takes you through the minimum number of steps to successfully register your app and get your **Client Secret** and **Client ID**.
 
 1.  Log in at Developer Portal's top right.
 2.  In the resulting login page, provide your sandbox store credentials.
 
-<aside class="notice">
+	<aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
 These must be the credentials of the owner of the store where you plan to install your draft app.
 </aside>

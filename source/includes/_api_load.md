@@ -21,7 +21,7 @@ The remainder of this entry discusses:
 *   [The Remove User request](#remove-user).
 *   [The signed payload](#process).
 
-### <span class="jumptarget"> <a name="load_request"></a> Load request and response</span>
+### <span class="jumptarget"> <a name="load_request"></a> Load Request and Response</span>
 
 Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a `GET` request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
@@ -43,7 +43,7 @@ Upon receiving a `GET` request to the **Load Callback URI**, your app needs to [
 
 After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User&#160;Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
 
-### <span class="jumptarget"> <a name="uninstall"></a> Uninstall request (optional)</span>
+### <span class="jumptarget"> <a name="uninstall"></a> Uninstall Request (Optional)</span>
 
 Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app's OAuth token is revoked and the app cannot make requests to the Stores API on the store's behalf anymore.
 
@@ -64,7 +64,7 @@ Any HTML that you return in your response will not be rendered.
 </aside>
 
 
-### <span class="jumptarget"> <a name="remove-user"></a> Remove User request (optional)</span>
+### <span class="jumptarget"> <a name="remove-user"></a> Remove User Request (Optional)</span>
 
 If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a `GET` request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
@@ -80,11 +80,11 @@ Upon receiving the `GET` request, your app will need to [process the signed payl
 Any HTML that you return in your response will not be rendered.
 </aside>
 
-### <span class="jumptarget"> <a name="process"></a> Processing the signed payload</span>
+### <span class="jumptarget"> <a name="process"></a> Processing the Signed Payload</span>
 
 Processing the signed payload involves splitting and decoding it verifying the HMAC signature, and processing the JSON object. 
 
-#### <span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span>
+#### <span class="jumptarget"> <a name="process"></a> Splitting and Decoding the Signed Payload</span>
 
 The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the `.` character:
 
@@ -100,7 +100,7 @@ To decode the signed payload, complete the following steps:
 4.  Decode `encoded_hmac_signature` using base64url.
 5.  Use your client secret to verify the signature. See the next section for more details.
 
-#### <span class="jumptarget"> Verifying the HMAC signature</span>
+#### <span class="jumptarget"> Verifying the HMAC Signature</span>
 
 To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.
 
@@ -170,15 +170,15 @@ def secure_compare(a, b)
 end
 ```
 
-### <span class="jumptarget" id="Identifying"> Processing the JSON object</span>
+### <span class="jumptarget" id="Identifying"> Processing the JSON Object</span>
 
 The JSON object embedded in the `signed_payload` contains information about the BigCommerce store and the store owner or user.
 
-#### <span class="jumptarget"> Identifying the store</span>
+#### <span class="jumptarget"> Identifying the Store</span>
 
 You should use the store information to identify the store to which the request pertains.
 
-#### <span class="jumptarget"> Interpreting the user information</span>
+#### <span class="jumptarget"> Interpreting the User Information</span>
 
 Interpreting the user information varies as follows:
 

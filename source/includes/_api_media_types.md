@@ -2,33 +2,36 @@
 
 ## <span class="jumptarget"> Introduction to Media Types</span>
 
-The Bigcommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.
+The BigCommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.
 
->NOTE: The XML media type is deprecated. The next version of the Stores API will support JSON only.</span></div>
+<aside class="warning">
+<span class="aside-warning-hd">Restricted XML Support</span><br><br>
+The XML media type is deprecated. Our v2 webhooks support JSON only, and Stores API versions after v2 will support JSON only. 
+</aside>
 
 ## <span class="jumptarget"> Request Content Type</span>
 
-When performing a request that contains a body (eg. `**POST**` or `**PUT**`), the type of content you are sending needs to be specified in the `**Content-Type**` header. The values for this header are specified in the data types below. For example, to send an XML body, the header would be: `**Content-Type: application/xml**`
+When performing a request that contains a body (eg. `POST` or `PUT`), the type of content you are sending needs to be specified in the `Content-Type` header. The values for this header are specified in the data types below. For example, to send an XML body, the header would be: `Content-Type: application/xml`
 
 ## <span class="jumptarget"> Response Content Type</span>
 
-There are several ways in which you can specify the type of content you would like to receive. The first method is by specifying an `**Accept**` header, the second is by supplying an extension to the resource you are request. Extensions are useful for browser-based testing.
+There are several ways in which you can specify the type of content you would like to receive. The first method is by specifying an `Accept` header, the second is by supplying an extension to the resource you are request. Extensions are useful for browser-based testing.
 
 The priority in which these methods are processed is outlined below:
 
-1.  Accept header high priority types (eg. `**Accept: application/xml**`) extensions on the resource (eg. customers.xml)
+1.  Accept header high-priority types (eg. `Accept: application/xml`) extensions on the resource (e.g.: `customers.xml`).
 
-3.  Accept header low priority types (priorities less than 1, eg. `**Accept: application/json;q=0.9**`)
+2.  Accept header low priority types (priorities less than 1, e.g.: `Accept: application/json;q=0.9`).
 
 ## <span class="jumptarget"> JSON</span>
 
-JSON has a content type of `**application/json**`.
+JSON has a content type of `application/json`.
 
 ### <span class="jumptarget"> Request Structure</span>
 
 The body of a JSON request is simply an object containing a set of key-value pairs. A simple representation of a product object is:
 
-``` response
+```json
 {
      "id": 5,
      "name": "iPod",
@@ -40,9 +43,9 @@ The body of a JSON request is simply an object containing a set of key-value pai
 
 Responses are structured similarly to requests. If a request returns a single object then the response will contain a single object containing the fields for that resource:
 
-The response will contain links to any sub-resource, for example images on the product below.
+The response will contain links to any sub-resource – for example, `images` on the product below:
 
-```
+```json
 {
   "id":1,
   "name":"[Sample Product] iPod Shuffle",
@@ -101,7 +104,7 @@ The response will contain links to any sub-resource, for example images on the p
 
 If the request returns more than one result, then the response will consist of an array of objects for each result:
 
-```
+```json
 [
   {
     "id":1,
@@ -165,7 +168,7 @@ If the request returns more than one result, then the response will consist of a
     "id":2,
     "name":"[Sample Product] iPod Nano",
     "sku":"",
-    "description":"Colour isn't the only brilliant new iPod Nano feature. ...",
+    "description":"Color isn't the only brilliant new iPod Nano feature. ...",
     "date_created":"Mon, 12 Jan 2009 10:28:58 +0000",
     "brand_id":1,
     "view_count":11,
@@ -224,9 +227,9 @@ If the request returns more than one result, then the response will consist of a
 
 ## <span class="jumptarget"> XML</span>
 
-XML has a content type of `**application/xml**`. All XML transactions begin with the standard XML declaration:
+XML has a content type of `application/xml`. All XML transactions begin with the standard XML declaration:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 
 ```
@@ -235,7 +238,7 @@ XML has a content type of `**application/xml**`. All XML transactions begin with
 
 The body of an XML request should first contain an element that is named according to the resource in singular form, such as product for the products resource:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <product> 
 </product>
@@ -244,7 +247,7 @@ The body of an XML request should first contain an element that is named accordi
 
 The resource element should then contain a set of elements that match the fields described in that resources' documentation:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <product>
     <id>5</id>
@@ -258,13 +261,13 @@ The resource element should then contain a set of elements that match the fields
 
 To receive an XML response, the request URI should include a .xml extension:
 
-`**GET /customers/1.xml**`
+`GET /customers/1.xml`
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <customer>
   <id>1</id>
-  <company>Bigcommerce<company>
+  <company>BigCommerce<company>
   <first_name>Philip</first_name>
   <last_name>Muir</last_name>
   <email>phil.muir@bigcommerce.com</email>
@@ -284,12 +287,12 @@ To receive an XML response, the request URI should include a .xml extension:
 
 If the request returns more than one result, then the response will consist of an element named according to the resource in plural form, which contains a set of objects for each result:
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <customers>
   <customer>
     <id>1</id>
-    <company>Bigcommerce</company>
+    <company>BigCommerce</company>
     <first_name>Philip</first_name>
     <last_name>Muir</last_name>
     <email>phil.muir@bigcommerce.com</email>
