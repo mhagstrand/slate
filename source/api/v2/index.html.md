@@ -35,6 +35,13 @@ includes:
   - api_CRUD_blog_tags.md
   - api_objects_redirect.md
   - api_CRUD_redirects.md
+  - api_objects_customer
+  - api_CRUD_customers
+  - api_customer_login
+  - api_objects_customer_address
+  - api_CRUD_customers_addresses
+  - api_objects_customer_group
+  - api_CRUD_customer_groups
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -77,13 +84,6 @@ includes:
   - api_CRUD_orders_coupons
   - api_objects_order_message
   - api_CRUD_orders_messages
-  - api_objects_customer
-  - api_CRUD_customers
-  - api_customer_login
-  - api_objects_customer_address
-  - api_CRUD_customers_addresses
-  - api_objects_customer_group
-  - api_CRUD_customer_groups
   - api_objects_category
   - api_CRUD_categories
   - api_objects_brand
