@@ -34,6 +34,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Limit | int | /stores/{store_hash}/v2/blog/posts?limit={count} |
 
 ```json
+[
   {
     "id": 2,
     "title": "Ten Great New Products",
@@ -215,7 +216,7 @@ Deletes a blog post.
 *   Basic Auth
 `DELETE /api/v2/blog/posts/{id}`
 
-## <span class="jumptarget"> Delete Multiple Blog Posts </span>
+### <span class="jumptarget"> Delete Multiple Blog Posts </span>
 
 Deletes multiple blog posts in the collection.
 

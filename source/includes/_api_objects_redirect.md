@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Redirects </span>
+## <span class="jumptarget"> Redirects </span>
 
 A 301 redirect, mapping from a given URL path to another URL
 
-## <span class="jumptarget"> Redirect Object – Properties </span>
+### <span class="jumptarget"> Redirect Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

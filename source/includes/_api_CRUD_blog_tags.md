@@ -1,4 +1,4 @@
-# Blog Tags
+## Blog Tags
 
 Index of tags used on the store’s blog.
 
@@ -8,7 +8,7 @@ Index of tags used on the store’s blog.
 | **OAuth Scopes** | store_v2_content|
 ||store_v2_content_read_only|
 
-## <span class="jumptarget"> List Tags </span>
+### <span class="jumptarget"> List Tags </span>
 
 List of tags with associated blog posts.
 
