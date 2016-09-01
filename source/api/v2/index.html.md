@@ -30,6 +30,11 @@ includes:
   - api_rate_limits_basic
   - api_guides_curl_quickstart
   - api_guides_oauth_transition
+  - api_objects_blog_post.md
+  - api_CRUD_blog_posts.md
+  - api_CRUD_blog_tags.md
+  - api_objects_redirect.md
+  - api_CRUD_redirects.md
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option

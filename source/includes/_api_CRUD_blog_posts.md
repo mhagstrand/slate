@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_content |
 ||store_v2_content_read_only|
 
-## <span class="jumptarget"> List Blog Posts </span>
+### <span class="jumptarget"> List Blog Posts </span>
 
 Gets the collection of blog posts. (Default sorting is by published_date, from most-recent to earliest.)
 
@@ -13,7 +13,7 @@ Gets the collection of blog posts. (Default sorting is by published_date, from m
 *   Basic Auth
  `GET /api/v2/blog/posts`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific blog_posts in the collection.
 
@@ -24,7 +24,7 @@ Filter parameters can be added to the URL query string to select specific blog_p
 | tag | string | /stores/{store_hash}/v2/blog/posts?tag={value} |
 | published_date | string | /stores/{store_hash}/v2/blog/posts?published_date={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.
 
@@ -33,7 +33,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /stores/{store_hash}/v2/blog/posts?page={number} |
 | Limit | int | /stores/{store_hash}/v2/blog/posts?limit={count} |
 
-```
+```json
   {
     "id": 2,
     "title": "Ten Great New Products",
@@ -83,7 +83,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Blog Post </span>
+### <span class="jumptarget"> Get a Blog Post </span>
 
 Gets a blog post.
 
@@ -92,7 +92,7 @@ Gets a blog post.
 *   Basic Auth
 `GET /api/v2/blog/posts/{id}`
 
-```
+```json
 {
   "id": 1,
   "title": "Your first blog post!",
@@ -118,7 +118,7 @@ Gets a blog post.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Blog Posts </span>
+### <span class="jumptarget"> Get a Count of Blog Posts </span>
 
 Gets a count of blog posts.
 
@@ -133,7 +133,7 @@ Gets a count of blog posts.
 }
 ```
 
-## <span class="jumptarget"> Create a Blog Post </span>
+### <span class="jumptarget"> Create a Blog Post </span>
 
 Creates a new blog post.
 
@@ -143,7 +143,7 @@ Creates a new blog post.
 `POST /api/v2/blog/posts`
 
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -151,20 +151,20 @@ The following properties of the blog post are read-only. If one or more of these
 *   preview_url
 *   summary
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
 
 *   title
 *   body
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 Blog posts default to draft status. Set `is_published` to true to publish posts to the storefront.
 
 If a custom url is not provided, the post’s URL will be generated based on the value of `title`.
 
-```
+```json
 {
   "title": "A Sample Blog Post",
   "body": "<p>This is a blog post.</p>",
@@ -178,7 +178,7 @@ If a custom url is not provided, the post’s URL will be generated based on the
 }
 ```
 
-## <span class="jumptarget"> Update a Blog Post </span>
+### <span class="jumptarget"> Update a Blog Post </span>
 
 Updates an existing blog post.
 
@@ -188,25 +188,25 @@ Updates an existing blog post.
 *   Basic Auth
 `PUT /api/v2/blog/posts/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the blog post are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   preview_url
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
 
-```
+```json
 {
   "title": "New: A Sample Blog Post",
   "url": "/blog/sample-post"
 }
 ```
 
-## <span class="jumptarget"> Delete a Blog Post </span>
+### <span class="jumptarget"> Delete a Blog Post </span>
 
 Deletes a blog post.
 
@@ -224,7 +224,7 @@ Deletes multiple blog posts in the collection.
 *   Basic Auth
 `DELETE /api/v2/blog/posts`
 
-### Pagination </span>
+#### Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.
 

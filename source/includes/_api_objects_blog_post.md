@@ -1,8 +1,12 @@
-# <span class="jumptarget"> Blog Posts </span>
+# <span class="jumptarget"> Reference – Store Content </span>
+
+Store Content APIs include Blog Posts and Redirects.
+
+## <span class="jumptarget"> Blog Posts </span>
 
 A content entry in the store’s blog
 
-## <span class="jumptarget"> Blog Posts Object – Properties </span>
+### <span class="jumptarget"> Blog Posts Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
