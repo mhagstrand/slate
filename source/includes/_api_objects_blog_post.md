@@ -1,4 +1,4 @@
-# <span class="jumptarget"> Reference – Store Content </span>
+# <span class="jumptarget"> Store Content Reference </span>
 
 Store Content APIs include Blog Posts and Redirects.
 

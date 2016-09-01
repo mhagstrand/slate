@@ -1,4 +1,4 @@
-# <span class="jumptarget"> Customers </span>
+# <span class="jumptarget"> Customers Reference </span>
 
 Identity and account details for customers shopping on Bigcommerce stores
 
@@ -24,7 +24,7 @@ Identity and account details for customers shopping on Bigcommerce stores
 | addresses | resource | |
 | form_fields | object | Array of custom fields. |
 
-## <span class="jumptarget"> Events </span>
+## <span class="jumptarget"> Customer Events </span>
 
 ### <span class="jumptarget"> Customer Created </span>
 
