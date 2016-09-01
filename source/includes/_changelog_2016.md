@@ -3,6 +3,17 @@
 
 ## <span class="jumptarget"> August </span>
 
+### Stencil custom templates now generally available
+
+All Stencil stores now have the option of assigning custom layout templates to product, category, and brand pages, and to static storefront pages like the store's home page.
+
+To enable custom templates, theme developers must author the pages, and the merchant (or another authorized store user) must assign page mappings. For details, please see [this developer documentation](https://stencil.bigcommerce.com/docs/custom-layout-templates) and [this mechant-oriented article](https://support.bigcommerce.com/articles/Public/Stencil-Custom-Templates).
+
+
+### Stencil Handlebars variables now accessible via footer scripts
+
+You can now reference Handlebars variables – and their corresponding [Stencil objects and properties](https://stencil.bigcommerce.com/docs/stencil-object-model) – in scripts injected into a store’s global footer. You access this feature through the control panel’s `Storefront Design > Design Options > Scripts` tab, as illustrated in [this Knowledge Base article](https://support.bigcommerce.com/articles/Public/Adding-Custom-Scripts-to-Stencil-Themes).
+
 
 ### Blog Posts documentation updated
 
