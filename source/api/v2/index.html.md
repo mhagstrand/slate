@@ -100,12 +100,8 @@ includes:
   - api_CRUD_gift_certificates
   - api_objects_banner
   - api_CRUD_banners
-  - api_objects_blog_post
-  - api_CRUD_blog_posts
   - api_objects_payment_method
   - api_CRUD_payments_methods
-  - api_objects_redirect
-  - api_CRUD_redirects
   - api_objects_store_information
 
 search: true
