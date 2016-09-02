@@ -57,11 +57,11 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 
 The headers and payload must be signed using HS256 (HMAC-SHA256) and the application’s client secret.
 
-#### Sample Code
+### Sample Code
 
 Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>. (The headings below are linked to the live code, which might have been updated since publication:)
 
-##### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+#### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 
 ```php?start_inline=1
     public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')
@@ -91,7 +91,7 @@ Code to generate a valid JWT token for a storefront login request is provided in
     }
 ```
 
-##### [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+#### [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
 
 ```python
 import os
@@ -146,7 +146,7 @@ class CustomerLoginTokens(object):
 
 ```
 
-##### [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+#### [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
 
 ```ruby
 require 'bigcommerce'
@@ -166,15 +166,15 @@ puts customer.login_token
 ```
 
 
-#### OAuth Scope
+### OAuth Scope
 
 In order to use this feature, your app must be installed in the store, and must have the `store_v2_customers_login` scope.
 
-#### Redirection 
+### Redirection 
 
 For flexibility in navigation after login, we support an optional redirect parameter (`redirect_to`), which in turn supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at `/account.php`. 
 
-#### Notes
+### Notes
 
 Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to `/login/token/{token}`.
 
