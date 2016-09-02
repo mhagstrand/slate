@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Gift Certificates </span>
+## <span class="jumptarget"> Gift Certificates </span>
 
 Gift certificates available to offer to a store's customers.
 
-## <span class="jumptarget"> Gift Certificate Object – Properties </span>
+### <span class="jumptarget"> Gift Certificate Object – Properties </span>
 
 | Name | Type | Description |
 |---|---|---|
