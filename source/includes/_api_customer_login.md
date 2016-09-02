@@ -1,14 +1,14 @@
-# Customer Login API
+## Customer Login API
 
 The Customer Login API enables single sign-on (SSO). It allows your apps to generate a token to programmatically log in a storefront customer, by using the login entry point  at `/login/token/{token}`. Here, `{token}` must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>'s <a href="/api/#registration" target="_blank">client secret</a>.
 
 For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.
 
-## Customer Login Token
+### Customer Login Token
 
 A valid JWT token is a string composed of three parts, separated by periods ("."). Please refer to <a href="https://jwt.io/" target="_blank">JWT.IO</a> and <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a> for more details on the format.
 
-### Example URL
+#### Example URL
 
 ```
 https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
@@ -16,7 +16,7 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 .TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
 ```
 
-### Header
+#### Header
 
 ```
 {
@@ -25,7 +25,7 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 }
 ```
 
-### Payload
+#### Payload
 
 ```json
 {
@@ -40,7 +40,7 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 }
 ```
 
-### Fields
+#### Fields
 
 | Field Name | Type | Description |
 | --- | --- | --- |
@@ -53,15 +53,15 @@ https://storedomain.com/login/token/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
 | redirect_to | string | Optional field containing a relative path for the shopper's destination after login. Will default to `/account.php`. | 
 | request_ip | string | Optional field containing the expected IP address for the request. |
 
-### Signature
+#### Signature
 
 The headers and payload must be signed using HS256 (HMAC-SHA256) and the application’s client secret.
 
-### Sample Code
+#### Sample Code
 
 Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>. (The headings below are linked to the live code, which might have been updated since publication:)
 
-#### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
+##### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421)
 
 ```php?start_inline=1
     public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')
@@ -91,7 +91,7 @@ Code to generate a valid JWT token for a storefront login request is provided in
     }
 ```
 
-#### [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
+##### [Python Sample](https://github.com/bigcommerce/bigcommerce-api-python/blob/master/bigcommerce/customer_login_token.py)
 
 ```python
 import os
@@ -146,7 +146,7 @@ class CustomerLoginTokens(object):
 
 ```
 
-#### [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
+##### [Ruby Sample](https://github.com/bigcommerce/bigcommerce-api-ruby/blob/master/examples/customers/customer_login.rb)
 
 ```ruby
 require 'bigcommerce'
@@ -166,15 +166,15 @@ puts customer.login_token
 ```
 
 
-### OAuth Scope
+#### OAuth Scope
 
 In order to use this feature, your app must be installed in the store, and must have the `store_v2_customers_login` scope.
 
-### Redirection 
+#### Redirection 
 
 For flexibility in navigation after login, we support an optional redirect parameter (`redirect_to`), which in turn supports relative URLs. If the parameter is not specified, the storefront customer will land on their My Account page at `/account.php`. 
 
-### Notes
+#### Notes
 
 Tokens will be valid for a very short timeframe after they are first generated, so tokens should not be generated in advance. Instead, the application should generate the token and then immediately redirect the user’s browser to `/login/token/{token}`.
 
