@@ -64,6 +64,8 @@ includes:
   - api_CRUD_orders_statuses
   - api_objects_order_shipping_address
   - api_CRUD_orders_shipping_addresses
+  - api_objects_order_tax.md
+  - api_CRUD_orders_taxes.md
   - api_objects_order_shipment
   - api_CRUD_orders_shipments
   - api_objects_product
