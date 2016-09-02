@@ -46,6 +46,12 @@ includes:
   - api_CRUD_countries
   - api_objects_country_state
   - api_CRUD_countries_states
+  - api_objects_order_coupon
+  - api_CRUD_orders_coupons
+  - api_objects_banner
+  - api_CRUD_banners
+  - api_objects_gift_certificate
+  - api_CRUD_gift_certificates
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -84,8 +90,6 @@ includes:
   - api_CRUD_orders_shipments
   - api_objects_order_shipping_address
   - api_CRUD_orders_shipping_addresses
-  - api_objects_order_coupon
-  - api_CRUD_orders_coupons
   - api_objects_order_message
   - api_CRUD_orders_messages
   - api_objects_category
@@ -96,10 +100,6 @@ includes:
   - api_CRUD_tax_classes
   - api_objects_shipping_method
   - api_CRUD_shipping_methods
-  - api_objects_gift_certificate
-  - api_CRUD_gift_certificates
-  - api_objects_banner
-  - api_CRUD_banners
   - api_objects_payment_method
   - api_CRUD_payments_methods
   - api_objects_store_information
