@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## <span class="jumptarget"> List Orders </span>
+### <span class="jumptarget"> List Orders </span>
 
 Gets the collection of orders. (The default sort is by order id, from lowest to highest.)
 
@@ -13,7 +13,7 @@ Gets the collection of orders. (The default sort is by order id, from lowest to 
 *   Basic Auth
 >`GET /api/v2/orders`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific orders in the collection.
 
@@ -33,7 +33,7 @@ Filter parameters can be added to the URL query string to select specific orders
 | min_date_modified | dateTime or date | /api/v2/orders?min_date_modified={value} |
 | max_date_modified | dateTime or date | /api/v2/orders?max_date_modified={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 orders are returned by default.
 
@@ -42,6 +42,12 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page | int | /api/v2/orders?page={number} |
 | limit | int | /api/v2/orders?limit={count} |
 | sort | string | /api/v2/orders?sort=date_created:desc |
+
+<aside class="warning">
+<span class="aside-warning-hd">Migration Note</span><br><br>
+All "curl" code examples are presumably json. Restore the missing "...JSON example:..." kickers, conforming to: https://developer.bigcommerce.com/api/stores/v2/orders.
+</aside>
+
 
 ```json
 [
@@ -126,7 +132,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
   }
 ]
 ```
-## <span class="jumptarget"> Get an Order </span>
+### <span class="jumptarget"> Get an Order </span>
 
 Gets an order.
 
@@ -217,7 +223,7 @@ Gets an order.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Orders </span>
+### <span class="jumptarget"> Get a Count of Orders </span>
 
 Gets a count of the number of orders in the store.
 
@@ -232,7 +238,7 @@ Gets a count of the number of orders in the store.
 }
 ```
 
-## <span class="jumptarget"> Create an Order </span>
+### <span class="jumptarget"> Create an Order </span>
 
 Manually create and submit an order.
 
@@ -241,7 +247,7 @@ Manually create and submit an order.
 *   Basic Auth
 `POST /api/v2/orders`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -271,41 +277,46 @@ The following properties of the order are read-only. If one or more of these pro
 *   is_deleted
 *   coupons
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the order are required. The request won’t be fulfilled unless these properties are valid.
 
 *   products
 *   billing_address
 
-### <span class="jumptarget"> Notes </span>
+<aside class="warning">
+<span class="aside-warning-hd">Migration Note</span><br><br>
+All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `_api_CRUD_orders.md` file – starting with those directly below – must be reformatted as appropriately-colored `asides`.
+</aside>
+
+#### <span class="jumptarget"> Notes </span>
 >KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.
 
->PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `**CA**` as a state name results in no tax document submission. Supplying `**California**` as a state name results in a successful submission.
+>PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `CA` as a state name results in no tax document submission. Supplying `California` as a state name results in a successful submission.
 
-#### <span class="jumptarget"> Overriding Pre-set Values </span>
+##### <span class="jumptarget"> Overriding Preset Values </span>
 
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the pre-set store values and tax rules.
 
-#### <span class="jumptarget"> Order Products </span>
+##### <span class="jumptarget"> Order Products </span>
 
 *   Existing products can be added to the order with a reference to their `product_id`.
 *   Custom products can be added to the order using the `products array`.
 *   If price is not specified, it will automatically pick up the price from the store’s product catalog, however you can override it via `price_inc_tax` and `price_ex_tax`.
-*   If `price_inc_tax` and `price_ex_tax` is specified, price and rulesets are ignored and the `**price_inc_tax**` or `**price_ex_tax**` are written to `**base_price**`, according to the store settings.
-*   When the store is subscribed to Avalara Premium, a value of `**API Tax Override**` is written to the `**name**` field of the order tax object.
+*   If `price_inc_tax` and `price_ex_tax` is specified, price and rulesets are ignored and the `price_inc_tax` or `price_ex_tax` are written to `base_price`, according to the store settings.
+*   When the store is subscribed to Avalara Premium, a value of `API Tax Override` is written to the `name` field of the order tax object.
 *   Tax will be calculated based on the tax rules specified in the store except in the case of automatic taxes, however you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax` in both cases.
 *   For products which are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, it will be rejected with an ‘out of stock’ error code.
 *   For products which have min and max quantities specified in their settings, the API will honor these and reject orders appropriately.
 *   For products where product options are required, the API will validate these requirements to ensure the product options are specified.
 *   Product quantity must be specified.
 
-#### <span class="jumptarget"> Calculation of Totals </span>
+##### <span class="jumptarget"> Calculation of Totals </span>
 
 *   When not specified, order subtotal and total are automatically calculated.
 *   You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both as the system will not be able to accurately calculate the other.
 
-#### <span class="jumptarget"> Order Properties </span>
+##### <span class="jumptarget"> Order Properties </span>
 
 *   Billing address is mandatory.
 *   Shipping address is not mandatory and can optionally be specified as composite records.
@@ -318,7 +329,7 @@ You can create overrides for calculated values such as product prices, subtotal 
 *   order_source cannot be specified and it will be set to ‘external’.
     *   You can optionally specify a value for external_source to specify which external source the order is coming from - i.e., POS system X, accounting system Y, etc
 
-#### <span class="jumptarget"> Changing the Order Status </span>
+##### <span class="jumptarget"> Changing the Order Status </span>
 
 *   `status_id` can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.
 
@@ -329,7 +340,7 @@ You can create overrides for calculated values such as product prices, subtotal 
     *   Awaiting Shipment
     *   Completed
     *   Awaiting Fulfillment
-*   BigCommerce considers all statuses other than the above to be of the unpaid type, except `**Refunded**`, which is considered neither paid or unpaid. Orders created using the `**POST**` method that include a status of the paid type result in the submission of tax documents to Avalara.
+*   BigCommerce considers all statuses other than the above to be of the unpaid type, except `Refunded`, which is considered neither paid or unpaid. Orders that are created using the `POST` method, and include a status of the paid type, cause the submission of tax documents to Avalara.
 
 ```curl
 {
@@ -494,7 +505,7 @@ You can create overrides for calculated values such as product prices, subtotal 
 }
 ```
 
-## <span class="jumptarget"> Update an Order </span>
+### <span class="jumptarget"> Update an Order </span>
 
 Updates an existing order.
 
@@ -503,7 +514,7 @@ Updates an existing order.
 *   Basic Auth
 >`PUT /api/v2/orders/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the order are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -532,25 +543,30 @@ The following properties of the order are read-only. If one or more of these pro
 *   shipping_address_count
 *   coupons
 
-### <span class="jumptarget"> Notes </span>
+<aside class="warning">
+<span class="aside-warning-hd">Migration Note</span><br><br>
+All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `_api_CRUD_orders.md` file – including those directly below – must be reformatted as appropriately-colored `asides`.
+</aside>
+
+#### <span class="jumptarget"> Notes </span>
 
 >KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.
 
-### <span class="jumptarget"> Changing the Order Status </span>
+#### <span class="jumptarget"> Changing the Order Status </span>
 
 The `status` property cannot be edited directly as it is generated based on the `status_id`.
 
-Use the `status_id` property to set the order to a specific state. The list of available statuses is provided by the [Order Statuses](/api/v2#order_statuses) resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the `status_id` property changes. The following table details the behavior for `**PUT**` operations. See also the list of [Paid Statuses](#paid-status).
+Use the `status_id` property to set the order to a specific state. The list of available statuses is provided by the [Order Statuses](/api/v2#order_statuses) resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the `status_id` property changes. The following table details the behavior for `PUT` operations. See also the list of [Paid Statuses](#paid-status).
 
 | Existing Status | Status Passed | Resultant Status | Avalara tax document submission |
 | --- | --- | --- | --- |
-| Any | None | `**Pending**` | None |
-| Paid or `**Refunded**` | Paid | Paid | None |
-| Unpaid or `**Refunded**` | Unpaid | Unpaid | None |
-| Paid or `**Refunded**` | Unpaid | Unpaid | Tax document voided |
-| Unpaid or `**Refunded**` | Paid | Paid | Tax document submitted |
+| Any | None | `Pending` | None |
+| Paid or `Refunded` | Paid | Paid | None |
+| Unpaid or `Refunded` | Unpaid | Unpaid | None |
+| Paid or `Refunded` | Unpaid | Unpaid | Tax document voided |
+| Unpaid or `Refunded` | Paid | Paid | Tax document submitted |
 
-### <span class="jumptarget"> Calculated Fields </span>
+#### <span class="jumptarget"> Calculated Fields </span>
 
 Edits to the following properties will trigger a recalculation of the subtotal and total:
 
@@ -567,7 +583,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 
 >NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.
 
-## <span class="jumptarget"> Delete an Order </span>
+### <span class="jumptarget"> Delete an Order </span>
 
 Deletes an order.
 
@@ -576,11 +592,11 @@ Deletes an order.
 *   Basic Auth
 >`DELETE /api/v2/orders/{id}`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 >NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail and return `405 Method not allowed`.
 
-## <span class="jumptarget"> Delete All Orders </span>
+### <span class="jumptarget"> Delete All Orders </span>
 
 Deletes all orders in the store.
 
