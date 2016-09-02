@@ -1,8 +1,12 @@
-# <span class="jumptarget"> Countries </span>
+# <span class="jumptarget"> Geography Reference </span>
 
-A country or territory, identifiable by an ISO 3166 country code
+Geography APIs include Countries and States.
 
-## <span class="jumptarget"> Country Object – Properties </span>
+## <span class="jumptarget"> Countries </span>
+
+A country or territory, identifiable by an ISO 3166 country code.
+
+### <span class="jumptarget"> Country Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

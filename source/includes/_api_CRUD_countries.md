@@ -3,7 +3,7 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## <span class="jumptarget"> List Countries </span>
+### <span class="jumptarget"> List Countries </span>
 
 Gets the list of countries.
 
@@ -12,7 +12,7 @@ Gets the list of countries.
 *   Basic Auth
 >`GET /api/v2/countries`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific countries in the collection.
 
@@ -22,7 +22,7 @@ Filter parameters can be added to the URL query string to select specific countr
 | country_iso2 | string | /api/v2/countries?country_iso2={value} |
 | country_iso3 | string | /api/v2/countries?country_iso3={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 countries are returned by default.
 
@@ -56,7 +56,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Country </span>
+### <span class="jumptarget"> Get a Country </span>
 
 Gets a country.
 
@@ -77,7 +77,8 @@ Gets a country.
   }
 }
 ```
-## <span class="jumptarget"> Get a Count of Countries </span>
+
+### <span class="jumptarget"> Get a Count of Countries </span>
 
 Gets a count of countries.
 

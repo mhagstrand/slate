@@ -3,7 +3,7 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-## <span class="jumptarget"> List States </span>
+### <span class="jumptarget"> List States </span>
 
 Gets the list of states belonging to a country.
 
@@ -12,7 +12,7 @@ Gets the list of states belonging to a country.
 *   Basic Auth
 >`GET /api/v2/countries/{country_id}/states`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific states in the collection.
 
@@ -21,7 +21,7 @@ Filter parameters can be added to the URL query string to select specific states
 | state | string | /api/v2/countries/{country_id}/states?state={value} |
 | state_abbreviation | string | /api/v2/countries/{country_id}/states?state_abbreviation={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 states are returned by default.
 
@@ -47,7 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a State </span>
+### <span class="jumptarget"> Get a State </span>
 
 Gets a state belonging to a country.
 
@@ -65,7 +65,7 @@ Gets a state belonging to a country.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of States </span>
+### <span class="jumptarget"> Get a Count of States </span>
 
 Gets a count of the number of states within a specified country.
 
