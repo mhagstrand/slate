@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_customers |
 ||store_v2_customers_read_only|
 
-## <span class="jumptarget"> List Customers </span>
+### <span class="jumptarget"> List Customers </span>
 
 Gets the collection of customers. (Default sorting is by customer id, from lowest to highest.)
 
@@ -13,7 +13,7 @@ Gets the collection of customers. (Default sorting is by customer id, from lowes
 *   Basic Auth
 >`GET /api/v2/customers`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific customers in the collection.
 
@@ -90,7 +90,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ```
 
 
-## <span class="jumptarget"> Get a Customer </span>
+### <span class="jumptarget"> Get a Customer </span>
 
 Gets a customer.
 
@@ -123,7 +123,7 @@ Gets a customer.
 ```
 
 
-## <span class="jumptarget"> Get a Count of Customers </span>
+### <span class="jumptarget"> Get a Count of Customers </span>
 
 Gets a count of customers.
 
@@ -138,7 +138,7 @@ Gets a count of customers.
 }
 ```
 
-## <span class="jumptarget"> Create a Customer </span>
+### <span class="jumptarget"> Create a Customer </span>
 
 Creates a new customer.
 
@@ -148,7 +148,7 @@ Creates a new customer.
 >`POST /api/v2/customers`
 
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the customer are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -158,7 +158,7 @@ The following properties of the customer are read-only. If one or more of these 
 *   accepts_marketing
 *   addresses
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the customer are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -166,15 +166,16 @@ The following properties of the customer are required. The request won’t be fu
 *   last_name
 *   email
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
 When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
-### <span class="jumptarget"> Updating Passwords </span>
+#### <span class="jumptarget"> Updating Passwords </span>
 
 To manually update a customer password in the same way as the Control Panel, supply a value for the password field:
+
 ```curl
 {
     "_authentication": {
@@ -183,7 +184,7 @@ To manually update a customer password in the same way as the Control Panel, sup
 }
 ```
 
-### <span class="jumptarget"> Confirming Passwords </span>
+#### <span class="jumptarget"> Confirming Passwords </span>
 
 An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
@@ -196,7 +197,7 @@ An additional optional `password_confirmation` field can also be sent, providing
 }
 ```
 
-### <span class="jumptarget"> Forcing Password Resets </span>
+#### <span class="jumptarget"> Forcing Password Resets </span>
 
 To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
@@ -208,7 +209,7 @@ To force a customer to reset their password upon their next login attempt, give 
 }
 ```
 
-## <span class="jumptarget"> Update a Customer </span>
+### <span class="jumptarget"> Update a Customer </span>
 
 Updates an existing customer.
 
@@ -217,7 +218,7 @@ Updates an existing customer.
 *   Basic Auth
 >`PUT /api/v2/customers/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the customer are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -227,17 +228,17 @@ The following properties of the customer are read-only. If one or more of these 
 *   accepts_marketing
 *   addresses
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the customer are required. The request won’t be fulfilled unless these properties are valid.
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 The `_authentication` object exposes functionality associated with the customer’s ability to log in to the store. All properties of the `_authentication` object are optional.
 
 When the `_authentication` object is not supplied with an update request, then the existing customer password remains the same.
 
-### <span class="jumptarget"> Updating Passwords </span>
+#### <span class="jumptarget"> Updating Passwords </span>
 
 To manually update a customer password in the same way as the Control Panel, supply a value for the `password` field:
 
@@ -249,7 +250,7 @@ To manually update a customer password in the same way as the Control Panel, sup
 }
 ```
 
-### <span class="jumptarget"> Confirming Passwords </span>
+#### <span class="jumptarget"> Confirming Passwords </span>
 
 An additional optional `password_confirmation` field can also be sent, providing password confirmation as a service:
 
@@ -262,7 +263,7 @@ An additional optional `password_confirmation` field can also be sent, providing
 }
 ```
 
-### <span class="jumptarget"> Forcing Password Resets </span>
+#### <span class="jumptarget"> Forcing Password Resets </span>
 
 To force a customer to reset their password upon their next login attempt, give the `force_reset` field a value of true, as shown here:
 
@@ -274,7 +275,7 @@ To force a customer to reset their password upon their next login attempt, give 
 }
 ```
 
-## <span class="jumptarget"> Delete a Customer </span>
+### <span class="jumptarget"> Delete a Customer </span>
 
 Deletes a customer.
 
@@ -284,7 +285,7 @@ Deletes a customer.
 >`DELETE /api/v2/customers/{id}`
 
 
-## <span class="jumptarget"> Delete All Customers </span>
+### <span class="jumptarget"> Delete All Customers </span>
 
 Deletes all customer objects from the store.
 
