@@ -52,6 +52,20 @@ includes:
   - api_CRUD_banners
   - api_objects_gift_certificate
   - api_CRUD_gift_certificates
+  - api_objects_order
+  - api_CRUD_orders
+  - api_objects_order_coupon
+  - api_CRUD_orders_coupons
+  - api_objects_order_message
+  - api_CRUD_orders_messages
+  - api_objects_order_product
+  - api_CRUD_orders_products
+  - api_objects_order_status
+  - api_CRUD_orders_statuses
+  - api_objects_order_shipping_address
+  - api_CRUD_orders_shipping_addresses
+  - api_objects_order_shipment
+  - api_CRUD_orders_shipments
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -80,20 +94,6 @@ includes:
   - api_CRUD_products_googleproductsearch
   - api_objects_product_video
   - api_CRUD_products_videos
-  - api_objects_order
-  - api_CRUD_orders
-  - api_objects_order_coupon
-  - api_CRUD_orders_coupons
-  - api_objects_order_status
-  - api_CRUD_orders_statuses
-  - api_objects_order_product
-  - api_CRUD_orders_products
-  - api_objects_order_shipment
-  - api_CRUD_orders_shipments
-  - api_objects_order_shipping_address
-  - api_CRUD_orders_shipping_addresses
-  - api_objects_order_message
-  - api_CRUD_orders_messages
   - api_objects_category
   - api_CRUD_categories
   - api_objects_brand
