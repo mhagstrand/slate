@@ -42,6 +42,10 @@ includes:
   - api_objects_customer_group
   - api_CRUD_customer_groups
   - api_customer_login
+  - api_objects_country
+  - api_CRUD_countries
+  - api_objects_country_state
+  - api_CRUD_countries_states
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -88,10 +92,6 @@ includes:
   - api_CRUD_categories
   - api_objects_brand
   - api_CRUD_brands
-  - api_objects_country
-  - api_CRUD_countries
-  - api_objects_country_state
-  - api_CRUD_countries_states
   - api_objects_tax_class
   - api_CRUD_tax_classes
   - api_objects_shipping_method
