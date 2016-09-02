@@ -1,7 +1,3 @@
-# <span class="jumptarget"> Marketing </span>
-
-Marketing APIs include Coupons, Banners, and Gift Certificates.
-
 ## <span class="jumptarget"> Order Coupons </span>
 
 Coupon codes applied to an order.

@@ -46,8 +46,8 @@ includes:
   - api_CRUD_countries
   - api_objects_country_state
   - api_CRUD_countries_states
-  - api_objects_order_coupon
-  - api_CRUD_orders_coupons
+  - api_objects_coupon
+  - api_CRUD_coupons
   - api_objects_banner
   - api_CRUD_banners
   - api_objects_gift_certificate
@@ -82,6 +82,8 @@ includes:
   - api_CRUD_products_videos
   - api_objects_order
   - api_CRUD_orders
+  - api_objects_order_coupon
+  - api_CRUD_orders_coupons
   - api_objects_order_status
   - api_CRUD_orders_statuses
   - api_objects_order_product

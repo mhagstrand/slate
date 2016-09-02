@@ -1,8 +1,12 @@
-# <span class="jumptarget"> Coupons </span>
+# <span class="jumptarget"> Marketing </span>
+
+Marketing APIs include Coupons, Banners, and Gift Certificates.
+
+## <span class="jumptarget"> Coupons </span>
 
 Category or product discounts that can be applied to orders for customers who enter a given code.
 
-## <span class="jumptarget"> Coupon Object - Properties </span>
+### <span class="jumptarget"> Coupon Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

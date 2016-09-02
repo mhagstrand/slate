@@ -4,7 +4,7 @@
 | **OAuth Scopes** |  store_v2_marketing |
 | |store_v2_marketing_read_only |
 
-## <span class="jumptarget"> List Banners </span>
+### <span class="jumptarget"> List Banners </span>
 
 Gets the banners available. (Default sorting is by banner id, from lowest to highest.)
 
@@ -13,7 +13,7 @@ Gets the banners available. (Default sorting is by banner id, from lowest to hig
 *   Basic Auth
 >`GET /api/v2/banners`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific banners in the collection.
 
@@ -22,7 +22,7 @@ Filter parameters can be added to the URL query string to select specific banner
 | min_id  | int  | /api/v2/banners?min_id={value} |
 | max_id  | int  | /api/v2/banners?max_id={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn't provided, up to 50 banners are returned by default.
 
 | Parameter | Type | Example                         |
@@ -30,7 +30,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page    | int  | /api/v2/banners?page={number} |
 | limit   | int  | /api/v2/banners?limit={count} |
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -95,7 +95,7 @@ Example JSON returned in the response:
     }
 ```
   
-## <span class="jumptarget"> Get a Banner </span>
+### <span class="jumptarget"> Get a Banner </span>
 
 Retrieves a specified banner.
 
@@ -104,7 +104,7 @@ Retrieves a specified banner.
 *   Basic Auth
 >`GET /api/v2/banners/{id}`
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -126,7 +126,7 @@ Example JSON returned in the response:
     }
 ```
   
-## <span class="jumptarget"> Create a Banner </span>
+### <span class="jumptarget"> Create a Banner </span>
 
 Creates a new banner.
 
@@ -135,11 +135,11 @@ Creates a new banner.
 *   Basic Auth
 > `POST /api/v2/banners`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the banner are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the banner are required. The request won't be fulfilled unless these properties are valid.
 
@@ -149,7 +149,7 @@ The following properties of the banner are required. The request won't be fulfil
 * location
 * date_type
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -171,7 +171,7 @@ Example JSON returned in the response:
     }
 ```
   
-## <span class="jumptarget"> Update a Banner </span>
+### <span class="jumptarget"> Update a Banner </span>
 
 Updates an existing banner. Your request may update any of the properties that are writeable for the Create (POST) operation.
 
@@ -180,11 +180,11 @@ Updates an existing banner. Your request may update any of the properties that a
 *   Basic Auth
 > `PUT /api/v2/banners/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the banner are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -206,7 +206,7 @@ Example JSON returned in the response:
     }
 ```
   
-## <span class="jumptarget"> Delete a Banner </span>
+### <span class="jumptarget"> Delete a Banner </span>
 
 Deletes a specified banner. (If successful, this will typically return a "204 No Content".)
 
@@ -215,7 +215,7 @@ Deletes a specified banner. (If successful, this will typically return a "204 No
 *   Basic Auth
 > `DELETE /api/v2/banners/{id}`
 
-## <span class="jumptarget"> Delete All Banners </span>
+### <span class="jumptarget"> Delete All Banners </span>
 
 Deletes all banners associated with the store. (If successful, this will typically return a "204 No Content".)
 
