@@ -199,7 +199,7 @@ Updates an existing gift certificate.
 *   OAuth
 `PUT /stores/{store_hash}/v2/gift_certificates`
 *   Basic Auth
-`PUT /api/v2/gift_certificates`
+`PUT /stores/{store_hash}/v2/gift_certificates/{ID}`
 
 #### <span class="jumptarget"> Read-only Properties </span>
 
