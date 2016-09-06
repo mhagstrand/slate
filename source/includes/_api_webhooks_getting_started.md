@@ -87,7 +87,8 @@ Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/
 *   store/customer/created
 *   store/customer/updated
 *   store/customer/deleted
-*   store/app/uninstalled
+
+<!--- *   store/app/uninstalled --->
 
 ### <span class="jumptarget"> Receiving Webhook Callbacks </span>
 
