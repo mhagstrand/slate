@@ -61,7 +61,7 @@ The headers and payload must be signed using HS256 (HMAC-SHA256) and the applica
 
 Code to generate a valid JWT token for a storefront login request is provided in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>. (The headings below are linked to the live code, which might have been updated since publication:)
 
-<span class="jumptarget"> #### [PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421) </span>
+#### [<span class="jumptarget"> PHP Sample](https://github.com/bigcommerce/bigcommerce-api-php/blob/master/src/Bigcommerce/Api/Client.php#L421) </span>
 
 ```php?start_inline=1
     public static function getCustomerLoginToken($id, $redirectUrl = '', $requestIp = '')
