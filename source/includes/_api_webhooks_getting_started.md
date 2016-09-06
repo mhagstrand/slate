@@ -74,21 +74,60 @@ Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/
 
 #### <span class="jumptarget"> List of Webhook Events </span>
 
-*   store/order/*
-*   store/order/created
-*   store/order/updated
-*   store/order/archived
-*   store/order/statusUpdated
-*   store/product/*
-*   store/product/created
-*   store/product/updated
-*   store/product/deleted
-*   store/customer/*
-*   store/customer/created
-*   store/customer/updated
-*   store/customer/deleted
+<html>
+<ul>
+<li> store/order/* </li>
+	<ul>
+	<li>store/order/created</li>
+	<li>store/order/updated</li>
+	<li>store/order/archived</li>
+	<li>store/order/statusUpdated</li>
+	<li>store/order/message/created</li>
+	</ul>  
 
-<!--- *   store/app/uninstalled --->
+<li> store/product/* </li>
+	<ul>
+	<li>store/product/created</li>
+	<li>store/product/updated</li>
+	<li>store/product/deleted</li>
+	<li>store/product/inventory/updated</li>
+	<li>store/product/inventory/order/updated</li>
+	</ul>  
+	
+<li> store/product/inventory/* </li>
+	<ul>
+	<li>store/product/inventory/updated</li>
+	<li>store/product/inventory/order/updated</li>
+	</ul>  
+	
+<li> store/sku/* </li>
+	<ul>
+	<li>store/sku/created</li>
+	<li>store/sku/updated</li>
+	<li>store/sku/deleted</li>
+	<li>store/sku/inventory/updated</li>
+	<li>store/sku/inventory/order/updated</li>
+	</ul>  
+	
+<li> store/sku/inventory/* </li>
+	<ul>
+	<li>store/sku/inventory/updated</li>
+	<li>store/sku/inventory/order/updated</li>
+	</ul>  
+	
+<li>store/customer/*</li>
+	<ul>
+	<li>store/customer/created</li>
+	<li>store/customer/updated</li>
+	<li>store/customer/deleted</li>
+	</ul>
+
+<!--- <li>store/app/uninstalled</li><br> ---> 
+<!--- ^ Removed 9/6/16: JZON says broken, and might be deprecated as redundant. --->
+
+<li>store/information/updated</li>
+</ul>
+</html>
 
 ### <span class="jumptarget"> Receiving Webhook Callbacks </span>
 
