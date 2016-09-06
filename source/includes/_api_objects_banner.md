@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Banners </span>
+## <span class="jumptarget"> Banners </span>
 
 Banners available to display on a store.
 
-## <span class="jumptarget"> Banners – Properties </span>
+### <span class="jumptarget"> Banner Object – Properties </span>
 
 | Name | Type | Description |
 | ----- | ----- | ----- |

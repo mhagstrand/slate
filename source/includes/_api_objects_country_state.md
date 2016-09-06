@@ -1,8 +1,8 @@
-# <span class="jumptarget"> State </span>
+## <span class="jumptarget"> States </span>
 
 A state or province, identifiable by an ISO 3166 subdivision code
 
-## <span class="jumptarget"> Properties </span>
+### <span class="jumptarget"> State Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

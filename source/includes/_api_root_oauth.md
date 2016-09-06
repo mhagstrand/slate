@@ -6,7 +6,7 @@ OAuth apps (also known as public apps or <a href="https://www.bigcommerce.com/si
 
 Building an OAuth app is the recommended approach in almost all cases. BigCommerce plans to deprecate the alternative Basic Auth mechanism that currently supports [private apps](/api/#building-basic-auth-apps) for individual stores.
 
-Before you start, we suggest reviewing the [App Store acceptance requirements](#approval-requirements). To start making API requests, you'll need a [Client ID and Client&#160;Secret](/api/v2/#registration), and an [OAuth token](/api/v2/#installation). 
+Before you start, we suggest reviewing the [App Store acceptance requirements](#approval-requirements). To start making API requests, you'll need a [Client ID and Client&#160;Secret](#registration), and an [OAuth token](#installation). 
 
 ### <span class="jumptarget"> API Endpoint </span>
 

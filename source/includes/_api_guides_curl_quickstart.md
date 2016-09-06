@@ -16,7 +16,7 @@ If the request is made using the `Authorization` header, you need to encode the 
     https://store.mybigcommerce.com/api/v2/orders.json
 ```
 
-### <span class="jumptarget"> Orders</span>
+### <span class="jumptarget"> Orders cURL Commands </span>
 
 Here are sample cURL commands to handle orders.
 
@@ -87,11 +87,11 @@ You can create a shipment for an order via the [Orders > Create a Shipment](/api
     https://store.mybigcommerce.com/api/v2/orders/114/shipments.json
 ```
 
-### <span class="jumptarget"> Products</span>
+### <span class="jumptarget"> Products cURL Commands </span>
 
 Here are sample cURL commands to handle products.
 
-#### <span class="jumptarget"> Get a List of Products from the Store</span>
+#### <span class="jumptarget"> Get a List of Products from the Store </span>
 
 ```
     curl --request GET \
@@ -101,7 +101,7 @@ Here are sample cURL commands to handle products.
 
 By default, the API request returns only 50 products. If you want to return all the products from the store, you must use filters, as shown in the example below.
 
-#### <span class="jumptarget"> Get All Products from the Store</span>
+#### <span class="jumptarget"> Get All Products from the Store </span>
 
 Use the `limit` and `page` filter parameters to get data beyond what the default query returns. Note that a maximum of 200 products are returned per page:
 
@@ -111,7 +111,7 @@ Use the `limit` and `page` filter parameters to get data beyond what the default
     https://store.mybigcommerce.com/api/v2/products.json?limit=200&page=1
 ```
 
-#### <span class="jumptarget"> Create a Product</span>
+#### <span class="jumptarget"> Create a Product </span>
 
 Products have many fields. For details on the product fields allowed as part of a `POST` request, please see [this page](/api/v2/#create-a-product).
 
@@ -125,7 +125,7 @@ Let's assume that we want to create a product using only the fields that are for
     https://store.mybigcommerce.com/api/v2/products.json
 ```
 
-#### <span class="jumptarget"> Update a Product</span>
+#### <span class="jumptarget"> Update a Product </span>
 
 To update the product created above, you could use the following:
 
@@ -137,7 +137,7 @@ To update the product created above, you could use the following:
     https://store.mybigcommerce.com/api/v2/products/id.json
 ```
 
-#### <span class="jumptarget"> Search a Product by SKU</span>
+#### <span class="jumptarget"> Search a Product by SKU </span>
 
 To search by a product SKU, we could use the following code. Remember that when a product has optionset/variations defined, and if the individual options have SKUs defined, then the product SKU is overriden by the option SKUs. Currently, there are two ways to search for SKUs: `GET /products?sku="something"` or `GET /products/skus?sku="something"`. The first call returns only product-level SKUs and not option-level SKUs.
 
@@ -147,11 +147,11 @@ To search by a product SKU, we could use the following code. Remember that when 
     https://store.mybigcommerce.com/api/v2/products/skus.json?sku="abcd"
 ```
 
-### <span class="jumptarget"> Coupons</span>
+### <span class="jumptarget"> Coupons cURL Commands </span>
 
 Here are sample cURL commands to handle coupons.
 
-#### <span class="jumptarget"> Get a List of Coupons from the Store</span>
+#### <span class="jumptarget"> Get a List of Coupons from the Store </span>
 
 ```
     curl --request GET \
@@ -169,7 +169,7 @@ Coupons can be filtered by `code`, `type`, `name`, `min_id` and `max_id`. Withou
 
 For details on filter fields, please see the [Coupons resource](/api/v2#coupons).
 
-#### <span class="jumptarget"> Create a Coupon</span>
+#### <span class="jumptarget"> Create a Coupon </span>
 
 Coupons can be created by a `POST` request on the coupons endpoint. For example, if we want to create a coupon to take 50% off an order, then our coupon will have `percentage_discount` as the type. The `applies_to` field is optional, and can be used to restrict the coupon to a set of products or categories. In the example shown below, the coupon is being restricted to a set of products:
 
@@ -181,7 +181,7 @@ Coupons can be created by a `POST` request on the coupons endpoint. For example,
     https://store.mybigcommerce.com/api/v2/coupons.json
 ```
 
-#### <span class="jumptarget"> Update a Coupon</span>
+#### <span class="jumptarget"> Update a Coupon </span>
 
 Updating a coupon is almost similar to the Create example above, except that we work off an ID via a `PUT` request. For example, assume that we want to change the above coupon from a 50% to a 30% discount, and that the coupon ID is `15`. We can update the coupon using the following:
 
@@ -193,11 +193,11 @@ Updating a coupon is almost similar to the Create example above, except that we 
     https://store.mybigcommerce.com/api/v2/coupons/15.json
 ```
 
-### <span class="jumptarget"> Option Sets</span>
+### <span class="jumptarget"> Option Sets cURL Commands </span>
 
 Here are sample cURL commands to handle option sets.
 
-#### <span class="jumptarget"> Connect Options to Option Sets</span>
+#### <span class="jumptarget"> Connect Options to Option Sets </span>
 
 This is currently a four-step process.
 

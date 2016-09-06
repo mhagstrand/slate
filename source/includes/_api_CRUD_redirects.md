@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_content
 ||store_v2_content_read_only|
 
-## <span class="jumptarget"> List Redirects </span>
+### <span class="jumptarget"> List Redirects </span>
 
 Gets the collection of URL redirects.
 
@@ -13,7 +13,7 @@ Gets the collection of URL redirects.
 *   Basic Auth
 >`GET /api/v2/redirects`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 redirects are returned by default.
 
@@ -45,7 +45,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Redirect </span>
+### <span class="jumptarget"> Get a Redirect </span>
 
 Gets a single URL redirect.
 
@@ -66,7 +66,7 @@ Gets a single URL redirect.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Redirects </span>
+### <span class="jumptarget"> Get a Count of Redirects </span>
 
 Gets a count of redirects.
 
@@ -76,15 +76,17 @@ Gets a count of redirects.
 >`GET /api/v2/redirects/count`
 
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
-```
+
+```json
 {
   "count": 0
 }
 ```
-## <span class="jumptarget"> Create a Redirect </span>
+
+### <span class="jumptarget"> Create a Redirect </span>
 
 Creates a new URL redirect.
 
@@ -93,24 +95,24 @@ Creates a new URL redirect.
 *   Basic Auth
 >`POST /api/v2/redirects`
 
-### Read-only Properties
+#### Read-only Properties
 
 The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   url
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
 *   path
 *   forward
 
-### <span class="jumptarget"> Request </span>
+#### <span class="jumptarget"> Request </span>
 
 Example request object:
 
-```
+```json
 {
   "path": "/mens_clothing",
   "forward": {
@@ -119,11 +121,12 @@ Example request object:
   }
 }
 ```
-### <span class="jumptarget"> Response </span>
+
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 3,
   "path": "/mens_clothing",
@@ -134,7 +137,8 @@ Example JSON returned in the response:
   "url": "http://store.example.com/mens"
 }
 ```
-## <span class="jumptarget"> Update a Redirect </span>
+
+### <span class="jumptarget"> Update a Redirect </span>
 
 Updates an existing URL redirect.
 
@@ -143,13 +147,13 @@ Updates an existing URL redirect.
 *   Basic Auth
 >`PUT /api/v2/redirects/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the redirect are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   url
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the redirect are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -162,7 +166,7 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 </aside>
 
 
-## <span class="jumptarget"> Delete a Redirect </span>
+### <span class="jumptarget"> Delete a Redirect </span>
 
 Deletes a URL redirect.
 
@@ -172,7 +176,7 @@ Deletes a URL redirect.
 >`DELETE /api/v2/redirects/{id}`
 
 
-## <span class="jumptarget"> Delete Multiple Redirects </span>
+### <span class="jumptarget"> Delete Multiple Redirects </span>
 
 Deletes multiple URL redirects.
 
@@ -182,7 +186,7 @@ Deletes multiple URL redirects.
 >`DELETE /api/v2/redirects`
 
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `redirects` are returned by default.
 

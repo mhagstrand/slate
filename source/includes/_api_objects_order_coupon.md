@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Order Coupons </span>
+## <span class="jumptarget"> Order Coupons </span>
 
-Coupon code applied to an order
+Coupon code applied to an order.
 
-## <span class="jumptarget"> Order Coupon Object - Properties </span>
+### <span class="jumptarget"> Order Coupon Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

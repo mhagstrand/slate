@@ -1,4 +1,4 @@
-## <span class="jumptarget"> List Gift Certificates </span>
+### <span class="jumptarget"> List Gift Certificates </span>
 
 Retrieves the gift certificates available. (Default sorting is by gift-certificate id, from lowest to highest.)
 
@@ -7,7 +7,7 @@ Retrieves the gift certificates available. (Default sorting is by gift-certifica
 *   Basic Auth
 `GET /api/v2/gift_certificates`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific gift_certificates in the collection.
 
@@ -85,7 +85,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
     }
 ```
   
-## <span class="jumptarget"> Get a Gift Certificate </span>
+### <span class="jumptarget"> Get a Gift Certificate </span>
 
 Retrieves a specified gift certificate.
 
@@ -115,7 +115,7 @@ Retrieves a specified gift certificate.
     }
 ```
 
-## <span class="jumptarget"> Create a Gift Certificate </span>
+### <span class="jumptarget"> Create a Gift Certificate </span>
 
 Creates a new gift certificate.
 
@@ -124,11 +124,11 @@ Creates a new gift certificate.
 *   Basic Auth
 `POST /api/v2/gift_certificates`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the gift certificate are required. The request won't be fulfilled unless these properties are valid.
 
@@ -138,7 +138,7 @@ The following properties of the gift certificate are required. The request won't
 * from_email
 * amount
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 When a gift certificate is created through the API, no email notification is triggered to the specified recipient.
 
@@ -192,16 +192,16 @@ The gift certificate's template can be one of the following:
     }
 ```
 
-## <span class="jumptarget"> Update a Gift Certificate </span>
+### <span class="jumptarget"> Update a Gift Certificate </span>
 
 Updates an existing gift certificate.
 
 *   OAuth
-`PUT /stores/{store_hash}/v2/gift_certificates`
+`PUT /stores/{store_hash}/v2/gift_certificates/{ID}`
 *   Basic Auth
-`PUT /api/v2/gift_certificates`
+`PUT /api/v2/gift_certificates/{ID}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -232,7 +232,7 @@ The following properties of the gift certificate are read-only. If one or more o
     }
 ```
 
-## <span class="jumptarget"> Delete a Gift Certificate </span>
+### <span class="jumptarget"> Delete a Gift Certificate </span>
 
 Deletes a specified gift certificate. (If successful, this will typically return a "204 No Content".)
 
@@ -241,7 +241,7 @@ Deletes a specified gift certificate. (If successful, this will typically return
 *   Basic Auth
 `DELETE /api/v2/gift_certificates/{id}`
 
-## <span class="jumptarget"> Delete All Gift Certificates </span>
+### <span class="jumptarget"> Delete All Gift Certificates </span>
 
 Deletes all gift certificates associated with the store. (If successful, this will typically return a "204 No Content".)
 

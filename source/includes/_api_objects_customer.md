@@ -1,8 +1,12 @@
-# <span class="jumptarget"> Customers </span>
+# <span class="jumptarget"> Customers Reference </span>
 
-Identity and account details for customers shopping on Bigcommerce stores
+Customers APIs include Customers, Customer Addresses, Customer Groups, and Customer Login.
 
-## <span class="jumptarget"> Customer Object – Properties </span>
+## <span class="jumptarget"> Customers </span>
+
+Identity and account details for customers shopping on Bigcommerce stores.
+
+### <span class="jumptarget"> Customer Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -24,21 +28,21 @@ Identity and account details for customers shopping on Bigcommerce stores
 | addresses | resource | |
 | form_fields | object | Array of custom fields. |
 
-## <span class="jumptarget"> Events </span>
+### <span class="jumptarget"> Customer Events </span>
 
-### <span class="jumptarget"> Customer Created </span>
+#### <span class="jumptarget"> Customer Created </span>
 
 `store/customer/created`
 
 Occurs when a customer registers from the storefront or is created in the control panel.
 
-### <span class="jumptarget"> Customer Updated </span>
+#### <span class="jumptarget"> Customer Updated </span>
 
 `store/customer/updated`
 
 Occurs when a customer updates their details in the storefront or is updated in the control panel.
 
-### <span class="jumptarget"> Customer Deleted </span>
+#### <span class="jumptarget"> Customer Deleted </span>
 
 `store/customer/deleted`
 

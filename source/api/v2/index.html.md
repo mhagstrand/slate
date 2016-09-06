@@ -30,6 +30,44 @@ includes:
   - api_rate_limits_basic
   - api_guides_curl_quickstart
   - api_guides_oauth_transition
+  - api_objects_blog_post
+  - api_CRUD_blog_posts
+  - api_CRUD_blog_tags
+  - api_objects_redirect
+  - api_CRUD_redirects
+  - api_objects_customer
+  - api_CRUD_customers
+  - api_objects_customer_address
+  - api_CRUD_customers_addresses
+  - api_objects_customer_group
+  - api_CRUD_customer_groups
+  - api_customer_login
+  - api_objects_country
+  - api_CRUD_countries
+  - api_objects_country_state
+  - api_CRUD_countries_states
+  - api_objects_coupon
+  - api_CRUD_coupons
+  - api_objects_banner
+  - api_CRUD_banners
+  - api_objects_gift_certificate
+  - api_CRUD_gift_certificates
+  - api_objects_order
+  - api_CRUD_orders
+  - api_objects_order_coupon
+  - api_CRUD_orders_coupons
+  - api_objects_order_message
+  - api_CRUD_orders_messages
+  - api_objects_order_product
+  - api_CRUD_orders_products
+  - api_objects_order_status
+  - api_CRUD_orders_statuses
+  - api_objects_order_shipping_address
+  - api_CRUD_orders_shipping_addresses
+  - api_objects_order_tax.md
+  - api_CRUD_orders_taxes.md
+  - api_objects_order_shipment
+  - api_CRUD_orders_shipments
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -58,49 +96,16 @@ includes:
   - api_CRUD_products_googleproductsearch
   - api_objects_product_video
   - api_CRUD_products_videos
-  - api_objects_order
-  - api_CRUD_orders
-  - api_objects_order_status
-  - api_CRUD_orders_statuses
-  - api_objects_order_product
-  - api_CRUD_orders_products
-  - api_objects_order_shipment
-  - api_CRUD_orders_shipments
-  - api_objects_order_shipping_address
-  - api_CRUD_orders_shipping_addresses
-  - api_objects_order_coupon
-  - api_CRUD_orders_coupons
-  - api_objects_order_message
-  - api_CRUD_orders_messages
-  - api_objects_customer
-  - api_CRUD_customers
-  - api_customer_login
-  - api_objects_customer_address
-  - api_CRUD_customers_addresses
-  - api_objects_customer_group
-  - api_CRUD_customer_groups
   - api_objects_category
   - api_CRUD_categories
   - api_objects_brand
   - api_CRUD_brands
-  - api_objects_country
-  - api_CRUD_countries
-  - api_objects_country_state
-  - api_CRUD_countries_states
   - api_objects_tax_class
   - api_CRUD_tax_classes
   - api_objects_shipping_method
   - api_CRUD_shipping_methods
-  - api_objects_gift_certificate
-  - api_CRUD_gift_certificates
-  - api_objects_banner
-  - api_CRUD_banners
-  - api_objects_blog_post
-  - api_CRUD_blog_posts
   - api_objects_payment_method
   - api_CRUD_payments_methods
-  - api_objects_redirect
-  - api_CRUD_redirects
   - api_objects_store_information
 
 search: true
