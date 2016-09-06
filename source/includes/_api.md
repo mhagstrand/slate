@@ -23,7 +23,7 @@ Once approved, you will receive one or more emails containing:
 * **Your Partner ID**: required to submit an app for [App Store](https://www.bigcommerce.com/apps/) consideration.
 * **Temporary Partner Portal credentials**: change your password immediately after logging in.
 
-NOTE: If you do not receive your Partner ID by email, contact [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com).
+NOTE: If you do not receive your Partner ID by email, contact [partnersupport@bigcommerce.com](mailto:partnersupport@bigcommerce.com).
 
 ## <span class="jumptarget"> 2. Get a Sandbox Store </span>
 
