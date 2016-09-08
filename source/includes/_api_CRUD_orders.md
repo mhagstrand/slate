@@ -43,11 +43,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | limit | int | /api/v2/orders?limit={count} |
 | sort | string | /api/v2/orders?sort=date_created:desc |
 
-<aside class="warning">
-<span class="aside-warning-hd">Migration Note</span><br><br>
-All "curl" code examples are presumably json. Restore the missing "...JSON example:..." kickers, conforming to: https://developer.bigcommerce.com/api/stores/v2/orders.
-</aside>
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -132,6 +131,7 @@ All "curl" code examples are presumably json. Restore the missing "...JSON examp
   }
 ]
 ```
+
 ### <span class="jumptarget"> Get an Order </span>
 
 Gets an order.
@@ -140,6 +140,10 @@ Gets an order.
 >`GET /stores/{store_hash}/v2/orders/{id}`
 *   Basic Auth
 >`GET /api/v2/orders/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -232,6 +236,11 @@ Gets a count of the number of orders in the store.
 *   Basic Auth
 >`GET /api/v2/orders/count`
 
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 9
@@ -284,15 +293,18 @@ The following properties of the order are required. The request won’t be fulfi
 *   products
 *   billing_address
 
+
 <aside class="warning">
-<span class="aside-warning-hd">Migration Note</span><br><br>
-All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `_api_CRUD_orders.md` file – starting with those directly below – must be reformatted as appropriately-colored `asides`.
+<span class="aside-warning-hd">Tax Notes</span><br><br>
+
+  <ul>
+	<li>If a store has automatic tax enabled, BigCommerce does not compute sales tax on orders created via the API.
+	</li>
+	<li>Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. To ensure successful Avalara tax-document submission, spell state names out in full. For example, supplying <code>CA</code> as a state name leads to no tax-document submission. Supplying <code>California</code> as a state name leads to a successful submission.
+	</li>
+  </ul>
 </aside>
 
-#### <span class="jumptarget"> Notes </span>
->KNOWN ISSUE: Bigcommerce does not compute sales tax to orders created via the API if the store has automatic tax enabled.
-
->PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `CA` as a state name results in no tax document submission. Supplying `California` as a state name results in a successful submission.
 
 #### <span class="jumptarget"> Overriding Preset Values </span>
 
@@ -553,14 +565,13 @@ The following properties of the order are read-only. If one or more of these pro
 *   shipping_address_count
 *   coupons
 
+
 <aside class="warning">
-<span class="aside-warning-hd">Migration Note</span><br><br>
-All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `_api_CRUD_orders.md` file – including those directly below – must be reformatted as appropriately-colored `asides`.
+<span class="aside-warning-hd"> Known Issue </span><br><br>
+
+If a store has automatic tax enabled, BigCommerce does not compute sales tax on orders updated via the API.
 </aside>
 
-#### <span class="jumptarget"> Notes </span>
-
->KNOWN ISSUE: Bigcommerce does not compute sales tax to orders updated via the API if the store has automatic tax enabled.
 
 #### <span class="jumptarget"> Changing the Order Status </span>
 
@@ -591,7 +602,13 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
->NOTE: The Orders resource currently does not support coupon redemptions or discounts, apart from manual discount. You should modify the above fields only if you have created the order via the POST operation, or if you intend to manually override the subtotals and totals.
+
+<aside class="warning">
+<span class="aside-warning-hd"> Limitation on Coupons/Discounts </span><br><br>
+
+The Orders resource currently does not support coupon redemptions or discounts, apart from manual discount. You should modify the above fields only if you have created the order via the POST operation, or if you intend to manually override the subtotals and totals.
+</aside>
+
 
 ### <span class="jumptarget"> Delete an Order </span>
 
@@ -602,9 +619,13 @@ Deletes an order.
 *   Basic Auth
 >`DELETE /api/v2/orders/{id}`
 
-#### <span class="jumptarget"> Notes </span>
+<aside class="warning">
+<span class="aside-warning-hd"> Deletion Blocked by Automatic Tax  </span><br><br>
 
->NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail, returning `405 Method not allowed`.
+Any attempts to <code>DELETE</code> an order on a store with automatic tax enabled will fail, and will return <code>405 Method not allowed</code>.
+</aside>
+
+
 
 ### <span class="jumptarget"> Delete All Orders </span>
 
