@@ -1,8 +1,9 @@
-Private apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single Bigcommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints.
+Basic-Auth (or "Private") apps require the manual creation of an API token for each store. They are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints.
 
 <aside class="warning">
 <span class="aside-warning-hd">Limited Support for Basic Auth </span><br><br>
-Not all features of the Stores API are available to apps using Basic Authentication. For example, the Webhooks resource requires OAuth.
+BigCommerce is gradually deprecating Basic Authentication. Apps must use <a href="#building-oauth-apps">OAuth</a> to access our v3 API.   
+Even within the v2 API, apps relying on Basic Authentication cannot access some features: For example, the Webhooks resource requires OAuth.
 </aside>
 
 
