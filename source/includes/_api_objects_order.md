@@ -56,7 +56,7 @@ A record of the purchase agreement between a shopper and a merchant.
 | default_currency_id | int | A read-only value. Do not pass in a POST or PUT. |
 | default_currency_code | string | The currency code of the default currency for this type of transaction. A read-only value. Do not pass in a POST or PUT. |
 | staff_notes | text | Any additional notes for staff. |
-| customer_message | text | Message for the customer. |
+| customer_message | text | Message that the customer entered into the `Order Comments` box during checkout. |
 | discount_amount | decimal | Amount of discount for this transaction. |
 | coupon_discount | decimal | A read-only value. Do not pass in a POST or PUT. |
 | shipping_address_count | int | The number of shipping addresses associated with this transaction. A read-only value. Do not pass in a POST or PUT. |
