@@ -294,55 +294,60 @@ All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `
 
 >PRO TIP: Abbreviated state names in shipping and billing addresses will prevent tax documents from being submitted to Avalara. Spell state names out in full to ensure successful Avalara tax document submissions. For example, supplying `CA` as a state name results in no tax document submission. Supplying `California` as a state name results in a successful submission.
 
-##### <span class="jumptarget"> Overriding Preset Values </span>
+#### <span class="jumptarget"> Overriding Preset Values </span>
 
 You can create overrides for calculated values such as product prices, subtotal and totals by sending a fixed value in the request. If values are not supplied for these properties, they will be automatically calculated based on the pre-set store values and tax rules.
 
-##### <span class="jumptarget"> Order Products </span>
+#### <span class="jumptarget"> Order Products </span>
 
 *   Existing products can be added to the order with a reference to their `product_id`.
 *   Custom products can be added to the order using the `products array`.
-*   If price is not specified, it will automatically pick up the price from the store’s product catalog, however you can override it via `price_inc_tax` and `price_ex_tax`.
-*   If `price_inc_tax` and `price_ex_tax` is specified, price and rulesets are ignored and the `price_inc_tax` or `price_ex_tax` are written to `base_price`, according to the store settings.
-*   When the store is subscribed to Avalara Premium, a value of `API Tax Override` is written to the `name` field of the order tax object.
-*   Tax will be calculated based on the tax rules specified in the store except in the case of automatic taxes, however you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax` in both cases.
-*   For products which are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, it will be rejected with an ‘out of stock’ error code.
-*   For products which have min and max quantities specified in their settings, the API will honor these and reject orders appropriately.
-*   For products where product options are required, the API will validate these requirements to ensure the product options are specified.
+*   If price is not specified, it will automatically pick up the price from the store’s product catalog. However, you can override this via `price_inc_tax` and `price_ex_tax`.
+*   If `price_inc_tax` and `price_ex_tax` are specified, price and rulesets are ignored, and the `price_inc_tax` or `price_ex_tax` are written to `base_price` according to the store settings.
+*   When the store is subscribed to Avalara Premium, a value of `API Tax Override` is written to the Order Tax object's `name` field.
+*   Tax will be calculated based on the tax rules specified in the store, except in the case of automatic taxes. However, in both cases, you can optionally override the tax values by specifying `price_inc_tax` and `price_ex_tax`.
+*   For products that are configured to track stock, the quantity specified on the order will reduce the stock on hand. When there is not enough inventory to fulfill the order, the order will be rejected with an "out of stock" error code.
+*   For products that have min and max quantities specified in their settings, the API will honor these, and will reject orders appropriately.
+*   For products where product options are required, the API will validate these requirements to ensure that the product options are specified.
 *   Product quantity must be specified.
 
-##### <span class="jumptarget"> Calculation of Totals </span>
+#### <span class="jumptarget"> Calculation of Totals </span>
 
 *   When not specified, order subtotal and total are automatically calculated.
-*   You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both as the system will not be able to accurately calculate the other.
+*   You can override order subtotal and/or total. If you choose to override one, we strongly recommend that override both, because the system will not be able to accurately calculate the other.
 
-##### <span class="jumptarget"> Order Properties </span>
+#### <span class="jumptarget"> Order Properties </span>
 
 *   Billing address is mandatory.
-*   Shipping address is not mandatory and can optionally be specified as composite records.
-    *   When the shipping address is not specified, the system will fall back to using the billing address as the shipping address
-    *   Multiple shipments are not supported so it will assume the first address in the collection
-*   In the shipping and billing address, their is no requirement to specify ‘country’ when ‘country_ISO2’ is specified.
-    *   The value specified for ‘country_ISO2’ will always override any value specified for ‘country’
-*   Coupon redemption is not supported at this time.
-*   Set customer_id to 0 to specify a guest checkout.
-*   order_source cannot be specified and it will be set to ‘external’.
-    *   You can optionally specify a value for external_source to specify which external source the order is coming from - i.e., POS system X, accounting system Y, etc
+*   Shipping address is not mandatory, and can optionally be specified as composite records.
+    *   When the shipping address is not specified, the system will fall back to using the billing address as the shipping address.
+    *   Multiple shipments are not supported, so the API will assume the first address in the collection.
+*   In the shipping and billing addresses, there is no requirement to specify `country` when `country_ISO2` is specified.
+    *   The value specified for `country_ISO2` will always override any value specified for `country`.
+*   Coupon redemption is not currently supported.
+*   To specify a guest checkout, set `customer_id` to `0`.
+*   `order_source` cannot be specified, and will be set to `external`.
+    *   You can optionally specify a value for `external_source` to specify which external source the order is coming from - e.g., POS system X, accounting system Y, etc.
 
-##### <span class="jumptarget"> Changing the Order Status </span>
+#### <span class="jumptarget"> Changing the Order Status </span>
 
-*   `status_id` can be specified resulting in the the corresponding ‘status’ to automatically be set. When not specified, status_id will be automatically set to 1 resulting in ‘status’ to be set to ‘Pending’.
+*   You can specify `status_id`, which will automatically set the corresponding `status`. When `status_id` is not specified, it will be automatically set to `1`, which will set `status` to `Pending`.
 
-*   `POST` or `PUT` Orders on stores with Avalara Premium causes tax documents to be submitted. If a store has subscribed to Avalara Premium, Bigcommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:
+*   `POST` or `PUT` orders on stores with Avalara Premium cause tax documents to be submitted. If a store has subscribed to Avalara Premium, BigCommerce automatically submits tax documents to Avalara when the order achieves a paid status. The following statuses are of the paid type:
     *   Shipped
     *   Partially Shipped
     *   Awaiting Pickup
     *   Awaiting Shipment
     *   Completed
     *   Awaiting Fulfillment
-*   BigCommerce considers all statuses other than the above to be of the unpaid type, except `Refunded`, which is considered neither paid or unpaid. Orders that are created using the `POST` method, and include a status of the paid type, cause the submission of tax documents to Avalara.
+*   BigCommerce considers all statuses other than those above to be of the unpaid type, except `Refunded`, which is considered neither paid or unpaid. Orders that are created using the `POST` method, and that include a status of the paid type, cause the submission of tax documents to Avalara.
 
-```curl
+
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "customer_id": 0,
   "status_id": 11,
@@ -420,6 +425,11 @@ You can create overrides for calculated values such as product prices, subtotal 
   "external_source": "POS"
 }
 ```
+
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -554,7 +564,7 @@ All "Notes," "KNOWN ISSUES," and "PRO TIPs" formatted as `>blockquote` in this `
 
 #### <span class="jumptarget"> Changing the Order Status </span>
 
-The `status` property cannot be edited directly as it is generated based on the `status_id`.
+The `status` property cannot be edited directly, because it is generated based on the `status_id`.
 
 Use the `status_id` property to set the order to a specific state. The list of available statuses is provided by the [Order Statuses](/api/v2#order_statuses) resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the `status_id` property changes. The following table details the behavior for `PUT` operations. See also the list of [Paid Statuses](#paid-status).
 
@@ -581,7 +591,7 @@ Edits to the following properties will trigger a recalculation of the subtotal a
 *   billing_address
 *   shipping_addresses
 
->NOTE: The Orders resource currently does not support coupon redemptions and discounts apart from manual discount. You should only modify the above fields if you have created the order via the POST operation or you intend to override the subtotals and totals manually.
+>NOTE: The Orders resource currently does not support coupon redemptions or discounts, apart from manual discount. You should modify the above fields only if you have created the order via the POST operation, or if you intend to manually override the subtotals and totals.
 
 ### <span class="jumptarget"> Delete an Order </span>
 
@@ -594,7 +604,7 @@ Deletes an order.
 
 #### <span class="jumptarget"> Notes </span>
 
->NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail and return `405 Method not allowed`.
+>NOTE: Attempts to `DELETE` an order on a store with automatic tax enabled will fail, returning `405 Method not allowed`.
 
 ### <span class="jumptarget"> Delete All Orders </span>
 
