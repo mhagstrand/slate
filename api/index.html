@@ -173,8 +173,8 @@
             <li><a href="/">Home</a></li>
             <li><a href='/api/v2/'>API</a></li>
             <li><a href='/themes/'>Themes</a></li>
-            <li><a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a></li>
             <li><a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a></li>
+            <li><a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a></li>
             <li><a href='#'>Sign Up for a Developer Key</a></li>
             <li><a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation by Slate</a></li>
@@ -184,2269 +184,138 @@
       <div class="content">
         <h1 id="api-documentation">API Documentation</h1>
 
-<p>The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding.</p>
+<p>The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding. </p>
 
-<p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).</p>
+<p>With clever use of this API, you can automate various commerce, business, and publishing tasks, and can integrate all kinds of apps with our platform. </p>
 
-<p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
+<p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:</p>
 
-<h3 id="api-v3"><a href="/api/v3">API V3</a></h3>
+<p><span class="fake-h3"> <a href="/api/v3">API v3</a> </span></p>
 
-<p>New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with V2.</p>
+<p>New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.</p>
 
-<h3 id="api-v2"><a href="/api/v2">API V2</a></h3>
+<p><span class="fake-h3"> <a href="/api/v2">API v2</a> </span></p>
 
 <p>Core API, supporting all currently exposed resources via Basic Auth or OAuth.</p>
 
-          <h1 id="building-oauth-apps"><span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span></h1>
+          <h1 id="api-apps-first-steps"><span class="jumptarget"> API/Apps First Steps </span></h1>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
-We still need to migrate introductory content here. Should also add something explaining the new terminology &ldquo;OAuth Apps&rdquo; versus &ldquo;Basic-Auth Apps.&rdquo;
-</aside>
+<p>The BigCommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. All connections require authentication and are secured by TLS encryption. It supports <a href="/api/#media_types">the JSON media type</a> and uses UTF-8 character encoding.</p>
 
-<h2 id="about-single-click-apps"><span class="jumptarget"> About Single-Click Apps </span></h2>
+<p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
-<p>Public apps (also known as OAuth Apps or <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a> can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="/api/v2/#registration"><strong>Client ID</strong> and <strong>Client Secret</strong></a>, and an <a href="/api/v2/#installation">OAuth token</a>. </p>
+<p><span class="fake-h2"> Build Best-Of-Breed Solutions for Fast-Growing Online Businesses </span></p>
 
-<h3 id="api-endpoint"><span class="jumptarget"> API Endpoint </span></h3>
+<p>Here are your first steps to get started:</p>
 
-<p>Public API requests are protected by TLS, and use the following base URI: <code class="prettyprint">https://api.bigcommerce.com</code>. The exact paths are noted in the Reference section for each resource. </p>
+<h2 id="1-join-the-technology-partner-program"><span class="jumptarget"> 1. Join the Technology Partner Program </span></h2>
 
-<h3 id="request-headers"><span class="jumptarget"> Request Headers </span></h3>
-
-<p>Public API requests are authenticated by the following HTTP headers: </p>
+<p>Before you begin, you&rsquo;ll need a sandbox store. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To get your sandbox store, <a href="https://www.bigcommerce.com/partners/signup">apply to become a BigCommerce Technology Partner</a>. To be approved as a partner, you will need:</p>
 
 <ul>
-<li><code class="prettyprint">X-Auth-Client</code>: the <strong>Client ID</strong>. To get your <strong>Client ID</strong>, you must complete <a href="#registration">App Registration</a>. </li>
-<li><code class="prettyprint">X-Auth-Token</code>: the OAuth token. To get your OAuth token, you must complete <a href="#installation">App Installation</a>. </li>
+<li>A website.</li>
+<li>The ability to support users of your app.</li>
+<li>A PayPal account – if you want to get paid for referring people to BigCommerce (optional).</li>
 </ul>
 
-<p>In addition, while not all resources require the <code class="prettyprint">Accept</code> and <code class="prettyprint">Content-Type</code> headers, many do. To ensure that your calls succeed, always include these headers. </p>
+<p>NOTE: The email address you use in this form must be the same email address as you use to log into your sandbox store, and to log into <a href="https://www.bigcommerce.com/apps/">My&#160;Apps</a>.</p>
 
-<h3 id="managing-users-39-session-timeouts"><span class="jumptarget"> Managing Users&rsquo; Session Timeouts </span></h3>
-
-<p>We recommend that you add BigCommerce&rsquo;s JavaScript SDK to your Single-Click Apps, to protect your apps&rsquo; users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App: </p>
-<pre class="highlight plaintext"><code>&lt;script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js"&gt;
-</code></pre>
-
-<p>Optionally, you can pass a logout callback function within the initialization call:</p>
-<pre class="highlight plaintext"><code>BigCommerce.init({
-      onLogout: callback
-});
-</code></pre>
-
-<p>This callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.</p>
-
-<h3 id="monetizing-your-app"><span class="jumptarget"> Monetizing Your App </span></h3>
-
-<p>If you want to charge merchants for your app, please note that BigCommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send BigCommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to <a href = "mailto:partnerpayments@bigcommerce.com">partnerpayments@bigcommerce.com</a>.</p>
-
-          <h2 id="app-registration"><span class="jumptarget"> <a name="registration"></a> App Registration </span></h2>
-
-<p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
+<p>Once approved, you will receive one or more emails containing:</p>
 
 <ul>
-<li><p>The <strong>Client ID</strong> value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.</p></li>
-<li><p>The <strong>Client Secret</strong> value is a secret that your app and BigCommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="#installation">app installation</a> sequence. Thereafter, BigCommerce uses it to sign payloads in <a href="#load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.</p></li>
+<li><strong>Your Partner ID</strong>: required to submit an app for <a href="https://www.bigcommerce.com/apps/">App Store</a> consideration.</li>
+<li><strong>Temporary Partner Portal credentials</strong>: change your password immediately after logging in.</li>
 </ul>
 
-<p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
+<p>NOTE: If you do not receive your Partner ID by email, contact <a href="mailto:partnersupport@bigcommerce.com">partnersupport@bigcommerce.com</a>.</p>
 
-<h3 id="technical-requirements"><span class="jumptarget"> Technical Requirements </span></h3>
+<h2 id="2-get-a-sandbox-store"><span class="jumptarget"> 2. Get a Sandbox Store </span></h2>
 
-<aside class="notice">
-<span class="aside-notice-hd">MIGRATION NOTE:</span>
-Stacked heads; insert something here!
-</aside>
+<p>To get into your sandbox store, log into the Partner Portal, then click <strong>Create a Trial Store</strong>. When you log into your store, use the same email that you used when applying to become a Technology Partner.</p>
 
-<h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
+<p>NOTE: Although the <strong>Create a Trial Store</strong> option&rsquo;s name indicates that the store might be temporary, it is actually permanent.</p>
 
-<p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
+<h2 id="3-get-your-keys"><span class="jumptarget">3. Get Your Keys </span></h2>
 
-<aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests originate from the browser and not from BigCommerce, you can use non–publicly-available URIs and a self-signed certificate for a quick start. However, you must switch to – and test your app with – a publicly available <b>Auth Callback URI</b> and <b>Load Callback URI</b> before submitting your app for consideration in the App Store.
-</aside>
+<p>This step works differently for OAuth versus Basic-Auth apps:</p>
 
-<h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall callback (optional) </span></h4>
+<h3 id="oauth-apps"><span class="jumptarget"> OAuth Apps </span></h3>
 
-<p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
+<p>OAuth apps (also known as <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a> or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="/api/v2/#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="/api/v2/#app-registration">Client ID and Client Secret</a>, and an <a href="/api/v2/#app-installation-and-update-sequence">OAuth token</a>.</p>
 
-<h4 id="multi-user-support-optional"><span class="jumptarget"> Multi-user support (optional) </span></h4>
+<h3 id="basic-auth-apps"><span class="jumptarget"> Basic-Auth Apps </span></h3>
 
-<p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
+<p>Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store&rsquo;s API endpoints. From the Control Panel of your sandbox store, you can <a href="/api/v2/#building-basic-auth-apps">get the base path, user ID, and API token</a> that you need to start making calls.</p>
 
-<ul>
-<li>  Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.</li>
-<li>  Your app should be aware that when it receives the <a href="#load_request">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
-<li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
-</ul>
+<h2 id="about-client-libraries"><span class="jumptarget"> About Client Libraries </span></h2>
 
-<h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth scopes </span></h4>
+<p>To make it easier for our developers, we provide <a href="/api/#client-libraries">client libraries</a> in a variety of popular languages.</p>
 
-<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code class="prettyprint">Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
-
-<ul>
-<li>  Modify the scopes of your app in My Apps and save the changes.</li>
-<li>  Obtain the new OAuth token during the <a href="#installation">App Installation or Update</a> flow.</li>
-<li>  Retest your app to make sure it still functions properly with the new token.</li>
-</ul>
-
-<h3 id="registering-your-app"><span class="jumptarget"> Registering your app </span></h3>
-
-<p>The following procedure takes you through the minimum number of steps to successfully register your app and get your <strong>Client Secret</strong> and <strong>Client ID</strong>.</p>
-
-<ol>
-<li> Log in at Developer Portal&rsquo;s top right.</li>
-<li> In the resulting login page, provide your sandbox store credentials.</li>
-</ol>
-
-<aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-These must be the credentials of the owner of the store where you plan to install your draft app.
-</aside>
-
-<ol>
-<li> Click <code class="prettyprint">My Apps</code>.</li>
-<li> Click <code class="prettyprint">Create an app</code>.</li>
-<li> In the <code class="prettyprint">Create an App</code> dialog, type a name for your app.</li>
-<li> Click <code class="prettyprint">Next</code>.</li>
-<li> Click <code class="prettyprint">Next</code> again.</li>
-<li> Click <code class="prettyprint">Next</code> one more time.</li>
-<li> In the <code class="prettyprint">Auth Callback URL</code> box, type your <code class="prettyprint">Auth Callback URI</code>.</li>
-<li> In the <code class="prettyprint">Load Callback URL</code> box, type your <code class="prettyprint">Load Callback URI</code>.</li>
-<li> In the <code class="prettyprint">Uninstall Callback URI</code> box, provide your <code class="prettyprint">Uninstall Callback URI</code> if you have one.</li>
-<li> If you want to support multiple users: In the <code class="prettyprint">Supported Features</code> area, select <code class="prettyprint">Multiple Users</code>; and in the <code class="prettyprint">Remove User Callback URI</code> box, provide a <code class="prettyprint">Remove User Callback URI</code>.</li>
-<li> Select the OAuth scopes that your app requires. If you do not yet know, select minimal scopes, such as <code class="prettyprint">Information: Read-Only</code>.</li>
-<li> Click <code class="prettyprint">Update &amp; Close</code>.</li>
-<li> Back in <code class="prettyprint">My Apps</code>, hover over your app.</li>
-<li> Click <code class="prettyprint">View Client ID</code>.</li>
-<li> Copy the <code class="prettyprint">Client ID</code> and <code class="prettyprint">Client Secret</code> values from the dialog, and paste them into a safe and secure place.</li>
-</ol>
-
-          <h2 id="app-installation-and-update-sequence"><span class="jumptarget"> <a name="installation"></a> App Installation and Update Sequence </span></h2>
-
-<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd"> Handling Requests Securely</span><br><br>
-The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth&#160;Callback URI</b> while testing your app.<br><br>
-
-For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
-</aside>
-
-<p>The following diagram illustrates the entire sequence.</p>
-
-<p><img alt="UML diagram: App installation/update sequence (bc-oauth-install+update-seq.svg)" src="https://www.filepicker.io/api/file/jrCCco74ShqIiILykrG5" /></p>
-
-<p>The remainder of this section discusses each action your app needs to take during the sequence.</p>
-
-<ol>
-<li> <a href="#get-req">Receiving the <code class="prettyprint">GET</code> request</a></li>
-<li> <a href="#get-response">Responding to the <code class="prettyprint">GET</code> request</a></li>
-<li> <a href="#post-req">Making the <code class="prettyprint">POST</code> request</a></li>
-<li> <a href="#post-receipt">Receiving the <code class="prettyprint">POST</code> response</a></li>
-</ol>
-
-<h3 id="receiving-the-get-request"><span class="jumptarget"> <a name="get-req"></a> Receiving the GET request </span></h3>
-
-<p>The <code class="prettyprint">GET</code> request to your <strong>Auth Callback URI</strong> contains a temporary code that you can exchange for a permanent OAuth token. It also includes a unique value that identifies the store installing or updating your app, as well as other values.</p>
-
-<h4 id="parameters"><span class="jumptarget"> Parameters </span></h4>
-
-<p>The following table details the full list of parameters and values included in the <code class="prettyprint">GET</code> request from BigCommerce to your <strong>Auth Callback URI</strong>. BigCommerce passes these within the URI itself as query parameters.</p>
+          <h1 id="request-headers"><span class="jumptarget"> Request Headers </span></h1>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Header</th>
+<th>Allowed Values</th>
 <th>Description</th>
+<th>Example</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>code</td>
-<td>Temporary code to exchange for a permanent OAuth token. See <a href="#post-req">Making the POST request</a> below for more information about this exchange.</td>
+<td><code class="prettyprint">**Accept**</code></td>
+<td><code class="prettyprint">**application/json**</code> (for .json requests) <code class="prettyprint">**application/xml**</code> (for .xml requests)</td>
+<td>The MIME type for the format you want to receive a response in.</td>
+<td><code class="prettyprint">**application/xml**</code></td>
 </tr>
 <tr>
-<td>scope</td>
-<td>List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app&rsquo;s needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none.</td>
+<td><code class="prettyprint">**Authorization**</code></td>
+<td><code class="prettyprint">**Basic**</code></td>
+<td>The user credentials for accessing the API</td>
+<td><code class="prettyprint">**Basic YWRtaW46cGFzc3dvcmQ=**</code></td>
 </tr>
 <tr>
-<td>context</td>
-<td>The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: <code class="prettyprint">stores/{store_hash}</code>. Save the store hash value, because you will need to pass it in all your requests to the Stores API.</td>
+<td><code class="prettyprint">**Content-Type**</code></td>
+<td><code class="prettyprint">**application/json**</code> (for JSON requests) <code class="prettyprint">**application/xml**</code> (for XML requests)</td>
+<td>The MIME type of the request body. Use to validate and parse the request to the API.</td>
+<td><code class="prettyprint">**application/json**</code></td>
+</tr>
+<tr>
+<td><code class="prettyprint">**User-Agent**</code></td>
+<td>String</td>
+<td>While it is not required, we ask that you specify a user agent which identifies your integration/client with your requests.</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">**X-Auth-Client**</code></td>
+<td>String</td>
+<td>Client ID of the requesting app</td>
+<td></td>
+</tr>
+<tr>
+<td><code class="prettyprint">**X-Auth-Token**</code></td>
+<td>String</td>
+<td>Access token authorizing the app to access resources on behalf of a user</td>
+<td></td>
 </tr>
 </tbody></table>
 
-<h4 id="example-initial-installation"><span class="jumptarget"> Example – Initial Installation </span></h4>
+<h2 id="deprecated-headers"><span class="jumptarget"> Deprecated Headers </span></h2>
 
-<p>This example initiates the token exchange, with a requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
-<pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders&amp;context=stores/g5cd38 HTTP/1.1  
-Host: app.example.com
-</code></pre>
-
-<h4 id="example-updating-scopes"><span class="jumptarget"> Example – Updating Scopes </span></h4>
-
-<p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
-<pre class="highlight plaintext"><code>GET /auth?code=qr6h3thvbvag2ffq&amp;scope=store_v2_orders+store_v2_products&amp;context=stores/g5cd38 HTTP/1.1  
-Host: app.example.com
-</code></pre>
-
-<p>(Note that when your app receives a new token, any previously issued token is invalidated.)</p>
-
-<h3 id="responding-to-the-get-request"><span class="jumptarget"> <a name="get-response"></a> Responding to the GET request </span></h3>
-
-<p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
-
-<h3 id="making-the-post-request"><span class="jumptarget"> <a name="post-req"></a> Making the POST request </span></h3>
-
-<p>The <code class="prettyprint">POST</code> request&rsquo;s primary purpose is to exchange the temporary access code for a permanent OAuth token. However, your app must pass a number of additional values to accomplish the exchange. Pass the parameters and their values inside the request body, using query parameters and URL-encoding. To achieve this, you must include the following HTTP header:<br>
-<code class="prettyprint">Content-Type: application/x-www-form-urlencoded</code></p>
-
-<p>Make the <code class="prettyprint">POST</code> request to the following address: <code class="prettyprint">https://login.bigcommerce.com/oauth2/token</code>.</p>
-
-<h4 id="initial-installation"><span class="jumptarget"> Initial Installation </span></h4>
-
-<p>During initial installation, upon receiving the <code class="prettyprint">POST</code>, BigCommerce marks the status of your app as &ldquo;Installed,&rdquo; removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <code class="prettyprint">GET</code> response.</p>
-
-<h4 id="updates"><span class="jumptarget"> Updates </span></h4>
-
-<p>During app updates, upon receiving the <code class="prettyprint">POST</code>, BigCommerce removes the update prompt from the Control Panel.</p>
-
-<h4 id="parameters"><span class="jumptarget"> Parameters </span></h4>
-
-<p>Include values for each of the following parameters.</p>
+<p>The following headers are deprecated and will eventually be removed from the API.</p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Header</th>
 <th>Description</th>
+<th>Use Instead</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>client_id</td>
-<td>The Client ID for your app, obtained during <a href="#registration">registration</a>.</td>
-</tr>
-<tr>
-<td>client_secret</td>
-<td>The Client Secret for your app, obtained during <a href="#registration">registration</a>.</td>
-</tr>
-<tr>
-<td>code</td>
-<td>Temporary access code received in the <a href="#get-req">GET request</a> discussed above.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>List of OAuth scopes received in the <a href="#get-req">GET request</a> discussed above.</td>
-</tr>
-<tr>
-<td>grant_type</td>
-<td>Always use the following: authorization_code.</td>
-</tr>
-<tr>
-<td>redirect_uri</td>
-<td>Must be identical to your registered Auth Callback URI.</td>
-</tr>
-<tr>
-<td>context</td>
-<td>The store hash received in the <a href="#get-req">GET request</a>, in the format: <code class="prettyprint">stores/{_store_hash_}</code></td>
+<td><code class="prettyprint">**If-Modified-Since**</code></td>
+<td>Uses an <a href="http://tools.ietf.org/html/rfc2822#section-3.3">RFC 2822</a> date. If supplied, then only resources modified since the specified date will be returned. If there are no modified objects, then a <code class="prettyprint">**304 Not Modified**</code> response will be sent. Please refer to the individual resource pages for support for this header.</td>
+<td>Use <strong>min_date_modified</strong> and <strong>max_date_modified</strong> query parameters on resources that support them.</td>
 </tr>
 </tbody></table>
-
-<h4 id="examples-initial-installation"><span class="jumptarget"> Examples – Initial Installation </span></h4>
-
-<ul>
-<li>  <a href="#token-http">HTTP</a></li>
-</ul>
-<pre class="highlight shell"><code>POST /oauth2/token HTTP/1.1
-Host: login.bigcommerce.com
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 186
-
-<span class="nv">client_id</span><span class="o">={</span>CLIENT_ID<span class="o">}</span>&amp;client_secret<span class="o">={</span>CLIENT_SECRET<span class="o">}</span>&amp;code<span class="o">=</span>qr6h3thvbvag2ffq&amp;scope<span class="o">=</span>store_v2_orders&amp;grant_type<span class="o">=</span>authorization_code&amp;redirect_uri<span class="o">=</span>https://app.example.com/oauth&amp;context<span class="o">=</span>stores/<span class="o">{</span>STORE_HASH<span class="o">}</span>
-</code></pre>
-
-<ul>
-<li>  <a href="#token-php">PHP</a></li>
-</ul>
-<pre class="highlight php"><code>use Bigcommerce\Api\Connection;
-$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
-$connection = new Connection();
-$connection-&gt;useUrlencoded();
-$response = $connection-&gt;post($tokenUrl, array(
-    "client_id" =&gt; "CLIENT_ID",
-    "client_secret" =&gt; "CLIENT_SECRET",
-    "redirect_uri" =&gt; "https://app.example.com/oauth",
-    "grant_type" =&gt; "authorization_code",
-    "code" =&gt; $request-&gt;get("code"),
-    "scope" =&gt; $request-&gt;get("scope"),
-    "context" =&gt; $request-&gt;get("context"),
-));
-$token = $response-&gt;access_token;
-</code></pre>
-
-<h4 id="examples-updating-scopes"><span class="jumptarget"> Examples – Updating Scopes </span></h4>
-
-<p>The following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
-
-<ul>
-<li>  <a href="#token-http">HTTP</a></li>
-</ul>
-<pre class="highlight shell"><code>POST /oauth2/token HTTP/1.1
-Host: login.bigcommerce.com
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 186
-
-<span class="nv">client_id</span><span class="o">={</span>CLIENT_ID<span class="o">}</span>&amp;client_secret<span class="o">={</span>CLIENT_SECRET<span class="o">}</span>&amp;scope<span class="o">=</span>store_v2_orders+store_v2_products&amp;grant_type<span class="o">=</span>authorization_code&amp;redirect_uri<span class="o">=</span>https://app.example.com/oauth&amp;context<span class="o">=</span>stores/<span class="o">{</span>STORE_HASH<span class="o">}</span>
-</code></pre>
-
-<ul>
-<li>  <a href="#token-php">PHP</a></li>
-</ul>
-<pre class="highlight php"><code>use Bigcommerce\Api\Connection;
-
-$tokenUrl = "https://login.bigcommerce.com/oauth2/token";
-$connection = new Connection();
-$connection-&gt;useUrlencoded();
-$response = $connection-&gt;post($tokenUrl, array(
-    "client_id" =&gt; "CLIENT_ID",
-    "client_secret" =&gt; "CLIENT_SECRET",
-    "redirect_uri" =&gt; "https://app.example.com/oauth",
-    "grant_type" =&gt; "authorization_code",
-    "code" =&gt; $request-&gt;get("code"),
-    "scope" =&gt; $request-&gt;get("scope"),
-    "context" =&gt; $request-&gt;get("context"),
-));
-
-$token = $response-&gt;access_token;
-</code></pre>
-
-<h3 id="receiving-the-post-response"><span class="jumptarget"> <a name="post-receipt"></a> Receiving the POST response </span></h3>
-
-<p>The <code class="prettyprint">POST</code> response will include a JSON object containing the permanent OAuth token, user information, and other values. Upon receiving the permanent OAuth token, store it securely. You should also store the user and store hash values, to identify the user and store at load and uninstall. The following sections detail the contents of the JSON body.</p>
-
-<h4 id="json-values"><span class="jumptarget"> JSON Values </span></h4>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Data Type</th>
-<th>Value Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>access_token</td>
-<td>string</td>
-<td>The permanent OAuth token that your app can use to make requests to the Stores API on behalf of the user. Store this value securely.</td>
-</tr>
-<tr>
-<td>scope</td>
-<td>string</td>
-<td>List of authorization scopes.</td>
-</tr>
-<tr>
-<td>id</td>
-<td>integer</td>
-<td>Unique identifier for the user. Store this value to identify the user at load and uninstall.</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>The user’s email address. Store this value to identify the user at load and uninstall.</td>
-</tr>
-<tr>
-<td>context</td>
-<td>string</td>
-<td>The store hash, as well as a base path: <code class="prettyprint">stores/{_store_hash_}</code></td>
-</tr>
-</tbody></table>
-
-<h4 id="json-example-initial-installation"><span class="jumptarget"> JSON Example – Initial Installation </span></h4>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store_v2_orders"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24654</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merchant@mybigcommerce.com"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores/STORE_HASH"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h4 id="json-example-updating-scopes"><span class="jumptarget"> JSON Example – Updating Scopes </span></h4>
-
-<p>Update requests will refresh the payload&rsquo;s <code class="prettyprint">access_token</code> and <code class="prettyprint">scope</code> values. Here again, the following example requests a scope of <code class="prettyprint">store_v2_products</code>, in addition to the initially requested scope of <code class="prettyprint">store_v2_orders</code>:</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACCESS_TOKEN"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">"store_v2_orders store_v2_products"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24654</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"merchant@mybigcommerce.com"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"stores/STORE_HASH"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-          <h2 id="load-uninstall-and-user-removal-requests"><span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span></h2>
-
-<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="#registration">App Registration</a> wizard requests the following URIs.</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Required?</th>
-<th>Event Discussion</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Load Callback URI</td>
-<td>Yes</td>
-<td>Called when the store owner or user clicks to load your app.</td>
-</tr>
-<tr>
-<td>Uninstall Callback URI</td>
-<td>No</td>
-<td>Called when the store owner clicks to uninstall your app.</td>
-</tr>
-<tr>
-<td>Remove User Callback URI</td>
-<td>No</td>
-<td>Called when the store admin revokes a user&rsquo;s access to your app.</td>
-</tr>
-</tbody></table>
-
-<p>Each BigCommerce request is a <code class="prettyprint">GET</code> request and includes a signed payload that allows your app to:</p>
-
-<ul>
-<li>  Verify that the request came from BigCommerce.</li>
-<li>  Identify the store.</li>
-<li>  Identify the store owner or user.</li>
-</ul>
-
-<p>The remainder of this entry discusses:</p>
-
-<ul>
-<li>  <a href="#load_request">The load request and response</a>.</li>
-<li>  <a href="#uninstall">The Uninstall request</a>.</li>
-<li>  <a href="#remove-user">The Remove User request</a>.</li>
-<li>  <a href="#process">The signed payload</a>.</li>
-</ul>
-
-<h3 id="load-request-and-response"><span class="jumptarget"> <a name="load_request"></a> Load request and response</span></h3>
-
-<p>Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">Handling Requests Securely</span><br><br>
-The request comes from the client browser, rather than directly from BigCommerce. This allows you to use a non-publicly-available <b>Auth Callback URI</b> while testing your app.<br><br>
-
-For security, Auth and Load callback should be handled server-side. If you are building a client-side application (such as an AngularJS Single Page App), you should handle Auth and Load callbacks outside that application. Use a separate service that accepts the Auth and Load callback requests, generates tokens, validates requests, and then redirects the user to your client-side app&rsquo;s entry point.
-</aside>
-
-<p>The <code class="prettyprint">GET</code> request contains a signed payload, as shown below.</p>
-<pre class="highlight plaintext"><code>GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: app.example.com
-</code></pre>
-
-<p>Upon receiving a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong>, your app needs to <a href="#process">process the signed payload</a>.</p>
-
-<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="/api#ui-constraints">User&#160;Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
-
-<h3 id="uninstall-request-optional"><span class="jumptarget"> <a name="uninstall"></a> Uninstall request (optional)</span></h3>
-
-<p>Store owners have the option to uninstall any app at any time. When a store owner uninstalls an app, the app&rsquo;s OAuth token is revoked and the app cannot make requests to the Stores API on the store&rsquo;s behalf anymore.</p>
-
-<p>You do not need to provide an <strong>Uninstall Callback URI</strong>. The lack of an <strong>Uninstall Callback URI</strong> does not prevent uninstallation. Instead, the <strong>Uninstall Callback URI</strong> allows you to track store owners who uninstall your app and to run cleanup operations, such as removing the store&rsquo;s user accounts from your system.</p>
-
-<p>Should you choose to avail of this option and provide an <strong>Uninstall Callback URI</strong>, please note that it must be publicly available, fully qualified, and served over TLS/SSL. If provided, BigCommerce will send a <code class="prettyprint">GET</code> request to your <strong>Uninstall Callback URI</strong> when a store owner clicks to uninstall your app. An example follows.</p>
-<pre class="highlight plaintext"><code>GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: app.example.com
-</code></pre>
-
-<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#process">process the signed payload</a>.</p>
-
-<aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-Any HTML that you return in your response will not be rendered.
-</aside>
-
-<h3 id="remove-user-request-optional"><span class="jumptarget"> <a name="remove-user"></a> Remove User request (optional)</span></h3>
-
-<p>If you have not enabled <a href="/api/v2/multi-user">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <code class="prettyprint">GET</code> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
-<pre class="highlight plaintext"><code>GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
-Host: app.example.com
-</code></pre>
-
-<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#process">process the signed payload</a>.</p>
-
-<aside class="notice">
-<span class="aside-notice-hd">NOTE:</span>
-Any HTML that you return in your response will not be rendered.
-</aside>
-
-<h3 id="processing-the-signed-payload"><span class="jumptarget"> <a name="process"></a> Processing the signed payload</span></h3>
-
-<p>Processing the signed payload involves splitting and decoding it verifying the HMAC signature, and processing the JSON object. </p>
-
-<h4 id="splitting-and-decoding-the-signed-payload"><span class="jumptarget"> <a name="process"></a> Splitting and decoding the signed payload</span></h4>
-
-<p>The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC signature</a>. The parts are delimited by the <code class="prettyprint">.</code> character:</p>
-<pre class="highlight plaintext"><code>encoded_json_string.encoded_hmac_signature
-</code></pre>
-
-<p>To decode the signed payload, complete the following steps:</p>
-
-<ol>
-<li> Split <code class="prettyprint">signed_payload</code> into its two parts at the <code class="prettyprint">.</code> delimiter.</li>
-<li> Decode <code class="prettyprint">encoded_json_string</code> using base64url.</li>
-<li> Convert the decoded JSON string into an object. See <a href="#Identifying">Processing the JSON object</a> for more about this object.</li>
-<li> Decode <code class="prettyprint">encoded_hmac_signature</code> using base64url.</li>
-<li> Use your client secret to verify the signature. See the next section for more details.</li>
-</ol>
-
-<h4 id="verifying-the-hmac-signature"><span class="jumptarget"> Verifying the HMAC signature</span></h4>
-
-<p>To verify the payload, you need to sign the payload using your client secret, and confirm that it matches the signature that was sent in the request.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">Blocking Timing Attacks</span><br><br>
-To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-in-timing-attacks/" target="_blank">timing attacks</a>, we recommend using a constant time-string comparison function, rather than the equality operator, to check that the signatures match.
-</aside>
-
-<h5 id="examples"><span class="jumptarget"> Examples</span></h5>
-
-<ul>
-<li>  <a href="#strcmp-php">PHP</a></li>
-</ul>
-<pre class="highlight php"><code><span class="k">function</span> <span class="nf">verifySignedRequest</span><span class="p">(</span><span class="nv">$signedRequest</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">list</span><span class="p">(</span><span class="nv">$encodedData</span><span class="p">,</span> <span class="nv">$encodedSignature</span><span class="p">)</span> <span class="o">=</span> <span class="nb">explode</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span> <span class="nv">$signedRequest</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> 
-
-    <span class="c1">// decode the data
-</span>    <span class="nv">$signature</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$encodedSignature</span><span class="p">);</span>
-        <span class="nv">$jsonStr</span> <span class="o">=</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$encodedData</span><span class="p">);</span>
-    <span class="nv">$data</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$jsonStr</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-
-    <span class="c1">// confirm the signature
-</span>    <span class="nv">$expectedSignature</span> <span class="o">=</span> <span class="nb">hash_hmac</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">,</span> <span class="nv">$jsonStr</span><span class="p">,</span> <span class="nv">$clientSecret</span><span class="p">(),</span> <span class="nv">$raw</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">hash_equals</span><span class="p">(</span><span class="nv">$expectedSignature</span><span class="p">,</span> <span class="nv">$signature</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nb">error_log</span><span class="p">(</span><span class="s1">'Bad signed request from BigCommerce!'</span><span class="p">);</span>
-        <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre>
-
-<aside class="notice">
-<span class="aside-notice-hd">NOTE:</span> 
-<code>!hash_equals</code> is available in PHP 5.6 and later. If you are running an older version of PHP, pull in a compatibility library such as the following: <a href="https://packagist.org/packages/realityking/hash_equals" target="_blank">https://packagist.org/packages/realityking/hash_equals</a>. BigCommerce&rsquo;s sample app <NOBR><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank">hello-world-app-php-silex app</a></nobr> does this automatically.
-</aside>
-
-<ul>
-<li>  <a href="#strcmp-ruby">Ruby</a></li>
-</ul>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"base64"</span>
-<span class="nb">require</span> <span class="s2">"openssl"</span>
-
-<span class="k">def</span> <span class="nf">verify</span><span class="p">(</span><span class="n">signed_payload</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">)</span>
-  <span class="n">message_parts</span> <span class="o">=</span> <span class="n">signed_payload</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)</span>
-
-  <span class="n">encoded_json_payload</span> <span class="o">=</span> <span class="n">message_parts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-  <span class="n">encoded_hmac_signature</span> <span class="o">=</span> <span class="n">message_parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-  <span class="n">payload_object</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">strict_decode</span><span class="p">(</span><span class="n">encoded_json_payload</span><span class="p">)</span>
-  <span class="n">provided_signature</span> <span class="o">=</span> <span class="no">Base64</span><span class="p">.</span><span class="nf">strict_decode</span><span class="p">(</span><span class="n">encoded_hmac_signature</span><span class="p">)</span>
-
-  <span class="n">expected_signature</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">HMAC</span><span class="o">::</span><span class="n">hexdigest</span><span class="p">(</span><span class="s2">"sha256"</span><span class="p">,</span> <span class="n">client_secret</span><span class="p">,</span> <span class="n">payload_object</span><span class="p">)</span>
-
-  <span class="k">return</span> <span class="kp">false</span> <span class="k">unless</span> <span class="n">secure_compare</span><span class="p">(</span><span class="n">expected_signature</span><span class="p">,</span> <span class="n">provided_signature</span><span class="p">)</span>
-
-  <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">payload_object</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="k">def</span> <span class="nf">secure_compare</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-  <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">a</span><span class="p">.</span><span class="nf">blank?</span> <span class="o">||</span> <span class="n">b</span><span class="p">.</span><span class="nf">blank?</span> <span class="o">||</span> <span class="n">a</span><span class="p">.</span><span class="nf">bytesize</span> <span class="o">!=</span> <span class="n">b</span><span class="p">.</span><span class="nf">bytesize</span>
-  <span class="n">l</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="nf">unpack</span> <span class="s2">"C</span><span class="si">#{</span><span class="n">a</span><span class="p">.</span><span class="nf">bytesize</span><span class="si">}</span><span class="s2">"</span>
-
-  <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">b</span><span class="p">.</span><span class="nf">each_byte</span> <span class="p">{</span> <span class="o">|</span><span class="n">byte</span><span class="o">|</span> <span class="n">res</span> <span class="o">|=</span> <span class="n">byte</span> <span class="o">^</span> <span class="n">l</span><span class="p">.</span><span class="nf">shift</span> <span class="p">}</span>
-  <span class="n">res</span> <span class="o">==</span> <span class="mi">0</span>
-<span class="k">end</span>
-</code></pre>
-
-<h3 id="processing-the-json-object"><span class="jumptarget" id="Identifying"> Processing the JSON object</span></h3>
-
-<p>The JSON object embedded in the <code class="prettyprint">signed_payload</code> contains information about the BigCommerce store and the store owner or user.</p>
-
-<h4 id="identifying-the-store"><span class="jumptarget"> Identifying the store</span></h4>
-
-<p>You should use the store information to identify the store to which the request pertains.</p>
-
-<h4 id="interpreting-the-user-information"><span class="jumptarget"> Interpreting the user information</span></h4>
-
-<p>Interpreting the user information varies as follows:</p>
-
-<table><thead>
-<tr>
-<th>Request type</th>
-<th>Multiple users enabled</th>
-<th>Multiple users not enabled</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Load</td>
-<td>Compare the user information to see if it matches that of the store owner, received at the time of <a href="/api#callback">App Installation</a> or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage.</td>
-<td>The information should match that of the store owner, received at the time of <a href="/api#callback">App Installation</a>.</td>
-</tr>
-<tr>
-<td>Uninstall</td>
-<td>The user information should match that of the store owner. Only the store owner can uninstall your app.</td>
-<td>Should match the store owner.</td>
-</tr>
-<tr>
-<td>Remove user</td>
-<td>The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage.</td>
-<td>N/A</td>
-</tr>
-</tbody></table>
-
-<h4 id="json-values"><span class="jumptarget"> JSON Values</span></h4>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Data Type</th>
-<th>Value Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>user.id</td>
-<td>integer</td>
-<td>Unique identifier for the user who initiated the callback.</td>
-</tr>
-<tr>
-<td>user.email</td>
-<td>string</td>
-<td>Email address of the user who initiated the callback.</td>
-</tr>
-<tr>
-<td>owner.id</td>
-<td>integer</td>
-<td>Unique identifier for the user listed as the store owner.</td>
-</tr>
-<tr>
-<td>owner.email</td>
-<td>string</td>
-<td>Email address of the user listed as the store owner.</td>
-</tr>
-<tr>
-<td>context</td>
-<td>string</td>
-<td>The context value is part of the API path for this store and includes the store_hash.</td>
-</tr>
-<tr>
-<td>store_hash</td>
-<td>string</td>
-<td>Unique identifier for the store.</td>
-</tr>
-<tr>
-<td>timestamp</td>
-<td>float</td>
-<td>The time (in Unix time) when the callback was generated.</td>
-</tr>
-</tbody></table>
-
-<h4 id="json-example"><span class="jumptarget"> JSON Example</span></h4>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"user"</span><span class="p">:</span><span class="w">
-         </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9128</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"user@mybigcommerce.com"</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nt">"owner"</span><span class="p">:</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-         </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">9128</span><span class="p">,</span><span class="w">
-         </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"user@mybigcommerce.com"</span><span class="w">
-     </span><span class="p">},</span><span class="w">
-     </span><span class="nt">"context"</span><span class="p">:</span><span class="s2">"stores/z4zn3wo"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"store_hash"</span><span class="p">:</span><span class="s2">"z4zn3wo"</span><span class="p">,</span><span class="w">
-     </span><span class="nt">"timestamp"</span><span class="p">:</span><span class="mf">1469823892.9123988</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-          <h2 id="webhooks"><span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks </span></h2>
-
-<p><a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
-
-<p>For example, you might build an app that needs to know when:</p>
-
-<ul>
-<li>  An order is placed.</li>
-<li>  A product is added.</li>
-<li>  A customer record is updated.</li>
-</ul>
-
-<aside class="notice">
-<span class="aside-notice-hd">Webhooks Requirements and Limitations</span><br><br>
-Webhooks differ from the rest of the Stores API as follows:
-  <ul>
-    <li>OAuth is required; basic authentication is not supported.</li>
-    <li>Self-signed certificates are not supported.</li>
-    <li>JSON is required; XML is not supported.</li>
-  </ul>
-</aside>
-
-<p>All webhooks requests must include the following in their HTTP headers:</p>
-<pre class="highlight plaintext"><code>     Accept: application/json
-     Content-Type: application/json
-     X-Auth-Client: _the OAuth client id_
-     X-Auth-Token: _the OAuth token_
-</code></pre>
-
-<h3 id="prerequisites"><span class="jumptarget"> Prerequisites </span></h3>
-
-<p>Before you can send any requests or receive any responses, you will need the following:</p>
-
-<ul>
-<li>  <strong>A store:</strong> You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/">Partner Program</a>.</li>
-<li>  <strong>OAuth Client ID:</strong> Obtained during <a href="/api/v2/#registration">App Registration</a>.</li>
-<li>  <strong>OAuth token:</strong> Obtained during <a href="/api/v2/#installation">App Installation</a>.</li>
-<li>  <strong>Valid TLS/SSL setup:</strong> Verify your setup at the following site: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>.</li>
-</ul>
-
-<aside class="notice">
-<span class="aside-notice-hd">Connection Breakers</span><br><br>
-Any one of the following will cause a connection failure:
-  <ul>
-    <li>Hostname/DNS mismatch.</li>
-    <li>Self-signed certificate.</li>
-    <li>Intermediate certificates not loaded.</li>
-  </ul>
-</aside>
-
-<h3 id="creating-webhooks-sending-the-post-request"><span class="jumptarget"> Creating webhooks: Sending the POST request </span></h3>
-
-<p>To create a webhook, send a <code class="prettyprint">POST</code> request to the <code class="prettyprint">hooks</code> resource, including:</p>
-
-<ul>
-<li>  As the <code class="prettyprint">scope</code> value, the event for which you would like to receive notification. See next section for the list of possibilities.
-<aside class="notice">
-Wildcards are supported for <code>scope</code>.
-</aside></li>
-<li><p>As the <code class="prettyprint">destination</code> value, the callback&rsquo;s fully qualified URI.</p></li>
-<li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, Bigcommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from Bigcommerce instead of some other party, such as a malicious actor.</p></li>
-<li><p>By default, new webhooks will be set to be inactive and will have a blank value. If you want to create a webhook that should be active initially, you can also pass the following name-value pair: <code class="prettyprint">&quot;is_active&quot;: true</code>.</p></li>
-</ul>
-
-<p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Links above and below here still need to be set, after Slate file refactoring.
-</aside>
-
-<p>Please review the <a href="https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook">hooks resource</a> and <a href="https://developer.bigcommerce.com/api/objects/v2/webhook">webhook object</a> pages for more details.</p>
-
-<h4 id="list-of-webhook-events"><span class="jumptarget"> List of webhook events </span></h4>
-
-<ul>
-<li>  store/order/*</li>
-<li>  store/order/created</li>
-<li>  store/order/updated</li>
-<li>  store/order/archived</li>
-<li>  store/order/statusUpdated</li>
-<li>  store/product/*</li>
-<li>  store/product/created</li>
-<li>  store/product/updated</li>
-<li>  store/product/deleted</li>
-<li>  store/customer/*</li>
-<li>  store/customer/created</li>
-<li>  store/customer/updated</li>
-<li>  store/customer/deleted</li>
-<li>  store/app/uninstalled</li>
-</ul>
-
-<h3 id="receiving-webhook-callbacks"><span class="jumptarget"> Receiving webhook callbacks </span></h3>
-
-<p>You&rsquo;ll need to build an application, and configure your server, to receive the callback that we send when events are triggered.</p>
-
-<aside class="notice">
-<span class="aside-notice-hd">One-Minute Timeout</span><br><br>
-Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI.
-</aside>
-
-<h4 id="lightweight-callback-payload"><span class="jumptarget"> Lightweight callback payload </span></h4>
-
-<p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/products#get-a-product">Products resource</a>.</p>
-
-<p>An example payload follows.</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="nt">"store_id"</span><span class="p">:</span><span class="mi">11111</span><span class="p">,</span><span class="nt">"producer"</span><span class="p">:</span><span class="s2">"stores/abcde"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"store/order/statusUpdated"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">173331</span><span class="p">},</span><span class="nt">"hash"</span><span class="p">:</span><span class="s2">"3f9ea420af83450d7ef9f78b08c8af25b2213637"</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<h4 id="multiple-events-are-triggered-during-bulk-data-imports"><span class="jumptarget"> Multiple events are triggered during bulk data imports </span></h4>
-
-<p>Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on <code class="prettyprint">store/product/created</code>, when the merchant imports 2,000 products, then we will send 2,000 individual callback events.</p>
-
-<h4 id="payloads-are-serialized"><span class="jumptarget"> Payloads are serialized </span></h4>
-
-<p>Payloads are serialized per hook per store.</p>
-
-<p>In the future, we are looking at enabling a replay feature, allowing you to replay select events. What this means is, based on the serialized payload IDs, you can detect if you&rsquo;ve missed certain callbacks and then, via a future update, you will be able call a replay method to get the missing events.</p>
-
-<h3 id="respond-to-webhook-callbacks"><span class="jumptarget"> Respond to webhook callbacks </span></h3>
-
-<p>To acknowledge that you received the webhook without issue, your server should return a <code class="prettyprint">200 HTTP</code> status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the <code class="prettyprint">200</code> range, including <code class="prettyprint">3_xx_</code> codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will attempt to callback as described just below.</p>
-
-<h3 id="callback-retry-mechanism"><span class="jumptarget"> Callback retry mechanism </span></h3>
-
-<p>Webhooks will do their best to deliver the events to your callback URI. The dispatcher will attempt several retries until the maximum retry limit is reached, as follows:</p>
-
-<ul>
-<li>  Whenever a webhook gives a non-<code class="prettyprint">2_xx_</code> response, or times out, the app will be blocked for 60 seconds.</li>
-<li>  Webhooks created during that 60-second block will be queued up to send on the next scheduled retry attempt after the block expires, so that webhooks are not lost.</li>
-</ul>
-
-<p>The dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached, as follows:</p>
-
-<h4 id="retry-intervals"><span class="jumptarget"> Retry intervals </span></h4>
-
-<ol>
-<li> 60 seconds after the most recent failure</li>
-<li> 180 seconds after the most recent failure</li>
-<li> 300 seconds after the most recent failure</li>
-<li> 600 seconds after the most recent failure</li>
-<li> 900 seconds after the most recent failure</li>
-<li> 1800 seconds after the most recent failure</li>
-<li> 3600 seconds after the most recent failure</li>
-<li> 7200 seconds after the most recent failure</li>
-<li> 21600 seconds after the most recent failure</li>
-<li> 50400 seconds after the most recent failure</li>
-<li> 86400 seconds (24 hours) after the most recent failure</li>
-</ol>
-
-<p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/stores/v2/webhooks#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
-
-<h3 id="updating-a-webhook"><span class="jumptarget"> Updating a webhook </span></h3>
-
-<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#update-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
-
-<h3 id="deleting-a-webhook"><span class="jumptarget"> Deleting a webhook </span></h3>
-
-<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#delete-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
-
-<h3 id="troubleshooting"><span class="jumptarget"> Troubleshooting </span></h3>
-
-<p>Below are remedies for certain errors commonly encountered with webhooks:</p>
-
-<h4 id="not-receiving-the-post-requests-to-my-callback-uri"><span class="jumptarget"> Not receiving the POST requests to my callback URI </span></h4>
-
-<p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
-
-<p>You can proactively check to make sure that everything is OK by periodically making a GET request and checking the <code class="prettyprint">is_active</code> flag.</p>
-
-<p>If you receive an email or discover that the <code class="prettyprint">is_active</code> flag has been flipped to <code class="prettyprint">false</code>, try the following:</p>
-
-<ul>
-    <li>Check to see if your app is responding to the POST request with something other than <code>HTTP 200</code>.</li>
-    <li>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </li>
-    <ul>
-        <li>Self-signed certificate.</li>
-        <li>Host name of the certificate does not match the server&rsquo;s DNS.</li>
-    <li>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust.</li>
-    </ul>
-</ul>
-
-<p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
-
-<h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook"><span class="jumptarget"> Not receiving an HTTP 201 response after sending POST to create webhook </span></h4>
-
-<p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks_intro">introduction</a> above.</p>
-
-<h3 id="tools-for-debugging-and-testing-webhooks"><span class="jumptarget"> Tools for Debugging and Testing Webhooks </span></h3>
-
-<p>We recommend these diagnostic tools: </p>
-
-<h5 id="requestbin"><span class="jumptarget"> RequestBin </span></h5>
-
-<p>While planning your integration, <a href="http://requestb.in/">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.</p>
-
-<h5 id="ngrok"><span class="jumptarget"> ngrok </span></h5>
-
-<p>As you are building your integration, you might want the abilty to test webhooks on your dev machines.</p>
-
-<p>We suggest using <a href="https://ngrok.com/">ngrok</a>, which you can use to easily set up tunnels between a server running on <code class="prettyprint">localhost</code> and a public URL.</p>
-
-<p>This will enable you to send our webhooks to your <code class="prettyprint">localhost</code> environments via a public URL. No production push is required.</p>
-
-          <h2 id="multi-user-support"><span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span></h2>
-
-<p>When you register your app with Bigcommerce, if you <a href="/api#multiuser">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="/api#basic-auth">basic-auth apps</a>.</p>
-
-<h3 id="enable-multi-user-support"><span class="jumptarget"> Enable multi-user support</span></h3>
-
-<p>As soon as you <a href="/api#multiuser">enable multi-user support</a>, this affects the control panel of any store that has your app installed. If you already have an app published in the App Store, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.</p>
-
-<blockquote>
-<p>NOTE: Let your customers know that you&rsquo;ve enabled this feature! Otherwise, they won&rsquo;t know that they can start granting access to users.</p>
-</blockquote>
-
-<p>To opt into multi-user support:</p>
-
-<ol>
-<li> Log into <strong>My Apps</strong>.</li>
-<li> In the <strong>Technical</strong> panel &gt; <strong>Supported Features</strong> area, select <strong>Multiple Users</strong>.</li>
-<li> In the <strong>Remove User Callback URI</strong> box, provide a <strong>Remove User Callback URI</strong>.</li>
-<li> Save and close your app.</li>
-</ol>
-
-<h3 id="about-the-control-panel-experience"><span class="jumptarget"> About the control-panel experience</span></h3>
-
-<p>Store admins will be able to adjust user permissions to grant/deny other store users&rsquo; access to your app.</p>
-
-<p>The next time the user logs in, they will see any apps for which they have been granted access. The user can then click on the app icon in the left navigation to load it.</p>
-
-<p>Use your draft app and your sandbox store to review this behavior.</p>
-
-<h3 id="about-the-load-request"><span class="jumptarget"> About the load request</span></h3>
-
-<p>Apps with multiple users enabled can expect more than just the store owner&rsquo;s email and ID in the JSON object sent in the load request. If a load request is sent with user information you haven&rsquo;t seen yet, you should provision the user account and associate it with the store in your database.</p>
-
-<p>Because you know the store owner&rsquo;s email and ID from the <a href="/api#callback">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:</p>
-
-<ul>
-<li>  <strong>Store owner</strong>: Can install, uninstall, and load apps.</li>
-<li>  <strong>Users</strong>: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.</li>
-</ul>
-
-<p>Review <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a> for more information.</p>
-
-<h3 id="about-the-remove-user-request"><span class="jumptarget"> About the remove user request </span></h3>
-
-<p>In addition to their ability to add users, store admins can also remove users. This action results in a <code class="prettyprint">**GET**</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete from its records the user identified in the request.</p>
-
-<p>For further information, please see <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a>.</p>
-
-          <h2 id="ui-constraints"><span class="jumptarget"> UI Constraints </span></h2>
-
-<p>OAuth apps benefit from a high level of integration with the BigCommerce platform. Users interacting with your app will enjoy a seamless experience. BigCommerce achieves this by rendering your app&rsquo;s user interface inside of an iframe within the control panel. To ensure acceptance into the App Store, your app should be able to perform all of its functions inside of the iframe.</p>
-
-<p>While very usable and friendly, the iframe approach does require special attention from app developers. The remainder of this page discusses several functional areas to consider when designing and developing your app.</p>
-
-<ul>
-<li>  <a href="#mixed">Mixed content</a></li>
-<li>  <a href="#xss">Same-origin policies</a></li>
-<li>  <a href="#p3p">P3P and cookies</a></li>
-</ul>
-
-<h3 id="about-mixed-content"><span class="jumptarget"> About mixed content </span></h3>
-
-<p>The BigCommerce control panel is served over TLS/SSL. Your app must be hosted on a web server that accepts and sends TLS/SSL requests. In addition, all of the resources referenced in the HTML that you present to the end users must be served over TLS/SSL. You may find protocol-agnostic addressing helpful.</p>
-
-<p>If the user interface retrieves images, scripts, or other assets over a connection not encrypted with TLS/SSL, the user will experience errors and possibly an inability to interact with your app. Before submitting your app, use an <a href="https://www.jitbit.com/sslcheck/">online crawler</a> to check for insecure content.</p>
-
-<h3 id="about-same-origin-policies"><span class="jumptarget"> About same-origin policies </span></h3>
-
-<p><a href="http://en.wikipedia.org/wiki/Same-origin_policy">Same-origin policies</a> restrict apps running within iframes from performing certain activities, such as interacting with other services and making OAuth connections. While apps that operate within the BigCommerce iframe get strong preference during App Store considerations, we sometimes make exceptions for apps that need to interact with, and authenticate to, other services. If your app requires this, we advise you to open a new tab for actions that cannot occur within the iframe.</p>
-
-<h3 id="about-p3p-and-cookies"><span class="jumptarget"> About P3P and cookies </span></h3>
-
-<p>Internet Explorer is one of the browsers that BigCommerce <a href="/api/browsers">supports</a> and our merchants do use it to access the control panel. If your app needs to set a cookie, you will need to craft a <a href="http://en.wikipedia.org/wiki/P3P">P3P policy</a>. Otherwise, your app will experience issues on Internet Explorer. Please review the following pages for more information.</p>
-
-<ul>
-<li>  <a href="http://www.techrepublic.com/blog/software-engineer/craft-a-p3p-policy-to-make-ie-behave/">Craft a P3P policy to make IE behave</a></li>
-<li>  <a href="http://blogs.msdn.com/b/ieinternals/archive/2013/09/17/simple-introduction-to-p3p-cookie-blocking-frame.aspx">MSDN Intro to P3P Cookie Blocking</a></li>
-</ul>
-
-          <h2 id="oauth-scopes"><span class="jumptarget"> <a name="scopes"></a> OAuth Scopes </span></h2>
-
-<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api/v2/#installation">installation or scope updates</a>.</p>
-
-<p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
- All links in the right column need to be re-set!
-</aside>
-
-<table><thead>
-<tr>
-<th>Scope GUI Name</th>
-<th>Scope Strings</th>
-<th>Resources</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Content</td>
-<td><strong>store_v2_content</strong></td>
-<td><a href="/api/stores/v2/blog/posts">blog/posts</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_content_read_only</strong></td>
-<td><a href="/api/stores/v2/blog/tags">blog/tags</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/redirects">redirects</a></td>
-</tr>
-<tr>
-<td>Customers</td>
-<td><strong>store_v2_customers</strong></td>
-<td><a href="/api/stores/v2/customers">customers</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_customers_read_only</strong></td>
-<td><a href="/api/stores/v2/customers/addresses">customers/{id}/addresses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
-</tr>
-<tr>
-<td>Customer Login</td>
-<td><strong>store_v2_customers_login</strong></td>
-<td>[Grants access to <a href="/api/v2/#customer-storefront-login">Customer Login API</a>)]</td>
-</tr>
-<tr>
-<td>Default</td>
-<td><strong>default</strong></td>
-<td><a href="/api/stores/v2/countries">countries</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/countries/states">countries/{id}/states</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/webhooks">hooks</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/time">time</a></td>
-</tr>
-<tr>
-<td>Information</td>
-<td><strong>store_v2_information</strong></td>
-<td><a href="/api/stores/v2/payments/methods">payments/methods</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_information_read_only</strong></td>
-<td><a href="/api/stores/v2/shipping/methods">shipping/methods</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/store_information">store</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/tax_classes">tax_classes</a></td>
-</tr>
-<tr>
-<td>Marketing</td>
-<td><strong>store_v2_marketing</strong></td>
-<td><a href="/api/stores/v2/coupons">coupons</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_marketing_read_only</strong></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/gift_certificates">gift_certificates</a></td>
-</tr>
-<tr>
-<td>Orders</td>
-<td><strong>store_v2_orders</strong></td>
-<td><a href="/api/stores/v2/orders">orders</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_orders_read_only</strong></td>
-<td><a href="/api/stores/v2/orders/coupons">orders/{id}/coupons</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/messages">orders/{id}/messages</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/products">orders/{id}/products</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/shipping_addresses">orders/{id}/shipping_addresses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/order_statuses">orders/{id}/order_statuses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/taxes">orders/{id}/taxes</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/shipments">orders/{id}/shipments</a></td>
-</tr>
-<tr>
-<td>Products</td>
-<td><strong>store_v2_products</strong></td>
-<td><a href="/api/stores/v2/brands">brands</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_products_read_only</strong></td>
-<td><a href="/api/stores/v2/products/discount_rules">products/{id}/discount_rules</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/categories">categories</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/configurable_fields">products/{id}/configurable_fields</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/custom_fields">products/{id}/custom_fields</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/googleproductsearch">products/{id}/googleproductsearch</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-options">options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#option-sets">option_sets</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#option-sets-options">option_sets/{id}/options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-option-values">options/{id}/values</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products">products</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-images">products/{id}/images</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-options">products/{id}/options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-reviews">products/{id}/reviews</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-rules">products/{id}/rules</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#products-videos">products/{id}/videos</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-skus">products/{id}/skus</a></td>
-</tr>
-</tbody></table>
-
-          <h2 id="rate-limits"><span class="jumptarget"> <a name="rate-limits_oauth"></a> Rate Limits </span></h2>
-
-<p>Apps that authenticate with OAuth are rate limited based on a quota that is refreshed every five seconds. The maximum quota for a store will vary depending on the store’s <a href="https://www.bigcommerce.com/pricing/" target="_blank"> plan </a>.</p>
-
-<p>Each request to the API consumes one available request from the quota. When an app hits the quota limit, subsequent requests are rejected until the quota is refreshed.</p>
-
-<p>The store’s overall quota is evenly distributed across all apps that are accessing that store. This provides fairness for multiple apps that are accessing the API simultaneously, preventing a single greedy app from consuming the store’s entire quota by itself.</p>
-
-<h3 id="playing-nicely-with-the-platform">Playing Nicely with The Platform</h3>
-
-<p>Honoring the rate limiter is very easy:</p>
-
-<p>If your request to the API triggers a <strong>429 Too Many Requests</strong> response, then you know you’ve been limited.</p>
-
-<p>The rate-limited response will contain the <strong>X-Retry-After</strong> header, specifying a time (in seconds) that your client must wait before its quota has refreshed.</p>
-
-<p>Retry the request after this time has elapsed, and your API service will resume as normal.</p>
-
-<h4 id="example">Example</h4>
-
-<p>When you see a response with a <code class="prettyprint">429</code> status code, your client shouldn’t make any further requests until your quota has refreshed:</p>
-<pre class="highlight plaintext"><code>    HTTP/1.1 429 Too Many Requests
-    Date: Mon, 03 Feb 2014 20:36:00 GMT
-    Content-Type: application/json
-    X-Retry-After: 15
-</code></pre>
-
-<p>Parse the <strong>X-Retry-After</strong> header to determine how long you have to wait. In this case, it would be 15 seconds.</p>
-
-<p>Your client can sleep on the specified interval:</p>
-<pre class="highlight plaintext"><code>    $seconds = $response-&gt;getHeader("X-Retry-After");
-    sleep($seconds);
-</code></pre>
-
-<p>After waiting for the given number of seconds, you can go back to making API requests.</p>
-
-          <h2 id="app-store-approval-requirements"><span class="jumptarget" id="approval"> App Store Approval Requirements </span></h2>
-
-<p>Our submission guidelines aim to protect the merchant experience, and to provide enough structure for you to develop apps efficiently and effectively:</p>
-
-<ul>
-<li><p>Apps must perform as described.</p></li>
-<li><p>All information supplied as part of the app submission process must be genuine and accurate.</p></li>
-<li><p>Apps must provide pricing information – including pricing for starting a new service, and the cost of services after the free trial.</p></li>
-<li><p>All API requests must be made using OAuth authentication.</p></li>
-<li><p>Apps must be production-ready and free of defects.
-<aside class="warning">
-<span class="aside-warning-hd">Test before Submitting </span><br>
-Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
-</aside></p></li>
-<li><p>Apps must function properly on all <a href="/api/browsers">supported browsers</a>, and must conform to the <a href="/api/v2/#ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
-<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
-<li><p>Apps must be easy to use.</p></li>
-<li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information, rather than prompting the user. BigCommerce will reject apps requesting information that can be auto-filled.</p>
-
-<aside class="notice">
-<span class="aside-notice-hd">Auto-Filling API</span><br> You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
-</aside></li>
-<li><p>The user ID and email address from the <a href="/api/load#process">OAuth flow</a> should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.</p></li>
-<li><p>Apps must return some HTML in response to GET requests to the <a href="/api/load#process">Auth Callback URI</a>.</p></li>
-<li><p>Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.</p></li>
-<li><p>No competitor integrations or references should appear in the app or in marketing materials.</p></li>
-<li><p>Any instances of the BigCommerce brand name must match current branding, i.e., one word with an uppercase &ldquo;C&rdquo;.</p></li>
-<li><p>Apps must have all required information and files discussed in <a href="/api/completing-reg">App Submission</a>.</p></li>
-</ul>
-
-<h3 id="types-of-apps-we-39-re-accepting"><span class="jumptarget" id="apps-accepted"> Types of apps we&rsquo;re accepting </span></h3>
-
-<table><thead>
-<tr>
-<th>Accepting</th>
-<th>Not accepting</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Accounting</td>
-<td>Real-Time Tax</td>
-</tr>
-<tr>
-<td>Advertising</td>
-<td>Customized Checkout</td>
-</tr>
-<tr>
-<td>Analytics</td>
-<td>Real-time Shipping Rate updates</td>
-</tr>
-<tr>
-<td>Cloud integration</td>
-<td>Payment Methods</td>
-</tr>
-<tr>
-<td>Customer feedback</td>
-<td></td>
-</tr>
-<tr>
-<td>Drop shipping</td>
-<td></td>
-</tr>
-<tr>
-<td>Email marketing</td>
-<td></td>
-</tr>
-<tr>
-<td>Live chat</td>
-<td></td>
-</tr>
-<tr>
-<td>Marketing</td>
-<td></td>
-</tr>
-<tr>
-<td>Merchandising</td>
-<td></td>
-</tr>
-<tr>
-<td>Mobile</td>
-<td></td>
-</tr>
-<tr>
-<td>Multichannel listing</td>
-<td></td>
-</tr>
-<tr>
-<td>Order fulfillment</td>
-<td></td>
-</tr>
-<tr>
-<td>Order management</td>
-<td></td>
-</tr>
-<tr>
-<td>Point of sale</td>
-<td></td>
-</tr>
-<tr>
-<td>Product review</td>
-<td></td>
-</tr>
-<tr>
-<td>Shipping</td>
-<td></td>
-</tr>
-<tr>
-<td>Shopping comparison</td>
-<td></td>
-</tr>
-<tr>
-<td>Social media</td>
-<td></td>
-</tr>
-<tr>
-<td>Split testing</td>
-<td></td>
-</tr>
-</tbody></table>
-
-<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
-
-          <h1 id="building-basic-auth-apps"><span class="jumptarget"> Building Basic-Auth Apps </span></h1>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE – tK:</span>
-We still need to migrate this section&rsquo;s whole content! 
-</aside>
-
-          <h1 id="client-libraries"><span class="jumptarget"> Client Libraries </span></h1>
-
-<h2 id="official-bigcommerce-sdks"><span class="jumptarget"> Official Bigcommerce SDKs </span></h2>
-
-<p>Bigcommerce provides and maintains the following full-featured SDKs in a variety of languages.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-php">PHP</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-ruby">Ruby</a></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">The official Bigcommerce PHP client, with minimal external dependencies. Uses either OAuth or Basic Authentication.</td>
-<td style="text-align: left">The official Bigcommerce Ruby client. Uses either OAuth or Basic Authentication.</td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-python"><strong>Python</strong></a></td>
-<td style="text-align: left"></td>
-</tr>
-<tr>
-<td style="text-align: left">The official Bigcommerce Python client, available as a PyPi package. Uses either OAuth or Basic Authentication.</td>
-<td style="text-align: left"></td>
-</tr>
-</tbody></table>
-
-<h2 id="official-bigcommerce-oauth-hello-world-apps"><span class="jumptarget"> Official Bigcommerce OAuth Hello World Apps </span></h2>
-
-<p>Bigcommerce provides and maintains the following hello world apps in a variety of languages. These allow you to get a quick start with your OAuth app development.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-php-silex">Silex</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-ruby-sinatra">Sinatra</a></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code class="prettyprint">PHP</code></td>
-<td style="text-align: left"><code class="prettyprint">RUBY</code></td>
-</tr>
-<tr>
-<td style="text-align: left">A sample app written in PHP, using <a href="http://silex.sensiolabs.org/">Silex</a> and <a href="http://docs.guzzlephp.org/en/latest/">Guzzle</a>.</td>
-<td style="text-align: left">A sample app written in Ruby, using <a href="http://www.sinatrarb.com/">Sinatra</a> with <a href="http://datamapper.org/">DataMapper</a> and <a href="http://rubydoc.info/github/rest-client/rest-client">RestClient</a>.</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-python-flask">Flask</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/omniauth-bigcommerce">OmniAuth</a></th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><code class="prettyprint">Python</code></td>
-<td style="text-align: left"><code class="prettyprint">Ruby</code></td>
-</tr>
-<tr>
-<td style="text-align: left">A sample app written in Python, using <a href="http://flask.pocoo.org/">Flask</a>.</td>
-<td style="text-align: left">A Ruby gem that allows you to authenticate using <a href="https://github.com/intridea/omniauth/wiki">OmniAuth</a>.</td>
-</tr>
-</tbody></table>
-
-<h2 id="community-contributed-libraries"><span class="jumptarget"> Community Contributed Libraries </span></h2>
-
-<p>The following libraries and tools have been contributed by our community. They’re not officially supported, but we think they’re great.</p>
-
-<table><thead>
-<tr>
-<th style="text-align: left">PHP</th>
-<th style="text-align: left">Python</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="https://github.com/adambilsing/PHP-cURL-lib-for-Bigcommerce-API">PHP-cURL-lib-for-Bigcommerce-API</a></td>
-<td style="text-align: left"><a href="https://github.com/Clean-Cole/python-bigcommerce-api">python-bigcommerce-api</a></td>
-</tr>
-<tr>
-<td style="text-align: left"><a href="https://github.com/kalley/laravel-bigcommerce">laravel-bigcommerce</a></td>
-<td style="text-align: left"><a href="https://github.com/Dania02525/Bigcommerce-api-elixir">bigcommerce-api-elixir</a></td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Ruby</th>
-<th style="text-align: left">C#</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="https://github.com/whiplashmerch/bigcommerce_api">bigcommerce_api</a></td>
-<td style="text-align: left"><a href="https://github.com/jmawebtech/bigcommercerestapi">bigcommercerestapi</a></td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th style="text-align: left">Node.js</th>
-<th style="text-align: left">.NET</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left"><a href="https://github.com/Receiptful/node-bigcommerce">node-bigcommerce</a></td>
-<td style="text-align: left"><a href="https://github.com/worstone/BigCommerce4Net">BigCommerce4Net</a></td>
-</tr>
-</tbody></table>
-
-          <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
-
-<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
-
-<h2 id="2xx-success"><span class="jumptarget"> 2xx Success </span></h2>
-
-<p>These codes are returned for requests that were understood and processed successfully.</p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Definition</th>
-<th>Purpose</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>200</strong></td>
-<td><strong>OK</strong></td>
-<td>For successful <strong>GET</strong> and <strong>PUT</strong> requests.</td>
-</tr>
-<tr>
-<td><strong>201</strong></td>
-<td><strong>Created</strong></td>
-<td>For a successful <strong>POST</strong> request.</td>
-</tr>
-<tr>
-<td><strong>202</strong></td>
-<td><strong>Accepted</strong></td>
-<td>For a request that resulted in a scheduled task being created to perform the actual request.</td>
-</tr>
-<tr>
-<td><strong>204</strong></td>
-<td><strong>No Content</strong></td>
-<td>For a successful request that produced no response (such as <strong>DELETE</strong> requests).</td>
-</tr>
-</tbody></table>
-
-<h2 id="3xx-redirection"><span class="jumptarget"> 3xx Redirection </span></h2>
-
-<p>These codes are returned for requests that have resulted in the client needing to take further action to complete the request.</p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Definition</th>
-<th>Purpose</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>301</strong></td>
-<td><strong>Moved Permanently</strong></td>
-<td>When the API routes have changed (unlikely) or if the incoming request is not secure (http) then it will be redirect to the secure (https) version.</td>
-</tr>
-<tr>
-<td><strong>302</strong></td>
-<td><strong>Found</strong></td>
-<td>When the resource was found at a different location. When a request to a deprecated version of the API is received, a <strong>302 Found</strong> response will be issued to the current API version.</td>
-</tr>
-<tr>
-<td><strong>304</strong></td>
-<td><strong>Not Modified</strong></td>
-<td>If an <strong>If-Modified-Since</strong> header is sent in the request and the resource has not been modified since the specified date, then this response will be sent. See resource specific pages for support for the <strong>If-Modified-Since</strong> header.</td>
-</tr>
-</tbody></table>
-
-<h2 id="4xx-client-error"><span class="jumptarget"> 4xx Client Error </span></h2>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Definition</th>
-<th>Purpose</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>400</strong></td>
-<td><strong>Bad Request</strong></td>
-<td>Issued when a malformed request was sent. Examples follow.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   Invalid syntax</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   Missing required data</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   Webhook requests missing <strong>Content-Type</strong> in the HTTP header.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>401</strong></td>
-<td><strong>Unauthorized</strong></td>
-<td>This response is sent when your client failed to provide credentials or its credentials were invalid.</td>
-</tr>
-<tr>
-<td><strong>403</strong></td>
-<td><strong>Forbidden</strong></td>
-<td>Returned when permissions do not allow the operation or when the operation exceeds a limit.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested and if they support the request that you made.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Revert those changes to correct this issue.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. Refer to the documentation of the resource in question for more information.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>404</strong></td>
-<td><strong>Not Found</strong></td>
-<td>When a particular resource doesn’t exist or couldn’t be found.</td>
-</tr>
-<tr>
-<td><strong>405</strong></td>
-<td><strong>Method Not Allowed</strong></td>
-<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <strong>PUT</strong> on <strong>/orders</strong> is invalid, but <strong>PUT</strong> on <strong>/orders/{<em>id</em>}</strong> is valid.</td>
-</tr>
-<tr>
-<td><strong>406</strong></td>
-<td><strong>Not Acceptable</strong></td>
-<td>When the client specifies a response content type in the <strong>Accept</strong> header that is not supported.</td>
-</tr>
-<tr>
-<td><strong>409</strong></td>
-<td><strong>Conflict</strong></td>
-<td>A change requested by the client is being rejected due to a condition imposed by the server. The exact reasons response for this will vary from one resource to the next. Examples may include attempting to delete a category which would result in products being orphaned. Additional information about the conflict and how to resolve it may be available in the <strong>details</strong> section of the response.</td>
-</tr>
-<tr>
-<td><strong>413</strong></td>
-<td><strong>Request Entity Too Large</strong></td>
-<td>When the client requests too many objects. For example, the <strong>limit</strong> parameter exceeded the maximum.</td>
-</tr>
-<tr>
-<td><strong>415</strong></td>
-<td><strong>Unsupported Media Type</strong></td>
-<td>Returned due to issues with the <strong>Content-Type</strong> header.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   It specifies an unsupported content type.</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td>*   It is missing (except the webhooks resource, which returns a 400 in this case).</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><strong>429</strong></td>
-<td><strong>Too Many Requests</strong></td>
-<td>When an OAuth client exceeds the rate limit for API requests to a store.</td>
-</tr>
-</tbody></table>
-
-<h2 id="5xx-server-error"><span class="jumptarget"> 5xx Server Error </span></h2>
-
-<p>These codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
-
-<table><thead>
-<tr>
-<th>Code</th>
-<th>Definition</th>
-<th>Purpose</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><strong>500</strong></td>
-<td><strong>Internal Server Error</strong></td>
-<td>When an error has occurred within the API.</td>
-</tr>
-<tr>
-<td><strong>501</strong></td>
-<td><strong>Not Implemented</strong></td>
-<td>When a request method is sent that is not supported by the API (e.g., <strong>TRACE</strong>, <strong>PATCH</strong>).</td>
-</tr>
-<tr>
-<td><strong>503</strong></td>
-<td><strong>Service Unavailable</strong></td>
-<td>When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version.</td>
-</tr>
-<tr>
-<td><strong>507</strong></td>
-<td><strong>Insufficient Storage</strong></td>
-<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit).</td>
-</tr>
-<tr>
-<td><strong>509</strong> (Deprecated)</td>
-<td><strong>Bandwidth Limit Exceeded</strong></td>
-<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
-</tr>
-</tbody></table>
-
-          <h2 id="oauth-scopes"><span class="jumptarget"> <a name="scopes"></a> OAuth Scopes </span></h2>
-
-<p>The following table identifies the name used for each OAuth scope in the My Apps and control panel GUIs, along with the corresponding resources and the strings that get passed to your app during apps&rsquo; <a href="/api/v2/#installation">installation or scope updates</a>.</p>
-
-<p>All OAuth scopes except <code class="prettyprint">default</code> have <code class="prettyprint">read_only</code> scopes that allow only <code class="prettyprint">GET</code> and <code class="prettyprint">HEAD</code> requests.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
- All links in the right column need to be re-set!
-</aside>
-
-<table><thead>
-<tr>
-<th>Scope GUI Name</th>
-<th>Scope Strings</th>
-<th>Resources</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Content</td>
-<td><strong>store_v2_content</strong></td>
-<td><a href="/api/stores/v2/blog/posts">blog/posts</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_content_read_only</strong></td>
-<td><a href="/api/stores/v2/blog/tags">blog/tags</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/redirects">redirects</a></td>
-</tr>
-<tr>
-<td>Customers</td>
-<td><strong>store_v2_customers</strong></td>
-<td><a href="/api/stores/v2/customers">customers</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_customers_read_only</strong></td>
-<td><a href="/api/stores/v2/customers/addresses">customers/{id}/addresses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/customer_groups">customer_groups</a></td>
-</tr>
-<tr>
-<td>Customer Login</td>
-<td><strong>store_v2_customers_login</strong></td>
-<td>[Grants access to <a href="/api/v2/#customer-storefront-login">Customer Login API</a>)]</td>
-</tr>
-<tr>
-<td>Default</td>
-<td><strong>default</strong></td>
-<td><a href="/api/stores/v2/countries">countries</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/countries/states">countries/{id}/states</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/webhooks">hooks</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/time">time</a></td>
-</tr>
-<tr>
-<td>Information</td>
-<td><strong>store_v2_information</strong></td>
-<td><a href="/api/stores/v2/payments/methods">payments/methods</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_information_read_only</strong></td>
-<td><a href="/api/stores/v2/shipping/methods">shipping/methods</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/store_information">store</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/tax_classes">tax_classes</a></td>
-</tr>
-<tr>
-<td>Marketing</td>
-<td><strong>store_v2_marketing</strong></td>
-<td><a href="/api/stores/v2/coupons">coupons</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_marketing_read_only</strong></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/gift_certificates">gift_certificates</a></td>
-</tr>
-<tr>
-<td>Orders</td>
-<td><strong>store_v2_orders</strong></td>
-<td><a href="/api/stores/v2/orders">orders</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_orders_read_only</strong></td>
-<td><a href="/api/stores/v2/orders/coupons">orders/{id}/coupons</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/messages">orders/{id}/messages</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/products">orders/{id}/products</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/shipping_addresses">orders/{id}/shipping_addresses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/order_statuses">orders/{id}/order_statuses</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/taxes">orders/{id}/taxes</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/orders/shipments">orders/{id}/shipments</a></td>
-</tr>
-<tr>
-<td>Products</td>
-<td><strong>store_v2_products</strong></td>
-<td><a href="/api/stores/v2/brands">brands</a></td>
-</tr>
-<tr>
-<td></td>
-<td><strong>store_v2_products_read_only</strong></td>
-<td><a href="/api/stores/v2/products/discount_rules">products/{id}/discount_rules</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/categories">categories</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/configurable_fields">products/{id}/configurable_fields</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/custom_fields">products/{id}/custom_fields</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/stores/v2/products/googleproductsearch">products/{id}/googleproductsearch</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-options">options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#option-sets">option_sets</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#option-sets-options">option_sets/{id}/options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-option-values">options/{id}/values</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products">products</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-images">products/{id}/images</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-options">products/{id}/options</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-reviews">products/{id}/reviews</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-rules">products/{id}/rules</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#products-videos">products/{id}/videos</a></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><a href="/api/v2/products/#product-skus">products/{id}/skus</a></td>
-</tr>
-</tbody></table>
-
-          <h1 id="supported-browsers"><span class="jumptarget"> Supported Browsers </span></h1>
-
-<p>Below are the browsers supported for the BigCommerce control panel. We drop support when a version falls below 2% of usage. The browsers are sorted by popularity, with the most popular browsers at the top.</p>
-
-<table><thead>
-<tr>
-<th>Desktop</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Chrome latest</td>
-</tr>
-<tr>
-<td>Firefox latest</td>
-</tr>
-<tr>
-<td>Internet Explorer 10 or later</td>
-</tr>
-<tr>
-<td>Safari latest</td>
-</tr>
-</tbody></table>
-
-<p>For a current list of target browsers (desktop and mobile) supported for <em>storefronts</em> that use BigCommerce themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers">this support page</a>.</p>
-
-          <h1 id="app-submission"><span class="jumptarget"> App Submission </span></h1>
-
-<p>When you first get up and running with your app development, you will leave many fields in <code class="prettyprint">My Apps</code> blank, as discussed in the <a href="/api/registration">App&#160;Registration</a> section. Before submitting your app for consideration, you must come back through the <code class="prettyprint">My Apps</code> wizard and fill in the missing information. This section discusses each page of the wizard, and identifies the information and files required for App Store approval.</p>
-
-<aside class="warning">
-<span class="aside-warning-hd">Check for Complete Information</span><br><br>
-The wizard validates for your Partner user name and ID, as well as for correctly formatted URLs. However, additional information is required to get your app accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.
-</aside>
-
-<h2 id="app-summary"><span class="jumptarget"> App Summary</h2>
-
-<p>The required fields in the <code class="prettyprint">App Summary</code> panel are identified and discussed below:</p>
-
-<ul>
-<li><p><code class="prettyprint">Username</code>: your Partner Portal user name.</p></li>
-<li><p><code class="prettyprint">Partner ID</code>: your Partner Portal ID.</p></li>
-<li><p><code class="prettyprint">Logo</code>: upload the image that you want to be displayed in the <a href="https://www.bigcommerce.com/apps/">App Store</a>. To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.</p></li>
-<li><p><code class="prettyprint">Price</code>: defaults to <code class="prettyprint">Free</code>. If you do not want to receive any monies for your app, you can leave this in place. Otherwise, select the price that you want to charge merchants. NOTE: if you select <code class="prettyprint">Free Trial</code>, make sure that you select a price to charge at the end of the trial period.</p></li>
-<li><p><code class="prettyprint">Summary</code>: a brief description of your app (your value proposition) to show alongside the logo in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p></li>
-<li><p><code class="prettyprint">Category</code>: select at least one.</p></li>
-</ul>
-
-<h2 id="details"><span class="jumptarget"> Details </span></h2>
-
-<p>All of the fields in the <code class="prettyprint">Details</code> panel are required. Each is discussed below:</p>
-
-<ul>
-<li><p><code class="prettyprint">App Details</code>: provide a bulleted list of features or benefits, as well as which payment gateways/options the app supports.</p></li>
-<li><p><code class="prettyprint">App Screenshots</code>: at least one is required. You can include up to four. Screenshots should be 860 by 560 pixels.</p></li>
-</ul>
-
-<h2 id="launch-bar"><span class="jumptarget"> Launch Bar </span></h2>
-
-<p>You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant&rsquo;s Control Panel once your app has been installed.</p>
-
-<p>Bigcommerce also provides the option to provide &ldquo;deep links,&rdquo; which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.</p>
-
-<h2 id="technical"><span class="jumptarget"> Technical </span></h2>
-
-<p>You will have already provided much of the information during the initial <a href="/api/registration">app registration</a>. However, before submitting, review the information that you provided initially to make sure that all of the URIs are publicly available, fully qualified, and served over TLS/SSL. In addition, ensure that your app is requesting all of the scopes that it needs now, as well as the scopes that you anticipate needing in the future. Currently, we do not offer the ability to refresh tokens.</p>
-
-<p>You must also provide detailed testing instructions as well as test accounts prior to submission.</p>
-
-<h2 id="submitting-your-app"><span class="jumptarget"> Submitting your App </span></h2>
-
-<p>You can submit your app from the last panel. A fee of $99 is required for each submission. If your app is rejected and you need to resubmit it, you will be charged again, so be sure that it&rsquo;s ready for review before submitting. Updates to the app will not require an additional submission fee.</p>
-
-<p>After receiving the submission, Bigcommerce will use the information that you have provided to interact with, evaluate, and test your app.</p>
-
-<p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
-
-          <h2 id="what-kind-of-apps-can-i-submit"><span class="jumptarget"> What kind of apps can I submit?</span></h2>
-
-<p>You can build any kind of app to test the capabilities of the platform. For inclusion in the App Store, we’re looking for apps that that make online retail better and help our merchants to sell more.</p>
-
-<p>Apps should target one or more of the following categories:</p>
-
-<ul>
-<li>  Accounting</li>
-<li>  Advertising</li>
-<li>  Analytics</li>
-<li>  Cloud integration</li>
-<li>  Customer feedback</li>
-<li>  Drop shipping</li>
-<li>  Email marketing</li>
-<li>  Live chat</li>
-<li>  Marketing</li>
-<li>  Merchandising</li>
-<li>  Mobile</li>
-<li>  Multichannel listing</li>
-<li>  Order fulfillment</li>
-<li>  Order management</li>
-<li>  Point of sale</li>
-<li>  Product review</li>
-<li>  Shipping</li>
-<li>  Shopping comparison</li>
-<li>  Social media</li>
-<li>  Split testing</li>
-</ul>
-
-<h2 id="how-does-the-approval-process-work"><span class="jumptarget"> How does the approval process work?</span></h2>
-
-<p>Upon receiving an <a href="/api#completing-reg">app submission</a>, we review it to make sure that it meets our <a href="/api#approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p>
-
-<h2 id="is-the-api-rate-limit-per-store-or-per-app"><span class="jumptarget"> Is the API rate limit per-store or per-app?</span></h2>
-
-<p>Basic Authentication requests are rate-limited <a href="/api/rate-limits/basic">per app</a>.</p>
-
-<p>OAuth requests are rate-limited <a href="/api/rate-limits/oauth">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
-
-<h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers"><span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span></h2>
-
-<p>Yes. Please review our list of <a href="/api#browsers">supported browsers</a> and the documentation on <a href="/api#ui-constraints">user interface constraints</a> for details.</p>
-
-<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance?</span></h2>
-
-<p>You can modify your app at any time within My Apps, free of charge. As soon as you click <strong>Update &amp; Close</strong>, your changes will be live. Therefore, we recommend creating a copy of your app and using this to test the changes first. Once you have made sure that they work properly, you can go ahead and modify your production app.</p>
-
-<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code?</span></h2>
-
-<p>No. BigCommerce does not support the upload of server-side code to a store. The server-side code must hosted elsewhere. The storefront can use JavaScript to access it.</p>
-
-          <h1 id="curl-quickstart-guide"><span class="jumptarget"> cURL Quickstart Guide </span></h1>
-
-<h2 id="introduction"><span class="jumptarget"> Introduction</span></h2>
-
-<p>This page provides some sample cURL commands for quick-start purposes. These use Basic Authentication. Before you can issue them, you must generate Basic Authentication credentials, following the steps discussed in the <a href="/api#basic-auth">Overview</a>. Once you have your Basic Authentication credentials, you can issue cURL commands as shown below.</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -H "Authorization: Basic _username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/time
-</code></pre>
-
-<p>If the request is made using the <code class="prettyprint">Authorization</code> header, you need to encode the credentials using base64. Or, a simple way to accomplish the same task as above is:</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/orders.json
-</code></pre>
-
-<h2 id="orders"><span class="jumptarget"> Orders</span></h2>
-
-<h3 id="get-a-list-of-orders-from-the-store"><span class="jumptarget"> Get a list of orders from the store</span></h3>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/orders.json
-</code></pre>
-
-<p>By default, the API request returns only 50 orders. If you want to return all the orders from the store, you must use filters, as shown in the next example below.</p>
-
-<h3 id="get-all-orders-from-the-store"><span class="jumptarget"> Get all orders from the store</span></h3>
-
-<p>Use the <code class="prettyprint">limit</code> and <code class="prettyprint">page</code> filter parameters to get a data beyond what the default query returns. Note that 200 orders is the maximum returned per page:</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/orders.json?limit=200&amp;page=1
-</code></pre>
-
-<h3 id="update-an-order"><span class="jumptarget"> Update an order</span></h3>
-
-<p>Orders take many fields upon update requests. (For details, please see <a href="/api/v2/#update-an-order">this documentation</a>.) Here, we update an order using just the mandatory fields:</p>
-<pre class="highlight plaintext"><code>    curl --request PUT \
-    -u "_username_:_API_key_" \
-    -H "Content-Type: application/json" \
-    --data-binary '{"status_id":1}' \
-    https://store.mybigcommerce.com/api/v2/orders/101
-</code></pre>
-
-<h3 id="get-orders-created-since-a-certain-date"><span class="jumptarget"> Get orders created since a certain date</span></h3>
-
-<p>You can use the <code class="prettyprint">If-Modified-Since</code> header to request orders that have been created after a given date:</p>
-<pre class="highlight plaintext"><code>    curl -I --request GET \
-    -u "_username_:_API_key_" \
-    -H "Content-Type: application/json" \
-    -H "If-Modified-Since: Tue, 4 Dec 2012 00:00:00 GMT" \
-    https://store.mybigcommerce.com/api/v2/orders.json
-</code></pre>
-
-<h3 id="get-coupons-associated-with-an-order"><span class="jumptarget"> Get coupons associated with an order</span></h3>
-
-<p>An order can contain coupons, which might be applied to the order to offer discounts to the customer. You can look at all the available coupons in an order as follows:</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_"\
-    https://store.mybigcommerce.com/api/v2/orders/115/coupons.json
-</code></pre>
-
-<h3 id="create-a-shipment-for-an-order"><span class="jumptarget"> Create a shipment for an order</span></h3>
-
-<p>You can create a shipment for an order via the <a href="/api/v2/#create-a-shipment">Orders &gt; Create a Shipment</a> endpoint. As an example, third-party shipping services can query orders from a store when the orders are created, and create shipments for those:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -u "_username_:_API_key_" \
-    -H "Content-Type: application/json" \
-    -d '{"order_address_id":15,"tracking_number":"123-123-123","items":[{"order_product_id":15,"quantity":1}]}' \
-    https://store.mybigcommerce.com/api/v2/orders/114/shipments.json
-</code></pre>
-
-<h2 id="products"><span class="jumptarget"> Products</span></h2>
-
-<h3 id="get-a-list-of-products-from-the-store"><span class="jumptarget"> Get a list of products from the store</span></h3>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/products.json
-</code></pre>
-
-<p>By default, the API request returns only 50 products. If you want to return all the products from the store, you must use filters, as shown in the example below.</p>
-
-<h3 id="get-all-products-from-the-store"><span class="jumptarget"> Get all products from the store</span></h3>
-
-<p>Use the <code class="prettyprint">limit</code> and <code class="prettyprint">page</code> filter parameters to get data beyond what the default query returns. Note that a maximum of 200 products are returned per page:</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/products.json?limit=200&amp;page=1
-</code></pre>
-
-<h3 id="create-a-product"><span class="jumptarget"> Create a product</span></h3>
-
-<p>Products have many fields. For details on the product fields allowed as part of a <code class="prettyprint">POST</code> request, please see <a href="/api/v2/#create-a-product">this page</a>.</p>
-
-<p>Let&rsquo;s assume that we want to create a product using only the fields that are for a <code class="prettyprint">POST</code> request. Here, <code class="prettyprint">price</code> must specified as a string, while <code class="prettyprint">weight</code> is a decimal. The <code class="prettyprint">is_visible</code> flag is not mandatory, but if it is not set to <code class="prettyprint">true</code>, the product would not be visible by default:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -H "Content-Type: application/json" \
-    -u "_username_:_API_key_" \
-    -d '{"name":"startrek","price":19.99,"categories":[2],"type":"physical","availability":"available", "weight":0}' \
-    https://store.mybigcommerce.com/api/v2/products.json
-</code></pre>
-
-<h3 id="update-a-product"><span class="jumptarget"> Update a product</span></h3>
-
-<p>To update the product created above, you could use the following:</p>
-<pre class="highlight plaintext"><code>    curl --request PUT \
-    -H "Content-Type: application/json" \
-    -u "_username_:_API_key_" \
-    -d '{"name":"startrek","sku":"STREK-DVD","categories":[2,3],"inventory_tracking":"simple","inventory_level":"500", "inventory_warning":100}' \
-    https://store.mybigcommerce.com/api/v2/products/id.json
-</code></pre>
-
-<h3 id="search-a-product-by-sku"><span class="jumptarget"> Search a product by SKU</span></h3>
-
-<p>To search by a product SKU, we could use the following code. Remember that when a product has optionset/variations defined, and if the individual options have SKUs defined, then the product SKU is overriden by the option SKUs. Currently, there are two ways to search for SKUs: <code class="prettyprint">GET /products?sku=&quot;something&quot;</code> or <code class="prettyprint">GET /products/skus?sku=&quot;something&quot;</code>. The first call returns only product-level SKUs and not option-level SKUs.</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/products/skus.json?sku="abcd"
-</code></pre>
-
-<h2 id="coupons"><span class="jumptarget"> Coupons</span></h2>
-
-<h3 id="get-a-list-of-coupons-from-the-store"><span class="jumptarget"> Get a list of coupons from the store</span></h3>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/coupons.json
-</code></pre>
-
-<p>Coupons can be filtered by <code class="prettyprint">code</code>, <code class="prettyprint">type</code>, <code class="prettyprint">name</code>, <code class="prettyprint">min_id</code> and <code class="prettyprint">max_id</code>. Without these filters, the call returns all the coupons in the store. So for example, if we wanted to return a list of only those coupons of <code class="prettyprint">type=percentage_discount</code>, we could make the following request:</p>
-<pre class="highlight plaintext"><code>    curl --request GET \
-    -u "_username_:_API_key_" \
-    https://store.mybigcommerce.com/api/v2/coupons.json?type=percentage_discount
-</code></pre>
-
-<p>For details on filter fields, please see the <a href="/api/v2#coupons">Coupons resource</a>.</p>
-
-<h3 id="create-a-coupon"><span class="jumptarget"> Create a coupon</span></h3>
-
-<p>Coupons can be created by a <code class="prettyprint">POST</code> request on the coupons endpoint. For example, if we want to create a coupon to take 50% off an order, then our coupon will have <code class="prettyprint">percentage_discount</code> as the type. The <code class="prettyprint">applies_to</code> field is optional, and can be used to restrict the coupon to a set of products or categories. In the example shown below, the coupon is being restricted to a set of products:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -H "Content-Type: application/json" \
-    -u "_username_:_API_key_" \
-    -d '{"code":"50OFF", "type":"percentage_discount", "name":"testcoupon1", "amount":50.00, "enabled":"true", "applies_to":"{\"entity\":\"products\",\"ids\":[32]}"}' \
-    https://store.mybigcommerce.com/api/v2/coupons.json
-</code></pre>
-
-<h3 id="update-a-coupon"><span class="jumptarget"> Update a coupon</span></h3>
-
-<p>Updating a coupon is almost similar to the Create example above, except that we work off an ID via a <code class="prettyprint">PUT</code> request. For example, assume that we want to change the above coupon from a 50% to a 30% discount, and that the coupon ID is <code class="prettyprint">15</code>. We can update the coupon using the following:</p>
-<pre class="highlight plaintext"><code>    curl --request PUT \
-    -H "Content-Type: application/json" \
-    -u "_username_:_API_key_" \
-    -d '{"code":"30OFF", "type":"percentage_discount"' \
-    https://store.mybigcommerce.com/api/v2/coupons/15.json
-</code></pre>
-
-<h2 id="option-sets"><span class="jumptarget"> Option Sets</span></h2>
-
-<h3 id="connect-options-to-option-sets"><span class="jumptarget"> Connect options to option sets</span></h3>
-
-<p>This is currently a four-step process.</p>
-
-<ol>
-<li> Create the option.</li>
-<li> Add some values to the option.</li>
-<li> Create the option set.</li>
-<li> Create option-set options, using the options you just created.</li>
-</ol>
-
-<p>Use the following command to create an option:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -H "Content-Type: application/json" \
-    -u "_username_:_API_key_" \
-    -d '{"name":"homer simpson", "type":"T"}' \
-    https://store.mybigcommerce.com/api/v2/options.json
-</code></pre>
-
-<p>BigCommerce returns the following, which includes an option ID:</p>
-
-<p><code class="prettyprint">{&quot;id&quot;:33,&quot;name&quot;:&quot;homer simpson&quot;,&quot;display_name&quot;:&quot;homer simpson&quot;,&quot;type&quot;:&quot;T&quot;,&quot;values&quot;:{&quot;url&quot;:&quot;https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33/values.json&quot;,&quot;resource&quot;:&quot;/options/33/values&quot;}}</code></p>
-
-<p>Next, create a new option set:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -u "admin:key" \
-    -d '{"name": "Simpson family"}' \
-    -H "Content-Type: application/json" \
-    https://store.mybigcommerce.com/api/v2/optionsets.json
-</code></pre>
-
-<p>The API returns the following, which includes an option-set ID:</p>
-
-<p><code class="prettyprint">{&quot;id&quot;:27,&quot;name&quot;:&quot;Simpson family&quot;,&quot;options&quot;:{&quot;url&quot;:&quot;https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/optionsets/27/options.json&quot;,&quot;resource&quot;:&quot;/optionsets/27/options&quot;}}</code></p>
-
-<p>The final step is to connect the option with the option set:</p>
-<pre class="highlight plaintext"><code>    curl --request POST \
-    -u "_username_:_API_key_" \
-    -d '{"option_id": "33", "display_name":"Simpson family"}' \
-    -H "Content-Type: application/json" \
-    https://store.mybigcommerce.com/api/v2/optionsets/27/options.json
-</code></pre>
-
-<p>Which yields the following:</p>
-<pre class="highlight json"><code><span class="p">{</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">44</span><span class="p">,</span><span class="nt">"option_id"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="nt">"option_set_id"</span><span class="p">:</span><span class="mi">27</span><span class="p">,</span><span class="nt">"display_name"</span><span class="p">:</span><span class="s2">"Simpson family"</span><span class="p">,</span><span class="nt">"sort_order"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="nt">"is_required"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="nt">"option"</span><span class="p">:{</span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https://store.mybigcommerce.com-bwvr466.mybigcommerce.com/api/v2/options/33.json"</span><span class="p">,</span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"/options/33"</span><span class="p">}}</span><span class="w">
-</span></code></pre>
 
           <h1 id="response-headers"><span class="jumptarget"> Response Headers </span></h1>
 
@@ -2511,6 +380,653 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 <td>A version number</td>
 <td>The version of Bigcommerce the store is running on. This header is available from versions 7.3.6+.</td>
 <td>** 7.3.6**</td>
+</tr>
+</tbody></table>
+
+          <h1 id="media-types"><span class="jumptarget"> Media Types</span></h1>
+
+<h2 id="introduction-to-media-types"><span class="jumptarget"> Introduction to Media Types</span></h2>
+
+<p>The BigCommerce API can both accept requests and respond in JSON or XML. Requests should be encoded using the UTF-8 character set. Other character sets may have unpredictable results.</p>
+
+<aside class="warning">
+<span class="aside-warning-hd">Restricted XML Support</span><br><br>
+The XML media type is deprecated. Our v2 webhooks support JSON only, and Stores API versions after v2 will support JSON only. 
+</aside>
+
+<h2 id="request-content-type"><span class="jumptarget"> Request Content Type</span></h2>
+
+<p>When performing a request that contains a body (eg. <code class="prettyprint">POST</code> or <code class="prettyprint">PUT</code>), the type of content you are sending needs to be specified in the <code class="prettyprint">Content-Type</code> header. The values for this header are specified in the data types below. For example, to send an XML body, the header would be: <code class="prettyprint">Content-Type: application/xml</code></p>
+
+<h2 id="response-content-type"><span class="jumptarget"> Response Content Type</span></h2>
+
+<p>There are several ways in which you can specify the type of content you would like to receive. The first method is by specifying an <code class="prettyprint">Accept</code> header, the second is by supplying an extension to the resource you are request. Extensions are useful for browser-based testing.</p>
+
+<p>The priority in which these methods are processed is outlined below:</p>
+
+<ol>
+<li><p>Accept header high-priority types (eg. <code class="prettyprint">Accept: application/xml</code>) extensions on the resource (e.g.: <code class="prettyprint">customers.xml</code>).</p></li>
+<li><p>Accept header low priority types (priorities less than 1, e.g.: <code class="prettyprint">Accept: application/json;q=0.9</code>).</p></li>
+</ol>
+
+<h2 id="json"><span class="jumptarget"> JSON</span></h2>
+
+<p>JSON has a content type of <code class="prettyprint">application/json</code>.</p>
+
+<h3 id="request-structure"><span class="jumptarget"> Request Structure</span></h3>
+
+<p>The body of a JSON request is simply an object containing a set of key-value pairs. A simple representation of a product object is:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"iPod"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A portable MP3 music player."</span><span class="w">
+ </span><span class="p">}</span><span class="w"> 
+</span></code></pre>
+
+<h3 id="response-structure"><span class="jumptarget"> Response Structure</span></h3>
+
+<p>Responses are structured similarly to requests. If a request returns a single object then the response will contain a single object containing the fields for that resource:</p>
+
+<p>The response will contain links to any sub-resource – for example, <code class="prettyprint">images</code> on the product below:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"[Sample Product] iPod Shuffle"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IPOD-SHUFFLE"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"The world’s smallest digital music player, ..."</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"date created"</span><span class="p">:</span><span class="s2">"Mon, 12 Jan 2009 10:22:39 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"categories"</span><span class="p">:[</span><span class="w">
+    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="mi">3</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nt">"date modified"</span><span class="p">:</span><span class="s2">"Sun, 28 Aug 2011 23:08:56 +0000"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"custom url"</span><span class="p">:</span><span class="s2">"\/products\/sample-product-ipod-shuffle.html"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"brand"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/brands\/1.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/brands\/1"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"images"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/images.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/images"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"discount rules"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/discountrules.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/discountrules"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"configurable fields"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/configurablefields.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/configurablefields"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"custom fields"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/customfields.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/customfields"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"videos"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/videos.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/videos"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"skus"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/skus.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/skus"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"rules"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/rules.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/rules"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"option_set"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/optionsets\/15.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/optionsets\/15"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"options"</span><span class="p">:{</span><span class="w">
+    </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/options.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/options"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"availability"</span><span class="p">:</span><span class="s2">"available"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>If the request returns more than one result, then the response will consist of an array of objects for each result:</p>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"[Sample Product] iPod Shuffle"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">"IPOD-SHUFFLE"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"The world’s smallest digital music player, ..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"search_keywords"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"availability_description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_price_hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_hidden_label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"categories"</span><span class="p">:[</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"date_modified"</span><span class="p">:</span><span class="s2">"Sun, 28 Aug 2011 23:08:56 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bin_picking_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"custom_url"</span><span class="p">:</span><span class="s2">"\/products\/sample-product-ipod-shuffle.html"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brand"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/brands\/1.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/brands\/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/images.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/images"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"discount_rules"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/discountrules.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/discountrules"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"configurable_fields"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/configurablefields.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/configurablefields"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/customfields.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/customfields"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"videos"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/videos.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/videos"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"skus"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/skus.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/skus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"rules"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/rules.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/rules"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"option_set"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/optionsets\/15.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/optionsets\/15"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"options"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/1\/options.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/1\/options"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"availability"</span><span class="p">:</span><span class="s2">"available"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="p">:</span><span class="s2">"[Sample Product] iPod Nano"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"sku"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="s2">"Color isn't the only brilliant new iPod Nano feature. ..."</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date_created"</span><span class="p">:</span><span class="s2">"Mon, 12 Jan 2009 10:28:58 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brand_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"view_count"</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"page_title"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_keywords"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"meta_description"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"layout"</span><span class="p">:</span><span class="s2">"product.html"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"is_price_hidden"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"price_hidden_label"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"categories"</span><span class="p">:[</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"date_modified"</span><span class="p">:</span><span class="s2">"Thu, 18 Aug 2011 05:42:15 +0000"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"bin_picking_number"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"custom_url"</span><span class="p">:</span><span class="s2">"\/products\/sample-product-ipod-nano.html"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"brand"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/brands\/1.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/brands\/1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"images"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/images.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/images"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"discount_rules"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/discountrules.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/discountrules"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"configurable_fields"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/configurablefields.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/configurablefields"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"custom_fields"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/customfields.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/customfields"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"videos"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/videos.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/videos"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"skus"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/skus.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/skus"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"rules"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/rules.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/rules"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"options"</span><span class="p">:{</span><span class="w">
+      </span><span class="nt">"url"</span><span class="p">:</span><span class="s2">"https:\/\/www.example.com\/api\/v2\/products\/2\/options.json"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"resource"</span><span class="p">:</span><span class="s2">"\/products\/2\/options"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nt">"availability"</span><span class="p">:</span><span class="s2">"available"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<h2 id="xml"><span class="jumptarget"> XML</span></h2>
+
+<p>XML has a content type of <code class="prettyprint">application/xml</code>. All XML transactions begin with the standard XML declaration:</p>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+
+</code></pre>
+
+<h3 id="request-structure"><span class="jumptarget"> Request Structure</span></h3>
+
+<p>The body of an XML request should first contain an element that is named according to the resource in singular form, such as product for the products resource:</p>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;product&gt;</span> 
+<span class="nt">&lt;/product&gt;</span>
+
+</code></pre>
+
+<p>The resource element should then contain a set of elements that match the fields described in that resources&rsquo; documentation:</p>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;product&gt;</span>
+    <span class="nt">&lt;id&gt;</span>5<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;name&gt;</span>iPod<span class="nt">&lt;/name&gt;</span>
+    <span class="nt">&lt;description&gt;</span>A portable MP3 music player.<span class="nt">&lt;/description&gt;</span>
+<span class="nt">&lt;/product&gt;</span>
+
+</code></pre>
+
+<h3 id="response-structure"><span class="jumptarget"> Response Structure</span></h3>
+
+<p>To receive an XML response, the request URI should include a .xml extension:</p>
+
+<p><code class="prettyprint">GET /customers/1.xml</code></p>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;customer&gt;</span>
+  <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+  <span class="nt">&lt;company&gt;</span>BigCommerce<span class="nt">&lt;company&gt;</span>
+  <span class="nt">&lt;first_name&gt;</span>Philip<span class="nt">&lt;/first_name&gt;</span>
+  <span class="nt">&lt;last_name&gt;</span>Muir<span class="nt">&lt;/last_name&gt;</span>
+  <span class="nt">&lt;email&gt;</span>phil.muir@bigcommerce.com<span class="nt">&lt;/email&gt;</span>
+  <span class="nt">&lt;phone&gt;&lt;/phone&gt;</span>
+  <span class="nt">&lt;date_created&gt;</span>Tue, 16 Aug 2011 23:15:07 +0000<span class="nt">&lt;/date_created&gt;</span>
+  <span class="nt">&lt;date_modified&gt;</span>Tue, 16 Aug 2011 23:16:37 +0000<span class="nt">&lt;/date_modified&gt;</span>
+  <span class="nt">&lt;store_credit&gt;</span>0.0000<span class="nt">&lt;/store_credit&gt;</span>
+  <span class="nt">&lt;registration_ip_address&gt;</span>10.1.1.102<span class="nt">&lt;/registration_ip_address&gt;</span>
+  <span class="nt">&lt;customer_group_id&gt;</span>0<span class="nt">&lt;/customer_group_id&gt;</span>
+  <span class="nt">&lt;notes&gt;</span>NULL<span class="nt">&lt;/notes&gt;</span>
+  <span class="nt">&lt;addresses&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"resource"</span> <span class="na">href=</span><span class="s">"https://www.example.com/api/v2/customers/1/addresses.xml"</span><span class="nt">&gt;</span>/customers/1/addresses<span class="nt">&lt;/link&gt;</span>
+  <span class="nt">&lt;/addresses&gt;</span>
+<span class="nt">&lt;/customer&gt;</span>
+
+</code></pre>
+
+<p>If the request returns more than one result, then the response will consist of an element named according to the resource in plural form, which contains a set of objects for each result:</p>
+<pre class="highlight xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;customers&gt;</span>
+  <span class="nt">&lt;customer&gt;</span>
+    <span class="nt">&lt;id&gt;</span>1<span class="nt">&lt;/id&gt;</span>
+    <span class="nt">&lt;company&gt;</span>BigCommerce<span class="nt">&lt;/company&gt;</span>
+    <span class="nt">&lt;first_name&gt;</span>Philip<span class="nt">&lt;/first_name&gt;</span>
+    <span class="nt">&lt;last_name&gt;</span>Muir<span class="nt">&lt;/last_name&gt;</span>
+    <span class="nt">&lt;email&gt;</span>phil.muir@bigcommerce.com<span class="nt">&lt;/email&gt;</span>
+    <span class="nt">&lt;phone&gt;&lt;/phone&gt;</span>
+    <span class="nt">&lt;date_created&gt;</span>Tue, 16 Aug 2011 23:15:07 +0000<span class="nt">&lt;/date_created&gt;</span>
+    <span class="nt">&lt;date_modified&gt;</span>Tue, 16 Aug 2011 23:16:37 +0000<span class="nt">&lt;/date_modified&gt;</span>
+    <span class="nt">&lt;store_credit&gt;</span>0.0000<span class="nt">&lt;/store_credit&gt;</span>
+    <span class="nt">&lt;registration_ip_address&gt;</span>10.1.1.102<span class="nt">&lt;/registration_ip_address&gt;</span>
+    <span class="nt">&lt;customer_group_id&gt;</span>0<span class="nt">&lt;/customer_group_id&gt;</span>
+    <span class="nt">&lt;notes&gt;</span>NULL<span class="nt">&lt;/notes&gt;</span>
+    <span class="nt">&lt;addresses&gt;</span>
+      <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"resource"</span> <span class="na">href=</span><span class="s">"https://www.example.com/api/v2/customers/1/addresses.xml"</span><span class="nt">&gt;</span>/customers/1/addresses<span class="nt">&lt;/link&gt;</span>
+    <span class="nt">&lt;/addresses&gt;</span>
+  <span class="nt">&lt;/customer&gt;</span>
+<span class="nt">&lt;/customers&gt;</span>
+
+</code></pre>
+
+          <h1 id="webhooks-overview"><span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks Overview</h1>
+
+<p><a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
+
+<p>For example, you might build an app that needs to know when:</p>
+
+<ul>
+<li>  An order is placed.</li>
+<li>  A product is added.</li>
+<li>  A customer record is updated.</li>
+</ul>
+
+<aside class="warning">
+<span class="aside-warning-hd">Webhooks Requirements and Limitations</span><br><br>
+Webhooks differ from the rest of the Stores API as follows:
+  <ul>
+    <li>OAuth is required; basic authentication is not supported.</li>
+    <li>Self-signed certificates are not supported.</li>
+    <li>JSON is required; XML is not supported.</li>
+  </ul>
+</aside>
+
+<p>All webhooks requests must include the following in their HTTP headers:</p>
+<pre class="highlight plaintext"><code>     Accept: application/json
+     Content-Type: application/json
+     X-Auth-Client: &lt;the OAuth client id&gt;
+     X-Auth-Token: &lt;the OAuth token&gt;
+</code></pre>
+
+<h3 id="prerequisites"><span class="jumptarget"> Prerequisites </span></h3>
+
+<p>Before you can send any requests or receive any responses, you will need the following:</p>
+
+<ul>
+<li>  <strong>A store:</strong> You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/">Partner Program</a>.</li>
+<li>  <strong>OAuth Client ID:</strong> Obtained during <a href="/api/v2/#registration">App Registration</a>.</li>
+<li>  <strong>OAuth token:</strong> Obtained during <a href="/api/v2/#installation">App Installation</a>.</li>
+<li>  <strong>Valid TLS/SSL setup:</strong> Verify your setup at the following site: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>.</li>
+</ul>
+
+<aside class="warning">
+<span class="aside-warning-hd">Connection Breakers</span><br><br>
+Any one of the following will cause a connection failure:
+  <ul>
+    <li>Hostname/DNS mismatch.</li>
+    <li>Self-signed certificate.</li>
+    <li>Intermediate certificates not loaded.</li>
+  </ul>
+</aside>
+
+<h3 id="creating-webhooks-sending-the-post-request"><span class="jumptarget"> Creating Webhooks: Sending the POST Request </span></h3>
+
+<p>To create a webhook, send a <code class="prettyprint">POST</code> request to the <code class="prettyprint">hooks</code> resource, including:</p>
+
+<ul>
+<li>  As the <code class="prettyprint">scope</code> value, the event for which you would like to receive notification. See next section for the list of possibilities.
+<aside class="notice">
+Wildcards are supported for <code>scope</code>.
+</aside></li>
+<li><p>As the <code class="prettyprint">destination</code> value, the callback&rsquo;s fully qualified URI.</p></li>
+<li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, Bigcommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from Bigcommerce instead of some other party, such as a malicious actor.</p></li>
+<li><p>By default, new webhooks will be set to be inactive and will have a blank value. If you want to create a webhook that should be active initially, you can also pass the following name-value pair: <code class="prettyprint">&quot;is_active&quot;: true</code>.</p></li>
+</ul>
+
+<p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
+
+<aside class="warning">
+<span class="aside-warning-hd">MIGRATION NOTE:</span>
+Links above and below here still need to be set, after Slate file refactoring.
+</aside>
+
+<p>Please see the <a href="https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook">hooks resource</a> and <a href="https://developer.bigcommerce.com/api/objects/v2/webhook">webhook object</a> pages for more details.</p>
+
+<h4 id="list-of-webhook-events"><span class="jumptarget"> List of Webhook Events </span></h4>
+
+<p><html>
+<ul>
+<li> store/order/* </li>
+    <ul>
+    <li>store/order/created</li>
+    <li>store/order/updated</li>
+    <li>store/order/archived</li>
+    <li>store/order/statusUpdated</li>
+    <li>store/order/message/created</li>
+    </ul>  </p>
+
+<p><li> store/product/* </li>
+    <ul>
+    <li>store/product/created</li>
+    <li>store/product/updated</li>
+    <li>store/product/deleted</li>
+    <li>store/product/inventory/updated</li>
+    <li>store/product/inventory/order/updated</li>
+    </ul>  </p>
+
+<p><li> store/product/inventory/* </li>
+    <ul>
+    <li>store/product/inventory/updated</li>
+    <li>store/product/inventory/order/updated</li>
+    </ul>  </p>
+
+<p><li> store/sku/* </li>
+    <ul>
+    <li>store/sku/created</li>
+    <li>store/sku/updated</li>
+    <li>store/sku/deleted</li>
+    <li>store/sku/inventory/updated</li>
+    <li>store/sku/inventory/order/updated</li>
+    </ul>  </p>
+
+<p><li> store/sku/inventory/* </li>
+    <ul>
+    <li>store/sku/inventory/updated</li>
+    <li>store/sku/inventory/order/updated</li>
+    </ul>  </p>
+
+<p><li>store/customer/*</li>
+    <ul>
+    <li>store/customer/created</li>
+    <li>store/customer/updated</li>
+    <li>store/customer/deleted</li>
+    </ul></p>
+
+<!--- <li>store/app/uninstalled</li><br> &mdash;> 
+
+<!--- ^ Removed 9/6/16: JZON says broken, and might be deprecated as redundant. --->
+
+<p><li>store/information/updated</li>
+</ul>
+</html></p>
+
+<h3 id="receiving-webhook-callbacks"><span class="jumptarget"> Receiving Webhook Callbacks </span></h3>
+
+<p>You&rsquo;ll need to build an application, and configure your server, to receive the callback that we send when events are triggered.</p>
+
+<aside class="notice">
+<span class="aside-notice-hd">One-Minute Timeout</span><br><br>
+Following the creation of a webhook, it can take up to one minute for BigCommerce to start sending <code>POST</code> requests to your callback URI.
+</aside>
+
+<h4 id="lightweight-callback-payload"><span class="jumptarget"> Lightweight Callback Payload </span></h4>
+
+<p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/products#get-a-product">Products resource</a>.</p>
+
+<p>An example payload follows.</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="nt">"store_id"</span><span class="p">:</span><span class="mi">11111</span><span class="p">,</span><span class="nt">"producer"</span><span class="p">:</span><span class="s2">"stores/abcde"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"store/order/statusUpdated"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">173331</span><span class="p">},</span><span class="nt">"hash"</span><span class="p">:</span><span class="s2">"3f9ea420af83450d7ef9f78b08c8af25b2213637"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h4 id="multiple-events-are-triggered-during-bulk-data-imports"><span class="jumptarget"> Multiple Events Are Triggered during Bulk Data Imports </span></h4>
+
+<p>Bulk data imports will trigger the relevant events for every record affected. For example, if you have a hook on <code class="prettyprint">store/product/created</code>, when the merchant imports 2,000 products, then we will send 2,000 individual callback events.</p>
+
+<h4 id="payloads-are-serialized"><span class="jumptarget"> Payloads Are Serialized </span></h4>
+
+<p>Payloads are serialized per hook per store.</p>
+
+<p>In the future, we are looking at enabling a replay feature, allowing you to replay select events. What this means is, based on the serialized payload IDs, you can detect if you&rsquo;ve missed certain callbacks and then, via a future update, you will be able call a replay method to get the missing events.</p>
+
+<h3 id="respond-to-webhook-callbacks"><span class="jumptarget"> Respond to Webhook Callbacks </span></h3>
+
+<p>To acknowledge that you received the webhook without issue, your server should return a <code class="prettyprint">200 HTTP</code> status code. Any other information you return in the request headers or request body will be ignored. Any response code outside the <code class="prettyprint">200</code> range, including <code class="prettyprint">3_xx_</code> codes, will indicate to us that you did not receive the webhook. When a webhook is not received (for whatever reason), we will attempt to callback as described just below.</p>
+
+<h3 id="callback-retry-mechanism"><span class="jumptarget"> Callback Retry Mechanism </span></h3>
+
+<p>Webhooks will do their best to deliver the events to your callback URI. The dispatcher will attempt several retries until the maximum retry limit is reached, as follows:</p>
+
+<ul>
+<li>  Whenever a webhook gives a non-<code class="prettyprint">2_xx_</code> response, or times out, the app will be blocked for 60 seconds.</li>
+<li>  Webhooks created during that 60-second block will be queued up to send on the next scheduled retry attempt after the block expires, so that webhooks are not lost.</li>
+</ul>
+
+<p>The dispatcher will then attempt several retries (at increasing intervals) until the maximum retry limit is reached, as follows:</p>
+
+<h4 id="retry-intervals"><span class="jumptarget"> Retry Intervals </span></h4>
+
+<ol>
+<li> 60 seconds after the most recent failure</li>
+<li> 180 seconds after the most recent failure</li>
+<li> 300 seconds after the most recent failure</li>
+<li> 600 seconds after the most recent failure</li>
+<li> 900 seconds after the most recent failure</li>
+<li> 1800 seconds after the most recent failure</li>
+<li> 3600 seconds after the most recent failure</li>
+<li> 7200 seconds after the most recent failure</li>
+<li> 21600 seconds after the most recent failure</li>
+<li> 50400 seconds after the most recent failure</li>
+<li> 86400 seconds (24 hours) after the most recent failure</li>
+</ol>
+
+<p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/stores/v2/webhooks#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="updating-a-webhook"><span class="jumptarget"> Updating a Webhook </span></h3>
+
+<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#update-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="deleting-a-webhook"><span class="jumptarget"> Deleting a Webhook </span></h3>
+
+<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#delete-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+
+<h3 id="troubleshooting"><span class="jumptarget"> Troubleshooting </span></h3>
+
+<p>Below are remedies for certain errors commonly encountered with webhooks:</p>
+
+<h4 id="not-receiving-the-post-requests-to-my-callback-uri"><span class="jumptarget"> Not Receiving the POST Requests to My Callback URI </span></h4>
+
+<p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
+
+<p>You can proactively check to make sure that everything is OK by periodically making a GET request and checking the <code class="prettyprint">is_active</code> flag.</p>
+
+<p>If you receive an email or discover that the <code class="prettyprint">is_active</code> flag has been flipped to <code class="prettyprint">false</code>, try the following:</p>
+
+<ul>
+    <li>Check to see if your app is responding to the POST request with something other than <code>HTTP 200</code>.</li>
+    <li>Check to make sure that your server has a valid TLS/SSL setup. One way to do this is by visiting the following website: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>. Any of the following will cause the TLS/SSL handshake to fail: </li>
+    <ul>
+        <li>Self-signed certificate.</li>
+        <li>Host name of the certificate does not match the server&rsquo;s DNS.</li>
+    <li>Your server&rsquo;s key or trust store has not been loaded up with the intermediate certificates necessary to establish the chain of trust.</li>
+    </ul>
+</ul>
+
+<p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
+
+<h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook"><span class="jumptarget"> Not Receiving an HTTP 201 Response after Sending POST to Create Webhook </span></h4>
+
+<p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks_intro">introduction</a> above.</p>
+
+<h3 id="tools-for-debugging-and-testing-webhooks"><span class="jumptarget"> Tools for Debugging and Testing Webhooks </span></h3>
+
+<p>We recommend these diagnostic tools: </p>
+
+<h5 id="requestbin"><span class="jumptarget"> RequestBin </span></h5>
+
+<p>While planning your integration, <a href="http://requestb.in/">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.</p>
+
+<h5 id="ngrok"><span class="jumptarget"> ngrok </span></h5>
+
+<p>As you are building your integration, you might want the abilty to test webhooks on your dev machines.</p>
+
+<p>We suggest using <a href="https://ngrok.com/">ngrok</a>, which you can use to easily set up tunnels between a server running on <code class="prettyprint">localhost</code> and a public URL.</p>
+
+<p>This will enable you to send our webhooks to your <code class="prettyprint">localhost</code> environments via a public URL. No production push is required.</p>
+
+          <h1 id="client-libraries"><span class="jumptarget"> Client Libraries </span></h1>
+
+<h2 id="official-bigcommerce-sdks"><span class="jumptarget"> Official BigCommerce  SDKs </span></h2>
+
+<p>BigCommerce  provides and maintains the following full-featured SDKs in a variety of languages.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-php">PHP</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-ruby">Ruby</a></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">The official BigCommerce  PHP client, with minimal external dependencies. Uses either OAuth or Basic Authentication.</td>
+<td style="text-align: left">The official BigCommerce  Ruby client. Uses either OAuth or Basic Authentication.</td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-python"><strong>Python</strong></a></td>
+<td style="text-align: left"></td>
+</tr>
+<tr>
+<td style="text-align: left">The official BigCommerce  Python client, available as a PyPi package. Uses either OAuth or Basic Authentication.</td>
+<td style="text-align: left"></td>
+</tr>
+</tbody></table>
+
+<h2 id="official-bigcommerce-oauth-hello-world-apps"><span class="jumptarget"> Official BigCommerce  OAuth Hello World Apps </span></h2>
+
+<p>BigCommerce  provides and maintains the following hello world apps in a variety of languages. These allow you to get a quick start with your OAuth app development.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-php-silex">Silex</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-ruby-sinatra">Sinatra</a></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">PHP</code></td>
+<td style="text-align: left"><code class="prettyprint">RUBY</code></td>
+</tr>
+<tr>
+<td style="text-align: left">A sample app written in PHP, using <a href="http://silex.sensiolabs.org/">Silex</a> and <a href="http://docs.guzzlephp.org/en/latest/">Guzzle</a>.</td>
+<td style="text-align: left">A sample app written in Ruby, using <a href="http://www.sinatrarb.com/">Sinatra</a> with <a href="http://datamapper.org/">DataMapper</a> and <a href="http://rubydoc.info/github/rest-client/rest-client">RestClient</a>.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-python-flask">Flask</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/omniauth-bigcommerce">OmniAuth</a></th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><code class="prettyprint">Python</code></td>
+<td style="text-align: left"><code class="prettyprint">Ruby</code></td>
+</tr>
+<tr>
+<td style="text-align: left">A sample app written in Python, using <a href="http://flask.pocoo.org/">Flask</a>.</td>
+<td style="text-align: left">A Ruby gem that allows you to authenticate using <a href="https://github.com/intridea/omniauth/wiki">OmniAuth</a>.</td>
+</tr>
+</tbody></table>
+
+<h2 id="community-contributed-libraries"><span class="jumptarget"> Community-Contributed Libraries </span></h2>
+
+<p>The following libraries and tools have been contributed by our community. They’re not officially supported, but we think they’re great.</p>
+
+<table><thead>
+<tr>
+<th style="text-align: left">PHP</th>
+<th style="text-align: left">Python</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="https://github.com/adambilsing/PHP-cURL-lib-for-Bigcommerce-API">PHP-cURL-lib-for-Bigcommerce-API</a></td>
+<td style="text-align: left"><a href="https://github.com/Clean-Cole/python-bigcommerce-api">python-bigcommerce-api</a></td>
+</tr>
+<tr>
+<td style="text-align: left"><a href="https://github.com/kalley/laravel-bigcommerce">laravel-bigcommerce</a></td>
+<td style="text-align: left"><a href="https://github.com/Dania02525/Bigcommerce-api-elixir">bigcommerce-api-elixir</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Ruby</th>
+<th style="text-align: left">C#</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="https://github.com/whiplashmerch/bigcommerce_api">bigcommerce_api</a></td>
+<td style="text-align: left"><a href="https://github.com/jmawebtech/bigcommercerestapi">bigcommercerestapi</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th style="text-align: left">Node.js</th>
+<th style="text-align: left">.NET</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left"><a href="https://github.com/Receiptful/node-bigcommerce">node-bigcommerce</a></td>
+<td style="text-align: left"><a href="https://github.com/worstone/BigCommerce4Net">BigCommerce4Net</a></td>
 </tr>
 </tbody></table>
 
