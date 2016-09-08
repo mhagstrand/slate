@@ -43,14 +43,16 @@ includes:
   - api_CRUD_orders_messages
   - api_objects_order_product
   - api_CRUD_orders_products
-  - api_objects_order_status
-  - api_CRUD_orders_statuses
   - api_objects_order_shipping_address
   - api_CRUD_orders_shipping_addresses
+  - api_objects_order_status
+  - api_CRUD_orders_statuses
   - api_objects_order_tax.md
   - api_CRUD_orders_taxes.md
   - api_objects_order_shipment
   - api_CRUD_orders_shipments
+  - api_objects_payment_method
+  - api_CRUD_payments_methods
   - api_objects_product
   - api_CRUD_products
   - api_objects_product_option
@@ -87,8 +89,6 @@ includes:
   - api_CRUD_tax_classes
   - api_objects_shipping_method
   - api_CRUD_shipping_methods
-  - api_objects_payment_method
-  - api_CRUD_payments_methods
   - api_objects_store_information
 
 search: true
