@@ -4,6 +4,7 @@ layout: "twocolumn"
 
 includes:
   - themes_features
+  - api_browsers.md
   - themes_anatomy
   - themes_blueprint
   - themes_style_editor
