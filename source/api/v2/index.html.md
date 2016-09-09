@@ -4,13 +4,12 @@ layout: "apitwocolumn"
 
 toc_footers:
   - <a href="/">Home</a>
-  - <a href='/api/v2/'>API - Getting Started</a>
-  - <a href='/themes/'>Themes</a>
-  - <a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a>
-  - <a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a>
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a>
-  - <a href='http://github.com/tripit/slate'>Documentation by Slate</a>
+  - <a href="/api/">API - Basics</a>
+  - <a href="/themes/">Themes</a>
+  - <a href="https://stencil.bigcommerce.com/docs/"> &nbsp;  Stencil Themes</a>
+  - <a href="/themes/blueprint/"> &nbsp; Blueprint Themes</a>
+  - <a href="http://goo.gl/forms/380FmYFlaJ05CL3q2" target="_blank">Sign Up for the Developer Newsletter</a>
+  - <a href="http://github.com/tripit/slate" target="_blank">Site Built with Slate</a>
 
 includes:
   - api_objects_blog_post
@@ -96,6 +95,10 @@ includes:
   - api_CRUD_tax_classes
   - api_objects_webhook
   - api_CRUD_webhooks
+  - api_browsers.md
+  - api_status_codes
+  - api_data_types
+  - api_faqs
 
 search: true
 ---

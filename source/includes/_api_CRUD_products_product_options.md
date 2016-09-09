@@ -1,4 +1,4 @@
-## Options associated directly with a product.
+Options associated directly with a product.
 
 |||
 |---|---|
@@ -11,17 +11,17 @@
 *   [List Product Options](#list-product-options)
 *   [Get a Product Option](#get-a-product-option)
 
-## List Product Options
+### List Product Options
 
 Gets the options associated with a product.
 
 
 *   [OAuth](#list-product-options-oauth)
->`GET /stores/{store_hash}/v2/products/{product_id}/options`</div>
+>`GET /stores/{store_hash}/v2/products/{product_id}/options`
 *   [Basic Auth](#list-product-options-basic)
->`GET /api/v2/products/{product_id}/options`</div>
+>`GET /api/v2/products/{product_id}/options`
 
-### Pagination
+#### Pagination
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250\. If a limit isn’t provided, up to 50 product_options are returned by default.
 
@@ -30,11 +30,11 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | `page` | int | `/api/v2/products/{product_id}/options?page={number}` |
 | `limit` | int | `/api/v2/products/{product_id}/options?limit={count}` |
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
-```
+```json
 [
   {
     "id": 13,
@@ -53,20 +53,20 @@ Example JSON returned in the response:
 ]
 ```
 
-## Get a Product Option
+### Get a Product Option
 
 Gets an option associated with a product.
 
 *   [OAuth](#get-a-product-option-oauth)
-">`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`</div>
+">`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
 *   [Basic Auth](#get-a-product-option-basic)
->`GET /api/v2/products/{product_id}/options/{id}`</div>
+>`GET /api/v2/products/{product_id}/options/{id}`
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
-```
+```json
 {
   "id": 14,
   "option_id": 9,

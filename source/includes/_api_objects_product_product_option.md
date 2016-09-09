@@ -1,9 +1,11 @@
+## Product Options
+
 |||
 |---|---|
 | Managed by | [Product Options Resource](/api/stores/v2/products/options)
 
 
-## Properties
+### <span class="jumptarget"> Product Options Object – Properties </span>
 
 | Title | Name | Type | Description |
 | --- | --- | --- | --- |

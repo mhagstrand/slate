@@ -1,3 +1,6 @@
+# <span class="jumptarget"> FAQ </span>
+
+
 ## <span class="jumptarget"> What kind of apps can I submit?</span>
 
 You can build any kind of app to test the capabilities of the platform. For inclusion in the App Store, we’re looking for apps that that make online retail better and help our merchants to sell more.
