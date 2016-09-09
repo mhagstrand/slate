@@ -1,8 +1,12 @@
-# <span class="jumptarget"> Payment Methods </span>
+# <span class="jumptarget"> Payment Methods Reference </span>
+
+This section covers the Payment Method object and Payment Methonds endpoints.
+
+## <span class="jumptarget"> Payment Methods </span>
 
 Enabled payment types or methods in a store.
 
-## <span class="jumptarget"> Payment Method Object – Properties </span>
+### <span class="jumptarget"> Payment Method Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

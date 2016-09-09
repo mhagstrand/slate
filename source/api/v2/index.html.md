@@ -53,8 +53,6 @@ includes:
   - api_CRUD_orders_shipments
   - api_objects_payment_method
   - api_CRUD_payments_methods
-  - api_objects_product
-  - api_CRUD_products
   - api_objects_brand
   - api_CRUD_brands
   - api_objects_product_discount_rule
@@ -75,6 +73,8 @@ includes:
   - api_CRUD_option_sets_options
   - api_objects_option_value
   - api_CRUD_options_values
+  - api_objects_product
+  - api_CRUD_products
   - api_objects_product_image
   - api_CRUD_products_images
   - api_objects_product_product_option
