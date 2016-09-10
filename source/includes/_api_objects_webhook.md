@@ -1,8 +1,10 @@
-# <span class="jumptarget"> Webhook object </span>
+# <span class="jumptarget"> Webhooks Reference </span>
+
+## <span class="jumptarget"> Webhook Object </span>
 
 Register and manage webhooks that connect events from a store to external URLs.
 
-## <span class="jumptarget"> Properties </span>
+### <span class="jumptarget"> Webhook Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

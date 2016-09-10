@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Products </span>
+## <span class="jumptarget"> Products </span>
 
 A saleable item in the catalog.
 
-## <span class="jumptarget"> Product Object – Properties </span>
+### <span class="jumptarget"> Product Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- | --- |

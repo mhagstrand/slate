@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Product Options </span>
+### <span class="jumptarget"> List Product Options </span>
 
 Gets the options associated with a product.
 
@@ -13,11 +13,11 @@ Gets the options associated with a product.
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/options`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product options. 
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_options are returned by default.
 
@@ -45,7 +45,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Product Option </span>
+### <span class="jumptarget"> Get a Product Option </span>
 
 Gets an option associated with a product.
 
