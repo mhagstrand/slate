@@ -1,6 +1,6 @@
 # <span class="jumptarget"> Geography Reference </span>
 
-Geography APIs include Countries and States.
+Geography APIs handle geographic information resources. They include Countries and States.
 
 ## <span class="jumptarget"> Countries </span>
 

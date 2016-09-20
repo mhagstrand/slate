@@ -1,6 +1,6 @@
-# <span class="jumptarget"> Marketing </span>
+# <span class="jumptarget"> Marketing Reference </span>
 
-Marketing APIs include Coupons, Banners, and Gift Certificates.
+Marketing APIs support demand generation and loyalty programs. They include Coupons, Banners, and Gift Certificates.
 
 ## <span class="jumptarget"> Coupons </span>
 

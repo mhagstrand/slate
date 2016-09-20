@@ -1,6 +1,6 @@
 # <span class="jumptarget"> Customers Reference </span>
 
-Customers APIs include Customers, Customer Addresses, Customer Groups, and Customer Login.
+Customers APIs manage identity and account details for customers shopping on BigCommerce stores. They include Customers, Customer Addresses, Customer Groups, and Customer Login.
 
 ## <span class="jumptarget"> Customers </span>
 

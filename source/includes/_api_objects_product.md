@@ -1,8 +1,10 @@
 ## <span class="jumptarget"> Products </span>
 
-A saleable item in the catalog.
+Product APIs support managing, searching, and displaying product-catalog information. They include Brands, Bulk Pricing Rules, Categories, Configurable Fields, Custom Fields, Google Product Search Mappings, Options, Option Set, Option-Set Options, Option Values, Products, Product Images, Product Options, Product Reviews, Product Rules, Product Videos, and SKUs.
 
 ### <span class="jumptarget"> Product Object – Properties </span>
+
+A product object represents a saleable item in the catalog.
 
 | Name | Type | Description |
 | --- | --- | --- | --- |
