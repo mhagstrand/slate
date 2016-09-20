@@ -17,6 +17,10 @@ List of tags with associated blog posts.
 *   Basic Auth
 >`GET /api/blog/tags`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 [
   {

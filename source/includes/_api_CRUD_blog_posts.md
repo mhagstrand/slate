@@ -33,7 +33,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /stores/{store_hash}/v2/blog/posts?page={number} |
 | Limit | int | /stores/{store_hash}/v2/blog/posts?limit={count} |
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -97,7 +97,7 @@ Gets a blog post.
 *   Basic Auth
 `GET /api/v2/blog/posts/{id}`
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -136,7 +136,7 @@ Gets a count of blog posts.
 *   Basic Auth
 `GET /api/v2/blog/posts/count`
 
-### <span class="jumptarget"> Response </span>
+#### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -177,7 +177,7 @@ Blog posts default to draft status. Set `is_published` to true to publish posts 
 
 If a custom url is not provided, the post’s URL will be generated based on the value of `title`.
 
-### <span class="jumptarget"> Request </span>
+#### <span class="jumptarget"> Request </span>
 
 Example request object:
 
