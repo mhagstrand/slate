@@ -162,13 +162,12 @@
       </div>
         <ul class="toc-footer">
             <li><a href="/">Home</a></li>
-            <li><a href='/api/v2/'>API - Getting Started</a></li>
-            <li><a href='/themes/'>Themes</a></li>
-            <li><a href='/themes/blueprint/'> &nbsp; Blueprint Themes</a></li>
-            <li><a href='https://stencil.bigcommerce.com/docs'> &nbsp;  Stencil Themes</a></li>
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='http://goo.gl/forms/380FmYFlaJ05CL3q2'>Sign Up for the Developer Newsletter</a></li>
-            <li><a href='http://github.com/tripit/slate'>Documentation by Slate</a></li>
+            <li><a href="/api/">API - Basics</a></li>
+            <li><a href="/themes/">Themes</a></li>
+            <li><a href="https://stencil.bigcommerce.com/docs/"> &nbsp;  Stencil Themes</a></li>
+            <li><a href="/themes/blueprint/"> &nbsp; Blueprint Themes</a></li>
+            <li><a href="http://goo.gl/forms/380FmYFlaJ05CL3q2" target="_blank">Sign Up for the Developer Newsletter</a></li>
+            <li><a href="http://github.com/tripit/slate" target="_blank">Site Built with Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
@@ -180,6 +179,365 @@
 <p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI).</p>
 
 <p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
+
+          <h1 id="supported-browsers"><span class="jumptarget"> Supported Browsers </span></h1>
+
+<p>Below are the browsers supported for the BigCommerce control panel. We drop support when a version falls below 2% of usage. The browsers are sorted by popularity, with the most popular browsers at the top.</p>
+
+<table><thead>
+<tr>
+<th>Desktop</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Chrome latest</td>
+</tr>
+<tr>
+<td>Firefox latest</td>
+</tr>
+<tr>
+<td>Internet Explorer 10 or later</td>
+</tr>
+<tr>
+<td>Safari latest</td>
+</tr>
+</tbody></table>
+
+<p>For a current list of target browsers (desktop and mobile) supported for <em>storefronts</em> that use BigCommerce themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers">this support page</a>.</p>
+
+          <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
+
+<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
+
+<h2 id="2xx-success"><span class="jumptarget"> 2xx Success </span></h2>
+
+<p>These codes are returned for requests that were understood and processed successfully.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>200</strong></td>
+<td><strong>OK</strong></td>
+<td>For successful <strong>GET</strong> and <strong>PUT</strong> requests.</td>
+</tr>
+<tr>
+<td><strong>201</strong></td>
+<td><strong>Created</strong></td>
+<td>For a successful <strong>POST</strong> request.</td>
+</tr>
+<tr>
+<td><strong>202</strong></td>
+<td><strong>Accepted</strong></td>
+<td>For a request that resulted in a scheduled task being created to perform the actual request.</td>
+</tr>
+<tr>
+<td><strong>204</strong></td>
+<td><strong>No Content</strong></td>
+<td>For a successful request that produced no response (such as <strong>DELETE</strong> requests).</td>
+</tr>
+</tbody></table>
+
+<h2 id="3xx-redirection"><span class="jumptarget"> 3xx Redirection </span></h2>
+
+<p>These codes are returned for requests that have resulted in the client needing to take further action to complete the request.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>301</strong></td>
+<td><strong>Moved Permanently</strong></td>
+<td>When the API routes have changed (unlikely) or if the incoming request is not secure (http) then it will be redirect to the secure (https) version.</td>
+</tr>
+<tr>
+<td><strong>302</strong></td>
+<td><strong>Found</strong></td>
+<td>When the resource was found at a different location. When a request to a deprecated version of the API is received, a <strong>302 Found</strong> response will be issued to the current API version.</td>
+</tr>
+<tr>
+<td><strong>304</strong></td>
+<td><strong>Not Modified</strong></td>
+<td>If an <strong>If-Modified-Since</strong> header is sent in the request and the resource has not been modified since the specified date, then this response will be sent. See resource specific pages for support for the <strong>If-Modified-Since</strong> header.</td>
+</tr>
+</tbody></table>
+
+<h2 id="4xx-client-error"><span class="jumptarget"> 4xx Client Error </span></h2>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>400</strong></td>
+<td><strong>Bad Request</strong></td>
+<td>Issued when a malformed request was sent. Examples follow.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Invalid syntax</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Missing required data</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Webhook requests missing <strong>Content-Type</strong> in the HTTP header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td><strong>Unauthorized</strong></td>
+<td>This response is sent when your client failed to provide credentials or its credentials were invalid.</td>
+</tr>
+<tr>
+<td><strong>403</strong></td>
+<td><strong>Forbidden</strong></td>
+<td>Returned when permissions do not allow the operation or when the operation exceeds a limit.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested and if they support the request that you made.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Revert those changes to correct this issue.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. Refer to the documentation of the resource in question for more information.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td><strong>Not Found</strong></td>
+<td>When a particular resource doesn’t exist or couldn’t be found.</td>
+</tr>
+<tr>
+<td><strong>405</strong></td>
+<td><strong>Method Not Allowed</strong></td>
+<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <strong>PUT</strong> on <strong>/orders</strong> is invalid, but <strong>PUT</strong> on <strong>/orders/{<em>id</em>}</strong> is valid.</td>
+</tr>
+<tr>
+<td><strong>406</strong></td>
+<td><strong>Not Acceptable</strong></td>
+<td>When the client specifies a response content type in the <strong>Accept</strong> header that is not supported.</td>
+</tr>
+<tr>
+<td><strong>409</strong></td>
+<td><strong>Conflict</strong></td>
+<td>A change requested by the client is being rejected due to a condition imposed by the server. The exact reasons response for this will vary from one resource to the next. Examples may include attempting to delete a category which would result in products being orphaned. Additional information about the conflict and how to resolve it may be available in the <strong>details</strong> section of the response.</td>
+</tr>
+<tr>
+<td><strong>413</strong></td>
+<td><strong>Request Entity Too Large</strong></td>
+<td>When the client requests too many objects. For example, the <strong>limit</strong> parameter exceeded the maximum.</td>
+</tr>
+<tr>
+<td><strong>415</strong></td>
+<td><strong>Unsupported Media Type</strong></td>
+<td>Returned due to issues with the <strong>Content-Type</strong> header.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It specifies an unsupported content type.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>*   It is missing (except the webhooks resource, which returns a 400 in this case).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>429</strong></td>
+<td><strong>Too Many Requests</strong></td>
+<td>When an OAuth client exceeds the rate limit for API requests to a store.</td>
+</tr>
+</tbody></table>
+
+<h2 id="5xx-server-error"><span class="jumptarget"> 5xx Server Error </span></h2>
+
+<p>These codes are returned for requests that could not be processed due to an internal error with the API or server.</p>
+
+<table><thead>
+<tr>
+<th>Code</th>
+<th>Definition</th>
+<th>Purpose</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>500</strong></td>
+<td><strong>Internal Server Error</strong></td>
+<td>When an error has occurred within the API.</td>
+</tr>
+<tr>
+<td><strong>501</strong></td>
+<td><strong>Not Implemented</strong></td>
+<td>When a request method is sent that is not supported by the API (e.g., <strong>TRACE</strong>, <strong>PATCH</strong>).</td>
+</tr>
+<tr>
+<td><strong>503</strong></td>
+<td><strong>Service Unavailable</strong></td>
+<td>When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version.</td>
+</tr>
+<tr>
+<td><strong>507</strong></td>
+<td><strong>Insufficient Storage</strong></td>
+<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit).</td>
+</tr>
+<tr>
+<td><strong>509</strong> (Deprecated)</td>
+<td><strong>Bandwidth Limit Exceeded</strong></td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="data-types"><span class="jumptarget"> Data Types </span></h1>
+
+<h4 id="int"><span class="jumptarget"> int</span></h4>
+
+<p>An integer number with a maximum value of 2147483647. Negatives are disallowed unless otherwise specified.</p>
+
+<h4 id="decimal-m-d"><span class="jumptarget"> decimal(M, D)</span></h4>
+
+<p>A decimal number of up to M digits in total including* D* digits after the decimal point. Negatives are disallowed unless otherwise specified.</p>
+
+<h4 id="string-m"><span class="jumptarget"> string(M)</span></h4>
+
+<p>A string of text up to M characters in length.</p>
+
+<h4 id="text"><span class="jumptarget"> text</span></h4>
+
+<p>A string of text up to ~16,777,216 bytes in length.</p>
+
+<h4 id="boolean"><span class="jumptarget"> boolean</span></h4>
+
+<p>A boolean value: true or false. In JSON it will be represented using the native boolean type. In XML, it will be the literal strings true or false.</p>
+
+<h4 id="date"><span class="jumptarget"> date</span></h4>
+
+<p>An RFC 2822 date. All dates output by BigCommerce API responses are in GMT (+0000) time. However, any time zone may be used on inputs as the offset information will be converted accordingly.</p>
+
+<h4 id="datetime"><span class="jumptarget"> datetime</span></h4>
+
+<p>An ISO 8601 datetime value. This is currently only supported as an input parameter on filters. Date values in responses remain in the RFC 2822 format.</p>
+
+<h4 id="enum"><span class="jumptarget"> enum</span></h4>
+
+<p>An enumeration of string values. Only the values specified in the fields description are allowed.</p>
+
+<h4 id="object"><span class="jumptarget"> object</span></h4>
+
+<p>An object with its own set of fields.</p>
+
+<h4 id="country-code"><span class="jumptarget"> country code</span></h4>
+
+<p>A 2 character ISO 3166-1 alpha-2 country code.</p>
+
+<h4 id="email-address"><span class="jumptarget"> email address</span></h4>
+
+<p>A valid email address. 250 characters maximum.</p>
+
+<h4 id="variable"><span class="jumptarget"> variable</span></h4>
+
+<p>Variable data depending on context. See the field definition for specifics.</p>
+
+<h4 id="array"><span class="jumptarget"> array</span></h4>
+
+<p>A simple list of values. In JSON this will be an array. In XML the field will contain a set of <code class="prettyprint">&lt;value&gt;</code> elements.</p>
+
+<h4 id="resource"><span class="jumptarget"> resource</span></h4>
+
+<p>A string representing a URI reference to another resource within the current version of the API.</p>
+
+<h4 id="null"><span class="jumptarget"> null</span></h4>
+
+<p>A null value. In JSON this is represented as the native null type. In XML, it is represented as the literal string NULL.</p>
+
+          <h1 id="faq"><span class="jumptarget"> FAQ </span></h1>
+
+<h2 id="what-kind-of-apps-can-i-submit"><span class="jumptarget"> What kind of apps can I submit?</span></h2>
+
+<p>You can build any kind of app to test the capabilities of the platform. For inclusion in the App Store, we’re looking for apps that that make online retail better and help our merchants to sell more.</p>
+
+<p>Apps should target one or more of the following categories:</p>
+
+<ul>
+<li>  Accounting</li>
+<li>  Advertising</li>
+<li>  Analytics</li>
+<li>  Cloud integration</li>
+<li>  Customer feedback</li>
+<li>  Drop shipping</li>
+<li>  Email marketing</li>
+<li>  Live chat</li>
+<li>  Marketing</li>
+<li>  Merchandising</li>
+<li>  Mobile</li>
+<li>  Multichannel listing</li>
+<li>  Order fulfillment</li>
+<li>  Order management</li>
+<li>  Point of sale</li>
+<li>  Product review</li>
+<li>  Shipping</li>
+<li>  Shopping comparison</li>
+<li>  Social media</li>
+<li>  Split testing</li>
+</ul>
+
+<h2 id="how-does-the-approval-process-work"><span class="jumptarget"> How does the approval process work?</span></h2>
+
+<p>Upon receiving an <a href="/api#completing-reg">app submission</a>, we review it to make sure that it meets our <a href="/api#approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p>
+
+<h2 id="is-the-api-rate-limit-per-store-or-per-app"><span class="jumptarget"> Is the API rate limit per-store or per-app?</span></h2>
+
+<p>Basic Authentication requests are rate-limited <a href="/api/rate-limits/basic">per app</a>.</p>
+
+<p>OAuth requests are rate-limited <a href="/api/rate-limits/oauth">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
+
+<h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers"><span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span></h2>
+
+<p>Yes. Please review our list of <a href="/api#browsers">supported browsers</a> and the documentation on <a href="/api#ui-constraints">user interface constraints</a> for details.</p>
+
+<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance?</span></h2>
+
+<p>You can modify your app at any time within My Apps, free of charge. As soon as you click <strong>Update &amp; Close</strong>, your changes will be live. Therefore, we recommend creating a copy of your app and using this to test the changes first. Once you have made sure that they work properly, you can go ahead and modify your production app.</p>
+
+<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code?</span></h2>
+
+<p>No. BigCommerce does not support the upload of server-side code to a store. The server-side code must hosted elsewhere. The storefront can use JavaScript to access it.</p>
 
       </div>
     </div>
