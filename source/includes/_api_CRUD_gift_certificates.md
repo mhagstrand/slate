@@ -208,9 +208,14 @@ Updates an existing gift certificate.
 
 #### <span class="jumptarget"> Read-only Properties </span>
 
-The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
+The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected:
 
-```curl
+* id
+* order_id
+* template
+
+
+```json
     {
       "amount": "1000.0000"
     }
