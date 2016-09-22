@@ -28,6 +28,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page    | int  | /api/v2/gift_certificates?page={number} |
 | limit   | int  | /api/v2/gift_certificates?limit={count} |
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
     {
       "giftcertificates": {
@@ -93,6 +97,10 @@ Retrieves a specified gift certificate.
 `GET /stores/{store_hash}/v2/gift_certificates/{id}`
 *   Basic Auth
 `GET /api/v2/gift_certificates/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
     {
@@ -164,7 +172,11 @@ The gift certificate's template can be one of the following:
 * Girl
 * {blank}
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
     {
       "code": "10R-6E3-AO4-RST",
       "amount": "700.0000",
@@ -175,6 +187,10 @@ The gift certificate's template can be one of the following:
       "from_email": "test1@test.com"
     }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
     {
@@ -215,11 +231,19 @@ The following properties of the gift certificate are read-only. If one or more o
 * template
 
 
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
 ```json
     {
       "amount": "1000.0000"
     }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
     {
