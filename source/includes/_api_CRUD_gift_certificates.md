@@ -126,7 +126,12 @@ Creates a new gift certificate.
 
 #### <span class="jumptarget"> Read-only Properties </span>
 
-The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected.
+The following properties of the gift certificate are read-only. If one or more of these properties are included in the request, it will be rejected:
+
+* id
+* order_id
+* template
+
 
 #### <span class="jumptarget"> Requirements </span>
 
