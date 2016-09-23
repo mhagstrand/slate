@@ -126,6 +126,14 @@ Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/
 <!--- ^ Removed 9/6/16: JZON says broken, and might be deprecated as redundant. --->
 
 <li>store/information/updated</li>
+
+<li>store/shipment/*</li>
+	<ul>
+	<li>store/shipment/created</li>
+	<li>store/shipment/updated</li>
+	<li>store/shipment/deleted</li>
+	</ul>
+
 </ul>
 </html>
 

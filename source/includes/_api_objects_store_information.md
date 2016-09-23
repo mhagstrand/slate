@@ -1,8 +1,10 @@
-# <span class="jumptarget"> Store Information Object </span>
+# <span class="jumptarget"> Store Information Reference </span>
 
-Profile and metadata of an individual store.
+The Store Information object, and Get Store Information endpoint, manage store profile settings.
 
-## <span class="jumptarget"> Store Information Object - Properties </span>
+## <span class="jumptarget"> Store Information Object – Properties </span>
+
+A Store Information object represents an individual store's profile and metadata.
 
 | Name | Type | Description |
 | --- | --- | --- |

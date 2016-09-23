@@ -22,6 +22,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page | int | /api/v2/redirects?page={number} |
 | limit | int | /api/v2/redirects?limit={count} |
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 [
   {
@@ -53,6 +57,10 @@ Gets a single URL redirect.
 >`GET /stores/{store_hash}/v2/redirects/{id}`
 *   Basic Auth
 >`GET /api/v2/redirects/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {

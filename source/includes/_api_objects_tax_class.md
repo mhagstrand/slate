@@ -1,8 +1,15 @@
 # <span class="jumptarget"> Tax Class </span>
 
-Tax classes are used to apply different tax rates for specific types of products and orders. NOTE: Data inside the `tax_class` object of a store configured to use automatic taxes is ignored during tax calculations.
+The Tax Class object, and endpoints, manage tax calculations applied to sales. Tax classes are used to apply different tax rates for specific types of products and orders.
 
 ## <span class="jumptarget"> Tax Class Object – Properties </span>
+
+The `tax_class` object contains the ID and name of the tax class used to calculate tax for stores that use _manually created_ tax classes. 
+
+<aside class="warning">
+<span class="aside-warning-hd">Automatic Taxes – Limitation</span><br><br>
+Where a store is configured to use automatic taxes, data inside the `tax_class` object will be ignored during tax calculations.
+</aside>
 
 | Name | Type | Description |
 | --- | --- | --- |

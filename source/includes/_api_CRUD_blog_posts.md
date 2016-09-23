@@ -33,6 +33,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /stores/{store_hash}/v2/blog/posts?page={number} |
 | Limit | int | /stores/{store_hash}/v2/blog/posts?limit={count} |
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 [
   {
@@ -93,6 +97,10 @@ Gets a blog post.
 *   Basic Auth
 `GET /api/v2/blog/posts/{id}`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "id": 1,
@@ -127,6 +135,10 @@ Gets a count of blog posts.
 `GET /stores/{store_hash}/v2/blog/posts/count`
 *   Basic Auth
 `GET /api/v2/blog/posts/count`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```
 {
@@ -165,6 +177,10 @@ Blog posts default to draft status. Set `is_published` to true to publish posts 
 
 If a custom url is not provided, the post’s URL will be generated based on the value of `title`.
 
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
 ```json
 {
   "title": "A Sample Blog Post",
@@ -196,9 +212,9 @@ The following properties of the blog post are read-only. If one or more of these
 *   id
 *   preview_url
 
-#### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Request </span>
 
-The following properties of the blog post are required. The request won’t be fulfilled unless these properties are valid.
+Example request object:
 
 ```json
 {
@@ -227,7 +243,7 @@ Deletes multiple blog posts in the collection.
 
 #### Pagination </span>
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog_posts are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 blog posts are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |

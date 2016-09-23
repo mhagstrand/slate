@@ -1,6 +1,20 @@
 # <span class="jumptarget"> 2016 </span>
 
 
+## <span class="jumptarget"> September </span>
+
+### API: Shipment webhooks added
+
+We have added the following new webhooks, which your apps can use to track when an order's associated shipments are created, updated, or deleted: 
+
+- `store/shipment/*`
+- `store/shipment/created`
+- `store/shipment/updated`
+- `store/shipment/deleted`
+
+These additions are now listed in our webhooks [documentation](/api/#webhooks-overview).
+
+
 ## <span class="jumptarget"> August </span>
 
 ### Stencil custom templates now generally available
@@ -412,10 +426,10 @@ BigCommerce has made available two new webhooks. We encourage you to use these w
 * `store/order/message/created` reports [order messages][12] created by customers (via a customer account) or by merchants (via the control panel).
 * `store/information/updated` reports updates to a store's settings (domain, address, currency, tax inclusion, etc.).
 
-We have updated the [webhooks reference page][13] to include these new webhooks.
+We have updated the [webhooks overview](/api/#webhooks-overview) to include these new webhooks.
 
 [12]: /api/v2/#order-messages
-[13]: /#placeholder
+[13]: /api/#webhooks-overview
 
 ### <span class="jumptarget"> Expanded faceted-search display </span>
 
@@ -488,9 +502,9 @@ BigCommerce has made available several new webhooks. In the list below, the new 
   store/app/uninstalled
 ```
 
-We have updated the [webhooks reference page][20] to include these new webhooks.
+We have updated the [webhooks overview][20] to include these new webhooks.
 
-[20]: /api/v2#webhooks
+[20]: /api/#webhooks-overview
 
 ### <span class="jumptarget"> Status fields added to order/statusUpdated webhook </span>
 

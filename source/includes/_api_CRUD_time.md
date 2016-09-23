@@ -1,6 +1,6 @@
-# <span class="jumptarget"> Time </span>
+# <span class="jumptarget"> System Reference </span>
 
-Timestamp ping to check the system status.
+The Get a Timestamp endpoint generates a timestamp ping to check the system status.
 
 |||
 |---|---

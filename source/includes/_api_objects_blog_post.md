@@ -1,6 +1,6 @@
 # <span class="jumptarget"> Store Content Reference </span>
 
-Store Content APIs include Blog Posts and Redirects.
+Store Content APIs help merchants edit and publish blog posts and Web pages, improve SEO, and drive traffic to stores. They include Blog Posts and Redirects.
 
 ## <span class="jumptarget"> Blog Posts </span>
 

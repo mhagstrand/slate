@@ -1,10 +1,10 @@
 # <span class="jumptarget"> Orders Reference</span>
 
-Orders APIs include Orders, Order Coupons, Order Messages, Order Products, Order Shipping Addresses, Order Statuses, Order Taxes, and Shipments.
+Orders APIs integrate with point-of-sale, shipping, distribution, and inventory-management systems. They include Orders, Order Coupons, Order Messages, Order Products, Order Shipping Addresses, Order Statuses, Order Taxes, and Shipments.
 
 ## <span class="jumptarget"> Orders </span>
 
-A record of the purchase agreement between a shopper and a merchant.
+The Order object contains a record of the purchase agreement between a shopper and a merchant.
 
 ### <span class="jumptarget"> Order Object – Properties </span>
 

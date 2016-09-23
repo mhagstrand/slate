@@ -1,8 +1,10 @@
-# <span class="jumptarget"> Shipping Methods </span>
+# <span class="jumptarget"> Shipping Methods Reference </span>
 
-Enabled Shipping Methods within the store.
+The Shipping Methods object and endpoints help manage the shipping of physical items from merchant to shopper.
 
 ## <span class="jumptarget"> Shipping Method Object – Properties </span>
+
+A Shipping Method object represents a shipping method enabled within the store.
 
 | Name | Type | Description |
 | --- | --- | --- |
