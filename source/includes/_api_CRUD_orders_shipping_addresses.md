@@ -119,14 +119,14 @@ The following example does not belong here – copy/paste error in original cont
 </aside>
 
 
-### Get a Count of Shipments </span>
+### Get a Count of Shipping Addresses </span>
 
-Gets a count of the number of orders that have shipped.
+Gets a count of the number of shipping addresses on the order.
 
 *   OAuth
->`GET /stores/{store_hash}/v2/orders/shipments/count`
+>`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/count`
 *   Basic Auth
->`GET /api/v2/orders/shipments/count`
+>`GET /api/v2/orders/{order_id}/shipping_addresses/count`
 
 #### <span class="jumptarget"> Response </span>
 
