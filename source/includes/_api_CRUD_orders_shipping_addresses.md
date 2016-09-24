@@ -113,12 +113,6 @@ Example JSON returned in the response:
 }
 ```
 
-<aside class="warning">
-<span class="aside-warning-hd">Migration Note:</span><br><br>
-The following example does not belong here – copy/paste error in original content?:
-</aside>
-
-
 ### Get a Count of Shipping Addresses </span>
 
 Gets a count of the number of shipping addresses on the order.
