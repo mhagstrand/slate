@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Order Products </span>
+## <span class="jumptarget"> Order Products </span>
 
 Product line item belonging to an order.
 
-## <span class="jumptarget"> Order Product Object - Properties </span>
+### <span class="jumptarget"> Order Product Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
