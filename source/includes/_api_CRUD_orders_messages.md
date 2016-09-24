@@ -29,7 +29,7 @@ Filter parameters can be added to the URL query string to select specific `order
 
 #### <span class="jumptarget"> Pagination </span>
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_messages are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `order_message`s are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
