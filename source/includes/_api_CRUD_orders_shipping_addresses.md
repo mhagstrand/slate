@@ -115,7 +115,7 @@ Example JSON returned in the response:
 
 ### Get a Count of Shipping Addresses </span>
 
-Gets a count of the number of shipping addresses on the order.
+Gets a count of the number of shipping addresses on an order.
 
 *   OAuth
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/count`
