@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## List Order Statuses </span>
+### List Order Statuses </span>
 
 Gets the list of order statuses.
 
@@ -13,11 +13,11 @@ Gets the list of order statuses.
 *   Basic Auth
 >`GET /api/v2/order_statuses`
 
-### Filters </span>
+#### Filters </span>
 
 There are no filter parameters specific to `order_statuses`.
 
-### Pagination </span>
+#### Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_statuses are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/order_statuses?page={number} |
 | limit | int | /api/v2/order_statuses?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -101,7 +105,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Order Status </span>
+### Get an Order Status </span>
 
 Gets a single order status.
 
@@ -109,6 +113,10 @@ Gets a single order status.
 >`GET /stores/{store_hash}/v2/order_statuses/{id}`
 *   Basic Auth
 >`GET /api/v2/order_statuses/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
