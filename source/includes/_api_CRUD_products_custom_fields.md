@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Custom Fields </span>
+### <span class="jumptarget"> List Custom Fields </span>
 
 Gets custom fields associated with a product.
 
@@ -13,11 +13,11 @@ Gets custom fields associated with a product.
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/custom_fields`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `custom_fields`.
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/products/{product_id}/custom_fields?page={number} |
 | limit | int | /api/v2/products/{product_id}/custom_fields?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -43,7 +47,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Custom Field </span>
+### <span class="jumptarget"> Get a Custom Field </span>
 
 Gets a custom field associated with a product.
 
@@ -51,6 +55,10 @@ Gets a custom field associated with a product.
 >`GET /stores/{store_hash}/v2/products/{product_id}/custom_fields/{id}`
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/custom_fields/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -61,7 +69,7 @@ Gets a custom field associated with a product.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Custom Fields </span>
+### <span class="jumptarget"> Get a Count of Custom Fields </span>
 
 Gets a count of the number of custom fields in the store.
 
@@ -70,13 +78,17 @@ Gets a count of the number of custom fields in the store.
 *   Basic Auth
 >`GET /api/v2/products/custom_fields/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 0
 }
 ```
 
-## <span class="jumptarget"> Create a Custom Field </span>
+### <span class="jumptarget"> Create a Custom Field </span>
 
 Creates a new custom field associated with a product
 
@@ -85,25 +97,33 @@ Creates a new custom field associated with a product
 *   Basic Auth
 >`POST /api/v2/products/{product_id}/custom_fields`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 *   text
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "name": "Release Date",
   "text": "2013-12-25"
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -114,7 +134,7 @@ The following properties of the custom field are required. The request won’t b
 }
 ```
 
-## <span class="jumptarget"> Update a Custom Field </span>
+### <span class="jumptarget"> Update a Custom Field </span>
 
 Updates an existing custom field associated with a product.
 
@@ -123,25 +143,33 @@ Updates an existing custom field associated with a product.
 *   Basic Auth
 >`PUT /api/v2/products/{product_id}/custom_fields/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the custom field are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   product_id
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the custom field are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 *   text
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "name": "Release Date",
   "text": "2013-12-31"
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -152,7 +180,7 @@ The following properties of the custom field are required. The request won’t b
 }
 ```
 
-## <span class="jumptarget"> Delete a Custom Field </span>
+### <span class="jumptarget"> Delete a Custom Field </span>
 
 Deletes a custom field associated with a product.
 
@@ -161,7 +189,7 @@ Deletes a custom field associated with a product.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/custom_fields/{id}`
 
-## <span class="jumptarget"> Delete Multiple Custom Fields </span>
+### <span class="jumptarget"> Delete Multiple Custom Fields </span>
 
 Deletes multiple custom fields associated with a product.
 
@@ -170,7 +198,7 @@ Deletes multiple custom fields associated with a product.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/custom_fields`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 custom_fields are returned by default.
 
