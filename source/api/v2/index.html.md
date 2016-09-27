@@ -56,7 +56,7 @@ includes:
   - api_objects_product_googleproductsearch
   - api_CRUD_products_googleproductsearch
   - api_objects_product_option
-  - api_CRUD_products_options
+  - api_CRUD_options.md
   - api_objects_option_set
   - api_CRUD_option_sets
   - api_objects_option_set_option
@@ -68,7 +68,7 @@ includes:
   - api_objects_product_image
   - api_CRUD_products_images
   - api_objects_product_product_option
-  - api_CRUD_products_product_options
+  - api_CRUD_products_options
   - api_objects_product_review
   - api_CRUD_products_reviews
   - api_objects_product_rule
