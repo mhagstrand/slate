@@ -1,5 +1,7 @@
 ## <span class="jumptarget"> Google Product Search Mappings </span>
 
+Metadata to support promoting products via Google Shopping search advertising.
+
 ### <span class="jumptarget"> Google Product Search Mapping Object – Properties </span>
 
 | Name | Type | Description |
