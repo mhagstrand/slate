@@ -26,6 +26,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | page | int | /api/v2/products/{product_id}/options?page={number} |
 | limit | int | /api/v2/products/{product_id}/options?limit={count} |
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 [
   {
@@ -53,6 +57,10 @@ Gets an option associated with a product.
 ">`GET /stores/{store_hash}/v2/products/{product_id}/options/{id}`
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/options/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
