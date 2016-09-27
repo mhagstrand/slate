@@ -17,4 +17,3 @@ Brand facets for identifying and categorizing products according to their manufa
 | meta_description | text | A meta description to include |
 | image_file | string | A valid image |
 | search_keywords | string | A comma separated list of keywords that can be used to locate this brand |
-Product APIs support managing, searching, and displaying product-catalog information. They include Brands, Bulk Pricing Rules, Categories, Configurable Fields, Custom Fields, Google Product Search Mappings, Options, Option Set, Option-Set Options, Option Values, Products, Product Images, Product Options, Product Reviews, Product Rules, Product Videos, and SKUs.
