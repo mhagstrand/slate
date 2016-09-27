@@ -4,7 +4,7 @@
 | OAuth Scopes | store_v2_products|
 ||store_v2_products_read_only|
 
-## <span class="jumptarget"> List Product Images </span>
+### <span class="jumptarget"> List Product Images </span>
 
 Gets the images associated with a product. (Default sorting is by image id, from lowest to highest.)
 
@@ -13,11 +13,11 @@ Gets the images associated with a product. (Default sorting is by image id, from
 *   Basic Auth
 >GET /api/v2/products/{product_id}/images
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product images.
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_images are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/products/{product_id}/images?page={number} |
 | limit | int | /api/v2/products/{product_id}/images?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -57,7 +61,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Product Image </span>
+### <span class="jumptarget"> Get a Product Image </span>
 
 Gets a product image.
 
@@ -65,6 +69,10 @@ Gets a product image.
 >`GET /stores/{store_hash}/v2/products/{product_id}/images/{id}`
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/images/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -82,7 +90,7 @@ Gets a product image.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Product Images </span>
+### <span class="jumptarget"> Get a Count of Product Images </span>
 
 Gets a count of the number of product images in the store.
 
@@ -91,13 +99,17 @@ Gets a count of the number of product images in the store.
 *   Basic Auth
 >`GET /api/v2/products/images/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 105
 }
 ```
 
-## <span class="jumptarget"> Create a Product Image </span>
+### <span class="jumptarget"> Create a Product Image </span>
 
 Creates a new product image.
 
@@ -106,7 +118,7 @@ Creates a new product image.
 *   Basic Auth
 >`POST /api/v2/products/{product_id}/images`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -114,11 +126,15 @@ The following properties of the product image are read-only. If one or more of t
 *   date_created
 *   product_id
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product image are required. The request won’t be fulfilled unless these properties are valid.
 
 *   image_file
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -132,7 +148,7 @@ The following properties of the product image are required. The request won’t 
 }
 ```
 
-## <span class="jumptarget"> Update a Product Image </span>
+### <span class="jumptarget"> Update a Product Image </span>
 
 Updates an existing product image.
 
@@ -141,7 +157,7 @@ Updates an existing product image.
 *   Basic Auth
 >`PUT /api/v2/products/{product_id}/images/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product image are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -149,9 +165,13 @@ The following properties of the product image are read-only. If one or more of t
 *   product_id
 *   date_created
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product image are required. The request won’t be fulfilled unless these properties are valid.
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -165,7 +185,7 @@ The following properties of the product image are required. The request won’t 
 }
 ```
 
-## <span class="jumptarget"> Delete a Product Image </span>
+### <span class="jumptarget"> Delete a Product Image </span>
 
 Deletes a product image.
 
@@ -174,7 +194,7 @@ Deletes a product image.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/images/{id}`
 
-## <span class="jumptarget"> Delete Multiple Product Images </span>
+### <span class="jumptarget"> Delete Multiple Product Images </span>
 
 Deletes multiple product images.
 
@@ -183,7 +203,7 @@ Deletes multiple product images.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/images`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `product_images` are returned by default.
 
