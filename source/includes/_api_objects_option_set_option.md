@@ -2,7 +2,7 @@
 
 Options belonging to an option set.
 
-### <span class="jumptarget">  Option Set Option Object – Properties </span>
+### <span class="jumptarget"> Option Set Option: Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
