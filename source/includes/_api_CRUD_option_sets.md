@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Option Sets  </span>
+### <span class="jumptarget"> List Option Sets  </span>
 
 Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)
 
@@ -13,7 +13,7 @@ Gets the collection of option sets. (Default sorting is by option-set id, from l
 *   Basic Auth
 >`GET /api/v2/option_sets`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific option_sets in the collection.
 
@@ -21,7 +21,7 @@ Filter parameters can be added to the URL query string to select specific option
 | --- | --- | --- |
 | name | string | /api/v2/option_sets?name={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 option_sets are returned by default.
 
@@ -29,6 +29,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | Page | int | /api/v2/option_sets?page={number} |
 | Limit | int | /api/v2/option_sets?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -51,7 +55,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get an Option Set </span>
+### <span class="jumptarget"> Get an Option Set </span>
 
 Gets an option set.
 
@@ -59,6 +63,10 @@ Gets an option set.
 >`GET /stores/{store_hash}/v2/option_sets/{id}`
 *   Basic Auth
 >`GET /api/v2/option_sets/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -71,7 +79,7 @@ Gets an option set.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Option Sets </span>
+### <span class="jumptarget"> Get a Count of Option Sets </span>
 
 Gets a count of the number of option sets in the store.
 
@@ -80,13 +88,17 @@ Gets a count of the number of option sets in the store.
 *   Basic Auth
 >`GET /api/v2/option_sets/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 4
 }
 ```
 
-## <span class="jumptarget"> Create an Option Set </span>
+### <span class="jumptarget"> Create an Option Set </span>
 
 Creates a new Option set.
 
@@ -95,24 +107,32 @@ Creates a new Option set.
 *   Basic Auth
 >`POST /api/v2/option_sets`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   options
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "name": "T-Shirts"
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -125,7 +145,7 @@ The following properties of the option set are required. The request won’t be 
 }
 ```
 
-## <span class="jumptarget"> Update an Option Set </span>
+### <span class="jumptarget"> Update an Option Set </span>
 
 Updates an existing option set.
 
@@ -134,24 +154,32 @@ Updates an existing option set.
 *   Basic Auth
 >`PUT /api/v2/option_sets/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   options
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "name": "T-shirt Facets"
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -164,7 +192,7 @@ The following properties of the option set are required. The request won’t be 
 }
 ```
 
-## <span class="jumptarget"> Delete an Option Set </span>
+### <span class="jumptarget"> Delete an Option Set </span>
 
 Deletes an option set.
 
@@ -173,7 +201,7 @@ Deletes an option set.
 *   Basic Auth
 >`DELETE /api/v2/option_sets/{id}`
 
-## <span class="jumptarget"> Delete All Option Sets </span>
+### <span class="jumptarget"> Delete All Option Sets </span>
 
 Deletes all option sets in the store.
 
