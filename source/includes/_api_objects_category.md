@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Categories </span>
+## <span class="jumptarget"> Categories </span>
 
 Index of hierarchical categories used to organize and group products.
 
-## <span class="jumptarget"> Category Object – Properties </span>
+### <span class="jumptarget"> Category Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
