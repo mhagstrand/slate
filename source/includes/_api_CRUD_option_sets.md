@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-### <span class="jumptarget"> List Option Sets  </span>
+### <span class="jumptarget"> List Option Sets </span>
 
 Gets the collection of option sets. (Default sorting is by option-set id, from lowest to highest.)
 
