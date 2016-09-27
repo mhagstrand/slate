@@ -46,7 +46,7 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 products are returned by default.
 
@@ -562,7 +562,7 @@ Example JSON returned in the response:
 }
 ```
 
-## <span class="jumptarget"> Get a Product Count </span>
+### <span class="jumptarget"> Get a Product Count </span>
 
 Gets a count of products.
 
@@ -627,7 +627,7 @@ Creates a new product. The example request shows how to create a basic product b
 *   Basic Auth
 > `POST /api/v2/products`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -782,7 +782,7 @@ To maximize system performance, BigCommerce caps the maximum number of categorie
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-## <span class="jumptarget"> Delete a Product </span>
+### <span class="jumptarget"> Delete a Product </span>
 
 Deletes a product.
 
@@ -791,7 +791,7 @@ Deletes a product.
 *   Basic Auth
 > `DELETE /api/v2/products/{id}`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 Successful deletion of a product returns a `204 No Content` response:
 
@@ -799,7 +799,7 @@ Successful deletion of a product returns a `204 No Content` response:
 204 No Content
 ```
 
-## <span class="jumptarget"> Delete All Products </span>
+### <span class="jumptarget"> Delete All Products </span>
 
 Deletes all products from the store.
 
@@ -808,7 +808,7 @@ Deletes all products from the store.
 *   Basic Auth
 > `DELETE /api/v2/products`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 Successful deletion of all products returns a `204 No Content` response:
 
