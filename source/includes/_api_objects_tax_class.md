@@ -1,4 +1,4 @@
-# <span class="jumptarget"> Tax Class </span>
+# <span class="jumptarget"> Tax Class Reference </span>
 
 The Tax Class object, and endpoints, manage tax calculations applied to sales. Tax classes are used to apply different tax rates for specific types of products and orders.
 

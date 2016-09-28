@@ -37,7 +37,7 @@ A Store Information object represents an individual store's profile and metadata
 | features | object | Array of flags for features that affect app compatibility or functionality. Child \"stencil_enabled\" element is a Boolean that indicates whether a store is using a Stencil theme. |
 
 
-## <span class="jumptarget"> Webhook Events </span>
+## <span class="jumptarget"> Store Information – Webhook Events </span>
 
 ### <span class="jumptarget"> Store Cancelled </span>
 

@@ -3,12 +3,16 @@
 | **Manages** |
 | **OAuth Scopes** | `default`
 
-### <span class="jumptarget"> List Hooks </span>
+## <span class="jumptarget"> List Hooks </span>
 
 Index of registered webhooks.
 
 *   OAuth
 >`GET /stores/{store_hash}/v2/hooks`
+
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -41,12 +45,16 @@ Index of registered webhooks.
 ]
 ```
 
-### <span class="jumptarget"> Get a Hook </span>
+## <span class="jumptarget"> Get a Hook </span>
 
 Gets a registered webhook.
 
 *   OAuth
 >`GET /stores/{store_hash}/v2/hooks/{id}`
+
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -64,23 +72,27 @@ Gets a registered webhook.
 }
 ```
 
-### <span class="jumptarget"> Create a Hook </span>
+## <span class="jumptarget"> Create a Hook </span>
 
 Register a new webhook.
 
 *   OAuth
 >`POST /stores/{store_hash}/v2/hooks`
 
-#### <span class="jumptarget"> Requirements </span>
+### <span class="jumptarget"> Requirements </span>
 
 The following properties of the webhooks are required. The request won’t be fulfilled unless these properties are valid.
 
 *   scope
 *   destination
 
-#### <span class="jumptarget"> Notes </span>
+### <span class="jumptarget"> Notes </span>
 
 Scopes can be specified using wildcard syntax, or the full path to an event.
+
+### <span class="jumptarget"> Request </span>
+
+Example request object:
 
 ```json
 {
@@ -93,14 +105,14 @@ Scopes can be specified using wildcard syntax, or the full path to an event.
 }
 ```
 
-### <span class="jumptarget"> Update a Hook </span>
+## <span class="jumptarget"> Update a Hook </span>
 
 Edit the details of a registered webhook.
 
 *   OAuth
 >`PUT /stores/{store_hash}/v2/hooks/{id}`
     
-#### <span class="jumptarget"> Request </span>
+### <span class="jumptarget"> Request </span>
 
 Example request object:
 
@@ -111,7 +123,7 @@ Example request object:
 }
 ```
 
-#### <span class="jumptarget"> Response </span>
+### <span class="jumptarget"> Response </span>
 
 Example JSON returned in the response:
 
@@ -132,7 +144,7 @@ Example JSON returned in the response:
 }
 ```
 
-### <span class="jumptarget"> Delete a Hook </span>
+## <span class="jumptarget"> Delete a Hook </span>
 
 Deletes a single webhook.
 

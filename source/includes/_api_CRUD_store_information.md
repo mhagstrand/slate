@@ -13,6 +13,10 @@ Gets metadata about a store.
 *   Basic Auth
 >`GET /api/v2/store`
 
+### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "id": "cl1xgr",
