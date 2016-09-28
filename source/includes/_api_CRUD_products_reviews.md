@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Product Reviews </span>
+### <span class="jumptarget"> List Product Reviews </span>
 
 Gets the reviews associated with a product. (Default sorting is by review id, from lowest to highest.)
 
@@ -13,11 +13,11 @@ Gets the reviews associated with a product. (Default sorting is by review id, fr
 *   Basic Auth
 >`GET /api/v2/products/{id}/reviews`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to product reviews. 
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 product_reviews are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/products/{product_id}/reviews?page={number} |
 | limit | int | /api/v2/products/{product_id}/reviews?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -61,7 +65,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Product Review </span>
+### <span class="jumptarget"> Get a Product Review </span>
 
 Gets a product review.
 
@@ -69,6 +73,10 @@ Gets a product review.
 >`GET /stores/{store_hash}/v2/products/{product_id}/reviews/{id}`
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/reviews/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -83,11 +91,11 @@ Gets a product review.
 }
 ```
 
-## <span class="jumptarget"> Create a Product Review </span>
+### <span class="jumptarget"> Create a Product Review </span>
 
 Creates a new product review. 
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 The `review` property is the review's text. The `rating` property must be a whole number between 1–5. If the optional `date_created` property is not specified, it defaults to the current date/time. If the optional "status" property is not specified, it defaults to 0 [`Pending`]. Other allowable values are 1 [`Approved`] or 2 [`Disapproved`].)
 
@@ -96,14 +104,14 @@ The `review` property is the review's text. The `rating` property must be a whol
 *   Basic Auth
 >`POST /api/v2/products/{product_id}/reviews`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product review are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -111,6 +119,10 @@ The following properties of the product review are required. The request won’t
 *   title
 *   review
 *   rating
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -125,7 +137,7 @@ The following properties of the product review are required. The request won’t
 }
 ```
 
-## <span class="jumptarget"> Update a Product Review </span>
+### <span class="jumptarget"> Update a Product Review </span>
 
 Updates an existing product review. Your request may update any of the properties that are writeable for the Create (POST) operation.
 
@@ -134,12 +146,16 @@ Updates an existing product review. Your request may update any of the propertie
 *   Basic Auth
 >`PUT /api/v2/products/{product_id}/reviews/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product review are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   product_id
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -154,7 +170,7 @@ The following properties of the product review are read-only. If one or more of 
 }
 ```
 
-## <span class="jumptarget"> Delete a Product Review </span>
+### <span class="jumptarget"> Delete a Product Review </span>
 
 Deletes a specified product review. (If successful, this will typically return a `204 No Content`.)
 
@@ -163,7 +179,7 @@ Deletes a specified product review. (If successful, this will typically return a
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/reviews/{id}`
 
-## <span class="jumptarget"> Delete All Product Reviews </span>
+### <span class="jumptarget"> Delete All Product Reviews </span>
 
 Deletes all reviews for the specified product. (If successful, this will typically return a `204 No Content`.)
 
