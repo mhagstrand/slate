@@ -1,4 +1,4 @@
-## <span class="jumptarget">  Product Option Set Options </span>
+## <span class="jumptarget">  Option Set Options </span>
 
 Options belonging to an option set.
 
