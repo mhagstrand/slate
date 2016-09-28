@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Product SKUs </span>
+## <span class="jumptarget"> SKUs </span>
 
 Stock Keeping Unit identifiers associated with products or product options.
 
-## <span class="jumptarget"> Product SKU Object - Properties </span>
+### <span class="jumptarget"> SKU Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

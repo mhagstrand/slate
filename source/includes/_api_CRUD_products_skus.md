@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Product SKUs </span>
+### <span class="jumptarget"> List Product SKUs </span>
 
 Gets the collection of SKUs associated with a product.
 
@@ -13,11 +13,11 @@ Gets the collection of SKUs associated with a product.
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/skus`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific skus in the collection.
 
@@ -35,7 +35,7 @@ Filter parameters can be added to the URL query string to select specific skus i
 | is_low_inventory | boolean | /api/v2/products/{product_id}/skus?is_low_inventory={value} |
 | product_hash | int | /api/v2/products/{product_id}/skus?product_hash={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 skus are returned by default.
 
@@ -43,6 +43,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/products/{product_id}/skus?page={number} |
 | limit | int | /api/v2/products/{product_id}/skus?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -103,7 +107,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Product SKU </span>
+### <span class="jumptarget"> Get a Product SKU </span>
 
 Gets a single product SKU.
 
@@ -111,6 +115,10 @@ Gets a single product SKU.
 >`GET /stores/{store_hash}/v2/products/{product_id}/skus/{id}`
 *   Basic Auth
 >`GET /api/v2/products/{product_id}/skus/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -138,7 +146,7 @@ Gets a single product SKU.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Product SKUs </span>
+### <span class="jumptarget"> Get a Count of Product SKUs </span>
 
 Gets a count of the number of product SKUs in the store.
 
@@ -147,13 +155,17 @@ Gets a count of the number of product SKUs in the store.
 *   Basic Auth
 >`GET /api/v2/products/skus/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 1235
 }
 ```
 
-## <span class="jumptarget"> Create a Product SKU </span>
+### <span class="jumptarget"> Create a Product SKU </span>
 
 Creates a new product SKU.
 
@@ -162,7 +174,7 @@ Creates a new product SKU.
 *   Basic Auth
 >`POST /api/v2/products/{product_id}/skus`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -171,18 +183,22 @@ The following properties of the sku are read-only. If one or more of these prope
 *   adjusted_price
 *   adjusted_weight
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the sku are required. The request won’t be fulfilled unless these properties are valid.
 
 *   sku
 *   options
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 To maximize system performance, Bigcommerce caps the number of SKUs associated with a product at 500. If you attempt to add a SKU to a product that has 500 SKUs, Bigcommerce will return a 403 error.
 
 BigCommerce has updated the SKU schema to include additional price, weight, image, and purchasable properties. We will eventually remove the ability to manage these properties via SKU rules. (Merchants are already constrained from creating SKU-only rules in the BigCommerce control panel.)
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -210,7 +226,7 @@ BigCommerce has updated the SKU schema to include additional price, weight, imag
 }
 ```
 
-## <span class="jumptarget"> Update a Product SKU </span>
+### <span class="jumptarget"> Update a Product SKU </span>
 
 Updates an existing product SKU.
 
@@ -220,7 +236,7 @@ Updates an existing product SKU.
 >`PUT /api/v2/products/{product_id}/skus/{id}`
 
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the sku are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -229,9 +245,13 @@ The following properties of the sku are read-only. If one or more of these prope
 *   adjusted_price
 *   adjusted_weight
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 There are no required properties for updating a product SKU.
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -259,7 +279,7 @@ There are no required properties for updating a product SKU.
 }
 ```
 
-## <span class="jumptarget"> Delete a Product SKU </span>
+### <span class="jumptarget"> Delete a Product SKU </span>
 
 Deletes a product SKU.
 
@@ -268,7 +288,7 @@ Deletes a product SKU.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/skus/{id}`
 
-## <span class="jumptarget"> Delete Multiple Product SKUs </span>
+### <span class="jumptarget"> Delete Multiple Product SKUs </span>
 
 Deletes multiple product SKUs.
 
@@ -277,7 +297,7 @@ Deletes multiple product SKUs.
 *   Basic Auth
 >`DELETE /api/v2/products/{product_id}/skus`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific SKUs in the collection.
 
