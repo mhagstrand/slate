@@ -3,7 +3,15 @@
 
 ## <span class="jumptarget"> September </span>
 
-### API: Shipment webhooks added
+### Stencil Cornerstone 1.3.3 released
+
+Version 1.3.3 of Stencil's default Cornerstone theme is now available. This maintenance release standardizes the alignment of payment buttons, and standardizes the IE11 and Edge browsers' display behavior for out-of-stock product options/SKUs.
+
+For details, please see the [Cornerstone 1.3.x release notes](https://stencil.bigcommerce.com/docs/release-notes-cornerstone-13-theme#133).
+
+Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.3.3`
+
+### Shipment webhooks added
 
 We have added the following new webhooks, which your apps can use to track when an order's associated shipments are created, updated, or deleted: 
 
@@ -13,6 +21,14 @@ We have added the following new webhooks, which your apps can use to track when 
 - `store/shipment/deleted`
 
 These additions are now listed in our webhooks [documentation](/api/#webhooks-overview).
+
+### Stencil Cornerstone 1.3.2 released
+
+Version 1.3.2 of Stencil's default Cornerstone theme is now available. This maintenance release corrects the display of YouTube videos under sitewide HTTPS, and corrects the Cornerstone Bold variation's display of featured products. 
+
+For details, please see the [Cornerstone 1.3.x release notes](https://stencil.bigcommerce.com/docs/release-notes-cornerstone-13-theme#132).
+
+Once once you have pulled the latest code from the [Stencil repo](https://github.com/bigcommerce/stencil), you can access this version by checking out its tag, using: `git checkout v1.3.2`
 
 
 ## <span class="jumptarget"> August </span>
