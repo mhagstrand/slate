@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Configurable Fields </span>
+## <span class="jumptarget"> Configurable Fields </span>
 
 Configurable fields associated with a product.
 
-## <span class="jumptarget"> Configurable Fields – Properties </span>
+### <span class="jumptarget"> Configurable Fields – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

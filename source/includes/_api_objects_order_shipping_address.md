@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Order Shipping Addresses </span>
+## <span class="jumptarget"> Order Shipping Addresses </span>
 
 Customer shipping address belonging to an order.
 
-## <span class="jumptarget"> Order Shipping Address Object - Properties </span>
+### <span class="jumptarget"> Order Shipping Address Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
@@ -17,7 +17,7 @@ Customer shipping address belonging to an order.
 | zip | string |
 | country | string |
 | country_iso2 | string |
-| state | string | The name of the state. Should be spelled out in full, e.g., California. |
+| state | string | The name of the state. Should be spelled out in full, e.g.: `California`. |
 | email | string |
 | phone | string |
 | items_total | int |

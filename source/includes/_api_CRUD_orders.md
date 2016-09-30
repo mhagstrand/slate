@@ -579,7 +579,7 @@ The `status` property cannot be edited directly, because it is generated based o
 
 Use the `status_id` property to set the order to a specific state. The list of available statuses is provided by the [Order Statuses](/api/v2#order_statuses) resource. If the store has subscribed to Avalara Premium, tax documents are submitted when the `status_id` property changes. The following table details the behavior for `PUT` operations. See also the list of [Paid Statuses](#paid-status).
 
-| Existing Status | Status Passed | Resultant Status | Avalara tax document submission |
+| Existing Status | Status Passed | Resultant Status | Avalara Tax Document Submission |
 | --- | --- | --- | --- |
 | Any | None | `Pending` | None |
 | Paid or `Refunded` | Paid | Paid | None |

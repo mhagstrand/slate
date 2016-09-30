@@ -6,11 +6,6 @@ Options associated directly with a product.
 | **OAuth Scopes** | `store_v2_products`
 ||`store_v2_products_read_only`
 
-## Operations
-
-*   [List Product Options](#list-product-options)
-*   [Get a Product Option](#get-a-product-option)
-
 ### List Product Options
 
 Gets the options associated with a product.

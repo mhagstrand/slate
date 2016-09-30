@@ -1,10 +1,8 @@
 ## <span class="jumptarget"> Products </span>
 
-Product APIs support managing, searching, and displaying product-catalog information. They include Brands, Bulk Pricing Rules, Categories, Configurable Fields, Custom Fields, Google Product Search Mappings, Options, Option Set, Option-Set Options, Option Values, Products, Product Images, Product Options, Product Reviews, Product Rules, Product Videos, and SKUs.
+A product object represents a saleable item in the catalog.
 
 ### <span class="jumptarget"> Product Object – Properties </span>
-
-A product object represents a saleable item in the catalog.
 
 | Name | Type | Description |
 | --- | --- | --- | --- |
@@ -91,23 +89,23 @@ A product object represents a saleable item in the catalog.
 | tax_class | resource |
 | avalara_product_tax_code | resource | Accepts AvaTax system codes, which identify products and services that fall into special sales-tax categories. Allows merchants who subscribe to Avalara Premium to achieve increased accuracy in sales-tax calculations.<br><br> Stores without Avalara Premium will ignore the code when calculating sales tax. Do not pass more than one code. The codes are case-sensitive.<br><br> For further information and the full list of codes, please see [this Avalara reference page](https://help.avalara.com/000_AvaTax_Calc/000AvaTaxCalc_User_Guide/040_Managing_Tax_Profiles/050_Tax_Codes/001_What_is_a_Tax_Code) > "AvaTax System tax codes" section. |
 
-## <span class="jumptarget"> Webhook Events </span>
+### <span class="jumptarget"> Product Webhook Events </span>
 
-### <span class="jumptarget"> Product Created </span>
+#### <span class="jumptarget"> Product Created </span>
 
 ```
 store/product/created
 ```
 Occurs when a product is created from the control panel, via bulk import, or via the API.
 
-### <span class="jumptarget"> Product Updated </span>
+#### <span class="jumptarget"> Product Updated </span>
 
 ```
 store/product/updated
 ```
 Occurs when a product is updated from the control panel or via the API.
 
-### <span class="jumptarget"> Product Deleted </span>
+#### <span class="jumptarget"> Product Deleted </span>
 
 ```
 store/product/deleted

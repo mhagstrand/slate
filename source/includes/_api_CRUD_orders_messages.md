@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## <span class="jumptarget"> List Order Messages </span>
+### <span class="jumptarget"> List Order Messages </span>
 
 Gets the messages associated with an order.
 
@@ -13,7 +13,7 @@ Gets the messages associated with an order.
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/messages`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific `order_message` in the collection.
 
@@ -27,16 +27,16 @@ Filter parameters can be added to the URL query string to select specific `order
 | min_date_created | dateTime or date | /api/v2/orders/{order_id}/messages?min_date_created={value} |
 | max_date_created | dateTime or date | /api/v2/orders/{order_id}/messages?max_date_created={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_messages are returned by default.
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `order_message`s are returned by default.
 
 | Parameter | Type | Example |
 | --- | --- | --- |
 | page | int | /api/v2/orders/{order_id}/messages?page={number} |
 | limit | int | /api/v2/orders/{order_id}/messages?limit={count} |
 
-## <span class="jumptarget"> Get Order Message </span>
+### <span class="jumptarget"> Get Order Message </span>
 
 Gets a message associated with an order.
 

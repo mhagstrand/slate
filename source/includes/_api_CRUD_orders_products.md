@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## <span class="jumptarget"> List Order Products </span>
+### <span class="jumptarget"> List Order Products </span>
 
 Gets the product line items associated with an order. (By default, items sort from lowest to highest according to a newly created id, separate from the order_id and the product_id.)
 
@@ -13,11 +13,11 @@ Gets the product line items associated with an order. (By default, items sort fr
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/products`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `order products`.
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_products are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | Page | int | /api/v2/orders/{order_id}/products?page={number} |
 | Limit | int | /api/v2/orders/{order_id}/products?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -85,7 +89,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get an Order Product </span>
+### <span class="jumptarget"> Get an Order Product </span>
 
 Gets a product line item associated with the order.
 
@@ -93,6 +97,10 @@ Gets a product line item associated with the order.
 >`GET /stores/{store_hash}/v2/orders/{order_id}/products/{id}`
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/products/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -128,7 +136,7 @@ Gets a product line item associated with the order.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Order Products </span>
+### <span class="jumptarget"> Get a Count of Order Products </span>
 
 Gets a count of order product line items.
 
@@ -136,6 +144,10 @@ Gets a count of order product line items.
 >`GET /stores/{store_hash}/v2/orders/products/count`
 *   Basic Auth
 >`GET /api/v2/orders/products/count`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {

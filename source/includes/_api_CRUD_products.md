@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products |
 | |store_v2_products_read_only
 
-## <span class="jumptarget"> List Products </span>
+### <span class="jumptarget"> List Products </span>
 
 Gets the collection of products. (Default sorting is by product id, from lowest to highest.)
 
@@ -12,6 +12,62 @@ Gets the collection of products. (Default sorting is by product id, from lowest 
 > `GET /stores/{store_hash}/v2/products`
 *   Basic Auth
 > `GET /api/v2/products`
+
+#### <span class="jumptarget"> Filters </span>
+
+Filter parameters can be added to the URL query string to select specific products in the collection.
+
+| Parameter | Type | Example |
+| --- | --- | --- |
+| min_id | int | /api/v2/products?min_id={value} |
+| max_id | int | /api/v2/products?max_id={value} |
+| name | string | /api/v2/products?name={value} |
+| keyword_filter | string | /api/v2/products?keyword_filter={value} |
+| description | string | /api/v2/products?description={value} |
+| sku | string | /api/v2/products?sku={value} |
+| condition | string | /api/v2/products?condition={value} |
+| availability | string | /api/v2/products?availability={value} |
+| brand_id | string | /api/v2/products?brand_id={value} |
+| min_date_created | dateTime or date | /api/v2/products?min_date_created={value} |
+| max_date_created | dateTime or date | /api/v2/products?max_date_created={value} |
+| min_date_modified | dateTime or date | /api/v2/products?min_date_modified={value} |
+| max_date_modified | dateTime or date | /api/v2/products?max_date_modified={value} |
+| min_date_last_imported | date | /api/v2/products?min_date_last_imported={value} |
+| max_date_last_imported | date | /api/v2/products?max_date_last_imported={value} |
+| min_price | decimal | /api/v2/products?min_price={value} |
+| max_price | decimal | /api/v2/products?max_price={value} |
+| min_number_sold | int | /api/v2/products?min_number_sold={value} |
+| max_number_sold | int | /api/v2/products?max_number_sold={value} |
+| is_visible | string | /api/v2/products?is_visible={value} |
+| is_featured | string | /api/v2/products?is_featured={value} |
+| min_inventory_level | int | /api/v2/products?min_inventory_level={value} |
+| max_inventory_level | int | /api/v2/products?max_inventory_level={value} |
+| include_sku | boolean | /api/v2/products?include_sku={value} |
+| category | string | /api/v2/products?category={value} |
+| product_tax_code | string | /api/v2/products?product_tax_code={value} |
+
+#### <span class="jumptarget"> Pagination </span>
+
+Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 products are returned by default.
+
+| Parameter | Type | Example |
+| --- | --- | --- |
+| Page | int | /api/v2/products?page={number} |
+| Limit | int | /api/v2/products?limit={count} |
+
+#### <span class="jumptarget"> Notes </span>
+
+You can filter the retrieved fields by appending one of the following options to your request:
+
+* ?include=
+* ?include=@summary
+* ?exclude=
+
+For details, syntax, and examples, please see the [Get a Product](#get-a-product) operation.
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -263,49 +319,7 @@ Gets the collection of products. (Default sorting is by product id, from lowest 
 ]
 ```
 
-### <span class="jumptarget"> Filters </span>
-
-Filter parameters can be added to the URL query string to select specific products in the collection.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
-| min_id | int | /api/v2/products?min_id={value} |
-| max_id | int | /api/v2/products?max_id={value} |
-| name | string | /api/v2/products?name={value} |
-| keyword_filter | string | /api/v2/products?keyword_filter={value} |
-| description | string | /api/v2/products?description={value} |
-| sku | string | /api/v2/products?sku={value} |
-| condition | string | /api/v2/products?condition={value} |
-| availability | string | /api/v2/products?availability={value} |
-| brand_id | string | /api/v2/products?brand_id={value} |
-| min_date_created | dateTime or date | /api/v2/products?min_date_created={value} |
-| max_date_created | dateTime or date | /api/v2/products?max_date_created={value} |
-| min_date_modified | dateTime or date | /api/v2/products?min_date_modified={value} |
-| max_date_modified | dateTime or date | /api/v2/products?max_date_modified={value} |
-| min_date_last_imported | date | /api/v2/products?min_date_last_imported={value} |
-| max_date_last_imported | date | /api/v2/products?max_date_last_imported={value} |
-| min_price | decimal | /api/v2/products?min_price={value} |
-| max_price | decimal | /api/v2/products?max_price={value} |
-| min_number_sold | int | /api/v2/products?min_number_sold={value} |
-| max_number_sold | int | /api/v2/products?max_number_sold={value} |
-| is_visible | string | /api/v2/products?is_visible={value} |
-| is_featured | string | /api/v2/products?is_featured={value} |
-| min_inventory_level | int | /api/v2/products?min_inventory_level={value} |
-| max_inventory_level | int | /api/v2/products?max_inventory_level={value} |
-| include_sku | boolean | /api/v2/products?include_sku={value} |
-| category | string | /api/v2/products?category={value} |
-| product_tax_code | string | /api/v2/products?product_tax_code={value} |
-
-### <span class="jumptarget"> Pagination </span>
-
-Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 `products` are returned by default.
-
-| Parameter | Type | Example |
-| --- | --- | --- |
-| Page | int | /api/v2/products?page={number} |
-| Limit | int | /api/v2/products?limit={count} |
-
-## <span class="jumptarget"> Get a Product </span>
+### <span class="jumptarget"> Get a Product </span>
 
 Gets a product.
 
@@ -313,6 +327,116 @@ Gets a product.
 > `GET /stores/{store_hash}/v2/products/{id}`
 *   Basic Auth
 > `GET /api/v2/products/{id}`
+
+#### <span class="jumptarget"> Notes </span>
+
+You can filter the retrieved fields by appending one of the following options to your request: 
+
+- `?include=`
+- `?include=@summary` 
+- `?exclude=`
+
+In particular, you can reduce payload size, and improve performance, by excluding the `description` field.
+
+##### <span class="jumptarget" id="get-a-product-mandatory"> Mandatory Fields </span>
+
+However, the following fields are always present on product API requests, and cannot be excluded:
+
+- `id`
+- `name`
+- `date_modified`
+- `primary_image`
+
+##### <span class="jumptarget"> include </span>
+
+The following sample request will retrieve *only* the specified `date_created`, `price`, and `cost_price` fields, plus the [mandatory fields](#get-a-product-mandatory) listed just above:
+
+```
+https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=date_created,price,cost_price
+```
+
+Here is a corresponding sample response:
+
+```json
+{
+    "id": 32,
+    "name": "[Sample] Tomorrow is today, Red printed scarf",
+    "price": "89.0000",
+    "cost_price": "0.0000",
+    "date_created": "Fri, 21 Sep 2012 02:31:01 +0000",
+    "date_modified": "Thu, 10 Dec 2015 21:10:17 +0000",
+    "primary_image": {
+        "id": 247,
+        "tiny_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.60.90.jpg?c=1",
+        "standard_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.500.750.jpg?c=1",
+        "thumbnail_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.190.285.jpg?c=1",
+        "zoom_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.1280.1280.jpg?c=1"
+    },
+    "metadata": []
+}
+```
+
+##### <span class="jumptarget"> include=@summary </span>
+
+The `?include=@summary` option retrieves the following predefined subset of fields, in addition to the [mandatory fields](#get-a-product-mandatory) listed above: 
+
+- `availability`
+- `calculated_price`
+- `inventory_tracking`
+- `sku`
+- `inventory_level`
+- `inventory_warning_level`
+- `is_visible`
+- `is_featured` 
+
+Here is a sample request with the `?include=@summary` option appended:
+
+```
+https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?include=@summary
+```
+
+Here is a corresponding sample response:
+
+```json
+{
+    "id": 32,
+    "name": "[Sample] Tomorrow is today, Red printed scarf",
+    "sku": "TTRPS",
+    "calculated_price": "89.0000",
+    "is_visible": true,
+    "is_featured": true,
+    "inventory_level": 0,
+    "inventory_warning_level": 0,
+    "inventory_tracking": "none",
+    "date_modified": "Thu, 10 Dec 2015 21:10:17 +0000",
+    "availability": "available",
+    "primary_image": {
+        "id": 247,
+        "tiny_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.60.90.jpg?c=1",
+        "standard_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.500.750.jpg?c=1",
+        "thumbnail_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.190.285.jpg?c=1",
+        "zoom_url": "https://cdn.url.path/bcapp/k84uuwpy/products/32/images/247/in_123__14581.1348449270.1280.1280.jpg?c=1"
+    },
+    "metadata": []
+}
+```
+
+##### <span class="jumptarget"> exclude </span>
+
+The `?exclude=` option excludes one or more specified fields. However, you cannot exclude the mandatory `id`, `name`, `date_modified`, or `primary_image` fields.
+
+Here is a sample request with the `?exclude=` option appended:
+
+```
+https://store-et7xe3pz.mybigcommerce.com/api/v2/products/32?exclude=description
+```
+
+We have omitted the corresponding sample response. However, the following section shows a complete sample response for a request submitted with no `?include` or `?exclude` option. (The effect of the `?exclude=description` option shown above would be to omit the `"description": ` field shown as the sixth field below.)
+
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -438,7 +562,7 @@ Gets a product.
 }
 ```
 
-## <span class="jumptarget"> Get a Product Count </span>
+### <span class="jumptarget"> Get a Product Count </span>
 
 Gets a count of products.
 
@@ -447,13 +571,7 @@ Gets a count of products.
 *   Basic Auth
 > `GET /api/v2/products/count`
 
-```json
-{
-  "count": 44
-}
-```
-
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific products in the collection.
 
@@ -486,32 +604,30 @@ Filter parameters can be added to the URL query string to select specific produc
 | category | string | /api/v2/products?category={value} |
 | product_tax_code | string | /api/v2/products?product_tax_code={value} |
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 If no filters are applied, the total number of products is returned.
 
-## <span class="jumptarget"> Create a Product </span>
+#### <span class="jumptarget"> Response </span>
 
-Creates a new product. The example request shows how to create a basic product by sending a [product object](/api/v2#product-properties) with the minimum required properties.
+Example JSON returned in the response:
+
+```json
+{
+  "count": 44
+}
+```
+
+### <span class="jumptarget"> Create a Product </span>
+
+Creates a new product. The example request shows how to create a basic product by sending a [product object](#product-object-properties) with the minimum required properties.
 
 *   OAuth 
 > `POST /stores/{store_hash}/v2/products`
 *   Basic Auth
 > `POST /api/v2/products`
 
-```json
-{
-    "name": "Plain T-Shirt",
-    "type": "physical",
-    "description": "This timeless fashion staple will never go out of style!",
-    "price": "29.99",
-    "categories": [18],
-    "availability": "available",
-    "weight": "0.5"
-}
-```
-
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -530,7 +646,7 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the product are required. The request won’t be fulfilled unless these properties are valid.
 
@@ -541,21 +657,35 @@ The following properties of the product are required. The request won’t be ful
 *   availability
 *   weight
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
+
+Create a request by sending a [product object](#product-object-properties) with the minimum required properties:
+
+```json
+{
+    "name": "Plain T-Shirt",
+    "type": "physical",
+    "description": "This timeless fashion staple will never go out of style!",
+    "price": "29.99",
+    "categories": [18],
+    "availability": "available",
+    "weight": "0.5"
+}
+```
 
 When the `is_visible` property is not provided, the product's visibility is `false` by default.
 
 To make newly created products immediately visible on the storefront, you must set `is_visible` to `true` when you create each product.
 
-To maximize system performance, Bigcommerce caps the number of categories to which a product can belong. The maximum is 1,000. If your `POST` includes an array of more than 1,000 categories' ID values, Bigcommerce will return a 403 error.
+To maximize system performance, BigCommerce caps the number of categories to which a product can belong. The maximum is 1,000. If your `POST` includes an array of more than 1,000 `categories` ID values, BigCommerce will return a 403 error:
 
-```json
+```
 403 Access Denied/Forbidden
 ```
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-## <span class="jumptarget"> Update a Product </span>
+### <span class="jumptarget"> Update a Product </span>
 
 Updates an existing product.
 
@@ -564,7 +694,7 @@ Updates an existing product.
 *   Basic Auth
 > `PUT /api/v2/products/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the product are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -589,13 +719,13 @@ The following properties of the product are read-only. If one or more of these p
 *   options
 *   tax_class
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 There are no required properties when updating a product.
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
-To update a product, set one or more [product properties](/api/v2#product-properties) in the `PUT` request:
+To update a product, set one or more [product properties](#product-object-properties) in the `PUT` request:
 
 ```json
 {
@@ -606,7 +736,7 @@ To update a product, set one or more [product properties](/api/v2#product-proper
 
 For example, you can use a `PUT` to link a product to an option set:
 
-```curl
+```json
 {
     "option_set_id": 14
 }
@@ -614,36 +744,45 @@ For example, you can use a `PUT` to link a product to an option set:
 
 Invalid property values will produce a `400 Bad Request` error response:
 
-```curl 
+#### <span class="jumptarget"> Request </span>
+
+```json 
 {
     "condition": "Worn"
 }
 ```
 
-```json 
+#### <span class="jumptarget"> Response </span>
+
+```
 400 Bad Request
 ```
 
 Trying to set read-only properties will also produce a `400 Bad Request` error response:
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+```json
 {
     "number_sold": 99
-}```
+}
+```
 
-```json 
+#### <span class="jumptarget"> Response </span>
+
+```
 400 Bad Request
 ```
 
-To maximize system performance, Bigcommerce caps the maximum number of categories to which a product can belong, at 1,000. If your `PUT` includes an array of more than 1,000 categories ID values, Bigcommerce will return a 403 error.
+To maximize system performance, BigCommerce caps the maximum number of categories to which a product can belong, at 1,000. If your `PUT` includes an array of more than 1,000 `categories` ID values, BigCommerce will return a `403` error:
 
-```json
+```
 403 Access Denied/Forbidden
 ```
 
 If automatic tax is enabled on the store, the value of `tax_class_id` will have no effect on the calculation of taxes.
 
-## <span class="jumptarget"> Delete a Product </span>
+### <span class="jumptarget"> Delete a Product </span>
 
 Deletes a product.
 
@@ -652,15 +791,15 @@ Deletes a product.
 *   Basic Auth
 > `DELETE /api/v2/products/{id}`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
-Successful deletion of a product results in a 204 No Content response.
+Successful deletion of a product returns a `204 No Content` response:
 
-```json
+```
 204 No Content
 ```
 
-## <span class="jumptarget"> Delete All Products </span>
+### <span class="jumptarget"> Delete All Products </span>
 
 Deletes all products from the store.
 
@@ -669,10 +808,10 @@ Deletes all products from the store.
 *   Basic Auth
 > `DELETE /api/v2/products`
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
-Successful deletion of all products returns a `204 No Content` response.
+Successful deletion of all products returns a `204 No Content` response:
 
-```json 
+```
 204 No Content
 ```

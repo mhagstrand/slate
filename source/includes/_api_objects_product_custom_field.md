@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Custom Fields </span>
+## <span class="jumptarget"> Custom Fields </span>
 
 Custom fields associated with a product.
 
-## <span class="jumptarget"> Custom Field Object - Properties </span>
+### <span class="jumptarget"> Custom Field Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

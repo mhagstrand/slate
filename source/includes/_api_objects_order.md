@@ -70,7 +70,7 @@ The Order object contains a record of the purchase agreement between a shopper a
 | shipping_addresses | object|array | For PUT and POST operations, you can optionally pass a "shipping_addresses" object array, containing one or more shipping addresses. If you include more than one address, only the first will be used, as the API does not currently support shipping to more than one address. If you do not pass a shipping address, the billing address will be used. Refer to the "Order Shipping Address" page for the full list of name/value pairs (https://developer.bigcommerce.com/api/objects/v2/order_shipping_address). Not all fields are required. For an example of the syntax, refer to the Objects resource > "Create order" entry. For GET and other operations, the `shipping_addresses` object will consist of two addresses: the URI of a JSON object containing the shipping address details; and a context path that provides an alternate means of retrieving the data (if, for example, you prefer XML). For the syntax, refer to the Objects resource > "List orders" entry. |
 | coupons | object | A read-only value. Do not attempt to pass in a PUT or POST. The coupons object contains two name/value pairs. The value paired with "url" is the fully qualified address of the JSON object array that contains details of the coupon(s) associated with this transaction, if any. The value of "resource" is the context path to the "coupons" resource, which represents an alternate means of retrieving the data (if, for example, you prefer XML). |
 
-### <span class="jumptarget"> Webhook Events </span>
+### <span class="jumptarget"> Order Webhook Events </span>
 
 #### <span class="jumptarget"> Order Created </span>
 

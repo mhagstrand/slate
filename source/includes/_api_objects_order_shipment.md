@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Shipments </span>
+## <span class="jumptarget"> Shipments </span>
 
 Tracks a package consignment from an order, shipped from the seller to the buyer.
 
-## <span class="jumptarget"> Shipment Object – Properties </span>
+### <span class="jumptarget"> Shipment Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

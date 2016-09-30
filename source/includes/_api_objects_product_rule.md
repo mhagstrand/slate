@@ -1,8 +1,8 @@
-# <span class="jumptarget"> Product Rules </span>
+## <span class="jumptarget"> Product Rules </span>
 
 Rules that modify the properties of a product, such as weight, price, and product image.
 
-## <span class="jumptarget"> Product Rule Object – Properties </span>
+### <span class="jumptarget"> Product Rule Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |

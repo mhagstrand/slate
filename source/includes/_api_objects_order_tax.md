@@ -1,13 +1,13 @@
-# <span class="jumptarget"> Order Taxes </span>
+## <span class="jumptarget"> Order Taxes </span>
 
-Each tax applied to an order, which may be useful for reporting purposes. All values are read-only.
+Each tax applied to an order. This information can be useful for reporting purposes. All values are read-only.
 
-## <span class="jumptarget"> Order Tax Object - Properties </span>
+### <span class="jumptarget"> Order Tax Object – Properties </span>
 
 | Name | Type | Description |
 | --- | --- | --- |
 | id | int | The unique numeric identifier of the taxes object. |
-| order_id | int | The unique numeric identifier of the order the tax was applied to. NOTE: Not included if the store was using the automatic tax feature. |
+| order_id | int | The unique numeric identifier of the order to which the tax was applied. NOTE: Not included if the store was using the automatic tax feature. |
 | order_address_id | int | The unique numeric identifier of the order address object associated with the order. NOTE: Not included if the store was using the automatic tax feature. |
 | tax_rate_id | int |
 | tax_class_id | int | The unique numeric identifier of the tax class object. NOTE: will be 0 if automatic tax was enabled or if the default tax class was used. |

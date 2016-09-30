@@ -1,10 +1,11 @@
-# <span class="jumptarget"> Payment Methods Reference </span>
+# <span class="jumptarget"> Payments Reference </span>
 
 The Payment Methods object, and List Payment Methods endpoint, help stores receive money from transactions.
 
 ## <span class="jumptarget"> Payment Methods </span>
 
 Enabled payment types or methods in a store.
+
 
 ### <span class="jumptarget"> Payment Method Object – Properties </span>
 

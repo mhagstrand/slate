@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## <span class="jumptarget"> List Shipments </span>
+### <span class="jumptarget"> List Shipments </span>
 
 Gets the shipments associated with an order.
 
@@ -13,11 +13,11 @@ Gets the shipments associated with an order.
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `shipments`.
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/orders/{order_id}/shipments?page={number} |
 | limit | int | /api/v2/orders/{order_id}/shipments?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -78,7 +82,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get a Shipment </span>
+### <span class="jumptarget"> Get a Shipment </span>
 
 Gets a shipment associated with an order.
 
@@ -86,6 +90,10 @@ Gets a shipment associated with an order.
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipments/{id}`
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -137,7 +145,7 @@ Gets a shipment associated with an order.
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Shipments </span>
+### <span class="jumptarget"> Get a Count of Shipments </span>
 
 Gets a count of the number of orders that have shipped.
 
@@ -146,13 +154,17 @@ Gets a count of the number of orders that have shipped.
 *   Basic Auth
 >`GET /api/v2/orders/shipments/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 6
 }
 ```
 
-## <span class="jumptarget"> Get a Count of Shipments per Order </span>
+### <span class="jumptarget"> Get a Count of Shipments per Order </span>
 
 Gets a count of the number of shipments that have been made for a single order.
 
@@ -161,13 +173,17 @@ Gets a count of the number of shipments that have been made for a single order.
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipments/count`
 
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
+
 ```json
 {
   "count": 6
 }
 ```
 
-## <span class="jumptarget"> Create a Shipment </span>
+### <span class="jumptarget"> Create a Shipment </span>
 
 Creates a new shipment for an order.
 
@@ -176,7 +192,7 @@ Creates a new shipment for an order.
 *   Basic Auth
 >`POST /api/v2/orders/{order_id}/shipments`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -187,14 +203,18 @@ The following properties of the shipment are read-only. If one or more of these 
 *   billing_address
 *   shipping_address
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.
 
 *   order_address_id
 *   items
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "tracking_number": "EJ958083578US",
   "comments": "Ready to go...",
@@ -207,6 +227,10 @@ The following properties of the shipment are required. The request won’t be fu
   ]
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -258,7 +282,7 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: 
 
@@ -266,7 +290,7 @@ The following properties of the shipments are optional, but if you provide both 
 * `tracking_carrier`: Acceptable values are an empty string (`""`), or one of the valid tracking-carrier values viewable [here](https://docs.google.com/spreadsheets/d/1w9c_aECSCGyf-oOrvGeUniDl-ARGKemfZl0qSsav8D4/pubhtml?gid=0&single=true) and downloadable as a .CSV file [here](https://docs.google.com/spreadsheets/d/1mTueEynfcEmwsU2y2Jd2MX-8GKwNZrmlRMBcIElg9aY/pub?gid=0&single=true&output=csv).
 
 
-## <span class="jumptarget"> Update a Shipment </span>
+### <span class="jumptarget"> Update a Shipment </span>
 
 Updates an existing shipment associated with an order.
 
@@ -275,7 +299,7 @@ Updates an existing shipment associated with an order.
 *   Basic Auth
 >`PUT /api/v2/orders/{order_id}/shipments/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the shipment are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -287,17 +311,25 @@ The following properties of the shipment are read-only. If one or more of these 
 *   billing_address
 *   shipping_address
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the shipment are required. The request won’t be fulfilled unless these properties are valid.
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "tracking_number": "fedex1245",
   "comments": "Notes about the shipment",
   "order_address_id": 1
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -349,7 +381,7 @@ The following properties of the shipment are required. The request won’t be fu
 }
 ```
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
 The following properties of the shipments are optional, but if you provide both values, they must refer/map to the same carrier service: 
 
@@ -371,7 +403,7 @@ Possible mappings of `shipping_provider` values to `tracking_carrier` values are
 - `shipperhq`  --> `ups` or `dhl` or `fedex` or `usps` or `australia-post` or `start-track`
 
 
-## <span class="jumptarget"> Delete a Shipment </span>
+### <span class="jumptarget"> Delete a Shipment </span>
 
 Deletes a shipment associated with an order.
 
@@ -380,7 +412,7 @@ Deletes a shipment associated with an order.
 *   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments/{id}`
 
-## <span class="jumptarget"> Delete Multiple Shipments </span>
+### <span class="jumptarget"> Delete Multiple Shipments </span>
 
 Deletes multiple shipments associated with an order.
 
@@ -389,7 +421,7 @@ Deletes multiple shipments associated with an order.
 *   Basic Auth
 >`DELETE /api/v2/orders/{order_id}/shipments`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 shipments are returned by default.
 

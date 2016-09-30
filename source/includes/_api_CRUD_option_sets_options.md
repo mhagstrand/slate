@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Option Set Options </span>
+### <span class="jumptarget"> List Option Set Options </span>
 
 Gets the options associated with an option set. (Default sorting is by option id, from lowest to highest.)
 
@@ -13,7 +13,7 @@ Gets the options associated with an option set. (Default sorting is by option id
 *   Basic Auth
 >`GET /api/v2/option_sets/{option_set_id}/options`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isnâ€™t provided, up to 50 option_set_options are returned by default.
 
@@ -21,6 +21,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | Page | int | /api/v2/option_sets/{option_set_id}/options?page={number} |
 | Limit | int | /api/v2/option_sets/{option_set_id}/options?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -103,7 +107,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get an Option Set Option </span>
+### <span class="jumptarget"> Get an Option Set Option </span>
 
 Gets an option set option.
 
@@ -111,6 +115,10 @@ Gets an option set option.
 >`GET /stores/{store_hash}/v2/option_sets/{option_set_id}/options/{id}`
 *   Basic Auth
 >`GET /api/v2/option_sets/{option_set_id}/options/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -127,7 +135,7 @@ Gets an option set option.
 }
 ```
 
-## <span class="jumptarget"> Create an Option Set Option </span>
+### <span class="jumptarget"> Create an Option Set Option </span>
 
 Creates a new option associated with an option set.
 
@@ -136,7 +144,7 @@ Creates a new option associated with an option set.
 *   Basic Auth
 >`POST /api/v2/option_sets/{option_set_id}/options`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -145,13 +153,17 @@ The following properties of the option set option are read-only. If one or more 
 *   values
 *   option
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set option are required. The request wonâ€™t be fulfilled unless these properties are valid.
 
 *   option_id
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "option_id": 10,
   "display_name": "Choose a color",
@@ -159,6 +171,10 @@ The following properties of the option set option are required. The request wonâ
   "is_required": true
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -175,7 +191,7 @@ The following properties of the option set option are required. The request wonâ
 }
 ```
 
-## <span class="jumptarget"> Update an Option Set Option </span>
+### <span class="jumptarget"> Update an Option Set Option </span>
 
 Updates an existing option set option.
 
@@ -184,7 +200,7 @@ Updates an existing option set option.
 *   Basic Auth
 >`PUT /api/v2/option_sets/{option_set_id}/options/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the option set option are read-only. If one or more of these properties are included in the request, it will be rejected.
 
@@ -194,17 +210,25 @@ The following properties of the option set option are read-only. If one or more 
 *   values
 *   option
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the option set option are required. The request wonâ€™t be fulfilled unless these properties are valid.
 
-```curl
+#### <span class="jumptarget"> Request </span>
+
+Example request object:
+
+```json
 {
   "display_name": "Pick a color...",
   "sort_order": 2,
   "is_required": false
 }
 ```
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -221,7 +245,7 @@ The following properties of the option set option are required. The request wonâ
 }
 ```
 
-## <span class="jumptarget"> Delete an Option Set Option </span>
+### <span class="jumptarget"> Delete an Option Set Option </span>
 
 Deletes an option belonging to an option set.
 
@@ -230,7 +254,7 @@ Deletes an option belonging to an option set.
 *   Basic Auth
 >`DELETE /api/v2/option_sets/{option_set_id}/options/{id}`
 
-## <span class="jumptarget"> Delete Multiple Option Set Options </span>
+### <span class="jumptarget"> Delete Multiple Option Set Options </span>
 
 Deletes multiple options associated with an option set.
 
@@ -239,7 +263,7 @@ Deletes multiple options associated with an option set.
 *   Basic Auth
 >`DELETE /api/v2/option_sets/{option_set_id}/options`
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isnâ€™t provided, up to 50 option_set_options are returned by default.
 

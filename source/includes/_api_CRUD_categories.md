@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_products
 ||store_v2_products_read_only
 
-## <span class="jumptarget"> List Categories </span>
+### <span class="jumptarget"> List Categories </span>
 
 Gets the list of categories. (Default sorting is by category id, from lowest to highest.)
 
@@ -14,7 +14,7 @@ Gets the list of categories. (Default sorting is by category id, from lowest to 
 >`GET /api/v2/categories`
 
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 Filter parameters can be added to the URL query string to select specific categories in the collection.
 
@@ -26,7 +26,7 @@ Filter parameters can be added to the URL query string to select specific catego
 | min_id | int | /api/v2/categories?min_id={value} |
 | max_id | int | /api/v2/categories?max_id={value} |
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 categories are returned by default.
 
@@ -35,7 +35,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | Page | int | /api/v2/categories?page={number} |
 | Limit | int | /api/v2/categories?limit={count} |
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
@@ -62,7 +62,7 @@ Example JSON returned in the response:
 ]
 ```
 
-## <span class="jumptarget"> Get a Category </span>
+### <span class="jumptarget"> Get a Category </span>
 
 Gets a single category.
 
@@ -71,7 +71,7 @@ Gets a single category.
 *   Basic Auth
 >`GET /api/v2/categories/{id}`
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
@@ -98,7 +98,7 @@ Example JSON returned in the response:
 ```
 
 
-## <span class="jumptarget"> Get a Count of Categories </span>
+### <span class="jumptarget"> Get a Count of Categories </span>
 
 Gets a count of the total number of categories in the store.
 
@@ -107,7 +107,7 @@ Gets a count of the total number of categories in the store.
 *   Basic Auth
 >`GET /api/v2/categories/count`
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
@@ -117,7 +117,7 @@ Example JSON returned in the response:
 }
 ```
 
-## <span class="jumptarget"> Create a Category </span>
+### <span class="jumptarget"> Create a Category </span>
 
 Creates a new category.
 
@@ -126,26 +126,26 @@ Creates a new category.
 *   Basic Auth
 >`POST /api/v2/categories`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   parent_category_list
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
 *   name
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
-To maximize system performance, Bigcommerce caps the number of categories that can be added to a store at 16,000. If your `POST` causes the store to exceed the maximum of 16,000 categories, Bigcommerce will return a 403 error.
+To maximize system performance, BigCommerce caps the number of categories that can be added to a store at 16,000. If your `POST` causes the store to exceed the maximum of 16,000 categories, BigCommerce will return a 403 error.
 
-In addition, Bigcommerce caps the total number of parent categories at seven. If your `POST` includes the ID of a parent category in the `parent_id` field, Bigcommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your `POST` would cause the total number of parent categories to exceed seven, Bigcommerce will return a 403 error.
+In addition, BigCommerce caps the total number of parent categories at seven. If your `POST` includes the ID of a parent category in the `parent_id` field, BigCommerce will check that parent category and its parent and so on to determine the total number of parent categories. If your `POST` would cause the total number of parent categories to exceed seven, BigCommerce will return a 403 error.
 
-### Request
+#### Request
 
 Example request object:
 
@@ -155,7 +155,7 @@ Example request object:
 }
 ```
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
@@ -181,7 +181,7 @@ Example JSON returned in the response:
 }
 ```
 
-## <span class="jumptarget"> Update a Category </span>
+### <span class="jumptarget"> Update a Category </span>
 
 Updates an existing category.
 
@@ -190,22 +190,22 @@ Updates an existing category.
 *   Basic Auth
 >`PUT /api/v2/categories/{id}`
 
-### <span class="jumptarget"> Read-only Properties </span>
+#### <span class="jumptarget"> Read-only Properties </span>
 
 The following properties of the category are read-only. If one or more of these properties are included in the request, it will be rejected.
 
 *   id
 *   parent_category_list
 
-### <span class="jumptarget"> Requirements </span>
+#### <span class="jumptarget"> Requirements </span>
 
 The following properties of the category are required. The request won’t be fulfilled unless these properties are valid.
 
-### <span class="jumptarget"> Notes </span>
+#### <span class="jumptarget"> Notes </span>
 
-To maximize system performance, Bigcommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, Bigcommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, Bigcommerce will return a 403 error.
+To maximize system performance, BigCommerce caps the total number of parent categories at seven. If your `PUT` includes the ID of a parent category in the `parent_id` field, BigCommerce will check the parent and any children of the current category to determine the total number of parent categories. If your `PUT` would cause the total number of parent categories to exceed the maximum of seven, BigCommerce will return a 403 error.
 
-### Response
+#### Response
 
 Example JSON returned in the response:
 
@@ -231,7 +231,7 @@ Example JSON returned in the response:
 }
 ```
 
-## <span class="jumptarget"> Delete a Category </span>
+### <span class="jumptarget"> Delete a Category </span>
 
 Deletes a category.
 
@@ -240,7 +240,7 @@ Deletes a category.
 *   Basic Auth
 >`DELETE /api/v2/categories/{id}`
 
-## <span class="jumptarget"> Delete All Categories </span>
+### <span class="jumptarget"> Delete All Categories </span>
 
 Deletes all the categories in the store.
 

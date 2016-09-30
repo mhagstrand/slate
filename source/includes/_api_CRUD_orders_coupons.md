@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## <span class="jumptarget"> List Order Coupons </span>
+### <span class="jumptarget"> List Order Coupons </span>
 
 Gets the coupon codes applied to an order. (Default sorting is by coupon id, from lowest to highest; however, only one coupon can be applied to each order.)
 
@@ -13,11 +13,11 @@ Gets the coupon codes applied to an order. (Default sorting is by coupon id, fro
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/coupons`
 
-### <span class="jumptarget"> Filters </span>
+#### <span class="jumptarget"> Filters </span>
 
 There are no filter parameters specific to `order_coupons`.
 
-### <span class="jumptarget"> Pagination </span>
+#### <span class="jumptarget"> Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_coupons are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | Page | int | /api/v2/orders/{order_id}/coupons?page={number} |
 | Limit | int | /api/v2/orders/{order_id}/coupons?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -40,7 +44,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## <span class="jumptarget"> Get an Order Coupon </span>
+### <span class="jumptarget"> Get an Order Coupon </span>
 
 Gets a coupon code associated with an order.
 
@@ -48,6 +52,10 @@ Gets a coupon code associated with an order.
 >`GET /stores/{store_hash}/v2/orders/{order_id}/coupons/{id}`
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/coupons/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {

@@ -4,7 +4,7 @@
 | **OAuth Scopes** | store_v2_orders
 ||store_v2_orders_read_only
 
-## List Order Shipping Addresses </span>
+### List Order Shipping Addresses </span>
 
 Gets the shipping addresses associated with an order.
 
@@ -13,11 +13,11 @@ Gets the shipping addresses associated with an order.
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipping_addresses`
 
-### Filters </span>
+#### Filters </span>
 
 There are no filter parameters specific to order shipping addresses.
 
-### Pagination </span>
+#### Pagination </span>
 
 Parameters can be added to the URL query string to paginate the collection. The maximum limit is 250. If a limit isn’t provided, up to 50 order_shipping_addresses are returned by default.
 
@@ -25,6 +25,10 @@ Parameters can be added to the URL query string to paginate the collection. The 
 | --- | --- | --- |
 | page | int | /api/v2/orders/{order_id}/shipping_addresses?page={number} |
 | limit | int | /api/v2/orders/{order_id}/shipping_addresses?limit={count} |
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 [
@@ -62,7 +66,7 @@ Parameters can be added to the URL query string to paginate the collection. The 
 ]
 ```
 
-## Get an Order Shipping Address </span>
+### Get an Order Shipping Address </span>
 
 Gets a shipping address associated with an order.
 
@@ -70,6 +74,10 @@ Gets a shipping address associated with an order.
 >`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/{id}`
 *   Basic Auth
 >`GET /api/v2/orders/{order_id}/shipping_addresses/{id}`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
@@ -105,14 +113,18 @@ Gets a shipping address associated with an order.
 }
 ```
 
-## Get a Count of Shipments </span>
+### Get a Count of Shipping Addresses </span>
 
-Gets a count of the number of orders that have shipped.
+Gets a count of the number of shipping addresses on an order.
 
 *   OAuth
->`GET /stores/{store_hash}/v2/orders/shipments/count`
+>`GET /stores/{store_hash}/v2/orders/{order_id}/shipping_addresses/count`
 *   Basic Auth
->`GET /api/v2/orders/shipments/count`
+>`GET /api/v2/orders/{order_id}/shipping_addresses/count`
+
+#### <span class="jumptarget"> Response </span>
+
+Example JSON returned in the response:
 
 ```json
 {
