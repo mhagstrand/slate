@@ -37,8 +37,8 @@ includes:
   - api_CRUD_orders_shipping_addresses
   - api_objects_order_status
   - api_CRUD_orders_statuses
-  - api_objects_order_tax.md
-  - api_CRUD_orders_taxes.md
+  - api_objects_order_tax
+  - api_CRUD_orders_taxes
   - api_objects_order_shipment
   - api_CRUD_orders_shipments
   - api_objects_payment_method
@@ -56,7 +56,7 @@ includes:
   - api_objects_product_googleproductsearch
   - api_CRUD_products_googleproductsearch
   - api_objects_product_option
-  - api_CRUD_options.md
+  - api_CRUD_options
   - api_objects_option_set
   - api_CRUD_option_sets
   - api_objects_option_set_option
@@ -86,7 +86,7 @@ includes:
   - api_CRUD_tax_classes
   - api_objects_webhook
   - api_CRUD_webhooks
-  - api_browsers.md
+  - api_browsers
   - api_status_codes
   - api_data_types
   - api_faqs
