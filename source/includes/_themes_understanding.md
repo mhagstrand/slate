@@ -10,7 +10,7 @@ To ensure that your themes make the most of BigCommerce’s extensive out-of-the
 
 You can ask further questions, and seek advice, in the [Developer Forum](https://forum.bigcommerce.com/s/group/0F913000000HLjECAW). For professional assistance in customizing a theme, consider hiring a [BigCommerce Expert](http://www.bigcommerce.com/experts/).
 
-<span class="fake-h3"> [Stencil](https://stencil.bigcommerce.com) </span>
+<span class="fake-h3"> <a href="//stencil.bigcommerce.com/docs" target="_blank">Stencil</a> </span>
 
   Handlebars.js-based theming engine, designed to support  local development, conditional logic, flexible choice of libraries, and responsive layouts.
 
