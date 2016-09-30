@@ -1,4 +1,4 @@
-# Understanding Themes
+# <span class="jumptarget"> Understanding Themes </span>
 
 <!-- For information about our new themes framework, **Stencil**, please explore our [Stencil documentation](https://stencil.bigcommerce.com/docs/).
 
