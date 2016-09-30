@@ -132,7 +132,7 @@
       </ul>
     </section>
     <div class="top-bar-actions ng-scope">
-      <div class="optional"><a href="https://dev-tools.bigcommerce.com/myapps">Log In</a></div>
+      <div class="optional"><a href="https://devtools.bigcommerce.com/myapps">Log In</a></div>
       <div class="optional">
     <button class="button button--action button--small"><a href="https://login.bigcommerce.com/signup">Create Account</a></button>
   </div>
@@ -164,6 +164,37 @@
         <h1 id="changelog">Changelog</h1>
 
           <h1 id="2016"><span class="jumptarget"> 2016 </span></h1>
+
+<h2 id="september"><span class="jumptarget"> September </span></h2>
+
+<h3 id="stencil-cornerstone-1-3-3-released">Stencil Cornerstone 1.3.3 released</h3>
+
+<p>Version 1.3.3 of Stencil&rsquo;s default Cornerstone theme is now available. This maintenance release standardizes the alignment of payment buttons, and standardizes the IE11 and Edge browsers&rsquo; display behavior for out-of-stock product options/SKUs.</p>
+
+<p>For details, please see the <a href="https://stencil.bigcommerce.com/docs/release-notes-cornerstone-13-theme#133">Cornerstone 1.3.x release notes</a>.</p>
+
+<p>Once once you have pulled the latest code from the <a href="https://github.com/bigcommerce/stencil">Stencil repo</a>, you can access this version by checking out its tag, using: <code class="prettyprint">git checkout v1.3.3</code></p>
+
+<h3 id="shipment-webhooks-added">Shipment webhooks added</h3>
+
+<p>We have added the following new webhooks, which your apps can use to track when an order&rsquo;s associated shipments are created, updated, or deleted: </p>
+
+<ul>
+<li><code class="prettyprint">store/shipment/*</code></li>
+<li><code class="prettyprint">store/shipment/created</code></li>
+<li><code class="prettyprint">store/shipment/updated</code></li>
+<li><code class="prettyprint">store/shipment/deleted</code></li>
+</ul>
+
+<p>These additions are now listed in our webhooks <a href="/api/#webhooks-overview">documentation</a>.</p>
+
+<h3 id="stencil-cornerstone-1-3-2-released">Stencil Cornerstone 1.3.2 released</h3>
+
+<p>Version 1.3.2 of Stencil&rsquo;s default Cornerstone theme is now available. This maintenance release corrects the display of YouTube videos under sitewide HTTPS, and corrects the Cornerstone Bold variation&rsquo;s display of featured products. </p>
+
+<p>For details, please see the <a href="https://stencil.bigcommerce.com/docs/release-notes-cornerstone-13-theme#132">Cornerstone 1.3.x release notes</a>.</p>
+
+<p>Once once you have pulled the latest code from the <a href="https://github.com/bigcommerce/stencil">Stencil repo</a>, you can access this version by checking out its tag, using: <code class="prettyprint">git checkout v1.3.2</code></p>
 
 <h2 id="august"><span class="jumptarget"> August </span></h2>
 
@@ -596,7 +627,7 @@
 <li><code class="prettyprint">store/information/updated</code> reports updates to a store&rsquo;s settings (domain, address, currency, tax inclusion, etc.).</li>
 </ul>
 
-<p>We have updated the <a href="/#placeholder">webhooks reference page</a> to include these new webhooks.</p>
+<p>We have updated the <a href="/api/#webhooks-overview">webhooks overview</a> to include these new webhooks.</p>
 
 <h3 id="expanded-faceted-search-display"><span class="jumptarget"> Expanded faceted-search display </span></h3>
 
@@ -660,7 +691,7 @@
   store/app/uninstalled
 </code></pre>
 
-<p>We have updated the <a href="/api/v2#webhooks">webhooks reference page</a> to include these new webhooks.</p>
+<p>We have updated the <a href="/api/#webhooks-overview">webhooks overview</a> to include these new webhooks.</p>
 
 <h3 id="status-fields-added-to-order-statusupdated-webhook"><span class="jumptarget"> Status fields added to order/statusUpdated webhook </span></h3>
 
