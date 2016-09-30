@@ -930,12 +930,21 @@ img {
 
 .fake-h2, .fake-h2 p, .fake-h2 a  {
      @extend %header-font;
+     // Added 9/29/16:
+     text-shadow: $main-embossed-text-shadow;
+     font-weight: 500;
+     color: #4b71fc;
+     margin-bottom: 15px;
      font-size: 26px !important;
    }
 
 .fake-h3, .fake-h3 p, .fake-h3 a {
     @extend %header-font;
-    font-size: 22px !important;
+     // Added 9/29/16:
+     text-shadow: $main-embossed-text-shadow;
+     font-weight: 500;
+     color: #4b71fc;
+     font-size: 22px !important;
   }
 
 
