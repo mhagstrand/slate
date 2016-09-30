@@ -11,6 +11,9 @@ includes:
   - themes_product_filtering_toolkit
   - themes_syntax
   - themes_theme_update_process
+  - themes_store_wide_variables
+  - themes_global_variables
+
 
 toc_footers:
   - <a href="/">Home</a>
