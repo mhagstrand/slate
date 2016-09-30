@@ -5,6 +5,18 @@ layout: "twocolumn"
 includes:
 - themes_understanding
 - themes_features
+- api_browsers
+- themes_anatomy
+- themes_blueprint
+- themes_style_editor
+- themes_product_filtering_toolkit
+- themes_syntax
+- themes_theme_update_process
+- themes_store_wide_variables
+- themes_store_wide_variables
+- themes_store_wide_variables
+- themes_global_variables
+- 
 
 toc_footers:
   - <a href="/">Home</a>
