@@ -1,6 +1,6 @@
 ---
 title: BigCommerce Blueprint Themes
-layout: "twocolumn"
+layout: "theme2column"
 
 includes:
   - themes_blueprint_landing
