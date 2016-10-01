@@ -65,7 +65,7 @@ Wildcards are supported for <code>scope</code>.
 
 An `HTTP 201` response indicates that the webhook was set successfully.
 
-Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook) and [webhook object](/api/v2/#list-hooks) pages for more details.
+Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#list-hooks) pages for more details.
 
 #### <span class="jumptarget"> List of Webhook Events </span>
 
