@@ -4,11 +4,6 @@ The following table identifies the name used for each OAuth scope in the My Apps
 
 All OAuth scopes except `default` have `read_only` scopes that allow only `GET` and `HEAD` requests.
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
- All links in the right column need to be re-set!
-</aside>
-
 | Scope GUI Name | Scope Strings | Resources |
 | --- | --- | --- |
 | Content | **store_v2_content** |[blog/posts](/api/stores/v2/blog/posts)|

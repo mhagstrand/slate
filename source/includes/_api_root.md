@@ -431,8 +431,3 @@ Interpreting the user information varies as follows.
 
 # <span class="jumptarget"> Building Basic-Auth Apps </span>
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE – TK:</span>
-We still need to migrate content here. 
-</aside>
-
