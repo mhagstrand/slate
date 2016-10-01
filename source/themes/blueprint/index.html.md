@@ -14,6 +14,7 @@ includes:
   - themes_theme_update_process
   - themes_store_wide_variables
   - themes_global_variables
+  - themes_lng_variables
 
 
 toc_footers:
