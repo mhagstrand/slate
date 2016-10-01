@@ -1,6 +1,6 @@
 ---
 title: BigCommerce Themes
-layout: "themetop2button"
+layout: "themetop3button"
 
 includes:
 - themes_understanding
