@@ -817,8 +817,9 @@ header {
 @media only screen and (max-width:450px) {
     .top-bar .name img, [top-bar] .name img {
         position: relative;
-        width: 30%;
+        width: 45%;
         margin: 0;
+        top: 10px;
     }
 
     .top-bar .title-area,
