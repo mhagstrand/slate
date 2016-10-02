@@ -267,6 +267,23 @@ table td:nth-child(3) {
     }
 }
 
+/* Styles for mobile home page */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .home-block, .home-block-bottom {
+    .block-text {
+      left: 0;
+    }
+  }
+  
+  .home-block {
+    .home-separator {
+      visibility: hidden;
+      display: block;
+    }
+  }
+}
+
+/* Override to force table column width */
 .content table td:first-child, .content table td:nth-child(4) {
   width: 21%;
 }
