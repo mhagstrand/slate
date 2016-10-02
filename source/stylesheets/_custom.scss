@@ -266,3 +266,11 @@ table td:nth-child(3) {
       display: inline-block;
     }
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  .home-block, .home-block-bottom {
+    .block-text {
+      left: 0;
+    }
+  }
+}
