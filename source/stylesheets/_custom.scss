@@ -273,4 +273,11 @@ table td:nth-child(3) {
       left: 0;
     }
   }
+  
+  .home-block {
+    .home-separator {
+      visibility: hidden;
+      display: block;
+    }
+  }
 }
