@@ -1,6 +1,6 @@
 ## <span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span>
 
-In addition to the **Auth Callback URI**, the [App Registration](#registration) wizard requests the following URIs.
+In addition to the **Auth Callback URI**, the [App Registration](#app-registration) wizard requests the following URIs.
 
 | Name | Required? | Event Discussion |
 | --- | --- | --- |
@@ -16,10 +16,10 @@ Each BigCommerce request is a `GET` request and includes a signed payload that a
 
 The remainder of this entry discusses:
 
-*   [The load request and response](#load_request).
-*   [The Uninstall request](#uninstall).
-*   [The Remove User request](#remove-user).
-*   [The signed payload](#process).
+*   [The load request and response](#load-request-and-response).
+*   [The Uninstall request](#uninstall-request-optional).
+*   [The Remove User request](#remove-user-request-optional).
+*   [The signed payload](#processing-the-signed-payload).
 
 ### <span class="jumptarget"> <a name="load_request"></a> Load Request and Response</span>
 
@@ -39,9 +39,9 @@ GET /load?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving a `GET` request to the **Load Callback URI**, your app needs to [process the signed payload](#process).
+Upon receiving a `GET` request to the **Load Callback URI**, your app needs to [process the signed payload](#processing-the-signed-payload).
 
-After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User&#160;Interface Constraints](/api#ui-constraints) for important information about your app's user interface.
+After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see [User&#160;Interface Constraints](#ui-constraints) for important information about your app's user interface.
 
 ### <span class="jumptarget"> <a name="uninstall"></a> Uninstall Request (Optional)</span>
 
@@ -56,7 +56,7 @@ GET /uninstall?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving the `GET` request, your app will need to [process the signed payload](#process).
+Upon receiving the `GET` request, your app will need to [process the signed payload](#processing-the-signed-payload).
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -66,14 +66,14 @@ Any HTML that you return in your response will not be rendered.
 
 ### <span class="jumptarget"> <a name="remove-user"></a> Remove User Request (Optional)</span>
 
-If you have not enabled [multi-user support](/api/v2/multi-user), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a `GET` request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
+If you have not enabled [multi-user support](#multi-user-support), you will not provide a **Remove User Callback URI** and can ignore this section. If you enable multi-user support, you can optionally specify a **Remove User Callback URI**. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a `GET` request to your **Remove User Callback URI** when a store admin revokes a user's access to your app. An example follows.
 
 ```
 GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 ```
 
-Upon receiving the `GET` request, your app will need to [process the signed payload](#process).
+Upon receiving the `GET` request, your app will need to [process the signed payload](#processing-the-signed-payload).
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -86,7 +86,7 @@ Processing the signed payload involves splitting and decoding it verifying the H
 
 #### <span class="jumptarget"> <a name="process"></a> Splitting and Decoding the Signed Payload</span>
 
-The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded [HMAC signature](http://en.wikipedia.org/wiki/Hash-based_message_authentication_code). The parts are delimited by the `.` character:
+The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code" target="_blank">HMAC signature</a>. The parts are delimited by the `.` character:
 
 ```
 encoded_json_string.encoded_hmac_signature
@@ -96,7 +96,7 @@ To decode the signed payload, complete the following steps:
 
 1.  Split `signed_payload` into its two parts at the `.` delimiter.
 2.  Decode `encoded_json_string` using base64url.
-3.  Convert the decoded JSON string into an object. See [Processing the JSON object](#Identifying) for more about this object.
+3.  Convert the decoded JSON string into an object. See [Processing the JSON object](#processing-the-json-object) for more about this object.
 4.  Decode `encoded_hmac_signature` using base64url.
 5.  Use your client secret to verify the signature. See the next section for more details.
 
@@ -184,7 +184,7 @@ Interpreting the user information varies as follows:
 
 | Request type | Multiple users enabled | Multiple users not enabled |
 | --- | --- | --- |
-| Load | Compare the user information to see if it matches that of the store owner, received at the time of [App Installation](/api#callback) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [App Installation](/api#callback). |
+| Load | Compare the user information to see if it matches that of the store owner, received at the time of [app installation](#app-installation-and-update-sequence) or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage. | The information should match that of the store owner, received at the time of [app installation](#app-installation-and-update-sequence). |
 | Uninstall | The user information should match that of the store owner. Only the store owner can uninstall your app. | Should match the store owner. |
 | Remove user | The user information should match one of the users that you have stored. After locating the stored user, delete it from your database or other storage. | N/A |
 
