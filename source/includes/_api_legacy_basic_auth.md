@@ -7,7 +7,7 @@ Even within the v2 API, apps relying on Basic Authentication cannot access some 
 </aside>
 
 
-## Making Requests
+## <span class="jumptarget"> Making Requests </span>
 
 To allow an app to connect to a store using Basic Authentication, the store owner must manually generate an API key and provide this to the app developer along with a base path and user name.
 
@@ -22,7 +22,7 @@ To connect to a store using Basic Authentication, an app must:
 
 If the user name and/or API token are invalid or missing, the app will get a `401 Unauthorized` response.
 
-## Obtaining an API Token
+## <span class="jumptarget" id="pvt_token"> Obtaining an API Token </span>
 
 To get an API token, complete the following steps.
 
@@ -36,7 +36,7 @@ To get an API token, complete the following steps.
 8.  Click the **Save** button.
 9.  Provide the user name, API base path, and API token to the app developer using a secure channel.
 
-## Revoking App Access
+## <span class="jumptarget"> Revoking App Access </span>
 
 To revoke app access to a store, complete the following steps.
 
@@ -50,7 +50,7 @@ To revoke app access to a store, complete the following steps.
 8.  Click the trash can button.
 9.  Click **OK** in the confirmation prompt.
 
-## Regenerating an API Token
+## <span class="jumptarget"> Regenerating an API Token </span>
 
 To change the API token that an app is using to access a store, complete the following steps.
 

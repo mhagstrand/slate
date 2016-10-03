@@ -1,6 +1,6 @@
 ## <span class="jumptarget" id="curl_quickstart"> cURL Quickstart Guide </span>
 
-This section provides some sample cURL commands, for quickstart purposes. These use Basic Authentication, so before you can issue these commands, you must generate Basic Authentication credentials by following the steps discussed [here](/api#basic-auth). Once you have your Basic Authentication credentials, you can issue cURL commands as listed below.
+This section provides some sample cURL commands, for quickstart purposes. These use Basic Authentication, so before you can issue these commands, you must generate Basic Authentication credentials by following the steps discussed [here](#pvt_token). Once you have your Basic Authentication credentials, you can issue cURL commands as listed below.
 
 ```
     curl --request GET \

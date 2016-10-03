@@ -1,4 +1,4 @@
-## Migrating to OAuth
+## <span class="jumptarget"> Migrating to OAuth </span>
 
 Apps in the App Store that use Basic Authentication are deprecated, and will be sunsetted in the near future. We will contact you directly to let you know the details and the timeline of this transition. This page discusses how to migrate your public app from Basic Authentication to OAuth.
 
@@ -19,7 +19,7 @@ Other benefits of updating include:
 
 *   Privileged access to new capabilities.
 
-### How to Migrate
+### <span class="jumptarget"> How to Migrate </span>
 
 To update your public Basic Authentication app to an OAuth app, you will need to make the following changes:
 
@@ -42,11 +42,11 @@ The following table provides a quick comparison of the syntax and example paths.
 | **SYNTAX** | https://store-{_store_hash_}.mybigcommerce.com/api | https://api.bigcommerce.com/stores/{_store_hash_} |
 | **EXAMPLE** | https://store-g5cd38.mybigcommerce.com/api/v2/time | https://api.bigcommerce.com/stores/g5cd38/v2/time |
 
-### Rate Limiting after OAuth Migration
+### <span class="jumptarget"> Rate Limiting after OAuth Migration </span>
 
 Rate limiting affects only high-volume applications, but there are several changes that all consumers of the API should be aware of:
 
-*   **509 status codes are no longer returned**: We’re now returning a `429` status code to represent “Too Many Requests”. This is consistent with [RFC 6585](http://tools.ietf.org/html/rfc6585).
+*   **509 status codes are no longer returned**: We’re now returning a `429` status code to represent “Too Many Requests”. This is consistent with <a href="http://tools.ietf.org/html/rfc6585" target="_blank">RFC 6585</a>.
 
 *   **Time to wait before retries**: The old rate limiting scheme used a fixed hourly limit, regardless of who was accessing the API and how many requests were made per app or per user. This value was returned in the `X-BC-ApiLimit-Remaining` header. The `X-BC-ApiLimit-Remaining` header is not sent to OAuth apps. When an OAuth client is rate limited, the header `X-Retry-After` signals the number of seconds that a client should wait before retrying the request.
 
