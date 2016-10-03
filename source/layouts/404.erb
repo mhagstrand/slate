@@ -26,8 +26,8 @@ under the License.
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-    <%= stylesheet_link_tag :screen, media: :screen %>
-    <%= stylesheet_link_tag :print, media: :print %>
+    <link href="/stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="/stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
@@ -64,7 +64,7 @@ under the License.
                 "block--twoColAbsolute-row block--twoColAbsolute-row--split6">
                     <div class="block--twoColAbsolute-column">
                         <div class="block-text">
-                            <h1><br>
+                            <h1 style="font-size:3.45556rem;"><br>
                             404 – Page Not Found</h1>
                             <p><span class="type-large">Sorry! This was a bad link.</span></p>
                             <p>Back to:<span class="type-large"><br></span><a href="/api">API DOCUMENTATION</a><span class="home-separator"> | </span><a href="/themes">THEME DOCUMENTATION</a> </p>
