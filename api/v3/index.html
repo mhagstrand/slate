@@ -149,7 +149,7 @@
         <div class="api-selector btn-group">
           <a href="/api/" class="btn btn-default" data-page-name="home">Basics</a>
           <a href="/api/v2/" class="btn btn-default" data-page-name="V2">V2</a>
-          <a href="https://github.com/bigcommerce/api" target="_blank" class="btn btn-default" data-page-name="V3">V3</a>
+          <a href="https://github.com/bigcommerce/api/blob/master/docs/v3-catalog.md" target="_blank" class="btn btn-default" data-page-name="V3">V3</a>
           <a href="/themes/" class="btn btn-default" data-page-name="Themes">Themes</a>
         </div>
         <div class="clear"></div>
@@ -203,7 +203,7 @@
 </tr>
 </tbody></table>
 
-<p>For a current list of target browsers (desktop and mobile) supported for <em>storefronts</em> that use BigCommerce themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers">this support page</a>.</p>
+<p>For a current list of target browsers (desktop and mobile) that BigCommerce supports for <em>storefronts</em> using our themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers" target="_blank">this support page</a>.</p>
 
           <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
 
@@ -420,7 +420,7 @@
 <tr>
 <td><strong>509</strong> (Deprecated)</td>
 <td><strong>Bandwidth Limit Exceeded</strong></td>
-<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="#rate-limits-basic-auth">rate limits</a>.</td>
 </tr>
 </tbody></table>
 
@@ -519,23 +519,23 @@
 
 <h2 id="how-does-the-approval-process-work"><span class="jumptarget"> How does the approval process work?</span></h2>
 
-<p>Upon receiving an <a href="/api#completing-reg">app submission</a>, we review it to make sure that it meets our <a href="/api#approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p>
+<p>Upon receiving an <a href="#app-submission">app submission</a>, we review it to make sure that it meets our <a href="#app-store-approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.</p>
 
 <h2 id="is-the-api-rate-limit-per-store-or-per-app"><span class="jumptarget"> Is the API rate limit per-store or per-app?</span></h2>
 
-<p>Basic Authentication requests are rate-limited <a href="/api/rate-limits/basic">per app</a>.</p>
+<p>Basic Authentication requests are rate-limited <a href="#rate-limits-basic-auth">per app</a>.</p>
 
-<p>OAuth requests are rate-limited <a href="/api/rate-limits/oauth">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
+<p>OAuth requests are rate-limited <a href="#rate-limits">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
 
 <h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers"><span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span></h2>
 
-<p>Yes. Please review our list of <a href="/api#browsers">supported browsers</a> and the documentation on <a href="/api#ui-constraints">user interface constraints</a> for details.</p>
+<p>Yes. Please review our list of <a href="#supported-browsers">supported browsers</a> and the documentation on <a href="#ui-constraints">user interface constraints</a> for details.</p>
 
-<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance?</span></h2>
+<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance? </span></h2>
 
 <p>You can modify your app at any time within My Apps, free of charge. As soon as you click <strong>Update &amp; Close</strong>, your changes will be live. Therefore, we recommend creating a copy of your app and using this to test the changes first. Once you have made sure that they work properly, you can go ahead and modify your production app.</p>
 
-<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code?</span></h2>
+<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code? </span></h2>
 
 <p>No. BigCommerce does not support the upload of server-side code to a store. The server-side code must hosted elsewhere. The storefront can use JavaScript to access it.</p>
 

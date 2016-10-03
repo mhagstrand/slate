@@ -154,7 +154,7 @@
         <div class="api-selector btn-group">
           <a href="/api/" class="btn btn-default" data-page-name="home">Basics</a>
           <a href="/api/v2/" class="btn btn-default" data-page-name="V2">V2</a>
-          <a href="https://github.com/bigcommerce/api" target="_blank" class="btn btn-default" data-page-name="V3">V3</a>
+          <a href="https://github.com/bigcommerce/api/blob/master/docs/v3-catalog.md" target="_blank" class="btn btn-default" data-page-name="V3">V3</a>
           <a href="/themes/" class="btn btn-default" data-page-name="Themes">Themes</a>
         </div>
         <div class="clear"></div>
@@ -181,7 +181,7 @@
     </div>
     <div class="page-wrapper">
       <div class="content">
-        <h1 id="api-documentation">API Documentation</h1>
+        <h1 id="api-documentation"><span class="jumptarget"> API Documentation </span></h1>
 
 <p>The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding. </p>
 
@@ -189,7 +189,7 @@
 
 <p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:</p>
 
-<p><span class="fake-h3"> <a href="//github.com/bigcommerce/api">API v3</a> </span></p>
+<p><span class="fake-h3"> <a href="//github.com/bigcommerce/api/blob/master/docs/v3-catalog.md">API v3</a> </span></p>
 
 <p>New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.</p>
 
@@ -199,11 +199,11 @@
 
           <h1 id="api-apps-first-steps"><span class="jumptarget"> API/Apps First Steps </span></h1>
 
-<p>The BigCommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. All connections require authentication and are secured by TLS encryption. It supports <a href="/api/#media_types">the JSON media type</a> and uses UTF-8 character encoding.</p>
+<p>The BigCommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. All connections require authentication and are secured by TLS encryption. It supports <a href="#media-types">the JSON media type</a> and uses UTF-8 character encoding.</p>
 
 <p>With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.</p>
 
-<p><span class="fake-h2"> Build Best-Of-Breed Solutions for Fast-Growing Online Businesses </span></p>
+<p><span class="fake-h2" style="color:black;font-weight:bold"> Build Best-Of-Breed Solutions for Fast-Growing Online Businesses </span></p>
 
 <p>Here are your first steps to get started:</p>
 
@@ -240,15 +240,15 @@
 
 <h3 id="oauth-apps"><span class="jumptarget"> OAuth Apps </span></h3>
 
-<p>OAuth apps (also known as <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a> or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="/api/v2/#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="/api/v2/#app-registration">Client ID and Client Secret</a>, and an <a href="/api/v2/#app-installation-and-update-sequence">OAuth token</a>.</p>
+<p>OAuth apps (also known as <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a> or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#app-registration">Client ID and Client Secret</a>, and an <a href="#app-installation-and-update-sequence">OAuth token</a>.</p>
 
 <h3 id="basic-auth-apps"><span class="jumptarget"> Basic-Auth Apps </span></h3>
 
-<p>Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store&rsquo;s API endpoints. From the Control Panel of your sandbox store, you can <a href="/api/v2/#building-basic-auth-apps">get the base path, user ID, and API token</a> that you need to start making calls.</p>
+<p>Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store&rsquo;s API endpoints. From the Control Panel of your sandbox store, you can <a href="#building-basic-auth-apps">get the base path, user ID, and API token</a> that you need to start making calls.</p>
 
 <h2 id="about-client-libraries"><span class="jumptarget"> About Client Libraries </span></h2>
 
-<p>To make it easier for our developers, we provide <a href="/api/#client-libraries">client libraries</a> in a variety of popular languages.</p>
+<p>To make it easier for our developers, we provide <a href="#client-libraries">client libraries</a> in a variety of popular languages.</p>
 
           <h1 id="request-headers"><span class="jumptarget"> Request Headers </span></h1>
 
@@ -746,7 +746,7 @@ Wildcards are supported for <code>scope</code>.
 
 <p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
 
-<p>Please see the <a href="/api/v2/#list-hooks">hooks resource</a> and <a href="/api/v2/#list-hooks">webhook object</a> pages for more details.</p>
+<p>Please see the <a href="/api/v2/#list-hooks">hooks resource</a> and <a href="/api/v2/#webhook-object-properties">webhook object</a> pages for more details.</p>
 
 <h4 id="list-of-webhook-events"><span class="jumptarget"> List of Webhook Events </span></h4>
 
@@ -825,7 +825,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h4 id="lightweight-callback-payload"><span class="jumptarget"> Lightweight Callback Payload </span></h4>
 
-<p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/products#get-a-product">Products resource</a>.</p>
+<p>In the callback, we send a light payload with only minimum details regarding the event that&rsquo;s been triggered. This gives you maximum flexibility as to how you want to handle the notification in your application. For instance, if you subscribe to the <code class="prettyprint">store/product/update</code> event, we&rsquo;ll send you the product ID when it&rsquo;s been updated, and you might want to handle it by fetching the product via a request to the <a href="/api/v2/#get-a-product">Products resource</a>.</p>
 
 <p>An example payload follows.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="nt">"store_id"</span><span class="p">:</span><span class="mi">11111</span><span class="p">,</span><span class="nt">"producer"</span><span class="p">:</span><span class="s2">"stores/abcde"</span><span class="p">,</span><span class="nt">"scope"</span><span class="p">:</span><span class="s2">"store/order/statusUpdated"</span><span class="p">,</span><span class="nt">"data"</span><span class="p">:{</span><span class="nt">"type"</span><span class="p">:</span><span class="s2">"order"</span><span class="p">,</span><span class="nt">"id"</span><span class="p">:</span><span class="mi">173331</span><span class="p">},</span><span class="nt">"hash"</span><span class="p">:</span><span class="s2">"3f9ea420af83450d7ef9f78b08c8af25b2213637"</span><span class="p">}</span><span class="w">
@@ -872,15 +872,15 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 <li> 86400 seconds (24 hours) after the most recent failure</li>
 </ol>
 
-<p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/stores/v2/webhooks#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+<p>After the final retry attempt above (cumulatively, 48 hours after the first delivery attempt), the webhook will automatically be deactivated, and we will send an email to the developer&rsquo;s email address registered on the subscribing app. Should you wish to reactivate the hook, you can set the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code> via a <a href="/api/v2/#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
 <h3 id="updating-a-webhook"><span class="jumptarget"> Updating a Webhook </span></h3>
 
-<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#update-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+<p>Using your OAuth access token, send a <a href="/api/v2/#update-a-hook">PUT request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
 <h3 id="deleting-a-webhook"><span class="jumptarget"> Deleting a Webhook </span></h3>
 
-<p>Using your OAuth access token, send a <a href="/api/stores/v2/webhooks#delete-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
+<p>Using your OAuth access token, send a <a href="/api/v2/#delete-a-hook">DELETE request</a> to the <code class="prettyprint">hooks</code> resource.</p>
 
 <h3 id="troubleshooting"><span class="jumptarget"> Troubleshooting </span></h3>
 
@@ -908,7 +908,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook"><span class="jumptarget"> Not Receiving an HTTP 201 Response after Sending POST to Create Webhook </span></h4>
 
-<p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks_intro">introduction</a> above.</p>
+<p>After sending a POST request to create a webhook, you should get an HTTP 201 back. If you do not, check your TLS/SSL setup and the HTTP header in your request. The requirements for the HTTP header are discussed in the <a href="#webhooks-overview">introduction</a> above.</p>
 
 <h3 id="tools-for-debugging-and-testing-webhooks"><span class="jumptarget"> Tools for Debugging and Testing Webhooks </span></h3>
 
@@ -1040,7 +1040,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <p>Building an OAuth app is the recommended approach in almost all cases. BigCommerce plans to deprecate the alternative Basic Auth mechanism that currently supports <a href="/api/#building-basic-auth-apps">private apps</a> for individual stores.</p>
 
-<p>Before you start, we suggest reviewing the <a href="#approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#registration">Client ID and Client&#160;Secret</a>, and an <a href="#installation">OAuth token</a>. </p>
+<p>Before you start, we suggest reviewing the <a href="#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#app-registration">Client ID and Client&#160;Secret</a>, and an <a href="#app-installation-and-update-sequence">OAuth token</a>. </p>
 
 <h3 id="api-endpoint"><span class="jumptarget"> API Endpoint </span></h3>
 
@@ -1052,7 +1052,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <ul>
 <li><code class="prettyprint">X-Auth-Client</code>: the <strong>Client ID</strong>. To get your <strong>Client ID</strong>, you must complete <a href="#registration">App Registration</a>. </li>
-<li><code class="prettyprint">X-Auth-Token</code>: the OAuth token. To get your OAuth token, you must complete <a href="#installation">App Installation</a>. </li>
+<li><code class="prettyprint">X-Auth-Token</code>: the OAuth token. To get your OAuth token, you must complete <a href="#app-registration">App Installation</a>. </li>
 </ul>
 
 <p>In addition, while not all resources require the <code class="prettyprint">Accept</code> and <code class="prettyprint">Content-Type</code> headers, many do. To ensure that your calls succeed, always include these headers. </p>
@@ -1077,14 +1077,14 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
           <h2 id="app-registration"><span class="jumptarget"> <a name="registration"></a> App Registration </span></h2>
 
-<p>Once you have a <a href="#using-oauth-intro">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
+<p>Once you have a <a href="#api-apps-first-steps">sandbox store</a>, you must register your app to get your <strong>Client ID</strong> and <strong>Client Secret</strong>.</p>
 
 <ul>
 <li><p>The <strong>Client ID</strong> value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.</p></li>
-<li><p>The <strong>Client Secret</strong> value is a secret that your app and BigCommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="#installation">app installation</a> sequence. Thereafter, BigCommerce uses it to sign payloads in <a href="#load">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.</p></li>
+<li><p>The <strong>Client Secret</strong> value is a secret that your app and BigCommerce share. You do need to pass the <strong>Client Secret</strong> value once during the <a href="#app-installation-and-update-sequence">app installation</a> sequence. Thereafter, BigCommerce uses it to sign payloads in <a href="#load-uninstall-and-user-removal-requests">load, uninstall, and remove user requests</a> and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.</p></li>
 </ul>
 
-<p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="/api/completing-reg">App Submission</a>).</p>
+<p>The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in <a href="#app-submission">App Submission</a>).</p>
 
 <h3 id="technical-prerequisites"><span class="jumptarget"> Technical Prerequisites </span></h3>
 
@@ -1092,7 +1092,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h4 id="auth-callback-and-load-callback-uris"><span class="jumptarget"> Auth Callback and Load Callback URIs </span></h4>
 
-<p>You must have an <a href="#installation">Auth Callback URI</a> and a <a href="#load_request">Load Callback URI</a> to register your app.</p>
+<p>You must have an <a href="#app-installation-and-update-sequence">Auth Callback URI</a> and a <a href="#load-request-and-response">Load Callback URI</a> to register your app.</p>
 
 <aside class="notice">
 <span class="aside-notice-hd">Public URIs Required before Submission</span><br><br>
@@ -1101,25 +1101,25 @@ Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests origi
 
 <h4 id="uninstall-callback-optional"><span class="jumptarget"> Uninstall Callback (Optional) </span></h4>
 
-<p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall">Uninstall Callback URI</a>.</p>
+<p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall-request-optional">Uninstall Callback URI</a>.</p>
 
 <h4 id="multi-user-support-optional"><span class="jumptarget"> Multi-User Support (Optional) </span></h4>
 
-<p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="/api/multi-user">multi-user support</a>.</p>
+<p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="#multi-user-support">multi-user support</a>.</p>
 
 <ul>
 <li>  Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.</li>
-<li>  Your app should be aware that when it receives the <a href="#load_request">Load Callback</a>, the user information passed in, <a href="/api/multi-user#loadrequest">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
-<li>  You can optionally specify a <a href="#remove-user">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
+<li>  Your app should be aware that when it receives the <a href="#load-request-and-response">Load Callback</a>, the user information passed in, <a href="#about-the-load-request">may not be the store owner</a>. You&rsquo;ll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.</li>
+<li>  You can optionally specify a <a href="#about-the-remove-user-request">Remove User Callback URI</a> to receive a callback when a store admin revokes a user&rsquo;s access.</li>
 </ul>
 
 <h4 id="requesting-oauth-scopes"><span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth Scopes </span></h4>
 
-<p>If you know the <a href="/api/#scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code class="prettyprint">Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
+<p>If you know the <a href="#oauth-scopes">OAuth scopes</a> that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as <code class="prettyprint">Information: Read-Only</code>) to get started. However, once you determine the scopes you need, you must:</p>
 
 <ul>
 <li>  Modify the scopes of your app in My Apps and save the changes.</li>
-<li>  Obtain the new OAuth token during the <a href="#installation">App Installation or Update</a> flow.</li>
+<li>  Obtain the new OAuth token during the <a href="#app-installation-and-update-sequence">App Installation or Update</a> flow.</li>
 <li>  Retest your app to make sure it still functions properly with the new token.</li>
 </ul>
 
@@ -1154,7 +1154,7 @@ These must be the credentials of the owner of the store where you plan to instal
 
           <h2 id="app-installation-and-update-sequence"><span class="jumptarget"> <a name="installation"></a> App Installation and Update Sequence </span></h2>
 
-<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
+<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#app-registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
 
 <aside class="warning">
 <span class="aside-warning-hd"> Handling Requests Securely</span><br><br>
@@ -2730,7 +2730,7 @@ Private apps <em>not</em> in the App Store can continue to use Basic Authenticat
 </tr>
 </tbody></table>
 
-<p>For a current list of target browsers (desktop and mobile) supported for <em>storefronts</em> that use BigCommerce themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers">this support page</a>.</p>
+<p>For a current list of target browsers (desktop and mobile) that BigCommerce supports for <em>storefronts</em> using our themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers" target="_blank">this support page</a>.</p>
 
           <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
 
@@ -2947,7 +2947,7 @@ Private apps <em>not</em> in the App Store can continue to use Basic Authenticat
 <tr>
 <td><strong>509</strong> (Deprecated)</td>
 <td><strong>Bandwidth Limit Exceeded</strong></td>
-<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/rate-limits/basic">rate limits</a>.</td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="#rate-limits-basic-auth">rate limits</a>.</td>
 </tr>
 </tbody></table>
 
@@ -3046,23 +3046,23 @@ Private apps <em>not</em> in the App Store can continue to use Basic Authenticat
 
 <h2 id="how-does-the-approval-process-work"><span class="jumptarget"> How does the approval process work?</span></h2>
 
-<p>Upon receiving an <a href="/api#completing-reg">app submission</a>, we review it to make sure that it meets our <a href="/api#approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/">App Store</a>.</p>
+<p>Upon receiving an <a href="#app-submission">app submission</a>, we review it to make sure that it meets our <a href="#app-store-approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.</p>
 
 <h2 id="is-the-api-rate-limit-per-store-or-per-app"><span class="jumptarget"> Is the API rate limit per-store or per-app?</span></h2>
 
-<p>Basic Authentication requests are rate-limited <a href="/api/rate-limits/basic">per app</a>.</p>
+<p>Basic Authentication requests are rate-limited <a href="#rate-limits-basic-auth">per app</a>.</p>
 
-<p>OAuth requests are rate-limited <a href="/api/rate-limits/oauth">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
+<p>OAuth requests are rate-limited <a href="#rate-limits">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
 
 <h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers"><span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span></h2>
 
-<p>Yes. Please review our list of <a href="/api#browsers">supported browsers</a> and the documentation on <a href="/api#ui-constraints">user interface constraints</a> for details.</p>
+<p>Yes. Please review our list of <a href="#supported-browsers">supported browsers</a> and the documentation on <a href="#ui-constraints">user interface constraints</a> for details.</p>
 
-<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance?</span></h2>
+<h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance? </span></h2>
 
 <p>You can modify your app at any time within My Apps, free of charge. As soon as you click <strong>Update &amp; Close</strong>, your changes will be live. Therefore, we recommend creating a copy of your app and using this to test the changes first. Once you have made sure that they work properly, you can go ahead and modify your production app.</p>
 
-<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code?</span></h2>
+<h2 id="will-bigcommerce-host-my-server-side-code"><span class="jumptarget"> Will BigCommerce host my server-side code? </span></h2>
 
 <p>No. BigCommerce does not support the upload of server-side code to a store. The server-side code must hosted elsewhere. The storefront can use JavaScript to access it.</p>
 
