@@ -59,4 +59,4 @@ These codes are returned for requests that could not be processed due to an inte
 | **501** | **Not Implemented** | When a request method is sent that is not supported by the API (e.g., **TRACE**, **PATCH**). |
 | **503** | **Service Unavailable** | When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version. |
 | **507** | **Insufficient Storage** | When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit). |
-| **509** (Deprecated) | **Bandwidth Limit Exceeded** | Returned to apps using Basic Authentication that have exceeded their [rate limits](/api/rate-limits/basic). |
+| **509** (Deprecated) | **Bandwidth Limit Exceeded** | Returned to apps using Basic Authentication that have exceeded their [rate limits](#rate-limits-basic-auth). |

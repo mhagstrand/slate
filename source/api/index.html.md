@@ -47,7 +47,7 @@ includes:
 search: true
 ---
 
-# API Documentation
+# <span class="jumptarget"> API Documentation </span>
 
 The Bigcommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. This API supports the JSON media type, and uses UTF-8 character encoding. 
 
