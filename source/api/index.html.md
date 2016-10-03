@@ -55,7 +55,7 @@ With clever use of this API, you can automate various commerce, business, and pu
 
 All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:
 
-<span class="fake-h3"> [API v3](//github.com/bigcommerce/api) </span>
+<span class="fake-h3"> [API v3](//github.com/bigcommerce/api/blob/master/docs/v3-catalog.md) </span>
 
   New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.
 
