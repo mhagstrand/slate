@@ -1,10 +1,10 @@
 # <span class="jumptarget"> API/Apps First Steps </span>
 
-The BigCommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. All connections require authentication and are secured by TLS encryption. It supports [the JSON media type](/api/#media_types) and uses UTF-8 character encoding.
+The BigCommerce Stores API features a RESTful architecture, allowing you to code in the language of your choice. All connections require authentication and are secured by TLS encryption. It supports [the JSON media type](#media-types) and uses UTF-8 character encoding.
 
 With clever use of this API, you can automate various commerce, business, and publishing tasks and integrate all kinds of apps with our platform.
 
-<span class="fake-h2"> Build Best-Of-Breed Solutions for Fast-Growing Online Businesses </span>
+<span class="fake-h2" style="color:black;font-weight:bold"> Build Best-Of-Breed Solutions for Fast-Growing Online Businesses </span>
 
 Here are your first steps to get started:
 
@@ -37,13 +37,13 @@ This step works differently for OAuth versus Basic-Auth apps:
 
 ### <span class="jumptarget"> OAuth Apps </span>
 
-OAuth apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/) or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](/api/v2/#app-store-approval-requirements). To start making API requests, you'll need a [Client ID and Client Secret](/api/v2/#app-registration), and an [OAuth token](/api/v2/#app-installation-and-update-sequence).
+OAuth apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/) or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](#app-store-approval-requirements). To start making API requests, you'll need a [Client ID and Client Secret](#app-registration), and an [OAuth token](#app-installation-and-update-sequence).
 
 ### <span class="jumptarget"> Basic-Auth Apps </span>
 
-Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the Control Panel of your sandbox store, you can [get the base path, user ID, and API token](/api/v2/#building-basic-auth-apps) that you need to start making calls.
+Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the Control Panel of your sandbox store, you can [get the base path, user ID, and API token](#building-basic-auth-apps) that you need to start making calls.
   
 
 ## <span class="jumptarget"> About Client Libraries </span>
 
-To make it easier for our developers, we provide [client libraries](/api/#client-libraries) in a variety of popular languages.
+To make it easier for our developers, we provide [client libraries](#client-libraries) in a variety of popular languages.
