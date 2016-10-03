@@ -1,12 +1,12 @@
 ## <span class="jumptarget"> <a name="registration"></a> App Registration </span>
 
-Once you have a [sandbox store](#using-oauth-intro), you must register your app to get your **Client ID** and **Client Secret**.
+Once you have a [sandbox store](#api-apps-first-steps), you must register your app to get your **Client ID** and **Client Secret**.
 
 *   The **Client ID** value uniquely identifies your app and you will need to pass it in the header of all your requests to the Stores API.
 
-*   The **Client Secret** value is a secret that your app and BigCommerce share. You do need to pass the **Client Secret** value once during the [app installation](#installation) sequence. Thereafter, BigCommerce uses it to sign payloads in [load, uninstall, and remove user requests](#load) and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
+*   The **Client Secret** value is a secret that your app and BigCommerce share. You do need to pass the **Client Secret** value once during the [app installation](#app-installation-and-update-sequence) sequence. Thereafter, BigCommerce uses it to sign payloads in [load, uninstall, and remove user requests](#load-uninstall-and-user-removal-requests) and your app uses it to verify the signature to ensure that the request is coming from BigCommerce.
 
-The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in [App Submission](/api/completing-reg)).
+The app registration wizard requests a number of details that you may not know just yet. You can come back and fill in the additional information later (discussed in [App Submission](#app-submission)).
 
 ### <span class="jumptarget"> Technical Prerequisites </span>
 
@@ -15,7 +15,7 @@ Before you register your app, consider the required and optional steps below.
 
 #### <span class="jumptarget"> Auth Callback and Load Callback URIs </span>
 
-You must have an [Auth Callback URI](#installation) and a [Load Callback URI](#load_request) to register your app.
+You must have an [Auth Callback URI](#app-installation-and-update-sequence) and a [Load Callback URI](#load-request-and-response) to register your app.
 
 <aside class="notice">
 <span class="aside-notice-hd">Public URIs Required before Submission</span><br><br>
@@ -24,22 +24,22 @@ Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests origi
 
 #### <span class="jumptarget"> Uninstall Callback (Optional) </span>
 
-If you want to receive a callback when the store owner uninstalls your app, you can provide an [Uninstall Callback URI](#uninstall).
+If you want to receive a callback when the store owner uninstalls your app, you can provide an [Uninstall Callback URI](#uninstall-request-optional).
 
 #### <span class="jumptarget"> Multi-User Support (Optional) </span>
 
-By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling [multi-user support](/api/multi-user).
+By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling [multi-user support](#multi-user-support).
 
 *   Once you enable multi-user support, a store admin will additionally need to grant access to users from within the store control panel. For each user account, there are settings to grant access to specific apps.
-*   Your app should be aware that when it receives the [Load Callback](#load_request), the user information passed in, [may not be the store owner](/api/multi-user#loadrequest). You'll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.
-*   You can optionally specify a [Remove User Callback URI](#remove-user) to receive a callback when a store admin revokes a user's access.
+*   Your app should be aware that when it receives the [Load Callback](#load-request-and-response), the user information passed in, [may not be the store owner](#about-the-load-request). You'll need to determine how to respond if you see a different user. For example, you may want to provision a new user account in order to personalize the experience.
+*   You can optionally specify a [Remove User Callback URI](#about-the-remove-user-request) to receive a callback when a store admin revokes a user's access.
 
 #### <span class="jumptarget"> <a name="request_scopes"></a> Requesting OAuth Scopes </span>
 
-If you know the [OAuth scopes](/api/#scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as `Information: Read-Only`) to get started. However, once you determine the scopes you need, you must:
+If you know the [OAuth scopes](#oauth-scopes) that your app requires, you should select these. If you do not yet know the scopes that you need, you can just request minimal permissions (such as `Information: Read-Only`) to get started. However, once you determine the scopes you need, you must:
 
 *   Modify the scopes of your app in My Apps and save the changes.
-*   Obtain the new OAuth token during the [App Installation or Update](#installation) flow.
+*   Obtain the new OAuth token during the [App Installation or Update](#app-installation-and-update-sequence) flow.
 *   Retest your app to make sure it still functions properly with the new token.
 
 ### <span class="jumptarget"> Registering Your App </span>
