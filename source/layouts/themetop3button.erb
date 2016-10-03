@@ -1,0 +1,139 @@
+<%#
+Copyright 2008-2013 Concur Technologies, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+%>
+<% language_tabs = current_page.data.language_tabs %>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title><%= current_page.data.title || "API Documentation" %></title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+    <style>
+      <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
+    </style>
+
+    <%= stylesheet_link_tag :screen, media: :screen %>
+    <%= stylesheet_link_tag :print, media: :print %>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <% if current_page.data.search %>
+      <%= javascript_include_tag  "all_toggle" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
+    <%= partial "layouts/ga" %>
+    <% if language_tabs %>
+      <script>
+        $(function() {
+          setupLanguages(<%= language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
+        });
+      </script>
+    <% end %>
+  </head>
+
+  <body class="<%= page_classes %> twocolumn">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <%= image_tag('navbar.png') %>
+      </span>
+    </a>
+
+<header role="banner">
+  <%= partial "layouts/navbar" %>
+</header>
+
+    <div class="tocify-wrapper">
+      <div class="separator separator-top"></div>
+      <div class="api-nav">
+        <div class="nav-label">Understanding Themes</div>
+        <div class="api-selector btn-group3">
+          <a href="//stencil.bigcommerce.com/docs" class="btn btn-default" data-page-name="Stencil">Stencil</a>
+          <a href="/themes/blueprint/" class="btn btn-default" data-page-name="Blueprint">Blueprint</a>
+          <a href="/api/" <%# target="_blank" %> class="btn btn-default" data-page-name="API Docs">API Docs</a>
+        </div>
+      <%# 2nd button row, tried 8/17/16, removed 8/18/16 as excessive: %>
+      <%# </div>  
+      <div class="clear"></div>
+      <div class="api-nav">
+        <div class="nav-label">Themes</div>
+        <div class="api-selector btn-group">
+          <a href="/themes/" class="btn btn-default" data-page-name="themes">About</a>
+          <a href="/themes/blueprint/" class="btn btn-default" data-page-name="Blueprint">Blueprint</a>
+          <a href="https://stencil.bigcommerce.com/docs/what-is-stencil" class="btn btn-default" data-page-name="Stencil">Stencil</a>
+        </div> %>
+      <%# :End 2nd button row, tried 8/17/16, removed 8/18/16 %>
+        <div class="clear"></div>
+      <% if language_tabs %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+      <% if current_page.data.search %>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <% end %>
+      <div id="toc">
+      <%# Commented out 8/15/16 to suppress top-of-TOC links: %>
+        <%# <ul style="padding: 0 15px 0 15px;">
+          <li id="vtwo-link1" style="font-size: 14px;color: #595864;"><a href="/api/v2/products/">Products</a></li>
+          <li id="vtwo-link2" style="font-size: 14px;color: #595864;"><a href="/api/v2/orders/">Orders</a></li>
+          <li id="vtwo-link3" style="font-size: 14px;color: #595864;"><a href="/api/v2/customers/">Customers</a></li>
+        </ul> %>
+      </div>
+      <% if current_page.data.toc_footers %>
+        <ul class="toc-footer">
+          <% current_page.data.toc_footers.each do |footer| %>
+            <li><%= footer %></li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+    <div class="page-wrapper">
+      <div class="content">
+        <%= yield %>
+        <% current_page.data.includes && current_page.data.includes.each do |include| %>
+          <%= partial "includes/#{include}" %>
+        <% end %>
+      </div>
+    </div>
+    <script>
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
+        var container = $('.page-wrapper .content');
+        var headerHeightPixels = 85;
+
+        container.on('click', function(event) {
+            var target = $(event.target);
+
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
+            }
+        });
+    </script>
+  </body>
+</html>

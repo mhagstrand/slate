@@ -264,6 +264,30 @@
     border-right: none
 }
 
+// Added 9/30/16 for "themetop3button.erb" 3-button layout:
+.btn-group3 {
+    position: relative;
+    vertical-align: middle;
+    margin-left: 8px;
+    width: 225px;
+}
+
+.btn-group3>.btn {
+    position: relative;
+    float: left;
+    /* This rule uses original width for 3 buttons across: */
+    width: 33%
+}
+
+.btn-group3>.btn:first-child:not(:last-child):not(.language-dropdown) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0
+}
+
+.btn-group3>.btn:first-child:not(.language-dropdown) {
+    border-right: none
+}
+
 // Added 8/15/16 make sure top-left buttons stay white, 
 // instead of inheriting standard (dark-blue) link color:
 

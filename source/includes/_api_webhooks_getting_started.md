@@ -65,12 +65,7 @@ Wildcards are supported for <code>scope</code>.
 
 An `HTTP 201` response indicates that the webhook was set successfully.
 
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE:</span>
-Links above and below here still need to be set, after Slate file refactoring.
-</aside>
-
-Please see the [hooks resource](https://developer.bigcommerce.com/api/stores/v2/webhooks#create-hook) and [webhook object](https://developer.bigcommerce.com/api/objects/v2/webhook) pages for more details.
+Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#list-hooks) pages for more details.
 
 #### <span class="jumptarget"> List of Webhook Events </span>
 

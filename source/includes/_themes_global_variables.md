@@ -1,3 +1,5 @@
+# <span class="jumptarget"> Global  Variables </span>
+
 Blueprint themes use the following GLOBAL variables to pull data from the store's database.
 
 While these variables are prefixed with the word GLOBAL, the data's availability actually varies per session, layout, panel, and snippet. For the list of variables truly available from anywhere in the store, regardless of session status, please see [Store-Wide Variables](/themes/#store_wide_variables").

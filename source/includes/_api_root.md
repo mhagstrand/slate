@@ -1,9 +1,6 @@
 # <span class="jumptarget"> Building OAuth Apps </span>
 
-<aside class="notice">
-<span class="aside-notice-hd">tK:</span>
-We still need to migrate introductory content here. Should also add something explaining the new terminology "OAuth Apps" versus "Basic-Auth Apps."
-</aside>
+OAuth apps (also known as public apps or <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a>) can be listed in the App Store for easy installation in all BigCommerce stores. They&#160;use OAuth to obtain an access token and to communicate with the central BigCommerce API endpoint. 
 
 ## <span class="jumptarget"> App Installation and Update Sequence </span>
 
@@ -433,9 +430,4 @@ Interpreting the user information varies as follows.
 ```
 
 # <span class="jumptarget"> Building Basic-Auth Apps </span>
-
-<aside class="warning">
-<span class="aside-warning-hd">MIGRATION NOTE – TK:</span>
-We still need to migrate content here. 
-</aside>
 

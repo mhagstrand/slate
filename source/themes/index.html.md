@@ -1,13 +1,13 @@
 ---
 title: BigCommerce Themes
-layout: "twocolumn"
+layout: "themetop3button"
 
 includes:
 - themes_understanding
 
 toc_footers:
   - <a href="/">Home</a>
-  - <a href="/api/">API - Basics</a>
+  - <a href="/api/"  target="_blank">API - Basics</a>
   - <a href="/themes/">Themes</a>
   - <a href="https://stencil.bigcommerce.com/docs/" target="_blank"> &nbsp;  Stencil Themes</a>
   - <a href="/themes/blueprint/"> &nbsp; Blueprint Themes</a>
