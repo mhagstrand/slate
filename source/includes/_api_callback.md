@@ -15,10 +15,10 @@ The following diagram illustrates the entire sequence.
 
 The remainder of this section discusses each action your app needs to take during the sequence.
 
-1.  [Receiving the `GET` Request](#get-req)
-2.  [Responding to the `GET` Request](#get-response)
-3.  [Making the `POST` Request](#post-req)
-4.  [Receiving the `POST` Response](#post-receipt)
+1.  [Receiving the `GET` Request](#receiving-the-get-request)
+2.  [Responding to the `GET` Request](#responding-to-the-get-request)
+3.  [Making the `POST` Request](#making-the-post-request)
+4.  [Receiving the `POST` Response](#receiving-the-post-response)
 
 ### <span class="jumptarget"> <a name="get-req"></a> Receiving the GET Request </span>
 
@@ -30,7 +30,7 @@ The following table details the full list of parameters and values included in t
 
 | Parameter | Description |
 | --- | --- |
-| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#post-req) below for more information about this exchange. |
+| code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#making-the-post-request) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
 | context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
 
@@ -81,13 +81,13 @@ Include values for each of the following parameters.
 
 | Parameter | Description |
 | --- | --- |
-| client_id | The Client ID for your app, obtained during [registration](#registration). |
-| client_secret | The Client Secret for your app, obtained during [registration](#registration). |
-| code | Temporary access code received in the [GET request](#get-req) discussed above. |
-| scope | List of OAuth scopes received in the [GET request](#get-req) discussed above. |
+| client_id | The Client ID for your app, obtained during [registration](#app-registration). |
+| client_secret | The Client Secret for your app, obtained during [registration](#app-registration). |
+| code | Temporary access code received in the [GET request](#receiving-the-get-request) discussed above. |
+| scope | List of OAuth scopes received in the [GET request](#receiving-the-get-request) discussed above. |
 | grant_type | Always use the following: authorization_code. |
 | redirect_uri | Must be identical to your registered Auth Callback URI. |
-| context | The store hash received in the [GET request](#get-req), in the format: `stores/{_store_hash_}` |
+| context | The store hash received in the [GET request](#receiving-the-get-request), in the format: `stores/{_store_hash_}` |
 
 #### <span class="jumptarget"> Examples – Initial Installation </span>
 

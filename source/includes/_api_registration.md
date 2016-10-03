@@ -26,7 +26,7 @@ Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests origi
 
 If you want to receive a callback when the store owner uninstalls your app, you can provide an [Uninstall Callback URI](#uninstall-request-optional).
 
-#### <span class="jumptarget"> Multi-User Support (Optional) </span>
+#### <span class="jumptarget" id="regis-multi-user"> Multi-User Support (Optional) </span>
 
 By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling [multi-user support](#multi-user-support).
 
