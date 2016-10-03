@@ -13,25 +13,26 @@ WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 License for the specific language governing permissions and limitations
 under the License.
 %>
-<% language_tabs = current_page.data.language_tabs %>
+<% language_tabs = current_page.data.language_tabs || [] %>
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="canonical" href="/api/v2/"/>
+    <meta http-equiv="refresh" content="0;url=/api/v2/" />
     <title><%= current_page.data.title || "API Documentation" %></title>
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /> 
 
     <style>
       <%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
     </style>
-
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <% if current_page.data.search %>
-      <%= javascript_include_tag  "all_toggle" %>
+      <%= javascript_include_tag  "all" %>
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
@@ -45,7 +46,7 @@ under the License.
     <% end %>
   </head>
 
-  <body class="<%= page_classes %> twocolumn">
+  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -53,20 +54,13 @@ under the License.
       </span>
     </a>
 
-<header role="banner">
-  <%= partial "layouts/navbar" %>
-</header>
-
+    <header role="banner">
+      <%= partial "layouts/navbar" %>
+    </header>
+    <h1>Redirecting...</h1>
+      <a href="/api/v2/">Click here if you are not redirected.<a>
+      <script>location='/api/v2/'</script>
     <div class="tocify-wrapper">
-      <div class="separator separator-top"></div>
-      <div class="api-nav">
-        <div class="nav-label">Understanding Themes</div>
-        <div class="api-selector btn-group3">
-          <a href="//stencil.bigcommerce.com/docs" class="btn btn-default" data-page-name="Stencil">Stencil</a>
-          <a href="/themes/blueprint/" class="btn btn-default" data-page-name="Blueprint">Blueprint</a>
-          <a href="/api/" class="btn btn-default" data-page-name="API Docs">API Docs</a>
-        </div>
-        <div class="clear"></div>
       <% if language_tabs %>
         <div class="lang-selector">
           <% language_tabs.each do |lang| %>
@@ -78,7 +72,6 @@ under the License.
           <% end %>
         </div>
       <% end %>
-    </div>
       <% if current_page.data.search %>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -96,27 +89,27 @@ under the License.
       <% end %>
     </div>
     <div class="page-wrapper">
+      <div class="dark-box"></div>
       <div class="content">
         <%= yield %>
         <% current_page.data.includes && current_page.data.includes.each do |include| %>
           <%= partial "includes/#{include}" %>
         <% end %>
       </div>
-    </div>
-    <script>
-        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
-        var container = $('.page-wrapper .content');
-        var headerHeightPixels = 85;
-
-        container.on('click', function(event) {
-            var target = $(event.target);
-
-            if (target.is('a') && target.attr('href').charAt(0) === '#') {
-                setTimeout(function() {
-                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
-                }, 10);
-            }
-        });
-    </script>
+      <div class="dark-box">
+        <% if language_tabs %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>    
+    <%= partial "layouts/footerscript" %>
   </body>
 </html>
