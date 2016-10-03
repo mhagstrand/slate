@@ -91,7 +91,7 @@
     <link href="../stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="../stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-      <script src="../javascripts/all.js"></script>
+      <script src="../javascripts/all_toggle.js"></script>
     <script>
     //This is Google's default GA code
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -117,8 +117,8 @@
       </span>
     </a>
 
-    <header role="banner">
-      <div class="topBar-container topBar-container--fixed">
+<header role="banner">
+  <div class="topBar-container topBar-container--fixed">
   <nav class="top-bar ng-isolate-scope" ng-transclude="" top-bar="" style="height: 81px;">
     <ul class="title-area ng-scope">
       <li class="name"><a href="/"><img src="../images/developer.png" /></a></li>
@@ -140,9 +140,19 @@
   </nav>
 </div>
 
-    </header>
+</header>
 
     <div class="tocify-wrapper">
+      <div class="separator separator-top"></div>
+      <div class="api-nav">
+        <div class="nav-label">Understanding Themes</div>
+        <div class="api-selector btn-group3">
+          <a href="//stencil.bigcommerce.com/docs" class="btn btn-default" data-page-name="Stencil">Stencil</a>
+          <a href="/themes/blueprint/" class="btn btn-default" data-page-name="Blueprint">Blueprint</a>
+          <a href="/api/"  class="btn btn-default" data-page-name="API Docs">API Docs</a>
+        </div>
+        <div class="clear"></div>
+    </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -151,7 +161,7 @@
       </div>
         <ul class="toc-footer">
             <li><a href="/">Home</a></li>
-            <li><a href="/api/">API - Basics</a></li>
+            <li><a href="/api/"  target="_blank">API - Basics</a></li>
             <li><a href="/themes/">Themes</a></li>
             <li><a href="https://stencil.bigcommerce.com/docs/" target="_blank"> &nbsp;  Stencil Themes</a></li>
             <li><a href="/themes/blueprint/"> &nbsp; Blueprint Themes</a></li>
@@ -185,20 +195,19 @@ For information about our legacy  Blueprint themes framework, please follow the 
       </div>
     </div>
     <script>
-    // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
-    var container = $('.page-wrapper .content');
-    var headerHeightPixels = 85;
+        // This script reveals jump/link targets beneath a persistent header - tweaked for FF/IE:
+        var container = $('.page-wrapper .content');
+        var headerHeightPixels = 85;
 
-    container.on('click', function(event) {
-        var target = $(event.target);
+        container.on('click', function(event) {
+            var target = $(event.target);
 
-        if (target.is('a') && target.attr('href').charAt(0) === '#') {
-            setTimeout(function() {
-                $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
-            }, 10);
-        }
-    });
-</script>
-
+            if (target.is('a') && target.attr('href').charAt(0) === '#') {
+                setTimeout(function() {
+                    $(window).scrollTop($(window).scrollTop() - headerHeightPixels)
+                }, 10);
+            }
+        });
+    </script>
   </body>
 </html>
