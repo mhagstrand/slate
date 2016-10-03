@@ -189,11 +189,11 @@
 
 <p>All connections require authentication, and are secured by TLS encryption. As of June 30, 2016, all requests must support Server Name Indication (SNI). We currently support two generations of our API:</p>
 
-<p><span class="fake-h3"> <a href="//github.com/bigcommerce/api/blob/master/docs/v3-catalog.md">API v3</a> </span></p>
+<p><span class="fake-h3"> <a href="//github.com/bigcommerce/api">API v3 Documentation</a> </span></p>
 
 <p>New, more-efficient catalog API, offering a simplified variant/modifier model. OAuth-only, but fully backward-compatible with v2.</p>
 
-<p><span class="fake-h3"> <a href="/api/v2">API v2</a> </span></p>
+<p><span class="fake-h3"> <a href="/api/v2">API v2 Documentation</a> </span></p>
 
 <p>Core API, supporting all currently exposed resources via Basic Auth or OAuth.</p>
 
@@ -1103,7 +1103,7 @@ Because the <b>Auth Callback URI</b> and <b>Load Callback URI</b> requests origi
 
 <p>If you want to receive a callback when the store owner uninstalls your app, you can provide an <a href="#uninstall-request-optional">Uninstall Callback URI</a>.</p>
 
-<h4 id="multi-user-support-optional"><span class="jumptarget"> Multi-User Support (Optional) </span></h4>
+<h4 id="multi-user-support-optional"><span class="jumptarget" id="regis-multi-user"> Multi-User Support (Optional) </span></h4>
 
 <p>By default, your app will only be accessible to the store owner (ie. the user who created the store). Optionally, you can allow your app to be accessible to other store users. Consider the following before enabling <a href="#multi-user-support">multi-user support</a>.</p>
 
@@ -1170,10 +1170,10 @@ For security, Auth and Load callback should be handled server-side. If you are b
 <p>The remainder of this section discusses each action your app needs to take during the sequence.</p>
 
 <ol>
-<li> <a href="#get-req">Receiving the <code class="prettyprint">GET</code> Request</a></li>
-<li> <a href="#get-response">Responding to the <code class="prettyprint">GET</code> Request</a></li>
-<li> <a href="#post-req">Making the <code class="prettyprint">POST</code> Request</a></li>
-<li> <a href="#post-receipt">Receiving the <code class="prettyprint">POST</code> Response</a></li>
+<li> <a href="#receiving-the-get-request">Receiving the <code class="prettyprint">GET</code> Request</a></li>
+<li> <a href="#responding-to-the-get-request">Responding to the <code class="prettyprint">GET</code> Request</a></li>
+<li> <a href="#making-the-post-request">Making the <code class="prettyprint">POST</code> Request</a></li>
+<li> <a href="#receiving-the-post-response">Receiving the <code class="prettyprint">POST</code> Response</a></li>
 </ol>
 
 <h3 id="receiving-the-get-request"><span class="jumptarget"> <a name="get-req"></a> Receiving the GET Request </span></h3>
@@ -1192,7 +1192,7 @@ For security, Auth and Load callback should be handled server-side. If you are b
 </thead><tbody>
 <tr>
 <td>code</td>
-<td>Temporary code to exchange for a permanent OAuth token. See <a href="#post-req">Making the POST request</a> below for more information about this exchange.</td>
+<td>Temporary code to exchange for a permanent OAuth token. See <a href="#making-the-post-request">Making the POST request</a> below for more information about this exchange.</td>
 </tr>
 <tr>
 <td>scope</td>
@@ -1251,19 +1251,19 @@ Host: app.example.com
 </thead><tbody>
 <tr>
 <td>client_id</td>
-<td>The Client ID for your app, obtained during <a href="#registration">registration</a>.</td>
+<td>The Client ID for your app, obtained during <a href="#app-registration">registration</a>.</td>
 </tr>
 <tr>
 <td>client_secret</td>
-<td>The Client Secret for your app, obtained during <a href="#registration">registration</a>.</td>
+<td>The Client Secret for your app, obtained during <a href="#app-registration">registration</a>.</td>
 </tr>
 <tr>
 <td>code</td>
-<td>Temporary access code received in the <a href="#get-req">GET request</a> discussed above.</td>
+<td>Temporary access code received in the <a href="#receiving-the-get-request">GET request</a> discussed above.</td>
 </tr>
 <tr>
 <td>scope</td>
-<td>List of OAuth scopes received in the <a href="#get-req">GET request</a> discussed above.</td>
+<td>List of OAuth scopes received in the <a href="#receiving-the-get-request">GET request</a> discussed above.</td>
 </tr>
 <tr>
 <td>grant_type</td>
@@ -1275,7 +1275,7 @@ Host: app.example.com
 </tr>
 <tr>
 <td>context</td>
-<td>The store hash received in the <a href="#get-req">GET request</a>, in the format: <code class="prettyprint">stores/{_store_hash_}</code></td>
+<td>The store hash received in the <a href="#receiving-the-get-request">GET request</a>, in the format: <code class="prettyprint">stores/{_store_hash_}</code></td>
 </tr>
 </tbody></table>
 
@@ -1415,7 +1415,7 @@ Content-Length: 186
 
           <h2 id="load-uninstall-and-user-removal-requests"><span class="jumptarget"> <a name="load"></a> Load, Uninstall, and User Removal Requests</span></h2>
 
-<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="#registration">App Registration</a> wizard requests the following URIs.</p>
+<p>In addition to the <strong>Auth Callback URI</strong>, the <a href="#app-registration">App Registration</a> wizard requests the following URIs.</p>
 
 <table><thead>
 <tr>
@@ -1452,10 +1452,10 @@ Content-Length: 186
 <p>The remainder of this entry discusses:</p>
 
 <ul>
-<li>  <a href="#load_request">The load request and response</a>.</li>
-<li>  <a href="#uninstall">The Uninstall request</a>.</li>
-<li>  <a href="#remove-user">The Remove User request</a>.</li>
-<li>  <a href="#process">The signed payload</a>.</li>
+<li>  <a href="#load-request-and-response">The load request and response</a>.</li>
+<li>  <a href="#uninstall-request-optional">The Uninstall request</a>.</li>
+<li>  <a href="#remove-user-request-optional">The Remove User request</a>.</li>
+<li>  <a href="#processing-the-signed-payload">The signed payload</a>.</li>
 </ul>
 
 <h3 id="load-request-and-response"><span class="jumptarget"> <a name="load_request"></a> Load Request and Response</span></h3>
@@ -1474,9 +1474,9 @@ For security, Auth and Load callback should be handled server-side. If you are b
 Host: app.example.com
 </code></pre>
 
-<p>Upon receiving a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong>, your app needs to <a href="#process">process the signed payload</a>.</p>
+<p>Upon receiving a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong>, your app needs to <a href="#processing-the-signed-payload">process the signed payload</a>.</p>
 
-<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="/api#ui-constraints">User&#160;Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
+<p>After processing the payload, your app returns its user interface as HTML. BigCommerce renders this inside of an iframe. Please see <a href="#ui-constraints">User&#160;Interface Constraints</a> for important information about your app&rsquo;s user interface.</p>
 
 <h3 id="uninstall-request-optional"><span class="jumptarget"> <a name="uninstall"></a> Uninstall Request (Optional)</span></h3>
 
@@ -1489,7 +1489,7 @@ Host: app.example.com
 Host: app.example.com
 </code></pre>
 
-<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#process">process the signed payload</a>.</p>
+<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#processing-the-signed-payload">process the signed payload</a>.</p>
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -1498,12 +1498,12 @@ Any HTML that you return in your response will not be rendered.
 
 <h3 id="remove-user-request-optional"><span class="jumptarget"> <a name="remove-user"></a> Remove User Request (Optional)</span></h3>
 
-<p>If you have not enabled <a href="/api/v2/multi-user">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <code class="prettyprint">GET</code> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
+<p>If you have not enabled <a href="#multi-user-support">multi-user support</a>, you will not provide a <strong>Remove User Callback URI</strong> and can ignore this section. If you enable multi-user support, you can optionally specify a <strong>Remove User Callback URI</strong>. It must be fully qualified, publicly available, and served over TLS/SSL. BigCommerce will send a <code class="prettyprint">GET</code> request to your <strong>Remove User Callback URI</strong> when a store admin revokes a user&rsquo;s access to your app. An example follows.</p>
 <pre class="highlight plaintext"><code>GET /remove-user?signed_payload=hw9fhkx2ureq.t73sk8y80jx9 HTTP/1.1
 Host: app.example.com
 </code></pre>
 
-<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#process">process the signed payload</a>.</p>
+<p>Upon receiving the <code class="prettyprint">GET</code> request, your app will need to <a href="#processing-the-signed-payload">process the signed payload</a>.</p>
 
 <aside class="notice">
 <span class="aside-notice-hd">NOTE:</span>
@@ -1516,7 +1516,7 @@ Any HTML that you return in your response will not be rendered.
 
 <h4 id="splitting-and-decoding-the-signed-payload"><span class="jumptarget"> <a name="process"></a> Splitting and Decoding the Signed Payload</span></h4>
 
-<p>The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code">HMAC signature</a>. The parts are delimited by the <code class="prettyprint">.</code> character:</p>
+<p>The signed payload is a string containing a base64url-encoded JSON string and a base64url-encoded <a href="http://en.wikipedia.org/wiki/Hash-based_message_authentication_code" target="_blank">HMAC signature</a>. The parts are delimited by the <code class="prettyprint">.</code> character:</p>
 <pre class="highlight plaintext"><code>encoded_json_string.encoded_hmac_signature
 </code></pre>
 
@@ -1525,7 +1525,7 @@ Any HTML that you return in your response will not be rendered.
 <ol>
 <li> Split <code class="prettyprint">signed_payload</code> into its two parts at the <code class="prettyprint">.</code> delimiter.</li>
 <li> Decode <code class="prettyprint">encoded_json_string</code> using base64url.</li>
-<li> Convert the decoded JSON string into an object. See <a href="#Identifying">Processing the JSON object</a> for more about this object.</li>
+<li> Convert the decoded JSON string into an object. See <a href="#processing-the-json-object">Processing the JSON object</a> for more about this object.</li>
 <li> Decode <code class="prettyprint">encoded_hmac_signature</code> using base64url.</li>
 <li> Use your client secret to verify the signature. See the next section for more details.</li>
 </ol>
@@ -1621,8 +1621,8 @@ To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-
 </thead><tbody>
 <tr>
 <td>Load</td>
-<td>Compare the user information to see if it matches that of the store owner, received at the time of <a href="/api#callback">App Installation</a> or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage.</td>
-<td>The information should match that of the store owner, received at the time of <a href="/api#callback">App Installation</a>.</td>
+<td>Compare the user information to see if it matches that of the store owner, received at the time of <a href="#app-installation-and-update-sequence">app installation</a> or that of an existing user. If the user information does not match either of these, then it represents a new user that you should add to your database or other storage.</td>
+<td>The information should match that of the store owner, received at the time of <a href="#app-installation-and-update-sequence">app installation</a>.</td>
 </tr>
 <tr>
 <td>Uninstall</td>
@@ -1702,11 +1702,11 @@ To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-
 
           <h2 id="multi-user-support"><span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span></h2>
 
-<p>When you register your app with Bigcommerce, if you <a href="/api#multiuser">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="/api#basic-auth">basic-auth apps</a>.</p>
+<p>When you register your app with Bigcommerce, if you <a href="#regis-multi-user">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="#building-basic-auth-apps">basic-auth apps</a>.</p>
 
 <h3 id="enable-multi-user-support"><span class="jumptarget"> Enable Multi-User Support</span></h3>
 
-<p>As soon as you <a href="/api#multiuser">enable multi-user support</a>, this affects the control panel of any store that has your app installed. If you already have an app published in the App Store, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.</p>
+<p>As soon as you <a href="#regis-multi-user">enable multi-user support</a>, this affects the control panel of any store that has your app installed. If you already have an app published in the App Store, be aware that this setting takes effect immediately. Therefore, we recommend testing your multi-user support using a separate app that is in draft status.</p>
 
 <blockquote>
 <p>NOTE: Let your customers know that you&rsquo;ve enabled this feature! Otherwise, they won&rsquo;t know that they can start granting access to users.</p>
@@ -1733,20 +1733,20 @@ To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-
 
 <p>Apps with multiple users enabled can expect more than just the store owner&rsquo;s email and ID in the JSON object sent in the load request. If a load request is sent with user information you haven&rsquo;t seen yet, you should provision the user account and associate it with the store in your database.</p>
 
-<p>Because you know the store owner&rsquo;s email and ID from the <a href="/api#callback">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:</p>
+<p>Because you know the store owner&rsquo;s email and ID from the <a href="#app-installation-and-update-sequence">App Installation</a> sequence, your app can distinguish store owners from other users. This allows you to provide different user experiences based on the information in the load request. Here is a summary of the two types of users:</p>
 
 <ul>
 <li>  <strong>Store owner</strong>: Can install, uninstall, and load apps.</li>
 <li>  <strong>Users</strong>: Cannot install or uninstall apps. Permitted only to load the apps that a store admin has authorized.</li>
 </ul>
 
-<p>For further details, please see <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a>.</p>
+<p>For further details, please see <a href="#load-request-and-response">Load Request and Response</a>.</p>
 
 <h3 id="about-the-remove-user-request"><span class="jumptarget"> About the Remove User Request </span></h3>
 
-<p>In addition to their ability to add users, store admins can also remove users. This action results in a <code class="prettyprint">**GET**</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete from its records the user identified in the request.</p>
+<p>In addition to their ability to add users, store admins can also remove users. This action generates a <code class="prettyprint">GET</code> request to the <strong>Remove User Callback URI</strong> that you provided in <strong>My Apps</strong>. Your app should delete from its records the user identified in the request.</p>
 
-<p>For further information, please see <a href="/api#load">Processing Load, Uninstall, and User Removal Requests</a>.</p>
+<p>For further information, please see <a href="#remove-user-request-optional">Remove User Request</a>.</p>
 
           <h2 id="ui-constraints"><span class="jumptarget"> UI Constraints </span></h2>
 
