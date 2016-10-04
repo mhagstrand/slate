@@ -1,4 +1,4 @@
-## Blog Tags
+## <span class="jumptarget"> Blog Tags </span>
 
 Index of tags used on the store’s blog.
 
