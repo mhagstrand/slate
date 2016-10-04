@@ -10,7 +10,7 @@ Here are your first steps to get started:
 
 ## <span class="jumptarget"> 1. Join the Technology Partner Program </span>
 
-Before you begin, you'll need a sandbox store. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To get your sandbox store, [apply to become a BigCommerce Technology Partner](https://www.bigcommerce.com/partners/signup). To be approved as a partner, you will need:
+Before you begin, you'll need a sandbox store. BigCommerce offers app developers free sandbox stores through its Technology Partner Program. To get your sandbox store, <a href="https://www.bigcommerce.com/partners/signup" target="_blank">apply to become a BigCommerce Technology Partner</a>. To be approved as a partner, you will need:
 
 * A website.
 * The ability to support users of your app.
@@ -20,7 +20,7 @@ NOTE: The email address you use in this form must be the same email address as y
 
 Once approved, you will receive one or more emails containing:
 
-* **Your Partner ID**: required to submit an app for [App Store](https://www.bigcommerce.com/apps/) consideration.
+* **Your Partner ID**: required to submit an app for <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a> consideration.
 * **Temporary Partner Portal credentials**: change your password immediately after logging in.
 
 NOTE: If you do not receive your Partner ID by email, contact [partnersupport@bigcommerce.com](mailto:partnersupport@bigcommerce.com).
