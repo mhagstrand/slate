@@ -16,7 +16,7 @@ Our submission guidelines aim to protect the merchant experience, and to provide
 Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
 </aside>
 
-*   Apps must function properly on all [supported browsers](/api/browsers), and must conform to the [user interface constraints](/api/v2/#ui-constraints) – including P3P policies as necessary, and no mixed content.
+*   Apps must function properly on all [supported browsers](#supported-browsers), and must conform to the [user interface constraints](#ui-constraints) – including P3P policies as necessary, and no mixed content.
 
 *   The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.
 
@@ -25,12 +25,12 @@ Install and test your app thoroughly prior to submission. Be sure to install and
 *   Whenever possible, apps must use the API resources to auto-fill and obtain information, rather than prompting the user. BigCommerce will reject apps requesting information that can be auto-filled.
 
     <aside class="notice">
-    <span class="aside-notice-hd">Auto-Filling API</span><br> You can obtain the store name, phone number, and other information from the <a href="/api/#store" target="_blank">Store&#160;Information</a> resource.
+    <span class="aside-notice-hd">Auto-Filling API</span><br> You can obtain the store name, phone number, and other information from the <a href="/api/v2/#store-information-reference" target="_blank">Store&#160;Information</a> resource.
     </aside>
 
-*   The user ID and email address from the [OAuth flow](/api/load#process) should allow you to automatically log the merchant into any additional systems. Apps that provide the merchant with a single-sign-on experience are preferred.
+*   The user ID and email address from the [OAuth flow](#receiving-the-post-response) should allow you to automatically log the merchant into any additional systems. BigCommerce prefers apps that provide the merchant with a single-sign-on experience.
 
-*   Apps must return some HTML in response to GET requests to the [Auth Callback URI](/api/load#process).
+*   Apps must [return some HTML](#responding-to-the-get-request) in response to GET requests to the [Auth Callback URI](#processing-the-signed-payload).
 
 *   Must use a TLS/SSL certificate signed by a valid certificate authority. Self-signed certificates will generate browser warnings and are not acceptable.
 
@@ -38,7 +38,7 @@ Install and test your app thoroughly prior to submission. Be sure to install and
 
 *   Any instances of the BigCommerce brand name must match current branding, i.e., one word with an uppercase "C".
 
-*   Apps must have all required information and files discussed in [App Submission](/api/completing-reg).
+*   Apps must have all required information and files discussed in [App Submission](#app-submission).
 
 ### <span class="jumptarget" id="apps-accepted"> Types of Apps We're Accepting </span>
 
