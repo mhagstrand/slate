@@ -3,6 +3,56 @@ title: BigCommerce API Documentation
 layout: "apitwocolumn"
 
 includes:
+  - api_objects_order
+  - api_CRUD_orders
+  - api_objects_order_coupon
+  - api_CRUD_orders_coupons
+  - api_objects_order_message
+  - api_CRUD_orders_messages
+  - api_objects_order_product
+  - api_CRUD_orders_products
+  - api_objects_order_shipping_address
+  - api_CRUD_orders_shipping_addresses
+  - api_objects_order_status
+  - api_CRUD_orders_statuses
+  - api_objects_order_tax
+  - api_CRUD_orders_taxes
+  - api_objects_order_shipment
+  - api_CRUD_orders_shipments
+  - api_objects_product
+  - api_CRUD_products
+  - api_objects_brand
+  - api_CRUD_brands
+  - api_objects_product_discount_rule
+  - api_CRUD_products_discount_rules
+  - api_objects_category
+  - api_CRUD_categories
+  - api_objects_product_configurable_field
+  - api_CRUD_products_configurable_fields
+  - api_objects_product_custom_field
+  - api_CRUD_products_custom_fields
+  - api_objects_product_googleproductsearch
+  - api_CRUD_products_googleproductsearch
+  - api_objects_product_option
+  - api_CRUD_options
+  - api_objects_option_set
+  - api_CRUD_option_sets
+  - api_objects_option_set_option
+  - api_CRUD_option_sets_options
+  - api_objects_option_value
+  - api_CRUD_options_values
+  - api_objects_product_image
+  - api_CRUD_products_images
+  - api_objects_product_product_option
+  - api_CRUD_products_options
+  - api_objects_product_review
+  - api_CRUD_products_reviews
+  - api_objects_product_rule
+  - api_CRUD_products_rules
+  - api_objects_product_video
+  - api_CRUD_products_videos
+  - api_objects_sku
+  - api_CRUD_products_skus
   - api_objects_blog_post
   - api_CRUD_blog_posts
   - api_CRUD_blog_tags
@@ -25,58 +75,8 @@ includes:
   - api_CRUD_banners
   - api_objects_gift_certificate
   - api_CRUD_gift_certificates
-  - api_objects_order
-  - api_CRUD_orders
-  - api_objects_order_coupon
-  - api_CRUD_orders_coupons
-  - api_objects_order_message
-  - api_CRUD_orders_messages
-  - api_objects_order_product
-  - api_CRUD_orders_products
-  - api_objects_order_shipping_address
-  - api_CRUD_orders_shipping_addresses
-  - api_objects_order_status
-  - api_CRUD_orders_statuses
-  - api_objects_order_tax
-  - api_CRUD_orders_taxes
-  - api_objects_order_shipment
-  - api_CRUD_orders_shipments
   - api_objects_payment_method
   - api_CRUD_payments_methods
-  - api_objects_brand
-  - api_CRUD_brands
-  - api_objects_product_discount_rule
-  - api_CRUD_products_discount_rules
-  - api_objects_category
-  - api_CRUD_categories
-  - api_objects_product_configurable_field
-  - api_CRUD_products_configurable_fields
-  - api_objects_product_custom_field
-  - api_CRUD_products_custom_fields
-  - api_objects_product_googleproductsearch
-  - api_CRUD_products_googleproductsearch
-  - api_objects_product_option
-  - api_CRUD_options
-  - api_objects_option_set
-  - api_CRUD_option_sets
-  - api_objects_option_set_option
-  - api_CRUD_option_sets_options
-  - api_objects_option_value
-  - api_CRUD_options_values
-  - api_objects_product
-  - api_CRUD_products
-  - api_objects_product_image
-  - api_CRUD_products_images
-  - api_objects_product_product_option
-  - api_CRUD_products_options
-  - api_objects_product_review
-  - api_CRUD_products_reviews
-  - api_objects_product_rule
-  - api_CRUD_products_rules
-  - api_objects_product_video
-  - api_CRUD_products_videos
-  - api_objects_sku
-  - api_CRUD_products_skus
   - api_objects_shipping_method
   - api_CRUD_shipping_methods
   - api_objects_store_information
