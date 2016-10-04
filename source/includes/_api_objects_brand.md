@@ -1,7 +1,3 @@
-# <span class="jumptarget"> Products Reference </span>
-
-Products APIs support managing, searching, and displaying product-catalog information. They include Brands, Bulk Pricing Rules, Categories, Configurable Fields, Custom Fields, Google Product Search Mappings, Options, Option Set, Option-Set Options, Option Values, Products, Product Images, Product Options, Product Reviews, Product Rules, Product Videos, and SKUs.
-
 ## <span class="jumptarget"> Brands </span>
 
 Brand facets for identifying and categorizing products according to their manufacturer or company metonym.
