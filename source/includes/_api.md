@@ -16,7 +16,7 @@ Before you begin, you'll need a sandbox store. BigCommerce offers app developers
 * The ability to support users of your app.
 * A PayPal account – if you want to get paid for referring people to BigCommerce (optional).
 
-NOTE: The email address you use in this form must be the same email address as you use to log into your sandbox store, and to log into [My&#160;Apps](https://www.bigcommerce.com/apps/).
+NOTE: The email address you use in this form must be the same email address as you use to log into your sandbox store, and to log into <a href="//devtools.bigcommerce.com" target="_blank">My&#160;Apps</a>.
 
 Once approved, you will receive one or more emails containing:
 

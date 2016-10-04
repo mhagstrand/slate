@@ -34,8 +34,8 @@ All webhooks requests must include the following in their HTTP headers:
 Before you can send any requests or receive any responses, you will need the following:
 
 *   **A store:** You can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
-*   **OAuth Client ID:** Obtained during [App Registration](/api/v2/#registration).
-*   **OAuth token:** Obtained during [App Installation](/api/v2/#installation).
+*   **OAuth Client ID:** Obtained during [App Registration](#app-registration).
+*   **OAuth token:** Obtained during [App Installation](#app-installation-and-update-sequence).
 *   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
 
 <aside class="warning">
