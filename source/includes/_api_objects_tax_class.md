@@ -8,7 +8,7 @@ The `tax_class` object contains the ID and name of the tax class used to calcula
 
 <aside class="warning">
 <span class="aside-warning-hd">Automatic Taxes – Limitation</span><br><br>
-Where a store is configured to use automatic taxes, data inside the `tax_class` object will be ignored during tax calculations.
+Where a store is configured to use automatic taxes, data inside the <code>tax_class</code> object will be ignored during tax calculations.
 </aside>
 
 | Name | Type | Description |
