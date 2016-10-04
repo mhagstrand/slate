@@ -13,9 +13,9 @@ OAuth allows you to authenticate and access the Stores API on behalf of any merc
 
 Other benefits of updating include:
 
-*   Improved [Rate Limits](/api/v2/#rate-limits_oauth). For apps that access the API using OAuth, we’re able to offer quota-based limits and the possibility to increase the overall volume of requests for stores on higher plans.
+*   Improved [Rate Limits](#rate-limits_oauth). For apps that access the API using OAuth, we’re able to offer quota-based limits and the possibility to increase the overall volume of requests for stores on higher plans.
 
-*   Ability to set and receive [webhooks](/api/webhooks-getting-started) callbacks.
+*   Ability to set and receive [webhook](#webhooks-overview) callbacks.
 
 *   Privileged access to new capabilities.
 
@@ -23,17 +23,17 @@ Other benefits of updating include:
 
 To update your public Basic Authentication app to an OAuth app, you will need to make the following changes:
 
-1.  Get a **Client ID** and a **Client Secret** by [registering your app](/api/v2/#registration ).
-2.  Get a permanent OAuth token as discussed in [App Installation](/api/v2/#callback).
-3.  Update your app so that it can process the [signed payloads](/api/v2/#load) that Bigcommerce sends when a merchant loads your app.
+1.  Get a **Client ID** and a **Client Secret** by [registering your app](#app-registration).
+2.  Get a permanent OAuth token as discussed in [App Installation](#app-installation-and-update-sequence).
+3.  Update your app so that it can process the [signed payloads](#processing-the-signed-payload) that Bigcommerce sends when a merchant loads your app.
 4.  [Change your base paths](#base-paths).
-5.  Update your app to observe the [OAuth rate limits](/api/v2/#rate-limits_oauth).
+5.  Update your app to observe the [OAuth rate limits](#rate-limits_oauth).
 
 ### <span class="jumptarget id="base-paths"> Change Your Base Paths </span>
 
 Apps using Basic Authentication used a path that had the store's hash as part of the domain. Store owners provide the store hash to the Basic Authentication app using a manual copy and paste procedure.
 
-Apps using OAuth place the store's hash inside a context path. OAuth apps receive the store's hash during the [app installation sequence](/api/v2/#callback).
+Apps using OAuth place the store's hash inside a context path. OAuth apps receive the store's hash during the [app installation sequence](#app-installation-and-update-sequence).
 
 The following table provides a quick comparison of the syntax and example paths.
 
@@ -50,4 +50,4 @@ Rate limiting affects only high-volume applications, but there are several chang
 
 *   **Time to wait before retries**: The old rate limiting scheme used a fixed hourly limit, regardless of who was accessing the API and how many requests were made per app or per user. This value was returned in the `X-BC-ApiLimit-Remaining` header. The `X-BC-ApiLimit-Remaining` header is not sent to OAuth apps. When an OAuth client is rate limited, the header `X-Retry-After` signals the number of seconds that a client should wait before retrying the request.
 
-*   **More information**: Further information can be found on the [OAuth rate limits page](/api/rate-limits/oauth) and the [Response Headers page](/api/headers).
+*   **More information**: Further information can be found on the [OAuth rate limits page](#rate-limits_oauth) and the [Response Headers page](#response-headers).

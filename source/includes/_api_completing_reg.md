@@ -8,7 +8,6 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 </aside>
 
 
-
 ### <span class="jumptarget"> App Summary
 
 The required fields in the `App Summary` panel are identified and discussed below:

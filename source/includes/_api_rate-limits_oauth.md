@@ -1,4 +1,4 @@
-## <span class="jumptarget"> <a name="rate-limits_oauth"></a> Rate Limits </span>
+## <span class="jumptarget" id="rate-limits"> <a name="rate-limits_oauth"></a> Rate Limits – OAuth </span>
 
 Apps that authenticate with OAuth are rate limited based on a quota that is refreshed every five seconds. The maximum quota for a store will vary depending on the store’s <a href="https://www.bigcommerce.com/pricing/" target="_blank"> plan </a>.
 
