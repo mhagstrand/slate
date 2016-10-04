@@ -13,8 +13,8 @@ To allow an app to connect to a store using Basic Authentication, the store owne
 
 To connect to a store using Basic Authentication, an app must:
 
-*   Include the user name and API key in the `Authorization` field of each HTTP request header, using the following syntax `Basic _username:API_key_`, where `_username:API_key_` is base64-encoded. An example follows.
-    `Authorization: Basic YWRtaW46ZTBhMDJiMDM5NzczNWI4NzNlZGQ5NWE1ZmQ1Y2I5YmI=`
+*   Include the user name and API key in the `Authorization` field of each HTTP request header, using the following syntax: <NOBR>`Basic <username:API_key>`,</nobr> where `<username:API_key>` is base64-encoded. Here is a specific example:
+    <NOBR>`Authorization: Basic YWRtaW46ZTBhMDJiMDM5NzczNWI4NzNlZGQ5NWE1ZmQ1Y2I5YmI=`</nobr>
 
 *   Use the base path provided by the store owner.
 

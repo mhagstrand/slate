@@ -42,7 +42,7 @@ Use the `limit` and `page` filter parameters to get a data beyond what the defau
 
 #### <span class="jumptarget"> Update an Order</span>
 
-Orders take many fields upon update requests. (For details, please see [this documentation](/api/v2/#update-an-order).) Here, we update an order using just the mandatory fields:
+Orders take many fields upon update requests. (For details, please see <a href="/api/v2/#update-an-order" target="_blank">this documentation</a>.) Here, we update an order using just the mandatory fields:
 
 ```
     curl --request PUT \
@@ -77,7 +77,7 @@ An order can contain coupons, which might be applied to the order to offer disco
 
 #### <span class="jumptarget"> Create a Shipment for an Order</span>
 
-You can create a shipment for an order via the [Orders > Create a Shipment](/api/v2/#create-a-shipment) endpoint. As an example, third-party shipping services can query orders from a store when the orders are created, and create shipments for those:
+You can create a shipment for an order via the <a href="/api/v2/#create-a-shipment" target="_blank">Orders &gt; Create a Shipment</a> endpoint. As an example, third-party shipping services can query orders from a store when the orders are created, and create shipments for those:
 
 ```
     curl --request POST \
@@ -113,7 +113,7 @@ Use the `limit` and `page` filter parameters to get data beyond what the default
 
 #### <span class="jumptarget"> Create a Product </span>
 
-Products have many fields. For details on the product fields allowed as part of a `POST` request, please see [this page](/api/v2/#create-a-product).
+Products have many fields. For details on the product fields allowed as part of a `POST` request, please see <a href="/api/v2/#create-a-product" target="_blank">this page</a>.
 
 Let's assume that we want to create a product using only the fields that are for a `POST` request. Here, `price` must specified as a string, while `weight` is a decimal. The `is_visible` flag is not mandatory, but if it is not set to `true`, the product would not be visible by default:
 
@@ -167,7 +167,7 @@ Coupons can be filtered by `code`, `type`, `name`, `min_id` and `max_id`. Withou
     https://store.mybigcommerce.com/api/v2/coupons.json?type=percentage_discount
 ```
 
-For details on filter fields, please see the [Coupons resource](/api/v2#coupons).
+For details on filter fields, please see the <a href="/api/v2#coupons" target="_blank">Coupons resource</a>.
 
 #### <span class="jumptarget"> Create a Coupon </span>
 

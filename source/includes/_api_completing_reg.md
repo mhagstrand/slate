@@ -1,12 +1,11 @@
 ## <span class="jumptarget"> App Submission </span>
 
-When you first get up and running with your app development, you will leave many fields in `My Apps` blank, as discussed in the [App&#160;Registration](/api/registration) section. Before submitting your app for consideration, you must come back through the `My Apps` wizard and fill in the missing information. This section discusses each page of the wizard, and identifies the information and files required for App Store approval.
+When you first get up and running with your app development, you will leave many fields in `My Apps` blank, as discussed in the [App&#160;Registration](#app-registration) section. Before submitting your app for consideration, you must come back through the `My Apps` wizard and fill in the missing information. This section discusses each page of the wizard, and identifies the information and files required for App Store approval.
 
 <aside class="warning">
 <span class="aside-warning-hd">Check for Complete Information</span><br><br>
 The wizard validates for your Partner user name and ID, as well as for correctly formatted URLs. However, additional information is required to get your app accepted into the App Store. If you submit your app without the required information and files discussed in this section, it will be rejected.
 </aside>
-
 
 
 ### <span class="jumptarget"> App Summary
@@ -17,11 +16,11 @@ The required fields in the `App Summary` panel are identified and discussed belo
 
 *   `Partner ID`: your Partner Portal ID.
 
-*   `Logo`: upload the image that you want to be displayed in the [App Store](https://www.bigcommerce.com/apps/). To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.
+*   `Logo`: upload the image that you want to be displayed in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>. To ensure optimal quality, you should use your image processing software to size it to 340 by 160 pixels before uploading.
 
 *   `Price`: defaults to `Free`. If you do not want to receive any monies for your app, you can leave this in place. Otherwise, select the price that you want to charge merchants. NOTE: if you select `Free Trial`, make sure that you select a price to charge at the end of the trial period.
 
-*   `Summary`: a brief description of your app (your value proposition) to show alongside the logo in the [App Store](https://www.bigcommerce.com/apps/).
+*   `Summary`: a brief description of your app (your value proposition) to show alongside the logo in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.
 
 *   `Category`: select at least one.
 
@@ -41,7 +40,7 @@ Bigcommerce also provides the option to provide "deep links," which are shown as
 
 ### <span class="jumptarget"> Technical </span>
 
-You will have already provided much of the information during the initial [app registration](/api/registration). However, before submitting, review the information that you provided initially to make sure that all of the URIs are publicly available, fully qualified, and served over TLS/SSL. In addition, ensure that your app is requesting all of the scopes that it needs now, as well as the scopes that you anticipate needing in the future. Currently, we do not offer the ability to refresh tokens.
+You will have already provided much of the information during the initial [app registration](#app-registration). However, before submitting, review the information that you provided initially to make sure that all of the URIs are publicly available, fully qualified, and served over TLS/SSL. In addition, ensure that your app is requesting all of the scopes that it needs now, as well as the scopes that you anticipate needing in the future. Currently, we do not offer the ability to refresh tokens.
 
 You must also provide detailed testing instructions as well as test accounts prior to submission.
 
