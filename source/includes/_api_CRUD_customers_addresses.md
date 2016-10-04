@@ -9,7 +9,7 @@
 Gets the addresses belonging to a customer. (Default sorting is by address id, from lowest to highest.)
 
 *   OAuth
->`GET /stores/{store_hash}/v2/customers/{customer_id}/addresses`<
+>`GET /stores/{store_hash}/v2/customers/{customer_id}/addresses`
 *   Basic Auth
 >`GET /api/v2/customers/{customer_id}/addresses`
 
