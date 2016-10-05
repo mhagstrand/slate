@@ -67,7 +67,7 @@ An `HTTP 201` response indicates that the webhook was set successfully.
 
 Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#webhook-object-properties) pages for more details.
 
-#### <span class="jumptarget"> List of Webhook Events </span>
+#### <span class="jumptarget" id="webhook-list"> List of Webhook Events </span>
 
 <html>
 <ul>
