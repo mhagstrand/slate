@@ -30,17 +30,17 @@ Apps should target one or more of the following categories:
 
 ## <span class="jumptarget"> How does the approval process work?</span>
 
-Upon receiving an [app submission](#app-submission), we review it to make sure that it meets our [requirements](#app-store-approval-requirements). We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.
+Upon receiving an [app submission](/api/#app-submission), we review it to make sure that it meets our [requirements](/api/#app-store-approval-requirements). We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.
 
 ## <span class="jumptarget"> Is the API rate limit per-store or per-app?</span>
 
-Basic Authentication requests are rate-limited [per app](#rate-limits-basic-auth).
+Basic Authentication requests are rate-limited [per app](/api/#rate-limits-basic-auth).
 
-OAuth requests are rate-limited [per store](#rate-limits). A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.
+OAuth requests are rate-limited [per store](/api/#rate-limits). A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.
 
 ## <span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span>
 
-Yes. Please review our list of [supported browsers](#supported-browsers) and the documentation on [user interface constraints](#ui-constraints) for details.
+Yes. Please review our list of [supported browsers](/api/#supported-browsers) and the documentation on [user interface constraints](/api/#ui-constraints) for details.
 
 ## <span class="jumptarget"> What if I need to update my app after App Store submission/acceptance? </span>
 
