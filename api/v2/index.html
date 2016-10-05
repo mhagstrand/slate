@@ -11671,7 +11671,7 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 
           <h2 id="customer-login-api"><span class="jumptarget"> Customer Login API </span></h2>
 
-<p>The Customer Login API enables single sign-on (SSO). It allows your apps to generate a token to programmatically log in a storefront customer, by using the login entry point  at <code class="prettyprint">/login/token/{token}</code>. Here, <code class="prettyprint">{token}</code> must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>&rsquo;s <a href="/api/#registration" target="_blank">client secret</a>.</p>
+<p>The Customer Login API enables single sign-on (SSO). It allows your apps to generate a token to programmatically log in a storefront customer, by using the login entry point  at <code class="prettyprint">/login/token/{token}</code>. Here, <code class="prettyprint">{token}</code> must be a JSON Web Token (JWT) containing the parameters for the customer login request in its payload, and must be signed by your <a href="/api/#building-oauth-apps" target="_blank">OAuth application</a>&rsquo;s <a href="/api/#app-registration" target="_blank">client secret</a>.</p>
 
 <p>For a full overview of the JWT standard, please see <a href="https://jwt.io/" target="_blank">JWT.IO</a>, where you will find links to client libraries (in many languages) that facilitate the generation and verification of JWT tokens. BigCommerce also supplies helper methods for generating login tokens in our API <a href="/api/#client-libraries" target="_blank">Client Libraries</a>.</p>
 
@@ -13789,102 +13789,102 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 <tr>
 <td>name</td>
 <td>string</td>
-<td>The store&rsquo;s name</td>
+<td>The store&rsquo;s name.</td>
 </tr>
 <tr>
 <td>address</td>
 <td>string</td>
-<td>Display address</td>
+<td>Display address.</td>
 </tr>
 <tr>
 <td>phone</td>
 <td>string</td>
-<td>Display phone number</td>
+<td>Display phone number.</td>
 </tr>
 <tr>
 <td>admin_email</td>
 <td>string</td>
-<td>Email address of the store administrator</td>
+<td>Email address of the store administrator.</td>
 </tr>
 <tr>
 <td>order_email</td>
 <td>string</td>
-<td>Email address for orders and fulfillment</td>
+<td>Email address for orders and fulfillment.</td>
 </tr>
 <tr>
 <td>timezone</td>
 <td>object</td>
-<td>An object that defines the store&rsquo;s time zone, following conventions of the PHP \&ldquo;date\&rdquo; function (for details, please see: http://php.net/manual/en/function.date.php). This object contains the following elements: \&ldquo;name\&rdquo;: a string identifying the time zone, in the format \&ldquo;<Continent-name>/<City-name>\&rdquo;. \&ldquo;raw_offset\&rdquo;: a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time. \&ldquo;dst_offset\&rdquo;: -/+ (number) offset from UTC/GMT, in seconds, during summer/daylight saving time. \&ldquo;dst_correction\&rdquo;: a boolean indicating whether this time zone observes daylight saving time. \&ldquo;date_format\&rdquo; is a nested object, which contains the following internal elements: \&ldquo;display\&rdquo;: string that defines dates&rsquo; display format, in the pattern: \&ldquo;M jS Y\&rdquo;. \&ldquo;export\&rdquo;: string that defines the CSV export format for orders, customers, and products, in the pattern: \&ldquo;M jS Y\&rdquo;. \&ldquo;extended_display\&rdquo;: string that defines dates&rsquo; extended-display format, in the pattern: \&ldquo;M jS Y @ g:i A\&rdquo;.</td>
+<td>An object that defines the store&rsquo;s time zone, following conventions of the PHP <code class="prettyprint">date</code> function. (For&#160;details, please see: <a href="http://php.net/manual/en/function.date.php" target="_blank">http://php.net/manual/en/function.date.php</a>.) This object contains the following elements:<br> <code class="prettyprint">name</code>: a string identifying the time zone, in the format: <NOBR><code class="prettyprint">&lt;Continent-name&gt;/&lt;City-name&gt;</code>.</nobr><br> <code class="prettyprint">raw_offset</code>: a negative or positive number, identifying the offset from UTC/GMT, in seconds, during winter/standard time.<br> <code class="prettyprint">dst_offset</code>: -/+ (number) offset from UTC/GMT, in seconds, during summer/daylight saving time.<br> <code class="prettyprint">dst_correction</code>: a boolean indicating whether this time zone observes daylight saving time.<br> <code class="prettyprint">date_format</code> is a nested object, which contains the following internal elements:<br> * <code class="prettyprint">display</code>: string that defines dates&rsquo; display format, in the pattern: <NOBR><code class="prettyprint">M jS Y</code>;</nobr> <br> * <code class="prettyprint">export</code>: string that defines the CSV export format for orders, customers, and products, in the pattern: <NOBR><code class="prettyprint">M jS Y</code>;</nobr> <br> * <code class="prettyprint">extended_display</code>: string that defines dates&rsquo; extended-display format, in the pattern: <NOBR><code class="prettyprint">M jS Y @ g:i A</code>.</nobr></td>
 </tr>
 <tr>
 <td>language</td>
 <td>string</td>
-<td>Default language code</td>
+<td>Default language code.</td>
 </tr>
 <tr>
 <td>currency</td>
 <td>string</td>
-<td>Default currency code</td>
+<td>Default currency code.</td>
 </tr>
 <tr>
 <td>currency_symbol</td>
 <td>string</td>
-<td>Default symbol for values in the currency</td>
+<td>Default symbol for values in the currency.</td>
 </tr>
 <tr>
 <td>decimal_separator</td>
 <td>string</td>
-<td>Default decimal separator for values in the currency</td>
+<td>Default decimal separator for values in the currency.</td>
 </tr>
 <tr>
 <td>thousands_separator</td>
 <td>string</td>
-<td>Default thousands separator for values in the currency</td>
+<td>Default thousands separator for values in the currency.</td>
 </tr>
 <tr>
 <td>decimal_places</td>
 <td>string</td>
-<td>Default decimal places for values in the currency</td>
+<td>Default decimal places for values in the currency.</td>
 </tr>
 <tr>
 <td>currency_symbol_location</td>
 <td>string</td>
-<td>Default position of the currency symbol (left or right)</td>
+<td>Default position of the currency symbol (left or right).</td>
 </tr>
 <tr>
 <td>weight_units</td>
 <td>string</td>
-<td>Default weight units (metric or imperial)</td>
+<td>Default weight units (metric or imperial).</td>
 </tr>
 <tr>
 <td>dimension_units</td>
 <td>string</td>
-<td>Default dimension units (metric or imperial)</td>
+<td>Default dimension units (metric or imperial).</td>
 </tr>
 <tr>
 <td>dimension_decimal_places</td>
 <td>string</td>
-<td>The number of decimal places</td>
+<td>The number of decimal places.</td>
 </tr>
 <tr>
 <td>dimension_decimal_token</td>
 <td>string</td>
-<td>The symbol that separates the whole numbers from the decimal points</td>
+<td>The symbol that separates the whole numbers from the decimal points.</td>
 </tr>
 <tr>
 <td>dimension_thousands_token</td>
 <td>string</td>
-<td>The symbol used to denote thousands</td>
+<td>The symbol used to denote thousands.</td>
 </tr>
 <tr>
 <td>plan_name</td>
 <td>string</td>
-<td>Name of the Bigcommerce plan this store belongs to</td>
+<td>Name of the Bigcommerce plan this store belongs to.</td>
 </tr>
 <tr>
 <td>plan_level</td>
 <td>string</td>
-<td>BigCommerce plan level to which this store is subscribed</td>
+<td>BigCommerce plan level to which this store is subscribed.</td>
 </tr>
 <tr>
 <td>logo</td>
@@ -13894,7 +13894,7 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 <tr>
 <td>is_price_entered_with_tax</td>
 <td>boolean</td>
-<td>A Boolean value that indicates whether or not prices are entered with tax</td>
+<td>A Boolean value that indicates whether or not prices are entered with tax.</td>
 </tr>
 <tr>
 <td>active_comparison_modules</td>
@@ -13904,7 +13904,7 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 <tr>
 <td>features</td>
 <td>object</td>
-<td>Array of flags for features that affect app compatibility or functionality. Child \&ldquo;stencil_enabled\&rdquo; element is a Boolean that indicates whether a store is using a Stencil theme.</td>
+<td>Array of flags for features that affect app compatibility or functionality. Child <code class="prettyprint">stencil_enabled</code> element is a Boolean that indicates whether a store is using a Stencil theme.</td>
 </tr>
 </tbody></table>
 
@@ -14037,7 +14037,7 @@ The <code>path</code>, <code>forward.type</code>, and <code>forward.ref</code> f
 
 <aside class="warning">
 <span class="aside-warning-hd">Automatic Taxes – Limitation</span><br><br>
-Where a store is configured to use automatic taxes, data inside the `tax_class` object will be ignored during tax calculations.
+Where a store is configured to use automatic taxes, data inside the <code>tax_class</code> object will be ignored during tax calculations.
 </aside>
 
 <table><thead>
