@@ -12,6 +12,7 @@ includes:
   - themes_product_filtering_toolkit
   - themes_syntax
   - themes_theme_update_process
+  - themes_store_wide_panels
   - themes_store_wide_variables
   - themes_global_variables
   - themes_lng_variables
