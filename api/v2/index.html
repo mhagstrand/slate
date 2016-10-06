@@ -14144,12 +14144,12 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td>id</td>
 <td>int</td>
-<td>A read-only value that uniquely identifies a webhook object. Do not attempt to set this value in a PUT or POST.</td>
+<td>A read-only value that uniquely identifies a webhook object. Do not attempt to set this value in a <code class="prettyprint">PUT</code> or <code class="prettyprint">POST</code>.</td>
 </tr>
 <tr>
 <td>client_id</td>
 <td>string</td>
-<td>The OAuth client ID that uniquely identifies your application. Bigcommerce returns this name-value pair in the JSON body of its responses.</td>
+<td>The OAuth client ID that uniquely identifies your application. BigCommerce returns this name-value pair in the JSON body of its responses.</td>
 </tr>
 <tr>
 <td>store_hash</td>
@@ -14159,32 +14159,32 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td>scope</td>
 <td>enum</td>
-<td>The events the webhook listens on. The full list of possibilities is in Getting Started: https://developer.bigcommerce.com/api/webhooks-getting-started.</td>
+<td>The events that the webhook listens on. The full list of possibilities is in <a href="/api/#webhook-list" target="_blank">this overview</a>.</td>
 </tr>
 <tr>
 <td>destination</td>
 <td>string</td>
-<td>The fully qualified URI that Bigcommerce uses as a callback. At runtime, when one of the events your webhook is listening on occurs, Bigcommerce sends a POST request to this URI. Must be HTTPS.</td>
+<td>The fully qualified URI that BigCommerce uses as a callback. At runtime, when there is an event that your webhook is listening on, BigCommerce will send a <code class="prettyprint">POST</code> request to this URI. Must be HTTPS.</td>
 </tr>
 <tr>
 <td>headers</td>
 <td>object</td>
-<td>Optional name-value pairs that you can set when you create the webhook. Bigcommerce will include the name-value pair(s) in the HTTP header of its POST request to your callback URI at runtime.</td>
+<td>Optional name-value pairs that you can set when you create the webhook. At runtime, BigCommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> request to your callback URI.</td>
 </tr>
 <tr>
 <td>is_active</td>
 <td>boolean</td>
-<td>Can contain one of three values: true</td>
+<td>Can contain one of three values: <code class="prettyprint">true</code>, <code class="prettyprint">false</code>, or <code class="prettyprint">&lt;blank&gt;</code>. Default is no value, i.e., <code class="prettyprint">&lt;blank&gt;</code>. <NOBR>If <code class="prettyprint">false</code>,</nobr> the webhook is inactive and will not send POST requests to the callback URI when an event occurs. If <code class="prettyprint">true</code>, the webhook is active.</td>
 </tr>
 <tr>
 <td>created_at</td>
 <td>int</td>
-<td>The time at which the webhook was created</td>
+<td>The time at which the webhook was created.</td>
 </tr>
 <tr>
 <td>updated_at</td>
 <td>int</td>
-<td>The time at which the webhook was last updated</td>
+<td>The time at which the webhook was last updated.</td>
 </tr>
 </tbody></table>
 
@@ -14376,11 +14376,11 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 </tr>
 </tbody></table>
 
-<p>For a current list of target browsers (desktop and mobile) that BigCommerce supports for <em>storefronts</em> using our themes, please see <a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers" target="_blank">this support page</a>.</p>
+<p>For a current list of target browsers (desktop and mobile) that BigCommerce supports for <em>storefronts</em> using our themes, please see <NOBR><a href="https://support.bigcommerce.com/articles/Public/Themes-Supported-Browsers" target="_blank">this support page</a>.</nobr></p>
 
           <h1 id="api-status-codes"><span class="jumptarget"> API Status Codes </span></h1>
 
-<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses may also include an error message in the body to assist the client in resolving the problem.</p>
+<p>The API responds to requests with different HTTP status codes depending on the result from the request. Error responses might also include an error message in the body to assist the client in resolving the problem.</p>
 
 <h2 id="2xx-success"><span class="jumptarget"> 2xx Success </span></h2>
 
@@ -14396,12 +14396,12 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>200</strong></td>
 <td><strong>OK</strong></td>
-<td>For successful <strong>GET</strong> and <strong>PUT</strong> requests.</td>
+<td>For successful <code class="prettyprint">GET</code> and <code class="prettyprint">PUT</code> requests.</td>
 </tr>
 <tr>
 <td><strong>201</strong></td>
 <td><strong>Created</strong></td>
-<td>For a successful <strong>POST</strong> request.</td>
+<td>For a successful <code class="prettyprint">POST</code> request.</td>
 </tr>
 <tr>
 <td><strong>202</strong></td>
@@ -14411,7 +14411,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>204</strong></td>
 <td><strong>No Content</strong></td>
-<td>For a successful request that produced no response (such as <strong>DELETE</strong> requests).</td>
+<td>For a successful request that produced no response (such as <code class="prettyprint">DELETE</code> requests).</td>
 </tr>
 </tbody></table>
 
@@ -14455,7 +14455,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>400</strong></td>
 <td><strong>Bad Request</strong></td>
-<td>Issued when a malformed request was sent. Examples follow.</td>
+<td>Issued when a malformed request was sent. Examples are:</td>
 </tr>
 <tr>
 <td></td>
@@ -14490,17 +14490,17 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td></td>
 <td></td>
-<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested and if they support the request that you made.</td>
+<td>*   Check your app in <strong>My Apps</strong> to review the OAuth scopes you requested, and whether they support the request that you made.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Revert those changes to correct this issue.</td>
+<td>*   Changes to the store owner&rsquo;s account can cause this error, including a change to the email address. Roll back those changes to correct this issue.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. Refer to the documentation of the resource in question for more information.</td>
+<td>*   This error can also occur when your request exceeds a limit imposed on the resource in question. For example, a store cannot exceed 16,000 categories. For more information, see the documentation of the resource in question.</td>
 </tr>
 <tr>
 <td></td>
@@ -14515,7 +14515,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>405</strong></td>
 <td><strong>Method Not Allowed</strong></td>
-<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <strong>PUT</strong> on <strong>/orders</strong> is invalid, but <strong>PUT</strong> on <strong>/orders/{<em>id</em>}</strong> is valid.</td>
+<td>The resource was found, but doesn’t support the request method. Issued when either a specific method isn’t yet implemented on a resource, or the resource doesn’t support the method at all. For example, a <code class="prettyprint">PUT</code> on <code class="prettyprint">/orders</code> is invalid, but a <code class="prettyprint">PUT</code> on <code class="prettyprint">/orders/{_id_}</code> is valid.</td>
 </tr>
 <tr>
 <td><strong>406</strong></td>
@@ -14525,27 +14525,27 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>409</strong></td>
 <td><strong>Conflict</strong></td>
-<td>A change requested by the client is being rejected due to a condition imposed by the server. The exact reasons response for this will vary from one resource to the next. Examples may include attempting to delete a category which would result in products being orphaned. Additional information about the conflict and how to resolve it may be available in the <strong>details</strong> section of the response.</td>
+<td>A change requested by the client is being rejected, due to a condition imposed by the server. The exact reasons for this response will vary from one resource to the next. An example might be attempting to delete a category whose deletion would cause products to be orphaned. Additional information about the conflict, and about how to resolve it, might be available in the response&rsquo;s <code class="prettyprint">details</code> section.</td>
 </tr>
 <tr>
 <td><strong>413</strong></td>
 <td><strong>Request Entity Too Large</strong></td>
-<td>When the client requests too many objects. For example, the <strong>limit</strong> parameter exceeded the maximum.</td>
+<td>When the client requests too many objects. For example, the <code class="prettyprint">limit</code> parameter exceeded the maximum.</td>
 </tr>
 <tr>
 <td><strong>415</strong></td>
 <td><strong>Unsupported Media Type</strong></td>
-<td>Returned due to issues with the <strong>Content-Type</strong> header.</td>
+<td>Returned due to issues with the <strong>Content-Type</strong> header. Examples are:</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>*   It specifies an unsupported content type.</td>
+<td>*   The header specifies an unsupported content type.</td>
 </tr>
 <tr>
 <td></td>
 <td></td>
-<td>*   It is missing (except the webhooks resource, which returns a 400 in this case).</td>
+<td>*   The header is missing (except with the webhooks resource, which returns a 400 in this case).</td>
 </tr>
 <tr>
 <td></td>
@@ -14578,7 +14578,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>501</strong></td>
 <td><strong>Not Implemented</strong></td>
-<td>When a request method is sent that is not supported by the API (e.g., <strong>TRACE</strong>, <strong>PATCH</strong>).</td>
+<td>When a request method is sent that is not supported by the API (e.g., <code class="prettyprint">TRACE</code>, <code class="prettyprint">PATCH</code>).</td>
 </tr>
 <tr>
 <td><strong>503</strong></td>
@@ -14588,12 +14588,12 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 <tr>
 <td><strong>507</strong></td>
 <td><strong>Insufficient Storage</strong></td>
-<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500 product limit).</td>
+<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500-product limit).</td>
 </tr>
 <tr>
 <td><strong>509</strong> (Deprecated)</td>
 <td><strong>Bandwidth Limit Exceeded</strong></td>
-<td>Returned to apps using Basic Authentication that have exceeded their <a href="#rate-limits-basic-auth">rate limits</a>.</td>
+<td>Returned to apps using Basic Authentication that have exceeded their <a href="/api/#rate-limits-basic-auth">rate limits</a>.</td>
 </tr>
 </tbody></table>
 
@@ -14601,35 +14601,35 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 
 <h4 id="int"><span class="jumptarget"> int</span></h4>
 
-<p>An integer number with a maximum value of 2147483647. Negatives are disallowed unless otherwise specified.</p>
+<p>An integer number, with a maximum value of 2147483647. Negatives are disallowed, unless otherwise specified.</p>
 
 <h4 id="decimal-m-d"><span class="jumptarget"> decimal(M, D)</span></h4>
 
-<p>A decimal number of up to M digits in total including* D* digits after the decimal point. Negatives are disallowed unless otherwise specified.</p>
+<p>A decimal number of up to <code class="prettyprint">M</code> digits in total, including <code class="prettyprint">D</code> digits after the decimal point. Negatives are disallowed, unless otherwise specified.</p>
 
 <h4 id="string-m"><span class="jumptarget"> string(M)</span></h4>
 
-<p>A string of text up to M characters in length.</p>
+<p>A string of text up to <code class="prettyprint">M</code> characters in length.</p>
 
 <h4 id="text"><span class="jumptarget"> text</span></h4>
 
-<p>A string of text up to ~16,777,216 bytes in length.</p>
+<p>A string of text, up to ~16,777,216 bytes in length.</p>
 
 <h4 id="boolean"><span class="jumptarget"> boolean</span></h4>
 
-<p>A boolean value: true or false. In JSON it will be represented using the native boolean type. In XML, it will be the literal strings true or false.</p>
+<p>A boolean value: <code class="prettyprint">true</code> or <code class="prettyprint">false</code>. In JSON, it will be represented using the native <code class="prettyprint">boolean</code> type. In XML, it will be the literal strings <code class="prettyprint">true</code> or <code class="prettyprint">false</code>.</p>
 
 <h4 id="date"><span class="jumptarget"> date</span></h4>
 
-<p>An RFC 2822 date. All dates output by BigCommerce API responses are in GMT (+0000) time. However, any time zone may be used on inputs as the offset information will be converted accordingly.</p>
+<p>An <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> date. All dates output by BigCommerce API responses are in GMT (+0000) time. However, you can use any time zone on inputs, as the offset information will be converted accordingly.</p>
 
 <h4 id="datetime"><span class="jumptarget"> datetime</span></h4>
 
-<p>An ISO 8601 datetime value. This is currently only supported as an input parameter on filters. Date values in responses remain in the RFC 2822 format.</p>
+<p>An <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO 8601</a> <code class="prettyprint">datetime</code> value. This is currently supported only as an input parameter on filters. Date values in responses remain in the <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a> format.</p>
 
 <h4 id="enum"><span class="jumptarget"> enum</span></h4>
 
-<p>An enumeration of string values. Only the values specified in the fields description are allowed.</p>
+<p>An enumeration of string values. The only allowed values are those specified in the field&rsquo;s description.</p>
 
 <h4 id="object"><span class="jumptarget"> object</span></h4>
 
@@ -14637,7 +14637,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 
 <h4 id="country-code"><span class="jumptarget"> country code</span></h4>
 
-<p>A 2 character ISO 3166-1 alpha-2 country code.</p>
+<p>A two-character, <a href="https://en.wikipedia.org/wiki/ISO_3166-1" target="_blank">ISO 3166-1</a> <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2" target="_blank">alpha-2</a> country code.</p>
 
 <h4 id="email-address"><span class="jumptarget"> email address</span></h4>
 
@@ -14645,11 +14645,11 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 
 <h4 id="variable"><span class="jumptarget"> variable</span></h4>
 
-<p>Variable data depending on context. See the field definition for specifics.</p>
+<p>Variable data, depending on context. See the field definition for specifics.</p>
 
 <h4 id="array"><span class="jumptarget"> array</span></h4>
 
-<p>A simple list of values. In JSON this will be an array. In XML the field will contain a set of <code class="prettyprint">&lt;value&gt;</code> elements.</p>
+<p>A simple list of values. In JSON, this will be an array. In XML, the field will contain a set of <code class="prettyprint">&lt;value&gt;</code> elements.</p>
 
 <h4 id="resource"><span class="jumptarget"> resource</span></h4>
 
@@ -14657,7 +14657,7 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 
 <h4 id="null"><span class="jumptarget"> null</span></h4>
 
-<p>A null value. In JSON this is represented as the native null type. In XML, it is represented as the literal string NULL.</p>
+<p>A null value. In JSON this is represented as the native <code class="prettyprint">null</code> type. In XML, it is represented as the literal string <code class="prettyprint">NULL</code>.</p>
 
           <h1 id="faq"><span class="jumptarget"> FAQ </span></h1>
 
@@ -14692,17 +14692,17 @@ Where a store is configured to use automatic taxes, data inside the <code>tax_cl
 
 <h2 id="how-does-the-approval-process-work"><span class="jumptarget"> How does the approval process work?</span></h2>
 
-<p>Upon receiving an <a href="#app-submission">app submission</a>, we review it to make sure that it meets our <a href="#app-store-approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.</p>
+<p>Upon receiving an <a href="/api/#app-submission">app submission</a>, we review it to make sure that it meets our <a href="/api/#app-store-approval-requirements">requirements</a>. We will contact you directly if we require further information. When the app is approved, it instantly becomes available in the <a href="https://www.bigcommerce.com/apps/" target="_blank">App Store</a>.</p>
 
 <h2 id="is-the-api-rate-limit-per-store-or-per-app"><span class="jumptarget"> Is the API rate limit per-store or per-app?</span></h2>
 
-<p>Basic Authentication requests are rate-limited <a href="#rate-limits-basic-auth">per app</a>.</p>
+<p>Basic Authentication requests are rate-limited <a href="/api/#rate-limits-basic-auth">per app</a>.</p>
 
-<p>OAuth requests are rate-limited <a href="#rate-limits">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
+<p>OAuth requests are rate-limited <a href="/api/#rate-limits">per store</a>. A single store’s quota applies to all OAuth apps connecting to that store. Our OAuth rate limiting algorithm is designed to distribute quotas fairly across multiple apps, so that a single greedy app cannot consume the entire quota on its own.</p>
 
 <h2 id="do-apps-need-to-make-special-considerations-for-certain-browsers"><span class="jumptarget"> Do apps need to make special considerations for certain browsers?</span></h2>
 
-<p>Yes. Please review our list of <a href="#supported-browsers">supported browsers</a> and the documentation on <a href="#ui-constraints">user interface constraints</a> for details.</p>
+<p>Yes. Please review our list of <a href="/api/#supported-browsers">supported browsers</a> and the documentation on <a href="/api/#ui-constraints">user interface constraints</a> for details.</p>
 
 <h2 id="what-if-i-need-to-update-my-app-after-app-store-submission-acceptance"><span class="jumptarget"> What if I need to update my app after App Store submission/acceptance? </span></h2>
 
