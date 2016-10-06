@@ -1,6 +1,6 @@
 # Anatomy of a Theme
 
-Themes are built using a powerful template system that enables designers and developers familiar with CSS and HTML to modify the presentation and structure of a Bigcommerce store.
+Themes are built using a powerful template system that enables designers and developers familiar with CSS and HTML to modify the presentation and structure of a BigCommerce store.
 
 ## Directory Structure
 

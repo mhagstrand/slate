@@ -1,10 +1,10 @@
 # <span class="jumptarget"> Theme Update Process </span>
 
-This page describes process of integrating theme changes/updates made by a partner into the BigCommerce Theme Store.
+Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Store:
 
 ## <span class="jumptarget"> Prerequisites </span>
 
-Integrating a partner's theme changes requires these preconditions
+Integrating a partner's theme changes requires these preconditions:
 
 *   Partner has an existing theme in the BigCommerce Theme Store.
 
@@ -20,7 +20,7 @@ The Theme Development store resolves the <code>%%GLOBAL_TPL_PATH%%</code> variab
 
 1.  The partner switches on Theme Development mode, by using:  
 `http://<STORE>/admin/index.php?ToDo=viewTemplates&dev=enable`.
-2.  The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly by a partner, because it’s a paid theme.)
+2.  The partner asks BigCommerce to switch a theme. (Partners currently cannot switch it directly, because it’s a paid theme.)
 	<aside class="error">
 This step will wipe out all files in the `/template/` directory and copy in the latest version of the integrated theme.
 	</aside>
