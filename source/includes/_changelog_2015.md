@@ -93,7 +93,7 @@ Attempts to `**DELETE**` an order on a store with automatic tax enabled now retu
 
 ### <span class="jumptarget"> New fields to support deeper Avalara integrations </span>
 
-BigCommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the Control Panel GUI. The extension consists of two new fields in the `**customer**` and `**product**` objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.
+BigCommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the control-panel GUI. The extension consists of two new fields in the `**customer**` and `**product**` objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.
 
 Stores that do not have the AvaTax Pro subscription will store the codes but the codes will not impact their sales tax calculations. Please note that you should only pass one code per customer or product and the codes are case sensitive.
 

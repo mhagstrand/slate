@@ -34,13 +34,13 @@ The `GET` request to your **Auth Callback URI** contains a temporary code that y
 
 #### <span class="jumptarget"> Parameters </span>
 
-The following table details the full list of parameters and values included in the `GET` request from Bigcommerce to your **Auth Callback URI**. Bigcommerce passes these within the URI itself as query parameters.
+The following table details the full list of parameters and values included in the `GET` request from BigCommerce to your **Auth Callback URI**. BigCommerce passes these within the URI itself as query parameters.
 
 | Parameter | Description |
 | --- | --- |
 | code | Temporary code to exchange for a permanent OAuth token. See [Making the POST request](#post-req) below for more information about this exchange. |
 | scope | List of scopes authorized by the user. As a best practice, your app should validate this list to ensure that it matches the app's needs, and fail if it does not. However, at this time, the user does not have any opportunity to pick and choose between scopes. The dialog presented to the user requires the user to approve all scopes or none. |
-| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. Bigcommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
+| context | The store hash: a unique value that identifies the store on which a logged-in user has clicked to install or your app. BigCommerce passes this along with a context path, as follows: `stores/{store_hash}`. Save the store hash value, because you will need to pass it in all your requests to the Stores API. |
 
 #### <span class="jumptarget"> Example – Initial Installation </span>
 
@@ -65,7 +65,7 @@ Host: app.example.com
 
 ### <span class="jumptarget"> Responding to the GET request </span>
 
-Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
+Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
 
 ### <span class="jumptarget"> Making the POST request </span>
 
@@ -78,11 +78,11 @@ Make the `POST` request to the following address: `https://login.bigcommerce.com
 
 #### <span class="jumptarget"> Initial Installation </span>
 
-During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
+During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the control panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <a href="#get-response">`GET` response</a>.
 
 #### <span class="jumptarget"> Updates </span>
 
-During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the Control Panel.
+During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the control panel.
 
 
 #### <span class="jumptarget"> Parameters </span>
@@ -244,7 +244,7 @@ The remainder of this page discusses:
 
 ### <span class="jumptarget"> <a name="load"></a> About the load request and response </span>
 
-Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
+Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a **GET** request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
 <aside class="warning">
 <span class="aside-warning-hd">NOTES:</span>

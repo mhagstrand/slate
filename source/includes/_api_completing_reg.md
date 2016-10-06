@@ -34,9 +34,9 @@ All of the fields in the `Details` panel are required. Each is discussed below:
 
 ### <span class="jumptarget"> Launch Bar </span>
 
-You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant's Control Panel once your app has been installed.
+You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant's control panel once your app has been installed.
 
-Bigcommerce also provides the option to provide "deep links," which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.
+BigCommerce also provides the option to provide "deep links," which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.
 
 ### <span class="jumptarget"> Technical </span>
 
@@ -48,6 +48,6 @@ You must also provide detailed testing instructions as well as test accounts pri
 
 You can submit your app from the last panel. A fee of $99 is required for each submission. If your app is rejected and you need to resubmit it, you will be charged again, so be sure that it's ready for review before submitting. Updates to the app will not require an additional submission fee.
 
-After receiving the submission, Bigcommerce will use the information that you have provided to interact with, evaluate, and test your app.
+After receiving the submission, BigCommerce will use the information that you have provided to interact with, evaluate, and test your app.
 
 Questions? Please contact [appstore@bigcommerce.com](mailto:appstore@bigcommerce.com)

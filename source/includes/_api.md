@@ -41,7 +41,7 @@ OAuth apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single
 
 ### <span class="jumptarget"> Basic-Auth Apps </span>
 
-Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the Control Panel of your sandbox store, you can [get the base path, user ID, and API token](#building-basic-auth-apps) that you need to start making calls.
+Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store's API endpoints. From the control panel of your sandbox store, you can [get the base path, user ID, and API token](#building-basic-auth-apps) that you need to start making calls.
   
 
 ## <span class="jumptarget"> About Client Libraries </span>

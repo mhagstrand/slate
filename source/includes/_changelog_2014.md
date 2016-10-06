@@ -12,7 +12,7 @@ Stores located inside the United States no longer need to manually configure sal
 
 When enabled, automatic tax feature also affects the values inside the [**taxes**][4] object.
 
-Bigcommerce does not currently offer any programmatic means of determining if a store is using automatic or manual taxes.
+BigCommerce does not currently offer any programmatic means of determining if a store is using automatic or manual taxes.
 
 [1]: /api/v2#tax_class
 [2]: /api/v2#product

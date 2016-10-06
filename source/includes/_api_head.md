@@ -1,5 +1,5 @@
 ---
-title: Bigcommerce APIs
+title: BigCommerce APIs
 
 includes:
   - api

@@ -61,9 +61,9 @@ Support for the existing RFC 2822 format hasn't changed, so existing apps won't 
 
 Today, we're pleased to announce the addition of [Redirects][5] to the Stores API.
 
-Redirects are mappings that trigger an `HTTP 301` response with a location header pointing from an incoming 'virtual' URL to an actual URL on a storefront. They're extremely useful in situations where you're migrating an existing website to Bigcommerce and want to transition old page URLs seamlessly while preserving SEO rankings.
+Redirects are mappings that trigger an `HTTP 301` response with a location header pointing from an incoming 'virtual' URL to an actual URL on a storefront. They're extremely useful in situations where you're migrating an existing website to BigCommerce and want to transition old page URLs seamlessly while preserving SEO rankings.
 
-The redirects resource exposes very similar functionality to that of the Bigcommerce Control Panel. The forward destination of a redirect can be generated automatically based on a pre-defined resource in Bigcommerce (linking to a product, category or brand) or it can be any manually defined URL path.
+The redirects resource exposes very similar functionality to that of the BigCommerce control panel. The forward destination of a redirect can be generated automatically based on a pre-defined resource in BigCommerce (linking to a product, category or brand) or it can be any manually defined URL path.
 
 Read the [reference documentation][5] and take it for a spin!
 

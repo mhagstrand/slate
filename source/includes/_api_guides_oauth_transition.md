@@ -25,7 +25,7 @@ To update your public Basic Authentication app to an OAuth app, you will need to
 
 1.  Get a **Client ID** and a **Client Secret** by [registering your app](#app-registration).
 2.  Get a permanent OAuth token as discussed in [App Installation](#app-installation-and-update-sequence).
-3.  Update your app so that it can process the [signed payloads](#processing-the-signed-payload) that Bigcommerce sends when a merchant loads your app.
+3.  Update your app so that it can process the [signed payloads](#processing-the-signed-payload) that BigCommerce sends when a merchant loads your app.
 4.  [Change your base paths](#base-paths).
 5.  Update your app to observe the [OAuth rate limits](#rate-limits_oauth).
 
