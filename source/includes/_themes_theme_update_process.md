@@ -1,6 +1,6 @@
 # <span class="jumptarget"> Theme Update Process </span>
 
-This page describes process of integrating theme changes/updates made by a partner into the BigCommerce Theme Store.
+Here is how BigCommerce and our partners collaborate to integrate a partner's theme changes/updates into the BigCommerce Theme Store:
 
 ## <span class="jumptarget"> Prerequisites </span>
 
