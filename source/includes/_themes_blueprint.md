@@ -1,12 +1,12 @@
 # <span class="jumptarget"> Blueprint and Developer Mode </span>
 
-## <span class="jumptarget"> A foundation for creating great themes </span>
+## <span class="jumptarget"> A Foundation for Creating Great Themes </span>
 
 When you are creating a new theme, our Blueprint  base theme makes a great starting point. Blueprint includes responsive support out-of-the-box, so it works with lower resolutions like those on mobile devices. The visual design has been stripped back, so you can create from a clean canvas.
 
 <a href="https://blueprint-demo.mybigcommerce.com" target="_blank">View the demo</a>.
 
-## <span class="jumptarget"> Setting up your environment </span>
+## <span class="jumptarget"> Setting Up Your Environment </span>
 
 Follow these steps to start developing using the Blueprint theme:
 

@@ -8,10 +8,10 @@ includes:
   - api_browsers
   - themes_anatomy
   - themes_blueprint
+  - themes_theme_update_process
   - themes_style_editor
   - themes_product_filtering_toolkit
   - themes_syntax
-  - themes_theme_update_process
   - themes_store_wide_panels
   - themes_store_wide_variables
   - themes_global_variables

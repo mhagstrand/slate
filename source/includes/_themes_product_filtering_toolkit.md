@@ -22,7 +22,7 @@ To enable product filtering, just enable Developer Mode on your store. This will
 
 <aside class="warning">
 <span class="aside-warning-hd">Start with a Sandbox Store</span><br><br>
-Depending on the customizations you have made to your theme, enabling Developer Mode could have unexpected results. We recommend using a sandbox store (not your main store) when applying these changes for the first time.
+Depending on the customizations you have made to your theme, enabling Developer Mode could have unexpected results. <NOBR>We recommend</nobr> using a sandbox store (not your main store) when applying these changes for the first time.
 </aside>
 
 If you are working with a new store, product filtering might already work out-of-the-box for your theme.

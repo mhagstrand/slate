@@ -2,21 +2,21 @@
 
 ## <span class="jumptarget"> About Style Editor </span>
 
-Style Editor allows users to customize the look and feel of their Bigcommerce store, without the need to know HTML/CSS. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.
+Style Editor allows users to customize the look and feel of their BigCommerce store, without needing to know HTML or CSS conventions. Using a simple WYSIWYG interface, users can edit colors and fonts, then see the changes simultaneously in a live preview.
 
-Style Editor uses LESS as a CSS preprocessor, allowing it to take advantage of variables and other functions to ensure design consistency.
+Style Editor uses Less.js as a CSS preprocessor. This allows Style Editor to take advantage of variables and other functions to ensure design consistency.
 
-## <span class="jumptarget"> What is LESS? </span>
+## <span class="jumptarget"> What Is Less.js? </span>
 
-LESS is a CSS preprocessor that allows theme designers to use advanced functions and programming principles in their CSS. A javascript compiler runs over the LESS files and converts them into usable CSS that can be included in themes.
+Less (formally, Less.js) is a CSS preprocessor that allows theme designers to use advanced functions and programming principles in their CSS. A JavaScript compiler runs over the Less files, and converts them into usable CSS that can be included in themes.
 
-For more information on examples, techniques, and how to install LESS, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
+For more information on examples, techniques, and how to install Less, please see <a href="http://lesscss.org/" target="_blank">lesscss.org</a>.
 
-## <span class="jumptarget"> Integrating a theme with the Style Editor </span>
+## <span class="jumptarget"> Integrating a Theme with the Style Editor </span>
 
-The Style Editor uses a specific group of files to build its User Interface, and to compile and generate the stylesheet. Bigcommerce’s developer theme, Blueprint, already contains these out of the box. The files are stored in the Styles/less directory.
+The Style Editor uses a specific group of files to build its user interface, and to compile and generate the stylesheet. BigCommerce’s base developer theme, Blueprint, already contains these out-of-the-box. The files are stored in the `Styles/less` directory.
 
-The files the Style Editor depends on are:
+The Style Editor depends on these files:
 
 *   `style-editor-variables.less`
 *   `internal-variables.less`
@@ -25,9 +25,9 @@ The files the Style Editor depends on are:
 
 ### <span class="jumptarget"> style-editor-variables.less </span>
 
-Style Editor uses this file to generate its User Interface. Here, you can enter variables for colours, fonts and numbers that will help the merchant customize the design of the theme. You can separate these variables out into sections with headings to help categorise the variables in a logical manner. No actual CSS is written in this file.
+Style Editor uses this file to generate its user interface. Here, you can enter variables for colours, fonts and numbers that will help the merchant customize the design of the theme. You can separate these variables out into sections with headings to help categorize the variables in a logical manner. No actual CSS is written in this file.
 
-There are some syntax patterns involved that Style Editor will understand to help you customise the UI. Special syntax:
+There are some syntax patterns involved that Style Editor will understand to help you customize the UI. Special syntax:
 
 `@color-your-text-here` — This is the naming convention for a color variable. The style editor will generate this as a color picker, with the value of the variable set as the color picker’s default hexadecimal color value.
 
@@ -89,7 +89,7 @@ More information on syntax, and examples, can be found in the comments of the st
 
 ### <span class="jumptarget"> internal-variables.less </span>
 
-This file is for you to store the variables that you may need to use, but don’t want the Style editor to see. For example, you can use it to create a hierarchy within your LESS file, so that:
+This file is for you to store the variables that you may need to use, but don’t want the Style editor to see. For example, you can use it to create a hierarchy within your Less file, so that:
 
 *   The user sets a value to @color-store-name;
 *   in internal-variables.less, @main-accent: @color-store-name;
@@ -111,9 +111,9 @@ color: @color-store-name
 
 ### <span class="jumptarget"> theme.less </span>
 
-The file that ultimately gets compiled into `theme.css`. This just uses `@import` to include the other three LESS files for compilation. The Style Editor will read this file for instructions on how to compile your styles using LESS.
+The file that ultimately gets compiled into `theme.css`. This just uses `@import` to include the other three Less files for compilation. The Style Editor will read this file for instructions on how to compile your styles using Less.
 
-Compiling your LESS files
+Compiling your Less files
 
 Once you have finished working on your `.less` files, _don’t forget to compile them!_ If you are using the command line, you should be doing something similar to:
 
@@ -125,9 +125,9 @@ This will use the `theme.less` file to generate the `theme.css` file into your t
 
 If you find that you have to make a change to `theme.css`, please don't forget to replicate this change in `theme.less` (but more preferably, in `init.less`). Otherwise, every time you recompile the less files, this change will be overwritten.
 
-LESS offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.
+Less offers a variety of compilation methods, including applications for both Windows and Mac that you can use if you prefer not to use the command prompt/terminal.
 
-## <span class="jumptarget"> Testing Style Editor with your theme </span>
+## <span class="jumptarget"> Testing Style Editor with Your Theme </span>
 
 If you'd like to add Style Editor support to your theme, you can enable the Style Editor on just your store. Simply log in to the control panel and place `/index.php?ToDo=viewTemplates&dev=enable` after `/admin`.<br>
 (For example: <NOBR>`https://store-123abmy.mybigcommerce.com/admin/index.php?ToDo=viewTemplates&dev=enable`</nobr>)
