@@ -104,16 +104,10 @@ url(//mystore.com/content/images/foo.jpg")
 
 You can include another file within a template, using file include variables. This practice is extremely useful for external files such as banners or site-network headers.
 
-File includes can: 
-* Be local includes (relative to the `/template/Includes/` directory), 
-* Contain absolute file-system paths, or 
-* Be remote includes (by specifying the full URL to a file to be included).
-
 Includes are referenced within template files as follows:
 
-<pre>%%Include.[file_path]%%</pre>
-
-For example:
-
 <pre>
-%%Include.http://www.example.com/remote_file.html%%</pre>
+%%Include.http://www.example.com/remote_file.html%%
+%%Include.https://www.example.com/secure_remote_file.html%%</pre>
+
+Notes: Included external links will not follow redirects (http status code 301, 302). If a redirect is encountered, it will not include the content.
