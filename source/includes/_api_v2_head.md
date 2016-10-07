@@ -1,5 +1,5 @@
 ---
-title: Bigcommerce APIs, v.2
+title: BigCommerce APIs, v.2
 
 search: true
 ---

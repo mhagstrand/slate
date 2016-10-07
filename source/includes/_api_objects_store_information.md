@@ -29,8 +29,8 @@ A Store Information object represents an individual store's profile and metadata
 | dimension_decimal_places | string | The number of decimal places. |
 | dimension_decimal_token | string | The symbol that separates the whole numbers from the decimal points. |
 | dimension_thousands_token | string | The symbol used to denote thousands. |
-| plan_name | string | Name of the Bigcommerce plan this store belongs to. |
-| plan_level | string | BigCommerce plan level to which this store is subscribed. |
+| plan_name | string | Name of the BigCommerce plan to which this store is subscribed. |
+| plan_level | string | Level of the BigCommerce plan to which this store is subscribed. |
 | logo | object |
 | is_price_entered_with_tax | boolean | A Boolean value that indicates whether or not prices are entered with tax. |
 | active_comparison_modules | array |  |

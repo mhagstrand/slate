@@ -174,7 +174,7 @@ When the `_authentication` object is not supplied with an update request, then t
 
 #### <span class="jumptarget"> Updating Passwords </span>
 
-To manually update a customer password in the same way as the Control Panel, supply a value for the password field:
+To manually update a customer password in the same way as the control panel, supply a value for the password field:
 
 ```curl
 {
@@ -240,7 +240,7 @@ When the `_authentication` object is not supplied with an update request, then t
 
 #### <span class="jumptarget"> Updating Passwords </span>
 
-To manually update a customer password in the same way as the Control Panel, supply a value for the `password` field:
+To manually update a customer password in the same way as the control panel, supply a value for the `password` field:
 
 ```curl
 {

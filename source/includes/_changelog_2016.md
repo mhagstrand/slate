@@ -176,7 +176,7 @@ We have this new property to our documentation on the Store Information [object]
 
 ### <span class="jumptarget"> New variables separate raw price from currency </span>
 
-Bigcommerce's Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:
+BigCommerce's Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:
 
 - `%%GLOBAL_RawProductPrice%%`
 - `%%GLOBAL_SelectedCurrencyCode%%`

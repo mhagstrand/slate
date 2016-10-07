@@ -26,7 +26,7 @@ The following GLOBAL variables are available from any layout, panel, or snippet 
 | `%%GLOBAL_MASTER_THEME_PATH%%` | The URI of the __master theme directory. |
 | `%%GLOBAL_PageLink%%` | The URI of the page. |
 | `%%GLOBAL_PageName%%` | The name of the page. For example: <NOBR>`RSS Syndication`</nobr> |
-| `%%GLOBAL_PoweredBy%%` | The string identifying the software used by the store. For example: `Shopping Cart Software by Bigcommerce` |
+| `%%GLOBAL_PoweredBy%%` | The string identifying the software used by the store. For example: `Shopping Cart Software by BigCommerce` |
 | `%%GLOBAL_SHARED_GIFT_THEME_PATH%%` | The CDN URI of the store's gift themes. |
 | `%%GLOBAL_ShopPath%%` | The store's URI. If the page is protected with TLS/SSL, this will be an HTTPS path. |
 | `%%GLOBAL_ShopPathNormal%%` | The unencrypted URI of the store, prefixed with HTTP. |

@@ -23,7 +23,7 @@ The remainder of this entry discusses:
 
 ### <span class="jumptarget"> <a name="load_request"></a> Load Request and Response</span>
 
-Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a `GET` request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
+Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a `GET` request to the **Load Callback URI** that you provided. In a production environment, the **Load Callback URI** must be publicly available, fully qualified, and served over TLS/SSL.
 
 <aside class="warning">
 <span class="aside-warning-hd">Handling Requests Securely</span><br><br>

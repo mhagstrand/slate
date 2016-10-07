@@ -2,7 +2,7 @@
 
 ## <span class="jumptarget"> Introduction </span>
 
-Public apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/)) can be listed in the App Store for easy installation in all Bigcommerce stores. They use OAuth2 to obtain an access token and communicate with the central Bigcommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](/api/approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](/api/registration), and an [OAuth token](/api/callback).
+Public apps (also known as [Single-Click Apps](https://www.bigcommerce.com/single-click-apps/)) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth2 to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the [App Store acceptance requirements](/api/approval-requirements). To start making API requests, you'll need a [**Client ID** and **Client Secret**](/api/registration), and an [OAuth token](/api/callback).
 
 ## <span class="jumptarget"> API Endpoint </span>
 
@@ -19,7 +19,7 @@ In addition, while not all resources require the `**Accept**` and `**Content-Typ
 
 ## <span class="jumptarget"> Managing Users' Session Timeouts </span>
 
-We recommend that you add Bigcommerce's JavaScript SDK to your Single-Click Apps, to protect your apps' users from getting logged out of the Bigcommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App:
+We recommend that you add BigCommerce's JavaScript SDK to your Single-Click Apps, to protect your apps' users from getting logged out of the BigCommerce control panel after a period of idleness. To include our SDK, add this script tag to your Single-Click App:
 
 `**<script src="//cdn.bigcommerce.com/jssdk/bc-sdk.js">**`
 
@@ -33,8 +33,8 @@ Optionally, you can pass a logout callback function within the initialization ca
       onLogout: callback
 });**`
 
-This callback function will run when the user explicitly logs out of the Bigcommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.
+This callback function will run when the user explicitly logs out of the BigCommerce control panel, or is automatically logged out. The callback will allow your app to respond to this logout.
 
 ## <span class="jumptarget"> Monetizing Your App </span>
 
-If you want to charge merchants for your app, please note that Bigcommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send Bigcommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to partnerpayments@bigcommerce.com.
+If you want to charge merchants for your app, please note that BigCommerce expects you to handle the billing aspects of the transaction. Your app needs to take care of collecting the fee from the merchant. Under the standard contract, within thirty days of collecting this revenue, you must send BigCommerce 20% and retain the remaining 80% for yourself. Reporting should be sent monthly to partnerpayments@bigcommerce.com.

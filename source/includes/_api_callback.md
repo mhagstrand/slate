@@ -1,6 +1,6 @@
 ## <span class="jumptarget"> <a name="installation"></a> App Installation and Update Sequence </span>
 
-A user at a store's Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#app-registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
+A user at a store's control panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the **Auth Callback URI** provided during [app registration](#app-registration). The **Auth Callback URI** must be publicly available, fully qualified, and served over TLS.
 
 <aside class="warning">
 <span class="aside-warning-hd"> Handling Requests Securely</span><br><br>
@@ -57,7 +57,7 @@ Host: app.example.com
 
 ### <span class="jumptarget"> <a name="get-response"></a> Responding to the GET Request </span>
 
-Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
+Upon receiving the `GET` request at your **Auth Callback URI**, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app's main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.
 
 ### <span class="jumptarget"> <a name="post-req"></a> Making the POST Request </span>
 
@@ -69,11 +69,11 @@ Make the `POST` request to the following address: `https://login.bigcommerce.com
 
 #### <span class="jumptarget"> Initial Installation </span>
 
-During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your `GET` response.
+During initial installation, upon receiving the `POST`, BigCommerce marks the status of your app as "Installed," removes the progress-indicator overlay, and places your app icon in the control panel's left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your `GET` response.
 
 #### <span class="jumptarget"> Updates </span>
 
-During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the Control Panel.
+During app updates, upon receiving the `POST`, BigCommerce removes the update prompt from the control panel.
 
 #### <span class="jumptarget"> Parameters </span>
 

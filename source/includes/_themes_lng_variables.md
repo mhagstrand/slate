@@ -819,11 +819,11 @@ To make it easier for store owners who might wish to translate, or otherwise mod
 <TR><TD><CODE>%%LNG_HC_email%%</code></TD>
 <TD>”Email"</td></tr>
 <TR><TD><CODE>%%LNG_HC_emailbigcommerce%%</code></TD>
-<TD>”with Bigcommerce"</td></tr>
+<TD>”with BigCommerce"</td></tr>
 <TR><TD><CODE>%%LNG_HC_emaillaunchstore%%</code></TD>
 <TD>”Launch your own store for free"</td></tr>
 <TR><TD><CODE>%%LNG_HC_emailpowered%%</code></TD>
-<TD>”is powered by Bigcommerce"</td></tr>
+<TD>”is powered by BigCommerce"</td></tr>
 <TR><TD><CODE>%%LNG_HC_existingcustomer%%</code></TD>
 <TD>”Existing Customer"</td></tr>
 <TR><TD><CODE>%%LNG_HC_giftcertificatecode%%</code></TD>

@@ -1,6 +1,6 @@
 # <span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks Overview
 
-<a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
+<a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on BigCommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we'll send a `POST` request to your callback URI and then your app can perform some action based on that event.
 
 For example, you might build an app that needs to know when:
 
@@ -33,10 +33,10 @@ All webhooks requests must include the following in their HTTP headers:
 
 Before you can send any requests or receive any responses, you will need the following:
 
-*   **A store:** You can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
+*   **A store:** You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/" target="_blank">Partner Program</a>.
 *   **OAuth Client ID:** Obtained during [App Registration](#app-registration).
 *   **OAuth token:** Obtained during [App Installation](#app-installation-and-update-sequence).
-*   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
+*   **Valid TLS/SSL setup:** Verify your setup at the following site: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>.
 
 <aside class="warning">
 <span class="aside-warning-hd">Connection Breakers</span><br><br>
@@ -59,13 +59,13 @@ Wildcards are supported for <code>scope</code>.
 </aside>
 *   As the `destination` value, the callback's fully qualified URI.
 
-*   A `headers` object containing one or more name-value pairs, both string values (optional). If you choose to include a `headers` object, Bigcommerce will include the name-value pair(s) in the HTTP header of its `POST` requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the `POST` request came from Bigcommerce instead of some other party, such as a malicious actor.
+*   A `headers` object containing one or more name-value pairs, both string values (optional). If you choose to include a `headers` object, BigCommerce will include the name-value pair(s) in the HTTP header of its `POST` requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the `POST` request came from BigCommerce instead of some other party, such as a malicious actor.
 
 *   By default, new webhooks will be set to be inactive and will have a blank value. If you want to create a webhook that should be active initially, you can also pass the following name-value pair: `"is_active": true`.
 
 An `HTTP 201` response indicates that the webhook was set successfully.
 
-Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#webhook-object-properties) pages for more details.
+Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#webhook-object-properties) sections for more details.
 
 #### <span class="jumptarget" id="webhook-list"> List of Webhook Events </span>
 
@@ -204,7 +204,7 @@ Below are remedies for certain errors commonly encountered with webhooks:
 
 #### <span class="jumptarget"> Not Receiving the POST Requests to My Callback URI </span>
 
-As noted above, if your app does not return an `HTTP 2_xx_` to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the `is_active` flag to `false`.
+As noted above, if your app does not return an `HTTP 2_xx_` to BigCommerce upon receipt of the POST request to the callback URI, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and flips the `is_active` flag to `false`.
 
 You can proactively check to make sure that everything is OK by periodically making a GET request and checking the `is_active` flag.
 
@@ -221,7 +221,7 @@ If you receive an email or discover that the `is_active` flag has been flipped t
 </ul>
 
 
-Once you have resolved the issue preventing the connection, send a PUT request to flip the `is_active` flag back to `true`. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.
+Once you have resolved the issue preventing the connection, send a PUT request to flip the `is_active` flag back to `true`. This will cause BigCommerce to start trying to send the POST requests to your callback URI again.
 
 #### <span class="jumptarget"> Not Receiving an HTTP 201 Response after Sending POST to Create Webhook </span>
 
@@ -233,13 +233,13 @@ We recommend these diagnostic tools:
 
 ##### <span class="jumptarget"> RequestBin </span>
 
-While planning your integration, [RequestBin](http://requestb.in/) is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.
+While planning your integration, <a href="http://requestb.in/" target="_blank">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.
 
 ##### <span class="jumptarget"> ngrok </span>
 
 As you are building your integration, you might want the abilty to test webhooks on your dev machines.
 
-We suggest using [ngrok](https://ngrok.com/), which you can use to easily set up tunnels between a server running on `localhost` and a public URL.
+We suggest using <a href="https://ngrok.com/" target="_blank">ngrok</a>, which you can use to easily set up tunnels between a server running on `localhost` and a public URL.
 
 This will enable you to send our webhooks to your `localhost` environments via a public URL. No production push is required.
 

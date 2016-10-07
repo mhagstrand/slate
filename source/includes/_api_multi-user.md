@@ -1,6 +1,6 @@
 ## <span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span>
 
-When you register your app with Bigcommerce, if you [enable multi-user support](#regis-multi-user), this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for [basic-auth apps](#building-basic-auth-apps).
+When you register your app with BigCommerce, if you [enable multi-user support](#regis-multi-user), this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for [basic-auth apps](#building-basic-auth-apps).
 
 ### <span class="jumptarget"> Enable Multi-User Support</span>
 

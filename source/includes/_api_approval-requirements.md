@@ -18,7 +18,7 @@ Install and test your app thoroughly prior to submission. Be sure to install and
 
 *   Apps must function properly on all [supported browsers](#supported-browsers), and must conform to the [user interface constraints](#ui-constraints) – including P3P policies as necessary, and no mixed content.
 
-*   The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.
+*   The entire app should operate within the iframe that opens when the user clicks on your app icon in the control panel's launch bar. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.
 
 *   Apps must be easy to use.
 
