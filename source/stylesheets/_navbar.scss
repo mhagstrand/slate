@@ -26,6 +26,13 @@ header {
         height: 80px;
         margin-top: -4.44444rem
     }
+    // Added 10/7/16 to left-align BC logo at top left, in desktop viewport only:
+    .top-bar .name img,
+    [top-bar] .name img {
+        width: 52px;
+        margin-left: -100px; /* The Fix */
+    }
+    // :End 10/7/16 logo-alignment fix
 }
 
 .topBar-container .toggleDropdown {
