@@ -240,11 +240,11 @@
 
 <h3 id="oauth-apps"><span class="jumptarget"> OAuth Apps </span></h3>
 
-<p>OAuth apps (also known as <a href="https://www.bigcommerce.com/single-click-apps/">Single-Click Apps</a> or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#app-registration">Client ID and Client Secret</a>, and an <a href="#app-installation-and-update-sequence">OAuth token</a>.</p>
+<p>OAuth apps (also known as <a href="https://www.bigcommerce.com/single-click-apps/" target="_blank">Single-Click Apps</a> or public apps) can be listed in the App Store for easy installation in all BigCommerce stores. They use OAuth to obtain an access token and communicate with the central BigCommerce API endpoint. Building a public app is the recommended approach in almost all cases. Before you start, we suggest reviewing the <a href="#app-store-approval-requirements">App Store acceptance requirements</a>. To start making API requests, you&rsquo;ll need a <a href="#app-registration">Client ID and Client Secret</a>, and an <a href="#app-installation-and-update-sequence">OAuth token</a>.</p>
 
 <h3 id="basic-auth-apps"><span class="jumptarget"> Basic-Auth Apps </span></h3>
 
-<p>Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store&rsquo;s API endpoints. From the Control Panel of your sandbox store, you can <a href="#building-basic-auth-apps">get the base path, user ID, and API token</a> that you need to start making calls.</p>
+<p>Basic Auth apps require the manual creation of an API token for each store, and are most useful for custom integrations for a single BigCommerce store. They use HTTP Basic Authentication, and communicate directly with the store&rsquo;s API endpoints. From the control panel of your sandbox store, you can <a href="#building-basic-auth-apps">get the base path, user ID, and API token</a> that you need to start making calls.</p>
 
 <h2 id="about-client-libraries"><span class="jumptarget"> About Client Libraries </span></h2>
 
@@ -377,7 +377,7 @@
 <tr>
 <td><strong>X-BC-Store-Version</strong></td>
 <td>A version number</td>
-<td>The version of Bigcommerce the store is running on. This header is available on versions 7.3.6+.</td>
+<td>The version of BigCommerce the store is running on. This header is available on versions 7.3.6+.</td>
 <td><code class="prettyprint">7.3.6</code></td>
 </tr>
 </tbody></table>
@@ -682,7 +682,7 @@ The XML media type is deprecated. Our v2 webhooks support JSON only, and Stores 
 
           <h1 id="webhooks-overview"><span class="jumptarget"> <a name="webhooks_intro"></a>Webhooks Overview</h1>
 
-<p><a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on Bigcommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
+<p><a href="http://en.wikipedia.org/wiki/Webhook" target="_blank">Webhooks</a> allow developers to build apps that receive information, in near–real time, about events that happen on BigCommerce stores. Webhooks require you to provide a callback URI where you want us to send information about the events that your app subscribes to. When the event happens we&rsquo;ll send a <code class="prettyprint">POST</code> request to your callback URI and then your app can perform some action based on that event.</p>
 
 <p>For example, you might build an app that needs to know when:</p>
 
@@ -714,10 +714,10 @@ Webhooks differ from the rest of the Stores API as follows:
 <p>Before you can send any requests or receive any responses, you will need the following:</p>
 
 <ul>
-<li>  <strong>A store:</strong> You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/">Partner Program</a>.</li>
+<li>  <strong>A store:</strong> You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/" target="_blank">Partner Program</a>.</li>
 <li>  <strong>OAuth Client ID:</strong> Obtained during <a href="#app-registration">App Registration</a>.</li>
 <li>  <strong>OAuth token:</strong> Obtained during <a href="#app-installation-and-update-sequence">App Installation</a>.</li>
-<li>  <strong>Valid TLS/SSL setup:</strong> Verify your setup at the following site: <a href="https://sslcheck.globalsign.com">https://sslcheck.globalsign.com</a>.</li>
+<li>  <strong>Valid TLS/SSL setup:</strong> Verify your setup at the following site: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>.</li>
 </ul>
 
 <aside class="warning">
@@ -740,13 +740,13 @@ Any one of the following will cause a connection failure:
 Wildcards are supported for <code>scope</code>.
 </aside></li>
 <li><p>As the <code class="prettyprint">destination</code> value, the callback&rsquo;s fully qualified URI.</p></li>
-<li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, Bigcommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from Bigcommerce instead of some other party, such as a malicious actor.</p></li>
+<li><p>A <code class="prettyprint">headers</code> object containing one or more name-value pairs, both string values (optional). If you choose to include a <code class="prettyprint">headers</code> object, BigCommerce will include the name-value pair(s) in the HTTP header of its <code class="prettyprint">POST</code> requests to your callback URI at runtime. While this feature could be used for any purpose, one is to use it to set a secret authorization key and check it at runtime. This provides an additional level of assurance that the <code class="prettyprint">POST</code> request came from BigCommerce instead of some other party, such as a malicious actor.</p></li>
 <li><p>By default, new webhooks will be set to be inactive and will have a blank value. If you want to create a webhook that should be active initially, you can also pass the following name-value pair: <code class="prettyprint">&quot;is_active&quot;: true</code>.</p></li>
 </ul>
 
 <p>An <code class="prettyprint">HTTP 201</code> response indicates that the webhook was set successfully.</p>
 
-<p>Please see the <a href="/api/v2/#list-hooks">hooks resource</a> and <a href="/api/v2/#webhook-object-properties">webhook object</a> pages for more details.</p>
+<p>Please see the <a href="/api/v2/#list-hooks">hooks resource</a> and <a href="/api/v2/#webhook-object-properties">webhook object</a> sections for more details.</p>
 
 <h4 id="list-of-webhook-events"><span class="jumptarget" id="webhook-list"> List of Webhook Events </span></h4>
 
@@ -888,7 +888,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h4 id="not-receiving-the-post-requests-to-my-callback-uri"><span class="jumptarget"> Not Receiving the POST Requests to My Callback URI </span></h4>
 
-<p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to Bigcommerce upon receipt of the POST request to the callback URI, Bigcommerce considers it a failure. Bigcommerce will keep trying for a little over 48 hours. At the end of that time, Bigcommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
+<p>As noted above, if your app does not return an <code class="prettyprint">HTTP 2_xx_</code> to BigCommerce upon receipt of the POST request to the callback URI, BigCommerce considers it a failure. BigCommerce will keep trying for a little over 48 hours. At the end of that time, BigCommerce sends an email to the email address set during app registration and flips the <code class="prettyprint">is_active</code> flag to <code class="prettyprint">false</code>.</p>
 
 <p>You can proactively check to make sure that everything is OK by periodically making a GET request and checking the <code class="prettyprint">is_active</code> flag.</p>
 
@@ -904,7 +904,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
     </ul>
 </ul>
 
-<p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause Bigcommerce to start trying to send the POST requests to your callback URI again.</p>
+<p>Once you have resolved the issue preventing the connection, send a PUT request to flip the <code class="prettyprint">is_active</code> flag back to <code class="prettyprint">true</code>. This will cause BigCommerce to start trying to send the POST requests to your callback URI again.</p>
 
 <h4 id="not-receiving-an-http-201-response-after-sending-post-to-create-webhook"><span class="jumptarget"> Not Receiving an HTTP 201 Response after Sending POST to Create Webhook </span></h4>
 
@@ -916,13 +916,13 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h5 id="requestbin"><span class="jumptarget"> RequestBin </span></h5>
 
-<p>While planning your integration, <a href="http://requestb.in/">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.</p>
+<p>While planning your integration, <a href="http://requestb.in/" target="_blank">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.</p>
 
 <h5 id="ngrok"><span class="jumptarget"> ngrok </span></h5>
 
 <p>As you are building your integration, you might want the abilty to test webhooks on your dev machines.</p>
 
-<p>We suggest using <a href="https://ngrok.com/">ngrok</a>, which you can use to easily set up tunnels between a server running on <code class="prettyprint">localhost</code> and a public URL.</p>
+<p>We suggest using <a href="https://ngrok.com/" target="_blank">ngrok</a>, which you can use to easily set up tunnels between a server running on <code class="prettyprint">localhost</code> and a public URL.</p>
 
 <p>This will enable you to send our webhooks to your <code class="prettyprint">localhost</code> environments via a public URL. No production push is required.</p>
 
@@ -930,12 +930,12 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <h2 id="official-bigcommerce-sdks"><span class="jumptarget"> Official BigCommerce  SDKs </span></h2>
 
-<p>BigCommerce  provides and maintains the following full-featured SDKs in a variety of languages.</p>
+<p>BigCommerce provides and maintains the following full-featured SDKs in a variety of languages.</p>
 
 <table><thead>
 <tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-php">PHP</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-ruby">Ruby</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-php" target="_blank">PHP</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-ruby" target="_blank">Ruby</a></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -943,7 +943,7 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 <td style="text-align: left">The official BigCommerce Ruby client. Uses either OAuth or <NOBR>Basic Authentication.</nobr></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-python">Python</a></td>
+<td style="text-align: left"><a href="https://github.com/bigcommerce/bigcommerce-api-python" target="_blank">Python</a></td>
 <td style="text-align: left"></td>
 </tr>
 <tr>
@@ -958,8 +958,8 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 
 <table><thead>
 <tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-php-silex">Silex</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-ruby-sinatra">Sinatra</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-php-silex" target="_blank"> Silex </a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-ruby-sinatra" target="_blank"> Sinatra </a></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -967,15 +967,17 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 <td style="text-align: left"><code class="prettyprint">RUBY</code></td>
 </tr>
 <tr>
-<td style="text-align: left"><NOBR>A sample app written in PHP, using <a href="http://silex.sensiolabs.org/">Silex</a> and</nobr> <a href="http://docs.guzzlephp.org/en/latest/">Guzzle</a>.</td>
-<td style="text-align: left">A sample app written in Ruby, using <a href="http://www.sinatrarb.com/">Sinatra</a> with<br> <a href="http://datamapper.org/">DataMapper</a> and <a href="http://rubydoc.info/github/rest-client/rest-client">RestClient</a>.</td>
+<td style="text-align: left"><NOBR>A sample app written in PHP, using <a href="http://silex.sensiolabs.org/" target="_blank"> Silex </a> and</nobr> <a href="http://docs.guzzlephp.org/en/latest/" target="_blank"> Guzzle</a>.</td>
+<td style="text-align: left">A sample app written in Ruby, using <a href="http://www.sinatrarb.com/" target="_blank">Sinatra</a> with<br> <a href="http://datamapper.org/" target="_blank">DataMapper</a> and <a href="http://rubydoc.info/github/rest-client/rest-client" target="_blank">RestClient</a>.</td>
 </tr>
 </tbody></table>
 
+<p><br></p>
+
 <table><thead>
 <tr>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-python-flask">Flask</a></th>
-<th style="text-align: left"><a href="https://github.com/bigcommerce/omniauth-bigcommerce">OmniAuth</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/hello-world-app-python-flask" target="_blank">Flask</a></th>
+<th style="text-align: left"><a href="https://github.com/bigcommerce/omniauth-bigcommerce" target="_blank">OmniAuth</a></th>
 </tr>
 </thead><tbody>
 <tr>
@@ -983,8 +985,8 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 <td style="text-align: left"><code class="prettyprint">Ruby</code></td>
 </tr>
 <tr>
-<td style="text-align: left"><NOBR>A sample app written in Python, using <a href="http://flask.pocoo.org/">Flask</a>.</nobr></td>
-<td style="text-align: left">A Ruby gem that allows you to authenticate using<br> <a href="https://github.com/intridea/omniauth/wiki">OmniAuth</a>.</td>
+<td style="text-align: left"><NOBR>A sample app written in Python, using <a href="http://flask.pocoo.org/" target="_blank">Flask</a>.</nobr></td>
+<td style="text-align: left">A Ruby gem that allows you to authenticate using<br> <a href="https://github.com/intridea/omniauth/wiki" target="_blank">OmniAuth</a>.</td>
 </tr>
 </tbody></table>
 
@@ -999,14 +1001,16 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><a href="https://github.com/adambilsing/PHP-cURL-lib-for-Bigcommerce-API">PHP-cURL-lib-for-Bigcommerce-API</a></td>
-<td style="text-align: left"><a href="https://github.com/Clean-Cole/python-bigcommerce-api">python-bigcommerce-api</a></td>
+<td style="text-align: left"><a href="https://github.com/adambilsing/PHP-cURL-lib-for-Bigcommerce-API" target="_blank">PHP-cURL-lib-for-Bigcommerce-API</a></td>
+<td style="text-align: left"><a href="https://github.com/Clean-Cole/python-bigcommerce-api" target="_blank">python-bigcommerce-api</a></td>
 </tr>
 <tr>
-<td style="text-align: left"><a href="https://github.com/kalley/laravel-bigcommerce">laravel-bigcommerce</a></td>
-<td style="text-align: left"><a href="https://github.com/Dania02525/Bigcommerce-api-elixir">bigcommerce-api-elixir</a></td>
+<td style="text-align: left"><a href="https://github.com/kalley/laravel-bigcommerce" target="_blank">laravel-bigcommerce</a></td>
+<td style="text-align: left"><a href="https://github.com/Dania02525/Bigcommerce-api-elixir" target="_blank">bigcommerce-api-elixir</a></td>
 </tr>
 </tbody></table>
+
+<p><br></p>
 
 <table><thead>
 <tr>
@@ -1015,10 +1019,12 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><a href="https://github.com/whiplashmerch/bigcommerce_api">bigcommerce_api</a></td>
-<td style="text-align: left"><a href="https://github.com/jmawebtech/bigcommercerestapi">bigcommercerestapi</a></td>
+<td style="text-align: left"><a href="https://github.com/whiplashmerch/bigcommerce_api" target="_blank">bigcommerce_api</a></td>
+<td style="text-align: left"><a href="https://github.com/jmawebtech/bigcommercerestapi" target="_blank"> bigcommercerestapi </a></td>
 </tr>
 </tbody></table>
+
+<p><br></p>
 
 <table><thead>
 <tr>
@@ -1027,10 +1033,12 @@ Following the creation of a webhook, it can take up to one minute for BigCommerc
 </tr>
 </thead><tbody>
 <tr>
-<td style="text-align: left"><a href="https://github.com/Receiptful/node-bigcommerce">node-bigcommerce</a></td>
-<td style="text-align: left"><a href="https://github.com/worstone/BigCommerce4Net">BigCommerce4Net</a></td>
+<td style="text-align: left"><a href="https://github.com/Receiptful/node-bigcommerce" target="_blank">node-bigcommerce</a></td>
+<td style="text-align: left"><a href="https://github.com/worstone/BigCommerce4Net" target="_blank">BigCommerce4Net</a></td>
 </tr>
 </tbody></table>
+
+<p><br></p>
 
           <h1 id="building-oauth-apps"><span class="jumptarget"> <a name="using-oauth-intro"></a> Building OAuth Apps </span></h1>
 
@@ -1154,7 +1162,7 @@ These must be the credentials of the owner of the store where you plan to instal
 
           <h2 id="app-installation-and-update-sequence"><span class="jumptarget"> <a name="installation"></a> App Installation and Update Sequence </span></h2>
 
-<p>A user at a store&rsquo;s Control Panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#app-registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
+<p>A user at a store&rsquo;s control panel kicks off the installation or update sequence by clicking to install your app, or by clicking an installed app to update its scopes. BigCommerce redirects the user to the <strong>Auth Callback URI</strong> provided during <a href="#app-registration">app registration</a>. The <strong>Auth Callback URI</strong> must be publicly available, fully qualified, and served over TLS.</p>
 
 <aside class="warning">
 <span class="aside-warning-hd"> Handling Requests Securely</span><br><br>
@@ -1222,7 +1230,7 @@ Host: app.example.com
 
 <h3 id="responding-to-the-get-request"><span class="jumptarget"> <a name="get-response"></a> Responding to the GET Request </span></h3>
 
-<p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the Control Panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
+<p>Upon receiving the <code class="prettyprint">GET</code> request at your <strong>Auth Callback URI</strong>, your app should return some HTML to the merchant browser. BigCommerce renders this in an iframe inside of the control panel. It could be a form that collects further information from the user, or you could redirect the user to your app&rsquo;s main page. If you do not pass back some HTML, the user will be left looking at a blank screen. Such an app would not be accepted into the App Store.</p>
 
 <h3 id="making-the-post-request"><span class="jumptarget"> <a name="post-req"></a> Making the POST Request </span></h3>
 
@@ -1233,11 +1241,11 @@ Host: app.example.com
 
 <h4 id="initial-installation"><span class="jumptarget"> Initial Installation </span></h4>
 
-<p>During initial installation, upon receiving the <code class="prettyprint">POST</code>, BigCommerce marks the status of your app as &ldquo;Installed,&rdquo; removes the progress-indicator overlay, and places your app icon in the left-hand navigation of the Control Panel. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <code class="prettyprint">GET</code> response.</p>
+<p>During initial installation, upon receiving the <code class="prettyprint">POST</code>, BigCommerce marks the status of your app as &ldquo;Installed,&rdquo; removes the progress-indicator overlay, and places your app icon in the control panel&rsquo;s left-hand navigation. With the progress-indicator overlay removed, the user can interact with the HTML that you returned in your <code class="prettyprint">GET</code> response.</p>
 
 <h4 id="updates"><span class="jumptarget"> Updates </span></h4>
 
-<p>During app updates, upon receiving the <code class="prettyprint">POST</code>, BigCommerce removes the update prompt from the Control Panel.</p>
+<p>During app updates, upon receiving the <code class="prettyprint">POST</code>, BigCommerce removes the update prompt from the control panel.</p>
 
 <h4 id="parameters"><span class="jumptarget"> Parameters </span></h4>
 
@@ -1460,7 +1468,7 @@ Content-Length: 186
 
 <h3 id="load-request-and-response"><span class="jumptarget"> <a name="load_request"></a> Load Request and Response</span></h3>
 
-<p>Once your app has been installed, the store owner or user can click its icon in the Control Panel to launch it. This causes BigCommerce to send a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
+<p>Once your app has been installed, the store owner or user can click its icon in the control panel to launch it. This causes BigCommerce to send a <code class="prettyprint">GET</code> request to the <strong>Load Callback URI</strong> that you provided. In a production environment, the <strong>Load Callback URI</strong> must be publicly available, fully qualified, and served over TLS/SSL.</p>
 
 <aside class="warning">
 <span class="aside-warning-hd">Handling Requests Securely</span><br><br>
@@ -1702,7 +1710,7 @@ To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-
 
           <h2 id="multi-user-support"><span class="jumptarget"> <a name="multi_intro"></a> Multi-User Support </span></h2>
 
-<p>When you register your app with Bigcommerce, if you <a href="#regis-multi-user">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="#building-basic-auth-apps">basic-auth apps</a>.</p>
+<p>When you register your app with BigCommerce, if you <a href="#regis-multi-user">enable multi-user support</a>, this will allow store admins to manually authorize users – other than the store owner – to load the app. This feature is not available for <a href="#building-basic-auth-apps">basic-auth apps</a>.</p>
 
 <h3 id="enable-multi-user-support"><span class="jumptarget"> Enable Multi-User Support</span></h3>
 
@@ -2060,7 +2068,7 @@ To limit the vulnerability of your app to <a href="http://codahale.com/a-lesson-
 Install and test your app thoroughly prior to submission. Be sure to install and run your app inside of your sandbox store, as a draft area to conduct your tests.
 </aside></p></li>
 <li><p>Apps must function properly on all <a href="#supported-browsers">supported browsers</a>, and must conform to the <a href="#ui-constraints">user interface constraints</a> – including P3P policies as necessary, and no mixed content.</p></li>
-<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the launch bar of the Control Panel. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
+<li><p>The entire app should operate within the iframe that opens when the user clicks on your app icon in the control panel&rsquo;s launch bar. Exceptions may be made for apps that need to authenticate to other services using OAuth – as long as they open a new tab to do so.</p></li>
 <li><p>Apps must be easy to use.</p></li>
 <li><p>Whenever possible, apps must use the API resources to auto-fill and obtain information, rather than prompting the user. BigCommerce will reject apps requesting information that can be auto-filled.</p>
 
@@ -2200,9 +2208,9 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <h3 id="launch-bar"><span class="jumptarget"> Launch Bar </span></h3>
 
-<p>You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant&rsquo;s Control Panel once your app has been installed.</p>
+<p>You must provide an app icon. To ensure optimal quality, you should use your image processing software to size it to 100 by 100 pixels before uploading. Your app icon will appear in the merchant&rsquo;s control panel once your app has been installed.</p>
 
-<p>Bigcommerce also provides the option to provide &ldquo;deep links,&rdquo; which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.</p>
+<p>BigCommerce also provides the option to provide &ldquo;deep links,&rdquo; which are shown as a menu of options when the user hovers over your app icon. This allows the merchant quick access to the main areas of your app. These are not required.</p>
 
 <h3 id="technical"><span class="jumptarget"> Technical </span></h3>
 
@@ -2214,7 +2222,7 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <p>You can submit your app from the last panel. A fee of $99 is required for each submission. If your app is rejected and you need to resubmit it, you will be charged again, so be sure that it&rsquo;s ready for review before submitting. Updates to the app will not require an additional submission fee.</p>
 
-<p>After receiving the submission, Bigcommerce will use the information that you have provided to interact with, evaluate, and test your app.</p>
+<p>After receiving the submission, BigCommerce will use the information that you have provided to interact with, evaluate, and test your app.</p>
 
 <p>Questions? Please contact <a href="mailto:appstore@bigcommerce.com">appstore@bigcommerce.com</a></p>
 
@@ -2230,9 +2238,9 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <h3 id="contract-text">Contract Text</h3>
 
-<p>Bigcommerce provides a software and services platform to enable individuals and entities (“Bigcommerce Clients”) to build their own online marketplace (collectively, such platform and products/services are referred to as the “Bigcommerce Products”); andIn connection with the provision of Bigcommerce Products, Bigcommerce has created the Bigcommerce Apps Marketplace pursuant to which certain companies may make available software applications (“Apps”) that are integrated to operate with the Bigcommerce Products.</p>
+<p>BigCommerce provides a software and services platform to enable individuals and entities (“BigCommerce Clients”) to build their own online marketplace (collectively, such platform and products/services are referred to as the “BigCommerce Products”); andIn connection with the provision of BigCommerce Products, BigCommerce has created the BigCommerce Apps Marketplace pursuant to which certain companies may make available software applications (“Apps”) that are integrated to operate with the BigCommerce Products.</p>
 
-<p>Participant has developed an App or Apps that have been approved by Bigcommerce and included in the Bigcommerce Apps Marketplace, and in consideration of Participant’s participation in such marketplace, Participant agrees to the terms and conditions of this Agreement, including the revenue share commission payments payable to Bigcommerce as outlined in Section 2.</p>
+<p>Participant has developed an App or Apps that have been approved by BigCommerce and included in the BigCommerce Apps Marketplace, and in consideration of Participant’s participation in such marketplace, Participant agrees to the terms and conditions of this Agreement, including the revenue share commission payments payable to BigCommerce as outlined in Section 2.</p>
 
 <p>1. TERM AND TERMINATION; REMOVAL OF APP.</p>
 
@@ -2242,21 +2250,21 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <p>1.3. All provisions of this Agreement that by their terms or nature should survive termination or expiration of this Agreement shall so survive. Upon termination of this Agreement for any reason, Participant will continue to make the commission payments under the Revenue Share Program as set forth in Section 2 below, and such obligation shall survive, indefinitely.</p>
 
-<p>1.4. Notwithstanding any other provision of this Agreement, Bigcommerce may remove an App from the Bigcommerce Apps Marketplace without notice at any time for any or no reason in its sole and complete discretion. In addition, Bigcommerce may remove an App from the Bigcommerce Apps Marketplace at any time for any of the following reasons: multiple complaints regarding an App from Bigcommerce Clients, recurring bugs and/or support issues, Participant fails to promptly and comprehensively respond to and solve bugs or other support issues or any other performance issues with the App.</p>
+<p>1.4. Notwithstanding any other provision of this Agreement, BigCommerce may remove an App from the BigCommerce Apps Marketplace without notice at any time for any or no reason in its sole and complete discretion. In addition, BigCommerce may remove an App from the BigCommerce Apps Marketplace at any time for any of the following reasons: multiple complaints regarding an App from BigCommerce Clients, recurring bugs and/or support issues, Participant fails to promptly and comprehensively respond to and solve bugs or other support issues or any other performance issues with the App.</p>
 
 <p>2. FEES FOR PARTICIPATION IN BIGCOMMERCE APPS MARKETPLACE PARTNER PROGRAM.</p>
 
-<p>2.1. Revenue Share Program. Participant will pay Bigcommerce a commission percentage equal to the Revenue Share Percentage as specified on the cover page hereto on Participant Sales (defined below) to Bigcommerce Clients or other parties referred to Participant by Bigcommerce through the Bigcommerce website, platform or otherwise. “Participant Sales” means all amounts received by Participant and its affiliates from the sale of Apps, products or services, less (a) the amount of all refunds, allowances and discounts, (b) the amount of all return credits and refunds and &copy; shipping and handling charges; provided that Participant has notified Bigcommerce of any such amounts as set forth in subsections (a) through &copy;, in which case such amounts shall be credited in the next billing cycle.</p>
+<p>2.1. Revenue Share Program. Participant will pay BigCommerce a commission percentage equal to the Revenue Share Percentage as specified on the cover page hereto on Participant Sales (defined below) to BigCommerce Clients or other parties referred to Participant by BigCommerce through the BigCommerce website, platform or otherwise. “Participant Sales” means all amounts received by Participant and its affiliates from the sale of Apps, products or services, less (a) the amount of all refunds, allowances and discounts, (b) the amount of all return credits and refunds and &copy; shipping and handling charges; provided that Participant has notified BigCommerce of any such amounts as set forth in subsections (a) through &copy;, in which case such amounts shall be credited in the next billing cycle.</p>
 
-<p>2.2. Reports; Payment Terms. Participant agrees to provide monthly commission payment statements to Bigcommerce for any fees or commissions due and owing under this Section 2 within 10 days following the end of each month. Commission payment statements shall be sent by Participant to partnerpayments@bigcommerce.com and include the following information: (a) the name of the App(s), (b) the revenue per App (i.e. Participant Sales and calculation thereof), &copy; the total revenue for all App(s) (i.e. the total Participant Sales for all Apps), and (d) the shared client count. Payments shall be made by Participant to Bigcommerce within 30 days of the end of the month in which the fee was earned. Payments shall be made by Participant either via PayPal to accounts@interspire.com or via ACH (where available). The parties agree to use good faith efforts to resolve any discrepancy between their respective records, should any occur. Each party shall be solely responsible for payment of all taxes assessed against it as a result of this Agreement and/or sales to Bigcommerce Clients, regardless of which party is required to collect and remit such taxes.</p>
+<p>2.2. Reports; Payment Terms. Participant agrees to provide monthly commission payment statements to BigCommerce for any fees or commissions due and owing under this Section 2 within 10 days following the end of each month. Commission payment statements shall be sent by Participant to partnerpayments@bigcommerce.com and include the following information: (a) the name of the App(s), (b) the revenue per App (i.e. Participant Sales and calculation thereof), &copy; the total revenue for all App(s) (i.e. the total Participant Sales for all Apps), and (d) the shared client count. Payments shall be made by Participant to BigCommerce within 30 days of the end of the month in which the fee was earned. Payments shall be made by Participant either via PayPal to accounts@interspire.com or via ACH (where available). The parties agree to use good faith efforts to resolve any discrepancy between their respective records, should any occur. Each party shall be solely responsible for payment of all taxes assessed against it as a result of this Agreement and/or sales to BigCommerce Clients, regardless of which party is required to collect and remit such taxes.</p>
 
 <p>3. AUDIT RIGHTS.</p>
 
-<p>3.1. At any time and from time to time, both during and after the Term, Bigcommerce may review, audit and make copies of, and/or have its advisors, agents, accountants and/or attorneys on its behalf review, audit and make copies of, all books and records (including without limitation any digital or electronic records) kept or maintained by Participant or on its behalf relating to transactions with Bigcommerce Clients or that otherwise results in a fee payable to Bigcommerce hereunder (collectively, “Participant Records”).</p>
+<p>3.1. At any time and from time to time, both during and after the Term, BigCommerce may review, audit and make copies of, and/or have its advisors, agents, accountants and/or attorneys on its behalf review, audit and make copies of, all books and records (including without limitation any digital or electronic records) kept or maintained by Participant or on its behalf relating to transactions with BigCommerce Clients or that otherwise results in a fee payable to BigCommerce hereunder (collectively, “Participant Records”).</p>
 
-<p>Participant shall maintain complete and accurate Participant Records during the Term and for a period of five years following termination or expiration of this Agreement. Participant Records not relating to transactions with Bigcommerce Clients or fees payable to Bigcommerce under this Agreement are not subject to audit rights set forth in this Section 3.1.</p>
+<p>Participant shall maintain complete and accurate Participant Records during the Term and for a period of five years following termination or expiration of this Agreement. Participant Records not relating to transactions with BigCommerce Clients or fees payable to BigCommerce under this Agreement are not subject to audit rights set forth in this Section 3.1.</p>
 
-<p>4. INTELLECTUAL PROPERTY. For the avoidance of doubt, Bigcommerce owns, and will continue to own, all right, title and interest in and to the Bigcommerce Products, including all accompanying worldwide intellectual property rights. Participant receives no rights in the foregoing.</p>
+<p>4. INTELLECTUAL PROPERTY. For the avoidance of doubt, BigCommerce owns, and will continue to own, all right, title and interest in and to the BigCommerce Products, including all accompanying worldwide intellectual property rights. Participant receives no rights in the foregoing.</p>
 
 <p>5. REPRESENTATIONS, WARRANTIES AND COVENANTS.</p>
 
@@ -2264,21 +2272,21 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <p>5.2. Each party represents and warrants that (i) the execution, delivery and performance of this Agreement does not conflict in any material respect with or constitute a material breach or default of any organizational document, agreement or other writing to which it is a party, and (ii) it has all licenses, permissions and agreements necessary or appropriate to perform its obligations under this Agreement.</p>
 
-<p>5.3. Participant represents and warrants to Bigcommerce that Participant’s Apps, products and services and other items provided to Bigcommerce or any Bigcommerce Clients do not and will not (i) infringe on any third party’s copyright, patent, trademark, trade secret or other proprietary rights or right of publicity or privacy; (ii) violate any applicable law, statute, ordinance or regulation; (iii) be defamatory or libelous; (iv) be lewd or obscene; (v) violate any laws regarding unfair competition, anti-discrimination or false advertising; (vi) promote violence or contain hate speech; or (vii) contain viruses, trojan horses, worms, time bombs, cancelbots or other similar harmful or deleterious programming routines.</p>
+<p>5.3. Participant represents and warrants to BigCommerce that Participant’s Apps, products and services and other items provided to BigCommerce or any BigCommerce Clients do not and will not (i) infringe on any third party’s copyright, patent, trademark, trade secret or other proprietary rights or right of publicity or privacy; (ii) violate any applicable law, statute, ordinance or regulation; (iii) be defamatory or libelous; (iv) be lewd or obscene; (v) violate any laws regarding unfair competition, anti-discrimination or false advertising; (vi) promote violence or contain hate speech; or (vii) contain viruses, trojan horses, worms, time bombs, cancelbots or other similar harmful or deleterious programming routines.</p>
 
-<p>6. INDEMNIFICATION. Participant agrees, at its own expense, to indemnify, defend and hold harmless Bigcommerce, its officers, directors, employees, affiliates, agents, contractors, and its attorneys from and against any claims, actions, liabilities, damages, costs or expenses, including attorneys’ fees and costs incurred in defending against third party claims based on or arising as a result of: (a) Participant’s breach of Section 5; (b) a Bigcommerce Client’s dissatisfaction with Apps, goods or services provided by Participant, or as a result of any action or omission of Participant; &copy; products liability claims related to Participant’s Apps, products or services, or (d) any action or omission of Participant constituting negligence, gross negligence, willful misconduct or fraud.</p>
+<p>6. INDEMNIFICATION. Participant agrees, at its own expense, to indemnify, defend and hold harmless BigCommerce, its officers, directors, employees, affiliates, agents, contractors, and its attorneys from and against any claims, actions, liabilities, damages, costs or expenses, including attorneys’ fees and costs incurred in defending against third party claims based on or arising as a result of: (a) Participant’s breach of Section 5; (b) a BigCommerce Client’s dissatisfaction with Apps, goods or services provided by Participant, or as a result of any action or omission of Participant; &copy; products liability claims related to Participant’s Apps, products or services, or (d) any action or omission of Participant constituting negligence, gross negligence, willful misconduct or fraud.</p>
 
 <p>7. LIMITATION OF LIABILITY. IN NO EVENT SHALL EITHER PARTY BE LIABLE TO THE OTHER PARTY FOR ANY LOST OR PROSPECTIVE PROFITS OR FOR ANY INDIRECT, SPECIAL, EXEMPLARY, PUNITIVE, CONSEQUENTIAL OR INCIDENTAL DAMAGES, WHETHER SUCH DAMAGES ARE ALLEGED IN TORT, CONTRACT OR ANY OTHER CAUSE OF ACTION. The foregoing limitations on liability shall not apply to Participant’s payment or indemnification obligations hereunder or a breach of Section 5.</p>
 
 <p>8. CONFIDENTIALITY.</p>
 
-<p>8.1. Each party agrees that it shall hold in confidence and shall not use or disclose (except as expressly allowed herein) any “Confidential Information” of the other party. For purposes of this Agreement, Confidential Information shall include all business, technical and financial information one party obtains from the other, specifically including (i) all information which is obtained from the other party and which is marked “confidential” or “proprietary”; (ii) the source code, object code, and algorithms, contained in the software and technology used by Bigcommerce to provide the Bigcommerce Products; and (iii) any lists of Bigcommerce clients or data related thereto. However, neither party shall be obligated under this section with respect to information: (i) that is or has become generally available or known to the public through no fault of the recipient; (ii) that is developed independently by the recipient; (iii) that was rightfully received by the recipient without obligation of confidentiality from a third party; (iv) that was in the recipient’s possession prior to its disclosure by the other party; or (v) whose disclosure is required by law, provided that the recipient gives the disclosing party prompt notice of the request for disclosure, gives the disclosing party the opportunity to obtain a protective order or other remedy, and discloses only that portion of the confidential information which it is legally compelled to disclose. Neither party may disclose the terms of this Agreement to any third party other than its financial and legal advisors without the other party’s prior written consent.</p>
+<p>8.1. Each party agrees that it shall hold in confidence and shall not use or disclose (except as expressly allowed herein) any “Confidential Information” of the other party. For purposes of this Agreement, Confidential Information shall include all business, technical and financial information one party obtains from the other, specifically including (i) all information which is obtained from the other party and which is marked “confidential” or “proprietary”; (ii) the source code, object code, and algorithms, contained in the software and technology used by BigCommerce to provide the BigCommerce Products; and (iii) any lists of BigCommerce clients or data related thereto. However, neither party shall be obligated under this section with respect to information: (i) that is or has become generally available or known to the public through no fault of the recipient; (ii) that is developed independently by the recipient; (iii) that was rightfully received by the recipient without obligation of confidentiality from a third party; (iv) that was in the recipient’s possession prior to its disclosure by the other party; or (v) whose disclosure is required by law, provided that the recipient gives the disclosing party prompt notice of the request for disclosure, gives the disclosing party the opportunity to obtain a protective order or other remedy, and discloses only that portion of the confidential information which it is legally compelled to disclose. Neither party may disclose the terms of this Agreement to any third party other than its financial and legal advisors without the other party’s prior written consent.</p>
 
 <p>8.2. Neither party may create, publish or distribute any items that reference the other party without first obtaining the other party’s written consent, which consent may be granted or withheld in such other party’s sole and absolute discretion.</p>
 
-<p>9.1. Bigcommerce will provide Participant with a method to contact Bigcommerce for support and questions relating to the Bigcommerce Products and other matters relating to this Agreement. Participants may also enter a support ticket for Bigcommerce support help via their Professional Application Developer Store Account.</p>
+<p>9.1. BigCommerce will provide Participant with a method to contact BigCommerce for support and questions relating to the BigCommerce Products and other matters relating to this Agreement. Participants may also enter a support ticket for BigCommerce support help via their Professional Application Developer Store Account.</p>
 
-<p>9.2. Participant will provide competent and timely support for all Apps and will provide assistance to Bigcommerce and Bigcommerce Clients to promptly resolve any identified bugs or other issues relating to the Apps. Participant consents and agrees to Bigcommerce publicly posting Participant’s support contact information to Bigcommerce Clients, and Participant must provide written notice to Bigcommerce at least ten days prior to any change in such support contact information.</p>
+<p>9.2. Participant will provide competent and timely support for all Apps and will provide assistance to BigCommerce and BigCommerce Clients to promptly resolve any identified bugs or other issues relating to the Apps. Participant consents and agrees to BigCommerce publicly posting Participant’s support contact information to BigCommerce Clients, and Participant must provide written notice to BigCommerce at least ten days prior to any change in such support contact information.</p>
 
 <p>10. NON-SOLICITATION. Both parties agree not to solicit employees of the other party during the term of this Agreement and for 12 months after the effective date of the termination of this Agreement except pursuant to a general solicitation through the media or online.</p>
 
@@ -2288,7 +2296,7 @@ The wizard validates for your Partner user name and ID, as well as for correctly
 
 <p>11.2. Status. For all purposes of this Agreement, each party shall be and act as an independent contractor and not as partner, joint venturer, or agent of the other and shall not bind nor attempt to bind the other to any contract.</p>
 
-<p>11.3. Assignment. Participant shall not have any right or ability to assign, transfer, or sublicense (whether by merger, operation of law or otherwise) any obligations or benefit under this Agreement without the written consent of Bigcommerce (and any such attempt shall be void).</p>
+<p>11.3. Assignment. Participant shall not have any right or ability to assign, transfer, or sublicense (whether by merger, operation of law or otherwise) any obligations or benefit under this Agreement without the written consent of BigCommerce (and any such attempt shall be void).</p>
 
 <p>11.4. Waiver. The failure of either party to enforce its rights under this Agreement at any time for any period shall not be construed as a waiver of such rights.</p>
 
@@ -2668,7 +2676,7 @@ Private apps <em>not</em> in the App Store can continue to use Basic Authenticat
 <ol>
 <li> Get a <strong>Client ID</strong> and a <strong>Client Secret</strong> by <a href="#app-registration">registering your app</a>.</li>
 <li> Get a permanent OAuth token as discussed in <a href="#app-installation-and-update-sequence">App Installation</a>.</li>
-<li> Update your app so that it can process the <a href="#processing-the-signed-payload">signed payloads</a> that Bigcommerce sends when a merchant loads your app.</li>
+<li> Update your app so that it can process the <a href="#processing-the-signed-payload">signed payloads</a> that BigCommerce sends when a merchant loads your app.</li>
 <li> <a href="#base-paths">Change your base paths</a>.</li>
 <li> Update your app to observe the <a href="#rate-limits_oauth">OAuth rate limits</a>.</li>
 </ol>
@@ -2937,12 +2945,12 @@ Private apps <em>not</em> in the App Store can continue to use Basic Authenticat
 <tr>
 <td><strong>503</strong></td>
 <td><strong>Service Unavailable</strong></td>
-<td>When the store is marked as “Down for Maintenance” or the store is being upgraded to a new version.</td>
+<td>When the store is marked as “Down for Maintenance,” or the store is being upgraded to a new version.</td>
 </tr>
 <tr>
 <td><strong>507</strong></td>
 <td><strong>Insufficient Storage</strong></td>
-<td>When the store has reached a limitation for the resource according to their Bigcommerce plan (e.g., 500-product limit).</td>
+<td>When the store has reached a limitation for the resource, according to their BigCommerce plan (e.g., 500-product limit).</td>
 </tr>
 <tr>
 <td><strong>509</strong> (Deprecated)</td>

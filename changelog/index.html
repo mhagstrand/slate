@@ -334,7 +334,7 @@
 
 <h3 id="new-variables-separate-raw-price-from-currency"><span class="jumptarget"> New variables separate raw price from currency </span></h3>
 
-<p>Bigcommerce&rsquo;s Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:</p>
+<p>BigCommerce&rsquo;s Blueprint themes framework now provides two new global price variables that separately handle raw price versus national currency:</p>
 
 <ul>
 <li><code class="prettyprint">%%GLOBAL_RawProductPrice%%</code></li>
@@ -889,7 +889,7 @@
 
 <h3 id="new-fields-to-support-deeper-avalara-integrations"><span class="jumptarget"> New fields to support deeper Avalara integrations </span></h3>
 
-<p>BigCommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the Control Panel GUI. The extension consists of two new fields in the <code class="prettyprint">**customer**</code> and <code class="prettyprint">**product**</code> objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.</p>
+<p>BigCommerce now allows merchants to further increase the automation and accuracy of their sales tax calculations by upgrading to AvaTax Pro. We have extended the Stores API to include these new features and maintain parity with the control-panel GUI. The extension consists of two new fields in the <code class="prettyprint">**customer**</code> and <code class="prettyprint">**product**</code> objects that accept AvaTax codes. We recommend using these codes to identify customers, products, and services that fall into special sales tax categories whenever possible.</p>
 
 <p>Stores that do not have the AvaTax Pro subscription will store the codes but the codes will not impact their sales tax calculations. Please note that you should only pass one code per customer or product and the codes are case sensitive.</p>
 
@@ -925,7 +925,7 @@
 
 <p>When enabled, automatic tax feature also affects the values inside the <a href="/api/v2#order_tax"><strong>taxes</strong></a> object.</p>
 
-<p>Bigcommerce does not currently offer any programmatic means of determining if a store is using automatic or manual taxes.</p>
+<p>BigCommerce does not currently offer any programmatic means of determining if a store is using automatic or manual taxes.</p>
 
 <h2 id="april"><span class="jumptarget"> April </span></h2>
 
@@ -1044,9 +1044,9 @@
 
 <p>Today, we&rsquo;re pleased to announce the addition of <a href="/api/v2#redirects">Redirects</a> to the Stores API.</p>
 
-<p>Redirects are mappings that trigger an <code class="prettyprint">HTTP 301</code> response with a location header pointing from an incoming &lsquo;virtual&rsquo; URL to an actual URL on a storefront. They&rsquo;re extremely useful in situations where you&rsquo;re migrating an existing website to Bigcommerce and want to transition old page URLs seamlessly while preserving SEO rankings.</p>
+<p>Redirects are mappings that trigger an <code class="prettyprint">HTTP 301</code> response with a location header pointing from an incoming &lsquo;virtual&rsquo; URL to an actual URL on a storefront. They&rsquo;re extremely useful in situations where you&rsquo;re migrating an existing website to BigCommerce and want to transition old page URLs seamlessly while preserving SEO rankings.</p>
 
-<p>The redirects resource exposes very similar functionality to that of the Bigcommerce Control Panel. The forward destination of a redirect can be generated automatically based on a pre-defined resource in Bigcommerce (linking to a product, category or brand) or it can be any manually defined URL path.</p>
+<p>The redirects resource exposes very similar functionality to that of the BigCommerce control panel. The forward destination of a redirect can be generated automatically based on a pre-defined resource in BigCommerce (linking to a product, category or brand) or it can be any manually defined URL path.</p>
 
 <p>Read the <a href="/api/v2#redirects">reference documentation</a> and take it for a spin!</p>
 
