@@ -33,10 +33,10 @@ All webhooks requests must include the following in their HTTP headers:
 
 Before you can send any requests or receive any responses, you will need the following:
 
-*   **A store:** You can get a sandbox store by joining the [Partner Program](https://www.bigcommerce.com/partners/).
+*   **A store:** You can get a sandbox store by joining the <a href="https://www.bigcommerce.com/partners/" target="_blank">Partner Program</a>.
 *   **OAuth Client ID:** Obtained during [App Registration](#app-registration).
 *   **OAuth token:** Obtained during [App Installation](#app-installation-and-update-sequence).
-*   **Valid TLS/SSL setup:** Verify your setup at the following site: [https://sslcheck.globalsign.com](https://sslcheck.globalsign.com).
+*   **Valid TLS/SSL setup:** Verify your setup at the following site: <a href="https://sslcheck.globalsign.com" target="_blank">https://sslcheck.globalsign.com</a>.
 
 <aside class="warning">
 <span class="aside-warning-hd">Connection Breakers</span><br><br>
@@ -65,7 +65,7 @@ Wildcards are supported for <code>scope</code>.
 
 An `HTTP 201` response indicates that the webhook was set successfully.
 
-Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#webhook-object-properties) pages for more details.
+Please see the [hooks resource](/api/v2/#list-hooks) and [webhook object](/api/v2/#webhook-object-properties) sections for more details.
 
 #### <span class="jumptarget" id="webhook-list"> List of Webhook Events </span>
 
@@ -233,13 +233,13 @@ We recommend these diagnostic tools:
 
 ##### <span class="jumptarget"> RequestBin </span>
 
-While planning your integration, [RequestBin](http://requestb.in/) is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.
+While planning your integration, <a href="http://requestb.in/" target="_blank">RequestBin</a> is a very helpful tool for viewing the webhooks that we send, without much setup. In seconds, you can start seeing the webhooks we are firing, and their data.
 
 ##### <span class="jumptarget"> ngrok </span>
 
 As you are building your integration, you might want the abilty to test webhooks on your dev machines.
 
-We suggest using [ngrok](https://ngrok.com/), which you can use to easily set up tunnels between a server running on `localhost` and a public URL.
+We suggest using <a href="https://ngrok.com/" target="_blank">ngrok</a>, which you can use to easily set up tunnels between a server running on `localhost` and a public URL.
 
 This will enable you to send our webhooks to your `localhost` environments via a public URL. No production push is required.
 
